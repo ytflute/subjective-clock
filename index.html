@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>自我主觀時間時鐘</title>
+  <title>主觀時間時鐘</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       padding: 2rem;
-      background-color: #f0f0f0;
-    }
-    h1 {
-      margin-bottom: 1rem;
+      background-color: #f9f9f9;
     }
     .clock-box {
       background: white;
@@ -28,6 +25,14 @@
     .time {
       font-size: 2rem;
       margin-top: 0.25rem;
+    }
+    input {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      width: 80%;
     }
     button {
       margin-top: 2rem;
@@ -45,12 +50,12 @@
   </style>
 </head>
 <body>
-  <h1>🕒 自我主觀時間時鐘</h1>
+  <h1>🕒 主觀時間時鐘</h1>
   <div class="clock-box">
+    <div class="label">你的名稱</div>
+    <input type="text" id="username" placeholder="請輸入你的名字">
     <div class="label">主觀時間</div>
     <div class="time" id="subjectiveTime">--:--</div>
-    <div class="label">實際時間</div>
-    <div class="time" id="realTime">--:--</div>
     <div class="label">偏移</div>
     <div class="time" id="offset">--h--m</div>
     <button onclick="startDay()">👉 開始新的一天（從 08:00）</button>
@@ -65,14 +70,8 @@
 
     function updateClocks() {
       const now = new Date();
-      const realHours = pad(now.getHours());
-      const realMinutes = pad(now.getMinutes());
-      document.getElementById("realTime").textContent = `${realHours}:${realMinutes}`;
-
       const subjective = new Date(now.getTime() + offsetMs);
-      const subHours = pad(subjective.getHours());
-      const subMinutes = pad(subjective.getMinutes());
-      document.getElementById("subjectiveTime").textContent = `${subHours}:${subMinutes}`;
+      document.getElementById("subjectiveTime").textContent = `${pad(subjective.getHours())}:${pad(subjective.getMinutes())}`;
 
       const offsetTotal = offsetMs / 60000;
       const offsetH = Math.floor(offsetTotal / 60);
@@ -81,6 +80,12 @@
     }
 
     function startDay() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("請先輸入你的名字");
+        return;
+      }
+
       const now = new Date();
       const target = new Date(now);
       target.setHours(8);
@@ -88,6 +93,23 @@
       target.setSeconds(0);
       offsetMs = target.getTime() - now.getTime();
       localStorage.setItem("offsetMs", offsetMs);
+
+      // 傳送到 Google Sheet API
+      const data = {
+        name: username,
+        real_time: now.toLocaleTimeString(),
+        offset_minutes: Math.round(offsetMs / 60000),
+        date: now.toISOString().split('T')[0]
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbyy8eEIUnnvImkAtS_N-ATAZuen6fIbb_1eRDycinML3YejXkNqR8ibILpzXK8n3wP2/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
     }
 
     function loadOffset() {
