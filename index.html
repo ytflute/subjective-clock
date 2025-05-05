@@ -243,22 +243,39 @@
       showToast();
     }
 
-    async function loadLatestRecord(name) {
-      const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        const records = data.filter(row => row.name?.trim() === name.trim());
-        if (records.length === 0) return;
-        const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
-        offsetMs = Number(latest.offset_minutes) * 60000;
-        dayCount = Number(latest.day_count);
-        document.getElementById("dayCount").textContent = dayCount;
-        localStorage.setItem("offsetMs", offsetMs);
-      } catch (e) {
-        console.error("❌ Failed to load latest record", e);
-      }
+   async function loadLatestRecord(name) {
+  const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    const records = data.filter(row => row.name?.trim() === name.trim());
+    if (records.length === 0) {
+      console.warn("⚠️ No previous data found for this user.");
+      return;
     }
+
+    // 取出最新一筆紀錄
+    const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
+
+    // 解析資料
+    offsetMs = Number(latest.offset_minutes) * 60000;
+    dayCount = Number(latest.day_count);
+    const now = new Date();
+    const userKey = `subjective_${name}`;
+    
+    // 更新畫面與本地資料
+    document.getElementById("dayCount").textContent = dayCount;
+    localStorage.setItem("offsetMs", offsetMs);
+    localStorage.setItem(`${userKey}_dayCount`, dayCount);
+    localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime()); // 假設目前就等於主觀開始時間
+
+    console.log("✅ Loaded record from sheet:", latest);
+
+  } catch (e) {
+    console.error("❌ Failed to load latest record", e);
+  }
+}
+
 
     function loadMyRecord() {
       const username = document.getElementById("username").value.trim();
