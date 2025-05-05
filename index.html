@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subjective Clock</title>
+  <!-- 數位字體 -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: sans-serif;
@@ -10,22 +13,39 @@
       padding: 2rem;
       background-color: #f9f9f9;
     }
+
     .clock-box {
       background: white;
       padding: 2rem;
       border-radius: 1rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       display: inline-block;
-      margin-bottom: 2rem;
     }
+
     .label {
       font-weight: bold;
       margin-top: 1rem;
     }
+
     .time {
       font-size: 2rem;
       margin-top: 0.25rem;
+      line-height: 1.2;
     }
+
+    .digital {
+      font-family: 'Share Tech Mono', monospace;
+      letter-spacing: 2px;
+    }
+
+    .blink-colon {
+      animation: blink 1s steps(1, start) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
     input {
       margin-top: 1rem;
       padding: 0.5rem;
@@ -34,6 +54,7 @@
       border-radius: 0.5rem;
       width: 80%;
     }
+
     button {
       margin-top: 2rem;
       padding: 1rem 2rem;
@@ -44,28 +65,36 @@
       border-radius: 0.5rem;
       cursor: pointer;
     }
+
     button:hover {
       background: #000;
     }
+
     canvas {
-      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
   <div class="clock-box">
-    <div class="label">Your Name</div>
-    <input type="text" id="username" placeholder="Enter Your Name">
-    <div class="label">Your Micro Time Zone</div>
-    <div class="time" id="subjectiveTime">--:--</div>
+    <canvas id="clockCanvas" width="200" height="200"></canvas>
+
+    <div class="label">Micro Time Zone</div>
+    <div class="time digital" id="subjectiveTime">
+      <span id="hour">--</span><span id="colon" class="blink-colon">:</span><span id="minute">--</span>
+    </div>
+
     <div class="label">Offset</div>
     <div class="time" id="offset">--h--m</div>
+
     <div class="label">Days</div>
     <div class="time" id="dayCount">--</div>
-    <button onclick="startDay()">Start Today</button>
-  </div>
 
-  <canvas id="clockCanvas" width="200" height="200"></canvas>
+    <div class="label">Your Name</div>
+    <input type="text" id="username" placeholder="Enter your name">
+
+    <button onclick="startDay()">👉 Start Today</button>
+  </div>
 
   <script>
     let offsetMs = 0;
@@ -78,7 +107,10 @@
     function updateClocks() {
       const now = new Date();
       const subjective = new Date(now.getTime() + offsetMs);
-      document.getElementById("subjectiveTime").textContent = `${pad(subjective.getHours())}:${pad(subjective.getMinutes())}`;
+
+      // Update blinking time format
+      document.getElementById("hour").textContent = pad(subjective.getHours());
+      document.getElementById("minute").textContent = pad(subjective.getMinutes());
 
       const offsetTotal = offsetMs / 60000;
       const offsetH = Math.floor(offsetTotal / 60);
@@ -133,7 +165,7 @@
     function startDay() {
       const username = document.getElementById("username").value.trim();
       if (!username) {
-        alert("請先輸入你的名字");
+        alert("Please enter your name.");
         return;
       }
 
@@ -166,7 +198,7 @@
         day_count: savedDayCount
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbxfWF6_zSpSKacIJ4KlJ-30H8TCuVKzN99irJtal03MmkcSY-uOHynSPI09gd6XdAyXsA/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzfx65wiUwQfFViMB2TjuL3pQXv1lfoEsItDroA9twHlVeb8PfQrsNlW-DFFK__GGxFtQ/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
