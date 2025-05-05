@@ -102,11 +102,18 @@
     <div class="label">Days</div>
     <div class="time time-small" id="dayCount">--</div>
     <div class="label">Your Name</div>
-    <input type="text" id="username" placeholder="Enter your name">
+    <input type="text" id="username" placeholder="Enter your name" onblur="loadLatestRecord(this.value)">
     <button onclick="startDay()">👉 Start Today</button>
   </div>
 
   <div id="toast">✅ Your subjective day has started!<br>Time reset to 08:00.</div>
+
+  <!-- 🔁 Page switch button -->
+  <div style="margin-top: 2rem;">
+    <button onclick="location.href='https://ytflute.github.io/subjective-clock/data-report'">
+      📈 View Subjective Time Wall
+    </button>
+  </div>
 
   <script>
     let offsetMs = 0;
@@ -201,7 +208,6 @@
       const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
       let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
 
-      // 判斷是否主觀時間已過午夜
       if (!lastSubjective || subjectiveNow.getDate() !== lastSubjective.getDate()) {
         savedDayCount++;
         localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
@@ -211,7 +217,6 @@
       dayCount = savedDayCount;
       localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
 
-      // 設定 offset，讓主觀時間歸回 08:00
       const target = new Date(now);
       target.setHours(8, 0, 0, 0);
       offsetMs = target.getTime() - now.getTime();
@@ -236,17 +241,25 @@
       showToast();
     }
 
-    function loadOffset() {
-      const saved = localStorage.getItem("offsetMs");
-      if (saved) offsetMs = parseInt(saved);
-      const username = document.getElementById("username").value.trim();
-      const userKey = `subjective_${username}`;
-      const count = localStorage.getItem(`${userKey}_dayCount`) || 0;
-      document.getElementById("dayCount").textContent = count;
+    async function loadLatestRecord(name) {
+      const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const records = data.filter(row => row.name?.trim() === name.trim());
+        if (records.length === 0) return;
+        const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
+        offsetMs = Number(latest.offset_minutes) * 60000;
+        dayCount = Number(latest.day_count);
+        document.getElementById("dayCount").textContent = dayCount;
+        localStorage.setItem("offsetMs", offsetMs);
+      } catch (e) {
+        console.error("❌ Failed to load latest record", e);
+      }
     }
 
     setInterval(updateClocks, 1000);
-    window.onload = loadOffset;
+    window.onload = () => updateClocks();
   </script>
 </body>
 </html>
