@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Subjective Clock</title>
-  <!-- 數位字體 -->
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
@@ -108,7 +107,6 @@
       const now = new Date();
       const subjective = new Date(now.getTime() + offsetMs);
 
-      // Update blinking time format
       document.getElementById("hour").textContent = pad(subjective.getHours());
       document.getElementById("minute").textContent = pad(subjective.getMinutes());
 
@@ -126,11 +124,29 @@
       const radius = canvas.height / 2;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.translate(radius, radius);
+
+      // Draw white background
       ctx.beginPath();
       ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
       ctx.fillStyle = "#ffffff";
       ctx.fill();
 
+      // Draw hour tick marks
+      ctx.strokeStyle = "#000";
+      ctx.lineWidth = 2;
+      for (let i = 0; i < 12; i++) {
+        let angle = (i * Math.PI) / 6;
+        let x1 = Math.cos(angle - Math.PI / 2) * radius * 0.9;
+        let y1 = Math.sin(angle - Math.PI / 2) * radius * 0.9;
+        let x2 = Math.cos(angle - Math.PI / 2) * radius * 0.8;
+        let y2 = Math.sin(angle - Math.PI / 2) * radius * 0.8;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+
+      // Draw hour hand
       const hour = time.getHours() % 12;
       const minute = time.getMinutes();
       const second = time.getSeconds();
@@ -143,6 +159,7 @@
       ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
       ctx.stroke();
 
+      // Draw minute hand
       ctx.strokeStyle = "#333";
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -151,6 +168,7 @@
       ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
       ctx.stroke();
 
+      // Draw second hand
       ctx.strokeStyle = "#f00";
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -159,6 +177,7 @@
       ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
       ctx.stroke();
 
+      // Reset transform
       ctx.setTransform(1, 0, 0, 1, 0, 0);
     }
 
@@ -198,7 +217,7 @@
         day_count: savedDayCount
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbzfx65wiUwQfFViMB2TjuL3pQXv1lfoEsItDroA9twHlVeb8PfQrsNlW-DFFK__GGxFtQ/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbxfWF6_zSpSKacIJ4KlJ-30H8TCuVKzN99irJtal03MmkcSY-uOHynSPI09gd6XdAyXsA/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
