@@ -54,21 +54,24 @@
   </style>
 </head>
 <body>
-  <h1>Your Subjective Micro Time Zone</h1>
+  <h1>Your Subjective Clock</h1>
   <div class="clock-box">
     <div class="label">Your Name</div>
-    <input type="text" id="username" placeholder="Please Enter Your Name">
-    <div class="label">Your Micro Time Zone </div>
+    <input type="text" id="username" placeholder="請輸入你的名字">
+    <div class="label">Your Micro Time Zone</div>
     <div class="time" id="subjectiveTime">--:--</div>
     <div class="label">Offset</div>
     <div class="time" id="offset">--h--m</div>
-    <button onclick="startDay()"> Start Today </button>
+    <div class="label">Days</div>
+    <div class="time" id="dayCount">--</div>
+    <button onclick="startDay()">Start Today</button>
   </div>
 
   <canvas id="clockCanvas" width="200" height="200"></canvas>
 
   <script>
     let offsetMs = 0;
+    let dayCount = 1;
 
     function pad(n) {
       return n < 10 ? '0' + n : n;
@@ -102,7 +105,6 @@
       const minute = time.getMinutes();
       const second = time.getSeconds();
 
-      // 時針
       ctx.strokeStyle = "#000";
       ctx.lineWidth = 6;
       ctx.beginPath();
@@ -111,7 +113,6 @@
       ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
       ctx.stroke();
 
-      // 分針
       ctx.strokeStyle = "#333";
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -120,7 +121,6 @@
       ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
       ctx.stroke();
 
-      // 秒針
       ctx.strokeStyle = "#f00";
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -129,7 +129,7 @@
       ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
       ctx.stroke();
 
-      ctx.setTransform(1, 0, 0, 1, 0, 0); // 重設 transform
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
     }
 
     function startDay() {
@@ -139,7 +139,20 @@
         return;
       }
 
+      const userKey = `subjective_${username}`;
       const now = new Date();
+      const lastStart = localStorage.getItem(`${userKey}_lastStart`);
+      let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
+
+      if (!lastStart || now.getTime() - new Date(lastStart).getTime() >= 24 * 60 * 60 * 1000) {
+        savedDayCount++;
+        localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
+      }
+      localStorage.setItem(`${userKey}_lastStart`, now.toISOString());
+
+      document.getElementById("dayCount").textContent = savedDayCount;
+      dayCount = savedDayCount;
+
       const target = new Date(now);
       target.setHours(8);
       target.setMinutes(0);
@@ -151,10 +164,11 @@
         name: username,
         real_time: now.toLocaleTimeString(),
         offset_minutes: Math.round(offsetMs / 60000),
-        date: now.toISOString().split('T')[0]
+        date: now.toISOString().split('T')[0],
+        day_count: savedDayCount
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbxg2a7m-t84xTo6pmpQ8d37cFrmhhT6NBKD0IJkS8DbGA-5g1Nbla5AXwfvNQZhBXUu3Q/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzfx65wiUwQfFViMB2TjuL3pQXv1lfoEsItDroA9twHlVeb8PfQrsNlW-DFFK__GGxFtQ/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
@@ -167,10 +181,15 @@
     function loadOffset() {
       const saved = localStorage.getItem("offsetMs");
       if (saved) offsetMs = parseInt(saved);
+
+      const username = document.getElementById("username").value.trim();
+      const userKey = `subjective_${username}`;
+      const count = localStorage.getItem(`${userKey}_dayCount`) || 0;
+      document.getElementById("dayCount").textContent = count;
     }
 
-    loadOffset();
     setInterval(updateClocks, 1000);
+    window.onload = loadOffset;
   </script>
 </body>
 </html>
