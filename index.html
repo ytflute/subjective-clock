@@ -80,6 +80,29 @@
     canvas {
       margin-bottom: 2rem;
     }
+
+    /* Toast Notification Style */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      position: fixed;
+      z-index: 1;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -102,6 +125,8 @@
 
     <button onclick="startDay()">👉 Start Today</button>
   </div>
+
+  <div id="toast">✅ Your subjective day has started!<br>Time reset to 08:00.</div>
 
   <script>
     let offsetMs = 0;
@@ -133,13 +158,11 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.translate(radius, radius);
 
-      // Draw white background
       ctx.beginPath();
       ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
       ctx.fillStyle = "#ffffff";
       ctx.fill();
 
-      // Draw hour tick marks
       ctx.strokeStyle = "#000";
       ctx.lineWidth = 2;
       for (let i = 0; i < 12; i++) {
@@ -154,7 +177,6 @@
         ctx.stroke();
       }
 
-      // Draw hour hand
       const hour = time.getHours() % 12;
       const minute = time.getMinutes();
       const second = time.getSeconds();
@@ -167,7 +189,6 @@
       ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
       ctx.stroke();
 
-      // Draw minute hand
       ctx.strokeStyle = "#333";
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -176,7 +197,6 @@
       ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
       ctx.stroke();
 
-      // Draw second hand
       ctx.strokeStyle = "#f00";
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -185,8 +205,15 @@
       ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
       ctx.stroke();
 
-      // Reset transform
       ctx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+
+    function showToast() {
+      const toast = document.getElementById("toast");
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
     }
 
     function startDay() {
@@ -217,12 +244,15 @@
       offsetMs = target.getTime() - now.getTime();
       localStorage.setItem("offsetMs", offsetMs);
 
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
       const data = {
         name: username,
         real_time: now.toLocaleTimeString(),
         offset_minutes: Math.round(offsetMs / 60000),
         date: now.toISOString().split('T')[0],
-        day_count: savedDayCount
+        day_count: savedDayCount,
+        timezone: timezone
       };
 
       fetch("https://script.google.com/macros/s/AKfycbxfWF6_zSpSKacIJ4KlJ-30H8TCuVKzN99irJtal03MmkcSY-uOHynSPI09gd6XdAyXsA/exec", {
@@ -233,6 +263,8 @@
         },
         body: JSON.stringify(data)
       });
+
+      showToast();
     }
 
     function loadOffset() {
