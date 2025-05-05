@@ -27,9 +27,17 @@
     }
 
     .time {
-      font-size: 2rem;
       margin-top: 0.25rem;
       line-height: 1.2;
+    }
+
+    .time-large {
+      font-size: 2.5rem;
+    }
+
+    .time-small {
+      font-size: 1.2rem;
+      opacity: 0.8;
     }
 
     .digital {
@@ -79,15 +87,15 @@
     <canvas id="clockCanvas" width="200" height="200"></canvas>
 
     <div class="label">Micro Time Zone</div>
-    <div class="time digital" id="subjectiveTime">
+    <div class="time digital time-large" id="subjectiveTime">
       <span id="hour">--</span><span id="colon" class="blink-colon">:</span><span id="minute">--</span>
     </div>
 
     <div class="label">Offset</div>
-    <div class="time" id="offset">--h--m</div>
+    <div class="time time-small" id="offset">--h--m</div>
 
     <div class="label">Days</div>
-    <div class="time" id="dayCount">--</div>
+    <div class="time time-small" id="dayCount">--</div>
 
     <div class="label">Your Name</div>
     <input type="text" id="username" placeholder="Enter your name">
