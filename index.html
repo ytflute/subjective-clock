@@ -53,8 +53,9 @@
       width: 80%;
     }
     button {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
+      margin-top: 1rem;
+      margin-right: 0.5rem;
+      padding: 0.75rem 1.5rem;
       font-size: 1rem;
       border: none;
       background: #333;
@@ -102,13 +103,14 @@
     <div class="label">Days</div>
     <div class="time time-small" id="dayCount">--</div>
     <div class="label">Your Name</div>
-    <input type="text" id="username" placeholder="Enter your name" onblur="loadLatestRecord(this.value)">
+    <input type="text" id="username" placeholder="Enter your name">
+    
     <button onclick="startDay()">👉 Start Today</button>
+    <button onclick="loadMyRecord()">📥 Load My Time</button>
   </div>
 
   <div id="toast">✅ Your subjective day has started!<br>Time reset to 08:00.</div>
 
-  <!-- 🔁 Page switch button -->
   <div style="margin-top: 2rem;">
     <button onclick="location.href='https://ytflute.github.io/subjective-clock/data-report'">
       📈 View Subjective Time Wall
@@ -256,6 +258,15 @@
       } catch (e) {
         console.error("❌ Failed to load latest record", e);
       }
+    }
+
+    function loadMyRecord() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter your name first.");
+        return;
+      }
+      loadLatestRecord(username);
     }
 
     setInterval(updateClocks, 1000);
