@@ -17,6 +17,7 @@
       border-radius: 1rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       display: inline-block;
+      margin-bottom: 2rem;
     }
     .label {
       font-weight: bold;
@@ -47,6 +48,9 @@
     button:hover {
       background: #000;
     }
+    canvas {
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
@@ -60,6 +64,8 @@
     <div class="time" id="offset">--h--m</div>
     <button onclick="startDay()">👉 開始新的一天（從 08:00）</button>
   </div>
+
+  <canvas id="clockCanvas" width="200" height="200"></canvas>
 
   <script>
     let offsetMs = 0;
@@ -75,8 +81,55 @@
 
       const offsetTotal = offsetMs / 60000;
       const offsetH = Math.floor(offsetTotal / 60);
-      const offsetM = Math.abs(offsetTotal % 60);
+      const offsetM = Math.floor(Math.abs(offsetTotal % 60));
       document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
+
+      drawClock(subjective);
+    }
+
+    function drawClock(time) {
+      const canvas = document.getElementById("clockCanvas");
+      const ctx = canvas.getContext("2d");
+      const radius = canvas.height / 2;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.translate(radius, radius);
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
+      ctx.fillStyle = "#ffffff";
+      ctx.fill();
+
+      const hour = time.getHours() % 12;
+      const minute = time.getMinutes();
+      const second = time.getSeconds();
+
+      // 時針
+      ctx.strokeStyle = "#000";
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      let hourAngle = ((hour + minute / 60) * Math.PI) / 6;
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
+      ctx.stroke();
+
+      // 分針
+      ctx.strokeStyle = "#333";
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      let minuteAngle = ((minute + second / 60) * Math.PI) / 30;
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
+      ctx.stroke();
+
+      // 秒針
+      ctx.strokeStyle = "#f00";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      let secondAngle = (second * Math.PI) / 30;
+      ctx.moveTo(0, 0);
+      ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
+      ctx.stroke();
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0); // 重設 transform
     }
 
     function startDay() {
@@ -94,7 +147,6 @@
       offsetMs = target.getTime() - now.getTime();
       localStorage.setItem("offsetMs", offsetMs);
 
-      // 傳送到 Google Sheet API
       const data = {
         name: username,
         real_time: now.toLocaleTimeString(),
@@ -102,7 +154,7 @@
         date: now.toISOString().split('T')[0]
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbxg2a7m-t84xTo6pmpQ8d37cFrmhhT6NBKD0IJkS8DbGA-5g1Nbla5AXwfvNQZhBXUu3Q/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzfx65wiUwQfFViMB2TjuL3pQXv1lfoEsItDroA9twHlVeb8PfQrsNlW-DFFK__GGxFtQ/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
