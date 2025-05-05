@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subjective Time Wall</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tabletop@1.5.4/src/tabletop.min.js"></script>
+</head>
+<body>
+<script>
+let users = [];
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  textAlign(CENTER, CENTER);
+  textSize(16);
+  noStroke();
+  fetchData();
+  setInterval(fetchData, 30000); // 每 30 秒重新抓資料
+}
+
+function fetchData() {
+  Tabletop.init({
+    key: '1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ',
+    simpleSheet: true,
+    callback: data => {
+      users = data;
+    }
+  });
+}
+
+function draw() {
+  background(245);
+  fill(0);
+  textSize(20);
+  text("Subjective Time Wall", width / 2, 40);
+
+  let now = new Date();
+
+  textSize(14);
+  for (let i = 0; i < users.length; i++) {
+    let user = users[i];
+    let offset = parseInt(user.offset_minutes) || 0;
+    let subjective = new Date(now.getTime() + offset * 60000);
+    let h = nf(subjective.getHours(), 2);
+    let m = nf(subjective.getMinutes(), 2);
+    let timeStr = `${h}:${m}`;
+
+    // 顯示位置
+    let x = 150 + (i % 4) * 250;
+    let y = 100 + floor(i / 4) * 150;
+
+    // 顯示框
+    fill(255);
+    stroke(200);
+    rect(x - 80, y - 40, 160, 100, 10);
+
+    // 使用者名稱
+    noStroke();
+    fill(0);
+    textSize(16);
+    text(user.name || "Unnamed", x, y - 20);
+
+    // 主觀時間
+    textSize(24);
+    text(timeStr, x, y + 5);
+
+    // Day count
+    textSize(12);
+    text(`Day ${user.day_count || "-"}`, x, y + 30);
+  }
+}
+</script>
+</body>
+</html>
