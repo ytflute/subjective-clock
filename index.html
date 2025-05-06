@@ -134,12 +134,24 @@
     drawClock(subjective);
   }
 
+  
+
   function updateOffsetDisplay(ms) {
-    const offsetTotal = ms / 60000;
-    const offsetH = Math.floor(offsetTotal / 60);
-    const offsetM = Math.floor(Math.abs(offsetTotal % 60));
-    document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
+  const totalMinutes = Math.round(ms / 60000); // 確保是整數分鐘
+  const absMinutes = Math.abs(totalMinutes);
+
+  let offsetH = Math.floor(absMinutes / 60);
+  let offsetM = absMinutes % 60;
+
+  // 👉 關鍵修正：負值但不到一小時的情況，應顯示為 -0hXXm
+  const sign = totalMinutes < 0 ? '-' : '+';
+  if (totalMinutes < 0 && offsetH === 0) {
+    // 保持 offsetH 為 0，但保留負號
   }
+
+  document.getElementById("offset").textContent = `${sign}${offsetH}h${pad(offsetM)}m`;
+}
+
 
   function drawClock(time) {
     const canvas = document.getElementById("clockCanvas");
