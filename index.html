@@ -134,14 +134,13 @@
     drawClock(subjective);
   }
 
-  function updateOffsetDisplay(ms) {
-  const offsetTotal = Math.round(ms / 60000); // 轉成分鐘並四捨五入
-  const sign = offsetTotal >= 0 ? '+' : ''; // 明確顯示正負號
-  const offsetH = Math.floor(offsetTotal / 60);
-  const offsetM = Math.abs(offsetTotal % 60); // 只取分鐘絕對值（避免負0）
-  document.getElementById("offset").textContent = `${sign}${offsetH}h${pad(offsetM)}m`;
+ 
+function updateOffsetDisplay(ms) {
+const offsetTotal = ms / 60000;
+const offsetH = Math.floor(offsetTotal / 60);
+const offsetM = Math.floor(Math.abs(offsetTotal % 60));
+document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
 }
-
 
   function drawClock(time) {
     const canvas = document.getElementById("clockCanvas");
