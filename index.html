@@ -84,7 +84,6 @@
       font-size: 1rem;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
-      white-space: pre-wrap;
     }
     #toast.show {
       visibility: visible;
@@ -105,7 +104,7 @@
     <div class="time time-small" id="dayCount">--</div>
     <div class="label">Your Name</div>
     <input type="text" id="username" placeholder="Enter your name">
-
+    
     <button onclick="startDay()">👉 Start Today</button>
     <button onclick="loadMyRecord()">📥 Load My Time</button>
   </div>
@@ -118,6 +117,7 @@
     </button>
   </div>
 
+ <!-- 為節省篇幅，這段和你剛給的 HTML 完全一致，僅在 script 區域修正 -->
 <script>
   let offsetMs = 0;
   let dayCount = 1;
@@ -132,129 +132,13 @@
     document.getElementById("hour").textContent = pad(subjective.getHours());
     document.getElementById("minute").textContent = pad(subjective.getMinutes());
     drawClock(subjective);
-    updateOffsetDisplay(offsetMs);
   }
 
   function updateOffsetDisplay(ms) {
     const offsetTotal = ms / 60000;
     const offsetH = Math.floor(offsetTotal / 60);
     const offsetM = Math.floor(Math.abs(offsetTotal % 60));
-    document.getElementById("offset").textContent = ${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m;
-  }
-
-  function showToast() {
-    const toast = document.getElementById("toast");
-    toast.innerHTML = "✅ Your subjective day has started!<br>Time reset to 08:00.";
-    toast.className = "show";
-    setTimeout(() => {
-      toast.className = toast.className.replace("show", "");
-    }, 3000);
-  }
-
-  function showToastMessage(message) {
-    const toast = document.getElementById("toast");
-    toast.innerHTML = message;
-    toast.className = "show";
-    setTimeout(() => {
-      toast.className = toast.className.replace("show", "");
-    }, 3000);
-  }
-
-  function startDay() {
-    const username = document.getElementById("username").value.trim();
-    if (!username) {
-      alert("Please enter your name.");
-      return;
-    }
-
-    const now = new Date();
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const subjectiveNow = new Date(now.getTime() + offsetMs);
-    const userKey = subjective_${username};
-    const lastStartMs = parseInt(localStorage.getItem(${userKey}_lastSubjectiveStart));
-    const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
-    let savedDayCount = parseInt(localStorage.getItem(${userKey}_dayCount)) || 0;
-
-    if (!lastSubjective || subjectiveNow.getDate() !== lastSubjective.getDate()) {
-      savedDayCount++;
-      localStorage.setItem(${userKey}_dayCount, savedDayCount);
-    }
-
-    document.getElementById("dayCount").textContent = savedDayCount;
-    dayCount = savedDayCount;
-    localStorage.setItem(${userKey}_lastSubjectiveStart, subjectiveNow.getTime());
-
-    const current = new Date();
-    const realH = current.getHours();
-    const realM = current.getMinutes();
-    offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
-    localStorage.setItem("offsetMs", offsetMs);
-
-    updateOffsetDisplay(offsetMs);
-
-    const data = {
-      name: username,
-      real_time: current.toLocaleTimeString(),
-      offset_minutes: Math.round(offsetMs / 60000),
-      date: now.toISOString().split('T')[0],
-      day_count: savedDayCount,
-      timezone: timezone
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbzLu4JBepPb_EinvSjIHlyLXNDqA0QG_61P6NZs-QcVuUVoz7MgAVf4nRKBXQKIvMSfUg/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    showToast();
-  }
-
-  async function loadLatestRecord(name) {
-    const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      const records = data.filter(row => row.name?.trim() === name.trim());
-      if (records.length === 0) {
-        console.warn("⚠️ No previous data found for this user.");
-        return;
-      }
-
-      const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
-
-      offsetMs = Number(latest.offset_minutes) * 60000;
-      dayCount = Number(latest.day_count);
-      const now = new Date();
-      const userKey = subjective_${name};
-
-      document.getElementById("dayCount").textContent = dayCount;
-      localStorage.setItem("offsetMs", offsetMs);
-      localStorage.setItem(${userKey}_dayCount, dayCount);
-      localStorage.setItem(${userKey}_lastSubjectiveStart, now.getTime());
-
-      updateOffsetDisplay(offsetMs);
-
-      const offsetTotal = offsetMs / 60000;
-      const offsetH = Math.floor(offsetTotal / 60);
-      const offsetM = Math.floor(Math.abs(offsetTotal % 60));
-      const offsetStr = ${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m;
-      showToastMessage(📥 Loaded your current micro time zone: ${offsetStr});
-
-      console.log("✅ Loaded record from sheet:", latest);
-    } catch (e) {
-      console.error("❌ Failed to load latest record", e);
-    }
-  }
-
-  function loadMyRecord() {
-    const username = document.getElementById("username").value.trim();
-    if (!username) {
-      alert("Please enter your name first.");
-      return;
-    }
-    loadLatestRecord(username);
+    document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
   }
 
   function drawClock(time) {
@@ -313,11 +197,108 @@
     ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
+  function showToast() {
+    const toast = document.getElementById("toast");
+    toast.className = "show";
+    setTimeout(() => {
+      toast.className = toast.className.replace("show", "");
+    }, 3000);
+  }
+
+  function startDay() {
+    const username = document.getElementById("username").value.trim();
+    if (!username) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    const now = new Date();
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const subjectiveNow = new Date(now.getTime() + offsetMs);
+    const userKey = `subjective_${username}`;
+    const lastStartMs = parseInt(localStorage.getItem(`${userKey}_lastSubjectiveStart`));
+    const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
+    let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
+
+    if (!lastSubjective || subjectiveNow.getDate() !== lastSubjective.getDate()) {
+      savedDayCount++;
+      localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
+    }
+
+    document.getElementById("dayCount").textContent = savedDayCount;
+    dayCount = savedDayCount;
+    localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
+
+    const current = new Date();
+    const realH = current.getHours();
+    const realM = current.getMinutes();
+    offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
+    localStorage.setItem("offsetMs", offsetMs);
+
+    updateOffsetDisplay(offsetMs); // ✅ 更新顯示
+
+    const data = {
+      name: username,
+      real_time: current.toLocaleTimeString(),
+      offset_minutes: Math.round(offsetMs / 60000),
+      date: now.toISOString().split('T')[0],
+      day_count: savedDayCount,
+      timezone: timezone
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzLu4JBepPb_EinvSjIHlyLXNDqA0QG_61P6NZs-QcVuUVoz7MgAVf4nRKBXQKIvMSfUg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    showToast();
+  }
+
+  async function loadLatestRecord(name) {
+    const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      const records = data.filter(row => row.name?.trim() === name.trim());
+      if (records.length === 0) {
+        console.warn("⚠️ No previous data found for this user.");
+        return;
+      }
+
+      const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
+
+      offsetMs = Number(latest.offset_minutes) * 60000;
+      dayCount = Number(latest.day_count);
+      const now = new Date();
+      const userKey = `subjective_${name}`;
+
+      document.getElementById("dayCount").textContent = dayCount;
+      localStorage.setItem("offsetMs", offsetMs);
+      localStorage.setItem(`${userKey}_dayCount`, dayCount);
+      localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime());
+
+      updateOffsetDisplay(offsetMs); // ✅ 更新 offset 顯示
+
+      console.log("✅ Loaded record from sheet:", latest);
+
+    } catch (e) {
+      console.error("❌ Failed to load latest record", e);
+    }
+  }
+
+  function loadMyRecord() {
+    const username = document.getElementById("username").value.trim();
+    if (!username) {
+      alert("Please enter your name first.");
+      return;
+    }
+    loadLatestRecord(username);
+  }
+
   setInterval(updateClocks, 1000);
-  window.onload = () => {
-    updateClocks();
-    updateOffsetDisplay(offsetMs);
-  };
+  window.onload = () => updateClocks();
 </script>
 
 </body>
