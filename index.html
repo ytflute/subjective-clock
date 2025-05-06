@@ -133,6 +133,7 @@
     document.getElementById("hour").textContent = pad(subjective.getHours());
     document.getElementById("minute").textContent = pad(subjective.getMinutes());
     drawClock(subjective);
+    updateOffsetDisplay(offsetMs);  // ✅ 每秒更新 offset 顯示
   }
 
   function updateOffsetDisplay(ms) {
@@ -236,7 +237,7 @@
     offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
     localStorage.setItem("offsetMs", offsetMs);
 
-    updateOffsetDisplay(offsetMs); // ✅ 更新顯示
+    updateOffsetDisplay(offsetMs); // ✅ 重新顯示 offset
 
     const data = {
       name: username,
@@ -299,8 +300,12 @@
   }
 
   setInterval(updateClocks, 1000);
-  window.onload = () => updateClocks();
+  window.onload = () => {
+    updateClocks();
+    updateOffsetDisplay(offsetMs); // ✅ 初始也更新 offset 顯示
+  };
 </script>
+
 
 </body>
 </html>
