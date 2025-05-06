@@ -230,8 +230,8 @@
     dayCount = savedDayCount;
     localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
 
-    const now = new Date();
-    const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0, 0);
+    const target = new Date(now);
+    target.setHours(8, 0, 0, 0);
     offsetMs = target.getTime() - now.getTime();
     localStorage.setItem("offsetMs", offsetMs);
 
