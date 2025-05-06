@@ -230,9 +230,10 @@
     dayCount = savedDayCount;
     localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
 
-    const target = new Date(now);
-    target.setHours(8, 0, 0, 0);
-    offsetMs = target.getTime() - now.getTime();
+    const now = new Date();
+    const realH = now.getHours();
+    const realM = now.getMinutes();
+    offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
     localStorage.setItem("offsetMs", offsetMs);
 
     updateOffsetDisplay(offsetMs); // ✅ 更新顯示
