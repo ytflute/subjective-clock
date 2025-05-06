@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subjective Clock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2rem; background-color: #f9f9f9; }
+    .clock-box { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; }
+    .label { font-weight: bold; margin-top: 1rem; }
+    .time { margin-top: 0.25rem; line-height: 1.2; }
+    .time-large { font-size: 2.5rem; }
+    .time-small { font-size: 1.2rem; opacity: 0.8; }
+    .digital { font-family: 'Share Tech Mono', monospace; letter-spacing: 2px; }
+    .blink-colon { animation: blink 1s steps(1, start) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    input { margin-top: 1rem; padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 0.5rem; width: 80%; }
+    button { margin-top: 1rem; margin-right: 0.5rem; padding: 0.75rem 1.5rem; font-size: 1rem; border: none; background: #333; color: white; border-radius: 0.5rem; cursor: pointer; }
+    button:hover { background: #000; }
+    canvas { margin-bottom: 2rem; }
+    #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 0.5rem; padding: 1rem; position: fixed; z-index: 1; top: 1rem; right: 1rem; font-size: 1rem; opacity: 0; transition: opacity 0.5s ease-in-out; white-space: pre-wrap; }
+    #toast.show { visibility: visible; opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="clock-box">
+    <canvas id="clockCanvas" width="200" height="200"></canvas>
+    <div class="label">Micro Time Zone</div>
+    <div class="time digital time-large" id="subjectiveTime">
+      <span id="hour">--</span><span id="colon" class="blink-colon">:</span><span id="minute">--</span>
+    </div>
+    <div class="label">Offset</div>
+    <div class="time time-small" id="offset">--h--m</div>
+    <div class="label">Days</div>
+    <div class="time time-small" id="dayCount">--</div>
+    <div class="label">Your Name</div>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="startDay()">👉 Start Today</button>
+    <button onclick="loadMyRecord()">📥 Load My Time</button>
+  </div>
+
+  <div id="toast">✅ Your subjective day has started!\nTime reset to 08:00.</div>
+
+  <script>
+    let offsetMs = 0;
+    let dayCount = 1;
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function updateClocks() {
+      const now = new Date();
+      const subjective = new Date(now.getTime() + offsetMs);
+      document.getElementById("hour").textContent = pad(subjective.getHours());
+      document.getElementById("minute").textContent = pad(subjective.getMinutes());
+      updateOffsetDisplay(offsetMs);
+    }
+
+    function updateOffsetDisplay(ms) {
+      const offsetTotal = ms / 60000;
+      const offsetH = Math.floor(offsetTotal / 60);
+      const offsetM = Math.floor(Math.abs(offsetTotal % 60));
+      document.getElementById("offset").textContent = \`\${offsetH >= 0 ? '+' : ''}\${offsetH}h\${pad(offsetM)}m\`;
+    }
+
+    function showToastMessage(message) {
+      const toast = document.getElementById("toast");
+      toast.innerHTML = message;
+      toast.className = "show";
+      setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+
+    function startDay() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      const now = new Date();
+      const realMins = now.getHours() * 60 + now.getMinutes();
+      offsetMs = (8 * 60 - realMins) * 60 * 1000;
+      updateOffsetDisplay(offsetMs);
+      localStorage.setItem("offsetMs", offsetMs);
+
+      showToastMessage("✅ Your subjective day has started!\nTime reset to 08:00.");
+    }
+
+    function loadMyRecord() {
+      const username = document.getElementById("username").value.trim();
+      if (!username) {
+        alert("Please enter your name first.");
+        return;
+      }
+      // Stub: simulate load
+      offsetMs = -3600000;
+      updateOffsetDisplay(offsetMs);
+      showToastMessage("📥 Loaded your current micro time zone: -1h00m");
+    }
+
+    setInterval(updateClocks, 1000);
+    window.onload = () => {
+      updateClocks();
+      updateOffsetDisplay(offsetMs);
+    };
+  </script>
+</body>
+</html>
