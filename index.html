@@ -118,177 +118,188 @@
     </button>
   </div>
 
-  <script>
-    let offsetMs = 0;
-    let dayCount = 1;
+ <!-- 為節省篇幅，這段和你剛給的 HTML 完全一致，僅在 script 區域修正 -->
+<script>
+  let offsetMs = 0;
+  let dayCount = 1;
 
-    function pad(n) {
-      return n < 10 ? '0' + n : n;
-    }
+  function pad(n) {
+    return n < 10 ? '0' + n : n;
+  }
 
-    function updateClocks() {
-      const now = new Date();
-      const subjective = new Date(now.getTime() + offsetMs);
-      document.getElementById("hour").textContent = pad(subjective.getHours());
-      document.getElementById("minute").textContent = pad(subjective.getMinutes());
-      const offsetTotal = offsetMs / 60000;
-      const offsetH = Math.floor(offsetTotal / 60);
-      const offsetM = Math.floor(Math.abs(offsetTotal % 60));
-      document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
-      drawClock(subjective);
-    }
+  function updateClocks() {
+    const now = new Date();
+    const subjective = new Date(now.getTime() + offsetMs);
+    document.getElementById("hour").textContent = pad(subjective.getHours());
+    document.getElementById("minute").textContent = pad(subjective.getMinutes());
+    drawClock(subjective);
+  }
 
-    function drawClock(time) {
-      const canvas = document.getElementById("clockCanvas");
-      const ctx = canvas.getContext("2d");
-      const radius = canvas.height / 2;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.translate(radius, radius);
+  function updateOffsetDisplay(ms) {
+    const offsetTotal = ms / 60000;
+    const offsetH = Math.floor(offsetTotal / 60);
+    const offsetM = Math.floor(Math.abs(offsetTotal % 60));
+    document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
+  }
+
+  function drawClock(time) {
+    const canvas = document.getElementById("clockCanvas");
+    const ctx = canvas.getContext("2d");
+    const radius = canvas.height / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.translate(radius, radius);
+    ctx.beginPath();
+    ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 2;
+    for (let i = 0; i < 12; i++) {
+      let angle = (i * Math.PI) / 6;
+      let x1 = Math.cos(angle - Math.PI / 2) * radius * 0.9;
+      let y1 = Math.sin(angle - Math.PI / 2) * radius * 0.9;
+      let x2 = Math.cos(angle - Math.PI / 2) * radius * 0.8;
+      let y2 = Math.sin(angle - Math.PI / 2) * radius * 0.8;
       ctx.beginPath();
-      ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
-      ctx.fillStyle = "#ffffff";
-      ctx.fill();
-      ctx.strokeStyle = "#000";
-      ctx.lineWidth = 2;
-      for (let i = 0; i < 12; i++) {
-        let angle = (i * Math.PI) / 6;
-        let x1 = Math.cos(angle - Math.PI / 2) * radius * 0.9;
-        let y1 = Math.sin(angle - Math.PI / 2) * radius * 0.9;
-        let x2 = Math.cos(angle - Math.PI / 2) * radius * 0.8;
-        let y2 = Math.sin(angle - Math.PI / 2) * radius * 0.8;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-      }
-      const hour = time.getHours() % 12;
-      const minute = time.getMinutes();
-      const second = time.getSeconds();
-      ctx.strokeStyle = "#000";
-      ctx.lineWidth = 6;
-      ctx.beginPath();
-      let hourAngle = ((hour + minute / 60) * Math.PI) / 6;
-      ctx.moveTo(0, 0);
-      ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
       ctx.stroke();
-      ctx.strokeStyle = "#333";
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      let minuteAngle = ((minute + second / 60) * Math.PI) / 30;
-      ctx.moveTo(0, 0);
-      ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
-      ctx.stroke();
-      ctx.strokeStyle = "#f00";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      let secondAngle = (second * Math.PI) / 30;
-      ctx.moveTo(0, 0);
-      ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
-      ctx.stroke();
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
     }
 
-    function showToast() {
-      const toast = document.getElementById("toast");
-      toast.className = "show";
-      setTimeout(() => {
-        toast.className = toast.className.replace("show", "");
-      }, 3000);
-    }
+    const hour = time.getHours() % 12;
+    const minute = time.getMinutes();
+    const second = time.getSeconds();
 
-    function startDay() {
-      const username = document.getElementById("username").value.trim();
-      if (!username) {
-        alert("Please enter your name.");
-        return;
-      }
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    let hourAngle = ((hour + minute / 60) * Math.PI) / 6;
+    ctx.moveTo(0, 0);
+    ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
+    ctx.stroke();
 
-      const now = new Date();
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      const subjectiveNow = new Date(now.getTime() + offsetMs);
-      const userKey = `subjective_${username}`;
-      const lastStartMs = parseInt(localStorage.getItem(`${userKey}_lastSubjectiveStart`));
-      const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
-      let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
+    ctx.strokeStyle = "#333";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    let minuteAngle = ((minute + second / 60) * Math.PI) / 30;
+    ctx.moveTo(0, 0);
+    ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
+    ctx.stroke();
 
-      if (!lastSubjective || subjectiveNow.getDate() !== lastSubjective.getDate()) {
-        savedDayCount++;
-        localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
-      }
+    ctx.strokeStyle = "#f00";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    let secondAngle = (second * Math.PI) / 30;
+    ctx.moveTo(0, 0);
+    ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
+    ctx.stroke();
 
-      document.getElementById("dayCount").textContent = savedDayCount;
-      dayCount = savedDayCount;
-      localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+  }
 
-      const target = new Date(now);
-      target.setHours(8, 0, 0, 0);
-      offsetMs = target.getTime() - now.getTime();
-      localStorage.setItem("offsetMs", offsetMs);
+  function showToast() {
+    const toast = document.getElementById("toast");
+    toast.className = "show";
+    setTimeout(() => {
+      toast.className = toast.className.replace("show", "");
+    }, 3000);
+  }
 
-      const data = {
-        name: username,
-        real_time: now.toLocaleTimeString(),
-        offset_minutes: Math.round(offsetMs / 60000),
-        date: now.toISOString().split('T')[0],
-        day_count: savedDayCount,
-        timezone: timezone
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbzLu4JBepPb_EinvSjIHlyLXNDqA0QG_61P6NZs-QcVuUVoz7MgAVf4nRKBXQKIvMSfUg/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
-
-      showToast();
-    }
-
-   async function loadLatestRecord(name) {
-  const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    const records = data.filter(row => row.name?.trim() === name.trim());
-    if (records.length === 0) {
-      console.warn("⚠️ No previous data found for this user.");
+  function startDay() {
+    const username = document.getElementById("username").value.trim();
+    if (!username) {
+      alert("Please enter your name.");
       return;
     }
 
-    // 取出最新一筆紀錄
-    const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
-
-    // 解析資料
-    offsetMs = Number(latest.offset_minutes) * 60000;
-    dayCount = Number(latest.day_count);
     const now = new Date();
-    const userKey = `subjective_${name}`;
-    
-    // 更新畫面與本地資料
-    document.getElementById("dayCount").textContent = dayCount;
-    localStorage.setItem("offsetMs", offsetMs);
-    localStorage.setItem(`${userKey}_dayCount`, dayCount);
-    localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime()); // 假設目前就等於主觀開始時間
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const subjectiveNow = new Date(now.getTime() + offsetMs);
+    const userKey = `subjective_${username}`;
+    const lastStartMs = parseInt(localStorage.getItem(`${userKey}_lastSubjectiveStart`));
+    const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
+    let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
 
-    console.log("✅ Loaded record from sheet:", latest);
-
-  } catch (e) {
-    console.error("❌ Failed to load latest record", e);
-  }
-}
-
-
-    function loadMyRecord() {
-      const username = document.getElementById("username").value.trim();
-      if (!username) {
-        alert("Please enter your name first.");
-        return;
-      }
-      loadLatestRecord(username);
+    if (!lastSubjective || subjectiveNow.getDate() !== lastSubjective.getDate()) {
+      savedDayCount++;
+      localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
     }
 
-    setInterval(updateClocks, 1000);
-    window.onload = () => updateClocks();
-  </script>
+    document.getElementById("dayCount").textContent = savedDayCount;
+    dayCount = savedDayCount;
+    localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
+
+    const target = new Date(now);
+    target.setHours(8, 0, 0, 0);
+    offsetMs = target.getTime() - now.getTime();
+    localStorage.setItem("offsetMs", offsetMs);
+
+    updateOffsetDisplay(offsetMs); // ✅ 更新顯示
+
+    const data = {
+      name: username,
+      real_time: now.toLocaleTimeString(),
+      offset_minutes: Math.round(offsetMs / 60000),
+      date: now.toISOString().split('T')[0],
+      day_count: savedDayCount,
+      timezone: timezone
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbzLu4JBepPb_EinvSjIHlyLXNDqA0QG_61P6NZs-QcVuUVoz7MgAVf4nRKBXQKIvMSfUg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    showToast();
+  }
+
+  async function loadLatestRecord(name) {
+    const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      const records = data.filter(row => row.name?.trim() === name.trim());
+      if (records.length === 0) {
+        console.warn("⚠️ No previous data found for this user.");
+        return;
+      }
+
+      const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
+
+      offsetMs = Number(latest.offset_minutes) * 60000;
+      dayCount = Number(latest.day_count);
+      const now = new Date();
+      const userKey = `subjective_${name}`;
+
+      document.getElementById("dayCount").textContent = dayCount;
+      localStorage.setItem("offsetMs", offsetMs);
+      localStorage.setItem(`${userKey}_dayCount`, dayCount);
+      localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime());
+
+      updateOffsetDisplay(offsetMs); // ✅ 更新 offset 顯示
+
+      console.log("✅ Loaded record from sheet:", latest);
+
+    } catch (e) {
+      console.error("❌ Failed to load latest record", e);
+    }
+  }
+
+  function loadMyRecord() {
+    const username = document.getElementById("username").value.trim();
+    if (!username) {
+      alert("Please enter your name first.");
+      return;
+    }
+    loadLatestRecord(username);
+  }
+
+  setInterval(updateClocks, 1000);
+  window.onload = () => updateClocks();
+</script>
+
 </body>
 </html>
