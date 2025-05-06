@@ -136,9 +136,18 @@
 
  
 function updateOffsetDisplay(ms) {
-const offsetTotal = (ms / 60000) + 60;
-const offsetH = Math.floor(offsetTotal / 60);
-const offsetM = Math.floor(Math.abs(offsetTotal % 60));
+const offsetTotal = (ms / 60000);
+const absTotal = Math.abs(offsetTotal);
+  
+let const offsetH = Math.floor(absTotal / 60);
+let const offsetM = absTotal % 60;
+
+if (offsetTotal < 0 && absTotal <60) {
+  offsetH = 0;
+}
+
+const sign = offsetTotal < 0 ? '-' : '+';
+  
 document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
 }
 
