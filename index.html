@@ -285,7 +285,7 @@ function startDay() {
 
       const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
 
-      offsetMs = Number(latest.offset_minutes);
+      offsetMs = Number(latest.offset_minutes) * 60000;
       dayCount = Number(latest.day_count);
       const now = new Date();
       const userKey = `subjective_${name}`;
