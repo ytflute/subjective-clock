@@ -135,19 +135,17 @@
   }
 
   
-
-  function updateOffsetDisplay(ms) {
-  const totalMinutes = Math.round(ms / 60000); // 確保是整數分鐘
+function updateOffsetDisplay(ms) {
+  const totalMinutes = Math.round(ms / 60000); // 四捨五入為整數分鐘
+  const sign = totalMinutes < 0 ? '-' : '+';
   const absMinutes = Math.abs(totalMinutes);
 
-  let offsetH = Math.floor(absMinutes / 60);
-  let offsetM = absMinutes % 60;
+  const offsetH = Math.floor(absMinutes / 60); // 整數小時
+  const offsetM = absMinutes % 60;             // 整數分鐘
 
-  // 👉 關鍵修正：負值但不到一小時的情況，應顯示為 -0hXXm
-  const sign = totalMinutes < 0 ? '-' : '+';
-  if (totalMinutes < 0 && offsetH === 0) {
-    // 保持 offsetH 為 0，但保留負號
-  }
+  document.getElementById("offset").textContent = `${sign}${offsetH}h${pad(offsetM)}m`;
+}
+
 
   document.getElementById("offset").textContent = `${sign}${offsetH}h${pad(offsetM)}m`;
 }
