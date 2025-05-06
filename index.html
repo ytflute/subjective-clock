@@ -247,7 +247,7 @@ function startDay() {
   localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
 
   // ✅ 即時更新 offset 顯示與畫面時間
-  updateOffsetDisplay(Math.round(offsetMs / 60000));
+  updateOffsetDisplay(offsetMs);
   updateClocks();
 
   // ✅ 傳送資料到 Google Sheet
@@ -285,7 +285,7 @@ function startDay() {
 
       const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
 
-      offsetMs = Number(latest.offset_minutes) * 60000;
+      offsetMs = Number(latest.offset_minutes);
       dayCount = Number(latest.day_count);
       const now = new Date();
       const userKey = `subjective_${name}`;
