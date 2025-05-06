@@ -247,7 +247,7 @@ function startDay() {
   localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
 
   // ✅ 即時更新 offset 顯示與畫面時間
-  updateOffsetDisplay(offsetMs);
+  updateOffsetDisplay(Math.round(offsetMs / 60000));
   updateClocks();
 
   // ✅ 傳送資料到 Google Sheet
