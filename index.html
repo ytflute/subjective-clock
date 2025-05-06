@@ -205,6 +205,15 @@
     }, 3000);
   }
 
+  function showToastMessage(message) {
+  const toast = document.getElementById("toast");
+  toast.innerHTML = message;
+  toast.className = "show";
+  setTimeout(() => {
+    toast.className = toast.className.replace("show", "");
+  }, 3000);
+}
+
   function startDay() {
     const username = document.getElementById("username").value.trim();
     if (!username) {
@@ -295,6 +304,7 @@
       return;
     }
     loadLatestRecord(username);
+    showToastMessage("📥 Reloaded your micro time zone");
   }
 
   setInterval(updateClocks, 1000);
