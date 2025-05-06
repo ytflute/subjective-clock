@@ -53,9 +53,8 @@
       width: 80%;
     }
     button {
-      margin-top: 1rem;
-      margin-right: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
       font-size: 1rem;
       border: none;
       background: #333;
@@ -98,28 +97,28 @@
     <div class="time digital time-large" id="subjectiveTime">
       <span id="hour">--</span><span id="colon" class="blink-colon">:</span><span id="minute">--</span>
     </div>
+
     <div class="label">Offset</div>
     <div class="time time-small" id="offset">--h--m</div>
+
+    <div class="label">Today's Offset</div>
+    <div class="time time-small" id="fixedOffset">--h--m</div>
+
     <div class="label">Days</div>
     <div class="time time-small" id="dayCount">--</div>
+
     <div class="label">Your Name</div>
     <input type="text" id="username" placeholder="Enter your name">
-    
+
     <button onclick="startDay()">👉 Start Today</button>
-    <button onclick="loadMyRecord()">📥 Load My Time</button>
   </div>
 
   <div id="toast">✅ Your subjective day has started!<br>Time reset to 08:00.</div>
 
-  <div style="margin-top: 2rem;">
-    <button onclick="location.href='https://ytflute.github.io/subjective-clock/data-report'">
-      📈 View Subjective Time Wall
-    </button>
-  </div>
-
   <script>
     let offsetMs = 0;
     let dayCount = 1;
+    let lastOffset = null;
 
     function pad(n) {
       return n < 10 ? '0' + n : n;
@@ -130,10 +129,18 @@
       const subjective = new Date(now.getTime() + offsetMs);
       document.getElementById("hour").textContent = pad(subjective.getHours());
       document.getElementById("minute").textContent = pad(subjective.getMinutes());
+
       const offsetTotal = offsetMs / 60000;
       const offsetH = Math.floor(offsetTotal / 60);
       const offsetM = Math.floor(Math.abs(offsetTotal % 60));
       document.getElementById("offset").textContent = `${offsetH >= 0 ? '+' : ''}${offsetH}h${pad(offsetM)}m`;
+
+      if (lastOffset !== null) {
+        const fixedH = Math.floor(lastOffset / 60000 / 60);
+        const fixedM = Math.floor(Math.abs((lastOffset / 60000) % 60));
+        document.getElementById("fixedOffset").textContent = `${fixedH >= 0 ? '+' : ''}${fixedH}h${pad(fixedM)}m`;
+      }
+
       drawClock(subjective);
     }
 
@@ -223,6 +230,7 @@
       target.setHours(8, 0, 0, 0);
       offsetMs = target.getTime() - now.getTime();
       localStorage.setItem("offsetMs", offsetMs);
+      lastOffset = offsetMs;
 
       const data = {
         name: username,
@@ -243,51 +251,17 @@
       showToast();
     }
 
-   async function loadLatestRecord(name) {
-  const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    const records = data.filter(row => row.name?.trim() === name.trim());
-    if (records.length === 0) {
-      console.warn("⚠️ No previous data found for this user.");
-      return;
-    }
-
-    // 取出最新一筆紀錄
-    const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
-
-    // 解析資料
-    offsetMs = Number(latest.offset_minutes) * 60000;
-    dayCount = Number(latest.day_count);
-    const now = new Date();
-    const userKey = `subjective_${name}`;
-    
-    // 更新畫面與本地資料
-    document.getElementById("dayCount").textContent = dayCount;
-    localStorage.setItem("offsetMs", offsetMs);
-    localStorage.setItem(`${userKey}_dayCount`, dayCount);
-    localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime()); // 假設目前就等於主觀開始時間
-
-    console.log("✅ Loaded record from sheet:", latest);
-
-  } catch (e) {
-    console.error("❌ Failed to load latest record", e);
-  }
-}
-
-
-    function loadMyRecord() {
+    function loadOffset() {
+      const saved = localStorage.getItem("offsetMs");
+      if (saved) offsetMs = parseInt(saved);
       const username = document.getElementById("username").value.trim();
-      if (!username) {
-        alert("Please enter your name first.");
-        return;
-      }
-      loadLatestRecord(username);
+      const userKey = `subjective_${username}`;
+      const count = localStorage.getItem(`${userKey}_dayCount`) || 0;
+      document.getElementById("dayCount").textContent = count;
     }
 
     setInterval(updateClocks, 1000);
-    window.onload = () => updateClocks();
+    window.onload = loadOffset;
   </script>
 </body>
 </html>
