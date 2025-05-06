@@ -71,21 +71,58 @@
       setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
     }
 
-    function startDay() {
-      const username = document.getElementById("username").value.trim();
-      if (!username) {
-        alert("Please enter your name.");
-        return;
-      }
 
-      const now = new Date();
-      const realMins = now.getHours() * 60 + now.getMinutes();
-      offsetMs = (8 * 60 - realMins) * 60 * 1000;
-      updateOffsetDisplay(offsetMs);
-      localStorage.setItem("offsetMs", offsetMs);
+ function startDay() {
+  const username = document.getElementById("username").value.trim();
+  if (!username) {
+    alert("Please enter your name.");
+    return;
+  }
 
-      showToastMessage("✅ Your subjective day has started!\nTime reset to 08:00.");
-    }
+  const now = new Date();
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const subjectiveNow = new Date(now.getTime() + offsetMs);
+  const userKey = `subjective_${username}`;
+  const lastStartMs = parseInt(localStorage.getItem(`${userKey}_lastSubjectiveStart`));
+  const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
+  let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
+
+  if (!lastSubjective || subjectiveNow.getDate() !== lastSubjective.getDate()) {
+    savedDayCount++;
+    localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
+  }
+
+  document.getElementById("dayCount").textContent = savedDayCount;
+  dayCount = savedDayCount;
+  localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
+
+  const current = new Date();
+  const realH = current.getHours();
+  const realM = current.getMinutes();
+  offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
+  localStorage.setItem("offsetMs", offsetMs);
+
+  updateOffsetDisplay(offsetMs);
+  updateClocks();  // ✅ 立刻刷新主觀時間畫面
+
+  const data = {
+    name: username,
+    real_time: current.toLocaleTimeString(),
+    offset_minutes: Math.round(offsetMs / 60000),
+    date: now.toISOString().split('T')[0],
+    day_count: savedDayCount,
+    timezone: timezone
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbzLu4JBepPb_EinvSjIHlyLXNDqA0QG_61P6NZs-QcVuUVoz7MgAVf4nRKBXQKIvMSfUg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  updateClocks();
+  showToastMessage("✅ Your subjective day has started!\nTime reset to 08:00.");
+}
 
     function loadMyRecord() {
       const username = document.getElementById("username").value.trim();
