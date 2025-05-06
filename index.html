@@ -226,8 +226,8 @@ function startDay() {
   const userKey = `subjective_${username}`;
 
   // 計算 offset：讓主觀時間是 08:00
-  const realH = now.getHours();
-  const realM = now.getMinutes();
+  const realH = now.getUTCHours();
+  const realM = now.getUTCMinutes();
   offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
   localStorage.setItem("offsetMs", offsetMs);
 
