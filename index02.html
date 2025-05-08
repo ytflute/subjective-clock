@@ -146,6 +146,40 @@ function updateOffsetDisplay(ms) {
   document.getElementById("offset").textContent = `${sign}${offsetH}h${pad(offsetM)}m`;
 }
 
+// 主觀時鐘與事件紅點顯示
+let offsetMs = 0;
+let dayCount = 1;
+
+// 模擬 Google Calendar 事件
+const mockEvents = [
+  { name: "Meeting with Bob", realTime: "2025-05-10T14:30:00" },
+  { name: "Project Deadline", realTime: "2025-05-10T16:00:00" },
+  { name: "Yoga Class", realTime: "2025-05-10T18:15:00" }
+];
+
+// 工具函式：補零
+function pad(n) {
+  return n < 10 ? '0' + n : n;
+}
+
+// 工具函式：顯示提示
+function showTooltip(message, x, y) {
+  const tooltip = document.createElement('div');
+  tooltip.textContent = message;
+  tooltip.style.position = 'absolute';
+  tooltip.style.left = `${x}px`;
+  tooltip.style.top = `${y}px`;
+  tooltip.style.padding = '5px 10px';
+  tooltip.style.backgroundColor = '#333';
+  tooltip.style.color = '#fff';
+  tooltip.style.borderRadius = '5px';
+  tooltip.style.zIndex = '1000';
+  tooltip.style.pointerEvents = 'none';
+  document.body.appendChild(tooltip);
+  setTimeout(() => tooltip.remove(), 2000);
+}
+
+// 畫時鐘
 function drawClock(time) {
   const canvas = document.getElementById("clockCanvas");
   const ctx = canvas.getContext("2d");
@@ -164,7 +198,7 @@ function drawClock(time) {
   ctx.fillStyle = "#ffffff";
   ctx.fill();
 
-  // 畫刻度線
+  // 畫刻度
   ctx.strokeStyle = "#000";
   ctx.lineWidth = 2;
   for (let i = 0; i < 12; i++) {
@@ -179,38 +213,44 @@ function drawClock(time) {
     ctx.stroke();
   }
 
-  const hour = time.getHours() % 12;
-  const minute = time.getMinutes();
-  const second = time.getSeconds();
+  // 畫事件紅點
+  mockEvents.forEach(event => {
+    const eventTime = new Date(event.realTime);
+    const realH = eventTime.getHours();
+    const realM = eventTime.getMinutes();
+    const realMinutes = realH * 60 + realM;
 
-  // 時針
-  ctx.strokeStyle = "#000";
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  const hourAngle = ((hour + minute / 60) * Math.PI) / 6;
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
-  ctx.stroke();
+    // 將 real time 轉換為主觀時間
+    const subjectiveMinutes = (realMinutes + offsetMs / 60000 + 480) % 1440;
+    const angle = (subjectiveMinutes / 60) * (Math.PI / 6);
+    const x = Math.cos(angle - Math.PI / 2) * radius * 0.85;
+    const y = Math.sin(angle - Math.PI / 2) * radius * 0.85;
+    
+    // 畫紅點
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
 
-  // 分針
-  ctx.strokeStyle = "#333";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  const minuteAngle = ((minute + second / 60) * Math.PI) / 30;
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
-  ctx.stroke();
-
-  // 秒針
-  ctx.strokeStyle = "#f00";
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  const secondAngle = (second * Math.PI) / 30;
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
-  ctx.stroke();
+    // 點擊偵測
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left - radius;
+      const clickY = e.clientY - rect.top - radius;
+      const distance = Math.sqrt((clickX - x) ** 2 + (clickY - y) ** 2);
+      if (distance < 10) {
+        showTooltip(`${event.name} @ ${eventTime.toLocaleTimeString()}`, e.clientX, e.clientY);
+      }
+    });
+  });
 }
 
+// 初始化
+setInterval(() => drawClock(new Date()), 1000);
+window.onload = () => drawClock(new Date());
+
+
+      
 
   function showToast() {
     const toast = document.getElementById("toast");
