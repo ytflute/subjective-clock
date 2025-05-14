@@ -220,7 +220,7 @@ function drawClock(time) {
     }, 3000);
   }
 
-function startDay() {
+async function startDay() {
   const username = document.getElementById("username").value.trim();
   if (!username) {
     alert("Please enter your name.");
@@ -229,15 +229,16 @@ function startDay() {
 
   const now = new Date();
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const subjectiveNow = new Date(now.getTime() + offsetMs);
   const userKey = `subjective_${username}`;
 
-  // 🔁 取得上次啟動時間與紀錄的 day count
+  // ✅ 在真正執行之前先載入遠端紀錄（確保 day_count 正確）
+  await loadLatestRecord(username);
+
+  const subjectiveNow = new Date(now.getTime() + offsetMs);
   const lastStartMs = parseInt(localStorage.getItem(`${userKey}_lastSubjectiveStart`));
   const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
   let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
 
-  // ✅ 使用完整年月日進行比對（解決只看日期數字的問題）
   const todayDate = subjectiveNow.toDateString();
   const lastDate = lastSubjective ? lastSubjective.toDateString() : null;
 
@@ -250,7 +251,6 @@ function startDay() {
   dayCount = savedDayCount;
   localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
 
-  // 計算 offset：讓主觀時間等於 08:00
   const realH = now.getHours();
   const realM = now.getMinutes();
   offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
@@ -259,7 +259,6 @@ function startDay() {
   updateOffsetDisplay(offsetMs);
   updateClocks();
 
-  // 📤 上傳紀錄到 Google Sheet
   const data = {
     name: username,
     real_time: now.toLocaleTimeString(),
@@ -278,6 +277,7 @@ function startDay() {
 
   showToast();
 }
+
  
 
 async function loadLatestRecord(name) {
