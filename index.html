@@ -288,18 +288,28 @@ async function loadLatestRecord(name) {
 
     // 📌 過濾出使用者的所有紀錄
     const records = data.filter(row => row.name?.trim() === name.trim());
+
     if (records.length === 0) {
       console.warn("⚠️ No previous data found for this user.");
       return;
     }
 
-    // ✅ 找出最後一筆（最新日期）
-    const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
+    // 🧪 DEBUG: 印出使用者所有紀錄的 day_count 欄位
+    console.log("📊 History day_count list:", records.map(r => r.day_count));
 
-    // ✅ 找出目前歷史最大 day_count
-    const maxDayCount = Math.max(...records.map(r => Number(r.day_count) || 0));
-    
-    // ✅ 比較 localStorage 和歷史最大值，保留最大
+    // ✅ 找出目前歷史最大 day_count（保守處理 NaN）
+    const maxDayCount = Math.max(
+      ...records
+        .map(r => parseInt(r.day_count))
+        .filter(n => !isNaN(n))
+    );
+
+    // ✅ 找出最新一筆（最近日期）
+    const latest = records.reduce((a, b) =>
+      new Date(a.date) > new Date(b.date) ? a : b
+    );
+
+    // ✅ 比較本地與遠端紀錄
     const userKey = `subjective_${name}`;
     const localDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
     const finalDayCount = Math.max(localDayCount, maxDayCount);
@@ -310,16 +320,21 @@ async function loadLatestRecord(name) {
     const now = new Date();
     document.getElementById("dayCount").textContent = dayCount;
 
+    // ✅ 更新本地儲存
     localStorage.setItem("offsetMs", offsetMs);
     localStorage.setItem(`${userKey}_dayCount`, dayCount);
     localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime());
 
     updateOffsetDisplay(offsetMs);
-    console.log("✅ Loaded record from sheet:", latest);
+
+    console.log(`✅ Loaded latest record for ${name}:`, latest);
+    console.log(`✅ Final dayCount = ${finalDayCount}`);
+
   } catch (e) {
     console.error("❌ Failed to load latest record", e);
   }
 }
+
 
 
   function loadMyRecord() {
