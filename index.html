@@ -280,37 +280,47 @@ function startDay() {
 }
  
 
-  async function loadLatestRecord(name) {
-    const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      const records = data.filter(row => row.name?.trim() === name.trim());
-      if (records.length === 0) {
-        console.warn("⚠️ No previous data found for this user.");
-        return;
-      }
+async function loadLatestRecord(name) {
+  const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-      const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
-
-      offsetMs = Number(latest.offset_minutes) * 60000;
-      dayCount = Number(latest.day_count);
-      const now = new Date();
-      const userKey = `subjective_${name}`;
-
-      document.getElementById("dayCount").textContent = dayCount;
-      localStorage.setItem("offsetMs", offsetMs);
-      localStorage.setItem(`${userKey}_dayCount`, dayCount);
-      localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime());
-
-      updateOffsetDisplay(offsetMs); // ✅ 更新 offset 顯示
-
-      console.log("✅ Loaded record from sheet:", latest);
-
-    } catch (e) {
-      console.error("❌ Failed to load latest record", e);
+    // 📌 過濾出使用者的所有紀錄
+    const records = data.filter(row => row.name?.trim() === name.trim());
+    if (records.length === 0) {
+      console.warn("⚠️ No previous data found for this user.");
+      return;
     }
+
+    // ✅ 找出最後一筆（最新日期）
+    const latest = records.reduce((a, b) => new Date(a.date) > new Date(b.date) ? a : b);
+
+    // ✅ 找出目前歷史最大 day_count
+    const maxDayCount = Math.max(...records.map(r => Number(r.day_count) || 0));
+    
+    // ✅ 比較 localStorage 和歷史最大值，保留最大
+    const userKey = `subjective_${name}`;
+    const localDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
+    const finalDayCount = Math.max(localDayCount, maxDayCount);
+
+    offsetMs = Number(latest.offset_minutes) * 60000;
+    dayCount = finalDayCount;
+
+    const now = new Date();
+    document.getElementById("dayCount").textContent = dayCount;
+
+    localStorage.setItem("offsetMs", offsetMs);
+    localStorage.setItem(`${userKey}_dayCount`, dayCount);
+    localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime());
+
+    updateOffsetDisplay(offsetMs);
+    console.log("✅ Loaded record from sheet:", latest);
+  } catch (e) {
+    console.error("❌ Failed to load latest record", e);
   }
+}
+
 
   function loadMyRecord() {
     const username = document.getElementById("username").value.trim();
