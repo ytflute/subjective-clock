@@ -1,0 +1,5002 @@
+[
+  {
+    "country": "AD",
+    "city": "Xixerella",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Vila",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Tossalet i Vinyals1",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Sornàs",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Soldeu",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Sispony",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Segudet",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "El Tarter",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Sant Julià de Lòria",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Sant Joan de Caselles",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Santa Coloma",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Ransol",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Ràmio",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Prats",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Pas de la Casa",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Pal",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Ordino",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Nagol",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Molleres",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Meritxell",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Mas de Ribafeta",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Mas d’Alins",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Llumeneres",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Llorts",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Les Subiranes",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Les Salines",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "les Escaldes",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Les Bons",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "La Plana",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "la Massana",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "l'Aldosa de canillo",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "l'Aldosa",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "La Cortinada",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Juberri",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Fontaneda",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Escàs",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Erts",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Engordany",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Encamp",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "El Vilar",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Els Plans",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "El Serrat",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Els Cortals",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Certers",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Canillo",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Bixessarri",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Aubinyà",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Arinsal",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Arans",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Anyós",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Ansalonga",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Andorra la Vella",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Aixovall",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Aixirivall",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Aixàs",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "La Margineda",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Incles",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Bordes d'Envalira",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Sant Miquel d'Engolasters",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Puiol del Piu",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Els Vilars",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Urbanització Ermengol-Serra",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Urbanització Guem",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Urbanització Sa Calma",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "El Barri",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Urbanització la Plana",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Urbanització Can Noguer",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "Urbanització Terra Vella",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "La Comella",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AD",
+    "city": "El Cedre",
+    "timezone": "Europe/Andorra"
+  },
+  {
+    "country": "AE",
+    "city": "Suhaylah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Z̧uwayhir",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Z̧uwayhir",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zubārah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zikt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Danhah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Z̧afīr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Azhabat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Yaif",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Yafnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Warīsān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wamm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Waḩlah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wafd",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wad Wid",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wādī Shī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wadhīl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wa‘bayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Urqūb Juwayza",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Uraybī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Uqayr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Umm Suqaym",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Umm al Qurayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Umm Al Quwain City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Ūd al Bayḑā’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Tharwānīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţayyibah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţawīyayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţarīqat Ja‘d",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţarīf Kalbā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţarīf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţaraq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Şūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sumbrair",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Suḩaybah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Şufayrī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sinnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sījī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Quwayz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nadd ash Shibā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shīs",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shimāl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hay Jabal Omar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shawkah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shawīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sharm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sharīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sharīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ash Shindaghah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shahawāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shāh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shāh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shabakah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sayḩ aş Şaqlah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sayḩ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sakamkam",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Samarat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dirat as-Sal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Şāliḩīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sā’if",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Şafad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sabkhah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sabkhah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sa‘abah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muḩayşnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rūl Ḑadnā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rughaylāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Riyāmah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rimá",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rāshidīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ras Al Khaimah City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Za‘bīl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ramlah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rafaq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rafā‘",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Quţūf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Quşaydāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qurmidah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qurm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sha'biyyat Al Qor",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qu‘aysah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Quar Al Qahlish",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qimah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qadfa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qaţţārah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qada‘ah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qabas",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nuqayrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nuhayy",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Naqrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Naḩwah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nafīr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muzayri‘",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mu‘tariḑah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Murrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Murbaḩ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Murbaḑ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muraytah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mundafinah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Munay‘ī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muhtarqah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mūjib",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mu‘ayrīḑ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nedaifi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minhā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sha'biyyat Al Qilē'ī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Milqaţah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mezdiyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mawşil",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mas‘ūdī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Maşfūţ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Māsah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Masāfī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Marḩāmid",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Marawwaḩ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Manqashah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mamdūḩ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Maḩḑar Bin ‘Uşayyān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Maghribīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zayed City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Maydaq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ma‘ālī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Lūlayyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Liffah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Lazīmah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Layyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Kūb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khulaybīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khawr Khuwayr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khawr Fakkān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khatt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Kharrān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khannūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Kadrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khabākhib",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Kayyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khawr Kalbā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Kalbā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jurayrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumayrā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jazīrah al Ḩamrā’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jazīrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jayf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Istayhah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Adhan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩuwaytayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Huwaylāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩuwaylah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hunaywah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩumar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩudaybah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩiyāwah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hillī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩayāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩatīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩarrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩaqīl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩamīm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩamarūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩafīf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩafarah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩabshān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩabḩab",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Gragrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghurfah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghurbah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghurah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghamarah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghābah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghubb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghalīlah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghāghah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghadf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ferij al Muhadham",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Fayyāḑ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Fa’y",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Fashrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Farīq Ţarīf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Farīq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Furfār",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Far‘ah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Fāqī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Falaj al Mu‘allā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dibba Al-Fujairah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Diqdāqah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dihān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dibba Al-Hisn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dhad al Arab",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dayrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Daynah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḑāyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Da‘sah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dārah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zahir al Ya'ad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dāhin",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Daftah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḑadnā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jarouf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bū Līfīyāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bulaydah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bin Aḩmad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bidīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bidá",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Baţīn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Barr Dubayy",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Barāḩah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Baqal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Badīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Ayn al Fayḑah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Ayīm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Uwaynāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Awāfī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Aţţāb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Athabāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Sulaymāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Slabeikh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Sād",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ash Shibhānah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sharjah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ash Sha‘m",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Ashashah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Asamah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Ruways",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rūl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rufayşah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rams",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Arādah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Aqqah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sha‘bīyat Naşlah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "An Nashshāsh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Wathbah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Uyaynah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Usaylī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Quşayş",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qurayyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qīr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qīmī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qaia",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muwayqi‘ī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muwayqi‘ī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mu‘taraḑ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mughayrā’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Matāf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mashrūb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Māriyah al Gharbīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Māriyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Marfa’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Manāmah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mahamm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Akkamyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khīs",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khaznah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khatim",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khārī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jazīrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jaḩr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Idd",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩayrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hayr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩamrīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩalāh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩattā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩādhī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jaddah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghurfah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fulayyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fujairah City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fīyay",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fay‘",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fara‘",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Faḩlayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Biţnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Ayn al Ghumūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ain City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Awdah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Aţīr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Akamiya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ajman City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Adh Dhayd",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Adh Dharbānīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abu Dhabi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abū Hayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Abādilah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Saţwah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩārat ‘Awālī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩulaylah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khashfah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wayb Ḩawf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghabām",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qaf’ah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sharyāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mafraq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muqaţţarah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Madīnat an Nahḑah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ash Shahāmah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Maqţa‘",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mawrid",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qārat ad Dum",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Yinainir",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ra’s",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Magam",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dirat Jarhi",
+    "timezone": "Asia/Muscat"
+  },
+  {
+    "country": "AE",
+    "city": "Yāfūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghashbān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghubbat Khawrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qarayţaysah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Margham",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ash Shu‘ayb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Faq‘",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khabb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Aqbīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mazyad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Athabāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Majrá al Ghāf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abū Mūsá",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩaşat al Bidīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Za‘bah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţawī Khadaraq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Masāfirah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩām Ḩām",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rā‘fah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩamrānīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nadd al Ḩumr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Ra’s",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Aţ Ţawār",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qawz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bū Rays",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Badiyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sikkat al Khayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Lusaylī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Suwayḩān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "An Nakhīl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Sūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mu‘amūrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Difān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khazām",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩamīdīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩiz̧āyib az Zānah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bū Ḩaşā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Waheda",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mamzer",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hor Al Anz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khabeesi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Twar First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qusais First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Twar Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qusais Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qusais Third",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muhaisanah Third",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muhaisanah Fourth",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muhaisanah Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Karama",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jafliya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hudaiba",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hudaba",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Bada",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Wasl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumeira Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumeira Third",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Saffa First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Saffa Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Um Suqaim Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Manara",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Um Al Sheif",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Quoz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Safouh First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Barsha",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Barshaa Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Barshaa Third",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Knowledge Village",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Emirates Hill Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Emirates Hill Third",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Emirates Hill First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "The Palm Jumeirah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Za'abeel",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Oud Metha",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Khaildia Suburb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nud",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abu Sangara",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bu Danig",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mahatah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghuhaiba",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Yarmook",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Manakh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Aber",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Samnan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khouzamiya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Shahab",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Talae",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rifa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Darrare",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Turrfana",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Um Tarrafa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Marijah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Shuwaiheen",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghuwair",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nabba",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Maysaloon",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Sharq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hazana",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jazzat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Nahda First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Nahda Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qusais Industrial Area First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qusais Industrial Area Second",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qusais Industrial Area Third",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fayha",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fallaj",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Azrra",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Riqa Suburb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Ghafiya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Subaikhi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shargan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Ramla West",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ramla East",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nasserya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ramtha",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Goaz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ramaqia",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wasit Suburb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Swehat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muwafjah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Eliash",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "AL Heera Suburb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al nekhailat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mirgab",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rifah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rumailah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nakhil",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Owan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Bustan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Butain",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Raha Corniche",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumeirah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jebel Dhanna",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Aqqah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bur Dubai",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Theeb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghizaimri",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Girath",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fuqait",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jareef",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sram",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Yalah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Thoban",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hinya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mariah United Group",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Madīnah al Qadīmah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ar Rawḑah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat Limghadar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Ḩawīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ar Ra’s B",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ar Ra’s D",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ar Ra’s A",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ad Dār al Bayḑā’ A",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ad Dār al Bayḑā’ B",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Khawr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ar Riqqah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat ar Ra’s J",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Maydān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqah al Ḩadīthah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Ḩumrah B",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Ḩumrah J",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al ‘Ahd",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Ḩumrah D",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat Umm al Qaywayn aţ Ţibbīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Ḩumrah A",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩazaywah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Adhīb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Ramlah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Salamah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Abraq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Surrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muhadhdhib",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Kābir",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Labsah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rāshidīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qaşr al Baḩr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Ra’s al Akhḑar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khubayrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khālidīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩişn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Madīnat Zāyid",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qaryat at Turāth",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Manhal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "An Nādī as Siyāḩī",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Baladīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Az̧ Z̧afrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Az Za‘āb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rawḑah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Karāmah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muşallá",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ittiḩād",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Āl Nahyān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Waḩdah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Murūr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mushrif",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qaşr ash Shāţi’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩadbat az Za‘farānah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Az Zahrā’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Amān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rīḩān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muzūn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat al Maţār",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sās an Nakhl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jāmi‘ al Kabīr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqah Bayn al Jisrayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Madīnat aḑ Ḑubbāţ",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shāţi’ ar Rāḩah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Khalifah A City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shakhbout City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Discovery Gardens",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mizhar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mirdif",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Madīnat Badr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muḩayşnah Shamāl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩamrīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat Dubayy at Ta‘līmīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hawr al ‘Anz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Minţaqat as Sūq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mintaqat as Sūq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩayy al Bastakīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zarībat Dawīy",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mankhūl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩuḑaybah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Aş Şafā",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Qaryat Shīkāghū Bītsh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dawwār Burj Nahār",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Burj Nahār",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Maţīnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muraqqabāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Riqqah Sharq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Riqqah al Buţayn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Būr Sa‘īd",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nāyf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Sabkhah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ash Shamāl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sikkat al Khayl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Aḑ Ḑaghāyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "‘Ayāl Nāşir",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Murar al Qadīm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Murar al Jadīd",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "An Nakhl",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Riqqah Gharb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Riqqah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ḩamrīyah Dubayy",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Baḩārnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ţawī aş Şāygh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Usbij",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muşallá",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ma‘sharat al Baḩārnah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Umm Hurayr",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rifā‘ah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Balūsh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ras Dibba",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Biyātah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khawānīj",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jaddāf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Buţīn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ras al Khor",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Warqaa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "International City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubailand",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Academic City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Marqadh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jebel Ali Village",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Discovery Gardens",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumeirah Lake Towers",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mina al Seyahi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Marina",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Sports City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Media City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Internet City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Sufouh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Safa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Kifaf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rumaylah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Sawān",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ar Rāshidīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mushayrif",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mushayrif at Tijārīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "An Na‘īmīyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Az Zahrā’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jurf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Muwayhāt",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Az Zawrā’",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ḩilyū",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Majaz 1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Majaz",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Majaz 3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abu Shagara",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Bu Deniq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mussalla",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Soor",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dasman",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Abar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khezammia",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Shahba",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Darari",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Tala’a",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghaphia",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ezra",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Homah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mansura",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qadasia",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sharqan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Fisht",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rifa’ah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Seef",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Gulayaa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bu Tina",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nabba’a",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mujarrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Merraija",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Sheyoukh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Juhail",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Soor Square",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "King Faisal Square",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mowaileh Commercial",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mowaileh Camp",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "University City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Juraina",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rifa’a",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Tarrfah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Noaf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Qarrayen",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hoashi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Basteen Falah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "As Saţwah Sharq",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Festival City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai International Financial Centre",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Healthcare City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Palm Jebel Ali",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Downtown Dubai",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumeirah Lakes",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "The Greens",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jumeirah Residences",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sheikh Zayed",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dubai Investments Park",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghayathi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghantoot",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bab Al Shams",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abu Dab National Exhibition Centre",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jebel Ali",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al ‘Arād",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bani Yas City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Musaffah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zayed City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Shamkhah City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Reef Al Fujairah City",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Barsha First",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Wiqan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al'Arad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Araad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dafalas",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Musaibat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ras Ash",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Baighit",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shairi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ruwais",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Saliya Al-Baqal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sal Haqil",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Barut",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Atmar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Silay Al Khatami",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mak Sikek",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Me4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mw5",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd8",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U26",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U52",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd80",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Haramiya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Wahidah East",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mzw12",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghufayliyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Muquab",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Miheyyer",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Huwethah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W66",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hai Al Humaira",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mi10",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U27",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Arad 10",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Markaz Al Khail",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Haylah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Bazm Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Yaerah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U53",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Maragh",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Bahya Old",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Oud Al Hassah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shabhanat Asharej",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hai Al Maahad",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hayer 18",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M23",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E6",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W48",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mz23",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Sallan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W27",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Samha_T",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hulawi",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Naglah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wadi Simni",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hai Al Jabal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hai Al Mutawaa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W14_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Diwan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wadi Al Darb East",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Madinat Zayed Liwa Road",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sahab",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ghail",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Suwaidah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd73",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bida Al Samah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Abu Dhabi International Airport",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M5",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E30",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ridem",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Me5",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ugdat Al Ameriya",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bw4_B",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rahba Farms",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd97",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mazyad 6",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nahda East",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mudaifena Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd102",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Nahda Farms",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rbw14",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Me11",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mz12",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W40",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M39",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E22_02",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Zenyar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Lahliyyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mn4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bida Eqal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mi23",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bida Murkhan North",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mn1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bu Klabiah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W62",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ajban",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ghanadhah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E7",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Rumailah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd90",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M38",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd107",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Z12_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rbw4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Umm Alghurban",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U03",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M32_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd141",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hs3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh15",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bida Harib",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd39",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Mahatta",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mghayel Salem",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Dhafra Region",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W10",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mn6",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mafraq Industrial Area",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W41",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Icad V",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd129",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sw6",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd34",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mi4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wb3_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rahba_Q",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E18_02",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd119",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd114",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "North Dubayyah Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Se45",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W20",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd150",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd82",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd117",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Seih Al Sedeirah4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh35",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh37",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sh13",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh33",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W23_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bida Shaaban",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W51",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shibak 1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd132",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rs6",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Malash Forests",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd101",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W45",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mi11",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sdw3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mi9",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd148",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd69",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd63",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd93",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd124",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd49",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E34_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E23",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd108",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd37",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W44",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd38",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd86",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W4_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Me2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Misbah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd106",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Damsah 2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W49",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hai Al Qalaa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bu Bsala Forests",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M43",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mw3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jizza",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Batha Bin Hilal",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M32_02",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Oshush",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wadi Al Khabb",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W68",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sh16",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dhaher 2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M12",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U28",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd104",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mulqatah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Dhafrah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh27",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rawdat Al Reef",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Samha West Old",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh41",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Halat Al Bahrani Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W19_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M17",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W52_03",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M8",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mi6",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd122",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Khaznah 1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W16",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E19_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bw4_D",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Arose",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sdw1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M34",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W59_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Bu Rahm",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Eb3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rahba_B",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd89",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd77",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Wathba Farms",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd74",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Nurai Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shabiat Umm Ghaffa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh44",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Malagit",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E10",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rbw9",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Raknah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wazeel South",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Fn2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Adg1",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Wadi Al Darb North",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd140",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W52_02",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mz28",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hw4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Msh34",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Seemah Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Juaiber",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Ssain",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Gelaiaa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Hamiyaniyyah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Dulaymah 2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mahader Liwa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rahba_G",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Saleem",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sayh Al Lahamah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Droob Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Jn",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd92",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Sout",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W22",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Umm Al Hazzan",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Se4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sw3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "E14_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Eb4",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd143",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Arad 2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shiebat Bin Anbar",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Shibak 3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Hai Al Salama",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Harat Mohd Ibn Khalifa",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Tuwaissah",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd152",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Sayh Al Saham 2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Jarf",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd139",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Rd3",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "M45",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "W15_01",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Ys2",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Al Seebah Island",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Musat",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "U20",
+    "timezone": "Asia/Dubai"
+  },
+  {
+    "country": "AE",
+    "city": "Mghayel Metha",
+    "timezone": "Asia/Dubai"
+  }
+]
