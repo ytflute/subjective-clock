@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>世界同步時鐘</title>
+    <title>甦醒地圖 WAKE UP WORLD MAP</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* 基本頁面和容器樣式 */
@@ -27,7 +27,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             width: 100%;
             max-width: 650px;
-            text-align: center;
+            text-align: center; /* 容器內整體文字居中 */
             margin-top: 20px;
         }
 
@@ -36,7 +36,7 @@
             margin-bottom: 15px;
         }
 
-        p {
+        p { /* 全域 p 標籤樣式 */
             line-height: 1.6;
             color: #555;
             margin-bottom: 15px;
@@ -117,6 +117,8 @@
         .tab-content {
             display: none;
             animation: fadeIn 0.5s;
+            /* *** 修改點：讓分頁內容本身也 text-align: center *** */
+            text-align: center; 
         }
 
         @keyframes fadeIn {
@@ -134,8 +136,25 @@
             background-color: #fdfdfd;
             border-radius: 8px;
             border: 1px solid #eee;
+            /* *** 修改點：設為 inline-block 以便被父元素的 text-align:center 影響 *** */
+            display: inline-block; 
+            /* *** 修改點：重設 #result 內部的文字對齊方式，除非子元素另有設定 *** */
+            text-align: left; 
+            width: auto; /* 允許寬度根據內容調整 */
+            max-width: 100%; /* 但不超過父容器 */
         }
-        #resultText { min-height: 50px; margin-bottom: 15px; font-size: 1.1em; }
+        #resultText { 
+            min-height: 50px; 
+            margin-bottom: 15px; 
+            font-size: 1.1em; 
+            /* *** 修改點：讓結果文字本身居中 *** */
+            text-align: center; 
+        }
+        #flagContainer { 
+            /* *** 修改點：讓國旗容器也 text-align: center *** */
+            text-align: center;
+            min-height:40px;
+        }
         #flagContainer img { 
             max-width: 50px; 
             height: auto; 
@@ -159,6 +178,8 @@
             background-color: #f9f9f9;
             padding: 8px;
             border-radius: 4px;
+            /* *** 修改點：確保除錯資訊靠左對齊 *** */
+            text-align: left; 
         }
 
         #historyList {
@@ -217,10 +238,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>世界同步時鐘</h1>
+        <h1>甦醒地圖 WAKE UP WORLD MAP</h1>
 
         <div class="user-section">
-            <label for="userName">你的顯示名稱 (用於歷史記錄):</label>
+            <label for="userName">輸入你的名字:</label>
             <input type="text" id="userName" placeholder="輸入你的名稱...">
             <button id="setUserNameButton">設定/更新名稱</button>
             <p>目前資料識別碼: <span id="currentUserId">載入中...</span> (此ID用於區分不同使用者的記錄)</p>
@@ -233,26 +254,27 @@
         </div>
 
         <div id="ClockTab" class="tab-content active">
-            <p>按下按鈕，看看你這一天的開始，已經游移到地球上哪個角落？</p>
+            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒與開啟這一天？</p>
             <button id="findCityButton" disabled>開始這一天</button>
             
             <div id="result">
                 <p id="resultText"></p>
-                <div id="flagContainer" style="min-height:40px;">
+                <div id="flagContainer"> 
                     <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
                 </div>
-                <div id="mapContainer"></div>
+                <div id="mapContainer">
+                </div>
                 <small id="debugInfo"></small>
             </div>
         </div>
 
         <div id="HistoryTab" class="tab-content">
-            <h2>你的起床時間軌跡</h2>
-            <p>這裡會顯示你過去記錄的起床時間和對應的地球角落。</p>
+            <h2>你的每日起床地圖軌跡</h2>
+            <p>記錄關於你每日於地球上的哪一個角落起床。</p>
             <button id="refreshHistoryButton">刷新歷史記錄</button>
             <ul id="historyList"></ul>
             <div id="historyMapContainer">
-                
+                <p>地圖軌跡功能已移除。</p>
             </div>
             <small id="historyDebugInfo"></small>
         </div>
