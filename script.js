@@ -1,19 +1,167 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // 從 window 中獲取 Firebase SDK 函數
+    const {
+        initializeApp,
+        getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+        getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc,
+        setLogLevel // 引入 setLogLevel
+    } = window.firebaseSDK;
+
+    // DOM 元素獲取
     const findCityButton = document.getElementById('findCityButton');
-    // 更新獲取 DOM 元素的引用
     const resultTextDiv = document.getElementById('resultText');
-    const flagContainerDiv = document.getElementById('flagContainer'); // 雖然未使用此變數，但保留以備將來可能需要操作容器本身
     const countryFlagImg = document.getElementById('countryFlag');
     const mapContainerDiv = document.getElementById('mapContainer');
     const debugInfoSmall = document.getElementById('debugInfo');
 
+    const userNameInput = document.getElementById('userName');
+    const setUserNameButton = document.getElementById('setUserNameButton');
+    const currentUserIdSpan = document.getElementById('currentUserId');
+    const currentUserDisplayNameSpan = document.getElementById('currentUserDisplayName');
+    
+    const historyListUl = document.getElementById('historyList');
+    const historyMapContainerDiv = document.getElementById('historyMapContainer');
+    const historyDebugInfoSmall = document.getElementById('historyDebugInfo');
+    const refreshHistoryButton = document.getElementById('refreshHistoryButton');
+
+    // 全域變數
     let citiesData = [];
+    let db, auth;
+    let currentUserId = null;
+    let userDisplayName = ""; 
+
+    // Firebase 設定 (從 Canvas 環境和使用者提供的設定獲取)
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history'; // 用於 Firestore 路徑
+    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+    // *** 使用者提供的 Firebase 設定物件 ***
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", // 請替換為你的真實 API Key
+      authDomain: "subjective-clock.firebaseapp.com",
+      projectId: "subjective-clock",
+      storageBucket: "subjective-clock.firebasestorage.app", // 更正: 應為 .appspot.com 或確認你的設定
+      messagingSenderId: "452566766153",
+      appId: "1:452566766153:web:522312f3ed5c81403f2598",
+      measurementId: "G-QZ6440LZEM" // 如果你使用 Analytics
+    };
+    // *************************************
+
+    if (!firebaseConfig.apiKey || !firebaseConfig.projectId) { // 簡單檢查必要的設定是否存在
+        console.error("Firebase 設定不完整!");
+        alert("Firebase 設定不完整，應用程式無法初始化 Firebase。");
+        currentUserIdSpan.textContent = "Firebase 設定錯誤";
+        return;
+    }
+
+    // 初始化 Firebase
+    try {
+        setLogLevel('debug'); 
+        const app = initializeApp(firebaseConfig); // 使用你提供的 firebaseConfig
+        auth = getAuth(app);
+        db = getFirestore(app);
+        console.log("Firebase 初始化成功。App ID (用於路徑):", appId, "Project ID (來自設定):", firebaseConfig.projectId);
+        // 如果需要 Analytics: const analytics = getAnalytics(app);
+    } catch (e) {
+        console.error("Firebase 初始化失敗:", e);
+        currentUserIdSpan.textContent = "Firebase 初始化失敗";
+        alert("Firebase 初始化失敗，部分功能可能無法使用。");
+        return;
+    }
+
+    // Firebase 認證狀態監聽
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            currentUserId = user.uid;
+            currentUserIdSpan.textContent = currentUserId;
+            console.log("使用者已認證:", currentUserId);
+            await loadUserDisplayName(); 
+            
+            if (citiesData.length > 0) {
+                findCityButton.disabled = false;
+            }
+            if (document.getElementById('HistoryTab').classList.contains('active')) {
+                loadHistory();
+            }
+        } else {
+            console.log("使用者未認證，嘗試登入...");
+            currentUserIdSpan.textContent = "認證中...";
+            if (initialAuthToken) {
+                console.log("嘗試使用 initialAuthToken 登入...");
+                signInWithCustomToken(auth, initialAuthToken)
+                    .then((userCredential) => {
+                        console.log("使用 initialAuthToken 登入成功:", userCredential.user.uid);
+                    })
+                    .catch((error) => {
+                        console.error("使用 initialAuthToken 登入失敗, 嘗試匿名登入:", error.code, error.message);
+                        signInAnonymously(auth).catch(anonError => {
+                            console.error("匿名登入失敗:", anonError);
+                            currentUserIdSpan.textContent = "認證失敗";
+                            alert("Firebase 認證失敗，無法儲存歷史記錄。");
+                        });
+                    });
+            } else {
+                 console.log("未提供 initialAuthToken, 嘗試匿名登入...");
+                 signInAnonymously(auth).catch(error => {
+                    console.error("匿名登入失敗:", error);
+                    currentUserIdSpan.textContent = "認證失敗";
+                    alert("Firebase 認證失敗，無法儲存歷史記錄。");
+                });
+            }
+        }
+    });
+
+    // 載入使用者顯示名稱
+    async function loadUserDisplayName() {
+        if (!currentUserId) return;
+        const userProfileRef = doc(db, `artifacts/${appId}/users/${currentUserId}/profiles/userData`);
+        try {
+            const docSnap = await getDoc(userProfileRef);
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                userDisplayName = data.displayName || "";
+                userNameInput.value = userDisplayName;
+                currentUserDisplayNameSpan.textContent = userDisplayName || "未設定";
+                console.log("已載入使用者顯示名稱:", userDisplayName);
+            } else {
+                console.log("使用者設定檔不存在。");
+                currentUserDisplayNameSpan.textContent = "未設定";
+            }
+        } catch (e) {
+            console.error("讀取使用者名稱失敗:", e);
+            currentUserDisplayNameSpan.textContent = "讀取名稱失敗";
+        }
+    }
+
+    // 設定使用者顯示名稱
+    setUserNameButton.addEventListener('click', async () => {
+        if (!currentUserId) {
+            alert("請先等待認證完成。");
+            return;
+        }
+        const newDisplayName = userNameInput.value.trim();
+        if (!newDisplayName) {
+            alert("名稱不能為空。");
+            return;
+        }
+        const userProfileRef = doc(db, `artifacts/${appId}/users/${currentUserId}/profiles/userData`);
+        try {
+            await setDoc(userProfileRef, {
+                displayName: newDisplayName,
+                updatedAt: serverTimestamp() 
+            }, { merge: true }); 
+            
+            userDisplayName = newDisplayName; 
+            currentUserDisplayNameSpan.textContent = userDisplayName;
+            alert("名稱已更新！");
+            console.log("使用者顯示名稱已儲存:", newDisplayName);
+        } catch (e) {
+            console.error("儲存使用者名稱失敗:", e);
+            alert("儲存名稱失敗，請檢查控制台錯誤。");
+        }
+    });
 
     // 1. 載入城市數據
-    // 請確保 cities_data.json 包含以下欄位:
-    // city (英文城市名), country (英文國家名), timezone, latitude, longitude (經度), country_iso_code (兩字母小寫國碼)
-    // city_zh (中文城市名, 可選), country_zh (中文國家名, 可選)
-    fetch('cities_data.json') // 確保此檔案與 HTML 檔案在同一目錄，或路徑正確
+    fetch('cities_data.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -22,11 +170,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             citiesData = data;
-            findCityButton.disabled = false; // 數據載入完成後啟用按鈕
             console.log("城市數據已載入", citiesData.length, "筆");
             if (citiesData.length === 0) {
                 resultTextDiv.innerHTML = "提示：載入的城市數據為空。請檢查 cities_data.json 檔案是否包含有效的城市資料。";
                 findCityButton.disabled = true;
+            } else if (currentUserId) { 
+                findCityButton.disabled = false;
             }
         })
         .catch(e => {
@@ -36,35 +185,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     findCityButton.addEventListener('click', findMatchingCity);
+    refreshHistoryButton.addEventListener('click', loadHistory);
 
-    // 輔助函數：解析 "GMT+05:30" 或 "UTC-7:00" 這樣的偏移字串為小時數
     function parseOffsetString(offsetStr) {
         if (!offsetStr || typeof offsetStr !== 'string') return NaN;
         const cleaned = offsetStr.replace('GMT', '').replace('UTC', '').trim();
         const signMatch = cleaned.match(/^([+-])/);
-        const sign = signMatch ? (signMatch[1] === '+' ? 1 : -1) : 1; // Assume positive if no sign and just numbers
+        const sign = signMatch ? (signMatch[1] === '+' ? 1 : -1) : 1;
         const numericPart = signMatch ? cleaned.substring(1) : cleaned;
         const parts = numericPart.split(':');
         const hours = parseInt(parts[0], 10);
         const minutes = parts[1] ? parseInt(parts[1], 10) : 0;
-
         if (isNaN(hours) || isNaN(minutes)) return NaN;
-
         return sign * (hours + minutes / 60);
     }
 
-    // 輔助函數：從 IANA 時區名稱獲取當前 UTC 偏移量 (小時)
     function getCityUTCOffsetHours(ianaTimeZone) {
         try {
             const now = new Date();
-            const formatter = new Intl.DateTimeFormat('en', { // 'en' to ensure consistent GMT/UTC string format
+            const formatter = new Intl.DateTimeFormat('en', {
                 timeZone: ianaTimeZone,
-                timeZoneName: 'longOffset', // Tries to get "GMT+X:XX" or "UTC+X:XX"
+                timeZoneName: 'longOffset',
             });
             const parts = formatter.formatToParts(now);
             let offsetStringVal = "";
             for (const part of parts) {
-                // Different browsers and Intl versions might place the offset in different part types
                 if (part.type === 'timeZoneName' || part.type === 'unknown' || part.type === 'literal') {
                     if ((part.value.startsWith('GMT') || part.value.startsWith('UTC')) && (part.value.includes('+') || part.value.includes('-'))) {
                         offsetStringVal = part.value;
@@ -72,43 +217,44 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
-            // Fallback if formatToParts doesn't yield a clear offset string directly
             if (!offsetStringVal) {
-                const formattedDateString = formatter.format(now); // e.g., "5/22/2025, GMT-07:00"
+                const formattedDateString = formatter.format(now);
                 const match = formattedDateString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
                 if (match && match[0]) {
                     offsetStringVal = match[0];
                 }
             }
-
             if (offsetStringVal) {
                 return parseOffsetString(offsetStringVal);
             } else {
                 console.warn("無法從 Intl.DateTimeFormat 獲取時區偏移字串:", ianaTimeZone, "Parts:", parts);
-                return NaN; // Return NaN if offset cannot be determined
+                return NaN;
             }
         } catch (e) {
             console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
-            return NaN; // Invalid IANA timezone name will cause an error
+            return NaN;
         }
     }
 
-    // Cache for timezone offsets to improve performance
     const timezoneOffsetCache = new Map();
 
     function clearPreviousResults() {
         resultTextDiv.innerHTML = "";
         countryFlagImg.src = "";
-        countryFlagImg.alt = "國家國旗"; // Reset alt text
-        countryFlagImg.style.display = 'none'; // Hide flag initially
-        mapContainerDiv.innerHTML = ""; // Clear map
-        debugInfoSmall.innerHTML = ""; // Clear debug info
+        countryFlagImg.alt = "國家國旗";
+        countryFlagImg.style.display = 'none';
+        mapContainerDiv.innerHTML = "";
+        debugInfoSmall.innerHTML = "";
     }
 
-    function findMatchingCity() {
-        clearPreviousResults(); // Clear previous results
+    async function findMatchingCity() { 
+        clearPreviousResults();
         console.log("--- 開始尋找匹配城市 ---");
 
+        if (!currentUserId) {
+            alert("使用者未認證，無法記錄歷史。請刷新頁面或檢查網路連線。");
+            return;
+        }
         if (citiesData.length === 0) {
             resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空，無法尋找城市。";
             console.log("錯誤：城市數據未載入或為空。");
@@ -121,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const userTimezoneOffsetMinutes = userLocalDate.getTimezoneOffset();
         const userUTCOffsetHours = -userTimezoneOffsetMinutes / 60;
 
-        // Round user's minutes to the nearest 15 for target UTC offset calculation
         let adjustedUserLocalHours = userLocalHours;
         let adjustedUserLocalMinutes = Math.round(userLocalMinutes / 15) * 15;
 
@@ -131,8 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const userLocalHoursDecimalForTarget = adjustedUserLocalHours + adjustedUserLocalMinutes / 60;
         const targetUTCOffsetHours = 8 - userLocalHoursDecimalForTarget + userUTCOffsetHours;
-
-        // Latitude calculation still uses original userLocalMinutes
         const targetLatitude = 90 - (userLocalMinutes / 59) * 180;
 
         console.log(`用戶實際時間: ${userLocalHours}:${userLocalMinutes < 10 ? '0' : ''}${userLocalMinutes} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
@@ -141,15 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
         console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
+
         let candidateCities = [];
-        console.log(`開始遍歷 ${citiesData.length} 個城市數據...`);
         for (const city of citiesData) {
-            // Ensure essential data exists, including longitude and country_iso_code for map and flag
             if (!city || !city.timezone || typeof city.latitude !== 'number' || typeof city.longitude !== 'number' || !city.country_iso_code) {
-                // console.warn("跳過格式不正確或缺少必要資訊 (timezone, latitude, longitude, country_iso_code) 的城市數據:", city);
                 continue;
             }
-
             let cityUTCOffset;
             if (timezoneOffsetCache.has(city.timezone)) {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
@@ -159,37 +299,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     timezoneOffsetCache.set(city.timezone, cityUTCOffset);
                 }
             }
-            
-            if (isNaN(cityUTCOffset)) {
-                // console.warn(`無法獲取 ${city.city} (${city.timezone}) 的 UTC 偏移量，跳過此城市。`);
-                continue;
-            }
+            if (isNaN(cityUTCOffset)) continue;
 
-            // Check if timezone matches (tolerance of +/- 30 minutes)
-            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { // 0.5 hours = 30 minutes
-                console.log(`城市 "${city.city}" (${city.timezone}) 的 UTC 偏移 ${cityUTCOffset.toFixed(2)} 符合目標範圍。加入候選。`);
+            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { 
                 candidateCities.push(city);
-            } else {
-                // Optional: Log cities that don't match the time zone criteria
-                // console.log(`城市 "${city.city}" (${city.timezone}) 的 UTC 偏移 ${cityUTCOffset.toFixed(2)} 不符合目標範圍。`);
             }
         }
 
-        console.log("符合時區條件的候選城市數量:", candidateCities.length);
-
         if (candidateCities.length === 0) {
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-            resultTextDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上當地時間約為 <strong>8:00 AM</strong> (與計算目標時區相差30分鐘內) 且符合時區條件的地區。`;
+            resultTextDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上當地時間約為 <strong>8:00 AM</strong> (與計算目標時區相差30分鐘內) 且符合時區條件的地区。`;
             debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
             return;
         }
 
         let bestMatchCity = null;
         let minLatDiff = Infinity;
-        console.log("從候選城市中尋找緯度最接近的城市...");
         for (const city of candidateCities) {
             const latDiff = Math.abs(city.latitude - targetLatitude);
-            // console.log(`候選城市: ${city.city}, 緯度: ${city.latitude}, 與目標緯度差: ${latDiff.toFixed(2)}`);
             if (latDiff < minLatDiff) {
                 minLatDiff = latDiff;
                 bestMatchCity = city;
@@ -197,54 +324,189 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (bestMatchCity) {
-            console.log("找到最佳匹配城市:", bestMatchCity.city, bestMatchCity.country, bestMatchCity.country_iso_code);
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
             const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
 
-            // Prepare city and country display names (Chinese and English)
             const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
             const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
 
-            // Calculate approximate local time of the target city
             const bestCityCurrentUTCHours = userLocalHours + userLocalMinutes/60 - userUTCOffsetHours;
             let bestCityApproxLocalHour = bestCityCurrentUTCHours + cityActualUTCOffset;
             let bestCityApproxLocalMinute = (bestCityApproxLocalHour - Math.floor(bestCityApproxLocalHour)) * 60;
             bestCityApproxLocalHour = Math.floor(bestCityApproxLocalHour);
-
-             // Handle day crossing
             if (bestCityApproxLocalHour < 0) bestCityApproxLocalHour += 24;
             if (bestCityApproxLocalHour >= 24) bestCityApproxLocalHour -= 24;
             
             resultTextDiv.innerHTML = `你雖然在當地起床時間是 <strong>${userTimeFormatted}</strong>，<br>但是你的作息正好跟 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>${String(bestCityApproxLocalHour).padStart(2, '0')}:${String(Math.round(bestCityApproxLocalMinute)).padStart(2, '0')}</strong>) 接近 <strong>8:00 AM</strong> 一樣，<br>一起開啟了新的一天！`;
 
-            // Display country flag
             if (bestMatchCity.country_iso_code) {
                 countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
                 countryFlagImg.alt = `${finalCountryName} 國旗`;
-                countryFlagImg.style.display = 'inline-block'; // Or 'block'
-            } else {
-                countryFlagImg.style.display = 'none';
+                countryFlagImg.style.display = 'inline-block';
             }
 
-            // Display map (using OpenStreetMap iframe)
-            // Ensure bestMatchCity.latitude and bestMatchCity.longitude exist and are numbers
             if (typeof bestMatchCity.latitude === 'number' && typeof bestMatchCity.longitude === 'number') {
                 const lat = bestMatchCity.latitude;
                 const lon = bestMatchCity.longitude;
-                const mapZoom = 7; // Map zoom level, can be adjusted
                 mapContainerDiv.innerHTML = `<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-1},${lat-1},${lon+1},${lat+1}&amp;layer=mapnik&amp;marker=${lat},${lon}" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=7/${lat}/${lon}" target="_blank">查看較大地圖</a></small>`;
-            } else {
-                mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整。</p>";
             }
             
-            debugInfoSmall.innerHTML = `(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時区: ${bestMatchCity.timezone})`;
+            debugInfoSmall.innerHTML = `(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`;
+
+            const recordData = {
+                userId: currentUserId,
+                userDisplayName: userDisplayName || "匿名使用者", 
+                recordedAt: serverTimestamp(),
+                localTime: userTimeFormatted,
+                city: bestMatchCity.city,
+                country: bestMatchCity.country,
+                city_zh: bestMatchCity.city_zh || "",
+                country_zh: bestMatchCity.country_zh || "",
+                country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
+                latitude: bestMatchCity.latitude,
+                longitude: bestMatchCity.longitude,
+                targetUTCOffset: targetUTCOffsetHours,
+                matchedCityUTCOffset: isNaN(cityActualUTCOffset) ? null : cityActualUTCOffset
+            };
+            await saveHistoryRecord(recordData);
 
         } else {
-            console.log("在候選城市中未找到最佳緯度匹配。");
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
             resultTextDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>在符合時區的城市中，似乎找不到緯度匹配的城市。`;
             debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 目標緯度: ${targetLatitude.toFixed(2)})`;
         }
         console.log("--- 尋找匹配城市結束 ---");
+    }
+
+    async function saveHistoryRecord(recordData) {
+        if (!currentUserId) {
+            console.warn("無法儲存歷史記錄：使用者未登入。");
+            return;
+        }
+        const historyCollectionRef = collection(db, `artifacts/${appId}/users/${currentUserId}/clockHistory`);
+        try {
+            const docRef = await addDoc(historyCollectionRef, recordData);
+            console.log("歷史記錄已儲存，文件 ID:", docRef.id);
+        } catch (e) {
+            console.error("儲存歷史記錄到 Firestore 失敗:", e);
+        }
+    }
+
+    async function loadHistory() {
+        if (!currentUserId) {
+            historyListUl.innerHTML = '<li>請先設定使用者名稱或等待認證完成。</li>';
+            historyMapContainerDiv.innerHTML = '<p>登入後才能查看歷史地圖軌跡。</p>';
+            return;
+        }
+        historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
+        historyMapContainerDiv.innerHTML = '<p>載入地圖軌跡中...</p>';
+        historyDebugInfoSmall.textContent = "";
+
+        const historyCollectionRef = collection(db, `artifacts/${appId}/users/${currentUserId}/clockHistory`);
+        const q = query(historyCollectionRef, orderBy("recordedAt", "desc")); 
+
+        try {
+            const querySnapshot = await getDocs(q);
+            historyListUl.innerHTML = ''; 
+            if (querySnapshot.empty) {
+                historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
+                historyMapContainerDiv.innerHTML = '<p>尚無歷史記錄可顯示於地圖。</p>';
+                return;
+            }
+
+            const historyPoints = [];
+            let firstRecord = true;
+
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                const li = document.createElement('li');
+                const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
+                
+                const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
+                const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+
+                li.innerHTML = `<span class="date">${recordDate}</span> - 
+                                當地時間: <span class="time">${record.localTime || '未知'}</span> - 
+                                同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
+                historyListUl.appendChild(li);
+
+                if (typeof record.latitude === 'number' && typeof record.longitude === 'number') {
+                    historyPoints.push({
+                        lat: record.latitude,
+                        lon: record.longitude,
+                        city: cityDisplay,
+                        date: recordDate,
+                        isMostRecent: firstRecord 
+                    });
+                    firstRecord = false;
+                }
+            });
+
+            renderHistoryMap(historyPoints);
+
+        } catch (e) {
+            console.error("讀取歷史記錄失敗:", e);
+            historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
+            historyMapContainerDiv.innerHTML = '<p>讀取地圖軌跡失敗。</p>';
+            historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
+        }
+    }
+
+    function renderHistoryMap(points) {
+        if (!points || points.length === 0) {
+            historyMapContainerDiv.innerHTML = "<p>尚無歷史記錄可顯示於地圖。</p>";
+            return;
+        }
+
+        let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
+        
+        points.forEach((point) => { // 只計算邊界，標記字串後面再組
+            minLat = Math.min(minLat, point.lat);
+            maxLat = Math.max(maxLat, point.lat);
+            minLon = Math.min(minLon, point.lon);
+            maxLon = Math.max(maxLon, point.lon);
+        });
+        
+        const latMargin = (maxLat - minLat) * 0.2 || 1.0; // 增加邊距
+        const lonMargin = (maxLon - minLon) * 0.2 || 1.0;
+
+        // 確保邊界框不會超出有效範圍
+        const south = Math.max(-90, minLat - latMargin);
+        const west = Math.max(-180, minLon - lonMargin);
+        const north = Math.min(90, maxLat + latMargin);
+        const east = Math.min(180, maxLon + lonMargin);
+        
+        const bbox = `${west},${south},${east},${north}`;
+        
+        const maxMarkersToShow = 20; // 限制地圖上標記的數量
+        let displayMarkersString = "";
+        points.slice(0, maxMarkersToShow).forEach((point, index) => {
+             // OpenStreetMap marker URL 格式: marker=lat,lon[|lat,lon|...]
+             // 可以為不同的標記指定不同的圖示或顏色，但這裡使用預設
+             displayMarkersString += `${point.lat},${point.lon}${index < points.slice(0, maxMarkersToShow).length - 1 ? '|' : ''}`;
+        });
+
+        const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${displayMarkersString ? '&marker=' + displayMarkersString : ''}`;
+        
+        historyMapContainerDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>地圖顯示最近 ${Math.min(points.length, maxMarkersToShow)} 筆記錄位置。</small>`;
+        historyDebugInfoSmall.textContent = `地圖邊界框 (W,S,E,N): ${bbox}`;
+    }
+
+    window.openTab = function(evt, tabName) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+
+        if (tabName === 'HistoryTab' && currentUserId) {
+            loadHistory();
+        }
     }
 });
