@@ -117,7 +117,6 @@
         .tab-content {
             display: none;
             animation: fadeIn 0.5s;
-            /* *** 修改點：讓分頁內容本身也 text-align: center *** */
             text-align: center; 
         }
 
@@ -136,22 +135,18 @@
             background-color: #fdfdfd;
             border-radius: 8px;
             border: 1px solid #eee;
-            /* *** 修改點：設為 inline-block 以便被父元素的 text-align:center 影響 *** */
             display: inline-block; 
-            /* *** 修改點：重設 #result 內部的文字對齊方式，除非子元素另有設定 *** */
             text-align: left; 
-            width: auto; /* 允許寬度根據內容調整 */
-            max-width: 100%; /* 但不超過父容器 */
+            width: auto; 
+            max-width: 100%; 
         }
         #resultText { 
             min-height: 50px; 
             margin-bottom: 15px; 
             font-size: 1.1em; 
-            /* *** 修改點：讓結果文字本身居中 *** */
             text-align: center; 
         }
         #flagContainer { 
-            /* *** 修改點：讓國旗容器也 text-align: center *** */
             text-align: center;
             min-height:40px;
         }
@@ -178,7 +173,6 @@
             background-color: #f9f9f9;
             padding: 8px;
             border-radius: 4px;
-            /* *** 修改點：確保除錯資訊靠左對齊 *** */
             text-align: left; 
         }
 
@@ -212,6 +206,14 @@
         #historyList .location { color: #555; text-align: right; flex-grow: 1;}
 
         #findCityButton, #refreshHistoryButton {
+            /* *** 修改點：使按鈕成為塊級元素並置中 *** */
+            display: block;
+            width: -webkit-fit-content; /* Safari/Chrome */
+            width: -moz-fit-content;    /* Firefox */
+            width: fit-content;         /* Standard */
+            margin-left: auto;
+            margin-right: auto;
+            /* 原有樣式保留 */
             padding: 12px 25px;
             font-size: 16px;
             color: white;
@@ -238,7 +240,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>甦醒地圖 WAKE UP WORLD MAP</h1>
+        <h1>甦醒地圖 Wake Up World Map</h1>
 
         <div class="user-section">
             <label for="userName">輸入你的名字:</label>
