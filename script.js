@@ -469,8 +469,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
 
                 li.innerHTML = `<span class="date">${recordDate}</span> - 
-                                當地時間: <span class="time">${record.localTime || '未知'}</span> - 
-                                同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
+                                按鈕時間: <span class="time">${record.localTime || '未知'}</span> - 
+                                甦醒角落為: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 historyListUl.appendChild(li);
             });
 
