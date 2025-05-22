@@ -1,69 +1,18 @@
-<script>
-function getTimezoneOffsetInHours(timezone) {
-  try {
-    const now = new Date();
-    const tzTime = new Intl.DateTimeFormat('en-US', {
-      timeZone: timezone,
-      hour12: false,
-      hour: '2-digit',
-      minute: '2-digit'
-    }).formatToParts(now);
-
-    const localHour = now.getUTCHours();
-    const localMin = now.getUTCMinutes();
-
-    const tzHour = Number(tzTime.find(p => p.type === 'hour')?.value || 0);
-    const tzMin = Number(tzTime.find(p => p.type === 'minute')?.value || 0);
-
-    const localTotalMin = localHour * 60 + localMin;
-    const tzTotalMin = tzHour * 60 + tzMin;
-
-    let diff = (tzTotalMin - localTotalMin) / 60;
-    if (diff < -12) diff += 24;
-    if (diff > 12) diff -= 24;
-    return diff;
-  } catch (e) {
-    return null;
-  }
-}
-
-fetch('cities_with_timezones.json')
-  .then(res => res.json())
-  .then(cities => {
-    const now = new Date();
-    const nowMin = now.getHours() * 60 + now.getMinutes();
-    const offsetFrom8AM = nowMin - 480; // 相對 08:00 的 offset（分鐘）
-    const localOffsetMin = -now.getTimezoneOffset();
-    const targetOffset = (localOffsetMin - offsetFrom8AM) / 60;
-    const latRatio = now.getMinutes() / 59;
-
-    const enriched = cities
-      .map(c => {
-        const offset = getTimezoneOffsetInHours(c.timezone);
-        return offset !== null ? { ...c, offset } : null;
-      })
-      .filter(c => c && typeof c.latitude === 'number');
-
-    const filtered = enriched.filter(c =>
-      Math.abs(c.offset - targetOffset) < 0.5
-    );
-
-    if (filtered.length === 0) {
-      document.getElementById('matchResult').innerText = '🌍 No match found.';
-      return;
-    }
-
-    const sorted = filtered.sort((a, b) => b.latitude - a.latitude);
-    const match = sorted[Math.floor(latRatio * (sorted.length - 1))];
-
-    document.getElementById('matchResult').innerHTML =
-      `☀️ Today, you started your day just like someone in <b>${match.country}</b>, <b>${match.city}</b>.`;
-  })
-  .catch(err => {
-    console.error("❌ Failed to load or process:", err);
-    document.getElementById("matchResult").innerText = "Data load failed.";
-  });
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-T">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界同步時鐘</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <div id="matchResult" style="margin-top:2rem; font-size:1.2rem;"></div>
+    <h1>世界同步時鐘</h1>
+    <p>按下按鈕，看看你的作息和地球上哪個角落的人同步在早上8點！</p>
+    <button id="findCityButton">尋找8:00AM的同步城市</button>
+    <div id="result">
+        </div>
+
+    <script src="script.js"></script>
 </body>
-</script>
+</html>
