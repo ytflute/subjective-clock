@@ -44,7 +44,6 @@
 
         .user-section {
             background-color: #f9f9f9;
-            /* *** 修改點：減少上下 padding *** */
             padding: 10px 15px; 
             border-radius: 8px;
             margin-bottom: 20px;
@@ -58,7 +57,6 @@
         }
         .user-section input[type="text"] {
             padding: 10px;
-            /* *** 修改點：減少輸入框下方 margin *** */
             margin-bottom: 8px; 
             border: 1px solid #ccc;
             border-radius: 6px;
@@ -79,12 +77,11 @@
             background-color: #0056b3;
         }
         .user-section p {
-            /* *** 修改點：減少字體大小和上下 margin *** */
             font-size: 0.85em; 
             color: #666;
             margin-top: 6px; 
-            margin-bottom: 6px; /* 也減少下方 margin */
-            line-height: 1.4; /* 稍微減少行高 */
+            margin-bottom: 6px; 
+            line-height: 1.4; 
         }
         .user-section span {
             font-weight: bold;
@@ -193,12 +190,14 @@
             background-color: #fff;
         }
         #historyList li {
-            padding: 10px 12px;
+            padding: 8px 10px; /* *** 修改點：進一步減少 padding 使其更緊湊 *** */
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: background-color 0.2s;
+            /* *** 修改點：設定列表項的基礎字體大小為更小的值 *** */
+            font-size: 0.8em; /* 例如，改為 0.8em */
         }
         #historyList li:hover {
             background-color: #f9f9f9;
@@ -206,9 +205,25 @@
         #historyList li:last-child {
             border-bottom: none;
         }
-        #historyList .date { font-weight: bold; color: #007bff; flex-shrink: 0; margin-right: 10px;}
-        #historyList .time { color: #28a745; margin-right: 10px; }
-        #historyList .location { color: #555; text-align: right; flex-grow: 1;}
+        /* *** 修改點：確保 .date, .time, .location 繼承或設定合適的大小 *** */
+        #historyList .date { 
+            font-weight: bold; 
+            color: #007bff; 
+            flex-shrink: 0; 
+            margin-right: 6px; /* *** 修改點：進一步減少間距 *** */
+            /* font-size: 1em; /* 如果希望與 li 相同，則設為 1em 或不設 */
+        }
+        #historyList .time { 
+            color: #28a745; 
+            margin-right: 6px; /* *** 修改點：進一步減少間距 *** */
+            /* font-size: 1em; */
+        }
+        #historyList .location { 
+            color: #555; 
+            text-align: right; 
+            flex-grow: 1;
+            /* font-size: 1em; */
+        }
 
         #findCityButton, #refreshHistoryButton {
             display: block;
@@ -259,7 +274,7 @@
         </div>
 
         <div id="ClockTab" class="tab-content active">
-            <p>按下按鈕，看看今天的你在地球上的哪個角落甦醒並開始這一天？</p>
+            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
             <button id="findCityButton" disabled>開始這一天</button>
             
             <div id="result">
