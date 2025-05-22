@@ -93,10 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function findMatchingCity() {
-        if (citiesData.length === 0) {
-            resultDiv.textContent = "城市數據尚未載入完成。";
-            return;
-        }
+            // 檢查時區是否匹配 (允許誤差以更容易找到城市)
+            // 0.26 小時約等於 15.6 分鐘。
+            // 這代表如果目標城市的實際時間與理想的 8:00 AM 相差約 ±15 分鐘，也會被納入候選。
+            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) < 0.26) { 
+                candidateCities.push(city);
+            }
 
         // 2. 獲取用戶當前本地時間
         const userLocalDate = new Date();
