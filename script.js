@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (bestCityApproxLocalHour < 0) bestCityApproxLocalHour += 24;
             if (bestCityApproxLocalHour >= 24) bestCityApproxLocalHour -= 24;
             
-            resultTextDiv.innerHTML = `你雖然在當地起床時間是 <strong>${userTimeFormatted}</strong>，<br>但是你的作息正好跟 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>${String(bestCityApproxLocalHour).padStart(2, '0')}:${String(Math.round(bestCityApproxLocalMinute)).padStart(2, '0')}</strong>) 接近 <strong>8:00 AM</strong> 一樣，<br>一起開啟了新的一天！`;
+            resultTextDiv.innerHTML = `今天的你，<br>跟 <strong>${finalCityName} (${finalCountryName})</strong> 的人<br>一起展開了新的一天！`;
 
             if (bestMatchCity.country_iso_code) {
                 countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
-        historyMapContainerDiv.innerHTML = '<p>地圖軌跡功能已移除。</p>'; 
+        historyMapContainerDiv.innerHTML = '<p></p>'; 
         historyDebugInfoSmall.textContent = "";
 
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
