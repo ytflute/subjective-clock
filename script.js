@@ -73,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (offsetStringVal) {
                 return parseOffsetString(offsetStringVal);
             } else {
-                // console.warn("無法從 Intl.DateTimeFormat 獲取時區偏移字串:", ianaTimeZone, "Parts:", parts);
+                console.warn("無法從 Intl.DateTimeFormat 獲取時區偏移字串:", ianaTimeZone, "Parts:", parts);
                 return NaN;
             }
         } catch (e) {
-            // console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
+            console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
             return NaN;
         }
     }
@@ -86,8 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const timezoneOffsetCache = new Map();
 
     function findMatchingCity() {
+        console.log("--- 開始尋找匹配城市 ---");
         if (citiesData.length === 0) {
             resultDiv.textContent = "錯誤：城市數據未載入或為空，無法尋找城市。";
+            console.log("錯誤：城市數據未載入或為空。");
             return;
         }
 
@@ -115,14 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log(`用戶實際時間: ${userLocalHours}:${userLocalMinutes < 10 ? '0' : ''}${userLocalMinutes} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
         console.log(`用於計算目標偏移的調整後用戶時間: ${adjustedUserLocalHours}:${adjustedUserLocalMinutes < 10 ? '0' : ''}${adjustedUserLocalMinutes}`);
-        console.log(`尋找目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}，目標緯度: ${targetLatitude.toFixed(2)}`);
+        console.log(`尋找目標 UTC 偏移 (targetUTCOffsetHours): ${targetUTCOffsetHours.toFixed(2)} (即 UTC ${targetUTCOffsetHours >= 0 ? '+' : ''}${targetUTCOffsetHours.toFixed(2)})`);
+        console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
+        console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
         let candidateCities = [];
+        console.log(`開始遍歷 ${citiesData.length} 個城市數據...`);
         for (const city of citiesData) {
             if (!city || !city.timezone || typeof city.latitude !== 'number') {
-                // console.warn("跳過格式不正確的城市數據:", city);
+                console.warn("跳過格式不正確或缺少必要資訊的城市數據:", city);
                 continue;
             }
+
             let cityUTCOffset;
             if (timezoneOffsetCache.has(city.timezone)) {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
@@ -132,14 +138,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     timezoneOffsetCache.set(city.timezone, cityUTCOffset);
                 }
             }
+
+            // console.log(`正在處理城市: ${city.city}, 時區: ${city.timezone}, 計算出的 UTC 偏移: ${cityUTCOffset ? cityUTCOffset.toFixed(2) : 'N/A'}`);
+
+
             if (isNaN(cityUTCOffset)) {
-                // console.warn(`無法獲取 ${city.city} (${city.timezone}) 的 UTC 偏移量`);
+                // console.warn(`無法獲取 ${city.city} (${city.timezone}) 的 UTC 偏移量，跳過此城市。`);
                 continue;
             }
+
             // 檢查時區是否匹配 (容許誤差最多 30 分鐘)
             // 0.5 小時 = 30 分鐘
-            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { // <--- 修改點
+            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) {
+                console.log(`城市 "${city.city}" (${city.timezone}) 的 UTC 偏移 ${cityUTCOffset.toFixed(2)} 符合目標範圍。加入候選。`);
                 candidateCities.push(city);
+            } else {
+                // 可選：如果想看哪些城市因時差不符被排除，可以取消註解下面這行
+                // console.log(`城市 "${city.city}" (${city.timezone}) 的 UTC 偏移 ${cityUTCOffset.toFixed(2)} 不符合目標範圍。`);
             }
         }
 
@@ -147,14 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (candidateCities.length === 0) {
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-            resultDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上正好是 <strong>8:00 AM</strong> (或與其相差30分鐘內) 且符合時區條件的地區。<br><small>(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})</small>`; // <--- 修改點
+            resultDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上當地時間約為 <strong>8:00 AM</strong> (與計算目標時區相差30分鐘內) 且符合時區條件的地區。<br><small>(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})</small>`;
             return;
         }
 
         let bestMatchCity = null;
         let minLatDiff = Infinity;
+        console.log("從候選城市中尋找緯度最接近的城市...");
         for (const city of candidateCities) {
             const latDiff = Math.abs(city.latitude - targetLatitude);
+            // console.log(`候選城市: ${city.city}, 緯度: ${city.latitude}, 與目標緯度差: ${latDiff.toFixed(2)}`);
             if (latDiff < minLatDiff) {
                 minLatDiff = latDiff;
                 bestMatchCity = city;
@@ -162,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (bestMatchCity) {
+            console.log("找到最佳匹配城市:", bestMatchCity.city);
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
             const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone); // 重新獲取以確保最新
 
@@ -182,9 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             resultDiv.innerHTML = `你雖然在當地起床時間是 <strong>${userTimeFormatted}</strong>，<br>但是你的作息正好跟 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>${String(bestCityApproxLocalHour).padStart(2, '0')}:${String(Math.round(bestCityApproxLocalMinute)).padStart(2, '0')}</strong>) 接近 <strong>8:00 AM</strong> 一樣，<br>一起開啟了新的一天！<br><small>(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})</small>`;
         } else {
-            // 理論上如果 candidateCities 有內容，這裡應該也會有 bestMatchCity
+            console.log("在候選城市中未找到最佳緯度匹配。");
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
             resultDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>在符合時區的城市中，似乎找不到緯度匹配的城市。<br><small>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 目標緯度: ${targetLatitude.toFixed(2)})</small>`;
         }
+        console.log("--- 尋找匹配城市結束 ---");
     }
 });
