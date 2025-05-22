@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 // 重新計算目標城市當時的大約8點 (或直接使用記錄中的值，如果有的話)
                 // 為了簡化，我們直接說明這是當時的同步情況
-                resultTextDiv.innerHTML = `這是你於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>8:00 AM</strong>) 同步，<br>一起開啟了新的一天！`;
+                resultTextDiv.innerHTML = `這是你於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>一起開啟了新的一天！`;
 
                 if (lastRecord.country_iso_code) {
                     countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
