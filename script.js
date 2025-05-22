@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // 從 window 中獲取 Firebase SDK 函數
     const {
         initializeApp,
         getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
         getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc,
-        setLogLevel 
+        setLogLevel
     } = window.firebaseSDK;
 
-    // DOM 元素獲取
+    // DOM 元素
     const findCityButton = document.getElementById('findCityButton');
     const resultTextDiv = document.getElementById('resultText');
     const countryFlagImg = document.getElementById('countryFlag');
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const userNameInput = document.getElementById('userName');
     const setUserNameButton = document.getElementById('setUserNameButton');
-    const currentUserIdSpan = document.getElementById('currentUserId');
+    const currentUserIdSpan = document.getElementById('currentUserId'); // 現在會顯示 sanitised display name
     const currentUserDisplayNameSpan = document.getElementById('currentUserDisplayName');
     
     const historyListUl = document.getElementById('historyList');
@@ -27,18 +26,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 全域變數
     let citiesData = [];
     let db, auth;
-    let currentUserId = null;
-    let userDisplayName = ""; 
+    let currentDataIdentifier = null; // 將用使用者輸入的名稱（處理後）作為資料路徑的識別碼
+    let rawUserDisplayName = ""; // 儲存未處理的使用者輸入名稱，用於顯示
 
     // Firebase 設定
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history'; 
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
     const firebaseConfig = {
-      apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", // 使用者提供的金鑰
+      apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", 
       authDomain: "subjective-clock.firebaseapp.com",
       projectId: "subjective-clock",
-      storageBucket: "subjective-clock.appspot.com", // 通常是 .appspot.com
+      storageBucket: "subjective-clock.appspot.com", 
       messagingSenderId: "452566766153",
       appId: "1:452566766153:web:522312f3ed5c81403f2598",
       measurementId: "G-QZ6440LZEM" 
@@ -51,13 +50,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // 初始化 Firebase
     try {
         setLogLevel('debug'); 
         const app = initializeApp(firebaseConfig); 
         auth = getAuth(app);
         db = getFirestore(app);
-        console.log("Firebase 初始化成功。App ID (用於路徑):", appId, "Project ID (來自設定):", firebaseConfig.projectId);
+        console.log("Firebase 初始化成功。App ID (用於路徑前綴):", appId, "Project ID (來自設定):", firebaseConfig.projectId);
     } catch (e) {
         console.error("Firebase 初始化失敗:", e);
         currentUserIdSpan.textContent = "Firebase 初始化失敗";
@@ -65,123 +63,123 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // Firebase 認證狀態監聽
+    // Firebase 認證狀態監聽 - 主要用於確保有一個已認證的會話
     onAuthStateChanged(auth, async (user) => {
         if (user) {
-            currentUserId = user.uid;
-            currentUserIdSpan.textContent = currentUserId;
-            console.log("使用者已認證:", currentUserId);
-            await loadUserDisplayName(); 
-            
-            if (citiesData.length > 0) {
+            console.log("Firebase 會話已認證 (UID):", user.uid);
+            // 注意：這裡的 user.uid 不再是 currentDataIdentifier 的主要來源
+            // currentDataIdentifier 將由使用者輸入的名稱決定
+            // 如果 currentDataIdentifier 已被設定（使用者已輸入名稱），則可以載入歷史或啟用按鈕
+            if (currentDataIdentifier && citiesData.length > 0) {
                 findCityButton.disabled = false;
             }
-            if (document.getElementById('HistoryTab').classList.contains('active')) {
+            if (currentDataIdentifier && document.getElementById('HistoryTab').classList.contains('active')) {
                 loadHistory();
             }
         } else {
-            console.log("使用者未認證，嘗試登入...");
-            currentUserIdSpan.textContent = "認證中...";
+            console.log("Firebase 會話未認證，嘗試登入...");
             if (initialAuthToken) {
-                console.log("嘗試使用 initialAuthToken 登入...");
                 signInWithCustomToken(auth, initialAuthToken)
-                    .then((userCredential) => {
-                        console.log("使用 initialAuthToken 登入成功:", userCredential.user.uid);
-                    })
                     .catch((error) => {
                         console.error("使用 initialAuthToken 登入失敗, 嘗試匿名登入:", error.code, error.message);
-                        signInAnonymously(auth).catch(anonError => {
-                            console.error("匿名登入失敗:", anonError);
-                            currentUserIdSpan.textContent = "認證失敗";
-                            alert("Firebase 認證失敗，無法儲存歷史記錄。");
-                        });
+                        signInAnonymously(auth).catch(anonError => console.error("匿名登入失敗:", anonError));
                     });
             } else {
-                 console.log("未提供 initialAuthToken, 嘗試匿名登入...");
-                 signInAnonymously(auth).catch(error => {
-                    console.error("匿名登入失敗:", error);
-                    currentUserIdSpan.textContent = "認證失敗";
-                    alert("Firebase 認證失敗，無法儲存歷史記錄。");
-                });
+                 signInAnonymously(auth).catch(error => console.error("匿名登入失敗:", error));
             }
         }
     });
     
-    async function loadUserDisplayName() {
-        if (!currentUserId) return;
-        const userProfileRef = doc(db, `artifacts/${appId}/users/${currentUserId}/profiles/userData`);
-        try {
-            const docSnap = await getDoc(userProfileRef);
-            if (docSnap.exists()) {
-                const data = docSnap.data();
-                userDisplayName = data.displayName || "";
-                userNameInput.value = userDisplayName;
-                currentUserDisplayNameSpan.textContent = userDisplayName || "未設定";
-                console.log("已載入使用者顯示名稱:", userDisplayName);
-            } else {
-                console.log("使用者設定檔不存在。");
-                currentUserDisplayNameSpan.textContent = "未設定";
-            }
-        } catch (e) {
-            console.error("讀取使用者名稱失敗:", e);
-            currentUserDisplayNameSpan.textContent = "讀取名稱失敗";
+    // 清理並格式化名稱以用作 Firestore 文件 ID
+    function sanitizeNameToFirestoreId(name) {
+        if (!name) return null;
+        // 1. 轉小寫
+        // 2. 移除開頭結尾空白
+        // 3. 將連續空白替換為單個底線
+        // 4. 移除 Firestore ID 不允許的特殊字元 (保留字母、數字、底線、連字號、點)
+        // 5. 確保不是 "." 或 ".."
+        // 6. 確保不以 "__" 開頭和結尾 (雖然 Firestore 允許，但避免與內部欄位衝突)
+        // 7. 截斷長度 (Firestore 文件 ID 上限 1500 bytes, UTF-8 可能更短)
+        let sanitized = name.toLowerCase().trim();
+        sanitized = sanitized.replace(/\s+/g, '_'); // 連續空白轉底線
+        sanitized = sanitized.replace(/[^a-z0-9_.-]/g, ''); // 移除非法字元
+        
+        if (sanitized === "." || sanitized === "..") {
+            sanitized = `name_${sanitized.replace(/\./g, '')}`; // 避免純點
         }
+        if (sanitized.startsWith("__") && sanitized.endsWith("__")) {
+             sanitized = `name${sanitized}`;
+        }
+        // 簡單截斷，實際應考慮 UTF-8 byte 長度
+        return sanitized.substring(0, 100) || null; // 如果處理後為空，則返回 null
     }
 
+    // 設定使用者名稱並將其作為資料識別碼
     setUserNameButton.addEventListener('click', async () => {
-        if (!currentUserId) {
-            alert("請先等待認證完成。");
+        const newDisplayNameRaw = userNameInput.value.trim();
+        if (!newDisplayNameRaw) {
+            alert("顯示名稱不能為空。");
             return;
         }
-        const newDisplayName = userNameInput.value.trim();
-        if (!newDisplayName) {
-            alert("名稱不能為空。");
+
+        const sanitizedName = sanitizeNameToFirestoreId(newDisplayNameRaw);
+        if (!sanitizedName) {
+            alert("處理後的名稱無效，請嘗試其他名稱。");
             return;
         }
-        const userProfileRef = doc(db, `artifacts/${appId}/users/${currentUserId}/profiles/userData`);
-        try {
-            await setDoc(userProfileRef, {
-                displayName: newDisplayName,
-                updatedAt: serverTimestamp() 
-            }, { merge: true }); 
-            
-            userDisplayName = newDisplayName; 
-            currentUserDisplayNameSpan.textContent = userDisplayName;
-            alert("名稱已更新！");
-            console.log("使用者顯示名稱已儲存:", newDisplayName);
-        } catch (e) {
-            console.error("儲存使用者名稱失敗:", e);
-            alert("儲存名稱失敗，請檢查控制台錯誤。");
+
+        currentDataIdentifier = sanitizedName;
+        rawUserDisplayName = newDisplayNameRaw;
+
+        currentUserIdSpan.textContent = currentDataIdentifier; // 顯示處理後的 ID
+        currentUserDisplayNameSpan.textContent = rawUserDisplayName; // 顯示原始輸入的名稱
+
+        console.log("使用者資料識別碼已設定為:", currentDataIdentifier);
+        alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
+
+        // 啟用按鈕
+        if (citiesData.length > 0 && auth.currentUser) { // 確保 Firebase 會話也已認證
+            findCityButton.disabled = false;
         }
+        if (document.getElementById('HistoryTab').classList.contains('active')) {
+            loadHistory(); // 如果在歷史分頁，重新載入該名稱的歷史
+        }
+        
+        // (可選) 儲存這個顯示名稱到一個 profile 文件，如果需要儲存其他設定
+        // const userProfileRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/profileData`);
+        // try {
+        //     await setDoc(userProfileRef, {
+        //         originalDisplayName: rawUserDisplayName, // 儲存原始名稱
+        //         lastSetAt: serverTimestamp()
+        //     }, { merge: true });
+        //     console.log("使用者原始顯示名稱已記錄。");
+        // } catch (e) {
+        //     console.error("記錄使用者原始顯示名稱失敗:", e);
+        // }
     });
 
     fetch('cities_data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             citiesData = data;
             console.log("城市數據已載入", citiesData.length, "筆");
             if (citiesData.length === 0) {
-                resultTextDiv.innerHTML = "提示：載入的城市數據為空。請檢查 cities_data.json 檔案是否包含有效的城市資料。";
+                resultTextDiv.innerHTML = "提示：載入的城市數據為空。";
                 findCityButton.disabled = true;
-            } else if (currentUserId) { 
+            } else if (currentDataIdentifier && auth.currentUser) { // 檢查是否已設定名稱且 Firebase 已認證
                 findCityButton.disabled = false;
             }
         })
         .catch(e => {
             console.error("無法載入城市數據:", e);
-            resultTextDiv.innerHTML = "錯誤：無法載入城市數據。請檢查 cities_data.json 檔案是否存在、格式正確且內容不為空。";
+            resultTextDiv.innerHTML = "錯誤：無法載入城市數據。";
             findCityButton.disabled = true;
         });
 
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
 
-    function parseOffsetString(offsetStr) {
+    function parseOffsetString(offsetStr) { /* ... (與前一版本相同) ... */ 
         if (!offsetStr || typeof offsetStr !== 'string') return NaN;
         const cleaned = offsetStr.replace('GMT', '').replace('UTC', '').trim();
         const signMatch = cleaned.match(/^([+-])/);
@@ -194,7 +192,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return sign * (hours + minutes / 60);
     }
 
-    function getCityUTCOffsetHours(ianaTimeZone) {
+    function getCityUTCOffsetHours(ianaTimeZone) { /* ... (與前一版本相同) ... */ 
         try {
             const now = new Date();
             const formatter = new Intl.DateTimeFormat('en', {
@@ -232,7 +230,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const timezoneOffsetCache = new Map();
 
-    function clearPreviousResults() {
+    function clearPreviousResults() { /* ... (與前一版本相同) ... */ 
         resultTextDiv.innerHTML = "";
         countryFlagImg.src = "";
         countryFlagImg.alt = "國家國旗";
@@ -245,13 +243,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         clearPreviousResults();
         console.log("--- 開始尋找匹配城市 ---");
 
-        if (!currentUserId) {
-            alert("使用者未認證，無法記錄歷史。請刷新頁面或檢查網路連線。");
+        if (!currentDataIdentifier) { // 改為檢查 currentDataIdentifier
+            alert("請先設定你的顯示名稱。");
+            return;
+        }
+        if (!auth.currentUser) { // 確保 Firebase 會話存在
+            alert("Firebase 會話未就緒，請稍候或刷新頁面。");
             return;
         }
         if (citiesData.length === 0) {
-            resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空，無法尋找城市。";
-            console.log("錯誤：城市數據未載入或為空。");
+            resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空。";
             return;
         }
 
@@ -280,16 +281,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         let candidateCities = [];
         for (const city of citiesData) {
-            // *** 修改點：增加 isNaN 檢查 ***
             if (!city || !city.timezone || 
                 typeof city.latitude !== 'number' || isNaN(city.latitude) || 
                 typeof city.longitude !== 'number' || isNaN(city.longitude) || 
                 !city.country_iso_code) {
-                // console.warn("跳過格式不正確或缺少必要資訊的城市數據:", city);
                 continue;
             }
-            // ***************************
-
             let cityUTCOffset;
             if (timezoneOffsetCache.has(city.timezone)) {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
@@ -345,7 +342,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 countryFlagImg.style.display = 'inline-block';
             }
 
-            // *** 修改點：增加 isNaN 檢查 ***
             if (typeof bestMatchCity.latitude === 'number' && !isNaN(bestMatchCity.latitude) && 
                 typeof bestMatchCity.longitude === 'number' && !isNaN(bestMatchCity.longitude)) {
                 const lat = bestMatchCity.latitude;
@@ -354,13 +350,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             } else {
                  mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整或無效。</p>";
             }
-            // ***************************
             
             debugInfoSmall.innerHTML = `(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`;
 
             const recordData = {
-                userId: currentUserId,
-                userDisplayName: userDisplayName || "匿名使用者", 
+                // userId: currentUserId, // 不再使用 Firebase UID 作為記錄中的 user ID
+                dataIdentifier: currentDataIdentifier, // 使用處理後的顯示名稱
+                userDisplayName: rawUserDisplayName, // 儲存原始顯示名稱
                 recordedAt: serverTimestamp(),
                 localTime: userTimeFormatted,
                 city: bestMatchCity.city,
@@ -368,8 +364,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 city_zh: bestMatchCity.city_zh || "",
                 country_zh: bestMatchCity.country_zh || "",
                 country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
-                latitude: bestMatchCity.latitude, // 確保這裡儲存的是有效數字
-                longitude: bestMatchCity.longitude, // 確保這裡儲存的是有效數字
+                latitude: bestMatchCity.latitude, 
+                longitude: bestMatchCity.longitude, 
                 targetUTCOffset: targetUTCOffsetHours,
                 matchedCityUTCOffset: isNaN(cityActualUTCOffset) ? null : cityActualUTCOffset
             };
@@ -384,17 +380,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function saveHistoryRecord(recordData) {
-        if (!currentUserId) {
-            console.warn("無法儲存歷史記錄：使用者未登入。");
+        if (!currentDataIdentifier) { // 改為檢查 currentDataIdentifier
+            console.warn("無法儲存歷史記錄：使用者名稱未設定。");
             return;
         }
-        // *** 修改點：增加 isNaN 檢查 ***
         if (isNaN(recordData.latitude) || isNaN(recordData.longitude)) {
             console.error("無法儲存歷史記錄：經緯度無效。", recordData);
             return;
         }
-        // ***************************
-        const historyCollectionRef = collection(db, `artifacts/${appId}/users/${currentUserId}/clockHistory`);
+        // Firestore 路徑： artifacts/{appId}/userProfiles/{SANITIZED_DISPLAY_NAME}/clockHistory/
+        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
         try {
             const docRef = await addDoc(historyCollectionRef, recordData);
             console.log("歷史記錄已儲存，文件 ID:", docRef.id);
@@ -404,16 +399,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function loadHistory() {
-        if (!currentUserId) {
-            historyListUl.innerHTML = '<li>請先設定使用者名稱或等待認證完成。</li>';
-            historyMapContainerDiv.innerHTML = '<p>登入後才能查看歷史地圖軌跡。</p>';
+        if (!currentDataIdentifier) { // 改為檢查 currentDataIdentifier
+            historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
+            historyMapContainerDiv.innerHTML = '<p>設定名稱後才能查看歷史地圖軌跡。</p>';
             return;
         }
         historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
         historyMapContainerDiv.innerHTML = '<p>載入地圖軌跡中...</p>';
         historyDebugInfoSmall.textContent = "";
 
-        const historyCollectionRef = collection(db, `artifacts/${appId}/users/${currentUserId}/clockHistory`);
+        // Firestore 路徑： artifacts/{appId}/userProfiles/{SANITIZED_DISPLAY_NAME}/clockHistory/
+        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
         const q = query(historyCollectionRef, orderBy("recordedAt", "desc")); 
 
         try {
@@ -441,7 +437,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 historyListUl.appendChild(li);
 
-                // *** 修改點：增加 isNaN 檢查 ***
                 if (typeof record.latitude === 'number' && !isNaN(record.latitude) &&
                     typeof record.longitude === 'number' && !isNaN(record.longitude)) {
                     historyPoints.push({
@@ -455,7 +450,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 } else {
                     console.warn("跳過經緯度無效的歷史記錄:", record);
                 }
-                // ***************************
             });
 
             renderHistoryMap(historyPoints);
@@ -468,7 +462,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function renderHistoryMap(points) {
+    function renderHistoryMap(points) { /* ... (與前一版本相同，但要確保 bbox 和 marker 字串處理正確) ... */ 
         if (!points || points.length === 0) {
             historyMapContainerDiv.innerHTML = "<p>尚無歷史記錄可顯示於地圖 (或所有記錄座標無效)。</p>";
             return;
@@ -478,7 +472,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         let validPointsExist = false;
         
         points.forEach((point) => { 
-            // 再次確認，雖然在 loadHistory 中已檢查
             if (typeof point.lat === 'number' && !isNaN(point.lat) && typeof point.lon === 'number' && !isNaN(point.lon)) {
                 minLat = Math.min(minLat, point.lat);
                 maxLat = Math.max(maxLat, point.lat);
@@ -493,53 +486,48 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         
-        const latMargin = (maxLat === minLat) ? 1.0 : (maxLat - minLat) * 0.2 + 0.5; // 確保有最小邊距
-        const lonMargin = (maxLon === minLon) ? 1.0 : (maxLon - minLon) * 0.2 + 0.5; // 確保有最小邊距
+        const latMargin = (maxLat === minLat) ? 1.0 : (maxLat - minLat) * 0.2 + 0.5; 
+        const lonMargin = (maxLon === minLon) ? 1.0 : (maxLon - minLon) * 0.2 + 0.5; 
 
         const south = Math.max(-90, minLat - latMargin);
         const west = Math.max(-180, minLon - lonMargin);
         const north = Math.min(90, maxLat + latMargin);
         const east = Math.min(180, maxLon + lonMargin);
         
-        // 確保 west < east 和 south < north，對於單點情況特別處理
         let finalWest = west;
         let finalSouth = south;
         let finalEast = east;
         let finalNorth = north;
 
-        if (finalWest >= finalEast) { // 如果經度範圍無效 (例如單點或所有點在同一經度)
-            finalWest = finalWest - 0.5; // 擴展一點
+        if (finalWest >= finalEast) { 
+            finalWest = finalWest - 0.5; 
             finalEast = finalEast + 0.5;
         }
-        if (finalSouth >= finalNorth) { // 如果緯度範圍無效
+        if (finalSouth >= finalNorth) { 
             finalSouth = finalSouth - 0.5;
             finalNorth = finalNorth + 0.5;
         }
-        // 再次確保不超出邊界
         finalWest = Math.max(-180, finalWest);
         finalSouth = Math.max(-90, finalSouth);
         finalEast = Math.min(180, finalEast);
         finalNorth = Math.min(90, finalNorth);
 
-
         const bbox = `${finalWest},${finalSouth},${finalEast},${finalNorth}`;
         
         const maxMarkersToShow = 20; 
         let displayMarkersString = "";
-        points.slice(0, maxMarkersToShow).forEach((point, index) => {
-             if (typeof point.lat === 'number' && !isNaN(point.lat) && typeof point.lon === 'number' && !isNaN(point.lon)) {
-                displayMarkersString += `${point.lat},${point.lon}${index < Math.min(points.length, maxMarkersToShow) - 1 && index < points.slice(0, maxMarkersToShow).length -1 ? '|' : ''}`;
-             }
-        });
-        // 移除可能因最後一個有效點後無有效點而產生的末尾 '|'
-        if (displayMarkersString.endsWith('|')) {
-            displayMarkersString = displayMarkersString.slice(0, -1);
-        }
+        const validPointsForMarkers = points.filter(p => typeof p.lat === 'number' && !isNaN(p.lat) && typeof p.lon === 'number' && !isNaN(p.lon));
 
+        validPointsForMarkers.slice(0, maxMarkersToShow).forEach((point, index) => {
+            displayMarkersString += `${point.lat},${point.lon}`;
+            if (index < Math.min(validPointsForMarkers.length, maxMarkersToShow) - 1) {
+                displayMarkersString += '|';
+            }
+        });
 
         const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${displayMarkersString ? '&marker=' + displayMarkersString : ''}`;
         
-        historyMapContainerDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>地圖顯示最近 ${Math.min(points.length, maxMarkersToShow)} 筆記錄位置。</small>`;
+        historyMapContainerDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>地圖顯示最近 ${Math.min(validPointsForMarkers.length, maxMarkersToShow)} 筆記錄位置。</small>`;
         historyDebugInfoSmall.textContent = `地圖邊界框 (W,S,E,N): ${bbox}`;
     }
 
@@ -556,7 +544,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
 
-        if (tabName === 'HistoryTab' && currentUserId) {
+        if (tabName === 'HistoryTab' && currentDataIdentifier && auth.currentUser) { // 確保已設定名稱且 Firebase 已認證
             loadHistory();
         }
     }
