@@ -367,11 +367,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadHistory() {
         if (!currentDataIdentifier) { 
             historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
-            historyMapContainerDiv.innerHTML = '<p>設定名稱後才能查看歷史地圖軌跡。</p>';
+            historyMapContainerDiv.innerHTML = '<p>地圖軌跡功能已移除。</p>'; // *** 修改點：更新地圖容器提示 ***
             return;
         }
         historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
-        historyMapContainerDiv.innerHTML = '<p>載入地圖軌跡中...</p>';
+        historyMapContainerDiv.innerHTML = '<p>地圖軌跡功能已移除。</p>'; // *** 修改點：更新地圖容器提示 ***
         historyDebugInfoSmall.textContent = "";
 
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
@@ -382,12 +382,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             historyListUl.innerHTML = ''; 
             if (querySnapshot.empty) {
                 historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
-                historyMapContainerDiv.innerHTML = '<p>尚無歷史記錄可顯示於地圖。</p>';
+                // historyMapContainerDiv.innerHTML = '<p>尚無歷史記錄可顯示於地圖。</p>'; // 地圖已移除，此行可刪除或保留
                 return;
             }
 
-            const historyPoints = [];
-            let firstRecord = true; // isMostRecent 標記似乎未使用，可以考慮移除
+            // const historyPoints = []; // 不再需要收集地圖點
+            // let firstRecord = true; 
 
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
@@ -402,96 +402,40 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 historyListUl.appendChild(li);
 
-                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
-                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
-                    historyPoints.push({
-                        lat: record.latitude,
-                        lon: record.longitude,
-                        city: cityDisplay, // 用於潛在的標記標題
-                        date: recordDate
-                        // isMostRecent: firstRecord // 此標記目前未使用
-                    });
-                    // firstRecord = false; // 如果需要，則保留
-                } else {
-                    console.warn("跳過經緯度無效的歷史記錄:", record);
-                }
+                // 不再需要將點加入 historyPoints
+                // if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
+                //     typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                //     historyPoints.push({ /* ... */ });
+                // }
             });
 
-            renderHistoryMap(historyPoints);
+            // renderHistoryMap(historyPoints); // *** 修改點：不再呼叫 renderHistoryMap ***
 
         } catch (e) {
             console.error("讀取歷史記錄失敗:", e);
             historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
-            historyMapContainerDiv.innerHTML = '<p>讀取地圖軌跡失敗。</p>';
+            historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>'; // 更新提示
             historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
     }
 
+    // renderHistoryMap 函數可以保留，以備將來可能重新啟用，或者直接刪除
     function renderHistoryMap(points) { 
+        console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
+        historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; // 確保即使被意外呼叫也有提示
+        return; // 直接返回，不做任何地圖渲染
+
+        // 以下是原來的地圖渲染邏輯，已被註解掉或可以刪除
+        /*
         if (!points || points.length === 0) {
             historyMapContainerDiv.innerHTML = "<p>尚無歷史記錄可顯示於地圖 (或所有記錄座標無效)。</p>";
             return;
         }
-
-        let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
-        
-        points.forEach((point) => { 
-            minLat = Math.min(minLat, point.lat);
-            maxLat = Math.max(maxLat, point.lat);
-            minLon = Math.min(minLon, point.lon);
-            maxLon = Math.max(maxLon, point.lon);
-        });
-        
-        const latDiff = maxLat - minLat;
-        const lonDiff = maxLon - minLon;
-
-        const defaultMargin = 1.0; // 預設邊距，例如1度
-        const latMargin = latDiff < 0.1 ? defaultMargin : latDiff * 0.2 + 0.2; 
-        const lonMargin = lonDiff < 0.1 ? defaultMargin : lonDiff * 0.2 + 0.2; 
-
-        let south = Math.max(-90, minLat - latMargin);
-        let west = Math.max(-180, minLon - lonMargin);
-        let north = Math.min(90, maxLat + latMargin);
-        let east = Math.min(180, maxLon + lonMargin);
-        
-        if (west >= east) { 
-            const centerLon = (minLon + maxLon) / 2; // 或取第一個點的經度
-            west = centerLon - defaultMargin / 2; 
-            east = centerLon + defaultMargin / 2;
-        }
-        if (south >= north) { 
-            const centerLat = (minLat + maxLat) / 2; // 或取第一個點的緯度
-            south = centerLat - defaultMargin / 2;
-            north = centerLat + defaultMargin / 2;
-        }
-        // 再次夾緊以確保在有效範圍內
-        west = Math.max(-180, Math.min(west, 179.9999)); 
-        east = Math.min(180, Math.max(east, -179.9999)); 
-        south = Math.max(-90, Math.min(south, 89.9999));   
-        north = Math.min(90, Math.max(north, -89.9999));  
-
-        // 最後再確認 west < east, south < north
-        if (west >= east) east = west + 0.0001;
-        if (south >= north) north = south + 0.0001;
-
-
-        const bbox = `${west.toFixed(4)},${south.toFixed(4)},${east.toFixed(4)},${north.toFixed(4)}`;
-        
-        const maxMarkersToShow = 20; 
-        let displayMarkersString = "";
-        
-        points.slice(0, maxMarkersToShow).forEach((point, index) => {
-            displayMarkersString += `${point.lat.toFixed(5)},${point.lon.toFixed(5)}`; // 使用固定小數位數
-            if (index < Math.min(points.length, maxMarkersToShow) - 1) {
-                displayMarkersString += '|';
-            }
-        });
-
-        console.log("渲染歷史地圖: BBOX=", bbox, "Markers=", displayMarkersString);
+        // ... (原來的 bbox 和 marker 計算邏輯) ...
         const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${displayMarkersString ? '&marker=' + displayMarkersString : ''}`;
-        
         historyMapContainerDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>地圖顯示最近 ${Math.min(points.length, maxMarkersToShow)} 筆記錄位置。</small>`;
         historyDebugInfoSmall.textContent = `地圖邊界框 (W,S,E,N): ${bbox}`;
+        */
     }
 
     window.openTab = function(evt, tabName) {
