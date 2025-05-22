@@ -249,8 +249,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         let candidateCities = [];
         for (const city of citiesData) {
             if (!city || !city.timezone || 
-                typeof city.latitude !== 'number' || !isFinite(city.latitude) || // *** 增加 isFinite 檢查 ***
-                typeof city.longitude !== 'number' || !isFinite(city.longitude) || // *** 增加 isFinite 檢查 ***
+                typeof city.latitude !== 'number' || !isFinite(city.latitude) || 
+                typeof city.longitude !== 'number' || !isFinite(city.longitude) || 
                 !city.country_iso_code) {
                 continue;
             }
@@ -259,11 +259,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
             } else {
                 cityUTCOffset = getCityUTCOffsetHours(city.timezone);
-                if (!isNaN(cityUTCOffset) && isFinite(cityUTCOffset)) { // *** 增加 isFinite 檢查 ***
+                if (isFinite(cityUTCOffset)) { 
                     timezoneOffsetCache.set(city.timezone, cityUTCOffset);
                 }
             }
-            if (isNaN(cityUTCOffset) || !isFinite(cityUTCOffset)) continue; // *** 增加 isFinite 檢查 ***
+            if (!isFinite(cityUTCOffset)) continue; 
 
             if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { 
                 candidateCities.push(city);
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         let bestMatchCity = null;
         let minLatDiff = Infinity;
         for (const city of candidateCities) {
-            const latDiff = Math.abs(city.latitude - targetLatitude); // city.latitude 已在上面檢查過 isFinite
+            const latDiff = Math.abs(city.latitude - targetLatitude); 
             if (latDiff < minLatDiff) {
                 minLatDiff = latDiff;
                 bestMatchCity = city;
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
 
             const bestCityCurrentUTCHours = userLocalHours + userLocalMinutes/60 - userUTCOffsetHours;
-            let bestCityApproxLocalHour = bestCityCurrentUTCHours + (isNaN(cityActualUTCOffset) || !isFinite(cityActualUTCOffset) ? 0 : cityActualUTCOffset) ; // *** 增加 isFinite 檢查 ***
+            let bestCityApproxLocalHour = bestCityCurrentUTCHours + (isFinite(cityActualUTCOffset) ? cityActualUTCOffset : 0) ; 
             let bestCityApproxLocalMinute = (bestCityApproxLocalHour - Math.floor(bestCityApproxLocalHour)) * 60;
             bestCityApproxLocalHour = Math.floor(bestCityApproxLocalHour);
             if (bestCityApproxLocalHour < 0) bestCityApproxLocalHour += 24;
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             if (typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) && 
-                typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) { // *** 增加 isFinite 檢查 ***
+                typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) { 
                 const lat = bestMatchCity.latitude;
                 const lon = bestMatchCity.longitude;
                 mapContainerDiv.innerHTML = `<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-1},${lat-1},${lon+1},${lat+1}&amp;layer=mapnik&amp;marker=${lat},${lon}" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=7/${lat}/${lon}" target="_blank">查看較大地圖</a></small>`;
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                  mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整或無效。</p>";
             }
             
-            debugInfoSmall.innerHTML = `(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) || !isFinite(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`; // *** 增加 isFinite 檢查 ***
+            debugInfoSmall.innerHTML = `(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${!isFinite(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`;
 
             const recordData = {
                 dataIdentifier: currentDataIdentifier, 
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 latitude: bestMatchCity.latitude, 
                 longitude: bestMatchCity.longitude, 
                 targetUTCOffset: targetUTCOffsetHours,
-                matchedCityUTCOffset: isNaN(cityActualUTCOffset) || !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset // *** 增加 isFinite 檢查 ***
+                matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset
             };
             await saveHistoryRecord(recordData);
 
@@ -350,13 +350,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.warn("無法儲存歷史記錄：使用者名稱未設定。");
             return;
         }
-        // *** 增加 isFinite 檢查 ***
         if (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) || 
             typeof recordData.longitude !== 'number' || !isFinite(recordData.longitude)) {
             console.error("無法儲存歷史記錄：經緯度無效。", recordData);
             return;
         }
-        // ***************************
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
         try {
             const docRef = await addDoc(historyCollectionRef, recordData);
@@ -389,7 +387,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const historyPoints = [];
-            let firstRecord = true;
+            let firstRecord = true; // isMostRecent 標記似乎未使用，可以考慮移除
 
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
@@ -404,21 +402,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 historyListUl.appendChild(li);
 
-                // *** 增加 isFinite 檢查 ***
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
                     historyPoints.push({
                         lat: record.latitude,
                         lon: record.longitude,
-                        city: cityDisplay,
-                        date: recordDate,
-                        isMostRecent: firstRecord 
+                        city: cityDisplay, // 用於潛在的標記標題
+                        date: recordDate
+                        // isMostRecent: firstRecord // 此標記目前未使用
                     });
-                    firstRecord = false;
+                    // firstRecord = false; // 如果需要，則保留
                 } else {
                     console.warn("跳過經緯度無效的歷史記錄:", record);
                 }
-                // ***************************
             });
 
             renderHistoryMap(historyPoints);
@@ -438,69 +434,60 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
-        let validPointsExist = false;
         
         points.forEach((point) => { 
-            // 這裡的 point.lat 和 point.lon 應該已經在 loadHistory 中被驗證過了
             minLat = Math.min(minLat, point.lat);
             maxLat = Math.max(maxLat, point.lat);
             minLon = Math.min(minLon, point.lon);
             maxLon = Math.max(maxLon, point.lon);
-            validPointsExist = true; // 因為 points 陣列只包含有效點
         });
-
-        if (!validPointsExist) { // 雖然理論上不會執行到這裡，因為 points 陣列非空且包含有效點
-             historyMapContainerDiv.innerHTML = "<p>所有歷史記錄的座標均無效，無法顯示地圖。</p>";
-            return;
-        }
         
         const latDiff = maxLat - minLat;
         const lonDiff = maxLon - minLon;
 
-        // 調整邊距計算，確保有最小可視區域
-        const latMargin = latDiff < 0.1 ? 0.5 : latDiff * 0.2 + 0.2; // 如果點很近，給予更大邊距
-        const lonMargin = lonDiff < 0.1 ? 0.5 : lonDiff * 0.2 + 0.2;
+        const defaultMargin = 1.0; // 預設邊距，例如1度
+        const latMargin = latDiff < 0.1 ? defaultMargin : latDiff * 0.2 + 0.2; 
+        const lonMargin = lonDiff < 0.1 ? defaultMargin : lonDiff * 0.2 + 0.2; 
 
         let south = Math.max(-90, minLat - latMargin);
         let west = Math.max(-180, minLon - lonMargin);
         let north = Math.min(90, maxLat + latMargin);
         let east = Math.min(180, maxLon + lonMargin);
         
-        // 確保 west < east 和 south < north
         if (west >= east) { 
-            east = west + Math.max(0.1, lonMargin * 2); // 確保至少有0.1度寬度
-            if (east > 180) { // 如果超出，則向西調整
-                east = 180;
-                west = Math.max(-180, 180 - Math.max(0.1, lonMargin * 2));
-            }
+            const centerLon = (minLon + maxLon) / 2; // 或取第一個點的經度
+            west = centerLon - defaultMargin / 2; 
+            east = centerLon + defaultMargin / 2;
         }
         if (south >= north) { 
-            north = south + Math.max(0.1, latMargin * 2); // 確保至少有0.1度高度
-             if (north > 90) { // 如果超出，則向南調整
-                north = 90;
-                south = Math.max(-90, 90 - Math.max(0.1, latMargin * 2));
-            }
+            const centerLat = (minLat + maxLat) / 2; // 或取第一個點的緯度
+            south = centerLat - defaultMargin / 2;
+            north = centerLat + defaultMargin / 2;
         }
-        // 再次夾緊
-        west = Math.max(-180, Math.min(west, 179.9)); // 防止 west > east
-        east = Math.min(180, Math.max(east, -179.9)); // 防止 east < west
-        south = Math.max(-90, Math.min(south, 89.9));   // 防止 south > north
-        north = Math.min(90, Math.max(north, -89.9));  // 防止 north < south
+        // 再次夾緊以確保在有效範圍內
+        west = Math.max(-180, Math.min(west, 179.9999)); 
+        east = Math.min(180, Math.max(east, -179.9999)); 
+        south = Math.max(-90, Math.min(south, 89.9999));   
+        north = Math.min(90, Math.max(north, -89.9999));  
+
+        // 最後再確認 west < east, south < north
+        if (west >= east) east = west + 0.0001;
+        if (south >= north) north = south + 0.0001;
 
 
-        const bbox = `${west},${south},${east},${north}`;
+        const bbox = `${west.toFixed(4)},${south.toFixed(4)},${east.toFixed(4)},${north.toFixed(4)}`;
         
         const maxMarkersToShow = 20; 
         let displayMarkersString = "";
-        // points 陣列已經過濾，只包含有效點
+        
         points.slice(0, maxMarkersToShow).forEach((point, index) => {
-            displayMarkersString += `${point.lat},${point.lon}`;
+            displayMarkersString += `${point.lat.toFixed(5)},${point.lon.toFixed(5)}`; // 使用固定小數位數
             if (index < Math.min(points.length, maxMarkersToShow) - 1) {
                 displayMarkersString += '|';
             }
         });
 
-        console.log("渲染歷史地圖: BBOX=", bbox, "Markers=", displayMarkersString); // 加入日誌
+        console.log("渲染歷史地圖: BBOX=", bbox, "Markers=", displayMarkersString);
         const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${displayMarkersString ? '&marker=' + displayMarkersString : ''}`;
         
         historyMapContainerDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>地圖顯示最近 ${Math.min(points.length, maxMarkersToShow)} 筆記錄位置。</small>`;
