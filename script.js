@@ -522,5 +522,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 });
-</script>
-
