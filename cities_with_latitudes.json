@@ -1,0 +1,6002 @@
+[
+  {
+    "city": "Xixerella",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55327
+  },
+  {
+    "city": "Vila",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53176
+  },
+  {
+    "city": "Tossalet i Vinyals1",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48597
+  },
+  {
+    "city": "Sornàs",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56461
+  },
+  {
+    "city": "Soldeu",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57688
+  },
+  {
+    "city": "Sispony",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53368
+  },
+  {
+    "city": "Segudet",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55713
+  },
+  {
+    "city": "El Tarter",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57952
+  },
+  {
+    "city": "Sant Julià de Lòria",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.46372
+  },
+  {
+    "city": "Sant Joan de Caselles",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57116
+  },
+  {
+    "city": "Santa Coloma",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.49454
+  },
+  {
+    "city": "Ransol",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58137
+  },
+  {
+    "city": "Ràmio",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.49734
+  },
+  {
+    "city": "Prats",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56003
+  },
+  {
+    "city": "Pas de la Casa",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54277
+  },
+  {
+    "city": "Pal",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54592
+  },
+  {
+    "city": "Ordino",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55623
+  },
+  {
+    "city": "Nagol",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.47142
+  },
+  {
+    "city": "Molleres",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55093
+  },
+  {
+    "city": "Meritxell",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55403
+  },
+  {
+    "city": "Mas de Ribafeta",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56932
+  },
+  {
+    "city": "Mas d’Alins",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.44112
+  },
+  {
+    "city": "Llumeneres",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.47229
+  },
+  {
+    "city": "Llorts",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.59625
+  },
+  {
+    "city": "Les Subiranes",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.62055
+  },
+  {
+    "city": "Les Salines",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.60952
+  },
+  {
+    "city": "les Escaldes",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50729
+  },
+  {
+    "city": "Les Bons",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53873
+  },
+  {
+    "city": "La Plana",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50471
+  },
+  {
+    "city": "la Massana",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54499
+  },
+  {
+    "city": "l'Aldosa de canillo",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57895
+  },
+  {
+    "city": "l'Aldosa",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54391
+  },
+  {
+    "city": "La Cortinada",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57423
+  },
+  {
+    "city": "Juberri",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.44
+  },
+  {
+    "city": "Fontaneda",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.45405
+  },
+  {
+    "city": "Escàs",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54643
+  },
+  {
+    "city": "Erts",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56218
+  },
+  {
+    "city": "Engordany",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51115
+  },
+  {
+    "city": "Encamp",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53474
+  },
+  {
+    "city": "El Vilar",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57204
+  },
+  {
+    "city": "Els Plans",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58143
+  },
+  {
+    "city": "El Serrat",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.6183
+  },
+  {
+    "city": "Els Cortals",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53338
+  },
+  {
+    "city": "Certers",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.47457
+  },
+  {
+    "city": "Canillo",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.5676
+  },
+  {
+    "city": "Bixessarri",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48197
+  },
+  {
+    "city": "Aubinyà",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.4531
+  },
+  {
+    "city": "Arinsal",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57205
+  },
+  {
+    "city": "Arans",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58226
+  },
+  {
+    "city": "Anyós",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53465
+  },
+  {
+    "city": "Ansalonga",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56881
+  },
+  {
+    "city": "Andorra la Vella",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50779
+  },
+  {
+    "city": "Aixovall",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.4764
+  },
+  {
+    "city": "Aixirivall",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.46245
+  },
+  {
+    "city": "Aixàs",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48647
+  },
+  {
+    "city": "La Margineda",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48599
+  },
+  {
+    "city": "Incles",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58285
+  },
+  {
+    "city": "Bordes d'Envalira",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55962
+  },
+  {
+    "city": "Sant Miquel d'Engolasters",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51119
+  },
+  {
+    "city": "Puiol del Piu",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.5652
+  },
+  {
+    "city": "Els Vilars",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51636
+  },
+  {
+    "city": "Urbanització Ermengol-Serra",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51418
+  },
+  {
+    "city": "Urbanització Guem",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51202
+  },
+  {
+    "city": "Urbanització Sa Calma",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51095
+  },
+  {
+    "city": "El Barri",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50909
+  },
+  {
+    "city": "Urbanització la Plana",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50526
+  },
+  {
+    "city": "Urbanització Can Noguer",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50886
+  },
+  {
+    "city": "Urbanització Terra Vella",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50335
+  },
+  {
+    "city": "La Comella",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50117
+  },
+  {
+    "city": "El Cedre",
+    "country": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.49776
+  },
+  {
+    "city": "Suhaylah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.80812
+  },
+  {
+    "city": "Z̧uwayhir",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.28333
+  },
+  {
+    "city": "Z̧uwayhir",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.13916
+  },
+  {
+    "city": "Zubārah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40487
+  },
+  {
+    "city": "Zikt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.51179
+  },
+  {
+    "city": "Danhah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.57916
+  },
+  {
+    "city": "Z̧afīr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.12731
+  },
+  {
+    "city": "Azhabat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.73003
+  },
+  {
+    "city": "Yaif",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.94
+  },
+  {
+    "city": "Yafnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.73424
+  },
+  {
+    "city": "Warīsān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.16744
+  },
+  {
+    "city": "Wamm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.60031
+  },
+  {
+    "city": "Waḩlah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.90897
+  },
+  {
+    "city": "Wafd",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.10262
+  },
+  {
+    "city": "Wad Wid",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.62515
+  },
+  {
+    "city": "Wādī Shī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35
+  },
+  {
+    "city": "Wadhīl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.0474
+  },
+  {
+    "city": "Wa‘bayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.57046
+  },
+  {
+    "city": "‘Urqūb Juwayza",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.93333
+  },
+  {
+    "city": "‘Uraybī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78945
+  },
+  {
+    "city": "‘Uqayr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28302
+  },
+  {
+    "city": "Umm Suqaym",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.15491
+  },
+  {
+    "city": "Umm al Qurayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.1
+  },
+  {
+    "city": "Umm Al Quwain City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56473
+  },
+  {
+    "city": "‘Ūd al Bayḑā’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.01625
+  },
+  {
+    "city": "Tharwānīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.11088
+  },
+  {
+    "city": "Ţayyibah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41228
+  },
+  {
+    "city": "Ţawīyayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.55778
+  },
+  {
+    "city": "Ţarīqat Ja‘d",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.52852
+  },
+  {
+    "city": "Ţarīf Kalbā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.0695
+  },
+  {
+    "city": "Ţarīf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.05399
+  },
+  {
+    "city": "Ţaraq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.11656
+  },
+  {
+    "city": "Şūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09407
+  },
+  {
+    "city": "Sumbrair",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.60083
+  },
+  {
+    "city": "Suḩaybah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.93877
+  },
+  {
+    "city": "Şufayrī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.81168
+  },
+  {
+    "city": "Sinnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.50868
+  },
+  {
+    "city": "Sījī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24764
+  },
+  {
+    "city": "Al Quwayz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78102
+  },
+  {
+    "city": "Nadd ash Shibā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.15223
+  },
+  {
+    "city": "Shīs",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29138
+  },
+  {
+    "city": "Shimāl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.8178
+  },
+  {
+    "city": "Hay Jabal Omar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26761
+  },
+  {
+    "city": "Shawkah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1
+  },
+  {
+    "city": "Shawīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26792
+  },
+  {
+    "city": "Sharm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.47078
+  },
+  {
+    "city": "Sharīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1
+  },
+  {
+    "city": "Sharīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.81512
+  },
+  {
+    "city": "Ash Shindaghah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26887
+  },
+  {
+    "city": "Shahawāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.96667
+  },
+  {
+    "city": "Shāh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.13561
+  },
+  {
+    "city": "Shāh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.89861
+  },
+  {
+    "city": "Shabakah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.03333
+  },
+  {
+    "city": "Sayḩ aş Şaqlah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.88398
+  },
+  {
+    "city": "Sayḩ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.93333
+  },
+  {
+    "city": "Sakamkam",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.17467
+  },
+  {
+    "city": "Samarat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.68907
+  },
+  {
+    "city": "Dirat as-Sal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.74903
+  },
+  {
+    "city": "Şāliḩīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.72161
+  },
+  {
+    "city": "Sā’if",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1842
+  },
+  {
+    "city": "Şafad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22314
+  },
+  {
+    "city": "Sabkhah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.3
+  },
+  {
+    "city": "Sabkhah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.12917
+  },
+  {
+    "city": "Sa‘abah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.99417
+  },
+  {
+    "city": "Muḩayşnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2499
+  },
+  {
+    "city": "Rūl Ḑadnā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.55481
+  },
+  {
+    "city": "Rughaylāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.10552
+  },
+  {
+    "city": "Riyāmah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54564
+  },
+  {
+    "city": "Rimá",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.16784
+  },
+  {
+    "city": "Ar Rāshidīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22499
+  },
+  {
+    "city": "Ras Al Khaimah City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78953
+  },
+  {
+    "city": "Za‘bīl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22584
+  },
+  {
+    "city": "Ramlah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35979
+  },
+  {
+    "city": "Rafaq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.87471
+  },
+  {
+    "city": "Rafā‘",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34701
+  },
+  {
+    "city": "Quţūf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.10971
+  },
+  {
+    "city": "Quşaydāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.77461
+  },
+  {
+    "city": "Qurmidah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.11957
+  },
+  {
+    "city": "Qurm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.91139
+  },
+  {
+    "city": "Sha'biyyat Al Qor",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.91214
+  },
+  {
+    "city": "Qu‘aysah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.9941
+  },
+  {
+    "city": "Quar Al Qahlish",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.985
+  },
+  {
+    "city": "Qimah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.78668
+  },
+  {
+    "city": "Qadfa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29155
+  },
+  {
+    "city": "Qaţţārah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.25993
+  },
+  {
+    "city": "Qada‘ah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.75044
+  },
+  {
+    "city": "Qabas",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.03435
+  },
+  {
+    "city": "Nuqayrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.30021
+  },
+  {
+    "city": "Nuhayy",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27074
+  },
+  {
+    "city": "Naqrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.37645
+  },
+  {
+    "city": "Naḩwah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26822
+  },
+  {
+    "city": "Nafīr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.10393
+  },
+  {
+    "city": "Muzayri‘",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.14355
+  },
+  {
+    "city": "Mu‘tariḑah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.50841
+  },
+  {
+    "city": "Murrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19903
+  },
+  {
+    "city": "Murbaḩ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27623
+  },
+  {
+    "city": "Murbaḑ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3254
+  },
+  {
+    "city": "Muraytah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40032
+  },
+  {
+    "city": "Mundafinah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.11667
+  },
+  {
+    "city": "Munay‘ī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.95135
+  },
+  {
+    "city": "Al Muhtarqah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54092
+  },
+  {
+    "city": "Mūjib",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.11667
+  },
+  {
+    "city": "Mu‘ayrīḑ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.81052
+  },
+  {
+    "city": "Nedaifi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36167
+  },
+  {
+    "city": "Minhā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.15745
+  },
+  {
+    "city": "Sha'biyyat Al Qilē'ī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.94256
+  },
+  {
+    "city": "Milqaţah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.06667
+  },
+  {
+    "city": "Mezdiyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.03361
+  },
+  {
+    "city": "Mawşil",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.01353
+  },
+  {
+    "city": "Mas‘ūdī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.26627
+  },
+  {
+    "city": "Maşfūţ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.81089
+  },
+  {
+    "city": "Māsah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.30319
+  },
+  {
+    "city": "Masāfī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.30129
+  },
+  {
+    "city": "Marḩāmid",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09708
+  },
+  {
+    "city": "Marawwaḩ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29457
+  },
+  {
+    "city": "Manqashah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.035
+  },
+  {
+    "city": "Mamdūḩ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.16667
+  },
+  {
+    "city": "Maḩḑar Bin ‘Uşayyān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.93333
+  },
+  {
+    "city": "Maghribīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2
+  },
+  {
+    "city": "Zayed City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.65416
+  },
+  {
+    "city": "Maydaq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33912
+  },
+  {
+    "city": "Ma‘ālī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.81667
+  },
+  {
+    "city": "Lūlayyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39258
+  },
+  {
+    "city": "Liffah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29325
+  },
+  {
+    "city": "Lazīmah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.58611
+  },
+  {
+    "city": "Layyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35397
+  },
+  {
+    "city": "Kūb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.47018
+  },
+  {
+    "city": "Khulaybīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38124
+  },
+  {
+    "city": "Khawr Khuwayr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.96577
+  },
+  {
+    "city": "Khawr Fakkān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33132
+  },
+  {
+    "city": "Khatt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.61729
+  },
+  {
+    "city": "Kharrān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.71617
+  },
+  {
+    "city": "Khannūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.10092
+  },
+  {
+    "city": "Kadrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19013
+  },
+  {
+    "city": "Khabākhib",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.452
+  },
+  {
+    "city": "Kayyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.15696
+  },
+  {
+    "city": "Khawr Kalbā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.03712
+  },
+  {
+    "city": "Kalbā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.0513
+  },
+  {
+    "city": "Jurayrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.94082
+  },
+  {
+    "city": "Jumayrā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.20795
+  },
+  {
+    "city": "Al Jazīrah al Ḩamrā’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.7091
+  },
+  {
+    "city": "Jazīrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.15
+  },
+  {
+    "city": "Jayf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.15786
+  },
+  {
+    "city": "Istayhah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.3161
+  },
+  {
+    "city": "Adhan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.46383
+  },
+  {
+    "city": "Ḩuwaytayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.11904
+  },
+  {
+    "city": "Huwaylāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.87664
+  },
+  {
+    "city": "Ḩuwaylah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.15201
+  },
+  {
+    "city": "Hunaywah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19474
+  },
+  {
+    "city": "Ḩumar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.08216
+  },
+  {
+    "city": "Ḩudaybah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.79767
+  },
+  {
+    "city": "Ḩiyāwah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36043
+  },
+  {
+    "city": "Hillī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28473
+  },
+  {
+    "city": "Ḩayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09223
+  },
+  {
+    "city": "Ḩayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.7892
+  },
+  {
+    "city": "Ḩayāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.05814
+  },
+  {
+    "city": "Ḩatīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40374
+  },
+  {
+    "city": "Ḩarrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.99039
+  },
+  {
+    "city": "Ḩaqīl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.44603
+  },
+  {
+    "city": "Ḩamīm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.95805
+  },
+  {
+    "city": "Ḩamarūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.09525
+  },
+  {
+    "city": "Ḩafīf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.1461
+  },
+  {
+    "city": "Ḩafarah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.04106
+  },
+  {
+    "city": "Ḩabshān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.826
+  },
+  {
+    "city": "Ḩabḩab",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.61564
+  },
+  {
+    "city": "Gragrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.46583
+  },
+  {
+    "city": "Ghurfah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.59769
+  },
+  {
+    "city": "Ghurbah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28738
+  },
+  {
+    "city": "Ghurah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.21966
+  },
+  {
+    "city": "Ghamarah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29419
+  },
+  {
+    "city": "Al Ghābah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.0502
+  },
+  {
+    "city": "Ghubb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.80529
+  },
+  {
+    "city": "Ghayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40174
+  },
+  {
+    "city": "Ghayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.00677
+  },
+  {
+    "city": "Ghalīlah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.9975
+  },
+  {
+    "city": "Ghāghah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.76667
+  },
+  {
+    "city": "Ghadf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28358
+  },
+  {
+    "city": "Ferij al Muhadham",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2875
+  },
+  {
+    "city": "Fayyāḑ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.95775
+  },
+  {
+    "city": "Fa’y",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1707
+  },
+  {
+    "city": "Fashrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.8841
+  },
+  {
+    "city": "Farīq Ţarīf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.05
+  },
+  {
+    "city": "Farīq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.20058
+  },
+  {
+    "city": "Furfār",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.14844
+  },
+  {
+    "city": "Far‘ah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.13678
+  },
+  {
+    "city": "Fāqī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41062
+  },
+  {
+    "city": "Falaj al Mu‘allā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35401
+  },
+  {
+    "city": "Dubai",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.07725
+  },
+  {
+    "city": "Dibba Al-Fujairah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.59246
+  },
+  {
+    "city": "Diqdāqah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.66931
+  },
+  {
+    "city": "Dihān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.7738
+  },
+  {
+    "city": "Dibba Al-Hisn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.61955
+  },
+  {
+    "city": "Dhad al Arab",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.61667
+  },
+  {
+    "city": "Dayrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27143
+  },
+  {
+    "city": "Daynah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.04711
+  },
+  {
+    "city": "Ḑāyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.88784
+  },
+  {
+    "city": "Da‘sah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.27839
+  },
+  {
+    "city": "Dārah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.10083
+  },
+  {
+    "city": "Zahir al Ya'ad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.53342
+  },
+  {
+    "city": "Dāhin",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.07734
+  },
+  {
+    "city": "Daftah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27226
+  },
+  {
+    "city": "Ḑadnā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.52422
+  },
+  {
+    "city": "Al Jarouf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.48246
+  },
+  {
+    "city": "Bū Līfīyāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.23333
+  },
+  {
+    "city": "Bulaydah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22388
+  },
+  {
+    "city": "Bin Aḩmad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48162
+  },
+  {
+    "city": "Bidīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.675
+  },
+  {
+    "city": "Bidá",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.76453
+  },
+  {
+    "city": "Baţīn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4429
+  },
+  {
+    "city": "Barr Dubayy",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24039
+  },
+  {
+    "city": "Al Barāḩah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28059
+  },
+  {
+    "city": "Baqal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.68913
+  },
+  {
+    "city": "Badīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.43227
+  },
+  {
+    "city": "‘Ayn al Fayḑah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.08333
+  },
+  {
+    "city": "‘Ayīm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.43998
+  },
+  {
+    "city": "‘Uwaynāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36585
+  },
+  {
+    "city": "‘Awāfī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.3
+  },
+  {
+    "city": "‘Aţţāb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.1518
+  },
+  {
+    "city": "Athabāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.16356
+  },
+  {
+    "city": "As Sulaymāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22194
+  },
+  {
+    "city": "As Slabeikh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.18333
+  },
+  {
+    "city": "As Sād",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.15
+  },
+  {
+    "city": "Ash Shibhānah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.13333
+  },
+  {
+    "city": "Sharjah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33737
+  },
+  {
+    "city": "Ash Sha‘m",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.0279
+  },
+  {
+    "city": "‘Ashashah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.4598
+  },
+  {
+    "city": "‘Asamah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39831
+  },
+  {
+    "city": "Ar Ruways",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.11028
+  },
+  {
+    "city": "Ar Rūl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.60106
+  },
+  {
+    "city": "Ar Rufayşah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34518
+  },
+  {
+    "city": "Ar Rams",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.87658
+  },
+  {
+    "city": "‘Arādah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.99231
+  },
+  {
+    "city": "‘Aqqah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.49867
+  },
+  {
+    "city": "Sha‘bīyat Naşlah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.86586
+  },
+  {
+    "city": "An Nashshāsh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.0811
+  },
+  {
+    "city": "Al Wathbah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.25958
+  },
+  {
+    "city": "Al ‘Uyaynah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.45283
+  },
+  {
+    "city": "Al Usaylī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.62676
+  },
+  {
+    "city": "Al Quşayş",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26718
+  },
+  {
+    "city": "Al Qurayyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23779
+  },
+  {
+    "city": "Al Qīr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.03244
+  },
+  {
+    "city": "Al Qīmī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.24914
+  },
+  {
+    "city": "Al Qaia",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.51926
+  },
+  {
+    "city": "Al Muwayqi‘ī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.23333
+  },
+  {
+    "city": "Al Muwayqi‘ī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.20167
+  },
+  {
+    "city": "Al Mu‘taraḑ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.219
+  },
+  {
+    "city": "Al Mughayrā’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.07843
+  },
+  {
+    "city": "Al Matāf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.83333
+  },
+  {
+    "city": "Al Mashrūb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.07646
+  },
+  {
+    "city": "Al Māriyah al Gharbīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.10265
+  },
+  {
+    "city": "Al Māriyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.13848
+  },
+  {
+    "city": "Al Marfa’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.09911
+  },
+  {
+    "city": "Al Manāmah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3299
+  },
+  {
+    "city": "Al Mahamm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.675
+  },
+  {
+    "city": "Akkamyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.60151
+  },
+  {
+    "city": "Al Khīs",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.00848
+  },
+  {
+    "city": "Al Khaznah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.16797
+  },
+  {
+    "city": "Al Khatim",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.2
+  },
+  {
+    "city": "Al Khārī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09745
+  },
+  {
+    "city": "Al Khān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33141
+  },
+  {
+    "city": "Al Jazīrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35
+  },
+  {
+    "city": "Al Jaḩr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.25
+  },
+  {
+    "city": "Al ‘Idd",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.07989
+  },
+  {
+    "city": "Al Ḩayrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38148
+  },
+  {
+    "city": "Al Hayr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.97861
+  },
+  {
+    "city": "Ḩayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.70498
+  },
+  {
+    "city": "Al Ḩamrīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.47819
+  },
+  {
+    "city": "Al Ḩalāh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.47738
+  },
+  {
+    "city": "Ḩattā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.80073
+  },
+  {
+    "city": "Al Ḩādhī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.10642
+  },
+  {
+    "city": "Al Jaddah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.99611
+  },
+  {
+    "city": "Al Ghurfah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.12496
+  },
+  {
+    "city": "Al Fulayyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.73481
+  },
+  {
+    "city": "Al Fujairah City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.11641
+  },
+  {
+    "city": "Al Fīyay",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29801
+  },
+  {
+    "city": "Al Fay‘",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.02139
+  },
+  {
+    "city": "Al Fara‘",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.4143
+  },
+  {
+    "city": "Al Faḩlayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.68412
+  },
+  {
+    "city": "Biţnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.18951
+  },
+  {
+    "city": "Al ‘Ayn al Ghumūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.95951
+  },
+  {
+    "city": "Al Ain City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.19167
+  },
+  {
+    "city": "Al ‘Awdah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38068
+  },
+  {
+    "city": "Al Aţīr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.16261
+  },
+  {
+    "city": "Akamiya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.60031
+  },
+  {
+    "city": "Ajman City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40177
+  },
+  {
+    "city": "Adh Dhayd",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28812
+  },
+  {
+    "city": "Adh Dharbānīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78333
+  },
+  {
+    "city": "Abu Dhabi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.45118
+  },
+  {
+    "city": "Abū Hayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28413
+  },
+  {
+    "city": "‘Abādilah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.45353
+  },
+  {
+    "city": "As Saţwah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22192
+  },
+  {
+    "city": "Ḩārat ‘Awālī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.0172
+  },
+  {
+    "city": "Al Ḩulaylah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.88556
+  },
+  {
+    "city": "Al Khashfah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.02833
+  },
+  {
+    "city": "Wayb Ḩawf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.02889
+  },
+  {
+    "city": "Al Ghabām",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.03278
+  },
+  {
+    "city": "Qaf’ah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.03806
+  },
+  {
+    "city": "Sharyāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.04306
+  },
+  {
+    "city": "Al Mafraq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.32965
+  },
+  {
+    "city": "Al Muqaţţarah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.26762
+  },
+  {
+    "city": "Madīnat an Nahḑah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.23213
+  },
+  {
+    "city": "Ash Shahāmah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.54977
+  },
+  {
+    "city": "Al Maqţa‘",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.40618
+  },
+  {
+    "city": "Mawrid",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.42871
+  },
+  {
+    "city": "Qārat ad Dum",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.86028
+  },
+  {
+    "city": "Yinainir",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.90806
+  },
+  {
+    "city": "Ra’s",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.79333
+  },
+  {
+    "city": "Magam",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78361
+  },
+  {
+    "city": "Dirat Jarhi",
+    "country": "AE",
+    "timezone": "Asia/Muscat",
+    "latitude": 25.64921
+  },
+  {
+    "city": "Yāfūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.26954
+  },
+  {
+    "city": "Al Ghashbān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.0425
+  },
+  {
+    "city": "Ghubbat Khawrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 26.04278
+  },
+  {
+    "city": "Qarayţaysah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.87077
+  },
+  {
+    "city": "Margham",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.89952
+  },
+  {
+    "city": "Ash Shu‘ayb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.74706
+  },
+  {
+    "city": "Al Faq‘",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.71016
+  },
+  {
+    "city": "Al Khabb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.58969
+  },
+  {
+    "city": "‘Aqbīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.16111
+  },
+  {
+    "city": "Mazyad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.03694
+  },
+  {
+    "city": "Athabāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.76667
+  },
+  {
+    "city": "Majrá al Ghāf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.06582
+  },
+  {
+    "city": "Abū Mūsá",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.86698
+  },
+  {
+    "city": "Ḩaşat al Bidīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32728
+  },
+  {
+    "city": "Za‘bah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.71833
+  },
+  {
+    "city": "Ţawī Khadaraq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.72556
+  },
+  {
+    "city": "Al Masāfirah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.68333
+  },
+  {
+    "city": "Ḩām Ḩām",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.68611
+  },
+  {
+    "city": "Ar Rā‘fah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.61633
+  },
+  {
+    "city": "Al Ḩamrānīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.61139
+  },
+  {
+    "city": "Nadd al Ḩumr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.20131
+  },
+  {
+    "city": "Ar Ra’s",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26835
+  },
+  {
+    "city": "Aţ Ţawār",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.25
+  },
+  {
+    "city": "Al Qawz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.16293
+  },
+  {
+    "city": "Bū Rays",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.6031
+  },
+  {
+    "city": "Badiyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.61619
+  },
+  {
+    "city": "Sikkat al Khayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.65053
+  },
+  {
+    "city": "Al Lusaylī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.93138
+  },
+  {
+    "city": "Suwayḩān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46235
+  },
+  {
+    "city": "An Nakhīl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78167
+  },
+  {
+    "city": "As Sūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.77917
+  },
+  {
+    "city": "Al Mu‘amūrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.80972
+  },
+  {
+    "city": "Difān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.78583
+  },
+  {
+    "city": "Khazām",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.76343
+  },
+  {
+    "city": "Al Ḩamīdīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40001
+  },
+  {
+    "city": "Ḩiz̧āyib az Zānah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.31583
+  },
+  {
+    "city": "Bū Ḩaşā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.55386
+  },
+  {
+    "city": "Al Waheda",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29173
+  },
+  {
+    "city": "Al Mamzer",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.30384
+  },
+  {
+    "city": "Hor Al Anz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27823
+  },
+  {
+    "city": "Al Khabeesi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26767
+  },
+  {
+    "city": "Al Twar First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27148
+  },
+  {
+    "city": "Al Qusais First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28056
+  },
+  {
+    "city": "AL Twar Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26309
+  },
+  {
+    "city": "Al Qusais Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27148
+  },
+  {
+    "city": "Al Qusais Third",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26356
+  },
+  {
+    "city": "Muhaisanah Third",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27528
+  },
+  {
+    "city": "Muhaisanah Fourth",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28172
+  },
+  {
+    "city": "Muhaisanah Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26705
+  },
+  {
+    "city": "Al Karama",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24004
+  },
+  {
+    "city": "Al Jafliya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23957
+  },
+  {
+    "city": "Al Hudaiba",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24151
+  },
+  {
+    "city": "Al Hudaba",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23515
+  },
+  {
+    "city": "Al Bada",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.21861
+  },
+  {
+    "city": "Al Wasl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19881
+  },
+  {
+    "city": "Jumeira Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.20207
+  },
+  {
+    "city": "Jumeira Third",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.18786
+  },
+  {
+    "city": "Al Saffa First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.17519
+  },
+  {
+    "city": "Al Saffa Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.15818
+  },
+  {
+    "city": "Um Suqaim Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.14863
+  },
+  {
+    "city": "Al Manara",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1428
+  },
+  {
+    "city": "Um Al Sheif",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.13277
+  },
+  {
+    "city": "Al Quoz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.12897
+  },
+  {
+    "city": "Al Safouh First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.11545
+  },
+  {
+    "city": "Al Barsha",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.08972
+  },
+  {
+    "city": "Al Barshaa Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.10146
+  },
+  {
+    "city": "Al Barshaa Third",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09601
+  },
+  {
+    "city": "Knowledge Village",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.10223
+  },
+  {
+    "city": "Emirates Hill Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.08575
+  },
+  {
+    "city": "Emirates Hill Third",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.06834
+  },
+  {
+    "city": "Emirates Hill First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.05435
+  },
+  {
+    "city": "The Palm Jumeirah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.11607
+  },
+  {
+    "city": "Za'abeel",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22536
+  },
+  {
+    "city": "Oud Metha",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23685
+  },
+  {
+    "city": "AL Khaildia Suburb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33995
+  },
+  {
+    "city": "Al Nud",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34189
+  },
+  {
+    "city": "Abu Sangara",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33863
+  },
+  {
+    "city": "Bu Danig",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34255
+  },
+  {
+    "city": "Al Mahatah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34852
+  },
+  {
+    "city": "Al Ghuhaiba",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34426
+  },
+  {
+    "city": "Al Yarmook",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34977
+  },
+  {
+    "city": "Al Manakh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35318
+  },
+  {
+    "city": "Al Aber",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34876
+  },
+  {
+    "city": "Samnan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3386
+  },
+  {
+    "city": "Al Khouzamiya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33964
+  },
+  {
+    "city": "Al Shahab",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33239
+  },
+  {
+    "city": "Al Talae",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33596
+  },
+  {
+    "city": "Al Rifa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3334
+  },
+  {
+    "city": "Al Darrare",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32704
+  },
+  {
+    "city": "Turrfana",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32331
+  },
+  {
+    "city": "Um Tarrafa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3552
+  },
+  {
+    "city": "Al Marijah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35613
+  },
+  {
+    "city": "Al Shuwaiheen",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35997
+  },
+  {
+    "city": "Al Ghuwair",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35985
+  },
+  {
+    "city": "Al Nabba",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36547
+  },
+  {
+    "city": "Maysaloon",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36086
+  },
+  {
+    "city": "AL Sharq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36885
+  },
+  {
+    "city": "Al Hazana",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3697
+  },
+  {
+    "city": "Al Jazzat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36477
+  },
+  {
+    "city": "AL Nahda First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29468
+  },
+  {
+    "city": "AL Nahda Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29259
+  },
+  {
+    "city": "Al Qusais Industrial Area First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29057
+  },
+  {
+    "city": "Al Qusais Industrial Area Second",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28739
+  },
+  {
+    "city": "Al Qusais Industrial Area Third",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29786
+  },
+  {
+    "city": "Al Fayha",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35737
+  },
+  {
+    "city": "Al Fallaj",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35892
+  },
+  {
+    "city": "Al Azrra",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36753
+  },
+  {
+    "city": "Al Riqa Suburb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36722
+  },
+  {
+    "city": "AL Ghafiya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37807
+  },
+  {
+    "city": "Al Subaikhi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37738
+  },
+  {
+    "city": "Shargan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37908
+  },
+  {
+    "city": "AL Ramla West",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35675
+  },
+  {
+    "city": "Al Ramla East",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36225
+  },
+  {
+    "city": "Al Nasserya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36629
+  },
+  {
+    "city": "Al Ramtha",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3645
+  },
+  {
+    "city": "Al Goaz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35015
+  },
+  {
+    "city": "Al Ramaqia",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35489
+  },
+  {
+    "city": "Wasit Suburb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35116
+  },
+  {
+    "city": "Al Swehat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34542
+  },
+  {
+    "city": "Muwafjah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34852
+  },
+  {
+    "city": "Eliash",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3403
+  },
+  {
+    "city": "AL Heera Suburb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38172
+  },
+  {
+    "city": "Al nekhailat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38521
+  },
+  {
+    "city": "Al Mirgab",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38947
+  },
+  {
+    "city": "Al Rifah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39304
+  },
+  {
+    "city": "Al Rumailah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39948
+  },
+  {
+    "city": "Al Nakhil",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40746
+  },
+  {
+    "city": "Al Owan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41335
+  },
+  {
+    "city": "Al Bustan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41041
+  },
+  {
+    "city": "Al Butain",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41723
+  },
+  {
+    "city": "Al Raha Corniche",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44246
+  },
+  {
+    "city": "Jumeirah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.18267
+  },
+  {
+    "city": "Jebel Dhanna",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.1651
+  },
+  {
+    "city": "Al Aqqah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.4967
+  },
+  {
+    "city": "Bur Dubai",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26038
+  },
+  {
+    "city": "Theeb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24501
+  },
+  {
+    "city": "Al Ghizaimri",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1494
+  },
+  {
+    "city": "Girath",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26089
+  },
+  {
+    "city": "Al Fuqait",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.59966
+  },
+  {
+    "city": "Jareef",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.51417
+  },
+  {
+    "city": "Sram",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.49818
+  },
+  {
+    "city": "Yalah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41517
+  },
+  {
+    "city": "Thoban",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.30332
+  },
+  {
+    "city": "Al Hinya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35093
+  },
+  {
+    "city": "Al Mariah United Group",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49424
+  },
+  {
+    "city": "Minţaqat al Madīnah al Qadīmah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.58598
+  },
+  {
+    "city": "Minţaqat ar Rawḑah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.57697
+  },
+  {
+    "city": "Minţaqat Limghadar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.58344
+  },
+  {
+    "city": "Minţaqat al Ḩawīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.57931
+  },
+  {
+    "city": "Minţaqat ar Ra’s B",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.57084
+  },
+  {
+    "city": "Minţaqat ar Ra’s D",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56939
+  },
+  {
+    "city": "Minţaqat ar Ra’s A",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56724
+  },
+  {
+    "city": "Minţaqat ad Dār al Bayḑā’ A",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56622
+  },
+  {
+    "city": "Minţaqat ad Dār al Bayḑā’ B",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.55581
+  },
+  {
+    "city": "Minţaqat al Khawr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56343
+  },
+  {
+    "city": "Minţaqat ar Riqqah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56026
+  },
+  {
+    "city": "Minţaqat ar Ra’s J",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.56086
+  },
+  {
+    "city": "Minţaqat al Maydān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54805
+  },
+  {
+    "city": "Minţaqah al Ḩadīthah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.5417
+  },
+  {
+    "city": "Minţaqat al Ḩumrah B",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54086
+  },
+  {
+    "city": "Minţaqat al Ḩumrah J",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54483
+  },
+  {
+    "city": "Minţaqat al ‘Ahd",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54089
+  },
+  {
+    "city": "Minţaqat al Ḩumrah D",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.5366
+  },
+  {
+    "city": "Minţaqat Umm al Qaywayn aţ Ţibbīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.57065
+  },
+  {
+    "city": "Minţaqat al Ḩumrah A",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.54834
+  },
+  {
+    "city": "Al Ḩazaywah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.52584
+  },
+  {
+    "city": "Al ‘Adhīb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.49843
+  },
+  {
+    "city": "Ar Ramlah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.50641
+  },
+  {
+    "city": "As Salamah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.49242
+  },
+  {
+    "city": "Al Abraq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.50401
+  },
+  {
+    "city": "As Surrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.44573
+  },
+  {
+    "city": "Muhadhdhib",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.43355
+  },
+  {
+    "city": "Kābir",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.4322
+  },
+  {
+    "city": "Al Labsah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.42762
+  },
+  {
+    "city": "Ar Rāshidīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39017
+  },
+  {
+    "city": "Qaşr al Baḩr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47214
+  },
+  {
+    "city": "Ar Ra’s al Akhḑar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46072
+  },
+  {
+    "city": "Al Khubayrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46345
+  },
+  {
+    "city": "Al Khālidīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46769
+  },
+  {
+    "city": "Al Ḩişn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48023
+  },
+  {
+    "city": "Madīnat Zāyid",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48121
+  },
+  {
+    "city": "Qaryat at Turāth",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47667
+  },
+  {
+    "city": "Al Manhal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47537
+  },
+  {
+    "city": "An Nādī as Siyāḩī",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49484
+  },
+  {
+    "city": "Al Baladīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48786
+  },
+  {
+    "city": "Az̧ Z̧afrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47825
+  },
+  {
+    "city": "Az Za‘āb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46796
+  },
+  {
+    "city": "Ar Rawḑah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46035
+  },
+  {
+    "city": "Al Karāmah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46488
+  },
+  {
+    "city": "Al Muşallá",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.45853
+  },
+  {
+    "city": "Al Ittiḩād",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.45498
+  },
+  {
+    "city": "Āl Nahyān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46493
+  },
+  {
+    "city": "Al Waḩdah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46876
+  },
+  {
+    "city": "Al Murūr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4493
+  },
+  {
+    "city": "Al Mushrif",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43499
+  },
+  {
+    "city": "Qaşr ash Shāţi’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.42712
+  },
+  {
+    "city": "Ḩadbat az Za‘farānah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44075
+  },
+  {
+    "city": "Az Zahrā’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43905
+  },
+  {
+    "city": "Al Amān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43227
+  },
+  {
+    "city": "Ar Rīḩān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.42849
+  },
+  {
+    "city": "Al Muzūn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4106
+  },
+  {
+    "city": "Minţaqat al Maţār",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.437
+  },
+  {
+    "city": "Sās an Nakhl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43755
+  },
+  {
+    "city": "Al Jāmi‘ al Kabīr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41237
+  },
+  {
+    "city": "Minţaqah Bayn al Jisrayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4065
+  },
+  {
+    "city": "Madīnat aḑ Ḑubbāţ",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.39589
+  },
+  {
+    "city": "Shāţi’ ar Rāḩah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43037
+  },
+  {
+    "city": "Khalifah A City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.42588
+  },
+  {
+    "city": "Shakhbout City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36727
+  },
+  {
+    "city": "Discovery Gardens",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.0403
+  },
+  {
+    "city": "Al Mizhar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24423
+  },
+  {
+    "city": "Mirdif",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22443
+  },
+  {
+    "city": "Madīnat Badr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23785
+  },
+  {
+    "city": "Muḩayşnah Shamāl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2718
+  },
+  {
+    "city": "Al Ḩamrīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.28868
+  },
+  {
+    "city": "Minţaqat Dubayy at Ta‘līmīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27953
+  },
+  {
+    "city": "Hawr al ‘Anz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27744
+  },
+  {
+    "city": "Minţaqat as Sūq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26996
+  },
+  {
+    "city": "Mintaqat as Sūq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26378
+  },
+  {
+    "city": "Ḩayy al Bastakīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26425
+  },
+  {
+    "city": "Zarībat Dawīy",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.25479
+  },
+  {
+    "city": "Mankhūl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24612
+  },
+  {
+    "city": "Al Ḩuḑaybah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24288
+  },
+  {
+    "city": "Aş Şafā",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19441
+  },
+  {
+    "city": "Qaryat Shīkāghū Bītsh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.13377
+  },
+  {
+    "city": "Dawwār Burj Nahār",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27663
+  },
+  {
+    "city": "Burj Nahār",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27519
+  },
+  {
+    "city": "Al Maţīnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27211
+  },
+  {
+    "city": "Al Muraqqabāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26836
+  },
+  {
+    "city": "Ar Riqqah Sharq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26674
+  },
+  {
+    "city": "Riqqah al Buţayn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26292
+  },
+  {
+    "city": "Būr Sa‘īd",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.261
+  },
+  {
+    "city": "Nāyf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27139
+  },
+  {
+    "city": "As Sabkhah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27023
+  },
+  {
+    "city": "Ash Shamāl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27156
+  },
+  {
+    "city": "Sikkat al Khayl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27162
+  },
+  {
+    "city": "Aḑ Ḑaghāyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27205
+  },
+  {
+    "city": "‘Ayāl Nāşir",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2732
+  },
+  {
+    "city": "Al Murar al Qadīm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27576
+  },
+  {
+    "city": "Al Murar al Jadīd",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27731
+  },
+  {
+    "city": "An Nakhl",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27334
+  },
+  {
+    "city": "Ar Riqqah Gharb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27055
+  },
+  {
+    "city": "Ar Riqqah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26797
+  },
+  {
+    "city": "Ḩamrīyah Dubayy",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2571
+  },
+  {
+    "city": "Al Baḩārnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26002
+  },
+  {
+    "city": "Ţawī aş Şāygh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.25113
+  },
+  {
+    "city": "Al ‘Usbij",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.25789
+  },
+  {
+    "city": "Al Muşallá",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2586
+  },
+  {
+    "city": "Ma‘sharat al Baḩārnah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.25634
+  },
+  {
+    "city": "Umm Hurayr",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.24687
+  },
+  {
+    "city": "Ar Rifā‘ah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26002
+  },
+  {
+    "city": "Al Balūsh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26075
+  },
+  {
+    "city": "Ras Dibba",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.60549
+  },
+  {
+    "city": "Biyātah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41463
+  },
+  {
+    "city": "Al Khawānīj",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22912
+  },
+  {
+    "city": "Jaddāf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.21572
+  },
+  {
+    "city": "Al Buţīn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26915
+  },
+  {
+    "city": "Ras al Khor",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.1966
+  },
+  {
+    "city": "Al Warqaa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19272
+  },
+  {
+    "city": "International City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.16383
+  },
+  {
+    "city": "Dubailand",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.0737
+  },
+  {
+    "city": "Academic City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.11402
+  },
+  {
+    "city": "Al Marqadh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.17722
+  },
+  {
+    "city": "Jebel Ali Village",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.03156
+  },
+  {
+    "city": "Discovery Gardens",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.03827
+  },
+  {
+    "city": "Jumeirah Lake Towers",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.07362
+  },
+  {
+    "city": "Al Mina al Seyahi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.08264
+  },
+  {
+    "city": "Dubai Marina",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.08525
+  },
+  {
+    "city": "Dubai Sports City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.03878
+  },
+  {
+    "city": "Dubai Media City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09506
+  },
+  {
+    "city": "Dubai Internet City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09538
+  },
+  {
+    "city": "Al Sufouh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.12015
+  },
+  {
+    "city": "Al Safa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.17047
+  },
+  {
+    "city": "Al Kifaf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23464
+  },
+  {
+    "city": "Ar Rumaylah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40338
+  },
+  {
+    "city": "As Sawān",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3973
+  },
+  {
+    "city": "Ar Rāshidīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39613
+  },
+  {
+    "city": "Mushayrif",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.40977
+  },
+  {
+    "city": "Mushayrif at Tijārīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39434
+  },
+  {
+    "city": "An Na‘īmīyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38347
+  },
+  {
+    "city": "Az Zahrā’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38781
+  },
+  {
+    "city": "Al Jurf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.41814
+  },
+  {
+    "city": "Al Muwayhāt",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37197
+  },
+  {
+    "city": "Az Zawrā’",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.43807
+  },
+  {
+    "city": "Al Ḩilyū",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39121
+  },
+  {
+    "city": "Al Majaz 1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33773
+  },
+  {
+    "city": "Al Majaz",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32354
+  },
+  {
+    "city": "Al Majaz 3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32925
+  },
+  {
+    "city": "Abu Shagara",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33727
+  },
+  {
+    "city": "Al Bu Deniq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34346
+  },
+  {
+    "city": "Al Mussalla",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35758
+  },
+  {
+    "city": "Al Soor",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34964
+  },
+  {
+    "city": "Dasman",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35188
+  },
+  {
+    "city": "Al Abar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34835
+  },
+  {
+    "city": "Al Khezammia",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34262
+  },
+  {
+    "city": "Al Shahba",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33359
+  },
+  {
+    "city": "Al Darari",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32811
+  },
+  {
+    "city": "Al Tala’a",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33748
+  },
+  {
+    "city": "Al Ghaphia",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3757
+  },
+  {
+    "city": "Al Ezra",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37043
+  },
+  {
+    "city": "Al Homah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36552
+  },
+  {
+    "city": "Al Mansura",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36464
+  },
+  {
+    "city": "Al Qadasia",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37546
+  },
+  {
+    "city": "Sharqan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38085
+  },
+  {
+    "city": "Al Fisht",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.38444
+  },
+  {
+    "city": "Al Rifa’ah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.39169
+  },
+  {
+    "city": "Al Seef",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37544
+  },
+  {
+    "city": "Al Gulayaa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37348
+  },
+  {
+    "city": "Bu Tina",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.37155
+  },
+  {
+    "city": "Al Nabba’a",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.36447
+  },
+  {
+    "city": "Al Mujarrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3663
+  },
+  {
+    "city": "Al Merraija",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35649
+  },
+  {
+    "city": "Al Sheyoukh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35869
+  },
+  {
+    "city": "Al Juhail",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.35335
+  },
+  {
+    "city": "Al Soor Square",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.34962
+  },
+  {
+    "city": "King Faisal Square",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.3286
+  },
+  {
+    "city": "Mowaileh Commercial",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29717
+  },
+  {
+    "city": "Mowaileh Camp",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.31838
+  },
+  {
+    "city": "University City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29628
+  },
+  {
+    "city": "Al Juraina",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29872
+  },
+  {
+    "city": "Al Rifa’a",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.33277
+  },
+  {
+    "city": "Al Tarrfah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.32329
+  },
+  {
+    "city": "Al Noaf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.27576
+  },
+  {
+    "city": "Al Qarrayen",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29927
+  },
+  {
+    "city": "Al Hoashi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.26259
+  },
+  {
+    "city": "Basteen Falah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.29415
+  },
+  {
+    "city": "As Saţwah Sharq",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23796
+  },
+  {
+    "city": "Dubai Festival City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.22177
+  },
+  {
+    "city": "Dubai International Financial Centre",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.2106
+  },
+  {
+    "city": "Dubai Healthcare City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.23063
+  },
+  {
+    "city": "Palm Jebel Ali",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.00582
+  },
+  {
+    "city": "Downtown Dubai",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.19408
+  },
+  {
+    "city": "Jumeirah Lakes",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.07476
+  },
+  {
+    "city": "The Greens",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09415
+  },
+  {
+    "city": "Jumeirah Residences",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.09878
+  },
+  {
+    "city": "Sheikh Zayed",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.218
+  },
+  {
+    "city": "Dubai Investments Park",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.00827
+  },
+  {
+    "city": "Ghayathi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.8425
+  },
+  {
+    "city": "Ghantoot",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.85386
+  },
+  {
+    "city": "Bab Al Shams",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.81689
+  },
+  {
+    "city": "Abu Dab National Exhibition Centre",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41983
+  },
+  {
+    "city": "Jebel Ali",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.00255
+  },
+  {
+    "city": "Al ‘Arād",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.87208
+  },
+  {
+    "city": "Bani Yas City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30978
+  },
+  {
+    "city": "Musaffah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35893
+  },
+  {
+    "city": "Zayed City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.37962
+  },
+  {
+    "city": "Al Shamkhah City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.39268
+  },
+  {
+    "city": "Reef Al Fujairah City",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.14479
+  },
+  {
+    "city": "Al Barsha First",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.11062
+  },
+  {
+    "city": "Al Wiqan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.75355
+  },
+  {
+    "city": "Al'Arad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.8472
+  },
+  {
+    "city": "Al Araad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.86471
+  },
+  {
+    "city": "Dafalas",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.95167
+  },
+  {
+    "city": "Musaibat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.91432
+  },
+  {
+    "city": "Ras Ash",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.96779
+  },
+  {
+    "city": "Baighit",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.92941
+  },
+  {
+    "city": "Shairi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.70062
+  },
+  {
+    "city": "Ruwais",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.87542
+  },
+  {
+    "city": "Saliya Al-Baqal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.6988
+  },
+  {
+    "city": "Sal Haqil",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.86064
+  },
+  {
+    "city": "Barut",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.97641
+  },
+  {
+    "city": "Atmar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.81767
+  },
+  {
+    "city": "Silay Al Khatami",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.74125
+  },
+  {
+    "city": "Mak Sikek",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 25.7605
+  },
+  {
+    "city": "U01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.51348
+  },
+  {
+    "city": "Me4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36724
+  },
+  {
+    "city": "Mw5",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.32736
+  },
+  {
+    "city": "Rd8",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.37813
+  },
+  {
+    "city": "U26",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.72637
+  },
+  {
+    "city": "U52",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.59465
+  },
+  {
+    "city": "Rd80",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.31866
+  },
+  {
+    "city": "Al Haramiya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.09244
+  },
+  {
+    "city": "Al Wahidah East",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.14574
+  },
+  {
+    "city": "Mzw12",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.64254
+  },
+  {
+    "city": "Al Ghufayliyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.46567
+  },
+  {
+    "city": "Muquab",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.09784
+  },
+  {
+    "city": "Miheyyer",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.52235
+  },
+  {
+    "city": "Al Huwethah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.0803
+  },
+  {
+    "city": "W66",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41499
+  },
+  {
+    "city": "Hai Al Humaira",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22646
+  },
+  {
+    "city": "Mi10",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.50101
+  },
+  {
+    "city": "U27",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.67658
+  },
+  {
+    "city": "Al Arad 10",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.82652
+  },
+  {
+    "city": "Markaz Al Khail",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28048
+  },
+  {
+    "city": "Al Haylah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.11513
+  },
+  {
+    "city": "Al Bazm Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33494
+  },
+  {
+    "city": "Yaerah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.00137
+  },
+  {
+    "city": "U53",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.56189
+  },
+  {
+    "city": "Al Maragh",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.18185
+  },
+  {
+    "city": "Al Bahya Old",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.52987
+  },
+  {
+    "city": "Oud Al Hassah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22787
+  },
+  {
+    "city": "Shabhanat Asharej",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.19311
+  },
+  {
+    "city": "Hai Al Maahad",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22776
+  },
+  {
+    "city": "Al Hayer 18",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.55825
+  },
+  {
+    "city": "M23",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36205
+  },
+  {
+    "city": "E6",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48972
+  },
+  {
+    "city": "W48",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.42743
+  },
+  {
+    "city": "Mz23",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.37391
+  },
+  {
+    "city": "Al Sallan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.18344
+  },
+  {
+    "city": "W27",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43899
+  },
+  {
+    "city": "Samha_T",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.67256
+  },
+  {
+    "city": "Al Hulawi",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.63115
+  },
+  {
+    "city": "Al Naglah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.20102
+  },
+  {
+    "city": "Wadi Simni",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.76754
+  },
+  {
+    "city": "Hai Al Jabal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22299
+  },
+  {
+    "city": "Hai Al Mutawaa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.20762
+  },
+  {
+    "city": "W14_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46052
+  },
+  {
+    "city": "Al Diwan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.64723
+  },
+  {
+    "city": "Wadi Al Darb East",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.64886
+  },
+  {
+    "city": "Madinat Zayed Liwa Road",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.43489
+  },
+  {
+    "city": "Sahab",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.89335
+  },
+  {
+    "city": "Al Ghail",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.20815
+  },
+  {
+    "city": "Al Suwaidah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.51277
+  },
+  {
+    "city": "Rd73",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.31658
+  },
+  {
+    "city": "Bida Al Samah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33994
+  },
+  {
+    "city": "Abu Dhabi International Airport",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43776
+  },
+  {
+    "city": "M5",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36656
+  },
+  {
+    "city": "E30",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4427
+  },
+  {
+    "city": "Al Ridem",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.04228
+  },
+  {
+    "city": "Me5",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36274
+  },
+  {
+    "city": "Ugdat Al Ameriya",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.24474
+  },
+  {
+    "city": "Bw4_B",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33357
+  },
+  {
+    "city": "Al Rahba Farms",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.61482
+  },
+  {
+    "city": "Rd97",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29937
+  },
+  {
+    "city": "Mazyad 6",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.0401
+  },
+  {
+    "city": "Al Nahda East",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.24694
+  },
+  {
+    "city": "Mudaifena Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36363
+  },
+  {
+    "city": "Rd102",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30643
+  },
+  {
+    "city": "Al Nahda Farms",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22189
+  },
+  {
+    "city": "Rbw14",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44098
+  },
+  {
+    "city": "Me11",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.32671
+  },
+  {
+    "city": "Mz12",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.39991
+  },
+  {
+    "city": "W40",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4604
+  },
+  {
+    "city": "M39",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35645
+  },
+  {
+    "city": "E22_02",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4527
+  },
+  {
+    "city": "Zenyar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.04871
+  },
+  {
+    "city": "Al Lahliyyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.05892
+  },
+  {
+    "city": "Mn4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38302
+  },
+  {
+    "city": "Bida Eqal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.06427
+  },
+  {
+    "city": "Mi23",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.51239
+  },
+  {
+    "city": "Bida Murkhan North",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.21514
+  },
+  {
+    "city": "Mn1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38411
+  },
+  {
+    "city": "Bu Klabiah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.54583
+  },
+  {
+    "city": "W62",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41214
+  },
+  {
+    "city": "Ajban",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.62416
+  },
+  {
+    "city": "Ghanadhah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.80552
+  },
+  {
+    "city": "E7",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49535
+  },
+  {
+    "city": "Al Rumailah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.2839
+  },
+  {
+    "city": "Rd90",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30459
+  },
+  {
+    "city": "M38",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35685
+  },
+  {
+    "city": "Rd107",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29985
+  },
+  {
+    "city": "Z12_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33349
+  },
+  {
+    "city": "Rbw4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44868
+  },
+  {
+    "city": "Umm Alghurban",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.83174
+  },
+  {
+    "city": "U03",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.1986
+  },
+  {
+    "city": "M32_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35302
+  },
+  {
+    "city": "Rd141",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28804
+  },
+  {
+    "city": "Hs3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35502
+  },
+  {
+    "city": "Msh15",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35442
+  },
+  {
+    "city": "Bida Harib",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.9696
+  },
+  {
+    "city": "Rd39",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33157
+  },
+  {
+    "city": "Al Mahatta",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.25375
+  },
+  {
+    "city": "Mghayel Salem",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.0008
+  },
+  {
+    "city": "Al Dhafra Region",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.75004
+  },
+  {
+    "city": "W10",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47004
+  },
+  {
+    "city": "Mn6",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38229
+  },
+  {
+    "city": "Mafraq Industrial Area",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.27336
+  },
+  {
+    "city": "W41",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46212
+  },
+  {
+    "city": "Icad V",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.27485
+  },
+  {
+    "city": "Rd129",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29281
+  },
+  {
+    "city": "Sw6",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.40075
+  },
+  {
+    "city": "Rd34",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33857
+  },
+  {
+    "city": "Mi4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49387
+  },
+  {
+    "city": "Wb3_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28485
+  },
+  {
+    "city": "Rahba_Q",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.64664
+  },
+  {
+    "city": "E18_02",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47845
+  },
+  {
+    "city": "Rd119",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29364
+  },
+  {
+    "city": "Rd114",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29451
+  },
+  {
+    "city": "North Dubayyah Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35509
+  },
+  {
+    "city": "Se45",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44095
+  },
+  {
+    "city": "W20",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44641
+  },
+  {
+    "city": "Rd150",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28206
+  },
+  {
+    "city": "Rd82",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.31555
+  },
+  {
+    "city": "Rd117",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29389
+  },
+  {
+    "city": "Seih Al Sedeirah4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.84014
+  },
+  {
+    "city": "Msh35",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36353
+  },
+  {
+    "city": "Msh37",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33749
+  },
+  {
+    "city": "Sh13",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38152
+  },
+  {
+    "city": "Msh33",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38219
+  },
+  {
+    "city": "W23_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44358
+  },
+  {
+    "city": "Bida Shaaban",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.90037
+  },
+  {
+    "city": "E1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49024
+  },
+  {
+    "city": "W51",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.40092
+  },
+  {
+    "city": "Shibak 1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.65807
+  },
+  {
+    "city": "Rd132",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29259
+  },
+  {
+    "city": "Rs6",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49405
+  },
+  {
+    "city": "Al Malash Forests",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.05275
+  },
+  {
+    "city": "Rd101",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30992
+  },
+  {
+    "city": "W45",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.466
+  },
+  {
+    "city": "Mi11",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.50514
+  },
+  {
+    "city": "Sdw3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.53
+  },
+  {
+    "city": "Mi9",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.50086
+  },
+  {
+    "city": "Rd148",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28314
+  },
+  {
+    "city": "Rd69",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.32581
+  },
+  {
+    "city": "Rd63",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.31509
+  },
+  {
+    "city": "Rd93",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30317
+  },
+  {
+    "city": "Rd124",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.2967
+  },
+  {
+    "city": "Rd49",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.31346
+  },
+  {
+    "city": "E34_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.434
+  },
+  {
+    "city": "E23",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44864
+  },
+  {
+    "city": "Rd108",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29969
+  },
+  {
+    "city": "Rd37",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.32717
+  },
+  {
+    "city": "W44",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46419
+  },
+  {
+    "city": "Rd38",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.3342
+  },
+  {
+    "city": "Rd86",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30895
+  },
+  {
+    "city": "W4_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47361
+  },
+  {
+    "city": "Me2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.37623
+  },
+  {
+    "city": "Al Misbah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29256
+  },
+  {
+    "city": "Rd106",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.3017
+  },
+  {
+    "city": "Al Damsah 2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.18038
+  },
+  {
+    "city": "W49",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4257
+  },
+  {
+    "city": "Hai Al Qalaa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.2168
+  },
+  {
+    "city": "Bu Bsala Forests",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.03627
+  },
+  {
+    "city": "M43",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.34266
+  },
+  {
+    "city": "Mw3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35561
+  },
+  {
+    "city": "Al Jizza",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.21621
+  },
+  {
+    "city": "Batha Bin Hilal",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.27111
+  },
+  {
+    "city": "M32_02",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35753
+  },
+  {
+    "city": "Al Oshush",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.67899
+  },
+  {
+    "city": "Wadi Al Khabb",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.59625
+  },
+  {
+    "city": "W68",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4223
+  },
+  {
+    "city": "Sh16",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.39229
+  },
+  {
+    "city": "Dhaher 2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.07699
+  },
+  {
+    "city": "M12",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36361
+  },
+  {
+    "city": "U28",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.76752
+  },
+  {
+    "city": "Rd104",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30402
+  },
+  {
+    "city": "Mulqatah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.04716
+  },
+  {
+    "city": "Al Dhafrah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.18045
+  },
+  {
+    "city": "Msh27",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38733
+  },
+  {
+    "city": "Rawdat Al Reef",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.50527
+  },
+  {
+    "city": "Al Samha West Old",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.68356
+  },
+  {
+    "city": "Msh41",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36502
+  },
+  {
+    "city": "Halat Al Bahrani Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38427
+  },
+  {
+    "city": "W2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48519
+  },
+  {
+    "city": "W19_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4489
+  },
+  {
+    "city": "M17",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.36322
+  },
+  {
+    "city": "W52_03",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43399
+  },
+  {
+    "city": "M8",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38009
+  },
+  {
+    "city": "W3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.48264
+  },
+  {
+    "city": "Mi6",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.4922
+  },
+  {
+    "city": "Rd122",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29694
+  },
+  {
+    "city": "Al Khaznah 1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.16249
+  },
+  {
+    "city": "W16",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.45811
+  },
+  {
+    "city": "E19_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.46809
+  },
+  {
+    "city": "Bw4_D",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.32456
+  },
+  {
+    "city": "Al Arose",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.90904
+  },
+  {
+    "city": "Sdw1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.52916
+  },
+  {
+    "city": "M34",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.34399
+  },
+  {
+    "city": "W59_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41961
+  },
+  {
+    "city": "Bu Rahm",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.29563
+  },
+  {
+    "city": "Eb3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30933
+  },
+  {
+    "city": "Rahba_B",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.57259
+  },
+  {
+    "city": "Rd89",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30651
+  },
+  {
+    "city": "Rd77",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30645
+  },
+  {
+    "city": "Al Wathba Farms",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.24088
+  },
+  {
+    "city": "Rd74",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.31329
+  },
+  {
+    "city": "Nurai Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.61414
+  },
+  {
+    "city": "Shabiat Umm Ghaffa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.09821
+  },
+  {
+    "city": "Msh44",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.33028
+  },
+  {
+    "city": "Malagit",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.15426
+  },
+  {
+    "city": "E10",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.49358
+  },
+  {
+    "city": "Rbw9",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44208
+  },
+  {
+    "city": "Raknah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.3478
+  },
+  {
+    "city": "Wazeel South",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.04302
+  },
+  {
+    "city": "Fn2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.40191
+  },
+  {
+    "city": "Adg1",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.40212
+  },
+  {
+    "city": "Wadi Al Darb North",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.6636
+  },
+  {
+    "city": "Rd140",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28787
+  },
+  {
+    "city": "W52_02",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43579
+  },
+  {
+    "city": "Mz28",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.39834
+  },
+  {
+    "city": "Hw4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.43558
+  },
+  {
+    "city": "Msh34",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.37445
+  },
+  {
+    "city": "Al Seemah Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.47536
+  },
+  {
+    "city": "Juaiber",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.92434
+  },
+  {
+    "city": "Al Ssain",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41593
+  },
+  {
+    "city": "Al Gelaiaa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.1516
+  },
+  {
+    "city": "Al Hamiyaniyyah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.08963
+  },
+  {
+    "city": "Dulaymah 2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.69664
+  },
+  {
+    "city": "Mahader Liwa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.89098
+  },
+  {
+    "city": "Rahba_G",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.59906
+  },
+  {
+    "city": "Saleem",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 22.91105
+  },
+  {
+    "city": "Sayh Al Lahamah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.0028
+  },
+  {
+    "city": "Al Droob Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.53501
+  },
+  {
+    "city": "Jn",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.55455
+  },
+  {
+    "city": "Rd92",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30505
+  },
+  {
+    "city": "Al Sout",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.06603
+  },
+  {
+    "city": "W22",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.44358
+  },
+  {
+    "city": "Umm Al Hazzan",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.10764
+  },
+  {
+    "city": "Se4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41252
+  },
+  {
+    "city": "Sw3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.41515
+  },
+  {
+    "city": "E14_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.51242
+  },
+  {
+    "city": "Eb4",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.30321
+  },
+  {
+    "city": "Rd143",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28845
+  },
+  {
+    "city": "Al Arad 2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.82584
+  },
+  {
+    "city": "Shiebat Bin Anbar",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22875
+  },
+  {
+    "city": "Shibak 3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.63584
+  },
+  {
+    "city": "Hai Al Salama",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22371
+  },
+  {
+    "city": "Harat Mohd Ibn Khalifa",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22208
+  },
+  {
+    "city": "Al Tuwaissah",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.22551
+  },
+  {
+    "city": "Rd152",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28213
+  },
+  {
+    "city": "Sayh Al Saham 2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.72549
+  },
+  {
+    "city": "Al Jarf",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.80937
+  },
+  {
+    "city": "Rd139",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.28763
+  },
+  {
+    "city": "Rd3",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.38646
+  },
+  {
+    "city": "M45",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.35158
+  },
+  {
+    "city": "W15_01",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.45452
+  },
+  {
+    "city": "Ys2",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.45811
+  },
+  {
+    "city": "Al Seebah Island",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.52271
+  },
+  {
+    "city": "Musat",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.09227
+  },
+  {
+    "city": "U20",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 24.13011
+  },
+  {
+    "city": "Mghayel Metha",
+    "country": "AE",
+    "timezone": "Asia/Dubai",
+    "latitude": 23.79258
+  }
+]
