@@ -160,14 +160,14 @@
             margin-top: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        #mapContainer iframe, #historyMapContainer iframe {
+        #mapContainer iframe, #historyMapContainer iframe, #globalTodayMapContainer iframe { /* 新增 #globalTodayMapContainer */
             width: 100%;
             height: 280px;
             border: 1px solid #d0d0d0;
             border-radius: 8px;
             margin-top:15px;
         }
-        #debugInfo, #historyDebugInfo { 
+        #debugInfo, #historyDebugInfo, #globalTodayDebugInfo { /* 新增 #globalTodayDebugInfo */
             font-size: 0.85em; 
             color: #777; 
             margin-top: 15px; 
@@ -190,14 +190,13 @@
             background-color: #fff;
         }
         #historyList li {
-            padding: 8px 10px; /* *** 修改點：進一步減少 padding 使其更緊湊 *** */
+            padding: 8px 10px; 
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: background-color 0.2s;
-            /* *** 修改點：設定列表項的基礎字體大小為更小的值 *** */
-            font-size: 0.8em; /* 例如，改為 0.8em */
+            font-size: 0.8em; 
         }
         #historyList li:hover {
             background-color: #f9f9f9;
@@ -205,27 +204,23 @@
         #historyList li:last-child {
             border-bottom: none;
         }
-        /* *** 修改點：確保 .date, .time, .location 繼承或設定合適的大小 *** */
         #historyList .date { 
             font-weight: bold; 
             color: #007bff; 
             flex-shrink: 0; 
-            margin-right: 6px; /* *** 修改點：進一步減少間距 *** */
-            /* font-size: 1em; /* 如果希望與 li 相同，則設為 1em 或不設 */
+            margin-right: 6px; 
         }
         #historyList .time { 
             color: #28a745; 
-            margin-right: 6px; /* *** 修改點：進一步減少間距 *** */
-            /* font-size: 1em; */
+            margin-right: 6px; 
         }
         #historyList .location { 
             color: #555; 
             text-align: right; 
             flex-grow: 1;
-            /* font-size: 1em; */
         }
 
-        #findCityButton, #refreshHistoryButton {
+        #findCityButton, #refreshHistoryButton, #refreshGlobalMapButton { /* 新增 #refreshGlobalMapButton */
             display: block;
             width: -webkit-fit-content; 
             width: -moz-fit-content;    
@@ -243,15 +238,21 @@
             margin-bottom: 20px;
             transition: background-color 0.2s, transform 0.1s;
         }
-        #findCityButton:hover, #refreshHistoryButton:hover {
+        #findCityButton:hover, #refreshHistoryButton:hover, #refreshGlobalMapButton:hover { /* 新增 #refreshGlobalMapButton */
             background-color: #218838;
         }
-        #findCityButton:active, #refreshHistoryButton:active {
+        #findCityButton:active, #refreshHistoryButton:active, #refreshGlobalMapButton:active { /* 新增 #refreshGlobalMapButton */
             transform: translateY(1px);
         }
         #findCityButton:disabled {
             background-color: #ccc;
             cursor: not-allowed;
+        }
+        .date-picker-container { /* 新增日期選擇器容器樣式 */
+            margin-bottom: 15px;
+        }
+        .date-picker-container label {
+            margin-right: 8px;
         }
 
     </style>
@@ -271,6 +272,7 @@
         <div class="tabs">
             <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">時鐘</button>
             <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">歷史軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">今日眾人</button>
         </div>
 
         <div id="ClockTab" class="tab-content active">
@@ -289,7 +291,7 @@
         </div>
 
         <div id="HistoryTab" class="tab-content">
-            <h2>每日甦醒地圖軌跡</h2>
+            <h2>你的每日甦醒地圖軌跡</h2>
             <p>記錄關於你每日於地球上的哪一個角落起床。</p>
             <button id="refreshHistoryButton">刷新記錄</button>
             <ul id="historyList"></ul>
@@ -297,6 +299,20 @@
                 <p>地圖軌跡功能已移除。</p>
             </div>
             <small id="historyDebugInfo"></small>
+        </div>
+
+        <div id="GlobalTodayMapTab" class="tab-content">
+            <h2>今日眾人甦醒地圖</h2>
+            <p>看看今天大家都在地球的哪些角落開啟新的一天！</p>
+            <div class="date-picker-container">
+                <label for="globalDate">選擇日期:</label>
+                <input type="date" id="globalDate">
+                <button id="refreshGlobalMapButton">查詢地圖</button>
+            </div>
+            <div id="globalTodayMapContainer">
+                <p>地圖將顯示於此。</p>
+            </div>
+            <small id="globalTodayDebugInfo"></small>
         </div>
     </div>
 
