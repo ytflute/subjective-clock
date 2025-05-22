@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>甦醒地圖 WAKE UP WORLD MAP</title>
+    <title>甦醒地圖 Wake Up World Map</title>
     <link rel="stylesheet" href="style.css">
     <style>
         /* 基本頁面和容器樣式 */
@@ -44,7 +44,8 @@
 
         .user-section {
             background-color: #f9f9f9;
-            padding: 15px;
+            /* *** 修改點：減少上下 padding *** */
+            padding: 10px 15px; 
             border-radius: 8px;
             margin-bottom: 20px;
             border: 1px solid #e0e0e0;
@@ -57,7 +58,8 @@
         }
         .user-section input[type="text"] {
             padding: 10px;
-            margin-bottom: 10px;
+            /* *** 修改點：減少輸入框下方 margin *** */
+            margin-bottom: 8px; 
             border: 1px solid #ccc;
             border-radius: 6px;
             width: calc(100% - 22px);
@@ -77,9 +79,12 @@
             background-color: #0056b3;
         }
         .user-section p {
-            font-size: 0.9em;
+            /* *** 修改點：減少字體大小和上下 margin *** */
+            font-size: 0.85em; 
             color: #666;
-            margin-top: 8px;
+            margin-top: 6px; 
+            margin-bottom: 6px; /* 也減少下方 margin */
+            line-height: 1.4; /* 稍微減少行高 */
         }
         .user-section span {
             font-weight: bold;
@@ -206,14 +211,12 @@
         #historyList .location { color: #555; text-align: right; flex-grow: 1;}
 
         #findCityButton, #refreshHistoryButton {
-            /* *** 修改點：使按鈕成為塊級元素並置中 *** */
             display: block;
-            width: -webkit-fit-content; /* Safari/Chrome */
-            width: -moz-fit-content;    /* Firefox */
-            width: fit-content;         /* Standard */
+            width: -webkit-fit-content; 
+            width: -moz-fit-content;    
+            width: fit-content;         
             margin-left: auto;
             margin-right: auto;
-            /* 原有樣式保留 */
             padding: 12px 25px;
             font-size: 16px;
             color: white;
