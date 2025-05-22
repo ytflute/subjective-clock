@@ -1,37 +1,66 @@
 <script>
+function getTimezoneOffsetInHours(timezone) {
+  try {
+    const now = new Date();
+    const tzTime = new Intl.DateTimeFormat('en-US', {
+      timeZone: timezone,
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit'
+    }).formatToParts(now);
+
+    const localHour = now.getUTCHours();
+    const localMin = now.getUTCMinutes();
+
+    const tzHour = Number(tzTime.find(p => p.type === 'hour')?.value || 0);
+    const tzMin = Number(tzTime.find(p => p.type === 'minute')?.value || 0);
+
+    const localTotalMin = localHour * 60 + localMin;
+    const tzTotalMin = tzHour * 60 + tzMin;
+
+    let diff = (tzTotalMin - localTotalMin) / 60;
+    if (diff < -12) diff += 24;
+    if (diff > 12) diff -= 24;
+    return diff;
+  } catch (e) {
+    return null;
+  }
+}
+
 fetch('cities_with_timezones.json')
-  .then(response => response.json())
+  .then(res => res.json())
   .then(cities => {
     const now = new Date();
-    const localOffsetMin = -now.getTimezoneOffset(); // 本地 offset，單位：分鐘
-    const nowMinutes = now.getHours() * 60 + now.getMinutes();
+    const nowMin = now.getHours() * 60 + now.getMinutes();
+    const offsetFrom8AM = nowMin - 480; // 相對 08:00 的 offset（分鐘）
+    const localOffsetMin = -now.getTimezoneOffset();
+    const targetOffset = (localOffsetMin - offsetFrom8AM) / 60;
+    const latRatio = now.getMinutes() / 59;
 
-    const offsetFrom8AM = nowMinutes - (8 * 60); // 與 08:00 相差幾分鐘
-    const targetOffset = (localOffsetMin - offsetFrom8AM) / 60; // 推算對齊 08:00 所需的 offset（小時）
+    const enriched = cities
+      .map(c => {
+        const offset = getTimezoneOffsetInHours(c.timezone);
+        return offset !== null ? { ...c, offset } : null;
+      })
+      .filter(c => c && typeof c.latitude === 'number');
 
-    const minutePart = now.getMinutes(); // 0–59
-    const latIndexRatio = minutePart / 59; // 對應緯度排序的位置（北→南）
-
-    // 過濾出 offset 接近 target 的城市，並且具有有效緯度
-    const filtered = cities.filter(c =>
-      Math.abs(Number(c.offset) - targetOffset) < 0.5 &&
-      typeof c.latitude === "number"
+    const filtered = enriched.filter(c =>
+      Math.abs(c.offset - targetOffset) < 0.5
     );
 
     if (filtered.length === 0) {
-      document.getElementById("matchResult").innerHTML = `🌍 Could not find a matching city.`;
+      document.getElementById('matchResult').innerText = '🌍 No match found.';
       return;
     }
 
-    // 根據緯度由北→南排序
     const sorted = filtered.sort((a, b) => b.latitude - a.latitude);
-    const selected = sorted[Math.floor(latIndexRatio * (sorted.length - 1))];
+    const match = sorted[Math.floor(latRatio * (sorted.length - 1))];
 
-    document.getElementById("matchResult").innerHTML =
-      `☀️ Today, you started your day just like someone in <b>${selected.country}</b>, <b>${selected.city}</b>.`;
+    document.getElementById('matchResult').innerHTML =
+      `☀️ Today, you started your day just like someone in <b>${match.country}</b>, <b>${match.city}</b>.`;
   })
   .catch(err => {
-    console.error("❌ Failed to load city data:", err);
+    console.error("❌ Failed to load or process:", err);
     document.getElementById("matchResult").innerText = "Data load failed.";
   });
 </script>
