@@ -1,32 +1,30 @@
-<div id="matchResult" style="margin-top:2rem; font-size:1.2rem;"></div>
-
 <script>
 fetch('cities_with_timezones.json')
   .then(response => response.json())
   .then(cities => {
     const now = new Date();
-    const localOffsetMin = -now.getTimezoneOffset(); // 分鐘
+    const localOffsetMin = -now.getTimezoneOffset(); // 本地 offset，單位：分鐘
     const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-    const offsetFrom8AM = nowMinutes - (8 * 60); // 差距分鐘數
-    const targetOffset = (localOffsetMin - offsetFrom8AM) / 60; // 期望的 offset 小時
+    const offsetFrom8AM = nowMinutes - (8 * 60); // 與 08:00 相差幾分鐘
+    const targetOffset = (localOffsetMin - offsetFrom8AM) / 60; // 推算對齊 08:00 所需的 offset（小時）
 
-    // 🔢 取得當前分鐘，對應 0~59 ➝ 緯度排序百分比
     const minutePart = now.getMinutes(); // 0–59
-    const latIndexRatio = minutePart / 59; // → 0.00~1.00
+    const latIndexRatio = minutePart / 59; // 對應緯度排序的位置（北→南）
 
-    // 🎯 選出所有符合 offset 條件的城市（±0.5 小時）
-    const filtered = cities.filter(c => Math.abs(c.offset - targetOffset) < 0.5 && c.lat !== undefined);
+    // 過濾出 offset 接近 target 的城市，並且具有有效緯度
+    const filtered = cities.filter(c =>
+      Math.abs(Number(c.offset) - targetOffset) < 0.5 &&
+      typeof c.latitude === "number"
+    );
 
     if (filtered.length === 0) {
       document.getElementById("matchResult").innerHTML = `🌍 Could not find a matching city.`;
       return;
     }
 
-    // 🌎 依照緯度排序（北 → 南）
-    const sorted = filtered.sort((a, b) => b.lat - a.lat);
-
-    // 🎯 根據 minute 落在緯度排序位置中
+    // 根據緯度由北→南排序
+    const sorted = filtered.sort((a, b) => b.latitude - a.latitude);
     const selected = sorted[Math.floor(latIndexRatio * (sorted.length - 1))];
 
     document.getElementById("matchResult").innerHTML =
