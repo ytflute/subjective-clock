@@ -4,34 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>世界同步時鐘</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* 新增地圖容器樣式 */
-        #mapContainer iframe {
-            width: 100%;
-            height: 250px; /* 您可以調整地圖高度 */
-            border: 1px solid #ccc;
-            border-radius: 5px;
+    <link rel="stylesheet" href="style.css"> <style>
+        /* 基本頁面和容器樣式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 使用更現代的字體 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5; /* 淡雅的背景色 */
+            padding: 20px;
+            box-sizing: border-box;
+            color: #333; /* 基本文字顏色 */
         }
-        #flagContainer img {
-            max-width: 64px; /* 國旗圖片最大寬度 */
-            height: auto;
+
+        .container {
+            background-color: #ffffff; /* 白色容器背景 */
+            padding: 25px;
+            border-radius: 12px; /* 更圓滑的邊角 */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* 更柔和的陰影 */
+            width: 100%;
+            max-width: 650px; /* 稍微加寬容器 */
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #2c3e50; /* 深藍灰色標題 */
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555; /* 段落文字顏色 */
+            margin-bottom: 15px;
+        }
+
+        /* 使用者資訊區塊 */
+        .user-section {
+            background-color: #f9f9f9; /* 淡灰色背景 */
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .user-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .user-section input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: calc(100% - 22px); /* 考慮 padding 和 border */
+            box-sizing: border-box;
+        }
+        .user-section button {
+            padding: 10px 18px;
+            font-size: 15px;
+            color: white;
+            background-color: #007bff; /* 主題藍色 */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .user-section button:hover {
+            background-color: #0056b3; /* 深一點的藍色 */
+        }
+        .user-section p {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 8px;
+        }
+        .user-section span {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+
+        /* 分頁按鈕樣式 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0; /* 加粗底線 */
+        }
+
+        .tab-button {
+            padding: 12px 22px; /* 增加 padding */
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 17px; /* 稍大字體 */
+            margin: 0 8px;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+            color: #555;
+        }
+
+        .tab-button.active {
+            border-bottom-color: #007bff; /* 主題藍色 */
+            font-weight: bold;
+            color: #007bff;
+        }
+        .tab-button:hover:not(.active) {
+            color: #0056b3;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s; /* 加入淡入動畫 */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* 結果區域樣式 */
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fdfdfd; /* 非常淺的灰色背景 */
+            border-radius: 8px;
             border: 1px solid #eee;
         }
+        #resultText { min-height: 50px; margin-bottom: 15px; font-size: 1.1em; }
+        #flagContainer img { 
+            max-width: 50px; 
+            height: auto; 
+            border: 1px solid #ddd; 
+            border-radius: 4px; /* 國旗圖片也加圓角 */
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        #mapContainer iframe, #historyMapContainer iframe {
+            width: 100%;
+            height: 280px; /* 增加地圖高度 */
+            border: 1px solid #d0d0d0; /* 邊框顏色調整 */
+            border-radius: 8px; /* 地圖也加圓角 */
+            margin-top:15px;
+        }
+        #debugInfo, #historyDebugInfo { 
+            font-size: 0.85em; 
+            color: #777; 
+            margin-top: 15px; 
+            word-wrap: break-word; 
+            background-color: #f9f9f9;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        /* 歷史記錄列表樣式 */
+        #historyList {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            max-height: 350px; /* 增加列表高度 */
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        #historyList li {
+            padding: 12px 15px; /* 增加列表項 padding */
+            border-bottom: 1px solid #f0f0f0;
+            display: flex; /* 使用 flex 佈局 */
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        #historyList li:hover {
+            background-color: #f9f9f9;
+        }
+        #historyList li:last-child {
+            border-bottom: none;
+        }
+        #historyList .date { font-weight: bold; color: #007bff; flex-shrink: 0; margin-right: 10px;}
+        #historyList .time { color: #28a745; margin-right: 10px; } /* 時間用綠色 */
+        #historyList .location { color: #555; text-align: right; flex-grow: 1;}
+
+        /* 主按鈕樣式 */
+        #findCityButton, #refreshHistoryButton {
+            padding: 12px 25px; /* 增加按鈕大小 */
+            font-size: 16px;
+            color: white;
+            background-color: #28a745; /* 主要操作按鈕用綠色 */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        #findCityButton:hover, #refreshHistoryButton:hover {
+            background-color: #218838; /* 深一點的綠色 */
+        }
+        #findCityButton:active, #refreshHistoryButton:active {
+            transform: translateY(1px); /* 按下效果 */
+        }
+        #findCityButton:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
     </style>
 </head>
 <body>
-    <h1>世界同步時鐘</h1>
-    <p>按下按鈕，看看你這一天的開始，已經游移到地球上哪個角落？</p>
-    <button id="findCityButton" disabled>開始這一天</button> <div id="result">
-        <p id="resultText"></p> <div id="flagContainer" style="margin-top: 15px; min-height:40px;"> <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
-        </div>
-        
-        <div id="mapContainer" style="margin-top: 10px;">
-            </div>
-        
-        <small id="debugInfo" style="display: block; margin-top: 10px; font-size: 0.8em; color: #666;"></small> </div>
+    <div class="container">
+        <h1>世界同步時鐘</h1>
 
-    <script src="script.js"></script>
-</body>
+        <div class="user-section">
+            <label for="userName">你的顯示名稱 (用於歷史記錄):</label>
+            <input type="text" id="userName" placeholder="輸入你的名稱...">
+            <button id="setUserNameButton">設定/更新名稱</button>
+            <p>目前使用者 ID: <span id="currentUserId">載入中...</span> (此ID用於區分不同使用者的記錄)</p>
+            <p>你的顯示名稱: <span id="currentUserDisplayName">未設定</span></p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'ClockTab')">時鐘</button>
+            <button class="tab-button" onclick="openTab(event, 'HistoryTab')">歷史軌跡</button>
+        </div>
+
+        <div id="ClockTab" class="tab-content active">
+            <p>按下按鈕，看看你這一天的開始，已經游移到地球上哪個角落？</p>
+            <button id="findCityButton" disabled>開始這一天</button> <div id="result">
+                <p id="resultText"></p> <div id="flagContainer" style="min-height:40px;"> <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
+                </div>
+                <div id="mapContainer">
+                    </div>
+                <small id="debugInfo"></small> </div>
+        </div>
+
+        <div id="HistoryTab" class="tab-content">
+            <h2>你的起床時間軌跡</h2>
+            <p>這裡會顯示你過去記錄的起床時間和對應的地球角落。</p>
+            <button id="refreshHistoryButton">刷新歷史記錄</button>
+            <ul id="historyList">
+                </ul>
+            <div id="historyMapContainer">
+                <p>地圖軌跡將顯示於此。</p>
+            </div>
+            <small id="historyDebugInfo"></small>
+        </div>
+    </div>
+
+    <script type="module">
+        // Firebase SDK 版號可能會更新，請依實際情況調整
+        // 從 CDN 引入 Firebase SDK 模組
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; // For debug logging
+
+        // 將 Firebase 初始化和主要邏輯移至主 script.js，或通過全域變數傳遞
+        // 這樣 script.js 就可以直接使用這些函數了
+        window.firebaseSDK = {
+            initializeApp,
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc,
+            setLogLevel
+        };
+    </script>
+    <script src="script.js"></script> </body>
 </html>
