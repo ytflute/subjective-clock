@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         initializeApp,
         getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
         getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc,
-        setLogLevel // 引入 setLogLevel
+        setLogLevel 
     } = window.firebaseSDK;
 
     // DOM 元素獲取
@@ -30,23 +30,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentUserId = null;
     let userDisplayName = ""; 
 
-    // Firebase 設定 (從 Canvas 環境和使用者提供的設定獲取)
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history'; // 用於 Firestore 路徑
+    // Firebase 設定
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history'; 
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-    // *** 使用者提供的 Firebase 設定物件 ***
     const firebaseConfig = {
-      apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", // 請替換為你的真實 API Key
+      apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", // 使用者提供的金鑰
       authDomain: "subjective-clock.firebaseapp.com",
       projectId: "subjective-clock",
-      storageBucket: "subjective-clock.firebasestorage.app", // 更正: 應為 .appspot.com 或確認你的設定
+      storageBucket: "subjective-clock.appspot.com", // 通常是 .appspot.com
       messagingSenderId: "452566766153",
       appId: "1:452566766153:web:522312f3ed5c81403f2598",
-      measurementId: "G-QZ6440LZEM" // 如果你使用 Analytics
+      measurementId: "G-QZ6440LZEM" 
     };
-    // *************************************
 
-    if (!firebaseConfig.apiKey || !firebaseConfig.projectId) { // 簡單檢查必要的設定是否存在
+    if (!firebaseConfig.apiKey || !firebaseConfig.projectId) { 
         console.error("Firebase 設定不完整!");
         alert("Firebase 設定不完整，應用程式無法初始化 Firebase。");
         currentUserIdSpan.textContent = "Firebase 設定錯誤";
@@ -56,11 +54,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始化 Firebase
     try {
         setLogLevel('debug'); 
-        const app = initializeApp(firebaseConfig); // 使用你提供的 firebaseConfig
+        const app = initializeApp(firebaseConfig); 
         auth = getAuth(app);
         db = getFirestore(app);
         console.log("Firebase 初始化成功。App ID (用於路徑):", appId, "Project ID (來自設定):", firebaseConfig.projectId);
-        // 如果需要 Analytics: const analytics = getAnalytics(app);
     } catch (e) {
         console.error("Firebase 初始化失敗:", e);
         currentUserIdSpan.textContent = "Firebase 初始化失敗";
@@ -109,8 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     });
-
-    // 載入使用者顯示名稱
+    
     async function loadUserDisplayName() {
         if (!currentUserId) return;
         const userProfileRef = doc(db, `artifacts/${appId}/users/${currentUserId}/profiles/userData`);
@@ -132,7 +128,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // 設定使用者顯示名稱
     setUserNameButton.addEventListener('click', async () => {
         if (!currentUserId) {
             alert("請先等待認證完成。");
@@ -160,7 +155,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // 1. 載入城市數據
     fetch('cities_data.json')
         .then(response => {
             if (!response.ok) {
@@ -284,12 +278,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
         console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
-
         let candidateCities = [];
         for (const city of citiesData) {
-            if (!city || !city.timezone || typeof city.latitude !== 'number' || typeof city.longitude !== 'number' || !city.country_iso_code) {
+            // *** 修改點：增加 isNaN 檢查 ***
+            if (!city || !city.timezone || 
+                typeof city.latitude !== 'number' || isNaN(city.latitude) || 
+                typeof city.longitude !== 'number' || isNaN(city.longitude) || 
+                !city.country_iso_code) {
+                // console.warn("跳過格式不正確或缺少必要資訊的城市數據:", city);
                 continue;
             }
+            // ***************************
+
             let cityUTCOffset;
             if (timezoneOffsetCache.has(city.timezone)) {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
@@ -345,11 +345,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 countryFlagImg.style.display = 'inline-block';
             }
 
-            if (typeof bestMatchCity.latitude === 'number' && typeof bestMatchCity.longitude === 'number') {
+            // *** 修改點：增加 isNaN 檢查 ***
+            if (typeof bestMatchCity.latitude === 'number' && !isNaN(bestMatchCity.latitude) && 
+                typeof bestMatchCity.longitude === 'number' && !isNaN(bestMatchCity.longitude)) {
                 const lat = bestMatchCity.latitude;
                 const lon = bestMatchCity.longitude;
                 mapContainerDiv.innerHTML = `<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-1},${lat-1},${lon+1},${lat+1}&amp;layer=mapnik&amp;marker=${lat},${lon}" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=7/${lat}/${lon}" target="_blank">查看較大地圖</a></small>`;
+            } else {
+                 mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整或無效。</p>";
             }
+            // ***************************
             
             debugInfoSmall.innerHTML = `(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`;
 
@@ -363,8 +368,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 city_zh: bestMatchCity.city_zh || "",
                 country_zh: bestMatchCity.country_zh || "",
                 country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
-                latitude: bestMatchCity.latitude,
-                longitude: bestMatchCity.longitude,
+                latitude: bestMatchCity.latitude, // 確保這裡儲存的是有效數字
+                longitude: bestMatchCity.longitude, // 確保這裡儲存的是有效數字
                 targetUTCOffset: targetUTCOffsetHours,
                 matchedCityUTCOffset: isNaN(cityActualUTCOffset) ? null : cityActualUTCOffset
             };
@@ -383,6 +388,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.warn("無法儲存歷史記錄：使用者未登入。");
             return;
         }
+        // *** 修改點：增加 isNaN 檢查 ***
+        if (isNaN(recordData.latitude) || isNaN(recordData.longitude)) {
+            console.error("無法儲存歷史記錄：經緯度無效。", recordData);
+            return;
+        }
+        // ***************************
         const historyCollectionRef = collection(db, `artifacts/${appId}/users/${currentUserId}/clockHistory`);
         try {
             const docRef = await addDoc(historyCollectionRef, recordData);
@@ -430,7 +441,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 historyListUl.appendChild(li);
 
-                if (typeof record.latitude === 'number' && typeof record.longitude === 'number') {
+                // *** 修改點：增加 isNaN 檢查 ***
+                if (typeof record.latitude === 'number' && !isNaN(record.latitude) &&
+                    typeof record.longitude === 'number' && !isNaN(record.longitude)) {
                     historyPoints.push({
                         lat: record.latitude,
                         lon: record.longitude,
@@ -439,7 +452,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                         isMostRecent: firstRecord 
                     });
                     firstRecord = false;
+                } else {
+                    console.warn("跳過經緯度無效的歷史記錄:", record);
                 }
+                // ***************************
             });
 
             renderHistoryMap(historyPoints);
@@ -454,37 +470,72 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderHistoryMap(points) {
         if (!points || points.length === 0) {
-            historyMapContainerDiv.innerHTML = "<p>尚無歷史記錄可顯示於地圖。</p>";
+            historyMapContainerDiv.innerHTML = "<p>尚無歷史記錄可顯示於地圖 (或所有記錄座標無效)。</p>";
             return;
         }
 
         let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
+        let validPointsExist = false;
         
-        points.forEach((point) => { // 只計算邊界，標記字串後面再組
-            minLat = Math.min(minLat, point.lat);
-            maxLat = Math.max(maxLat, point.lat);
-            minLon = Math.min(minLon, point.lon);
-            maxLon = Math.max(maxLon, point.lon);
+        points.forEach((point) => { 
+            // 再次確認，雖然在 loadHistory 中已檢查
+            if (typeof point.lat === 'number' && !isNaN(point.lat) && typeof point.lon === 'number' && !isNaN(point.lon)) {
+                minLat = Math.min(minLat, point.lat);
+                maxLat = Math.max(maxLat, point.lat);
+                minLon = Math.min(minLon, point.lon);
+                maxLon = Math.max(maxLon, point.lon);
+                validPointsExist = true;
+            }
         });
-        
-        const latMargin = (maxLat - minLat) * 0.2 || 1.0; // 增加邊距
-        const lonMargin = (maxLon - minLon) * 0.2 || 1.0;
 
-        // 確保邊界框不會超出有效範圍
+        if (!validPointsExist) {
+             historyMapContainerDiv.innerHTML = "<p>所有歷史記錄的座標均無效，無法顯示地圖。</p>";
+            return;
+        }
+        
+        const latMargin = (maxLat === minLat) ? 1.0 : (maxLat - minLat) * 0.2 + 0.5; // 確保有最小邊距
+        const lonMargin = (maxLon === minLon) ? 1.0 : (maxLon - minLon) * 0.2 + 0.5; // 確保有最小邊距
+
         const south = Math.max(-90, minLat - latMargin);
         const west = Math.max(-180, minLon - lonMargin);
         const north = Math.min(90, maxLat + latMargin);
         const east = Math.min(180, maxLon + lonMargin);
         
-        const bbox = `${west},${south},${east},${north}`;
+        // 確保 west < east 和 south < north，對於單點情況特別處理
+        let finalWest = west;
+        let finalSouth = south;
+        let finalEast = east;
+        let finalNorth = north;
+
+        if (finalWest >= finalEast) { // 如果經度範圍無效 (例如單點或所有點在同一經度)
+            finalWest = finalWest - 0.5; // 擴展一點
+            finalEast = finalEast + 0.5;
+        }
+        if (finalSouth >= finalNorth) { // 如果緯度範圍無效
+            finalSouth = finalSouth - 0.5;
+            finalNorth = finalNorth + 0.5;
+        }
+        // 再次確保不超出邊界
+        finalWest = Math.max(-180, finalWest);
+        finalSouth = Math.max(-90, finalSouth);
+        finalEast = Math.min(180, finalEast);
+        finalNorth = Math.min(90, finalNorth);
+
+
+        const bbox = `${finalWest},${finalSouth},${finalEast},${finalNorth}`;
         
-        const maxMarkersToShow = 20; // 限制地圖上標記的數量
+        const maxMarkersToShow = 20; 
         let displayMarkersString = "";
         points.slice(0, maxMarkersToShow).forEach((point, index) => {
-             // OpenStreetMap marker URL 格式: marker=lat,lon[|lat,lon|...]
-             // 可以為不同的標記指定不同的圖示或顏色，但這裡使用預設
-             displayMarkersString += `${point.lat},${point.lon}${index < points.slice(0, maxMarkersToShow).length - 1 ? '|' : ''}`;
+             if (typeof point.lat === 'number' && !isNaN(point.lat) && typeof point.lon === 'number' && !isNaN(point.lon)) {
+                displayMarkersString += `${point.lat},${point.lon}${index < Math.min(points.length, maxMarkersToShow) - 1 && index < points.slice(0, maxMarkersToShow).length -1 ? '|' : ''}`;
+             }
         });
+        // 移除可能因最後一個有效點後無有效點而產生的末尾 '|'
+        if (displayMarkersString.endsWith('|')) {
+            displayMarkersString = displayMarkersString.slice(0, -1);
+        }
+
 
         const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${displayMarkersString ? '&marker=' + displayMarkersString : ''}`;
         
