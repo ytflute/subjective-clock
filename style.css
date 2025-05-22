@@ -6,7 +6,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #8f867f;
+    background-color: #e0e0e0;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: #8f867f;
+    background-color: #e0e0e0;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -34,7 +34,7 @@ button:disabled {
 }
 
 button:hover:not(:disabled) {
-    background-color: #7a6d62;
+    background-color: #cccaca;
 }
 
 #result {
