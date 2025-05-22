@@ -1,73 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Micro Time Twin</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 3rem;
-      background-color: #f4f4f4;
-    }
-    button {
-      font-size: 1.2rem;
-      padding: 0.8rem 2rem;
-      background: #333;
-      color: #fff;
-      border: none;
-      border-radius: 0.5rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #000;
-    }
-    #result {
-      margin-top: 3rem;
-      font-size: 1.4rem;
-      line-height: 1.8;
-    }
-  </style>
-</head>
-<body>
-
-<h1>☀️ Micro Time Twin</h1>
-<button onclick="showTimeTwin()">👉 開始今天</button>
-<div id="result"></div>
+<div id="matchResult" style="margin-top:2rem; font-size:1.2rem;"></div>
 
 <script>
-  const timeZoneCities = [
-    { country: "英國", city: "倫敦", offset: 0 },
-    { country: "德國", city: "柏林", offset: 1 },
-    { country: "埃及", city: "開羅", offset: 2 },
-    { country: "阿聯酋", city: "杜拜", offset: 4 },
-    { country: "印度", city: "孟買", offset: 5.5 },
-    { country: "泰國", city: "曼谷", offset: 7 },
-    { country: "台灣", city: "台北", offset: 8 },
-    { country: "日本", city: "東京", offset: 9 },
-    { country: "澳洲", city: "雪梨", offset: 10 },
-    { country: "美國", city: "紐約", offset: -5 },
-    { country: "美國", city: "洛杉磯", offset: -8 }
-  ];
-
-  function showTimeTwin() {
+fetch('cities_with_timezones.json')
+  .then(response => response.json())
+  .then(cities => {
     const now = new Date();
-    const localOffsetMin = now.getHours() * 60 + now.getMinutes();
-    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    const utcMinutes = new Date(utc).getUTCHours() * 60;
+    const localOffsetMin = -now.getTimezoneOffset(); // 分鐘
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-    const diffHours = Math.round((utcMinutes - 480) / 60); // 480 分鐘 = 8:00 AM
-    const match = timeZoneCities.find(c => Math.round(c.offset) === diffHours);
+    const offsetFrom8AM = nowMinutes - (8 * 60); // 差距分鐘數
+    const targetOffset = (localOffsetMin - offsetFrom8AM) / 60; // 期望的 offset 小時
 
-    const result = document.getElementById("result");
-    if (match) {
-      result.innerHTML = `今天的你在 <strong>${match.country}</strong>的<strong>${match.city}</strong> 展開了新的一天。`;
-    } else {
-      result.textContent = "❗ 找不到對應地區，請稍後再試。";
+    // 🔢 取得當前分鐘，對應 0~59 ➝ 緯度排序百分比
+    const minutePart = now.getMinutes(); // 0–59
+    const latIndexRatio = minutePart / 59; // → 0.00~1.00
+
+    // 🎯 選出所有符合 offset 條件的城市（±0.5 小時）
+    const filtered = cities.filter(c => Math.abs(c.offset - targetOffset) < 0.5 && c.lat !== undefined);
+
+    if (filtered.length === 0) {
+      document.getElementById("matchResult").innerHTML = `🌍 Could not find a matching city.`;
+      return;
     }
-  }
-</script>
 
-</body>
-</html>
+    // 🌎 依照緯度排序（北 → 南）
+    const sorted = filtered.sort((a, b) => b.lat - a.lat);
+
+    // 🎯 根據 minute 落在緯度排序位置中
+    const selected = sorted[Math.floor(latIndexRatio * (sorted.length - 1))];
+
+    document.getElementById("matchResult").innerHTML =
+      `☀️ Today, you started your day just like someone in <b>${selected.country}</b>, <b>${selected.city}</b>.`;
+  })
+  .catch(err => {
+    console.error("❌ Failed to load city data:", err);
+    document.getElementById("matchResult").innerText = "Data load failed.";
+  });
+</script>
