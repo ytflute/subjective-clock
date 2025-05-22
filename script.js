@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let citiesData = [];
 
     // 1. 載入城市數據
+    // 請確保 cities_data.json 包含以下欄位:
+    // city (英文城市名), country (英文國家名), timezone, latitude
+    // city_zh (中文城市名, 可選), country_zh (中文國家名, 可選)
     fetch('cities_data.json') // 確保此檔案與 HTML 檔案在同一目錄，或路徑正確
         .then(response => {
             if (!response.ok) {
@@ -133,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // console.warn(`無法獲取 ${city.city} (${city.timezone}) 的 UTC 偏移量`);
                 continue;
             }
-            // 檢查時區是否匹配 (容許誤差最多 15 分鐘)
-            // 0.25 小時 = 15 分鐘
-            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.25) {
+            // 檢查時區是否匹配 (容許誤差最多 30 分鐘)
+            // 0.5 小時 = 30 分鐘
+            if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { // <--- 修改點
                 candidateCities.push(city);
             }
         }
@@ -144,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (candidateCities.length === 0) {
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-            resultDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上正好是 <strong>8:00 AM</strong> (或與其相差15分鐘內) 且符合時區條件的地區。<br><small>(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})</small>`;
+            resultDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上正好是 <strong>8:00 AM</strong> (或與其相差30分鐘內) 且符合時區條件的地區。<br><small>(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})</small>`; // <--- 修改點
             return;
         }
 
@@ -161,6 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (bestMatchCity) {
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
             const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone); // 重新獲取以確保最新
+
+            // 準備城市和國家的顯示名稱 (中英文)
+            const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
+            const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
+
             // 計算目標城市的大約當地時間
             const bestCityCurrentUTCHours = userLocalHours + userLocalMinutes/60 - userUTCOffsetHours;
             let bestCityApproxLocalHour = bestCityCurrentUTCHours + cityActualUTCOffset;
@@ -172,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (bestCityApproxLocalHour >= 24) bestCityApproxLocalHour -= 24;
 
 
-            resultDiv.innerHTML = `你雖然在當地起床時間是 <strong>${userTimeFormatted}</strong>，<br>但是你的作息正好跟 <strong>${bestMatchCity.city} (${bestMatchCity.country})</strong> 的人 (當地約 <strong>${String(bestCityApproxLocalHour).padStart(2, '0')}:${String(Math.round(bestCityApproxLocalMinute)).padStart(2, '0')}</strong>) 接近 <strong>8:00 AM</strong> 一樣，<br>一起開啟了新的一天！<br><small>(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})</small>`;
+            resultDiv.innerHTML = `你雖然在當地起床時間是 <strong>${userTimeFormatted}</strong>，<br>但是你的作息正好跟 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>${String(bestCityApproxLocalHour).padStart(2, '0')}:${String(Math.round(bestCityApproxLocalMinute)).padStart(2, '0')}</strong>) 接近 <strong>8:00 AM</strong> 一樣，<br>一起開啟了新的一天！<br><small>(目標城市緯度: ${bestMatchCity.latitude.toFixed(2)}°, 計算目標緯度: ${targetLatitude.toFixed(2)}°, 緯度差: ${minLatDiff.toFixed(2)}°)<br>(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${isNaN(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})</small>`;
         } else {
             // 理論上如果 candidateCities 有內容，這裡應該也會有 bestMatchCity
             const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
