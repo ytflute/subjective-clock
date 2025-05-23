@@ -393,7 +393,7 @@ async function displayLastRecordForCurrentUser() {
     }
 
 async function findMatchingCity() {
-    clearPreviousResults(); // 這個函數會清除 mapContainerDiv 的內容並移除 'universe-message' class
+    clearPreviousResults(); 
     console.log("--- 開始尋找匹配城市 ---");
 
     if (!currentDataIdentifier) {
@@ -406,13 +406,21 @@ async function findMatchingCity() {
     }
     if (citiesData.length === 0) {
         resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空。";
-        // mapContainerDiv 已經由 clearPreviousResults() 清理
         return;
     }
 
-    const userLocalDate = new Date();
+    const userLocalDate = new Date(); // 使用者本地時間 Date 物件
+
+    // ★★★ 在這裡，基於 userLocalDate 生成正確的本地日期字串 ★★★
+    const year = userLocalDate.getFullYear();
+    const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0'); // getMonth() 是 0-indexed
+    const day = userLocalDate.getDate().toString().padStart(2, '0');
+    const localDateStringForRecord = `${year}-${month}-${day}`;
+    // ★★★ 修改結束 ★★★
+
     const userLocalHours = userLocalDate.getHours();
     const userLocalMinutes = userLocalDate.getMinutes();
+    // ... (函數中其餘的 userTimezoneOffsetMinutes, targetUTCOffsetHours 等計算不變) ...
     const userTimezoneOffsetMinutes = userLocalDate.getTimezoneOffset();
     const userUTCOffsetHours = -userTimezoneOffsetMinutes / 60;
 
@@ -428,14 +436,14 @@ async function findMatchingCity() {
     const targetLatitude = 90 - (userLocalMinutes / 59) * 180;
 
     const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-
+    
     console.log(`用戶實際時間: ${userTimeFormatted} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
-    console.log(`用於計算目標偏移的調整後用戶時間: ${adjustedUserLocalHours}:${adjustedUserLocalMinutes < 10 ? '0' : ''}${adjustedUserLocalMinutes}`);
-    console.log(`尋找目標 UTC 偏移 (targetUTCOffsetHours): ${targetUTCOffsetHours.toFixed(2)} (即 UTC ${targetUTCOffsetHours >= 0 ? '+' : ''}${targetUTCOffsetHours.toFixed(2)})`);
-    console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
-    console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
+    console.log(`用戶本地日期字串 (將用於記錄): ${localDateStringForRecord}`); // 新增的 log，方便您確認
+    // ... (其他 console.log 不變) ...
+
 
     let candidateCities = [];
+    // ... (candidateCities 的篩選邏輯不變) ...
     for (const city of citiesData) {
         if (!city || !city.timezone ||
             typeof city.latitude !== 'number' || !isFinite(city.latitude) ||
@@ -459,22 +467,19 @@ async function findMatchingCity() {
         }
     }
 
+
     if (candidateCities.length === 0) {
         resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
         
-        // --- 開始為宇宙情況更新 mapContainerDiv ---
-        // 移除舊的地圖實例 (如果存在)
         if (clockLeafletMap) {
             clockLeafletMap.remove();
             clockLeafletMap = null;
         }
-        // 清空 mapContainerDiv 的內容
         mapContainerDiv.innerHTML = '';
-        mapContainerDiv.classList.add('universe-message'); // ★ 套用宇宙樣式
+        mapContainerDiv.classList.add('universe-message');
         mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
-        // --- mapContainerDiv 更新結束 ---
 
-        countryFlagImg.style.display = 'none'; // 確保國旗隱藏
+        countryFlagImg.style.display = 'none';
         debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
         const universeRecord = {
@@ -482,8 +487,8 @@ async function findMatchingCity() {
             userDisplayName: rawUserDisplayName,
             recordedAt: serverTimestamp(),
             localTime: userTimeFormatted,
-            city: "Unknown Planet",
-            country: "Universe",
+            city: "Unknown Planet", // 您原本的程式碼是 "Unknown Planet" 不是 "未知星球Unknown Planet"
+            country: "Universe",   // 您原本的程式碼是 "Universe" 不是 "宇宙Universe"
             city_zh: "未知星球",
             country_zh: "宇宙",
             country_iso_code: "universe_code",
@@ -491,7 +496,7 @@ async function findMatchingCity() {
             longitude: null,
             targetUTCOffset: targetUTCOffsetHours,
             matchedCityUTCOffset: null,
-            recordedDateString: userLocalDate.toISOString().split('T')[0]
+            recordedDateString: localDateStringForRecord // ★ 使用修正後的本地日期字串
         };
         await saveHistoryRecord(universeRecord);
         await saveToGlobalDailyRecord(universeRecord);
@@ -501,6 +506,7 @@ async function findMatchingCity() {
 
     let bestMatchCity = null;
     let minLatDiff = Infinity;
+    // ... (bestMatchCity 的尋找邏輯不變) ...
     for (const city of candidateCities) {
         const latDiff = Math.abs(city.latitude - targetLatitude);
         if (latDiff < minLatDiff) {
@@ -521,17 +527,13 @@ async function findMatchingCity() {
             countryFlagImg.alt = `${finalCountryName} 國旗`;
             countryFlagImg.style.display = 'inline-block';
         }
-        // 如果沒有 country_iso_code，clearPreviousResults() 已經處理了隱藏
 
-        // --- 開始為匹配到的城市更新 mapContainerDiv ---
-        // 移除舊的地圖實例 (如果存在)
         if (clockLeafletMap) {
             clockLeafletMap.remove();
             clockLeafletMap = null;
         }
-        // 清空 mapContainerDiv 的內容
         mapContainerDiv.innerHTML = '';
-        mapContainerDiv.classList.remove('universe-message'); // ★ 確保宇宙樣式被移除
+        mapContainerDiv.classList.remove('universe-message');
 
         if (typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) &&
             typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) {
@@ -547,7 +549,6 @@ async function findMatchingCity() {
         } else {
             mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整或無效。</p>";
         }
-        // --- mapContainerDiv 更新結束 ---
         
         const debugLat = typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) ? bestMatchCity.latitude.toFixed(2) : 'N/A';
         const debugLon = typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude) ? bestMatchCity.longitude.toFixed(2) : 'N/A';
@@ -572,15 +573,12 @@ async function findMatchingCity() {
             longitude: bestMatchCity.longitude,
             targetUTCOffset: targetUTCOffsetHours,
             matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-            recordedDateString: userLocalDate.toISOString().split('T')[0]
+            recordedDateString: localDateStringForRecord // ★ 使用修正後的本地日期字串
         };
         await saveHistoryRecord(recordData);
         await saveToGlobalDailyRecord(recordData);
         console.log("--- 尋找匹配城市結束 (找到城市) ---");
     }
-    // 如果 bestMatchCity 最終為 null (理論上，如果 candidateCities 非空，此情況不會發生)
-    // mapContainerDiv 會是 clearPreviousResults() 後的狀態 (空白)。
-    // 可以選擇在這裡添加一個備用訊息，但目前的邏輯下，若 candidateCities 非空，bestMatchCity 必有值。
 }
 
     async function saveHistoryRecord(recordData) {
