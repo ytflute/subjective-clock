@@ -151,65 +151,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return true;
     }
 
-    // ---- 顯示最後一筆時鐘紀錄 ----
-    async function displayLastRecordForCurrentUser() {
-        if (!currentDataIdentifier || !auth.currentUser) {
-            resultTextDiv.innerHTML = `<p>請先登入並設定名稱。</p>`;
-            return;
-        }
-
-        const historyRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
-        const q = query(historyRef, orderBy("recordedAt", "desc"), limit(1));
-
-        try {
-            const snapshot = await getDocs(q);
-            if (snapshot.empty) {
-                resultTextDiv.innerHTML = `<p>歡迎，${rawUserDisplayName}！此名稱尚無歷史記錄。</p>`;
-                return;
-            }
-
-            const record = snapshot.docs[0].data();
-            const city = record.city_zh ? `${record.city_zh} (${record.city})` : record.city;
-            const country = record.country_zh ? `${record.country_zh} (${record.country})` : record.country;
-            const localTime = record.localTime || '未知時間';
-
-            resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${localTime}</strong> 的最後記錄，<br>同步於 <strong>${city}, ${country}</strong>。`;
-
-            if (record.country_iso_code && record.country_iso_code !== 'universe_code') {
-                countryFlagImg.src = `https://flagcdn.com/w40/${record.country_iso_code.toLowerCase()}.png`;
-                countryFlagImg.alt = `${country} 國旗`;
-                countryFlagImg.style.display = 'inline-block';
-            } else {
-                countryFlagImg.style.display = 'none';
-            }
-
-            if (clockLeafletMap) clockLeafletMap.remove();
-            mapContainerDiv.innerHTML = '';
-
-            if (typeof record.latitude === 'number' && typeof record.longitude === 'number') {
-                clockLeafletMap = L.map(mapContainerDiv).setView([record.latitude, record.longitude], 7);
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                    attribution: '&copy; OpenStreetMap & CARTO',
-                    subdomains: 'abcd',
-                    maxZoom: 19
-                }).addTo(clockLeafletMap);
-
-                L.circleMarker([record.latitude, record.longitude], {
-                    color: 'red', fillColor: '#f03', fillOpacity: 0.8, radius: 8
-                }).addTo(clockLeafletMap).bindPopup(`<b>${city}</b><br>${country}`).openPopup();
-            } else {
-                mapContainerDiv.innerHTML = "<p>無法顯示地圖：缺乏有效座標。</p>";
-            }
-
-            const recordedAt = record.recordedAt?.toDate?.().toLocaleString('zh-TW') || '未知時間';
-            debugInfoSmall.innerHTML = `(記錄時間: ${recordedAt})`;
-        } catch (e) {
-            console.error("讀取最後記錄失敗：", e);
-            resultTextDiv.innerHTML = "<p>讀取最後記錄失敗。</p>";
-        }
-    }
-
-    // ---- 顯示最後一筆時鐘紀錄 ----
+   // ---- 顯示最後一筆時鐘紀錄 ----
     async function displayLastRecordForCurrentUser() {
         // 已於前段完整實作，無需再次定義。
     }
@@ -295,6 +237,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         }).addTo(clockLeafletMap).bindPopup(`<b>${cityName}</b><br>${countryName}`).openPopup();
 
         debugInfoSmall.innerHTML = `(目標偏移: ${targetOffset.toFixed(2)}、城市: ${bestMatch.timezone})`;
+
+        // 新增儲存紀錄
+        const record = {
+            dataIdentifier: currentDataIdentifier,
+            userDisplayName: rawUserDisplayName,
+            recordedAt: serverTimestamp(),
+            recordedDateString: now.toISOString().split('T')[0],
+            localTime: `${adjustedHour}:${roundedMin.toString().padStart(2, '0')}`,
+            city: bestMatch.city,
+            city_zh: bestMatch.city_zh || '',
+            country: bestMatch.country,
+            country_zh: bestMatch.country_zh || '',
+            country_iso_code: bestMatch.country_iso_code || '',
+            timezone: bestMatch.timezone,
+            latitude: bestMatch.latitude,
+            longitude: bestMatch.longitude,
+            matchedCityUTCOffset: getCityUTCOffsetHours(bestMatch.timezone),
+            targetUTCOffset: targetOffset
+        };
+
+        await saveHistoryRecord(record);
+        await saveToGlobalDailyRecord(record);
     }
 
 // ---- 分頁切換處理 ----
@@ -409,7 +373,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // ---- 地圖渲染通用函式 ----
+    // ---- 儲存至個人歷史記錄 ----
+    async function saveHistoryRecord(recordData) {
+        try {
+            const ref = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+            await addDoc(ref, recordData);
+            console.log("個人紀錄已儲存。");
+        } catch (e) {
+            console.error("儲存個人紀錄失敗：", e);
+        }
+    }
+
+    // ---- 儲存至全域每日記錄 ----
+    async function saveToGlobalDailyRecord(recordData) {
+        try {
+            const ref = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
+            await addDoc(ref, recordData);
+            console.log("全域紀錄已儲存。");
+        } catch (e) {
+            console.error("儲存全域紀錄失敗：", e);
+        }
+    }
+
+// ---- 地圖渲染通用函式 ----
     function renderPointsOnMap(points, mapDiv, debugDiv, title, type) {
         let mapInstance = (type === 'global') ? globalLeafletMap : historyLeafletMap;
         let layerGroup = (type === 'global') ? globalMarkerLayerGroup : historyMarkerLayerGroup;
@@ -449,6 +435,5 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (debugDiv) debugDiv.textContent = `${title} - 顯示 ${points.length} 筆資料`;
     }
 });
-
 
     
