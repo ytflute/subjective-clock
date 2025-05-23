@@ -211,15 +211,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const finalCityName = lastRecord.city_zh && lastRecord.city_zh !== lastRecord.city ? `${lastRecord.city_zh} (${lastRecord.city})` : lastRecord.city;
                 const finalCountryName = lastRecord.country_zh && lastRecord.country_zh !== lastRecord.country ? `${lastRecord.country_zh} (${lastRecord.country})` : lastRecord.country;
                 
-                // 如果是宇宙記錄，顯示不同的訊息
                 if (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet") {
                      resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！`;
                 } else {
                      resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>8:00 AM</strong>) 同步，<br>一起開啟了新的一天！`;
                 }
 
-
-                if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') { // 宇宙記錄沒有國旗
+                if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') { 
                     countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
                     countryFlagImg.alt = `${finalCountryName} 國旗`;
                     countryFlagImg.style.display = 'inline-block';
@@ -376,12 +374,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         const userLocalHoursDecimalForTarget = adjustedUserLocalHours + adjustedUserLocalMinutes / 60;
         const targetUTCOffsetHours = 8 - userLocalHoursDecimalForTarget + userUTCOffsetHours;
-        const targetLatitude = 90 - (userLocalMinutes / 59) * 180; // 緯度計算不變
+        const targetLatitude = 90 - (userLocalMinutes / 59) * 180; 
 
         const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
 
         console.log(`用戶實際時間: ${userTimeFormatted} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
-        // ... 其他日誌 ...
+        console.log(`用於計算目標偏移的調整後用戶時間: ${adjustedUserLocalHours}:${adjustedUserLocalMinutes < 10 ? '0' : ''}${adjustedUserLocalMinutes}`);
+        console.log(`尋找目標 UTC 偏移 (targetUTCOffsetHours): ${targetUTCOffsetHours.toFixed(2)} (即 UTC ${targetUTCOffsetHours >= 0 ? '+' : ''}${targetUTCOffsetHours.toFixed(2)})`);
+        console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
+        console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
         let candidateCities = [];
         for (const city of citiesData) {
@@ -408,10 +409,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (candidateCities.length === 0) {
-            // *** 修改點：找不到城市時的處理 ***
             resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
-            mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>"; // 清除地圖或顯示宇宙提示
-            countryFlagImg.style.display = 'none'; // 隱藏國旗
+            mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>"; 
+            countryFlagImg.style.display = 'none'; 
             debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
             const universeRecord = {
@@ -419,20 +419,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                 userDisplayName: rawUserDisplayName, 
                 recordedAt: serverTimestamp(),
                 localTime: userTimeFormatted,
-                city: "未知星球Unknown Planet", // 特殊城市名
-                country: "宇宙Universe",       // 特殊國家名
+                city: "未知星球Unknown Planet", 
+                country: "宇宙Universe",       
                 city_zh: "未知星球",
                 country_zh: "宇宙",
-                country_iso_code: "universe_code", // 特殊國碼，避免查找真實國旗
-                latitude: null, // 沒有有效座標
+                country_iso_code: "universe_code", 
+                latitude: null, 
                 longitude: null,
                 targetUTCOffset: targetUTCOffsetHours,
-                matchedCityUTCOffset: null, // 沒有匹配的城市
+                matchedCityUTCOffset: null, 
                 recordedDateString: userLocalDate.toISOString().split('T')[0]
             };
             await saveHistoryRecord(universeRecord);
             await saveToGlobalDailyRecord(universeRecord);
-            return; // 結束函數執行
+            return; 
         }
 
         let bestMatchCity = null;
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        if (bestMatchCity) { // 這部分邏輯與之前版本相同，用於顯示找到的城市
+        if (bestMatchCity) { 
             const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
             const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
             const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
@@ -496,8 +496,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             await saveToGlobalDailyRecord(recordData); 
 
         } 
-        // 移除了原先在 bestMatchCity 條件塊之外的 else，因為如果 candidateCities 不為空，則 bestMatchCity 必定有值。
-        // 如果 candidateCities 為空，則在上面的 if (candidateCities.length === 0) 中已處理。
         console.log("--- 尋找匹配城市結束 ---");
     }
 
@@ -506,7 +504,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.warn("無法儲存歷史記錄：使用者名稱未設定。");
             return;
         }
-        // 對於宇宙記錄，經緯度是 null，不需要 isFinite 檢查，但其他記錄需要
         if (recordData.city !== "未知星球Unknown Planet" && 
             (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) || 
              typeof recordData.longitude !== 'number' || !isFinite(recordData.longitude))) {
@@ -537,8 +534,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             city_zh: recordData.city_zh,
             country_zh: recordData.country_zh,
             country_iso_code: recordData.country_iso_code,
-            latitude: recordData.latitude, // 可能為 null (宇宙記錄)
-            longitude: recordData.longitude, // 可能為 null (宇宙記錄)
+            latitude: recordData.latitude, 
+            longitude: recordData.longitude, 
         };
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
@@ -622,7 +619,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             const globalPoints = [];
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
-                // 只將有有效經緯度的點加入地圖
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
                     
@@ -650,7 +646,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderPointsOnMap(points, mapDiv, debugDiv, mapTitle = "地圖") {
-        if (!points || points.length === 0) { // 這裡的 points 應該已經過濾過，只包含有效點
+        if (!points || points.length === 0) { 
             mapDiv.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
             if(debugDiv) debugDiv.textContent = "";
             return;
@@ -714,7 +710,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderHistoryMap(points) { 
         console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
-        historyMapContainerDiv.innerHTML = "<p></p>"; 
+        historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; 
         return; 
     }
 
