@@ -151,12 +151,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         return true;
     }
 
-   // ---- 顯示最後一筆時鐘紀錄 ----
+     // ---- 顯示最後一筆時鐘紀錄 ----
     async function displayLastRecordForCurrentUser() {
         // 已於前段完整實作，無需再次定義。
     }
 
-    // ---- 時鐘同步功能與按鈕事件 ----
+    // ---- 輔助函式：清除上次顯示結果 ----
+    function clearPreviousResults() {
+        resultTextDiv.innerHTML = '';
+        countryFlagImg.style.display = 'none';
+        countryFlagImg.src = '';
+        mapContainerDiv.innerHTML = '';
+        debugInfoSmall.innerHTML = '';
+        if (clockLeafletMap) {
+            clockLeafletMap.remove();
+            clockLeafletMap = null;
+        }
+    }
+
+// ---- 時鐘同步功能與按鈕事件 ----
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
     if (refreshGlobalMapButton) {
@@ -435,5 +448,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (debugDiv) debugDiv.textContent = `${title} - 顯示 ${points.length} 筆資料`;
     }
 });
+
 
     
