@@ -234,7 +234,7 @@ async function displayLastRecordForCurrentUser() {
             if (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet") {
                 resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！`;
             } else {
-                resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>8:00 AM</strong>) 同步，<br>一起開啟了新的一天！`;
+                resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！`;
             }
 
             if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') {
@@ -482,8 +482,8 @@ async function findMatchingCity() {
             userDisplayName: rawUserDisplayName,
             recordedAt: serverTimestamp(),
             localTime: userTimeFormatted,
-            city: "未知星球Unknown Planet",
-            country: "宇宙Universe",
+            city: "Unknown Planet",
+            country: "Universe",
             city_zh: "未知星球",
             country_zh: "宇宙",
             country_iso_code: "universe_code",
