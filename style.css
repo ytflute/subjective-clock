@@ -53,3 +53,24 @@ button:hover:not(:disabled) {
     font-size: 0.8em;
     color: #666;
 }
+
+
+#mapContainer.universe-message {
+  background-color: black; /* 背景變黑色 */
+  color: white;             /* 文字變白色 */
+  display: flex;            /* 使用 Flexbox 來置中內容 */
+  justify-content: center;  /* 水平置中 */
+  align-items: center;      /* 垂直置中 */
+  text-align: center;       /* p 標籤內的文字也置中 (確保) */
+  padding: 20px;            /* 增加一些內邊距，讓視覺效果更好 */
+  /* 重要的提醒：
+     為了讓 align-items: center (垂直置中) 有效果，
+     #mapContainer 元素在應用 .universe-message class 時需要有明確的高度。
+     如果 Leaflet 地圖平常會賦予 #mapContainer 高度，那通常沒有問題。
+     如果沒有，您可能需要為 .universe-message 添加如 min-height: 150px;
+     之類的樣式，或者確保其父容器能提供足夠的高度。 */
+}
+
+#mapContainer.universe-message p {
+  margin: 0; /* 重置 p 標籤可能帶有的預設邊距，確保置中效果 */
+}
