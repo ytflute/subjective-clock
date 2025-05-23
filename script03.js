@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     let clockLeafletMap = null; 
     let globalLeafletMap = null; 
     let globalMarkerLayerGroup = null; 
-    // *** 新增：個人歷史地圖的 Leaflet 實例和標記圖層 ***
     let historyLeafletMap = null;
     let historyMarkerLayerGroup = null;
 
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     findCityButton.disabled = false;
                 }
                 if (document.getElementById('HistoryTab').classList.contains('active')) {
-                     loadHistory(); // 現在會載入列表和地圖
+                     loadHistory(); 
                 }
             }
             if (document.getElementById('GlobalTodayMapTab') && document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
@@ -300,15 +299,63 @@ document.addEventListener('DOMContentLoaded', async () => {
         refreshGlobalMapButton.addEventListener('click', loadGlobalTodayMap);
     }
 
-    function parseOffsetString(offsetStr) { /* ... (與前一版本相同) ... */ }
-    function getCityUTCOffsetHours(ianaTimeZone) { /* ... (與前一版本相同) ... */ }
+    function parseOffsetString(offsetStr) { 
+        if (!offsetStr || typeof offsetStr !== 'string') return NaN;
+        const cleaned = offsetStr.replace('GMT', '').replace('UTC', '').trim();
+        const signMatch = cleaned.match(/^([+-])/);
+        const sign = signMatch ? (signMatch[1] === '+' ? 1 : -1) : 1;
+        const numericPart = signMatch ? cleaned.substring(1) : cleaned;
+        const parts = numericPart.split(':');
+        const hours = parseInt(parts[0], 10);
+        const minutes = parts[1] ? parseInt(parts[1], 10) : 0;
+        if (isNaN(hours) || isNaN(minutes)) return NaN;
+        return sign * (hours + minutes / 60);
+    }
+
+    function getCityUTCOffsetHours(ianaTimeZone) { 
+        try {
+            const now = new Date();
+            const formatter = new Intl.DateTimeFormat('en', {
+                timeZone: ianaTimeZone,
+                timeZoneName: 'longOffset',
+            });
+            const parts = formatter.formatToParts(now);
+            let offsetStringVal = "";
+            for (const part of parts) {
+                if (part.type === 'timeZoneName' || part.type === 'unknown' || part.type === 'literal') {
+                    if ((part.value.startsWith('GMT') || part.value.startsWith('UTC')) && (part.value.includes('+') || part.value.includes('-'))) {
+                        offsetStringVal = part.value;
+                        break;
+                    }
+                }
+            }
+            if (!offsetStringVal) {
+                const formattedDateString = formatter.format(now);
+                const match = formattedDateString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
+                if (match && match[0]) {
+                    offsetStringVal = match[0];
+                }
+            }
+            if (offsetStringVal) {
+                return parseOffsetString(offsetStringVal);
+            } else {
+                console.warn("無法從 Intl.DateTimeFormat 獲取時區偏移字串:", ianaTimeZone, "Parts:", parts);
+                return NaN;
+            }
+        } catch (e) {
+            console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
+            return NaN;
+        }
+    }
+
     const timezoneOffsetCache = new Map();
-    function clearPreviousResults() { /* ... (與前一版本相同，但 clockLeafletMap 也應在此處處理) ... */
+
+    function clearPreviousResults() { 
         resultTextDiv.innerHTML = "";
         countryFlagImg.src = "";
         countryFlagImg.alt = "國家國旗";
         countryFlagImg.style.display = 'none';
-        if (clockLeafletMap) { // 清除時鐘頁的 Leaflet 地圖
+        if (clockLeafletMap) { 
             clockLeafletMap.remove();
             clockLeafletMap = null;
         }
@@ -353,7 +400,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
 
         console.log(`用戶實際時間: ${userTimeFormatted} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
-        // ... (其他日誌保持不變)
+        console.log(`用於計算目標偏移的調整後用戶時間: ${adjustedUserLocalHours}:${adjustedUserLocalMinutes < 10 ? '0' : ''}${adjustedUserLocalMinutes}`);
+        console.log(`尋找目標 UTC 偏移 (targetUTCOffsetHours): ${targetUTCOffsetHours.toFixed(2)} (即 UTC ${targetUTCOffsetHours >= 0 ? '+' : ''}${targetUTCOffsetHours.toFixed(2)})`);
+        console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
+        console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
         let candidateCities = [];
         for (const city of citiesData) {
@@ -532,7 +582,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadHistory() {
         if (!currentDataIdentifier) { 
             historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
-            // *** 修改點：確保地圖容器也被清空或設定提示 ***
             if (historyLeafletMap) {
                 historyLeafletMap.remove();
                 historyLeafletMap = null;
@@ -557,7 +606,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            const historyPoints = [];
+            const historyPoints = []; // *** 修正點：確保 historyPoints 在此作用域內被正確使用 ***
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
                 const li = document.createElement('li');
@@ -573,18 +622,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
-                    globalPoints.push({ // *** 錯誤：應為 historyPoints ***
+                    // *** 修正點：將點添加到 historyPoints 而不是 globalPoints ***
+                    historyPoints.push({ 
                         lat: record.latitude,
                         lon: record.longitude,
                         title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}` 
                     });
-                } else if (record.city !== "未知星球Unknown Planet") { // 宇宙記錄沒有座標，不警告
+                } else if (record.city !== "未知星球Unknown Planet") { 
                     console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
                 }
             });
 
-            // *** 修改點：呼叫 renderPointsOnMap 來渲染個人歷史地圖 ***
-            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`);
+            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
 
 
         } catch (e) {
@@ -645,7 +694,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
-            renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`);
+            renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`, 'global');
 
         } catch (e) {
             console.error("讀取全域每日記錄失敗:", e);
@@ -654,29 +703,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // *** 修改：renderPointsOnMap 現在是通用的，可以渲染到不同的地圖容器 ***
-    // *** 並根據傳入的地圖實例變數來操作 ***
-    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", leafletMapInstanceVariable = 'global') {
-        console.log(`[renderPointsOnMap] 準備渲染地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}, 目標地圖變數: ${leafletMapInstanceVariable}`);
+    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", mapType = 'global') { // mapType: 'global' or 'history'
+        console.log(`[renderPointsOnMap] 準備渲染地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}, 地圖類型: ${mapType}`);
         
         let currentMapInstance;
         let currentMarkerLayerGroup;
 
-        if (leafletMapInstanceVariable === 'global') {
+        if (mapType === 'global') {
             currentMapInstance = globalLeafletMap;
             currentMarkerLayerGroup = globalMarkerLayerGroup;
-        } else if (leafletMapInstanceVariable === 'history') {
+        } else if (mapType === 'history') {
             currentMapInstance = historyLeafletMap;
             currentMarkerLayerGroup = historyMarkerLayerGroup;
         } else {
-            console.error("未知的地圖實例變數:", leafletMapInstanceVariable);
+            console.error("未知的地圖類型:", mapType);
             return;
         }
 
         if (!points || points.length === 0) {
             if (currentMapInstance) {
                 if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers();
-                 // 不直接清空 mapDivElement.innerHTML，避免 Leaflet 容器被移除
                 mapDivElement.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`; 
             } else { 
                 mapDivElement.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
@@ -696,19 +742,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             }).addTo(currentMapInstance);
             currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance); 
 
-            if (leafletMapInstanceVariable === 'global') {
+            if (mapType === 'global') {
                 globalLeafletMap = currentMapInstance;
                 globalMarkerLayerGroup = currentMarkerLayerGroup;
-            } else if (leafletMapInstanceVariable === 'history') {
+            } else if (mapType === 'history') {
                 historyLeafletMap = currentMapInstance;
                 historyMarkerLayerGroup = currentMarkerLayerGroup;
             }
         } else {
             console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
-            currentMarkerLayerGroup.clearLayers(); 
-            // 如果地圖容器之前被innerHTML清空過，確保Leaflet地圖重新關聯
+            if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers(); 
+            else { // 如果 layer group 因故未初始化，則重新創建
+                 currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
+                 if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
+                 else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
+            }
+            
             if (currentMapInstance.getContainer().parentNode !== mapDivElement) {
-                 mapDivElement.innerHTML = ''; // 再次清空以防萬一
+                 mapDivElement.innerHTML = ''; 
                  mapDivElement.appendChild(currentMapInstance.getContainer());
             }
             currentMapInstance.invalidateSize(); 
@@ -762,7 +813,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             console.log(`[renderPointsOnMap] (${mapTitle}) 計算出的 BBOX:`, `${west},${south},${east},${north}`);
             currentMapInstance.fitBounds([[south, west], [north, east]], {padding: [20,20]}); 
-        } else {
+        } else if (currentMapInstance) { // 如果沒有有效點，但地圖已初始化，則重置視圖
              currentMapInstance.setView([20, 0], 2); 
         }
 
@@ -770,10 +821,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // renderHistoryMap 函數現在將使用通用的 renderPointsOnMap
-    function renderHistoryMap(points) { 
-        console.log("[renderHistoryMap] 被呼叫，將使用 renderPointsOnMap。Points:", points);
-        renderPointsOnMap(points, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
-    }
+    // function renderHistoryMap(points) { // 舊的，已註解
+    //     console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
+    //     historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; 
+    //     return; 
+    // }
 
     window.openTab = function(evt, tabName, triggeredBySetName = false) {
         let i, tabcontent, tablinks;
@@ -798,7 +850,6 @@ document.addEventListener('DOMContentLoaded', async () => {
              evt.currentTarget.classList.add("active");
         }
 
-        // *** 修改點：確保在切換到分頁時，如果地圖容器可見且地圖已初始化，則呼叫 invalidateSize ***
         if (tabName === 'HistoryTab') {
             if (historyLeafletMap && historyMapContainerDiv.offsetParent !== null) {
                 console.log("[openTab] HistoryTab is visible, invalidating map size.");
