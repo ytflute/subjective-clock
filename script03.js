@@ -94,16 +94,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                     findCityButton.disabled = false;
                 }
             }
-            // *** 修改點：頁面首次載入時，如果分頁是 active，則載入其內容 ***
-            // 這個邏輯移到 openTab 中，確保在分頁確實可見後才執行
+            // 頁面首次載入時，如果對應分頁是 active，則載入其內容
             const activeTab = document.querySelector('.tab-content.active');
             if (activeTab) {
                 const activeTabId = activeTab.id;
-                if (activeTabId === 'HistoryTab' && currentDataIdentifier) {
-                    loadHistory();
-                } else if (activeTabId === 'GlobalTodayMapTab') {
-                    loadGlobalTodayMap();
-                }
+                console.log("頁面載入時，活動分頁是:", activeTabId);
+                // 使用 setTimeout 確保 DOM 渲染完成
+                setTimeout(() => {
+                    if (activeTabId === 'HistoryTab' && currentDataIdentifier) {
+                        if (historyMapContainerDiv.offsetParent !== null && historyLeafletMap) historyLeafletMap.invalidateSize();
+                        loadHistory(); 
+                    } else if (activeTabId === 'GlobalTodayMapTab') {
+                        if (globalTodayMapContainerDiv.offsetParent !== null && globalLeafletMap) globalLeafletMap.invalidateSize();
+                        loadGlobalTodayMap();
+                    }
+                }, 50);
             }
 
         } else {
@@ -132,12 +137,75 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
     
-    function sanitizeNameToFirestoreId(name) { /* ... (與前一版本相同) ... */ }
-    async function setOrLoadUserName(name, showAlert = true) { /* ... (與前一版本相同) ... */ }
-    setUserNameButton.addEventListener('click', async () => { /* ... (與前一版本相同) ... */ });
+    function sanitizeNameToFirestoreId(name) {
+        if (!name || typeof name !== 'string') return null; 
+        let sanitized = name.toLowerCase().trim();
+        sanitized = sanitized.replace(/\s+/g, '_'); 
+        sanitized = sanitized.replace(/[^a-z0-9_.-]/g, ''); 
+        if (sanitized === "." || sanitized === "..") {
+            sanitized = `name_${sanitized.replace(/\./g, '')}`; 
+        }
+        if (sanitized.startsWith("__") && sanitized.endsWith("__") && sanitized.length > 4) {
+             sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
+        } else if (sanitized.startsWith("__")) {
+             sanitized = `name${sanitized.substring(2)}`;
+        } else if (sanitized.endsWith("__")) {
+             sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
+        }
+        return sanitized.substring(0, 100) || null; 
+    }
+
+    async function setOrLoadUserName(name, showAlert = true) {
+        console.log("[setOrLoadUserName] 接收到名稱:", name, "showAlert:", showAlert);
+        const newDisplayNameRaw = name.trim();
+        if (!newDisplayNameRaw) {
+            if (showAlert) alert("顯示名稱不能為空。");
+            return false; 
+        }
+        const sanitizedName = sanitizeNameToFirestoreId(newDisplayNameRaw);
+        if (!sanitizedName) {
+            if (showAlert) alert("處理後的名稱無效（可能包含不允許的字元或過短），請嘗試其他名稱。");
+            return false; 
+        }
+
+        currentDataIdentifier = sanitizedName;
+        rawUserDisplayName = newDisplayNameRaw; 
+        currentUserIdSpan.textContent = currentDataIdentifier; 
+        currentUserDisplayNameSpan.textContent = rawUserDisplayName; 
+        userNameInput.value = rawUserDisplayName; 
+        localStorage.setItem('worldClockUserName', rawUserDisplayName); 
+
+        console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
+        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
+
+        if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) { 
+            console.log("[setOrLoadUserName] 所有條件滿足，啟用 findCityButton。");
+            findCityButton.disabled = false;
+        } else {
+            console.log("[setOrLoadUserName] 條件不滿足，findCityButton 保持禁用。Cities loaded:", citiesData.length > 0, "Auth current user:", !!auth.currentUser, "Data ID set:", !!currentDataIdentifier);
+            findCityButton.disabled = true;
+        }
+
+        console.log("[setOrLoadUserName] 準備切換到時鐘分頁並顯示最後記錄。");
+        openTab(null, 'ClockTab', true); 
+        await displayLastRecordForCurrentUser();
+        
+        // 如果之前歷史分頁是活動的，設定名稱後會切到時鐘頁，
+        // 使用者需要手動再切回歷史頁才會觸發 loadHistory (透過 openTab)
+        return true; 
+    }
+
+    setUserNameButton.addEventListener('click', async () => {
+        console.log("「設定/更新名稱」按鈕被點擊。");
+        await setOrLoadUserName(userNameInput.value.trim());
+    });
+
     async function displayLastRecordForCurrentUser() { /* ... (與前一版本相同，確保日誌清晰) ... */ }
     fetch('cities_data.json').then(/* ... */).catch(/* ... */);
-    findCityButton.addEventListener('click', async () => { /* ... (與前一版本相同) ... */ });
+    findCityButton.addEventListener('click', async () => { 
+        console.log("「開始這一天」按鈕被點擊。");
+        await findMatchingCity(); 
+    });
     refreshHistoryButton.addEventListener('click', loadHistory);
     if (refreshGlobalMapButton) {
         refreshGlobalMapButton.addEventListener('click', loadGlobalTodayMap);
@@ -146,7 +214,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     function getCityUTCOffsetHours(ianaTimeZone) { /* ... (與前一版本相同) ... */ }
     const timezoneOffsetCache = new Map();
     function clearPreviousResults() { /* ... (與前一版本相同) ... */ }
-    async function findMatchingCity() { /* ... (與前一版本相同，確保是 async) ... */ }
+    async function findMatchingCity() { /* ... (與前一版本相同) ... */ }
     async function saveHistoryRecord(recordData) { /* ... (與前一版本相同) ... */ }
     async function saveToGlobalDailyRecord(recordData) { /* ... (與前一版本相同) ... */ }
 
@@ -162,6 +230,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
+        // *** 修改點：只有在 Leaflet 地圖還沒建立時才設定 "載入中" ***
         if (!historyLeafletMap) { 
             historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>';
         } else if (historyMarkerLayerGroup) {
@@ -270,7 +339,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         } catch (e) {
             console.error("讀取全域每日記錄失敗:", e);
-            globalTodayMapContainerDiv.innerHTML = '<p>讀取全域地圖資料失敗。</p>'; 
+            // *** 修改點：避免在出錯時清空已初始化的地圖容器 ***
+            if (!globalLeafletMap) globalTodayMapContainerDiv.innerHTML = '<p>讀取全域地圖資料失敗。</p>'; 
+            else if (globalMarkerLayerGroup) globalMarkerLayerGroup.clearLayers(); // 清除標記，地圖本身保留
             globalTodayDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
     }
@@ -295,7 +366,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 初始化地圖（如果尚未初始化）
         if (!currentMapInstance) {
             console.log(`[renderPointsOnMap] 初始化新的 Leaflet 地圖實例到 ${mapDivElement.id}`);
-            mapDivElement.innerHTML = ''; 
+            mapDivElement.innerHTML = ''; // 確保容器在初始化前是空的
             currentMapInstance = L.map(mapDivElement).setView([20, 0], 2); 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -311,6 +382,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 historyMarkerLayerGroup = currentMarkerLayerGroup;
             }
         } else {
+            // 如果地圖已存在，先清除舊的標記
             console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
             if (currentMarkerLayerGroup) {
                 currentMarkerLayerGroup.clearLayers();
@@ -319,33 +391,29 @@ document.addEventListener('DOMContentLoaded', async () => {
                  if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
                  else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
             }
-            // *** 修改點：確保地圖容器在 Leaflet 操作前是正確的 ***
-            if (mapDivElement.innerHTML.includes("<p>")) { // 如果容器被文字佔據
-                 mapDivElement.innerHTML = ''; // 清空文字
-            }
-            // 確保 Leaflet 地圖的 DOM 元素仍在 mapDivElement 中
-            if (currentMapInstance.getContainer().parentNode !== mapDivElement) {
-                 mapDivElement.appendChild(currentMapInstance.getContainer());
+            // *** 修改點：確保在重用時，如果容器被innerHTML修改過，Leaflet能重新正確渲染 ***
+            // 這一檢查可能不再嚴格需要，因為我們避免了在 loadHistory/loadGlobalTodayMap 中用 innerHTML 清空已初始化的地圖容器
+            if (mapDivElement.innerHTML && !mapDivElement.querySelector('.leaflet-map-pane')) { 
+                 mapDivElement.innerHTML = ''; // 如果裡面不是 Leaflet 結構，清空它
+                 // 這通常不應該發生，如果發生了，地圖實例可能已損壞
+                 console.warn(`[renderPointsOnMap] 地圖容器 ${mapDivElement.id} 的內容似乎被外部修改，嘗試恢復。`);
+                 // 重新附加地圖的 DOM 元素可能比較複雜，更好的做法是確保不發生這種情況
+                 // 或者，如果發生，則完全重新初始化地圖實例（但這會失去之前的視圖狀態）
             }
             currentMapInstance.invalidateSize(); 
         }
         
         if (!points || points.length === 0) {
+            // *** 修改點：如果地圖已初始化，不要用 innerHTML 覆蓋它 ***
             if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers(); 
-            console.log("[renderPointsOnMap] 沒有點可以渲染，在地圖容器內顯示提示。");
-            mapDivElement.innerHTML = `<p style="text-align:center; padding-top: 20px;">${mapTitle}：尚無有效座標點可顯示。</p>`;
+            console.log("[renderPointsOnMap] 沒有點可以渲染。");
+            // 在地圖容器外部或使用 debugDivElement 顯示提示
             if(debugDivElement) debugDivElement.textContent = `${mapTitle}：尚無有效座標點可顯示。`;
+            // 如果地圖已初始化，但沒有點，可以將地圖重置到一個預設視圖
+            if (currentMapInstance) currentMapInstance.setView([20,0], 2);
             return;
         }
         
-        // 如果之前因為沒有點而設定了 innerHTML，現在需要清空它，以便 Leaflet 正確渲染
-        if (mapDivElement.children.length > 0 && mapDivElement.children[0].tagName === 'P') {
-            mapDivElement.innerHTML = '';
-            // 如果清空了，可能需要重新附加地圖容器，或者確保地圖實例仍然關聯
-            // 實際上，更好的做法是 Leaflet 初始化後，就不再用 innerHTML 修改 mapDivElement
-        }
-
-
         let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
         let validPointsForBboxCount = 0;
 
@@ -428,11 +496,11 @@ document.addEventListener('DOMContentLoaded', async () => {
              evt.currentTarget.classList.add("active");
         }
 
-        // *** 修改點：確保在分頁內容變為可見後，再嘗試 invalidateSize 和載入資料 ***
+        // 使用 setTimeout 確保 DOM 更新後再執行地圖相關操作
         setTimeout(() => {
             if (tabName === 'HistoryTab') {
                 // 確保地圖容器可見再操作
-                if (historyMapContainerDiv.offsetParent !== null) {
+                if (historyMapContainerDiv.offsetParent !== null) { // 檢查容器是否實際可見
                     if (historyLeafletMap) {
                         console.log("[openTab] HistoryTab is visible, invalidating map size.");
                         historyLeafletMap.invalidateSize();
@@ -443,11 +511,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                         loadHistory();
                     }
                 } else {
-                     console.log("[openTab] HistoryTab 容器不可見，延遲載入/invalidate。");
+                     console.log("[openTab] HistoryTab 容器不可見，將在下次可見時處理。");
                 }
             } else if (tabName === 'GlobalTodayMapTab') {
                  // 確保地圖容器可見再操作
-                if (globalTodayMapContainerDiv.offsetParent !== null) {
+                if (globalTodayMapContainerDiv.offsetParent !== null) { // 檢查容器是否實際可見
                     if (globalLeafletMap) {
                         console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                         globalLeafletMap.invalidateSize();
@@ -461,9 +529,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                         loadGlobalTodayMap();
                     }
                 } else {
-                    console.log("[openTab] GlobalTodayMapTab 容器不可見，延遲載入/invalidate。");
+                    console.log("[openTab] GlobalTodayMapTab 容器不可見，將在下次可見時處理。");
                 }
             }
-        }, 50); // 稍微增加延遲，給 DOM 更多反應時間
+        }, 50); // 稍微增加延遲，給 DOM 更多反應時間，確保 display:block 已生效
     }
 });
