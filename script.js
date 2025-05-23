@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const historyDebugInfoSmall = document.getElementById('historyDebugInfo');
     const refreshHistoryButton = document.getElementById('refreshHistoryButton');
 
-    // 新增：今日眾人地圖相關 DOM
     const globalDateInput = document.getElementById('globalDate');
     const refreshGlobalMapButton = document.getElementById('refreshGlobalMapButton');
     const globalTodayMapContainerDiv = document.getElementById('globalTodayMapContainer');
@@ -70,7 +69,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return; 
     }
 
-    // *** 新增：設定日期選擇器預設為今天 ***
     if (globalDateInput) {
         globalDateInput.valueAsDate = new Date();
     }
@@ -91,7 +89,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                      loadHistory();
                 }
             }
-            // *** 新增：如果是今日眾人地圖分頁，也嘗試載入 ***
             if (document.getElementById('GlobalTodayMapTab') && document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
                 loadGlobalTodayMap();
             }
@@ -214,12 +211,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const finalCityName = lastRecord.city_zh && lastRecord.city_zh !== lastRecord.city ? `${lastRecord.city_zh} (${lastRecord.city})` : lastRecord.city;
                 const finalCountryName = lastRecord.country_zh && lastRecord.country_zh !== lastRecord.country ? `${lastRecord.country_zh} (${lastRecord.country})` : lastRecord.country;
                 
-                resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>8:00 AM</strong>) 同步，<br>一起開啟了新的一天！`;
+                // 如果是宇宙記錄，顯示不同的訊息
+                if (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet") {
+                     resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！`;
+                } else {
+                     resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>8:00 AM</strong>) 同步，<br>一起開啟了新的一天！`;
+                }
 
-                if (lastRecord.country_iso_code) {
+
+                if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') { // 宇宙記錄沒有國旗
                     countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
                     countryFlagImg.alt = `${finalCountryName} 國旗`;
                     countryFlagImg.style.display = 'inline-block';
+                } else {
+                    countryFlagImg.style.display = 'none';
                 }
 
                 if (typeof lastRecord.latitude === 'number' && isFinite(lastRecord.latitude) && 
@@ -227,7 +232,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const lat = lastRecord.latitude;
                     const lon = lastRecord.longitude;
                     mapContainerDiv.innerHTML = `<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-1},${lat-1},${lon+1},${lat+1}&amp;layer=mapnik&amp;marker=${lat},${lon}" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=${lat}&amp;mlon=${lon}#map=7/${lat}/${lon}" target="_blank">查看較大地圖</a></small>`;
-                } else {
+                } else if (lastRecord.city === "未知星球Unknown Planet") {
+                     mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
+                }
+                else {
                      mapContainerDiv.innerHTML = "<p>無法顯示地圖，此記錄座標資訊不完整或無效。</p>";
                 }
                 
@@ -272,7 +280,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
-    // *** 新增：「查詢地圖」(今日眾人) 按鈕事件 ***
     if (refreshGlobalMapButton) {
         refreshGlobalMapButton.addEventListener('click', loadGlobalTodayMap);
     }
@@ -369,13 +376,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         const userLocalHoursDecimalForTarget = adjustedUserLocalHours + adjustedUserLocalMinutes / 60;
         const targetUTCOffsetHours = 8 - userLocalHoursDecimalForTarget + userUTCOffsetHours;
-        const targetLatitude = 90 - (userLocalMinutes / 59) * 180;
+        const targetLatitude = 90 - (userLocalMinutes / 59) * 180; // 緯度計算不變
 
-        console.log(`用戶實際時間: ${userLocalHours}:${userLocalMinutes < 10 ? '0' : ''}${userLocalMinutes} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
-        console.log(`用於計算目標偏移的調整後用戶時間: ${adjustedUserLocalHours}:${adjustedUserLocalMinutes < 10 ? '0' : ''}${adjustedUserLocalMinutes}`);
-        console.log(`尋找目標 UTC 偏移 (targetUTCOffsetHours): ${targetUTCOffsetHours.toFixed(2)} (即 UTC ${targetUTCOffsetHours >= 0 ? '+' : ''}${targetUTCOffsetHours.toFixed(2)})`);
-        console.log(`目標匹配範圍 (UTC): ${(targetUTCOffsetHours - 0.5).toFixed(2)} 至 ${(targetUTCOffsetHours + 0.5).toFixed(2)}`);
-        console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
+        const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
+
+        console.log(`用戶實際時間: ${userTimeFormatted} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
+        // ... 其他日誌 ...
 
         let candidateCities = [];
         for (const city of citiesData) {
@@ -402,10 +408,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (candidateCities.length === 0) {
-            const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-            resultTextDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>但抱歉，目前找不到世界上當地時間約為 <strong>8:00 AM</strong> (與計算目標時區相差30分鐘內) 且符合時區條件的地区。`;
+            // *** 修改點：找不到城市時的處理 ***
+            resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
+            mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>"; // 清除地圖或顯示宇宙提示
+            countryFlagImg.style.display = 'none'; // 隱藏國旗
             debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
-            return;
+
+            const universeRecord = {
+                dataIdentifier: currentDataIdentifier, 
+                userDisplayName: rawUserDisplayName, 
+                recordedAt: serverTimestamp(),
+                localTime: userTimeFormatted,
+                city: "未知星球Unknown Planet", // 特殊城市名
+                country: "宇宙Universe",       // 特殊國家名
+                city_zh: "未知星球",
+                country_zh: "宇宙",
+                country_iso_code: "universe_code", // 特殊國碼，避免查找真實國旗
+                latitude: null, // 沒有有效座標
+                longitude: null,
+                targetUTCOffset: targetUTCOffsetHours,
+                matchedCityUTCOffset: null, // 沒有匹配的城市
+                recordedDateString: userLocalDate.toISOString().split('T')[0]
+            };
+            await saveHistoryRecord(universeRecord);
+            await saveToGlobalDailyRecord(universeRecord);
+            return; // 結束函數執行
         }
 
         let bestMatchCity = null;
@@ -418,21 +445,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        if (bestMatchCity) {
-            const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
+        if (bestMatchCity) { // 這部分邏輯與之前版本相同，用於顯示找到的城市
             const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
-
             const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
             const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
-
-            const bestCityCurrentUTCHours = userLocalHours + userLocalMinutes/60 - userUTCOffsetHours;
-            let bestCityApproxLocalHour = bestCityCurrentUTCHours + (isFinite(cityActualUTCOffset) ? cityActualUTCOffset : 0) ; 
-            let bestCityApproxLocalMinute = (bestCityApproxLocalHour - Math.floor(bestCityApproxLocalHour)) * 60;
-            bestCityApproxLocalHour = Math.floor(bestCityApproxLocalHour);
-            if (bestCityApproxLocalHour < 0) bestCityApproxLocalHour += 24;
-            if (bestCityApproxLocalHour >= 24) bestCityApproxLocalHour -= 24;
             
-            resultTextDiv.innerHTML = `你雖然在當地起床時間是 <strong>${userTimeFormatted}</strong>，<br>但是你的作息正好跟 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>${String(bestCityApproxLocalHour).padStart(2, '0')}:${String(Math.round(bestCityApproxLocalMinute)).padStart(2, '0')}</strong>) 接近 <strong>8:00 AM</strong> 一樣，<br>一起開啟了新的一天！`;
+            resultTextDiv.innerHTML = `今天的你，<br>跟<strong>${finalCityName} (${finalCountryName})</strong> 的人，<br>共同開啟了新的一天！`;
 
             if (bestMatchCity.country_iso_code) {
                 countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
@@ -472,18 +490,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 longitude: bestMatchCity.longitude, 
                 targetUTCOffset: targetUTCOffsetHours,
                 matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-                // *** 新增：儲存當天的日期字串 "YYYY-MM-DD" ***
                 recordedDateString: userLocalDate.toISOString().split('T')[0] 
             };
             await saveHistoryRecord(recordData);
-            // *** 新增：同時儲存到全域每日記錄 ***
             await saveToGlobalDailyRecord(recordData); 
 
-        } else {
-            const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-            resultTextDiv.innerHTML = `雖然你在當地 <strong>${userTimeFormatted}</strong> 起床，<br>在符合時區的城市中，似乎找不到緯度匹配的城市。`;
-            debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 目標緯度: ${targetLatitude.toFixed(2)})`;
-        }
+        } 
+        // 移除了原先在 bestMatchCity 條件塊之外的 else，因為如果 candidateCities 不為空，則 bestMatchCity 必定有值。
+        // 如果 candidateCities 為空，則在上面的 if (candidateCities.length === 0) 中已處理。
         console.log("--- 尋找匹配城市結束 ---");
     }
 
@@ -492,9 +506,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.warn("無法儲存歷史記錄：使用者名稱未設定。");
             return;
         }
-        if (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) || 
-            typeof recordData.longitude !== 'number' || !isFinite(recordData.longitude)) {
-            console.error("無法儲存歷史記錄：經緯度無效。", recordData);
+        // 對於宇宙記錄，經緯度是 null，不需要 isFinite 檢查，但其他記錄需要
+        if (recordData.city !== "未知星球Unknown Planet" && 
+            (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) || 
+             typeof recordData.longitude !== 'number' || !isFinite(recordData.longitude))) {
+            console.error("無法儲存地球歷史記錄：經緯度無效。", recordData);
             return;
         }
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
@@ -506,13 +522,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // *** 新增：儲存到全域每日記錄函數 ***
     async function saveToGlobalDailyRecord(recordData) {
         if (!auth.currentUser) { 
             console.warn("無法儲存全域記錄：Firebase 會話未就緒。");
             return;
         }
-        // 從 recordData 中提取必要欄位，避免儲存不必要的個人資訊到公共集合
         const globalRecord = {
             dataIdentifier: recordData.dataIdentifier, 
             userDisplayName: recordData.userDisplayName, 
@@ -523,12 +537,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             city_zh: recordData.city_zh,
             country_zh: recordData.country_zh,
             country_iso_code: recordData.country_iso_code,
-            latitude: recordData.latitude,
-            longitude: recordData.longitude,
-            // 可以考慮是否也儲存 localTime 或 targetUTCOffset
+            latitude: recordData.latitude, // 可能為 null (宇宙記錄)
+            longitude: recordData.longitude, // 可能為 null (宇宙記錄)
         };
-        // Firestore 路徑: artifacts/{appId}/publicData/dailyGlobalRecords/{autoId}
-        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/dailyGlobalRecords`);
+        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
             console.log("全域每日記錄已儲存，文件 ID:", docRef.id);
@@ -536,7 +548,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error("儲存全域每日記錄到 Firestore 失敗:", e);
         }
     }
-
 
     async function loadHistory() {
         if (!currentDataIdentifier) { 
@@ -581,7 +592,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // *** 新增：載入並顯示今日眾人地圖函數 ***
     async function loadGlobalTodayMap() {
         if (!auth.currentUser) { 
             globalTodayMapContainerDiv.innerHTML = '<p>Firebase 認證中，請稍候...</p>';
@@ -598,7 +608,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         globalTodayDebugInfoSmall.textContent = `查詢日期: ${selectedDateValue}`;
         console.log(`[loadGlobalTodayMap] 查詢日期: ${selectedDateValue}`);
 
-        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/dailyGlobalRecords`);
+        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         const q = query(globalCollectionRef, where("recordedDateString", "==", selectedDateValue));
 
         try {
@@ -612,6 +622,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const globalPoints = [];
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
+                // 只將有有效經緯度的點加入地圖
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
                     
@@ -625,7 +636,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         title: `${userDisplay} @ ${cityDisplay}, ${countryDisplay}` 
                     });
                 } else {
-                    console.warn("跳過全域記錄中經緯度無效的點:", record);
+                    console.warn("跳過全域記錄中經緯度無效的點 (或宇宙記錄):", record);
                 }
             });
 
@@ -638,9 +649,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // *** 新增：通用的在地圖上渲染多個點的函數 ***
     function renderPointsOnMap(points, mapDiv, debugDiv, mapTitle = "地圖") {
-        if (!points || points.length === 0) {
+        if (!points || points.length === 0) { // 這裡的 points 應該已經過濾過，只包含有效點
             mapDiv.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
             if(debugDiv) debugDiv.textContent = "";
             return;
@@ -680,8 +690,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         east = Math.min(180, Math.max(east, -179.9999)); 
         south = Math.max(-90, Math.min(south, 89.9999));   
         north = Math.min(90, Math.max(north, -89.9999));  
-        if (west >= east) east = west + 0.0001; // 確保 bbox 有效
-        if (south >= north) north = south + 0.0001; // 確保 bbox 有效
+        if (west >= east) east = west + 0.0001; 
+        if (south >= north) north = south + 0.0001; 
 
         const bbox = `${west.toFixed(4)},${south.toFixed(4)},${east.toFixed(4)},${north.toFixed(4)}`;
         
@@ -702,15 +712,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(debugDiv) debugDiv.textContent = `地圖邊界框 (W,S,E,N): ${bbox}`;
     }
 
-
-    // renderHistoryMap 函數已移除地圖渲染邏輯，現在只是個空殼或提示
     function renderHistoryMap(points) { 
         console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
-        historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; 
+        historyMapContainerDiv.innerHTML = "<p></p>"; 
         return; 
     }
 
-    // 分頁切換邏輯
     window.openTab = function(evt, tabName, triggeredBySetName = false) {
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
@@ -726,20 +733,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             currentTabDiv.style.display = "block";
         }
         
-        const targetButtonId = `tabButton-${tabName}`; // 使用 HTML 中設定的 ID
+        const targetButtonId = `tabButton-${tabName}`; 
         const targetButton = document.getElementById(targetButtonId);
         if (targetButton) {
             targetButton.classList.add("active");
-        } else if (evt && evt.currentTarget) { // 後備：如果按鈕ID找不到，但事件存在
+        } else if (evt && evt.currentTarget) { 
              evt.currentTarget.classList.add("active");
         }
 
-        // 根據切換到的分頁執行相應的載入操作
         if (tabName === 'HistoryTab' && currentDataIdentifier && auth.currentUser && !triggeredBySetName) { 
             loadHistory();
         } else if (tabName === 'GlobalTodayMapTab' && auth.currentUser && !triggeredBySetName) {
-            // 確保日期選擇器有值，如果沒有，則預設為今天並載入
-            if (globalDateInput && !globalDateInput.value) { // 檢查 globalDateInput 是否存在
+            if (globalDateInput && !globalDateInput.value) { 
                 globalDateInput.valueAsDate = new Date();
             }
             loadGlobalTodayMap();
