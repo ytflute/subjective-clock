@@ -54,8 +54,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       measurementId: "G-QZ6440LZEM" 
     };
 
-    console.log("DOM 已載入。開始初始化 Firebase...");
-
     if (!firebaseConfig.apiKey || !firebaseConfig.projectId) { 
         console.error("Firebase 設定不完整!");
         alert("Firebase 設定不完整，應用程式無法初始化 Firebase。");
@@ -89,23 +87,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 userNameInput.value = lastUsedName;
                 await setOrLoadUserName(lastUsedName, false); 
             } else if (currentDataIdentifier) {
-                // 如果 currentDataIdentifier 已有值 (例如，使用者剛設定完名稱)，則確保按鈕狀態正確
                 if (citiesData.length > 0) {
-                    console.log("Firebase 已認證且 currentDataIdentifier 已設定，啟用 findCityButton (如果城市數據已載入)。");
                     findCityButton.disabled = false;
                 }
                 if (document.getElementById('HistoryTab').classList.contains('active')) {
                      loadHistory(); 
                 }
             }
-            // 檢查 GlobalTodayMapTab 是否活動並載入
             if (document.getElementById('GlobalTodayMapTab') && document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
                 loadGlobalTodayMap();
             }
         } else {
             console.log("Firebase 會話未認證，嘗試登入...");
             currentUserIdSpan.textContent = "認證中..."; 
-            findCityButton.disabled = true; // 確保在未認證時禁用
             if (initialAuthToken) {
                 console.log("嘗試使用 initialAuthToken 登入...");
                 signInWithCustomToken(auth, initialAuthToken)
@@ -169,13 +163,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
         if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
 
-        // *** 修改點：檢查所有條件以啟用按鈕 ***
-        if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) { 
-            console.log("[setOrLoadUserName] 所有條件滿足，啟用 findCityButton。");
+        if (citiesData.length > 0 && auth.currentUser) { 
             findCityButton.disabled = false;
-        } else {
-            console.log("[setOrLoadUserName] 條件不滿足，findCityButton 保持禁用。Cities loaded:", citiesData.length > 0, "Auth current user:", !!auth.currentUser, "Data ID set:", !!currentDataIdentifier);
-            findCityButton.disabled = true;
         }
 
         console.log("[setOrLoadUserName] 準備切換到時鐘分頁並顯示最後記錄。");
@@ -190,11 +179,96 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     setUserNameButton.addEventListener('click', async () => {
-        console.log("「設定/更新名稱」按鈕被點擊。");
         await setOrLoadUserName(userNameInput.value.trim());
     });
 
-    async function displayLastRecordForCurrentUser() { /* ... (與前一版本相同，但確保日誌清晰) ... */ }
+    async function displayLastRecordForCurrentUser() {
+        console.log("[displayLastRecordForCurrentUser] 函數被呼叫。currentDataIdentifier:", currentDataIdentifier);
+        clearPreviousResults(); 
+        if (!currentDataIdentifier) {
+            console.log("[displayLastRecordForCurrentUser] currentDataIdentifier 為空，返回。");
+            resultTextDiv.innerHTML = `<p>請先在上方設定您的顯示名稱。</p>`;
+            return;
+        }
+        if (!auth.currentUser) { 
+            console.log("[displayLastRecordForCurrentUser] Firebase 使用者未認證，返回。");
+            resultTextDiv.innerHTML = `<p>Firebase 認證中，請稍候...</p>`;
+            return;
+        }
+
+        console.log(`[displayLastRecordForCurrentUser] 嘗試為識別碼 "${currentDataIdentifier}" 獲取最後記錄...`);
+        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+        const q = query(historyCollectionRef, orderBy("recordedAt", "desc"), limit(1)); 
+
+        try {
+            const querySnapshot = await getDocs(q);
+            console.log("[displayLastRecordForCurrentUser] Firestore 查詢完成。Snapshot is empty:", querySnapshot.empty);
+
+            if (!querySnapshot.empty) {
+                const lastRecord = querySnapshot.docs[0].data();
+                console.log("[displayLastRecordForCurrentUser] 找到最後一筆記錄:", JSON.parse(JSON.stringify(lastRecord))); 
+
+                const userTimeFormatted = lastRecord.localTime || "未知時間";
+                const cityActualUTCOffset = (typeof lastRecord.matchedCityUTCOffset === 'number' && isFinite(lastRecord.matchedCityUTCOffset)) 
+                                            ? lastRecord.matchedCityUTCOffset 
+                                            : null;
+
+                const finalCityName = lastRecord.city_zh && lastRecord.city_zh !== lastRecord.city ? `${lastRecord.city_zh} (${lastRecord.city})` : lastRecord.city;
+                const finalCountryName = lastRecord.country_zh && lastRecord.country_zh !== lastRecord.country ? `${lastRecord.country_zh} (${lastRecord.country})` : lastRecord.country;
+                
+                if (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet") {
+                     resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！`;
+                } else {
+                     resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人 (當地約 <strong>8:00 AM</strong>) 同步，<br>一起開啟了新的一天！`;
+                }
+
+                if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') { 
+                    countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
+                    countryFlagImg.alt = `${finalCountryName} 國旗`;
+                    countryFlagImg.style.display = 'inline-block';
+                } else {
+                    countryFlagImg.style.display = 'none';
+                }
+                
+                if (clockLeafletMap) {
+                    clockLeafletMap.remove();
+                    clockLeafletMap = null;
+                }
+                mapContainerDiv.innerHTML = ''; 
+
+                if (typeof lastRecord.latitude === 'number' && isFinite(lastRecord.latitude) && 
+                    typeof lastRecord.longitude === 'number' && isFinite(lastRecord.longitude)) {
+                    
+                    clockLeafletMap = L.map(mapContainerDiv).setView([lastRecord.latitude, lastRecord.longitude], 7);
+                    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                        subdomains: 'abcd', maxZoom: 19
+                    }).addTo(clockLeafletMap);
+                    L.circleMarker([lastRecord.latitude, lastRecord.longitude], {
+                        color: 'red', fillColor: '#f03', fillOpacity: 0.8, radius: 8
+                    }).addTo(clockLeafletMap).bindPopup(`<b>${finalCityName}</b><br>${finalCountryName}`).openPopup();
+
+                } else if (lastRecord.city === "未知星球Unknown Planet") {
+                     mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
+                } else {
+                     mapContainerDiv.innerHTML = "<p>無法顯示地圖，此記錄座標資訊不完整或無效。</p>";
+                }
+                
+                const recordedAtDate = lastRecord.recordedAt && lastRecord.recordedAt.toDate ? lastRecord.recordedAt.toDate().toLocaleString('zh-TW') : '未知記錄時間';
+                const targetUTCOffsetStr = (typeof lastRecord.targetUTCOffset === 'number' && isFinite(lastRecord.targetUTCOffset)) ? lastRecord.targetUTCOffset.toFixed(2) : 'N/A';
+                const latitudeStr = (typeof lastRecord.latitude === 'number' && isFinite(lastRecord.latitude)) ? lastRecord.latitude.toFixed(2) : 'N/A';
+                const longitudeStr = (typeof lastRecord.longitude === 'number' && isFinite(lastRecord.longitude)) ? lastRecord.longitude.toFixed(2) : 'N/A';
+
+                debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${lastRecord.timezone || '未知'})`;
+            } else {
+                resultTextDiv.innerHTML = `<p>歡迎，${rawUserDisplayName}！此名稱尚無歷史記錄。</p>`;
+                console.log("[displayLastRecordForCurrentUser] 此識別碼尚無歷史記錄。");
+            }
+        } catch (e) {
+            console.error("[displayLastRecordForCurrentUser] 讀取最後一筆記錄失敗:", e);
+            resultTextDiv.innerHTML = "<p>讀取最後記錄失敗。</p>";
+        }
+    }
 
     fetch('cities_data.json')
         .then(response => {
@@ -210,10 +284,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 resultTextDiv.innerHTML = "提示：載入的城市數據為空。";
                 findCityButton.disabled = true;
             } else if (currentDataIdentifier && auth.currentUser) { 
-                console.log("城市數據已載入且使用者已設定名稱並認證，啟用 findCityButton。");
                 findCityButton.disabled = false;
-            } else {
-                console.log("城市數據已載入，但使用者名稱未設定或未認證，findCityButton 保持禁用。");
             }
         })
         .catch(e => {
@@ -222,45 +293,93 @@ document.addEventListener('DOMContentLoaded', async () => {
             findCityButton.disabled = true;
         });
 
-    findCityButton.addEventListener('click', async () => { // *** 修改點：將 findMatchingCity 設為 async ***
-        console.log("「開始這一天」按鈕被點擊。");
-        await findMatchingCity(); // *** 修改點：確保呼叫的是 async 版本的 findMatchingCity ***
-    });
+    findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
     if (refreshGlobalMapButton) {
         refreshGlobalMapButton.addEventListener('click', loadGlobalTodayMap);
     }
 
-    function parseOffsetString(offsetStr) { /* ... (與前一版本相同) ... */ }
-    function getCityUTCOffsetHours(ianaTimeZone) { /* ... (與前一版本相同) ... */ }
+    function parseOffsetString(offsetStr) { 
+        if (!offsetStr || typeof offsetStr !== 'string') return NaN;
+        const cleaned = offsetStr.replace('GMT', '').replace('UTC', '').trim();
+        const signMatch = cleaned.match(/^([+-])/);
+        const sign = signMatch ? (signMatch[1] === '+' ? 1 : -1) : 1;
+        const numericPart = signMatch ? cleaned.substring(1) : cleaned;
+        const parts = numericPart.split(':');
+        const hours = parseInt(parts[0], 10);
+        const minutes = parts[1] ? parseInt(parts[1], 10) : 0;
+        if (isNaN(hours) || isNaN(minutes)) return NaN;
+        return sign * (hours + minutes / 60);
+    }
+
+    function getCityUTCOffsetHours(ianaTimeZone) { 
+        try {
+            const now = new Date();
+            const formatter = new Intl.DateTimeFormat('en', {
+                timeZone: ianaTimeZone,
+                timeZoneName: 'longOffset',
+            });
+            const parts = formatter.formatToParts(now);
+            let offsetStringVal = "";
+            for (const part of parts) {
+                if (part.type === 'timeZoneName' || part.type === 'unknown' || part.type === 'literal') {
+                    if ((part.value.startsWith('GMT') || part.value.startsWith('UTC')) && (part.value.includes('+') || part.value.includes('-'))) {
+                        offsetStringVal = part.value;
+                        break;
+                    }
+                }
+            }
+            if (!offsetStringVal) {
+                const formattedDateString = formatter.format(now);
+                const match = formattedDateString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
+                if (match && match[0]) {
+                    offsetStringVal = match[0];
+                }
+            }
+            if (offsetStringVal) {
+                return parseOffsetString(offsetStringVal);
+            } else {
+                console.warn("無法從 Intl.DateTimeFormat 獲取時區偏移字串:", ianaTimeZone, "Parts:", parts);
+                return NaN;
+            }
+        } catch (e) {
+            console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
+            return NaN;
+        }
+    }
+
     const timezoneOffsetCache = new Map();
-    function clearPreviousResults() { /* ... (與前一版本相同) ... */ }
-    
-    // *** 修改點：確保 findMatchingCity 是 async 函數，因為它內部有 await ***
+
+    function clearPreviousResults() { 
+        resultTextDiv.innerHTML = "";
+        countryFlagImg.src = "";
+        countryFlagImg.alt = "國家國旗";
+        countryFlagImg.style.display = 'none';
+        if (clockLeafletMap) { 
+            clockLeafletMap.remove();
+            clockLeafletMap = null;
+        }
+        mapContainerDiv.innerHTML = ""; 
+        debugInfoSmall.innerHTML = "";
+    }
+
     async function findMatchingCity() { 
         clearPreviousResults();
         console.log("--- 開始尋找匹配城市 ---");
 
         if (!currentDataIdentifier) { 
             alert("請先設定你的顯示名稱。");
-            console.log("findMatchingCity 中斷：currentDataIdentifier 未設定。");
             return;
         }
         if (!auth.currentUser) { 
             alert("Firebase 會話未就緒，請稍候或刷新頁面。");
-            console.log("findMatchingCity 中斷：Firebase 會話未就緒。");
             return;
         }
         if (citiesData.length === 0) {
             resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空。";
-            console.log("findMatchingCity 中斷：城市數據未載入。");
             return;
         }
-        console.log("findMatchingCity 條件檢查通過，繼續執行...");
 
-        // ... (findMatchingCity 函數的其餘部分與你提供的版本相同，包含儲存記錄的 await 呼叫) ...
-        // ... 請確保將你提供的 findMatchingCity 完整內容複製到這裡 ...
-        // 以下是 findMatchingCity 的核心邏輯，確保它與你之前的版本一致，特別是 await 的使用
         const userLocalDate = new Date();
         const userLocalHours = userLocalDate.getHours();
         const userLocalMinutes = userLocalDate.getMinutes();
@@ -287,16 +406,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
         let candidateCities = [];
-        console.log("開始遍歷城市數據進行匹配..."); 
         for (const city of citiesData) {
             if (!city || !city.timezone || 
                 typeof city.latitude !== 'number' || !isFinite(city.latitude) || 
                 typeof city.longitude !== 'number' || !isFinite(city.longitude) || 
                 !city.country_iso_code) {
-                console.warn("跳過格式不正確或缺少必要資訊 (timezone, latitude, longitude, country_iso_code) 的城市數據:", city);
                 continue;
             }
-
             let cityUTCOffset;
             if (timezoneOffsetCache.has(city.timezone)) {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
@@ -309,12 +425,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!isFinite(cityUTCOffset)) continue; 
 
             if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { 
-                console.log(`  符合條件! 城市: ${city.city}, 國家: ${city.country}, 時區: ${city.timezone}, 計算偏移: ${cityUTCOffset.toFixed(2)}`);
                 candidateCities.push(city);
             }
         }
-        console.log("城市數據遍歷完成。候選城市數量:", candidateCities.length); 
-
 
         if (candidateCities.length === 0) {
             resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
@@ -419,12 +532,343 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log("--- 尋找匹配城市結束 ---");
     }
 
+    async function saveHistoryRecord(recordData) {
+        if (!currentDataIdentifier) { 
+            console.warn("無法儲存歷史記錄：使用者名稱未設定。");
+            return;
+        }
+        if (recordData.city !== "未知星球Unknown Planet" && 
+            (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) || 
+             typeof recordData.longitude !== 'number' || !isFinite(recordData.longitude))) {
+            console.error("無法儲存地球歷史記錄：經緯度無效。", recordData);
+            return;
+        }
+        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+        try {
+            const docRef = await addDoc(historyCollectionRef, recordData);
+            console.log("個人歷史記錄已儲存，文件 ID:", docRef.id);
+        } catch (e) {
+            console.error("儲存個人歷史記錄到 Firestore 失敗:", e);
+        }
+    }
 
-    async function saveHistoryRecord(recordData) { /* ... (與前一版本相同) ... */ }
-    async function saveToGlobalDailyRecord(recordData) { /* ... (與前一版本相同) ... */ }
-    async function loadHistory() { /* ... (與前一版本相同) ... */ }
-    async function loadGlobalTodayMap() { /* ... (與前一版本相同) ... */ }
-    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", mapType = 'global') { /* ... (與前一版本相同) ... */ }
-    function renderHistoryMap(points) { /* ... (與前一版本相同) ... */ }
-    window.openTab = function(evt, tabName, triggeredBySetName = false) { /* ... (與前一版本相同) ... */ }
+    async function saveToGlobalDailyRecord(recordData) {
+        if (!auth.currentUser) { 
+            console.warn("無法儲存全域記錄：Firebase 會話未就緒。");
+            return;
+        }
+        const globalRecord = {
+            dataIdentifier: recordData.dataIdentifier, 
+            userDisplayName: recordData.userDisplayName, 
+            recordedAt: recordData.recordedAt, 
+            recordedDateString: recordData.recordedDateString, 
+            city: recordData.city,
+            country: recordData.country,
+            city_zh: recordData.city_zh,
+            country_zh: recordData.country_zh,
+            country_iso_code: recordData.country_iso_code,
+            latitude: recordData.latitude, 
+            longitude: recordData.longitude, 
+        };
+        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
+        try {
+            const docRef = await addDoc(globalCollectionRef, globalRecord);
+            console.log("全域每日記錄已儲存，文件 ID:", docRef.id);
+        } catch (e) {
+            console.error("儲存全域每日記錄到 Firestore 失敗:", e);
+        }
+    }
+
+    async function loadHistory() {
+        if (!currentDataIdentifier) { 
+            historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
+            if (historyLeafletMap) {
+                historyLeafletMap.remove();
+                historyLeafletMap = null;
+            }
+            historyMapContainerDiv.innerHTML = '<p>設定名稱後，此處將顯示您的個人歷史地圖。</p>'; 
+            return;
+        }
+        historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
+        historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>'; 
+        historyDebugInfoSmall.textContent = "";
+
+        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+        const q = query(historyCollectionRef, orderBy("recordedAt", "desc")); 
+
+        try {
+            const querySnapshot = await getDocs(q);
+            historyListUl.innerHTML = ''; 
+            if (querySnapshot.empty) {
+                historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
+                historyMapContainerDiv.innerHTML = '<p>尚無歷史記錄可顯示於地圖。</p>';
+                if (historyLeafletMap && historyMarkerLayerGroup) historyMarkerLayerGroup.clearLayers();
+                return;
+            }
+
+            const historyPoints = []; // *** 修正點：確保 historyPoints 在此作用域內被正確使用 ***
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                const li = document.createElement('li');
+                const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
+                
+                const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
+                const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+
+                li.innerHTML = `<span class="date">${recordDate}</span> - 
+                                當地時間: <span class="time">${record.localTime || '未知'}</span> - 
+                                同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
+                historyListUl.appendChild(li);
+
+                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
+                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                    // *** 修正點：將點添加到 historyPoints 而不是 globalPoints ***
+                    historyPoints.push({ 
+                        lat: record.latitude,
+                        lon: record.longitude,
+                        title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}` 
+                    });
+                } else if (record.city !== "未知星球Unknown Planet") { 
+                    console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
+                }
+            });
+
+            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
+
+
+        } catch (e) {
+            console.error("讀取歷史記錄失敗:", e);
+            historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
+            historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>'; 
+            historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
+        }
+    }
+
+    async function loadGlobalTodayMap() {
+        if (!auth.currentUser) { 
+            globalTodayMapContainerDiv.innerHTML = '<p>Firebase 認證中，請稍候...</p>';
+            return;
+        }
+        
+        const selectedDateValue = globalDateInput.value; 
+        if (!selectedDateValue) {
+            globalTodayMapContainerDiv.innerHTML = '<p>請先選擇一個日期。</p>';
+            return;
+        }
+        
+        globalTodayMapContainerDiv.innerHTML = '<p>載入今日眾人地圖中...</p>';
+        globalTodayDebugInfoSmall.textContent = `查詢日期: ${selectedDateValue}`;
+        console.log(`[loadGlobalTodayMap] 查詢日期: ${selectedDateValue}`);
+
+        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
+        const q = query(globalCollectionRef, where("recordedDateString", "==", selectedDateValue));
+
+        try {
+            const querySnapshot = await getDocs(q);
+            console.log(`[loadGlobalTodayMap] Firestore 查詢完成。找到 ${querySnapshot.size} 筆記錄。`);
+            if (querySnapshot.empty) {
+                globalTodayMapContainerDiv.innerHTML = `<p>日期 ${selectedDateValue} 尚無眾人甦醒記錄。</p>`;
+                 if (globalLeafletMap && globalMarkerLayerGroup) { 
+                    globalMarkerLayerGroup.clearLayers();
+                }
+                return;
+            }
+
+            const globalPoints = [];
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
+                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                    
+                    const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
+                    const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+                    const userDisplay = record.userDisplayName || record.dataIdentifier || "匿名";
+
+                    globalPoints.push({
+                        lat: record.latitude,
+                        lon: record.longitude,
+                        title: `${userDisplay} @ ${cityDisplay}, ${countryDisplay}` 
+                    });
+                } else {
+                    console.warn("跳過全域記錄中經緯度無效的點 (或宇宙記錄):", record);
+                }
+            });
+
+            renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`, 'global');
+
+        } catch (e) {
+            console.error("讀取全域每日記錄失敗:", e);
+            globalTodayMapContainerDiv.innerHTML = '<p>讀取全域地圖資料失敗。</p>';
+            globalTodayDebugInfoSmall.textContent = `錯誤: ${e.message}`;
+        }
+    }
+
+    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", mapType = 'global') { // mapType: 'global' or 'history'
+        console.log(`[renderPointsOnMap] 準備渲染地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}, 地圖類型: ${mapType}`);
+        
+        let currentMapInstance;
+        let currentMarkerLayerGroup;
+
+        if (mapType === 'global') {
+            currentMapInstance = globalLeafletMap;
+            currentMarkerLayerGroup = globalMarkerLayerGroup;
+        } else if (mapType === 'history') {
+            currentMapInstance = historyLeafletMap;
+            currentMarkerLayerGroup = historyMarkerLayerGroup;
+        } else {
+            console.error("未知的地圖類型:", mapType);
+            return;
+        }
+
+        if (!points || points.length === 0) {
+            if (currentMapInstance) {
+                if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers();
+                mapDivElement.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`; 
+            } else { 
+                mapDivElement.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
+            }
+            if(debugDivElement) debugDivElement.textContent = "";
+            console.log("[renderPointsOnMap] 沒有點可以渲染。");
+            return;
+        }
+
+        if (!currentMapInstance) {
+            console.log(`[renderPointsOnMap] 初始化新的 Leaflet 地圖實例到 ${mapDivElement.id}`);
+            mapDivElement.innerHTML = ''; 
+            currentMapInstance = L.map(mapDivElement).setView([20, 0], 2); 
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd', maxZoom: 18, minZoom: 2   
+            }).addTo(currentMapInstance);
+            currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance); 
+
+            if (mapType === 'global') {
+                globalLeafletMap = currentMapInstance;
+                globalMarkerLayerGroup = currentMarkerLayerGroup;
+            } else if (mapType === 'history') {
+                historyLeafletMap = currentMapInstance;
+                historyMarkerLayerGroup = currentMarkerLayerGroup;
+            }
+        } else {
+            console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
+            if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers(); 
+            else { // 如果 layer group 因故未初始化，則重新創建
+                 currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
+                 if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
+                 else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
+            }
+            
+            if (currentMapInstance.getContainer().parentNode !== mapDivElement) {
+                 mapDivElement.innerHTML = ''; 
+                 mapDivElement.appendChild(currentMapInstance.getContainer());
+            }
+            currentMapInstance.invalidateSize(); 
+        }
+        
+        let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
+        let validPointsForBboxCount = 0;
+
+        points.forEach(point => {
+            if (typeof point.lat === 'number' && isFinite(point.lat) && typeof point.lon === 'number' && isFinite(point.lon)) {
+                const marker = L.circleMarker([point.lat, point.lon], {
+                    color: 'red', fillColor: '#f03', fillOpacity: 0.7, radius: 6 
+                }).addTo(currentMarkerLayerGroup);
+                if (point.title) {
+                    marker.bindTooltip(point.title);
+                }
+                minLat = Math.min(minLat, point.lat);
+                maxLat = Math.max(maxLat, point.lat);
+                minLon = Math.min(minLon, point.lon);
+                maxLon = Math.max(maxLon, point.lon);
+                validPointsForBboxCount++;
+            }
+        });
+
+        if (validPointsForBboxCount > 0) {
+            const latDiff = maxLat - minLat;
+            const lonDiff = maxLon - minLon;
+            const defaultMargin = 1.0; 
+            const latMargin = latDiff < 0.1 ? defaultMargin : latDiff * 0.2 + 0.1; 
+            const lonMargin = lonDiff < 0.1 ? defaultMargin : lonDiff * 0.2 + 0.1; 
+
+            let south = Math.max(-85, minLat - latMargin); 
+            let west = Math.max(-180, minLon - lonMargin);
+            let north = Math.min(85, maxLat + latMargin);
+            let east = Math.min(180, maxLon + lonMargin);
+            
+            if (west >= east) { 
+                const centerLon = validPointsForBboxCount === 1 ? minLon : (minLon + maxLon) / 2; 
+                west = centerLon - defaultMargin / 2; 
+                east = centerLon + defaultMargin / 2;
+            }
+            if (south >= north) { 
+                const centerLat = validPointsForBboxCount === 1 ? minLat : (minLat + maxLat) / 2; 
+                south = centerLat - defaultMargin / 2;
+                north = centerLat + defaultMargin / 2;
+            }
+            west = Math.max(-180, Math.min(west, 179.9999)); 
+            east = Math.min(180, Math.max(east, west + 0.0001)); 
+            south = Math.max(-85, Math.min(south, 84.9999));   
+            north = Math.min(85, Math.max(north, south + 0.0001));  
+
+            console.log(`[renderPointsOnMap] (${mapTitle}) 計算出的 BBOX:`, `${west},${south},${east},${north}`);
+            currentMapInstance.fitBounds([[south, west], [north, east]], {padding: [20,20]}); 
+        } else if (currentMapInstance) { // 如果沒有有效點，但地圖已初始化，則重置視圖
+             currentMapInstance.setView([20, 0], 2); 
+        }
+
+        if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
+    }
+
+    // renderHistoryMap 函數現在將使用通用的 renderPointsOnMap
+    // function renderHistoryMap(points) { // 舊的，已註解
+    //     console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
+    //     historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; 
+    //     return; 
+    // }
+
+    window.openTab = function(evt, tabName, triggeredBySetName = false) {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active"); 
+        }
+        const currentTabDiv = document.getElementById(tabName);
+        if (currentTabDiv) {
+            currentTabDiv.style.display = "block";
+        }
+        
+        const targetButtonId = `tabButton-${tabName}`; 
+        const targetButton = document.getElementById(targetButtonId);
+        if (targetButton) {
+            targetButton.classList.add("active");
+        } else if (evt && evt.currentTarget) { 
+             evt.currentTarget.classList.add("active");
+        }
+
+        if (tabName === 'HistoryTab') {
+            if (historyLeafletMap && historyMapContainerDiv.offsetParent !== null) {
+                console.log("[openTab] HistoryTab is visible, invalidating map size.");
+                historyLeafletMap.invalidateSize();
+            }
+            if (currentDataIdentifier && auth.currentUser && !triggeredBySetName) {
+                loadHistory();
+            }
+        } else if (tabName === 'GlobalTodayMapTab') {
+            if (globalLeafletMap && globalTodayMapContainerDiv.offsetParent !== null) {
+                console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
+                globalLeafletMap.invalidateSize();
+            }
+            if (auth.currentUser && !triggeredBySetName) {
+                 if (globalDateInput && !globalDateInput.value) { 
+                    globalDateInput.valueAsDate = new Date();
+                }
+                loadGlobalTodayMap();
+            }
+        }
+    }
 });
