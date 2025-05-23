@@ -909,20 +909,30 @@ async function findMatchingCity() {
                     console.log("[openTab] 呼叫 loadHistory for HistoryTab.");
                     loadHistory();
                 }
-            } else if (tabName === 'GlobalTodayMapTab') {
-                if (globalLeafletMap && globalTodayMapContainerDiv.offsetParent !== null) {
+                } else if (tabName === 'GlobalTodayMapTab') {
+                    if (globalLeafletMap && globalTodayMapContainerDiv.offsetParent !== null) {
                     console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                     globalLeafletMap.invalidateSize();
-                }
-                // 只有在不是由 setUserName 觸發，且使用者已登入時才載入全域地圖
-                if (auth.currentUser && !triggeredBySetName) {
-                     if (globalDateInput && !globalDateInput.value) { 
-                        globalDateInput.valueAsDate = new Date();
-                    }
-                    console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab.");
-                    loadGlobalTodayMap();
-                }
             }
-        }, 0); 
+            // 舊的邏輯:
+            // if (auth.currentUser && !triggeredBySetName) {
+            //     if (globalDateInput && !globalDateInput.value) { 
+            //         globalDateInput.valueAsDate = new Date(); 
+            //     }
+            //     console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab.");
+            //     loadGlobalTodayMap();
+            // }
+
+            // ★★★ 新的邏輯：強制將日期設為當天 ★★★
+               if (auth.currentUser && !triggeredBySetName) {
+                    if (globalDateInput) { // 確保日期輸入框存在
+                    console.log("[openTab] GlobalTodayMapTab: 強制重設日期為今天。");
+                    globalDateInput.valueAsDate = new Date(); // 強制將日期選擇器設為當前日期
+                }
+                console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab (日期已重設為今天).");
+                loadGlobalTodayMap(); // 然後載入地圖資料
+            }
+        }
+    }, 0);
     }
 });
