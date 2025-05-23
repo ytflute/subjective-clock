@@ -169,6 +169,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // ---- 輔助函式：取得城市 UTC 偏移 ----
+    function getCityUTCOffsetHours(ianaTimeZone) {
+        try {
+            const now = new Date();
+            const formatter = new Intl.DateTimeFormat('en', {
+                timeZone: ianaTimeZone,
+                timeZoneName: 'shortOffset'
+            });
+            const parts = formatter.formatToParts(now);
+            const offsetPart = parts.find(p => p.type === 'timeZoneName');
+            if (offsetPart && offsetPart.value) {
+                const match = offsetPart.value.match(/[+-]\d{1,2}(?::\d{2})?/);
+                if (match) {
+                    const [h, m = '0'] = match[0].split(':');
+                    return parseInt(h, 10) + parseInt(m, 10) / 60;
+                }
+            }
+        } catch (e) {
+            console.error("取得城市偏移錯誤:", e);
+        }
+        return NaN;
+    }
+
 // ---- 時鐘同步功能與按鈕事件 ----
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
