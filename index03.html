@@ -70,14 +70,14 @@
             padding: 10px 18px;
             font-size: 15px;
             color: white;
-            background-color: #007bff;
+            background-color: #a6a08f;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.2s;
         }
         .user-section button:hover {
-            background-color: #0056b3;
+            background-color: #827d6f;
         }
         .user-section p {
             font-size: 0.85em; 
@@ -113,10 +113,10 @@
         .tab-button.active {
             border-bottom-color: #007bff;
             font-weight: bold;
-            color: #007bff;
+            color: #d6a70b;
         }
         .tab-button:hover:not(.active) {
-            color: #0056b3;
+            color: #b08b10;
         }
 
         .tab-content {
@@ -241,7 +241,7 @@
             padding: 12px 25px;
             font-size: 16px;
             color: white;
-            background-color: #28a745;
+            background-color: #d4b208;
             border: none;
             border-radius: 6px;
             cursor: pointer;
@@ -250,7 +250,7 @@
             transition: background-color 0.2s, transform 0.1s;
         }
         #findCityButton:hover, #refreshHistoryButton:hover, #refreshGlobalMapButton:hover {
-            background-color: #218838;
+            background-color: #b89e1d;
         }
         #findCityButton:active, #refreshHistoryButton:active, #refreshGlobalMapButton:active {
             transform: translateY(1px);
@@ -281,9 +281,9 @@
         </div>
 
         <div class="tabs">
-            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">時鐘</button>
-            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">歷史軌跡</button>
-            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">今日眾人</button>
+            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">今日甦醒位置</button>
+            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">過去甦醒軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人甦醒地圖</button>
         </div>
 
         <div id="ClockTab" class="tab-content active">
