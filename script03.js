@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const findCityButton = document.getElementById('findCityButton');
     const resultTextDiv = document.getElementById('resultText');
     const countryFlagImg = document.getElementById('countryFlag');
-    const mapContainerDiv = document.getElementById('mapContainer'); // 時鐘頁的單點地圖容器
+    const mapContainerDiv = document.getElementById('mapContainer'); 
     const debugInfoSmall = document.getElementById('debugInfo');
 
     const userNameInput = document.getElementById('userName');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const globalDateInput = document.getElementById('globalDate');
     const refreshGlobalMapButton = document.getElementById('refreshGlobalMapButton');
-    const globalTodayMapContainerDiv = document.getElementById('globalTodayMapContainer'); // 眾人地圖的容器
+    const globalTodayMapContainerDiv = document.getElementById('globalTodayMapContainer'); 
     const globalTodayDebugInfoSmall = document.getElementById('globalTodayDebugInfo');
 
     // 全域變數
@@ -34,9 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     let db, auth;
     let currentDataIdentifier = null; 
     let rawUserDisplayName = ""; 
-    let clockLeafletMap = null; // 時鐘頁的 Leaflet 地圖實例
-    let globalLeafletMap = null; // 今日眾人地圖的 Leaflet 地圖實例
-    let globalMarkerLayerGroup = null; // 用於管理今日眾人地圖上的標記
+    let clockLeafletMap = null; 
+    let globalLeafletMap = null; 
+    let globalMarkerLayerGroup = null; 
+    // *** 新增：個人歷史地圖的 Leaflet 實例和標記圖層 ***
+    let historyLeafletMap = null;
+    let historyMarkerLayerGroup = null;
 
     // Firebase 設定
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history'; 
@@ -88,21 +91,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (citiesData.length > 0) {
                     findCityButton.disabled = false;
                 }
-                // *** 修改點：確保在 onAuthStateChanged 後，如果分頁是活動的，則載入 ***
                 if (document.getElementById('HistoryTab').classList.contains('active')) {
-                     loadHistory();
-                }
-                if (document.getElementById('GlobalTodayMapTab') && document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
-                    loadGlobalTodayMap(); // 在這裡也呼叫，確保認證後如果分頁已開啟則載入
+                     loadHistory(); // 現在會載入列表和地圖
                 }
             }
-             // 即使 currentDataIdentifier 尚未設定，如果 GlobalTodayMapTab 是活動的，也嘗試載入
-             // （因為 loadGlobalTodayMap 內部會檢查 auth.currentUser）
-            else if (document.getElementById('GlobalTodayMapTab') && document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
+            if (document.getElementById('GlobalTodayMapTab') && document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
                 loadGlobalTodayMap();
             }
-
-
         } else {
             console.log("Firebase 會話未認證，嘗試登入...");
             currentUserIdSpan.textContent = "認證中..."; 
@@ -174,12 +169,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         console.log("[setOrLoadUserName] 準備切換到時鐘分頁並顯示最後記錄。");
-        openTab(null, 'ClockTab', true); // true 表示這是由設定名稱觸發的
+        openTab(null, 'ClockTab', true); 
         await displayLastRecordForCurrentUser();
 
-        // 設定名稱後，如果歷史分頁是活動的，則重新載入該名稱的歷史
-        // 但因為上面已經切換到 ClockTab，所以這段邏輯可能不會立即生效，
-        // 除非使用者再次手動切換到 HistoryTab
         if (document.getElementById('HistoryTab').classList.contains('active')) {
             console.log("[setOrLoadUserName] 歷史分頁為活動狀態，重新載入歷史。");
             loadHistory(); 
@@ -311,7 +303,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     function parseOffsetString(offsetStr) { /* ... (與前一版本相同) ... */ }
     function getCityUTCOffsetHours(ianaTimeZone) { /* ... (與前一版本相同) ... */ }
     const timezoneOffsetCache = new Map();
-    function clearPreviousResults() { /* ... (與前一版本相同) ... */ }
+    function clearPreviousResults() { /* ... (與前一版本相同，但 clockLeafletMap 也應在此處處理) ... */
+        resultTextDiv.innerHTML = "";
+        countryFlagImg.src = "";
+        countryFlagImg.alt = "國家國旗";
+        countryFlagImg.style.display = 'none';
+        if (clockLeafletMap) { // 清除時鐘頁的 Leaflet 地圖
+            clockLeafletMap.remove();
+            clockLeafletMap = null;
+        }
+        mapContainerDiv.innerHTML = ""; 
+        debugInfoSmall.innerHTML = "";
+    }
 
     async function findMatchingCity() { 
         clearPreviousResults();
@@ -529,11 +532,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadHistory() {
         if (!currentDataIdentifier) { 
             historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
-            historyMapContainerDiv.innerHTML = '<p>地圖軌跡功能已移除。</p>'; 
+            // *** 修改點：確保地圖容器也被清空或設定提示 ***
+            if (historyLeafletMap) {
+                historyLeafletMap.remove();
+                historyLeafletMap = null;
+            }
+            historyMapContainerDiv.innerHTML = '<p>設定名稱後，此處將顯示您的個人歷史地圖。</p>'; 
             return;
         }
         historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
-        historyMapContainerDiv.innerHTML = '<p>地圖軌跡功能已移除。</p>'; 
+        historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>'; 
         historyDebugInfoSmall.textContent = "";
 
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
@@ -544,9 +552,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             historyListUl.innerHTML = ''; 
             if (querySnapshot.empty) {
                 historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
+                historyMapContainerDiv.innerHTML = '<p>尚無歷史記錄可顯示於地圖。</p>';
+                if (historyLeafletMap && historyMarkerLayerGroup) historyMarkerLayerGroup.clearLayers();
                 return;
             }
 
+            const historyPoints = [];
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
                 const li = document.createElement('li');
@@ -559,7 +570,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 當地時間: <span class="time">${record.localTime || '未知'}</span> - 
                                 同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 historyListUl.appendChild(li);
+
+                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
+                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                    globalPoints.push({ // *** 錯誤：應為 historyPoints ***
+                        lat: record.latitude,
+                        lon: record.longitude,
+                        title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}` 
+                    });
+                } else if (record.city !== "未知星球Unknown Planet") { // 宇宙記錄沒有座標，不警告
+                    console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
+                }
             });
+
+            // *** 修改點：呼叫 renderPointsOnMap 來渲染個人歷史地圖 ***
+            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`);
+
 
         } catch (e) {
             console.error("讀取歷史記錄失敗:", e);
@@ -619,7 +645,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
-            renderGlobalMapWithLeaflet(globalPoints, `日期 ${selectedDateValue} 的眾人甦醒地圖`);
+            renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`);
 
         } catch (e) {
             console.error("讀取全域每日記錄失敗:", e);
@@ -628,42 +654,64 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function renderGlobalMapWithLeaflet(points, mapTitle = "今日眾人地圖") {
-        console.log(`[renderGlobalMapWithLeaflet] 準備渲染: "${mapTitle}", 點數量: ${points ? points.length : 0}`);
+    // *** 修改：renderPointsOnMap 現在是通用的，可以渲染到不同的地圖容器 ***
+    // *** 並根據傳入的地圖實例變數來操作 ***
+    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", leafletMapInstanceVariable = 'global') {
+        console.log(`[renderPointsOnMap] 準備渲染地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}, 目標地圖變數: ${leafletMapInstanceVariable}`);
         
-        if (!points || points.length === 0) {
-            // 如果地圖已初始化，清空標記並顯示提示
-            if (globalLeafletMap) {
-                if (globalMarkerLayerGroup) globalMarkerLayerGroup.clearLayers();
-                globalTodayMapContainerDiv.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`; // 在地圖容器內顯示
-            } else { // 如果地圖未初始化，直接設定提示
-                globalTodayMapContainerDiv.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
-            }
-            if(globalTodayDebugInfoSmall) globalTodayDebugInfoSmall.textContent = "";
-            console.log("[renderGlobalMapWithLeaflet] 沒有點可以渲染。");
+        let currentMapInstance;
+        let currentMarkerLayerGroup;
+
+        if (leafletMapInstanceVariable === 'global') {
+            currentMapInstance = globalLeafletMap;
+            currentMarkerLayerGroup = globalMarkerLayerGroup;
+        } else if (leafletMapInstanceVariable === 'history') {
+            currentMapInstance = historyLeafletMap;
+            currentMarkerLayerGroup = historyMarkerLayerGroup;
+        } else {
+            console.error("未知的地圖實例變數:", leafletMapInstanceVariable);
             return;
         }
 
-        if (!globalLeafletMap) {
-            console.log("[renderGlobalMapWithLeaflet] 初始化新的 Leaflet 地圖實例。");
-            globalTodayMapContainerDiv.innerHTML = ''; // 清空 "載入中" 或舊提示
-            globalLeafletMap = L.map(globalTodayMapContainerDiv).setView([20, 0], 2); 
+        if (!points || points.length === 0) {
+            if (currentMapInstance) {
+                if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers();
+                 // 不直接清空 mapDivElement.innerHTML，避免 Leaflet 容器被移除
+                mapDivElement.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`; 
+            } else { 
+                mapDivElement.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
+            }
+            if(debugDivElement) debugDivElement.textContent = "";
+            console.log("[renderPointsOnMap] 沒有點可以渲染。");
+            return;
+        }
+
+        if (!currentMapInstance) {
+            console.log(`[renderPointsOnMap] 初始化新的 Leaflet 地圖實例到 ${mapDivElement.id}`);
+            mapDivElement.innerHTML = ''; 
+            currentMapInstance = L.map(mapDivElement).setView([20, 0], 2); 
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
                 subdomains: 'abcd', maxZoom: 18, minZoom: 2   
-            }).addTo(globalLeafletMap);
-            globalMarkerLayerGroup = L.layerGroup().addTo(globalLeafletMap); 
-        } else {
-            console.log("[renderGlobalMapWithLeaflet] 清除舊標記。");
-            globalMarkerLayerGroup.clearLayers(); 
-            globalTodayMapContainerDiv.innerHTML = ''; // 確保在重用時容器是乾淨的，以便 Leaflet 正確附加
-            // 重新附加地圖到容器 (如果地圖實例被 remove 過，或者容器被清空過)
-            // 或者確保地圖容器的尺寸在 Leaflet 初始化後沒有問題
-            // 如果地圖容器的 display 從 none 變為 block，可能需要 invalidateSize
-             if (globalLeafletMap.getContainer().parentNode !== globalTodayMapContainerDiv) {
-                globalTodayMapContainerDiv.appendChild(globalLeafletMap.getContainer());
+            }).addTo(currentMapInstance);
+            currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance); 
+
+            if (leafletMapInstanceVariable === 'global') {
+                globalLeafletMap = currentMapInstance;
+                globalMarkerLayerGroup = currentMarkerLayerGroup;
+            } else if (leafletMapInstanceVariable === 'history') {
+                historyLeafletMap = currentMapInstance;
+                historyMarkerLayerGroup = currentMarkerLayerGroup;
             }
-            globalLeafletMap.invalidateSize(); // 確保地圖尺寸正確
+        } else {
+            console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
+            currentMarkerLayerGroup.clearLayers(); 
+            // 如果地圖容器之前被innerHTML清空過，確保Leaflet地圖重新關聯
+            if (currentMapInstance.getContainer().parentNode !== mapDivElement) {
+                 mapDivElement.innerHTML = ''; // 再次清空以防萬一
+                 mapDivElement.appendChild(currentMapInstance.getContainer());
+            }
+            currentMapInstance.invalidateSize(); 
         }
         
         let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
@@ -673,7 +721,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (typeof point.lat === 'number' && isFinite(point.lat) && typeof point.lon === 'number' && isFinite(point.lon)) {
                 const marker = L.circleMarker([point.lat, point.lon], {
                     color: 'red', fillColor: '#f03', fillOpacity: 0.7, radius: 6 
-                }).addTo(globalMarkerLayerGroup);
+                }).addTo(currentMarkerLayerGroup);
                 if (point.title) {
                     marker.bindTooltip(point.title);
                 }
@@ -712,20 +760,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             south = Math.max(-85, Math.min(south, 84.9999));   
             north = Math.min(85, Math.max(north, south + 0.0001));  
 
-            console.log("[renderGlobalMapWithLeaflet] 計算出的 BBOX:", `${west},${south},${east},${north}`);
-            globalLeafletMap.fitBounds([[south, west], [north, east]], {padding: [20,20]}); // 稍微增加 padding
+            console.log(`[renderPointsOnMap] (${mapTitle}) 計算出的 BBOX:`, `${west},${south},${east},${north}`);
+            currentMapInstance.fitBounds([[south, west], [north, east]], {padding: [20,20]}); 
         } else {
-             globalLeafletMap.setView([20, 0], 2); 
+             currentMapInstance.setView([20, 0], 2); 
         }
 
-        if(globalTodayDebugInfoSmall) globalTodayDebugInfoSmall.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
+        if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
     }
 
-
+    // renderHistoryMap 函數現在將使用通用的 renderPointsOnMap
     function renderHistoryMap(points) { 
-        console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
-        historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; 
-        return; 
+        console.log("[renderHistoryMap] 被呼叫，將使用 renderPointsOnMap。Points:", points);
+        renderPointsOnMap(points, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
     }
 
     window.openTab = function(evt, tabName, triggeredBySetName = false) {
@@ -751,18 +798,26 @@ document.addEventListener('DOMContentLoaded', async () => {
              evt.currentTarget.classList.add("active");
         }
 
-        if (tabName === 'HistoryTab' && currentDataIdentifier && auth.currentUser && !triggeredBySetName) { 
-            loadHistory();
-        } else if (tabName === 'GlobalTodayMapTab' && auth.currentUser && !triggeredBySetName) {
-            if (globalDateInput && !globalDateInput.value) { 
-                globalDateInput.valueAsDate = new Date();
+        // *** 修改點：確保在切換到分頁時，如果地圖容器可見且地圖已初始化，則呼叫 invalidateSize ***
+        if (tabName === 'HistoryTab') {
+            if (historyLeafletMap && historyMapContainerDiv.offsetParent !== null) {
+                console.log("[openTab] HistoryTab is visible, invalidating map size.");
+                historyLeafletMap.invalidateSize();
             }
-            // *** 修改點：確保在切換到分頁時，如果地圖容器可見，則呼叫 invalidateSize ***
+            if (currentDataIdentifier && auth.currentUser && !triggeredBySetName) {
+                loadHistory();
+            }
+        } else if (tabName === 'GlobalTodayMapTab') {
             if (globalLeafletMap && globalTodayMapContainerDiv.offsetParent !== null) {
                 console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                 globalLeafletMap.invalidateSize();
             }
-            loadGlobalTodayMap();
+            if (auth.currentUser && !triggeredBySetName) {
+                 if (globalDateInput && !globalDateInput.value) { 
+                    globalDateInput.valueAsDate = new Date();
+                }
+                loadGlobalTodayMap();
+            }
         }
     }
 });
