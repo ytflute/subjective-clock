@@ -646,65 +646,88 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderPointsOnMap(points, mapDiv, debugDiv, mapTitle = "地圖") {
+        console.log(`[renderPointsOnMap] 準備渲染地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}`);
         if (!points || points.length === 0) { 
             mapDiv.innerHTML = `<p>${mapTitle}：尚無有效座標點可顯示。</p>`;
             if(debugDiv) debugDiv.textContent = "";
+            console.log("[renderPointsOnMap] 沒有點可以渲染。");
             return;
         }
 
         let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
+        let validPointsForBboxCount = 0;
         
         points.forEach((point) => { 
-            minLat = Math.min(minLat, point.lat);
-            maxLat = Math.max(maxLat, point.lat);
-            minLon = Math.min(minLon, point.lon);
-            maxLon = Math.max(maxLon, point.lon);
+            // 再次確認點的有效性
+            if (typeof point.lat === 'number' && isFinite(point.lat) && typeof point.lon === 'number' && isFinite(point.lon)) {
+                minLat = Math.min(minLat, point.lat);
+                maxLat = Math.max(maxLat, point.lat);
+                minLon = Math.min(minLon, point.lon);
+                maxLon = Math.max(maxLon, point.lon);
+                validPointsForBboxCount++;
+            } else {
+                console.warn("[renderPointsOnMap] 發現無效的點用於計算 bbox:", point);
+            }
         });
+
+        if (validPointsForBboxCount === 0) {
+            mapDiv.innerHTML = `<p>${mapTitle}：所有提供的點座標均無效。</p>`;
+            if(debugDiv) debugDiv.textContent = "所有點座標無效";
+            console.log("[renderPointsOnMap] 所有點座標均無效。");
+            return;
+        }
         
         const latDiff = maxLat - minLat;
         const lonDiff = maxLon - minLon;
-        const defaultMargin = 1.0; 
-        const latMargin = latDiff < 0.1 ? defaultMargin : latDiff * 0.2 + 0.2; 
-        const lonMargin = lonDiff < 0.1 ? defaultMargin : lonDiff * 0.2 + 0.2; 
+        const defaultMargin = 0.5; // 稍微減小預設邊距，如果只有一個點，讓它更居中
+        const latMargin = latDiff < 0.01 ? defaultMargin : latDiff * 0.2 + 0.1; // 調整邊距計算
+        const lonMargin = lonDiff < 0.01 ? defaultMargin : lonDiff * 0.2 + 0.1; 
 
-        let south = Math.max(-90, minLat - latMargin);
+        let south = Math.max(-85, minLat - latMargin); // OpenStreetMap 緯度通常在 +/- 85 內較好顯示
         let west = Math.max(-180, minLon - lonMargin);
-        let north = Math.min(90, maxLat + latMargin);
+        let north = Math.min(85, maxLat + latMargin);
         let east = Math.min(180, maxLon + lonMargin);
         
+        // 確保 west < east 和 south < north
         if (west >= east) { 
             const centerLon = (minLon + maxLon) / 2; 
-            west = centerLon - defaultMargin / 2; 
-            east = centerLon + defaultMargin / 2;
+            west = centerLon - (defaultMargin / 2); 
+            east = centerLon + (defaultMargin / 2);
         }
         if (south >= north) { 
             const centerLat = (minLat + maxLat) / 2; 
-            south = centerLat - defaultMargin / 2;
-            north = centerLat + defaultMargin / 2;
+            south = centerLat - (defaultMargin / 2);
+            north = centerLat + (defaultMargin / 2);
         }
+        // 再次夾緊以確保在有效範圍內
         west = Math.max(-180, Math.min(west, 179.9999)); 
-        east = Math.min(180, Math.max(east, -179.9999)); 
-        south = Math.max(-90, Math.min(south, 89.9999));   
-        north = Math.min(90, Math.max(north, -89.9999));  
-        if (west >= east) east = west + 0.0001; 
-        if (south >= north) north = south + 0.0001; 
+        east = Math.min(180, Math.max(east, west + 0.0001)); // 確保 east > west
+        south = Math.max(-85, Math.min(south, 84.9999));   // OpenStreetMap 緯度限制
+        north = Math.min(85, Math.max(north, south + 0.0001));  // OpenStreetMap 緯度限制
 
         const bbox = `${west.toFixed(4)},${south.toFixed(4)},${east.toFixed(4)},${north.toFixed(4)}`;
         
         const maxMarkersToShow = 50; 
-        let displayMarkersString = "";
+        let displayMarkersStringArray = [];
         
         points.slice(0, maxMarkersToShow).forEach((point, index) => {
-            displayMarkersString += `${point.lat.toFixed(5)},${point.lon.toFixed(5)}`; 
-            if (index < Math.min(points.length, maxMarkersToShow) - 1) {
-                displayMarkersString += '|';
+            // *** 修改點：在這裡加入日誌，檢查每個 point ***
+            console.log(`[renderPointsOnMap] 準備標記 ${index}: lat=${point.lat}, lon=${point.lon}, title=${point.title}`);
+            if (typeof point.lat === 'number' && isFinite(point.lat) &&
+                typeof point.lon === 'number' && isFinite(point.lon)) {
+                displayMarkersStringArray.push(`${point.lat.toFixed(5)},${point.lon.toFixed(5)}`); 
+            } else {
+                console.warn(`[renderPointsOnMap] 跳過無效標記點:`, point);
             }
         });
+        const displayMarkersString = displayMarkersStringArray.join('|');
 
-        console.log(`渲染多點地圖 (${mapTitle}): BBOX=`, bbox, "Markers=", displayMarkersString);
-        const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${displayMarkersString ? '&marker=' + displayMarkersString : ''}`;
+        console.log(`[renderPointsOnMap] 渲染多點地圖 (${mapTitle}): BBOX=`, bbox, "Markers=", displayMarkersString);
+        // 如果 displayMarkersString 為空（所有點都無效），則不添加 marker 參數
+        const markerParam = displayMarkersString ? `&marker=${displayMarkersString}` : "";
+        const mapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik${markerParam}`;
         
-        mapDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>${mapTitle} (顯示最多 ${Math.min(points.length, maxMarkersToShow)} 個位置)</small>`;
+        mapDiv.innerHTML = `<iframe src="${mapUrl}" style="border: 1px solid black"></iframe><br/><small>${mapTitle} (顯示最多 ${Math.min(points.length, maxMarkersToShow)} 個有效位置)</small>`;
         if(debugDiv) debugDiv.textContent = `地圖邊界框 (W,S,E,N): ${bbox}`;
     }
 
