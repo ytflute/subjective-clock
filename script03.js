@@ -637,9 +637,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
         } catch (e) {
-            console.error("讀取歷史記錄失敗:", e);
-            historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
-            historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>'; 
+            console.error("讀取歷史記錄失敗，請直接按重新整理，即可出現:", e);
+            historyListUl.innerHTML = '<li>讀取歷史記錄失敗，請直接按重新整理，即可出現。</li>';
+            historyMapContainerDiv.innerHTML = '<p>請直接按重新整理即可重現</p>'; 
             historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
     }
@@ -697,8 +697,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`, 'global');
 
         } catch (e) {
-            console.error("讀取全域每日記錄失敗:", e);
-            globalTodayMapContainerDiv.innerHTML = '<p>讀取全域地圖資料失敗。</p>';
+            console.error("讀取全域每日記錄失敗，請直接重新整理即可重現！:", e);
+            globalTodayMapContainerDiv.innerHTML = '<p>讀取全域每日記錄失敗，請直接重新整理即可重現！</p>';
             globalTodayDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
     }
