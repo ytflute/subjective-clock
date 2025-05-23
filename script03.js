@@ -406,13 +406,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log(`目標緯度 (targetLatitude): ${targetLatitude.toFixed(2)}`);
 
         let candidateCities = [];
+        console.log("開始遍歷城市數據進行匹配..."); // 新增日誌
         for (const city of citiesData) {
+            // *** 修改點：取消註解並增強日誌 ***
             if (!city || !city.timezone || 
                 typeof city.latitude !== 'number' || !isFinite(city.latitude) || 
                 typeof city.longitude !== 'number' || !isFinite(city.longitude) || 
                 !city.country_iso_code) {
+                console.warn("跳過格式不正確或缺少必要資訊 (timezone, latitude, longitude, country_iso_code) 的城市數據:", city);
                 continue;
             }
+            // console.log(`正在檢查城市: ${city.city}`); // 可選，如果城市很多會產生大量日誌
+
             let cityUTCOffset;
             if (timezoneOffsetCache.has(city.timezone)) {
                 cityUTCOffset = timezoneOffsetCache.get(city.timezone);
@@ -422,12 +427,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                     timezoneOffsetCache.set(city.timezone, cityUTCOffset);
                 }
             }
-            if (!isFinite(cityUTCOffset)) continue; 
+
+            if (!isFinite(cityUTCOffset)) {
+                // console.warn(`城市 ${city.city} (${city.timezone}) 的 UTC 偏移量無效，跳過。`);
+                continue;
+            }
+            
+            // *** 新增日誌：打印出每個被考慮城市的 UTC 偏移 ***
+            // console.log(`城市: ${city.city}, 計算出的 UTC 偏移: ${cityUTCOffset.toFixed(2)}, 目標偏移: ${targetUTCOffsetHours.toFixed(2)}`);
 
             if (Math.abs(cityUTCOffset - targetUTCOffsetHours) <= 0.5) { 
+                console.log(`  符合條件! 城市: ${city.city}, 國家: ${city.country}, 時區: ${city.timezone}, 計算偏移: ${cityUTCOffset.toFixed(2)}`);
                 candidateCities.push(city);
             }
         }
+        console.log("城市數據遍歷完成。候選城市數量:", candidateCities.length); // 新增日誌
+
 
         if (candidateCities.length === 0) {
             resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
@@ -606,7 +621,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            const historyPoints = []; // *** 修正點：確保 historyPoints 在此作用域內被正確使用 ***
+            const historyPoints = []; 
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
                 const li = document.createElement('li');
@@ -622,7 +637,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
-                    // *** 修正點：將點添加到 historyPoints 而不是 globalPoints ***
                     historyPoints.push({ 
                         lat: record.latitude,
                         lon: record.longitude,
@@ -634,7 +648,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
-
 
         } catch (e) {
             console.error("讀取歷史記錄失敗:", e);
@@ -703,7 +716,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", mapType = 'global') { // mapType: 'global' or 'history'
+    function renderPointsOnMap(points, mapDivElement, debugDivElement, mapTitle = "地圖", mapType = 'global') { 
         console.log(`[renderPointsOnMap] 準備渲染地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}, 地圖類型: ${mapType}`);
         
         let currentMapInstance;
@@ -752,7 +765,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
             if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers(); 
-            else { // 如果 layer group 因故未初始化，則重新創建
+            else { 
                  currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
                  if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
                  else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
@@ -813,19 +826,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             console.log(`[renderPointsOnMap] (${mapTitle}) 計算出的 BBOX:`, `${west},${south},${east},${north}`);
             currentMapInstance.fitBounds([[south, west], [north, east]], {padding: [20,20]}); 
-        } else if (currentMapInstance) { // 如果沒有有效點，但地圖已初始化，則重置視圖
+        } else if (currentMapInstance) { 
              currentMapInstance.setView([20, 0], 2); 
         }
 
         if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
     }
-
-    // renderHistoryMap 函數現在將使用通用的 renderPointsOnMap
-    // function renderHistoryMap(points) { // 舊的，已註解
-    //     console.log("renderHistoryMap 被呼叫，但地圖功能已移除。Points:", points);
-    //     historyMapContainerDiv.innerHTML = "<p>地圖軌跡顯示功能已暫時移除。</p>"; 
-    //     return; 
-    // }
 
     window.openTab = function(evt, tabName, triggeredBySetName = false) {
         let i, tabcontent, tablinks;
