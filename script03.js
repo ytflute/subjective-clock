@@ -77,7 +77,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (globalDateInput) {
-        globalDateInput.valueAsDate = new Date();
+        // globalDateInput.valueAsDate = new Date(); // 舊的方式，可能會導致問題
+
+        // 新的方式：直接設定 .value 為本地日期的 YYYY-MM-DD 字串
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (today.getMonth() + 1).toString().padStart(2, '0'); // getMonth() 是 0-indexed
+        const day = today.getDate().toString().padStart(2, '0');
+        const localTodayDateString = `<span class="math-inline">\{year\}\-</span>{month}-${day}`;
+    
+        globalDateInput.value = localTodayDateString;
+        console.log("頁面初始載入，globalDateInput.value 設為:", globalDateInput.value);
     }
 
     onAuthStateChanged(auth, async (user) => {
