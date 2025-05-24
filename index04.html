@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wake Up World Map</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    <title>Wake Up World Map</title> <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
     <style>
-        /* 基本頁面和容器樣式 */
+        /* Basic page and container styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -29,7 +26,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             width: 100%;
-            max-width: 650px; /* 你可以根據需要調整最大寬度 */
+            max-width: 650px; /* You can adjust the max-width as needed */
             text-align: center;
             margin-top: 20px;
         }
@@ -39,7 +36,7 @@
             margin-bottom: 14px;
         }
 
-        p {
+        p { /* General p styling */
             line-height: 1.6;
             color: #555;
             margin-bottom: 15px;
@@ -63,7 +60,7 @@
             margin-bottom: 8px; 
             border: 1px solid #ccc;
             border-radius: 6px;
-            width: calc(100% - 22px);
+            width: calc(100% - 22px); /* Full width minus padding and border */
             box-sizing: border-box;
         }
         .user-section button {
@@ -79,16 +76,16 @@
         .user-section button:hover {
             background-color: #827d6f;
         }
-        .user-section p {
+        .user-section p { /* More specific p in user-section */
             font-size: 0.85em; 
             color: #666;
             margin-top: 6px; 
             margin-bottom: 6px; 
             line-height: 1.4; 
         }
-        .user-section span {
+        .user-section span { /* Spans within user-section for dynamic data */
             font-weight: bold;
-            color: #e8af10;
+            color: #e8af10; 
         }
 
         .tabs {
@@ -104,19 +101,19 @@
             border: none;
             background-color: transparent;
             font-size: 17px;
-            margin: 0 8px;
+            margin: 0 8px; /* Spacing between tab buttons */
             border-bottom: 3px solid transparent;
             transition: border-color 0.3s, color 0.3s;
-            color: #555;
+            color: #555; /* Default tab text color */
         }
 
         .tab-button.active {
-            border-bottom-color: #e8af10;
+            border-bottom-color: #e8af10; /* Accent color for active tab */
             font-weight: bold;
-            color: #d6a70b;
+            color: #d6a70b; /* Darker accent for active tab text */
         }
         .tab-button:hover:not(.active) {
-            color: #b08b10;
+            color: #b08b10; /* Hover color for non-active tabs */
         }
 
         .tab-content {
@@ -134,7 +131,7 @@
             display: block;
         }
         
-        #result {
+        #result { /* Container for the main clock tab's result */
             margin-top: 20px;
             padding: 20px;
             background-color: #fdfdfd;
@@ -153,7 +150,7 @@
         }
         #flagContainer { 
             text-align: center;
-            min-height:40px;
+            min-height:40px; /* Ensure space for flag even if not loaded */
         }
         #flagContainer img { 
             max-width: 50px; 
@@ -163,19 +160,22 @@
             margin-top: 10px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        /* *** 修改點：確保所有地圖容器有固定高度 *** */
+        /* Ensure all map containers have a fixed height */
         #mapContainer, #historyMapContainer, #globalTodayMapContainer {
             width: 100%;
-            height: 300px; /* 或你想要的高度 */
+            height: 300px; /* Or your desired height */
             border: 1px solid #d0d0d0;
             border-radius: 8px;
             margin-top:15px;
-            background-color: #f7f7f7; /* 給地圖容器一個背景色 */
+            background-color: #f7f7f7; /* Background color for map containers */
         }
-        #mapContainer iframe, #historyMapContainer iframe { /* iframe 的樣式可以保留，如果某些地圖仍用 iframe */
+        /* iframe styles can be kept if some maps still use iframes.
+           However, current Leaflet implementation directly uses these divs.
+        */
+        #mapContainer iframe, #historyMapContainer iframe { 
              width: 100%;
-             height: 100%; /* 讓 iframe 填滿父容器 */
-             border: none; /* Leaflet 地圖不需要 iframe 邊框 */
+             height: 100%; /* Make iframe fill parent container */
+             border: none; /* Leaflet maps don't need iframe borders */
         }
 
         #debugInfo, #historyDebugInfo, #globalTodayDebugInfo { 
@@ -193,8 +193,8 @@
             list-style-type: none;
             padding: 0;
             text-align: left;
-            max-height: 350px;
-            overflow-y: auto;
+            max-height: 350px; /* Max height for scrollable list */
+            overflow-y: auto; /* Enable vertical scroll */
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             margin-top: 20px;
@@ -203,9 +203,9 @@
         #historyList li {
             padding: 8px 10px; 
             border-bottom: 1px solid #f0f0f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; /* For better alignment of items */
+            justify-content: space-between; /* Distribute space */
+            align-items: center; /* Align items vertically */
             transition: background-color 0.2s;
             font-size: 0.8em; 
         }
@@ -217,18 +217,18 @@
         }
         #historyList .date { 
             font-weight: bold; 
-            color: #007bff; 
+            color: #007bff; /* Example color for date */
             flex-shrink: 0; 
             margin-right: 6px; 
         }
         #historyList .time { 
-            color: #28a745; 
+            color: #28a745; /* Example color for time */
             margin-right: 6px; 
         }
         #historyList .location { 
             color: #555; 
             text-align: right; 
-            flex-grow: 1;
+            flex-grow: 1; /* Allow location to take remaining space */
         }
 
         #findCityButton, #refreshHistoryButton, #refreshGlobalMapButton {
@@ -241,7 +241,7 @@
             padding: 12px 25px;
             font-size: 16px;
             color: white;
-            background-color: #d4b208;
+            background-color: #d4b208; /* Primary action button color */
             border: none;
             border-radius: 6px;
             cursor: pointer;
@@ -250,10 +250,10 @@
             transition: background-color 0.2s, transform 0.1s;
         }
         #findCityButton:hover, #refreshHistoryButton:hover, #refreshGlobalMapButton:hover {
-            background-color: #b89e1d;
+            background-color: #b89e1d; /* Darker shade on hover */
         }
         #findCityButton:active, #refreshHistoryButton:active, #refreshGlobalMapButton:active {
-            transform: translateY(1px);
+            transform: translateY(1px); /* Slight press effect */
         }
         #findCityButton:disabled {
             background-color: #ccc;
@@ -265,6 +265,22 @@
         .date-picker-container label {
             margin-right: 8px;
         }
+        /* CSS for the universe message (from previous request) */
+        #mapContainer.universe-message {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            /* For vertical centering to work well, 
+               #mapContainer needs a defined height when this class is active.
+               The general #mapContainer rule already sets height: 300px; */
+        }
+        #mapContainer.universe-message p {
+            margin: 0; /* Reset default p margin for better centering */
+        }
 
     </style>
 </head>
@@ -273,26 +289,27 @@
         <h1>Wake Up World Map</h1>
 
         <div class="user-section">
-            <label for="userName">Your Name: </label>
-            <input type="text" id="userName" placeholder="Enter Your Name...">
+            <label for="userName">Enter your name:</label>
+            <input type="text" id="userName" placeholder="Enter your name...">
             <button id="setUserNameButton">Set/Update Name</button>
-            <p>Your Name: <span id="currentUserId">Loading...</span> (The ID is used to distinguish records from different users.)</p>
+            <p>Current Data Identifier: <span id="currentUserId">Loading...</span> (This ID is used to differentiate records from different users)</p>
+            <p>Your Display Name: <span id="currentUserDisplayName">Not set</span></p>
         </div>
 
         <div class="tabs">
-            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">Today's Wake Location</button>
-            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">My Wake Journey</button>
-            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">Collective Wake Map</button>
+            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">Today's Awakening Spot</button>
+            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">Past Awakening Trails</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">Global Awakening Map</button>
         </div>
 
         <div id="ClockTab" class="tab-content active">
-            <p>Click the button to see where on Earth you woke up and began your day today.</p>
-            <button id="findCityButton" disabled>Start Today</button>
+            <p>Press the button to see where on Earth you woke up and started your day today!</p>
+            <button id="findCityButton" disabled>Start The Day</button>
             
             <div id="result">
                 <p id="resultText"></p>
                 <div id="flagContainer"> 
-                    <img id="countryFlag" src="" alt="Flag" style="display:none;"/>
+                    <img id="countryFlag" src="" alt="Country Flag" style="display:none;"/>
                 </div>
                 <div id="mapContainer"> </div>
                 <small id="debugInfo"></small>
@@ -300,22 +317,22 @@
         </div>
 
         <div id="HistoryTab" class="tab-content">
-            <h2>My Wake Journey</h2>
-            <p>Track where on Earth you wake up each day.</p>
-            <button id="refreshHistoryButton">Refresh</button>
+            <h2>Your Daily Awakening Map Trail</h2>
+            <p>Records where on Earth you wake up each day.</p>
+            <button id="refreshHistoryButton">Refresh Records</button>
             <ul id="historyList"></ul>
-            <div id="historyMapContainer"> <p>Map tracking feature has been removed.</p>
-            </div>
+            <div id="historyMapContainer"> 
+                </div>
             <small id="historyDebugInfo"></small>
         </div>
 
         <div id="GlobalTodayMapTab" class="tab-content">
-            <h2>Collective Wake Map</h2>
-            <p>See where people around the world are beginning their day today!</p>
+            <h2>Global Awakening Map</h2>
+            <p>See where everyone around the globe started their new day today!</p>
             <div class="date-picker-container">
-                <label for="globalDate">Select Date:</label>
+                <label for="globalDate">Select date:</label>
                 <input type="date" id="globalDate">
-                <button id="refreshGlobalMapButton">Searh Map</button>
+                <button id="refreshGlobalMapButton">Query Map</button>
             </div>
             <div id="globalTodayMapContainer">
                 </div>
@@ -324,11 +341,14 @@
     </div>
 
     <script type="module">
+        // Firebase SDK imports (ESM)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; 
 
+        // Expose Firebase SDK functions to the global window object for script03.js (if script03.js is not a module)
+        // If script03.js is also a module, it should import these directly.
         window.firebaseSDK = {
             initializeApp,
             getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
@@ -339,6 +359,5 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-    <script src="script04.js"></script>
-</body>
+    <script src="script03.js"></script> </body>
 </html>
