@@ -287,29 +287,20 @@
             <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人甦醒地圖</button>
         </div>
 
-        <div id="ClockTab" class="tab-content active">
-            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
-            <button id="findCityButton" disabled>開始這一天</button>
-            <button id="peekActivityButton" disabled style="margin-top: 10px;">偷看現在的你在做什麼？</button>
-            
-            <div id="result">
-                <p id="resultText"></p>
-                <div id="flagContainer"> 
-                    <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
-                </div>
-            
-            <div id="adventureStoryContainer" style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed #ccc; text-align: left;">
-        <h3>偷看今天的你在做什麼？</h3>
-        <div id="adventureStoryText" style="padding: 12px; background-color: #f0f5ff; border: 1px solid #d6e3ff; border-radius: 6px; min-height: 100px; white-space: pre-wrap; line-height: 1.7; color: #334;">
-            Press "Start The Day" to see your location and generate an adventure!
-          </div>
+<div id="ClockTab" class="tab-content active">
+    <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+    <button id="findCityButton" disabled>開始這一天</button>
+    <div id="result">
+        <p id="resultText"> 請點擊「開始這一天」按鈕。
+        </p>
+        <div id="flagContainer"> 
+            <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
         </div>
-
-                
-                <div id="mapContainer"> </div>
-                <small id="debugInfo"></small>
-            </div>
-        </div>
+        
+        <div id="mapContainer"> </div>
+        <small id="debugInfo"></small>
+    </div>
+</div>
 
 
 
