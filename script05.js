@@ -409,28 +409,28 @@ async function displayLastRecordForCurrentUser() {
 
 async function findMatchingCity() {
     clearPreviousResults();
-    // 在 clearPreviousResults 中已經設定了 adventureStoryTextDiv 的初始文字
-    // 可以在這裡再設定一個更明確的「載入中」或「處理中」的文字
-    const adventureStoryTextDiv = document.getElementById('adventureStoryText');
-    if (adventureStoryTextDiv) {
-        adventureStoryTextDiv.textContent = '正在連接平行時空，尋找你的蹤跡，並為你編織今日的冒險...'; // 更新為更詳細的中文載入提示
-    }
+    const resultTextDiv = document.getElementById('resultText'); // 確保獲取了 resultTextDiv
+    const adventureStoryTextDiv = document.getElementById('adventureStoryText'); // 如果您移除了這個 div，這行和相關操作可以刪除
 
+    // 設定初始/載入訊息
+    if (resultTextDiv) {
+        resultTextDiv.innerHTML = '<p>正在連接平行時空，尋找你的蹤跡...</p>';
+    }
+    if (adventureStoryTextDiv) { // 如果您還保留 adventureStoryTextDiv，也設定一下
+        adventureStoryTextDiv.innerHTML = ''; // 或者一個等待訊息
+    }
+    
     console.log("--- 開始尋找匹配城市 ---");
 
     if (!currentDataIdentifier) {
         alert("請先設定你的顯示名稱。");
-        if (adventureStoryTextDiv) adventureStoryTextDiv.textContent = '請先設定名稱才能開啟平行時空之旅。';
+        if (resultTextDiv) resultTextDiv.innerHTML = '<p>請先設定名稱才能開啟時空之旅。</p>';
         return;
     }
-    if (!auth.currentUser) {
-        alert("Firebase 會話未就緒，請稍候或刷新頁面。");
-        if (adventureStoryTextDiv) adventureStoryTextDiv.textContent = 'Firebase 認證中，平行時空通道暫未開啟。';
-        return;
-    }
-    if (citiesData.length === 0) {
-        resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空。";
-        if (adventureStoryTextDiv) adventureStoryTextDiv.textContent = '平行時空數據庫連接失敗，無法生成冒險。';
+    // ... (其他前端檢查如 auth.currentUser, citiesData.length) ...
+    if (!auth.currentUser || citiesData.length === 0) {
+        // ...相應的錯誤處理...
+        if (resultTextDiv) resultTextDiv.innerHTML = '<p>系統準備中，請稍候或確認城市資料已載入。</p>';
         return;
     }
 
@@ -489,8 +489,6 @@ async function findMatchingCity() {
         }
     }
 
-    // const adventureStoryTextDiv = document.getElementById('adventureStoryText'); // 已在開頭獲取
-
     if (candidateCities.length === 0) { // 宇宙情況
         resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
         
@@ -519,49 +517,9 @@ async function findMatchingCity() {
         await saveHistoryRecord(universeRecord);
         await saveToGlobalDailyRecord(universeRecord);
         console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
-
-        if (adventureStoryTextDiv) {
-            adventureStoryTextDiv.innerHTML = `<em>正在從 Vercel 為您編織宇宙冒險... 請稍候...</em>`;
-            fetch('/api/generateStory', { 
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    city: "一個未知的宇宙角落", 
-                    country: "遙遠的星系",
-                    userName: rawUserDisplayName || "一位勇敢的宇宙探險家", 
-                    language: "Traditional Chinese" // ★ 改為請求繁體中文故事
-                })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    const contentType = response.headers.get("content-type");
-                    if (contentType && contentType.indexOf("application/json") !== -1) {
-                        return response.json().then(errData => {
-                            throw new Error(errData.error || errData.details || `請求失敗，狀態：${response.status}`);
-                        });
-                    } else {
-                        return response.text().then(textData => {
-                             console.error("伺服器回傳非JSON錯誤 (宇宙冒險):", textData.substring(0,500));
-                             throw new Error(`伺服器錯誤：${response.status}。回應非JSON格式。`);
-                        });
-                    }
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.story) {
-                    adventureStoryTextDiv.textContent = data.story;
-                } else {
-                    adventureStoryTextDiv.textContent = `抱歉，無法生成您的宇宙冒險：${data.error || "來自伺服器的未知錯誤。"}`;
-                }
-            })
-            .catch(error => {
-                console.error("獲取宇宙冒險故事失敗:", error);
-                adventureStoryTextDiv.textContent = `生成宇宙冒險失敗：${error.message}`;
-            });
-        }
-        return; 
+        return;
     }
+
 
     let bestMatchCity = null;
     let minLatDiff = Infinity;
@@ -573,13 +531,57 @@ async function findMatchingCity() {
         }
     }
 
-    if (bestMatchCity) {
+if (bestMatchCity) {
         const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
         const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
         const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
         
-        resultTextDiv.innerHTML = `今天的你，<br>跟<strong>${finalCityName} (${finalCountryName})</strong> 的人，<br>共同開啟了新的一天！`;
+        // 先顯示一個載入訊息到 resultTextDiv
+        if (resultTextDiv) {
+            resultTextDiv.innerHTML = `<p>正在為您連接到 ${finalCityName} (${finalCountryName}) 並獲取趣味資訊... 請稍候...</p>`;
+        }
 
+        try {
+            const response = await fetch('/api/generateStory', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: bestMatchCity.city,      
+                    country: bestMatchCity.country,  
+                    userName: rawUserDisplayName || "一位探險家", // userName 可能對這個 prompt 不是必須的
+                    language: "Traditional Chinese"         
+                }),
+            });
+
+            let greeting = `(問候語獲取中...)`;
+            let trivia = `(當地小知識獲取中...)`;
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.greeting) greeting = data.greeting;
+                if (data.trivia) trivia = data.trivia;
+            } else {
+                const errText = await response.text(); // 獲取錯誤文本
+                console.error("API 呼叫失敗:", response.status, errText);
+                greeting = `(無法獲取 ${finalCountryName} 的問候語)`;
+                trivia = `(無法獲取 ${finalCityName} 的小知識，錯誤碼: ${response.status})`;
+            }
+
+            // 組合最終的顯示訊息
+            const greetingHTML = `<p style="font-size: 1.2em; font-weight: bold; margin-bottom: 8px;">${greeting}</p>`;
+            const triviaHTML = `<p style="margin-bottom: 15px; font-style: italic;">${trivia}</p>`;
+            const mainAwakeningMessage = `<p>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！</p>`;
+            
+            if (resultTextDiv) {
+                resultTextDiv.innerHTML = `${greetingHTML}${triviaHTML}${mainAwakeningMessage}`;
+            }
+
+        } catch (error) {
+            console.error("獲取問候語/小知識時發生錯誤:", error);
+            if (resultTextDiv) {
+                resultTextDiv.innerHTML = `<p>(獲取額外資訊時發生錯誤)<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！</p>`;
+            }
+        }
         if (bestMatchCity.country_iso_code) {
             countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
             countryFlagImg.alt = `${finalCountryName} 國旗`;
@@ -614,48 +616,7 @@ async function findMatchingCity() {
 
         debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone || '未知'})`;
 
-        if (adventureStoryTextDiv) {
-            adventureStoryTextDiv.innerHTML = `<em>正在從 Vercel 為您在 ${bestMatchCity.city} 編織冒險... 請稍候...</em>`;
-            fetch('/api/generateStory', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    city: bestMatchCity.city,      
-                    country: bestMatchCity.country,  
-                    userName: rawUserDisplayName || "一位勇敢的探險家", 
-                    language: "Traditional Chinese" // ★ 改為請求繁體中文故事         
-                }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    const contentType = response.headers.get("content-type");
-                    if (contentType && contentType.indexOf("application/json") !== -1) {
-                        return response.json().then(errData => {
-                            throw new Error(errData.error || errData.details || `請求失敗，狀態： ${response.status}`);
-                        });
-                    } else {
-                         return response.text().then(textData => {
-                             console.error("伺服器回傳非JSON錯誤 (城市冒險):", textData.substring(0,500));
-                             throw new Error(`伺服器錯誤： ${response.status}。回應非JSON格式。`);
-                        });
-                    }
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.story) {
-                    adventureStoryTextDiv.textContent = data.story;
-                } else {
-                    adventureStoryTextDiv.textContent = `抱歉，無法生成您的冒險：${data.error || "來自伺服器的未知錯誤。"}`;
-                }
-            })
-            .catch(error => {
-                console.error("獲取冒險故事失敗:", error);
-                adventureStoryTextDiv.textContent = `生成冒險失敗：${error.message}`;
-            });
-        }
+       
         
         const recordData = {
             dataIdentifier: currentDataIdentifier,
