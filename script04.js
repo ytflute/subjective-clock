@@ -382,6 +382,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function findMatchingCity() {
         clearPreviousResults();
+        const adventureStoryTextDivToClear = document.getElementById('adventureStoryText');
+        if (adventureStoryTextDivToClear) {
+        adventureStoryTextDivToClear.textContent = 'Press "Start The Day" to see your location and generate an adventure!';
+        }
+
+
+        
         console.log("--- Start finding matching city ---");
 
         if (!currentDataIdentifier) {
@@ -454,6 +461,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 candidateCities.push(city);
             }
         }
+        const adventureStoryTextDiv = document.getElementById('adventureStoryText'); // 再次獲取 (或從上面移下來)
 
 
         if (candidateCities.length === 0) {
@@ -489,6 +497,40 @@ document.addEventListener('DOMContentLoaded', async () => {
             await saveHistoryRecord(universeRecord);
             await saveToGlobalDailyRecord(universeRecord);
             console.log("--- End finding matching city (universe case) ---");
+
+            if (adventureStoryTextDiv) {
+            adventureStoryTextDiv.innerHTML = `<em>Generating your cosmic adventure from Vercel... Please wait...</em>`;
+            fetch('/api/generateStory', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: "an unknown corner of the universe", 
+                    country: "a distant galaxy",
+                    userName: rawUserDisplayName || "a brave space explorer", 
+                    language: "English" // 假設您希望故事是英文
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(errData.error || errData.details || `Request failed with status ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.story) {
+                    adventureStoryTextDiv.textContent = data.story;
+                } else {
+                    adventureStoryTextDiv.textContent = `Sorry, could not generate your cosmic adventure: ${data.error || "Unknown error from server."}`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching cosmic adventure story:", error);
+                adventureStoryTextDiv.textContent = `Failed to generate cosmic adventure: ${error.message}`;
+            });
+        }
+            
             return;
         }
 
@@ -546,6 +588,44 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             debugInfoSmall.innerHTML = `(Target city latitude: ${debugLat}°, Calculated target latitude: ${debugTargetLat}°, Latitude diff: ${debugMinLatDiff}°)<br>(Target UTC offset: ${debugTargetOffset}, City actual UTC offset: ${debugActualOffset}, Timezone: ${bestMatchCity.timezone || 'Unknown'})`;
 
+                    if (adventureStoryTextDiv) {
+            adventureStoryTextDiv.innerHTML = `<em>Generating your adventure in ${bestMatchCity.city} from Vercel... Please wait...</em>`;
+            fetch('/api/generateStory', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    city: bestMatchCity.city,      // 使用 bestMatchCity 中的基礎城市名稱
+                    country: bestMatchCity.country,  // 使用 bestMatchCity 中的基礎國家名稱
+                    userName: rawUserDisplayName || "a brave adventurer", 
+                    language: "English"           // 假設您希望故事是英文
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(errData.error || errData.details || `Request failed with status ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.story) {
+                    adventureStoryTextDiv.textContent = data.story;
+                } else {
+                    adventureStoryTextDiv.textContent = `Sorry, could not generate your adventure: ${data.error || "Unknown error from server."}`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching adventure story:", error);
+                adventureStoryTextDiv.textContent = `Failed to generate adventure: ${error.message}`;
+            });
+        }
+            
+
+
+            
             const recordData = {
                 dataIdentifier: currentDataIdentifier,
                 userDisplayName: rawUserDisplayName,
