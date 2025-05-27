@@ -1,6 +1,5 @@
 // 檔案路徑: your-project-folder/api/generateStory.js
 import { OpenAI } from 'openai';
-import tzlookup from 'tz-lookup';
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-3.5-turbo";
@@ -15,7 +14,7 @@ if (OPENAI_API_KEY) {
 export default async function handler(req, res) {
   if (!openai) {
     console.error("OpenAI client 未初始化。");
-    return res.status(500).json({ error: "故事生成服務因伺服器端設定問題而無法使用。" });
+    return res.status(500).json({ error: "服務設定問題，無法生成額外資訊。" });
   }
 
   if (req.method !== 'POST') {
@@ -25,198 +24,85 @@ export default async function handler(req, res) {
 
   try {
     const {
-      city, country, userName,
-      language = "Traditional Chinese", // 預設語言
-      latitude, longitude, activityType,
-      timezone: providedTimezone
+      city,                // 城市名稱
+      country,             // 國家名稱
+      // userName,         // userName 可能不再直接用於這個 prompt，但可以保留以備將來使用
+      language = "Traditional Chinese" // 主要回應語言
     } = req.body;
 
-    const userForStory = userName || (activityType && activityType.startsWith("peeking") ? "一位神秘的觀察者" : "一位勇敢的探險家");
-    let locationForPrompt = (city && country) ? `${city}, ${country}` : "目前所在的位置";
-    let targetTimezone = providedTimezone;
-    let countryForGreeting = country; // 用於生成問候語的國家名稱
+    console.log(`API 收到請求 (問候與知識): City='${city}', Country='${country}', Lang='${language}'`);
 
-    console.log(`API 收到請求: City='${city}', Country='${country}', User='${userForStory}', Lang='${language}', Lat='${latitude}', Lon='${longitude}', Activity='${activityType}', ProvidedTZ='${providedTimezone}'`);
-
-    // --- 時區與當地時間處理 ---
-    if (activityType === "peeking" && latitude !== undefined && longitude !== undefined && !targetTimezone) {
-      try {
-        targetTimezone = tzlookup(parseFloat(latitude), parseFloat(longitude));
-        console.log(`根據即時經緯度 (${latitude}, ${longitude}) 查找到的時區: ${targetTimezone}`);
-        if (city && country) {
-             locationForPrompt = `${city}, ${country}`;
-             countryForGreeting = country; // 如果前端有傳，優先使用
-        } else {
-            // 如果沒有城市國家，可以嘗試反向地理編碼，或讓問候語更通用
-            // 暫時，如果只有經緯度，問候語的國家可能不明確，prompt 會做相應處理
-            locationForPrompt = `目前所在座標 (${parseFloat(latitude).toFixed(2)}, ${parseFloat(longitude).toFixed(2)}) 附近`;
-            if (!countryForGreeting) console.warn("即時偷看請求缺少國家資訊，問候語可能較通用。");
-        }
-      } catch (tzError) {
-        console.error(`從即時經緯度查詢時區失敗: ${tzError.message}`);
-        targetTimezone = null;
-      }
-    } else if (activityType === "peekingBasedOnHistory") {
-      if (city && country) { // 歷史記錄中應有 city 和 country
-        locationForPrompt = `${city}, ${country}`;
-        countryForGreeting = country;
-        if (!targetTimezone && latitude !== undefined && longitude !== undefined) { // 如果歷史有經緯度但沒時區
-            try {
-              targetTimezone = tzlookup(parseFloat(latitude), parseFloat(longitude));
-              console.log(`根據歷史經緯度查找到的時區: ${targetTimezone}`);
-            } catch (tzError) {
-              console.error(`從歷史經緯度查詢時區失敗: ${tzError.message}`);
-              targetTimezone = null;
-            }
-        }
-      } else if (!targetTimezone) {
-        console.warn("根據歷史偷看請求缺少足夠的時區或地點資訊來確定時區。");
-      }
+    if (!city || !country) {
+      return res.status(400).json({ error: "必須提供 'city' (城市) 和 'country' (國家) 才能獲取問候語和小知識。" });
     }
 
-    let localTimeDescription = "當地時間";
-    let localHourForPrompt = null;
-    let localDayOfWeekForPrompt = "";
+    // 設計新的 Prompt 給 OpenAI
+    const prompt = `
+      你是一位知識淵博且友善的助手。針對以下地點：城市 - "${city}"，國家 - "${country}"。
+      請提供兩項資訊，並嚴格按照以下 JSON 格式輸出，主要內容請使用${language}：
 
-    if (targetTimezone) {
-      try {
-        const now = new Date();
-        const formatter = new Intl.DateTimeFormat("en-US", {
-          timeZone: targetTimezone, hour: 'numeric', minute: '2-digit',
-          weekday: 'long', hour12: false
-        });
-        const parts = formatter.formatToParts(now);
-        const hourPartVal = parts.find(p => p.type === 'hour')?.value;
-        const minutePartVal = parts.find(p => p.type === 'minute')?.value;
-        const weekdayPartVal = parts.find(p => p.type === 'weekday')?.value;
-
-        if (hourPartVal && minutePartVal && weekdayPartVal) {
-          localHourForPrompt = parseInt(hourPartVal, 10);
-          const weekdayMap = { "Monday": "星期一", "Tuesday": "星期二", "Wednesday": "星期三", "Thursday": "星期四", "Friday": "星期五", "Saturday": "星期六", "Sunday": "星期日"};
-          localDayOfWeekForPrompt = weekdayMap[weekdayPartVal] || weekdayPartVal;
-          localTimeDescription = `${localDayOfWeekForPrompt} ${hourPartVal}:${minutePartVal}`;
-          console.log(`目標地點 (${targetTimezone}) 的 ${localTimeDescription}`);
-        } else {
-            console.warn(`無法從 Intl.DateTimeFormat 獲取完整的時間組件 (時區: ${targetTimezone}): `, parts);
-            localTimeDescription = `當地某個時間 (星期資訊未知)`;
-        }
-      } catch (timeError) {
-        console.error(`轉換到目標時區 ${targetTimezone} 的時間失敗: ${timeError.message}`);
-        localTimeDescription = `當地某個時間 (轉換時發生錯誤)`;
-        targetTimezone = null;
-      }
-    } else if (activityType && activityType.startsWith("peeking")) {
-        console.warn("「偷看」請求無法確定目標時區，故事將基於通用時間概念。");
-        const now = new Date();
-        const weekdayMap = {0:"星期日", 1:"星期一", 2:"星期二", 3:"星期三", 4:"星期四", 5:"星期五", 6:"星期六"};
-        localDayOfWeekForPrompt = weekdayMap[now.getUTCDay()];
-        localTimeDescription = `此時此刻 (${localDayOfWeekForPrompt})`;
-    }
-    // --- 時區與當地時間處理結束 ---
-
-    // --- Prompt 設計 ---
-    let prompt;
-    let greetingInstruction = "";
-
-    // 只有當我們有國家資訊時，才加入特定國家的問候語指令
-    if (countryForGreeting) {
-        greetingInstruction = `
-          故事的第一句話，請讓故事中的某個角色用「${countryForGreeting}」這個國家的常用本地語言說一句簡短（一到兩個詞即可）、道地且適合情境的打招呼的問候語（例如 "你好！"、"Hello!"、"Bonjour!" 等，請根據「${countryForGreeting}」的實際情況和接下來的故事場景選擇）。如果可以，請在問候語後面用括號註明這是什麼語言的問候，例如 "(法文的你好)"。
-          在這句獨特的問候語之後，再開始接下來的故事。
-        `;
-    } else {
-        greetingInstruction = "故事的開頭，如果情境合適，可以安排一個角色用一句通用的問候語開始。";
-    }
-
-
-    if (activityType && activityType.startsWith("peeking")) {
-      let timeContextForPrompt = "";
-      if (localHourForPrompt !== null) {
-        if (localHourForPrompt >= 5 && localHourForPrompt < 9) timeContextForPrompt = "的清晨";
-        else if (localHourForPrompt >= 9 && localHourForPrompt < 12) timeContextForPrompt = "的上午";
-        else if (localHourForPrompt >= 12 && localHourForPrompt < 14) timeContextForPrompt = "的中午時分";
-        else if (localHourForPrompt >= 14 && localHourForPrompt < 18) timeContextForPrompt = "的下午";
-        else if (localHourForPrompt >= 18 && localHourForPrompt < 22) timeContextForPrompt = "的傍晚或入夜時分";
-        else timeContextForPrompt = "的深夜";
+      {
+        "greeting": "一句用「${country}」這個國家的主要或常用本地語言說的「早安」或等效的日常問候語。請同時用括號標註出這是什麼語言，例如：Guten Morgen! (德文的早安)",
+        "trivia": "一個關於「${city}」或「${country}」的簡短（一句話或兩句話）、有趣且正面的小知識或冷知識，開頭必須是「你知道嗎？」。例如：你知道嗎？在${country}，人們習慣用...來打招呼。"
       }
 
-      prompt = `
-        你是一位富有想像力的說書人。
-        ${greetingInstruction}
-        接下來，請為一位名叫 "${userForStory}" 的角色，生動地描寫一段他們此刻可能正在經歷的事情。
-        地點線索：他們大致在 ${locationForPrompt}。
-        當地時間線索：大約是 ${localTimeDescription}${timeContextForPrompt}。
-        
-        請你根據這些線索，以及 ${countryForGreeting || '該地區'} 一般的文化背景和生活習慣，
-        構思一件 "${userForStory}" 在這個時間點、這個星期(${localDayOfWeekForPrompt})、這個地點，
-        可能正在從事的、合理的日常活動或特殊經歷。
-        除了開頭的打招呼那一句話之外，故事的主要內容（大約50字以內）必須用${language}書寫，並且用詞生動，能讓讀者感受到當地的氛圍。
-      `;
-       if (!targetTimezone && !(city && countryForGreeting) && activityType === "peeking") { // 非常通用的偷看 prompt
-            prompt = `
-                你是一位富有想像力的說書人。
-                ${greetingInstruction} {/* 這裡的 greetingInstruction 會比較通用 */}
-                請為一位名叫 "${userForStory}" 的角色，發揮創意，描寫一段他們此刻可能正在經歷的有趣日常片段或內心小劇場（大約50字以內）。
-                由於無法得知他們的確切位置和當地時間，請自由想像一個温馨、驚奇或引人思考的場景。
-                故事的主要內容必須用${language}書寫。`;
-       }
+      請確保 "greeting" 中的問候語是該國家道地的說法。
+      請確保 "trivia" 中的小知識簡潔且引人入勝。
+      如果找不到非常吻合的「早安」，可以使用該語言中更通用的日常問候語。
+    `;
 
-    } else { // 預設是原本的「甦醒冒險故事」
-      if (!city || !country) { // 甦醒故事必須有城市和國家
-        return res.status(400).json({ error: "製作甦醒冒險故事必須提供 'city' (城市) 和 'country' (國家)。" });
-      }
-      countryForGreeting = country; // 甦醒故事使用其地點的國家
-      // 更新問候語指令，確保使用甦醒故事的國家
-        if (countryForGreeting) {
-            greetingInstruction = `
-            故事的第一句話，請讓故事中的某個角色用「${countryForGreeting}」這個國家的常用本地語言說一句簡短（一到兩個詞即可）、道地且適合情境的打招呼的問候語（例如 "你好！"、"Hello!"、"Bonjour!" 等，請根據「${countryForGreeting}」的實際情況和接下來的故事場景選擇）。如果可以，請在問候語後面用括號註明這是什麼語言的問候，例如 "(法文的你好)"。
-            在這句獨特的問候語之後，再開始接下來的故事。
-            `;
-        } else { // 如果甦醒故事也沒有國家資訊 (理論上不應該)
-            greetingInstruction = "故事的開頭，如果情境合適，可以安排一個角色用一句通用的問候語開始。";
-        }
-
-      prompt = `
-        你是一位頂尖的說書人，專門為使用者根據他們提供的地點和角色，編寫獨一無二、引人入勝且適合大眾的短篇冒險故事。
-        ${greetingInstruction}
-        接下來，請為一位名叫 "${userForStory}" 的角色，寫一個簡短且充滿想像力的冒險故事（大約50字以內）。
-        故事的背景必須設定在：${city}，${country}。
-        故事的開頭應該是 ${userForStory} 在 ${city} 這個地方，有了一個出乎意料的發現，或者遇到了一些與當地風情或虛構的當地傳說相關的神秘事物，
-        由此展開一段獨特的冒險。
-        除了開頭的打招呼那一句話之外，故事的主要內容必須用${language}書寫，並且確保故事風格引人入勝且有趣，適合大眾閱讀。
-      `;
-    }
-    // --- Prompt 設計結束 ---
-
-    console.log("最終發送給 OpenAI 的 Prompt (節錄給日誌):", prompt.substring(0, 350) + "...");
+    console.log("最終發送給 OpenAI 的 Prompt (節錄):", prompt.substring(0, 300) + "...");
 
     const chatCompletion = await openai.chat.completions.create({
       model: OPENAI_MODEL,
       messages: [
-        { "role": "system", "content": "你是一位才華洋溢的說書人，擅長根據使用者提供的角色、地點、時間、文化背景和特定要求（例如用當地語言打招呼），編寫出獨特、生動且符合情境的短篇故事。" },
+        { "role": "system", "content": "你是一位能提供特定地點問候語和有趣小知識的助手，並且能嚴格按照要求的 JSON 格式回傳結果。" },
         { "role": "user", "content": prompt },
       ],
-      max_tokens: 650, 
-      temperature: 0.8,
+      response_format: { type: "json_object" }, // ★ 要求 OpenAI 以 JSON 格式輸出
+      max_tokens: 250, // 限制 token 數量
+      temperature: 0.6, 
     });
 
     if (chatCompletion.choices && chatCompletion.choices.length > 0 && chatCompletion.choices[0].message && chatCompletion.choices[0].message.content) {
-      const story = chatCompletion.choices[0].message.content.trim();
-      console.log("OpenAI 成功生成故事。");
-      return res.status(200).json({ story: story });
+      const content = chatCompletion.choices[0].message.content;
+      console.log("OpenAI 原始回應內容:", content);
+      try {
+        const parsedJson = JSON.parse(content); // 解析 OpenAI 回傳的 JSON 字串
+        // 驗證回傳的 JSON 是否包含 greeting 和 trivia
+        if (parsedJson && typeof parsedJson.greeting === 'string' && typeof parsedJson.trivia === 'string') {
+            console.log("成功解析並驗證 OpenAI 的 JSON 回應。");
+            return res.status(200).json(parsedJson); // 直接回傳解析後的 JSON 物件
+        } else {
+            console.error("OpenAI 回傳的 JSON 格式不符合預期 (缺少 greeting 或 trivia):", parsedJson);
+            // 如果格式不對，嘗試回傳一個預設的錯誤或通用訊息，但仍是 JSON 格式
+            return res.status(200).json({ 
+                greeting: `(無法獲取 ${country} 的道地問候)`, 
+                trivia: `你知道嗎？關於 ${city}, ${country} 的有趣知識正在探索中！` 
+            });
+        }
+      } catch (parseError) {
+        console.error("解析 OpenAI 回應的 JSON 時失敗:", parseError, "原始內容:", content);
+        // 如果解析失敗，表示 OpenAI 沒有嚴格按 JSON 格式回傳，這是一個問題
+        // 嘗試從原始 content 中提取，或回傳通用訊息
+        return res.status(200).json({ // 即使解析失敗，也嘗試回傳一個 JSON 結構給前端
+            greeting: `(問候語獲取失敗)`,
+            trivia: `(小知識獲取失敗 - API回應解析錯誤)。原始訊息片段：${content.substring(0,100)}...`
+        });
+      }
     } else {
-      console.error("OpenAI 回應的格式非預期:", chatCompletion);
-      return res.status(500).json({ error: "從 OpenAI 收到的回應格式錯誤，無法生成故事。" });
+      console.error("OpenAI 回應的格式非預期 (沒有 choices 或 message):", chatCompletion);
+      return res.status(500).json({ error: "從 OpenAI 收到的回應主體格式錯誤，無法獲取資訊。" });
     }
 
   } catch (error) {
-    console.error("在 generateStory 函式中發生錯誤:", error.name, error.message, error.stack);
-    let detailedErrorMessage = "生成冒險故事時發生未預期的錯誤。";
-    if (error.response && error.response.data && error.response.data.error && error.response.data.error.message) {
+    console.error("在 generateStory (問候與知識) 函式中發生錯誤:", error.name, error.message);
+    let detailedErrorMessage = "獲取地點問候與知識時發生未預期的錯誤。";
+     if (error.response && error.response.data && error.response.data.error && error.response.data.error.message) {
       detailedErrorMessage = `OpenAI API 錯誤: ${error.response.data.error.message}`;
     } else if (error.message) {
         detailedErrorMessage = error.message;
     }
-    return res.status(500).json({ error: detailedErrorMessage, detailsForDev: error.stack });
+    return res.status(500).json({ error: detailedErrorMessage });
   }
 }
