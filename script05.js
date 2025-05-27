@@ -403,34 +403,39 @@ async function displayLastRecordForCurrentUser() {
     }
 
 async function findMatchingCity() {
-    clearPreviousResults(); 
+    clearPreviousResults(); // 呼叫這個函數來清理之前的結果
+    const resultTextDiv = document.getElementById('resultText'); // 確保獲取了 resultTextDiv
+
+    // 設定初始/載入訊息
+    if (resultTextDiv) {
+        resultTextDiv.innerHTML = '<p>正在連接平行時空，尋找你的蹤跡並獲取今日的特別訊息...</p>';
+    }
+    
     console.log("--- 開始尋找匹配城市 ---");
 
     if (!currentDataIdentifier) {
         alert("請先設定你的顯示名稱。");
+        if (resultTextDiv) resultTextDiv.innerHTML = '<p>請先設定名稱才能開啟時空之旅。</p>';
         return;
     }
     if (!auth.currentUser) {
         alert("Firebase 會話未就緒，請稍候或刷新頁面。");
+        if (resultTextDiv) resultTextDiv.innerHTML = '<p>Firebase 認證中，時空通道暫未開啟。</p>';
         return;
     }
     if (citiesData.length === 0) {
-        resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空。";
+        if(resultTextDiv) resultTextDiv.innerHTML = "<p>錯誤：城市數據未載入或為空。</p>";
         return;
     }
 
-    const userLocalDate = new Date(); // 使用者本地時間 Date 物件
-
-    // ★★★ 在這裡，基於 userLocalDate 生成正確的本地日期字串 ★★★
+    const userLocalDate = new Date();
     const year = userLocalDate.getFullYear();
-    const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0'); // getMonth() 是 0-indexed
+    const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0');
     const day = userLocalDate.getDate().toString().padStart(2, '0');
     const localDateStringForRecord = `${year}-${month}-${day}`;
-    // ★★★ 修改結束 ★★★
 
     const userLocalHours = userLocalDate.getHours();
     const userLocalMinutes = userLocalDate.getMinutes();
-    // ... (函數中其餘的 userTimezoneOffsetMinutes, targetUTCOffsetHours 等計算不變) ...
     const userTimezoneOffsetMinutes = userLocalDate.getTimezoneOffset();
     const userUTCOffsetHours = -userTimezoneOffsetMinutes / 60;
 
@@ -446,14 +451,11 @@ async function findMatchingCity() {
     const targetLatitude = 90 - (userLocalMinutes / 59) * 180;
 
     const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-    
+
     console.log(`用戶實際時間: ${userTimeFormatted} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
-    console.log(`用戶本地日期字串 (將用於記錄): ${localDateStringForRecord}`); // 新增的 log，方便您確認
-    // ... (其他 console.log 不變) ...
-
-
+    console.log(`用戶本地日期字串 (將用於記錄): ${localDateStringForRecord}`);
+    
     let candidateCities = [];
-    // ... (candidateCities 的篩選邏輯不變) ...
     for (const city of citiesData) {
         if (!city || !city.timezone ||
             typeof city.latitude !== 'number' || !isFinite(city.latitude) ||
@@ -477,18 +479,13 @@ async function findMatchingCity() {
         }
     }
 
-
-    if (candidateCities.length === 0) {
-        resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
+    if (candidateCities.length === 0) { // 宇宙情況
+        if(resultTextDiv) resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
         
-        if (clockLeafletMap) {
-            clockLeafletMap.remove();
-            clockLeafletMap = null;
-        }
+        if (clockLeafletMap) { clockLeafletMap.remove(); clockLeafletMap = null; }
         mapContainerDiv.innerHTML = '';
         mapContainerDiv.classList.add('universe-message');
         mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
-
         countryFlagImg.style.display = 'none';
         debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
@@ -497,26 +494,24 @@ async function findMatchingCity() {
             userDisplayName: rawUserDisplayName,
             recordedAt: serverTimestamp(),
             localTime: userTimeFormatted,
-            city: "Unknown Planet", // 您原本的程式碼是 "Unknown Planet" 不是 "未知星球Unknown Planet"
-            country: "Universe",   // 您原本的程式碼是 "Universe" 不是 "宇宙Universe"
-            city_zh: "未知星球",
-            country_zh: "宇宙",
+            city: "Unknown Planet", 
+            country: "Universe",   
+            city_zh: "未知星球",     
+            country_zh: "宇宙",       
             country_iso_code: "universe_code",
-            latitude: null,
-            longitude: null,
+            latitude: null, longitude: null,
             targetUTCOffset: targetUTCOffsetHours,
             matchedCityUTCOffset: null,
-            recordedDateString: localDateStringForRecord // ★ 使用修正後的本地日期字串
+            recordedDateString: localDateStringForRecord 
         };
         await saveHistoryRecord(universeRecord);
         await saveToGlobalDailyRecord(universeRecord);
         console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
-        return;
+        return; 
     }
 
     let bestMatchCity = null;
     let minLatDiff = Infinity;
-    // ... (bestMatchCity 的尋找邏輯不變) ...
     for (const city of candidateCities) {
         const latDiff = Math.abs(city.latitude - targetLatitude);
         if (latDiff < minLatDiff) {
@@ -530,24 +525,65 @@ async function findMatchingCity() {
         const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
         const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
         
-        resultTextDiv.innerHTML = `今天的你，<br>跟<strong>${finalCityName} (${finalCountryName})</strong> 的人，<br>共同開啟了新的一天！`;
+        if(resultTextDiv) {
+            resultTextDiv.innerHTML = `<p>正在為您連接到 ${finalCityName} (${finalCountryName}) 並獲取今日的特別訊息... 請稍候...</p>`;
+        }
 
+        try {
+            const response = await fetch('/api/generateStory', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: bestMatchCity.city,      
+                    country: bestMatchCity.country,  
+                    userName: rawUserDisplayName || "探險家", 
+                    language: "Traditional Chinese"         
+                }),
+            });
+
+            let greeting = ""; 
+            let trivia = "";   
+
+            if (response.ok) {
+                const data = await response.json();
+                greeting = data.greeting || `(無法獲取 ${finalCountryName} 的問候語)`;
+                trivia = data.trivia || `(無法獲取 ${finalCityName} 的小知識)`;
+            } else {
+                const errText = await response.text(); 
+                console.error("API 呼叫失敗:", response.status, errText.substring(0, 500));
+                greeting = `(獲取問候語失敗，錯誤碼: ${response.status})`;
+                trivia = `(獲取小知識失敗，錯誤碼: ${response.status})`;
+            }
+
+            const greetingHTML = `<p style="font-size: 1.2em; font-weight: bold; margin-bottom: 8px;">${greeting}</p>`;
+            const triviaHTML = `<p style="margin-bottom: 15px; font-style: italic;">${trivia}</p>`;
+            const mainAwakeningMessage = `<p>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！</p>`;
+            
+            if (resultTextDiv) {
+                resultTextDiv.innerHTML = `${greetingHTML}${triviaHTML}${mainAwakeningMessage}`;
+            }
+
+        } catch (error) {
+            console.error("獲取問候語/小知識時發生錯誤:", error);
+            if (resultTextDiv) {
+                // 如果 API 呼叫失敗，仍然顯示基本的「開啟新的一天」訊息
+                resultTextDiv.innerHTML = `<p>(獲取額外資訊時發生錯誤)<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！</p>`;
+            }
+        }
+
+        // --- 繼續顯示國旗、地圖等 ---
         if (bestMatchCity.country_iso_code) {
             countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
             countryFlagImg.alt = `${finalCountryName} 國旗`;
             countryFlagImg.style.display = 'inline-block';
         }
 
-        if (clockLeafletMap) {
-            clockLeafletMap.remove();
-            clockLeafletMap = null;
-        }
+        if (clockLeafletMap) { clockLeafletMap.remove(); clockLeafletMap = null; }
         mapContainerDiv.innerHTML = '';
         mapContainerDiv.classList.remove('universe-message');
 
         if (typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) &&
             typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) {
-            
             clockLeafletMap = L.map(mapContainerDiv).setView([bestMatchCity.latitude, bestMatchCity.longitude], 7);
             L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -567,8 +603,8 @@ async function findMatchingCity() {
         const debugTargetOffset = typeof targetUTCOffsetHours === 'number' && isFinite(targetUTCOffsetHours) ? targetUTCOffsetHours.toFixed(2) : 'N/A';
         const debugActualOffset = !isFinite(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2);
 
-        debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone})`;
-
+        debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone || '未知'})`;
+        
         const recordData = {
             dataIdentifier: currentDataIdentifier,
             userDisplayName: rawUserDisplayName,
@@ -576,14 +612,14 @@ async function findMatchingCity() {
             localTime: userTimeFormatted,
             city: bestMatchCity.city,
             country: bestMatchCity.country,
-            city_zh: bestMatchCity.city_zh || "",
-            country_zh: bestMatchCity.country_zh || "",
+            city_zh: bestMatchCity.city_zh || "", 
+            country_zh: bestMatchCity.country_zh || "", 
             country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
             latitude: bestMatchCity.latitude,
             longitude: bestMatchCity.longitude,
             targetUTCOffset: targetUTCOffsetHours,
             matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-            recordedDateString: localDateStringForRecord // ★ 使用修正後的本地日期字串
+            recordedDateString: localDateStringForRecord
         };
         await saveHistoryRecord(recordData);
         await saveToGlobalDailyRecord(recordData);
