@@ -1,8 +1,8 @@
 {
-  "name": "subjective-clock",  // 這會是您的資料夾名稱或您設定的名稱
+  "name": "subjective-clock",  
   "version": "1.0.0",
   "description": "",
-  "main": "index04.html", // 或者其他，這對 Vercel 部署此專案影響不大
+  "main": "index04.html", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "openai": "^4.0.0" // 版本號可能會不同
+    "openai": "^3.5.0" 
   }
 }
