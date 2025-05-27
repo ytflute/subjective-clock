@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // DOM 元素獲取
     const findCityButton = document.getElementById('findCityButton');
+    const peekActivityButton = document.getElementById('peekActivityButton'); // 新增這一行
     const resultTextDiv = document.getElementById('resultText');
     const countryFlagImg = document.getElementById('countryFlag');
     const mapContainerDiv = document.getElementById('mapContainer'); 
@@ -174,16 +175,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentUserDisplayNameSpan.textContent = rawUserDisplayName; 
         userNameInput.value = rawUserDisplayName; 
         localStorage.setItem('worldClockUserName', rawUserDisplayName); 
+       
 
         console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
         if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
 
-        if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) { 
-            console.log("[setOrLoadUserName] 所有條件滿足，啟用 findCityButton。");
+        if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) {
+            console.log("[setOrLoadUserName] 所有條件滿足，啟用 findCityButton 和 peekActivityButton。");
             findCityButton.disabled = false;
+            peekActivityButton.disabled = false; // 新增這一行
         } else {
-            console.log("[setOrLoadUserName] 條件不滿足，findCityButton 保持禁用。Cities loaded:", citiesData.length > 0, "Auth current user:", !!auth.currentUser, "Data ID set:", !!currentDataIdentifier);
+            console.log("[setOrLoadUserName] 條件不滿足，findCityButton 和 peekActivityButton 保持禁用。...");
             findCityButton.disabled = true;
+            peekActivityButton.disabled = true; // 新增這一行
         }
 
         console.log("[setOrLoadUserName] 準備切換到時鐘分頁並顯示最後記錄。");
@@ -332,6 +336,7 @@ async function displayLastRecordForCurrentUser() {
         });
 
     findCityButton.addEventListener('click', findMatchingCity);
+    peekActivityButton.addEventListener('click', peekCurrentActivity);
     refreshHistoryButton.addEventListener('click', loadHistory);
     if (refreshGlobalMapButton) {
         refreshGlobalMapButton.addEventListener('click', loadGlobalTodayMap);
@@ -693,6 +698,154 @@ async function findMatchingCity() {
         }
     }
 
+    async function peekCurrentActivity() {
+    console.log("--- 「偷看現在的你在做什麼？」按鈕被點擊 ---");
+    const adventureStoryTextDiv = document.getElementById('adventureStoryText');
+    if (!currentDataIdentifier) {
+        alert("請先設定你的顯示名稱。");
+        if (adventureStoryTextDiv) adventureStoryTextDiv.textContent = '請先設定名稱才能偷看平行時空的你。';
+        return;
+    }
+    if (!auth.currentUser) {
+        alert("Firebase 會話未就緒，請稍候或刷新頁面。");
+        if (adventureStoryTextDiv) adventureStoryTextDiv.textContent = 'Firebase 認證中，平行時空通道暫未開啟。';
+        return;
+    }
+
+    adventureStoryTextDiv.innerHTML = `<em>正在努力窺探平行時空的你... 請稍候...</em>`;
+
+    // 嘗試使用瀏覽器 Geolocation API 獲取當前位置
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            console.log("成功獲取當前地理位置:", latitude, longitude);
+
+            // 你可以選擇在這裡反向地理編碼以獲取城市和國家資訊，
+            // 或者直接將經緯度傳遞給後端 API 並讓後端處理。
+
+            // 這裡我們假設後端 API 可以處理經緯度
+            await generateCurrentActivityStory(latitude, longitude);
+
+        }, async (error) => {
+            console.error("無法獲取地理位置:", error);
+            adventureStoryTextDiv.textContent = '無法獲取您的地理位置，將嘗試根據上次記錄生成故事...';
+            // 如果無法獲取當前位置，可以嘗試使用上次記錄的地點
+            await generateCurrentActivityStoryBasedOnLastRecord();
+        }, { timeout: 10000, enableHighAccuracy: false });
+    } else {
+        console.error("您的瀏覽器不支持 Geolocation API。");
+        adventureStoryTextDiv.textContent = '您的瀏覽器不支持地理位置功能，將嘗試根據上次記錄生成故事...';
+        await generateCurrentActivityStoryBasedOnLastRecord();
+    }
+}
+
+async function generateCurrentActivityStory(latitude, longitude) {
+    const adventureStoryTextDiv = document.getElementById('adventureStoryText');
+    try {
+        const response = await fetch('/api/generateStory', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                latitude: latitude,
+                longitude: longitude,
+                userName: rawUserDisplayName || "一位好奇的觀察者",
+                activityType: "peeking", // 可以添加一個參數來告知後端這是「偷看」請求
+                language: "Traditional Chinese"
+            })
+        });
+
+        if (!response.ok) {
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                const errData = await response.json();
+                throw new Error(errData.error || errData.details || `請求失敗，狀態：${response.status}`);
+            } else {
+                const textData = await response.text();
+                console.error("伺服器回傳非JSON錯誤 (偷看活動):", textData.substring(0, 500));
+                throw new Error(`伺服器錯誤：${response.status}。回應非JSON格式。`);
+            }
+        }
+
+        const data = await response.json();
+        if (data.story) {
+            adventureStoryTextDiv.textContent = data.story;
+        } else {
+            adventureStoryTextDiv.textContent = `抱歉，無法偷看到現在的你：${data.error || "來自伺服器的未知錯誤。"}`;
+        }
+
+    } catch (error) {
+        console.error("偷看現在的活動失敗:", error);
+        adventureStoryTextDiv.textContent = `偷看現在的活動失敗：${error.message}`;
+    }
+}
+
+async function generateCurrentActivityStoryBasedOnLastRecord() {
+    const adventureStoryTextDiv = document.getElementById('adventureStoryText');
+    if (!currentDataIdentifier) {
+        adventureStoryTextDiv.textContent = '尚未設定名稱，無法根據上次記錄生成故事。';
+        return;
+    }
+
+    adventureStoryTextDiv.innerHTML = `<em>無法獲取當前位置，將嘗試根據上次記錄的地點來窺探...</em>`;
+
+    const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+    const q = query(historyCollectionRef, orderBy("recordedAt", "desc"), limit(1));
+
+    try {
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const lastRecord = querySnapshot.docs.pop().data();
+            console.log("找到最後一筆記錄，用於生成當前活動故事:", lastRecord);
+
+            await fetch('/api/generateStory', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: lastRecord.city || undefined,
+                    country: lastRecord.country || undefined,
+                    latitude: lastRecord.latitude || undefined,
+                    longitude: lastRecord.longitude || undefined,
+                    userName: rawUserDisplayName || "一位回憶者",
+                    activityType: "peekingBasedOnHistory",
+                    language: "Traditional Chinese"
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(errData.error || errData.details || `請求失敗，狀態：${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.story) {
+                    adventureStoryTextDiv.textContent = data.story;
+                } else {
+                    adventureStoryTextDiv.textContent = `抱歉，無法根據上次記錄偷看到現在的你：${data.error || "來自伺服器的未知錯誤。"}`;
+                }
+            })
+            .catch(error => {
+                console.error("根據上次記錄偷看活動失敗:", error);
+                adventureStoryTextDiv.textContent = `根據上次記錄偷看活動失敗：${error.message}`;
+            });
+
+        } else {
+            adventureStoryTextDiv.textContent = '沒有找到歷史記錄，無法判斷你可能在哪裡。';
+        }
+    } catch (error) {
+        console.error("讀取歷史記錄以生成當前活動故事時失敗:", error);
+            adventureStoryTextDiv.textContent = '讀取歷史記錄失敗，無法生成當前活動故事。';
+        }
+    }
+
+
+
+
+
+    
     async function saveToGlobalDailyRecord(recordData) {
         if (!auth.currentUser) { 
             console.warn("無法儲存全域記錄：Firebase 會話未就緒。");
