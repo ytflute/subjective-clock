@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -287,24 +286,20 @@
             <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人甦醒地圖</button>
         </div>
 
-<div id="ClockTab" class="tab-content active">
-    <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
-    <button id="findCityButton" disabled>開始這一天</button>
-    <div id="result">
-        <p id="resultText"> 請點擊「開始這一天」按鈕。
-        </p>
-        <div id="flagContainer"> 
-            <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
+        <div id="ClockTab" class="tab-content active">
+            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+            <button id="findCityButton" disabled>開始這一天</button>
+            
+            <div id="result">
+                <p id="resultText"></p>
+                <div id="flagContainer"> 
+                    <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
+                </div>
+                <div id="mapContainer"> </div>
+                <small id="debugInfo"></small>
+            </div>
         </div>
-        
-        <div id="mapContainer"> </div>
-        <small id="debugInfo"></small>
-    </div>
-</div>
 
-
-
-        
         <div id="HistoryTab" class="tab-content">
             <h2>你的每日起床地圖軌跡</h2>
             <p>記錄關於你每日於地球上的哪一個角落起床。</p>
@@ -327,10 +322,6 @@
                 </div>
             <small id="globalTodayDebugInfo"></small>
         </div>
-
-
-    </div>
-        
     </div>
 
     <script type="module">
