@@ -433,6 +433,8 @@ async function findMatchingCity() {
     const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0');
     const day = userLocalDate.getDate().toString().padStart(2, '0');
     const localDateStringForRecord = `${year}-${month}-${day}`;
+    const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
+
 
     const userLocalHours = userLocalDate.getHours();
     const userLocalMinutes = userLocalDate.getMinutes();
@@ -449,8 +451,6 @@ async function findMatchingCity() {
     const userLocalHoursDecimalForTarget = adjustedUserLocalHours + adjustedUserLocalMinutes / 60;
     const targetUTCOffsetHours = 8 - userLocalHoursDecimalForTarget + userUTCOffsetHours;
     const targetLatitude = 90 - (userLocalMinutes / 59) * 180;
-
-    const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
 
     console.log(`用戶實際時間: ${userTimeFormatted} (UTC${userUTCOffsetHours >= 0 ? '+' : ''}${userUTCOffsetHours.toFixed(2)})`);
     console.log(`用戶本地日期字串 (將用於記錄): ${localDateStringForRecord}`);
@@ -479,9 +479,59 @@ async function findMatchingCity() {
         }
     }
 
+    
     if (candidateCities.length === 0) { // 宇宙情況
-        if(resultTextDiv) resultTextDiv.innerHTML = `今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。`;
+        const cityForAPI = "Unknown Planet"; // 特殊值給 API
+        const countryForAPI = "Universe";    // 特殊值給 API
+        const finalCityName = "未知星球";    // 用於顯示的中文
+        const finalCountryName = "宇宙";      // 用於顯示的中文
+
+        if(resultTextDiv) {
+            resultTextDiv.innerHTML = `<p>正在為您連接到 ${finalCityName} (${finalCountryName}) 並獲取今日的特別訊息... 請稍候...</p>`;
+        }
+
+        try {
+            const response = await fetch('/api/generateStory', { 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: cityForAPI,      
+                    country: countryForAPI,  
+                    userName: rawUserDisplayName || "星際探險家", 
+                    language: "Traditional Chinese"         
+                }),
+            });
+
+            let greeting = ""; 
+            let trivia = "";   
+
+            if (response.ok) {
+                const data = await response.json();
+                greeting = data.greeting || `(來自 ${finalCountryName} 的神秘問候未能捕獲)`;
+                trivia = data.trivia || `(關於 ${finalCityName} 的宇宙奧秘暫時無法揭露)`;
+            } else {
+                const errText = await response.text(); 
+                console.error("API 呼叫失敗 (宇宙情況):", response.status, errText.substring(0, 500));
+                greeting = `(問候語傳輸失敗，錯誤碼: ${response.status})`;
+                trivia = `(宇宙知識獲取失敗，錯誤碼: ${response.status})`;
+            }
+
+            const greetingHTML = `<p style="font-size: 1.2em; font-weight: bold; margin-bottom: 8px;">${greeting}</p>`;
+            const triviaHTML = `<p style="margin-bottom: 15px; font-style: italic;">${trivia}</p>`;
+            const mainAwakeningMessage = `<p>今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！</p>`;
+            
+            if (resultTextDiv) {
+                resultTextDiv.innerHTML = `${greetingHTML}${triviaHTML}${mainAwakeningMessage}`;
+            }
+
+        } catch (error) {
+            console.error("獲取宇宙問候語/小知識時發生錯誤:", error);
+            if (resultTextDiv) {
+                resultTextDiv.innerHTML = `<p>(獲取宇宙額外資訊時發生錯誤)<br>今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與<strong>未知星球 (宇宙)</strong>的非地球生物共同開啟了新的一天！</p>`;
+            }
+        }
         
+        // --- 繼續顯示宇宙情況的 UI (地圖、無國旗等) ---
         if (clockLeafletMap) { clockLeafletMap.remove(); clockLeafletMap = null; }
         mapContainerDiv.innerHTML = '';
         mapContainerDiv.classList.add('universe-message');
@@ -489,7 +539,7 @@ async function findMatchingCity() {
         countryFlagImg.style.display = 'none';
         debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
-        const universeRecord = {
+        const universeRecord = { /* ... (與之前相同，確保 city, country 使用英文鍵) ... */
             dataIdentifier: currentDataIdentifier,
             userDisplayName: rawUserDisplayName,
             recordedAt: serverTimestamp(),
@@ -506,10 +556,11 @@ async function findMatchingCity() {
         };
         await saveHistoryRecord(universeRecord);
         await saveToGlobalDailyRecord(universeRecord);
-        console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
+        console.log("--- 尋找匹配城市結束 (宇宙情況，已請求故事) ---");
         return; 
     }
-
+    
+    
     let bestMatchCity = null;
     let minLatDiff = Infinity;
     for (const city of candidateCities) {
