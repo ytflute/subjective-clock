@@ -43,7 +43,7 @@ export default async function handler(req, res) {
 
       {
         "greeting": "一句用「${country}」這個國家的主要或常用本地語言說的「早安」或等效的日常問候語。請同時用括號標註出這是什麼語言，例如：Guten Morgen! (德文的早安)",
-        "trivia": "一個關於「${city}」或「${country}」的簡短（一句話或兩句話）、有趣且正面的小知識或冷知識，開頭必須是「你知道嗎？」。例如：你知道嗎？在${country}，人們習慣用...來打招呼。"
+        "trivia": "一個關於「${city}」或「${country}」的簡短（一句話或兩句話）、有趣且正面的小知識或冷知識，同時可以結合描述甦醒後的情境故事，開頭必須是：「今天的你在${country}的{city}醒來」。例如：今天的你在${country}的{city}醒來，你聽見街上...，因為${city}是${country}的一個重要打鐵城市...。"
       }
 
       請確保 "greeting" 中的問候語是該國家道地的說法。
