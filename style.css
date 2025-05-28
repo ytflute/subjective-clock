@@ -1,76 +1,419 @@
+/* style.css */
+
+/* 基本頁面和容器樣式 */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 與您 HTML 中 style 標籤一致的字體 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #fce081;
-    text-align: center;
+    background-color: #f0f2f5; /* 與您 HTML 中 style 標籤一致的背景色 */
     padding: 20px;
     box-sizing: border-box;
-}
-
-h1 {
     color: #333;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #fce081;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 650px; /* 您可以根據需要調整最大寬度 */
+    text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* 新增底部間距 */
 }
 
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+h1 {
+    color: #7a776d; /* 從 HTML style 引用 */
+    margin-bottom: 20px; /* 稍微增加間距 */
+    font-size: 2em; /* 調整標題大小 */
 }
 
-button:hover:not(:disabled) {
-    background-color: #fce490;
+h2 { /* 為 h2 (例如分頁標題) 添加一些樣式 */
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
 }
 
+p { /* 通用段落樣式 */
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+small { /* 通用 small 標籤樣式 */
+    font-size: 0.85em;
+    color: #777;
+}
+
+/* 使用者名稱設定區塊 */
+.user-section {
+    background-color: #f9f9f9;
+    padding: 15px 20px; /* 稍微增加 padding */
+    border-radius: 8px;
+    margin-bottom: 25px; /* 增加與下方元件的間距 */
+    border: 1px solid #e0e0e0;
+}
+.user-section label {
+    display: block;
+    margin-bottom: 6px; /* 微調 */
+    font-weight: bold;
+    color: #333;
+    text-align: left; /* 讓 label 文字靠左 */
+}
+.user-section input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px; /* 增加與按鈕的間距 */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%; /* 改為 100% 並用 box-sizing 控制 */
+    box-sizing: border-box;
+}
+.user-section button { /* 設定名稱按鈕的特定樣式 */
+    padding: 10px 18px;
+    font-size: 15px;
+    color: white;
+    background-color: #a6a08f; /* 從 HTML style 引用 */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: block; /* 讓按鈕獨佔一行或根據需要調整 */
+    width: fit-content;
+    margin: 5px auto 0 auto; /* 上方間距，並水平置中 */
+}
+.user-section button:hover {
+    background-color: #827d6f; /* 從 HTML style 引用 */
+}
+.user-section p { /* user-section 內部 p 標籤的樣式 */
+    font-size: 0.9em; /* 稍微調整 */
+    color: #555; /* 調整顏色使其更易讀 */
+    margin-top: 8px; 
+    margin-bottom: 8px; 
+    line-height: 1.5; 
+    text-align: left; /* 讓提示文字靠左 */
+}
+.user-section span { /* 用於顯示 ID 和名稱的 span */
+    font-weight: bold;
+    color: #e8af10; /* 從 HTML style 引用 */
+}
+
+/* 分頁按鈕樣式 */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-button {
+    padding: 12px 22px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1em; /* 相對於 body 字體大小 */
+    margin: 0 5px; /* 微調按鈕間距 */
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+    color: #555;
+    font-weight: 500; /* 正常字重 */
+}
+
+.tab-button.active {
+    border-bottom-color: #e8af10;
+    font-weight: bold;
+    color: #d6a70b;
+}
+.tab-button:hover:not(.active) {
+    color: #b08b10;
+}
+
+/* 分頁內容樣式 */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+    text-align: center; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 結果顯示區塊 (#result) */
 #result {
     margin-top: 20px;
-    padding: 15px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    min-width: 300px;
-    max-width: 500px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left; 
+    width: 100%; /* 讓它填滿容器寬度 */
+    box-sizing: border-box;
+}
+#resultText { 
+    min-height: 60px; /* 稍微增加最小高度 */
+    margin-bottom: 15px; 
+    font-size: 1.1em; 
+    text-align: center; 
+    line-height: 1.7; /* 增加行高使多行文字更易讀 */
+}
+#resultText p { /* resultText 內部段落的樣式 */
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+#resultText p:first-child {
+    margin-top: 0;
+}
+#resultText p:last-child {
+    margin-bottom: 0;
 }
 
-#result small {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.8em;
-    color: #666;
+#flagContainer { 
+    text-align: center;
+    min-height:40px; 
+    margin-bottom: 15px; /* 與下方地圖的間距 */
+}
+#flagContainer img { 
+    max-width: 50px; 
+    height: auto; 
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+    margin-top: 5px; /* 調整與上方文字的間距 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-
+/* 地圖容器樣式 */
+#mapContainer, #historyMapContainer, #globalTodayMapContainer {
+    width: 100%;
+    height: 280px; /* 稍微調整高度 */
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    margin-top:15px;
+    background-color: #f7f7f7; 
+}
+/* 宇宙訊息樣式 */
 #mapContainer.universe-message {
-  background-color: black; /* 背景變黑色 */
-  color: white;             /* 文字變白色 */
-  display: flex;            /* 使用 Flexbox 來置中內容 */
-  justify-content: center;  /* 水平置中 */
-  align-items: center;      /* 垂直置中 */
-  text-align: center;       /* p 標籤內的文字也置中 (確保) */
-  padding: 20px;            /* 增加一些內邊距，讓視覺效果更好 */
-  /* 重要的提醒：
-     為了讓 align-items: center (垂直置中) 有效果，
-     #mapContainer 元素在應用 .universe-message class 時需要有明確的高度。
-     如果 Leaflet 地圖平常會賦予 #mapContainer 高度，那通常沒有問題。
-     如果沒有，您可能需要為 .universe-message 添加如 min-height: 150px;
-     之類的樣式，或者確保其父容器能提供足夠的高度。 */
+  background-color: black;
+  color: white;            
+  display: flex;            
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;      
+  padding: 20px;           
+  height: 280px; /* 與普通地圖容器高度一致 */
+  box-sizing: border-box;
+}
+#mapContainer.universe-message p {
+  margin: 0; 
 }
 
-#mapContainer.universe-message p {
-  margin: 0; /* 重置 p 標籤可能帶有的預設邊距，確保置中效果 */
+
+/* 除錯資訊樣式 */
+#debugInfo, #historyDebugInfo, #globalTodayDebugInfo { 
+    font-size: 0.8em; /* 稍微調小 */
+    color: #666; /* 調整顏色 */
+    margin-top: 15px; 
+    word-wrap: break-word; 
+    background-color: #f0f0f0; /* 調整背景色 */
+    padding: 10px; /* 增加 padding */
+    border-radius: 4px;
+    text-align: left; 
+    line-height: 1.5; /* 增加行高 */
+}
+
+/* 歷史記錄列表樣式 */
+#historyList {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    max-height: 300px; /* 調整最大高度 */
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 15px; /* 調整與上方按鈕的間距 */
+    background-color: #fff;
+}
+#historyList li {
+    padding: 10px 12px; /* 調整 padding */
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+    font-size: 0.9em; /* 調整字體大小 */
+}
+#historyList li:hover {
+    background-color: #f7f7f7; /* 調整 hover 背景色 */
+}
+#historyList li:last-child {
+    border-bottom: none;
+}
+/* 歷史記錄中各部分的樣式 */
+#historyList .info-span { /* 用於包裹日期、時間、地點的 span */
+    flex-grow: 1; /* 讓它佔據多餘空間 */
+    margin-right: 10px; /* 與右側連結的間距 */
+    display: flex; /* 內部也可以用 flex 來對齊 */
+    flex-wrap: wrap; /* 允許內部元素換行 */
+}
+#historyList .date { 
+    font-weight: bold; 
+    color: #0069d9; /* 調整顏色 */
+    margin-right: 8px; 
+    white-space: nowrap;
+}
+#historyList .time { 
+    color: #1e7e34; /* 調整顏色 */
+    margin-right: 8px; 
+    white-space: nowrap;
+}
+#historyList .location { 
+    color: #444; /* 調整顏色 */
+    text-align: left; /* 保持靠左，因為 info-span 會推開連結 */
+    flex-shrink: 1; /* 允許在空間不足時被壓縮 */
+}
+/* 新增：甦醒日誌連結樣式 */
+#historyList a.log-link {
+    color: #007bff;
+    text-decoration: none; /* 移除預設底線 */
+    margin-left: 10px; /* 與左邊內容的間距 */
+    font-weight: bold;
+    white-space: nowrap; /* 避免連結文字換行 */
+    cursor: pointer;
+    padding: 3px 6px; /* 給連結一點點擊區域感 */
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+#historyList a.log-link:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+    text-decoration: underline; /* hover 時顯示底線 */
+}
+
+
+/* 主要操作按鈕 (例如 #findCityButton) */
+#findCityButton, 
+#refreshHistoryButton, 
+#refreshGlobalMapButton,
+button[id^="peekActivityButton"] /* 如果您之後加回偷看按鈕並可能有相似ID */
+{
+    display: inline-block; /* 改為 inline-block，如果想讓它們不獨佔一行 */
+    /* width: -webkit-fit-content; 
+    width: -moz-fit-content;    
+    width: fit-content;         
+    margin-left: auto;
+    margin-right: auto; */ /* 如果希望按鈕水平置中且獨佔一行，則用 display: block; margin: 0 auto; */
+    padding: 10px 22px; /* 調整 padding */
+    font-size: 1em; /* 相對字體大小 */
+    color: white;
+    background-color: #d4b208; /* 從 HTML style 引用 */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px; /* 調整上方間距 */
+    margin-bottom: 15px; /* 調整下方間距 */
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 加一點陰影 */
+}
+#findCityButton:hover, 
+#refreshHistoryButton:hover, 
+#refreshGlobalMapButton:hover,
+button[id^="peekActivityButton"]:hover {
+    background-color: #b89e1d; /* 從 HTML style 引用 */
+}
+#findCityButton:active, 
+#refreshHistoryButton:active, 
+#refreshGlobalMapButton:active,
+button[id^="peekActivityButton"]:active {
+    transform: translateY(1px); /* 從 HTML style 引用 */
+}
+#findCityButton:disabled,
+button[id^="peekActivityButton"]:disabled { /* 確保禁用樣式也應用到新按鈕 */
+    background-color: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 日期選擇器容器 */
+.date-picker-container {
+    margin-bottom: 20px; /* 增加下方間距 */
+    display: flex; /* 讓 label 和 input 在一行 */
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+}
+.date-picker-container label {
+    margin-right: 8px;
+    font-weight: bold;
+}
+.date-picker-container input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+/* 日期選擇器旁邊的查詢按鈕，繼承主要按鈕樣式，但可能需要微調 */
+.date-picker-container button {
+    margin-top: 0; /* 移除主要按鈕的 margin-top */
+    margin-bottom: 0; /* 移除主要按鈕的 margin-bottom */
+    /* 可以按需調整 padding 或 font-size */
+}
+
+/* 針對冒險故事區塊的樣式 (如果您在 HTML 中保留了 #adventureStoryContainer) */
+#adventureStoryContainer {
+    margin-top: 25px; 
+    padding-top: 20px; 
+    border-top: 1px dashed #ccc; 
+    text-align: left;
+}
+#adventureStoryContainer h3 {
+    margin-bottom: 10px; 
+    color: #444; /* 調整標題顏色 */
+    font-size: 1.2em;
+}
+#adventureStoryText {
+    padding: 12px; 
+    background-color: #f0f5ff; /* 淡藍色背景 */
+    border: 1px solid #d6e3ff; 
+    border-radius: 6px; 
+    min-height: 100px; 
+    white-space: pre-wrap; /* 保留換行和空格 */
+    line-height: 1.7; 
+    color: #334; /* 深色文字 */
+    font-size: 0.95em; /* 調整字體大小 */
+}
+
+/* 響應式調整 (範例) */
+@media (max-width: 600px) {
+    .container {
+        margin-top: 10px;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .tab-button {
+        font-size: 0.9em;
+        padding: 10px 15px;
+    }
+    #historyList li, #historyList .info-span {
+        flex-direction: column; /* 在小螢幕上，讓歷史記錄項垂直排列 */
+        align-items: flex-start;
+    }
+    #historyList .info-span {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    #historyList a.log-link {
+        margin-left: 0;
+        margin-top: 5px;
+        align-self: flex-start; /* 讓連結也靠左 */
+    }
 }
