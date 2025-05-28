@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       const response = await openai.images.generate({
         prompt: prompt,
         n: 1, // 生成一張圖片
-        size: "750x512", // 可以調整圖片尺寸
+        size: "512x512", // 可以調整圖片尺寸
       });
 
       const imageUrl = response.data?.[0]?.url;
