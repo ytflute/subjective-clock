@@ -1,5 +1,8 @@
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', async () => {
     // 從 window 中獲取 Firebase SDK 函數
     const {
@@ -316,15 +319,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 mapContainerDiv.innerHTML = '';
                 mapContainerDiv.classList.remove('universe-message');
 
-                if (lastRecord.breakfastImageUrl) {
-                const img = document.createElement('img');
-                img.src = lastRecord.breakfastImageUrl;
-                img.alt = "當地早餐圖";
-                img.style = "margin-top: 10px; max-width: 100%; border-radius: 10px;";
-                mapContainerDiv.appendChild(img);
-                }
-
-                
                 if (typeof lastRecord.latitude === 'number' && isFinite(lastRecord.latitude) &&
                     typeof lastRecord.longitude === 'number' && isFinite(lastRecord.longitude)) {
                     clockLeafletMap = L.map(mapContainerDiv).setView([lastRecord.latitude, lastRecord.longitude], 7);
@@ -642,24 +636,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone})`;
 
-        
-        const imagePrompt = `Top view of a traditional local breakfast commonly eaten in ${cityDisplay}, ${countryDisplay}. The food is presented on a clean table setting, with realistic textures and lighting, showcasing the variety of dishes, ingredients, and beverages typical of the region. No people, only food. Styled like a professional food photography shot.`;
-        let breakfastImageUrl = "";
-        try {
-            const imageRes = await fetch('/api/generateImage', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ prompt: imagePrompt }),
-            });
-            const imageData = await imageRes.json();
-            if (imageData && imageData.imageUrl) {
-                breakfastImageUrl = imageData.imageUrl;
-            }
-        } catch (err) {
-            console.error("早餐圖片生成失敗:", err);
-        }
-
-        
             const recordData = {
                 dataIdentifier: currentDataIdentifier,
                 userDisplayName: rawUserDisplayName,
@@ -678,7 +654,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 greeting: greetingFromAPI, // **儲存從 API 獲取的問候語**
                 story: storyFromAPI,       // **儲存從 API 獲取的故事/知識**
                 timezone: bestMatchCity.timezone, || "Unknown"
-                breakfastImageUrl: breakfastImageUrl,
+                
             };
             await saveHistoryRecord(recordData);
             await saveToGlobalDailyRecord(recordData);
