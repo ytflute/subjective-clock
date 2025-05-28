@@ -842,7 +842,7 @@ ${record.story || '無記錄'}`
 
     // 只有當記錄中有 greeting 或 story 時，才加入「生成明信片」按鈕
     if (record.greeting || record.story) {
-        logDetailsHTML += `<button id="generatePostcardButton" class="postcard-button" style="margin-top: 15px; display: block; margin-left: auto; margin-right: auto;">為此日誌生成一張明信片</button>`;
+        logDetailsHTML += `<button id="generatePostcardButton" class="postcard-button" style="margin-top: 15px; display: block; margin-left: auto; margin-right: auto;">看看今日早餐圖</button>`;
     }
     
     modalContent.innerHTML = logDetailsHTML; // 設定模態框的初始內容
