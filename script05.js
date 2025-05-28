@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
                 // **新增：查看日誌按鈕**
                 const detailsButton = document.createElement('button');
-                detailsButton.textContent = '查看日誌';
+                detailsButton.textContent = '吃早餐';
                 detailsButton.className = 'history-log-button';
                 detailsButton.onclick = () => showHistoryLogModal(record); // 傳遞整個 record 對象
                 li.appendChild(detailsButton);
