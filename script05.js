@@ -78,27 +78,59 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
- 
-
-    // **新增：模擬的 fetchStoryFromAPI 函數**
-    // 您需要將此函數替換為對您實際後端 API 的調用
     async function fetchStoryFromAPI(city, country, countryCode) {
-        console.log(`[fetchStoryFromAPI] Fetching story for ${city}, ${country} (${countryCode})`);
-        // 模擬 API 延遲
-        await new Promise(resolve => setTimeout(resolve, 300));
+    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
-        if (countryCode === "UNIVERSE_CODE") {
-            return "你凝視著浩瀚的虛空，思考著宇宙間無盡的可能性。或許，未知的文明也在某處甦醒，開始他們的一天。";
+    try {
+        const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                city: city,
+                country: country,
+                // language: "Traditional Chinese" // 後端預設為繁體中文，如果需要可以從前端傳遞
+            }),
+        });
+
+        if (!response.ok) {
+            // 如果 API 返回 HTTP 錯誤狀態 (例如 4xx, 5xx)
+            const errorData = await response.json().catch(() => ({ error: "無法解析 API 錯誤回應" })); // 嘗試解析錯誤詳情
+            console.error(`API Error from /api/generateStory: ${response.status} ${response.statusText}`, errorData);
+            // 返回一個包含錯誤訊息的物件，讓調用者可以處理
+            return {
+                greeting: `(系統提示：問候語獲取失敗 - ${response.status})`,
+                story: `系統提示：關於 ${city}, ${country} 的小知識獲取失敗，請稍後再試。錯誤: ${errorData.error || response.statusText}`
+            };
         }
-        // 簡單的示例文本，您可以擴展它
-        const stories = [
-            `在 ${city}，許多人喜歡以一杯香濃的本地咖啡開始新的一天，據說這裡的日出有著特別的魔力。`,
-            `${country} 以其獨特的文化遺產聞名，而在 ${city} 的清晨，古老的鐘樓會敲響，喚醒沉睡的街道。`,
-            `傳說 ${city} 的第一縷陽光會灑在一座古老的許願井上，為早起的人們帶來好運。今天，不妨去感受一下 ${country} 的傳統市集。`,
-            `這個季節的 ${city}，清晨的空氣中瀰漫著 [當地特色花卉/食物] 的香氣，這是 ${country} 獨有的體驗。`
-        ];
-        return stories[Math.floor(Math.random() * stories.length)];
+
+        const data = await response.json(); // 解析來自後端 API 的 JSON 回應
+        console.log("[fetchStoryFromAPI] Received data from backend:", data);
+
+        // 驗證後端回傳的資料結構是否符合預期 (greeting 和 trivia/story)
+        if (data && typeof data.greeting === 'string' && typeof data.trivia === 'string') {
+            return {
+                greeting: data.greeting,
+                story: data.trivia // 後端回傳的是 trivia，我們在前端當作 story 使用
+            };
+        } else {
+            console.warn("[fetchStoryFromAPI] Backend response format unexpected:", data);
+            return {
+                greeting: "(系統提示：收到的問候語格式有誤)",
+                story: `關於 ${city}, ${country} 的小知識正在整理中，請稍後查看！(回應格式問題)`
+            };
+        }
+
+    } catch (error) {
+        console.error("Error calling /api/generateStory from frontend:", error);
+        // 網路錯誤或其他前端 fetch 相關的錯誤
+        return {
+            greeting: "(系統提示：網路錯誤，無法獲取問候語)",
+            story: `獲取 ${city}, ${country} 的小知識時發生網路連線問題，請檢查您的網路並重試。`
+        };
     }
+}
 
 
     if (globalDateInput) {
@@ -483,15 +515,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        if (candidateCities.length === 0) {
-            const countryGreetingInfo = getGreetingForCountry("UNIVERSE_CODE"); // 宇宙問候
-            const storyText = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE");
+     if (candidateCities.length === 0) { // 宇宙情況
+        // const countryGreetingInfo = getGreetingForCountry("UNIVERSE_CODE"); // 不再需要前端生成問候語
+        // const storyText = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE"); // 舊的單獨故事獲取
 
-            resultTextDiv.innerHTML = `
-                <p style="font-weight: bold; font-size: 1.1em;">${countryGreetingInfo.greeting}</p>
-                <p>今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
-                <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyText}</p>
-            `;
+        // **新的調用方式**
+        const apiResponse = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE");
+        const greetingFromAPI = apiResponse.greeting;
+        const storyFromAPI = apiResponse.story;
+
+        resultTextDiv.innerHTML = `
+            <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
+            <p>今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
+            <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
+        `;
 
             if (clockLeafletMap) {
                 clockLeafletMap.remove();
@@ -518,8 +555,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 targetUTCOffset: targetUTCOffsetHours,
                 matchedCityUTCOffset: null,
                 recordedDateString: localDateStringForRecord,
-                greeting: countryGreetingInfo.greeting, // **新增**
-                story: storyText, // **新增**
+                greeting: greetingFromAPI, // **儲存從 API 獲取的問候語**
+                story: storyFromAPI,       // **儲存從 API 獲取的故事/知識**
                 timezone: "Cosmic/Unknown"
             };
             await saveHistoryRecord(universeRecord);
@@ -539,19 +576,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        if (bestMatchCity) {
-            const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
-            const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
-            const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
+    if (bestMatchCity) {
+        const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
+        const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
 
-            const countryGreetingInfo = getGreetingForCountry(bestMatchCity.country_iso_code);
-            const storyText = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code);
+        // const countryGreetingInfo = getGreetingForCountry(bestMatchCity.country_iso_code); // 不再需要前端生成問候語
+        // const storyText = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code); // 舊的單獨故事獲取
 
-            resultTextDiv.innerHTML = `
-                <p style="font-weight: bold; font-size: 1.1em;">${countryGreetingInfo.greeting}</p>
-                <p>今天的你，<br>跟<strong>${finalCityName} (${finalCountryName})</strong> 的人，<br>共同開啟了新的一天！</p>
-                <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyText}</p>
-            `;
+        // **新的調用方式**
+        const apiResponse = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code);
+        const greetingFromAPI = apiResponse.greeting;
+        const storyFromAPI = apiResponse.story;
+
+        resultTextDiv.innerHTML = `
+            <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
+            <p>今天的你，<br>跟<strong>${finalCityName} (${finalCountryName})</strong> 的人，<br>共同開啟了新的一天！</p>
+            <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
+        `;
 
 
             if (bestMatchCity.country_iso_code) {
@@ -605,8 +646,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 targetUTCOffset: targetUTCOffsetHours,
                 matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
                 recordedDateString: localDateStringForRecord,
-                greeting: countryGreetingInfo.greeting, // **新增**
-                story: storyText, // **新增**
+                greeting: greetingFromAPI, // **儲存從 API 獲取的問候語**
+                story: storyFromAPI,       // **儲存從 API 獲取的故事/知識**
                 timezone: bestMatchCity.timezone || "Unknown"
             };
             await saveHistoryRecord(recordData);
