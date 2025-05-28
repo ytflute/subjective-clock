@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const year = today.getFullYear();
         const month = (today.getMonth() + 1).toString().padStart(2, '0'); // getMonth() 是 0-indexed
         const day = today.getDate().toString().padStart(2, '0');
-        const localTodayDateString = `<span class="math-inline">\{year\}\-</span>{month}-${day}`;
+        const localTodayDateString = `${year}-${month}-${day}`;
 
     
 
@@ -367,17 +367,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function displayLastRecordForCurrentUser() {
 
     console.log("[displayLastRecordForCurrentUser] 函數被呼叫。currentDataIdentifier:", currentDataIdentifier);
-
     clearPreviousResults(); // 這個函數會清除 mapContainerDiv 的內容並移除 'universe-message' class
 
 
 
     if (!currentDataIdentifier) {
-
         console.log("[displayLastRecordForCurrentUser] currentDataIdentifier 為空，返回。");
-
-        resultTextDiv.innerHTML = `<p>請先在上方設定您的顯示名稱。</p>`;
-
+        resultTextDiv.innerHTML = `<p>請先在上方設定您的顯示名稱。</p>`;
         // mapContainerDiv 已經由 clearPreviousResults() 清理
 
         return;
@@ -385,13 +381,9 @@ async function displayLastRecordForCurrentUser() {
     }
 
     if (!auth.currentUser) {
-
         console.log("[displayLastRecordForCurrentUser] Firebase 使用者未認證，返回。");
-
         resultTextDiv.innerHTML = `<p>Firebase 認證中，請稍候...</p>`;
-
         // mapContainerDiv 已經由 clearPreviousResults() 清理
-
         return;
 
     }
@@ -440,34 +432,23 @@ async function displayLastRecordForCurrentUser() {
 
             // ★★★ 新增：檢查並組合儲存的問候語和小知識 ★★★
 
-            let greetingHTML = "";
+            let greetingHTML = "";
+            let triviaHTML = "";
 
-            let triviaHTML = "";
-
-
-
-            if (lastRecord.greeting) { // 檢查 greeting 是否存在
-
-                greetingHTML = `<p style="font-size: 1.2em; font-weight: bold; margin-bottom: 8px;">${lastRecord.greeting}</p>`;
-
-            }
-
-            if (lastRecord.trivia) { // 檢查 trivia 是否存在
-
-                triviaHTML = `<p style="margin-bottom: 15px; font-style: italic;">${lastRecord.trivia}</p>`;
-
-            }
+            if (lastRecord.greeting) { // 檢查 greeting 是否存在
+                greetingHTML = `<p style="font-size: 1.2em; font-weight: bold; margin-bottom: 8px;">${lastRecord.greeting}</p>`;
+            }
+            if (lastRecord.trivia) { // 檢查 trivia 是否存在
+                triviaHTML = `<p style="margin-bottom: 15px; font-style: italic;">${lastRecord.trivia}</p>`;
+            }
 
             // ★★★ 新增結束 ★★★
-
+            resultTextDiv.innerHTML = `${greetingHTML}${triviaHTML}${mainMessageHTML}`;
 
 
             let mainMessageHTML;
-
             // 判斷宇宙情況，使用英文鍵名進行比較，並兼容您之前可能使用的中文鍵名
-
             const isUniverse = (lastRecord.country === "Universe" && lastRecord.city === "Unknown Planet") ||
-
                                (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet");
 
 
@@ -475,14 +456,10 @@ async function displayLastRecordForCurrentUser() {
             if (isUniverse) {
 
                 mainMessageHTML = `<p>這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！</p>`;
-
             } else {
-
                 mainMessageHTML = `<p>這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！</p>`;
 
             }
-
-
 
             resultTextDiv.innerHTML = `${greetingHTML}${triviaHTML}${mainMessageHTML}`; // ★ 更新：顯示包含問候語和小知識的訊息
 
@@ -491,11 +468,8 @@ async function displayLastRecordForCurrentUser() {
 
 
             if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') {
-
                 countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
-
                 countryFlagImg.alt = `${finalCountryName} 國旗`;
-
                 countryFlagImg.style.display = 'inline-block';
 
             } else {
@@ -938,39 +912,24 @@ async function findMatchingCity() {
     if (candidateCities.length === 0) { // 宇宙情況
 
         const cityForAPI = "Unknown Planet"; // 特殊值給 API
-
         const countryForAPI = "Universe";    // 特殊值給 API
-
         const finalCityName = "未知星球";    // 用於顯示的中文
-
         const finalCountryName = "宇宙";      // 用於顯示的中文
 
-
-
         if(resultTextDiv) {
-
             resultTextDiv.innerHTML = `<p>正在為您連接到 ${finalCityName} (${finalCountryName}) 並獲取今日的特別訊息... 請稍候...</p>`;
 
         }
 
-
-
         try {
 
             const response = await fetch('/api/generateStory', { 
-
                 method: 'POST',
-
                 headers: { 'Content-Type': 'application/json' },
-
                 body: JSON.stringify({
-
                     city: cityForAPI,      
-
                     country: countryForAPI,  
-
                     userName: rawUserDisplayName || "星際探險家", 
-
                     language: "Traditional Chinese"         
 
                 }),
@@ -980,17 +939,13 @@ async function findMatchingCity() {
 
 
             let greeting = ""; 
-
             let trivia = "";   
 
 
 
             if (response.ok) {
-
                 const data = await response.json();
-
                 greeting = data.greeting || `(來自 ${finalCountryName} 的神秘問候未能捕獲)`;
-
                 trivia = data.trivia || `(關於 ${finalCityName} 的宇宙奧秘暫時無法揭露)`;
 
             } else {
@@ -1054,15 +1009,10 @@ async function findMatchingCity() {
 
 
         const universeRecord = { /* ... (與之前相同，確保 city, country 使用英文鍵) ... */
-
             dataIdentifier: currentDataIdentifier,
-
             userDisplayName: rawUserDisplayName,
-
             recordedAt: serverTimestamp(),
-
             localTime: userTimeFormatted,
-
             city: "Unknown Planet", 
             country: "Universe",   
             city_zh: "未知星球",     
@@ -1071,10 +1021,12 @@ async function findMatchingCity() {
             latitude: null, longitude: null,
             targetUTCOffset: targetUTCOffsetHours,
             matchedCityUTCOffset: null,
-            recordedDateString: localDateStringForRecord 
+            recordedDateString: localDateStringForRecord,
+            greeting: greetingFromAPI, // ★★★ 您這裡的 recordData 有 greeting 和 trivia ★★★
+            trivia: triviaFromAPI      // ★★★ 這很好！ ★★★
 
         };
-
+        console.log("準備儲存到 Firestore 的 universeRecord:", JSON.parse(JSON.stringify(universeRecord)));
         await saveHistoryRecord(universeRecord);
         await saveToGlobalDailyRecord(universeRecord);
         console.log("--- 尋找匹配城市結束 (宇宙情況，已請求故事) ---");
@@ -1339,23 +1291,18 @@ async function findMatchingCity() {
             country_iso_code: recordData.country_iso_code,
             latitude: recordData.latitude, 
             longitude: recordData.longitude,
-            greeting: greetingFromAPI, 
-            trivia: triviaFromAPI,
+            greeting: recordData.greeting, 
+            trivia: recordData.trivia,
 
         };
 
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
-
         try {
 
             const docRef = await addDoc(globalCollectionRef, globalRecord);
-
             console.log("全域每日記錄已儲存，文件 ID:", docRef.id);
-
         } catch (e) {
-
             console.error("儲存全域每日記錄到 Firestore 失敗:", e);
-
         }
 
     }
