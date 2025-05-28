@@ -897,11 +897,10 @@ async function generatePostcard(record, buttonElement) {
     const story = record.story || `在${cityDisplay || '未知地點'}的美好時光`; // 如果 story 為空，提供一個通用描述
 
     const prompt = `
-Create a vibrant and picturesque travel postcard.
+Create a picture.
 Depicting ${cityDisplay || 'an interesting place'}, ${countryDisplay || 'a wonderful country'} around ${recordDate}.
-The central theme of the postcard should be visually inspired by the following interesting fact, story, or event: "${story}".
+The central theme of the picture should be visually inspired by the following interesting fact, story, or event: "${story}".
 Illustrate this scene vividly. If the fact is about a specific place or object, feature it. If it's more conceptual, create an artistic representation. The image should clearly relate to this information.
-The overall style should be that of an appealing travel postcard, suitable for sending, perhaps with a touch of artistic flair.
 Consider elements like typical scenery, weather, or cultural aspects of ${cityDisplay || 'the location'} if they complement the story.
 `.trim().replace(/\s+/g, ' ');
 
