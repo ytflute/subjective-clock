@@ -897,9 +897,7 @@ async function generatePostcard(record, buttonElement) {
     const story = record.story || `在${cityDisplay || '未知地點'}的美好時光`; // 如果 story 為空，提供一個通用描述
 
     const prompt = `
-創造一張有故事性的圖片，發生在 ${cityDisplay || 'an interesting place'}, ${countryDisplay || 'a wonderful country'} around ${recordDate}.
-The central theme of the picture should be visually inspired by the following interesting fact, story, or event: "${story}".
-Illustrate this scene vividly. 不要有文字出現。 
+創造一張有故事情境的照片關於"${story}". Illustrate this scene vividly. 不要有文字出現。 
 `.trim().replace(/\s+/g, ' ');
 
     console.log("生成明信片的 Prompt:", prompt);
