@@ -47,13 +47,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY", // 請替換成您的 Firebase API Key
-      authDomain: "YOUR_AUTH_DOMAIN",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID",
-      measurementId: "YOUR_MEASUREMENT_ID"
+      apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", // 請替換成您的 Firebase API Key
+      authDomain: "subjective-clock.firebaseapp.com",
+      projectId: "subjective-clock",
+      storageBucket: "subjective-clock.appspot.com",
+      messagingSenderId: "452566766153",
+      appId: "1:452566766153:web:522312f3ed5c81403f2598",
+      measurementId: "G-QZ6440LZEM"
     };
 
     console.log("DOM 已載入。開始初始化 Firebase...");
