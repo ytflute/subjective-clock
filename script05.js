@@ -290,9 +290,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 let mainMessage = "";
                 if (lastRecord.country === "Universe" || (lastRecord.country_zh === "宇宙" && lastRecord.city_zh === "未知星球")) {
-                     mainMessage = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！`;
+                     mainMessage = `${rawUserDisplayName}已脫離地球，<br>與<strong>${finalCityName} (${finalCountryName})</strong>非地球生物共同開啟了新的一天！`;
                 } else {
-                     mainMessage = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！`;
+                     mainMessage = `${rawUserDisplayName} 於<strong>${finalCityName} (${finalCountryName})</strong>甦醒。`;
                 }
                 resultTextDiv.innerHTML = `
                     <p style="font-weight: bold; font-size: 1.1em;">${greetingText}</p>
