@@ -676,22 +676,24 @@ async function findMatchingCity() {
 
         debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone || '未知'})`;
         
-        const recordData = {
-            dataIdentifier: currentDataIdentifier,
-            userDisplayName: rawUserDisplayName,
-            recordedAt: serverTimestamp(),
-            localTime: userTimeFormatted,
-            city: bestMatchCity.city,
-            country: bestMatchCity.country,
-            city_zh: bestMatchCity.city_zh || "", 
-            country_zh: bestMatchCity.country_zh || "", 
-            country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
-            latitude: bestMatchCity.latitude,
-            longitude: bestMatchCity.longitude,
-            targetUTCOffset: targetUTCOffsetHours,
-            matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-            recordedDateString: localDateStringForRecord
-        };
+    const recordData = {
+        dataIdentifier: currentDataIdentifier,
+        userDisplayName: rawUserDisplayName,
+        recordedAt: serverTimestamp(),
+        localTime: userTimeFormatted,
+        city: bestMatchCity.city,
+        country: bestMatchCity.country,
+        city_zh: bestMatchCity.city_zh || "", 
+        country_zh: bestMatchCity.country_zh || "", 
+        country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
+        latitude: bestMatchCity.latitude,
+        longitude: bestMatchCity.longitude,
+        targetUTCOffset: targetUTCOffsetHours,
+        matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
+        recordedDateString: localDateStringForRecord,
+        greeting: greetingFromAPI, // ★★★ 這裡是否正確使用了從 API 獲取的值？ ★★★
+        trivia: triviaFromAPI      // ★★★ 這裡是否正確使用了從 API 獲取的值？ ★★★
+};
         await saveHistoryRecord(recordData);
         await saveToGlobalDailyRecord(recordData);
         console.log("--- 尋找匹配城市結束 (找到城市) ---");
