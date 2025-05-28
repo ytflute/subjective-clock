@@ -18,7 +18,6 @@ export default async function handler(req, res) {
         prompt: prompt,
         n: 1, // 生成一張圖片
         size: "512x512", // 可以調整圖片尺寸
-        style: "vibrant", // 可以調整風格
       });
 
       const imageUrl = response.data?.[0]?.url;
