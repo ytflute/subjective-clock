@@ -786,19 +786,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
     
-    // **新增：顯示歷史日誌模態框的函數**
-    function showHistoryLogModal(record) {
-        const modal = document.getElementById('historyLogModal');
-        const modalContent = document.getElementById('historyLogModalContent');
-        const closeModalButton = document.getElementById('historyLogModalClose');
+// **新增：顯示歷史日誌模態框的函數 (修正版)**
+function showHistoryLogModal(record) {
+    const modal = document.getElementById('historyLogModal');
+    const modalHeaderTitle = document.getElementById('modalTitle'); // 假設您的模態框 HTML 有這個 ID
+    const modalContent = document.getElementById('historyLogModalContent');
+    const closeModalButton = document.getElementById('historyLogModalClose');
+    const closeModalFooterButton = document.getElementById('closeModalFooterButton'); // 假設您的模態框 HTML 有這個 ID
 
-        if (!modal || !modalContent || !closeModalButton) {
-            console.error("模態框 HTML 元素未找到！請檢查您的 HTML 結構。");
-            // 提供一個簡單的 alert 作為後備
-            const recordDateStr = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW') : '日期未知';
-            const cityDisplayStr = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
-            const countryDisplayStr = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
-            alert(
+    // ★★★ 加入 console.log 來偵錯 record 物件 ★★★
+    console.log("showHistoryLogModal - 接收到的 record 物件:", JSON.parse(JSON.stringify(record)));
+    console.log("showHistoryLogModal - record.greeting 的值:", record.greeting);
+    console.log("showHistoryLogModal - record.story 的值:", record.story);
+    // ★★★ Log 結束 ★★★
+
+    if (!modal || !modalContent || !closeModalButton || !modalHeaderTitle || !closeModalFooterButton) {
+        console.error("模態框 HTML 核心元素未找到！請檢查您的 HTML 結構。將使用 alert() 作為後備。");
+        const recordDateStr = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW') : '日期未知';
+        const cityDisplayStr = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
+        const countryDisplayStr = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+        alert(
 `事件日誌詳情:
 記錄時間: ${recordDateStr}
 使用者當地時間: ${record.localTime || '未知'}
@@ -806,96 +813,143 @@ document.addEventListener('DOMContentLoaded', async () => {
 開頭問候: ${record.greeting || '無記錄'}
 城市小知識/事件:
 ${record.story || '無記錄'}`
-            );
-            return;
-        }
+        );
+        return;
+    }
 
-        const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }) : '日期未知';
-        const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
-        const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+    const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }) : '日期未知';
+    const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
+    const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
 
-        modalContent.innerHTML = `
-            <h3>事件日誌詳情</h3>
+    if (modalHeaderTitle) modalHeaderTitle.textContent = `${cityDisplay || '未知地點'} - 甦醒日誌`;
+
+    // 先產生基礎日誌內容的 HTML
+    let logDetailsHTML = `
+        <div id="logBasicInfo">
             <p><strong>記錄時間:</strong> ${recordDate}</p>
             <p><strong>使用者當地時間:</strong> ${record.localTime || '未知'}</p>
-            <p><strong>甦醒地點:</strong> ${cityDisplay}, ${countryDisplay}</p>
-            <p><strong>當時的問候:</strong></p>
-            <p style="font-weight: bold;"><em>${record.greeting || '無記錄'}</em></p>
-            <p><strong>甦醒日誌:</strong></p>
-            <p style="font-style: italic;">${record.story || '無記錄'}</p>
-            <hr>
+            <p><strong>甦醒地點:</strong> ${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</p>
+            <p style="margin-top:15px;"><strong>當時的問候:</strong></p>
+            <p style="font-weight: bold; font-style: italic; color: #2c3e50;">${record.greeting || '此記錄無問候語。'}</p>
+            <p style="margin-top:15px;"><strong>相關小知識/記事:</strong></p>
+            <p style="font-style: italic; color: #34495e; white-space: pre-wrap;">${record.story || '此記錄無相關記事。'}</p>
+            <hr style="margin: 20px 0;">
             <p><small>時區: ${record.timezone || '未知'}, 國家代碼: ${record.country_iso_code || 'N/A'}</small></p>
-            <p><small>座標: Lat ${record.latitude !== null ? record.latitude.toFixed(4) : 'N/A'}, Lon ${record.longitude !== null ? record.longitude.toFixed(4) : 'N/A'}</small></p>
-        `;
-        modal.style.display = 'block';
+            <p><small>座標: Lat ${record.latitude !== null && record.latitude !== undefined ? parseFloat(record.latitude).toFixed(4) : 'N/A'}, Lon ${record.longitude !== null && record.longitude !== undefined ? parseFloat(record.longitude).toFixed(4) : 'N/A'}</small></p>
+        </div>
+        <div id="postcardSection" style="margin-top:20px;"></div>
+    `;
 
-        const generatePostcardButton = document.getElementById('generatePostcardButton');
-       if (generatePostcardButton) {
-           generatePostcardButton.onclick = () => generatePostcard(record);
-       }
-        
-        closeModalButton.onclick = () => {
-            modal.style.display = 'none';
-        };
+    // 只有當記錄中有 greeting 或 story 時，才加入「生成明信片」按鈕
+    if (record.greeting || record.story) {
+        logDetailsHTML += `<button id="generatePostcardButton" class="postcard-button" style="margin-top: 15px; display: block; margin-left: auto; margin-right: auto;">為此日誌生成一張明信片</button>`;
+    }
+    
+    modalContent.innerHTML = logDetailsHTML; // 設定模態框的初始內容
+    modal.style.display = 'block';
 
-        // 點擊模態框外部區域關閉模態框
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+    // 為動態加入的「生成明信片」按鈕添加事件監聽器
+    const generatePostcardButton = document.getElementById('generatePostcardButton');
+    if (generatePostcardButton) {
+        generatePostcardButton.onclick = () => {
+            const postcardSection = document.getElementById('postcardSection');
+            if (postcardSection) {
+                postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>明信片生成中，請稍候...</i></p>';
             }
+            generatePostcardButton.disabled = true; // 禁用按鈕防止重複點擊
+            generatePostcardButton.textContent = '生成中...';
+            generatePostcard(record, postcardButton); // 將按鈕本身傳遞過去以便恢復狀態
         };
     }
 
-async function generatePostcard(record) {
-    const modalContent = document.getElementById('historyLogModalContent');
-    if (!modalContent) return;
+    // 關閉按鈕的事件處理
+    const closeFunction = () => {
+        modal.style.display = 'none';
+        modalContent.innerHTML = ''; // 清空內容，以便下次打開是乾淨的
+    };
 
-    modalContent.innerHTML += '<p>正在生成明信片，請稍候...</p>';
+    closeModalButton.onclick = closeFunction;
+    if (closeModalFooterButton) closeModalFooterButton.onclick = closeFunction; // 確保底部按鈕也綁定
 
-    const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleDateString('zh-TW') : '未知日期';
-    const cityDisplay = record.city_zh && record.city_zh !== record.city ? `<span class="math-inline">\{record\.city\_zh\} \(</span>{record.city})` : record.city;
-    const countryDisplay = record.country_zh && record.country_zh !== record.country ? `<span class="math-inline">\{record\.country\_zh\} \(</span>{record.country})` : record.country;
-    const story = record.story || '無特別事件';
+    // 點擊模態框外部區域關閉模態框
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeFunction();
+        }
+    };
+}
 
-    // 創建一個更詳細的提示
-    const prompt = `Generate a postcard-style image related to a moment in ${cityDisplay}, ${countryDisplay} on <span class="math-inline">\{recordDate\}\. The key event or detail to inspire the image is\: "</span>{story}". The image should evoke the feeling or theme of this event in the style of a vibrant travel postcard.`;
+async function generatePostcard(record, buttonElement) {
+    const postcardSection = document.getElementById('postcardSection'); // 獲取顯示明信片的區塊
+    if (!postcardSection) {
+        console.error("明信片顯示區塊 'postcardSection' 未找到！");
+        if (buttonElement) { // 恢復按鈕狀態
+            buttonElement.disabled = false;
+            buttonElement.textContent = '為此日誌生成一張明信片';
+        }
+        return;
+    }
+
+    const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' }) : '一個特別的日子';
+    // ★★★ 修正 cityDisplay 和 countryDisplay 的模板字串 ★★★
+    const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
+    const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+    const story = record.story || `在${cityDisplay || '未知地點'}的美好時光`; // 如果 story 為空，提供一個通用描述
+
+    const prompt = `
+Create a vibrant and picturesque travel postcard.
+Depicting ${cityDisplay || 'an interesting place'}, ${countryDisplay || 'a wonderful country'} around ${recordDate}.
+The central theme of the postcard should be visually inspired by the following interesting fact, story, or event: "${story}".
+Illustrate this scene vividly. If the fact is about a specific place or object, feature it. If it's more conceptual, create an artistic representation. The image should clearly relate to this information.
+The overall style should be that of an appealing travel postcard, suitable for sending, perhaps with a touch of artistic flair.
+Consider elements like typical scenery, weather, or cultural aspects of ${cityDisplay || 'the location'} if they complement the story.
+`.trim().replace(/\s+/g, ' ');
+
+    console.log("生成明信片的 Prompt:", prompt);
 
     try {
-        const response = await fetch('/api/generateImage', { // 假設您創建了 /api/generateImage 這個後端路由
+        const response = await fetch('/api/generateImage', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ prompt: prompt }),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt: prompt }), // 後端 API 預期接收 { prompt: "..." }
         });
 
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({ error: "無法解析圖片生成 API 錯誤" }));
+            const errorData = await response.json().catch(() => ({ error: "無法解析圖片生成 API 錯誤回應" }));
             console.error("圖片生成 API 錯誤:", response.status, errorData);
-            modalContent.innerHTML += `<p style="color: red;">生成明信片失敗，請稍後再試。錯誤：${errorData.error || response.statusText}</p>`;
+            postcardSection.innerHTML = `<p style="color: red;">生成明信片失敗，請稍後再試。錯誤：${errorData.error || response.statusText}</p>`;
             return;
         }
 
         const data = await response.json();
         if (data && data.imageUrl) {
+            // ★★★ 修正 postcardHtml 中的模板字串 和 內容 ★★★
             const postcardHtml = `
-                <div class="postcard-container">
-                    <h3>您的明信片</h3>
-                    <img src="<span class="math-inline">\{data\.imageUrl\}" alt\="Generated Postcard" style\="max\-width\: 100%; height\: auto; border\: 1px solid \#ccc;"\>
-<p style\="margin\-top\: 10px; font\-size\: 0\.8em;"\></span>{cityDisplay}, ${countryDisplay} - <span class="math-inline">\{recordDate\}</p\>
-<p style\="font\-size\: 0\.9em; font\-style\: italic;"\>"</span>{story.length > 50 ? story.substring(0, 50) + '...' : story}"</p>
-                    <button onclick="window.open('${data.imageUrl}', '_blank')">在新視窗中查看/下載</button>
+                <div class="postcard-image-container" style="margin-top: 10px; text-align: center;">
+                    <img src="${data.imageUrl}" alt="為 ${cityDisplay} 生成的明信片" style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 10px;">
+                    <p style="font-size: 0.9em; color: #555;"><em>「${story.length > 70 ? story.substring(0, 70) + '...' : story}」</em></p>
+                    <p style="font-size: 0.8em; color: #777;">${cityDisplay || ''}${cityDisplay && countryDisplay ? ', ' : ''}${countryDisplay || ''} - ${recordDate}</p>
+                    <button onclick="window.open('${data.imageUrl}', '_blank')" style="padding: 8px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">在新視窗中查看/下載圖片</button>
                 </div>
             `;
-            modalContent.innerHTML = postcardHtml;
+            postcardSection.innerHTML = postcardHtml; // 將明信片內容放入 postcardSection
+            if (buttonElement) {
+                buttonElement.style.display = 'none'; // 成功生成後隱藏“生成明信片”按鈕
+            }
         } else {
             console.warn("圖片生成 API 回應格式不正確:", data);
-            modalContent.innerHTML += '<p style="color: orange;">無法顯示明信片，後端回應格式有誤。</p>';
+            postcardSection.innerHTML = '<p style="color: orange;">無法顯示明信片，後端回應的資料格式有誤。</p>';
         }
 
     } catch (error) {
         console.error("前端呼叫圖片生成 API 失敗:", error);
-        modalContent.innerHTML += '<p style="color: red;">前端請求圖片生成時發生錯誤，請檢查網路。</p>';
+        postcardSection.innerHTML = `<p style="color: red;">前端請求圖片生成時發生錯誤：${error.message}</p>`;
+    } finally {
+        // 只有在出錯或沒有成功生成圖片時才恢復按鈕
+        if (buttonElement && (!postcardSection.querySelector || !postcardSection.querySelector('.postcard-image-container img'))) {
+             buttonElement.disabled = false;
+             buttonElement.textContent = '為此日誌生成一張明信片';
+        }
     }
 }
 
