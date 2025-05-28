@@ -581,9 +581,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
         const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
 
-        const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
-        const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
-
         // const countryGreetingInfo = getGreetingForCountry(bestMatchCity.country_iso_code); // 不再需要前端生成問候語
         // const storyText = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code); // 舊的單獨故事獲取
 
