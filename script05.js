@@ -858,7 +858,7 @@ ${record.story || '無記錄'}`
             }
             generatePostcardButton.disabled = true; // 禁用按鈕防止重複點擊
             generatePostcardButton.textContent = '生成中...';
-            generatePostcard(record, postcardButton); // 將按鈕本身傳遞過去以便恢復狀態
+            generatePostcard(record, generatePostcardButton); // 將按鈕本身傳遞過去以便恢復狀態
         };
     }
 
