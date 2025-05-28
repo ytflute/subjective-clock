@@ -653,7 +653,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 recordedDateString: localDateStringForRecord,
                 greeting: greetingFromAPI, // **儲存從 API 獲取的問候語**
                 story: storyFromAPI,       // **儲存從 API 獲取的故事/知識**
-                timezone: bestMatchCity.timezone, || "Unknown"
+                timezone: bestMatchCity.timezone || "Unknown"
                 
             };
             await saveHistoryRecord(recordData);
