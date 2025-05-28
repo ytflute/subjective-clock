@@ -965,7 +965,7 @@ ${record.story || '無記錄'}`
         points.forEach(point => {
             if (typeof point.lat === 'number' && isFinite(point.lat) && typeof point.lon === 'number' && isFinite(point.lon)) {
                 const marker = L.circleMarker([point.lat, point.lon], {
-                    color: 'red', fillColor: '#30f', fillOpacity: 0.7, radius: 6 // Changed color for distinction
+                    color: 'red', fillColor: '#f03', fillOpacity: 0.7, radius: 6 // Changed color for distinction
                 }).addTo(currentMarkerLayerGroup);
                 if (point.title) {
                     marker.bindTooltip(point.title);
