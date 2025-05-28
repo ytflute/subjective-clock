@@ -240,12 +240,32 @@ async function displayLastRecordForCurrentUser() {
 
             const finalCityName = lastRecord.city_zh && lastRecord.city_zh !== lastRecord.city ? `${lastRecord.city_zh} (${lastRecord.city})` : lastRecord.city;
             const finalCountryName = lastRecord.country_zh && lastRecord.country_zh !== lastRecord.country ? `${lastRecord.country_zh} (${lastRecord.country})` : lastRecord.country;
-            
-            if (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet") {
-                resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！`;
-            } else {
-                resultTextDiv.innerHTML = `這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！`;
+
+            // ★★★ 新增：檢查並組合儲存的問候語和小知識 ★★★
+            let greetingHTML = "";
+            let triviaHTML = "";
+
+            if (lastRecord.greeting) { // 檢查 greeting 是否存在
+                greetingHTML = `<p style="font-size: 1.2em; font-weight: bold; margin-bottom: 8px;">${lastRecord.greeting}</p>`;
             }
+            if (lastRecord.trivia) { // 檢查 trivia 是否存在
+                triviaHTML = `<p style="margin-bottom: 15px; font-style: italic;">${lastRecord.trivia}</p>`;
+            }
+            // ★★★ 新增結束 ★★★
+
+            let mainMessageHTML;
+            // 判斷宇宙情況，使用英文鍵名進行比較，並兼容您之前可能使用的中文鍵名
+            const isUniverse = (lastRecord.country === "Universe" && lastRecord.city === "Unknown Planet") ||
+                               (lastRecord.country === "宇宙Universe" && lastRecord.city === "未知星球Unknown Planet");
+
+            if (isUniverse) {
+                mainMessageHTML = `<p>這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時你已脫離地球，與<strong>${finalCityName} (${finalCountryName})</strong>的非地球生物共同開啟了新的一天！</p>`;
+            } else {
+                mainMessageHTML = `<p>這是 ${rawUserDisplayName} 於 <strong>${userTimeFormatted}</strong> 的最後一筆記錄，<br>當時與 <strong>${finalCityName} (${finalCountryName})</strong> 的人同步，<br>開啟了新的一天！</p>`;
+            }
+
+            resultTextDiv.innerHTML = `${greetingHTML}${triviaHTML}${mainMessageHTML}`; // ★ 更新：顯示包含問候語和小知識的訊息
+
 
             if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') {
                 countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
