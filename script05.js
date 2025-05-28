@@ -821,7 +821,7 @@ ${record.story || '無記錄'}`
             <p><strong>甦醒地點:</strong> ${cityDisplay}, ${countryDisplay}</p>
             <p><strong>當時的問候:</strong></p>
             <p style="font-weight: bold;"><em>${record.greeting || '無記錄'}</em></p>
-            <p><strong>城市小知識/事件:</strong></p>
+            <p><strong>甦醒日誌:</strong></p>
             <p style="font-style: italic;">${record.story || '無記錄'}</p>
             <hr>
             <p><small>時區: ${record.timezone || '未知'}, 國家代碼: ${record.country_iso_code || 'N/A'}</small></p>
@@ -829,6 +829,11 @@ ${record.story || '無記錄'}`
         `;
         modal.style.display = 'block';
 
+        const generatePostcardButton = document.getElementById('generatePostcardButton');
+       if (generatePostcardButton) {
+           generatePostcardButton.onclick = () => generatePostcard(record);
+       }
+        
         closeModalButton.onclick = () => {
             modal.style.display = 'none';
         };
@@ -841,7 +846,62 @@ ${record.story || '無記錄'}`
         };
     }
 
+async function generatePostcard(record) {
+    const modalContent = document.getElementById('historyLogModalContent');
+    if (!modalContent) return;
 
+    modalContent.innerHTML += '<p>正在生成明信片，請稍候...</p>';
+
+    const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleDateString('zh-TW') : '未知日期';
+    const cityDisplay = record.city_zh && record.city_zh !== record.city ? `<span class="math-inline">\{record\.city\_zh\} \(</span>{record.city})` : record.city;
+    const countryDisplay = record.country_zh && record.country_zh !== record.country ? `<span class="math-inline">\{record\.country\_zh\} \(</span>{record.country})` : record.country;
+    const story = record.story || '無特別事件';
+
+    // 創建一個更詳細的提示
+    const prompt = `Generate a postcard-style image related to a moment in ${cityDisplay}, ${countryDisplay} on <span class="math-inline">\{recordDate\}\. The key event or detail to inspire the image is\: "</span>{story}". The image should evoke the feeling or theme of this event in the style of a vibrant travel postcard.`;
+
+    try {
+        const response = await fetch('/api/generateImage', { // 假設您創建了 /api/generateImage 這個後端路由
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ prompt: prompt }),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => ({ error: "無法解析圖片生成 API 錯誤" }));
+            console.error("圖片生成 API 錯誤:", response.status, errorData);
+            modalContent.innerHTML += `<p style="color: red;">生成明信片失敗，請稍後再試。錯誤：${errorData.error || response.statusText}</p>`;
+            return;
+        }
+
+        const data = await response.json();
+        if (data && data.imageUrl) {
+            const postcardHtml = `
+                <div class="postcard-container">
+                    <h3>您的明信片</h3>
+                    <img src="<span class="math-inline">\{data\.imageUrl\}" alt\="Generated Postcard" style\="max\-width\: 100%; height\: auto; border\: 1px solid \#ccc;"\>
+<p style\="margin\-top\: 10px; font\-size\: 0\.8em;"\></span>{cityDisplay}, ${countryDisplay} - <span class="math-inline">\{recordDate\}</p\>
+<p style\="font\-size\: 0\.9em; font\-style\: italic;"\>"</span>{story.length > 50 ? story.substring(0, 50) + '...' : story}"</p>
+                    <button onclick="window.open('${data.imageUrl}', '_blank')">在新視窗中查看/下載</button>
+                </div>
+            `;
+            modalContent.innerHTML = postcardHtml;
+        } else {
+            console.warn("圖片生成 API 回應格式不正確:", data);
+            modalContent.innerHTML += '<p style="color: orange;">無法顯示明信片，後端回應格式有誤。</p>';
+        }
+
+    } catch (error) {
+        console.error("前端呼叫圖片生成 API 失敗:", error);
+        modalContent.innerHTML += '<p style="color: red;">前端請求圖片生成時發生錯誤，請檢查網路。</p>';
+    }
+}
+
+
+
+    
     async function loadGlobalTodayMap() {
         if (!auth.currentUser) {
             if (!globalLeafletMap) globalTodayMapContainerDiv.innerHTML = '<p>Firebase 認證中，請稍候...</p>';
