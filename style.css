@@ -417,3 +417,144 @@ button[id^="peekActivityButton"]:disabled { /* 確保禁用樣式也應用到新
         align-self: flex-start; /* 讓連結也靠左 */
     }
 }
+
+
+/* style.css 或 <style> 標籤內，新增模態框樣式 */
+
+/* 模態框背景 (半透明遮罩) */
+.modal {
+    display: none; /* 預設隱藏 */
+    position: fixed; /* 固定在視窗上 */
+    z-index: 1000; /* 確保在最上層 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 如果內容過長則允許滾動 */
+    background-color: rgba(0,0,0,0.5); /* 半透明黑色背景 */
+    animation: fadeInModal 0.3s ease-out; /* 淡入動畫 */
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 模態框對話方塊的容器，用於垂直置中 */
+.modal-dialog {
+    display: flex;
+    align-items: center; /* 垂直置中 */
+    justify-content: center; /* 水平置中 */
+    min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 模態框實際內容的包裝 */
+.modal-content-wrapper {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 25px;
+    border: 1px solid #888;
+    width: 90%; /* 在小螢幕上寬度為 90% */
+    max-width: 600px; /* 最大寬度 */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* 為了關閉按鈕的絕對定位 */
+    animation: slideInModal 0.3s ease-out; /* 滑入動畫 */
+    text-align: left; /* 讓模態框內容預設靠左 */
+}
+
+@keyframes slideInModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* 模態框頭部 */
+.modal-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2, .modal-header h3, .modal-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.6em;
+}
+
+/* 模態框內容主體 */
+.modal-body {
+    line-height: 1.7;
+    max-height: 60vh; /* 限制內容最大高度，超出則滾動 */
+    overflow-y: auto; /* 內容過多時顯示滾動條 */
+    padding-right: 10px; /* 給滾動條留出空間 */
+}
+.modal-body p {
+    margin-bottom: 12px;
+    color: #444;
+}
+.modal-body p strong {
+    color: #222;
+}
+
+/* 關閉按鈕 (右上角的 X) */
+.modal-close-button {
+    color: #aaa;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 5px;
+}
+.modal-close-button:hover,
+.modal-close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* 模態框底部 (可選，用於放置操作按鈕) */
+.modal-footer {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.modal-footer .modal-button-secondary {
+    padding: 10px 20px;
+    background-color: #6c757d; /* 次要按鈕顏色 */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.modal-footer .modal-button-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* 明信片生成按鈕 (如果放在模態框內) */
+#generatePostcardButton.postcard-button {
+    display: inline-block; /* 或 block 看您的佈局需求 */
+    padding: 8px 15px;
+    font-size: 0.9em;
+    color: white;
+    background-color: #007bff; /* 主題藍色 */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+}
+#generatePostcardButton.postcard-button:hover {
+    background-color: #0056b3;
+}
+#generatePostcardButton.postcard-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
