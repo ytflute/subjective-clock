@@ -854,7 +854,7 @@ ${record.story || '無記錄'}`
         generatePostcardButton.onclick = () => {
             const postcardSection = document.getElementById('postcardSection');
             if (postcardSection) {
-                postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>明信片生成中，請稍候...</i></p>';
+                postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
             }
             generatePostcardButton.disabled = true; // 禁用按鈕防止重複點擊
             generatePostcardButton.textContent = '生成中...';
