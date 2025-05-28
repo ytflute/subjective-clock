@@ -885,7 +885,7 @@ async function generatePostcard(record, buttonElement) {
         console.error("明信片顯示區塊 'postcardSection' 未找到！");
         if (buttonElement) { // 恢復按鈕狀態
             buttonElement.disabled = false;
-            buttonElement.textContent = '為此日誌生成一張明信片';
+            buttonElement.textContent = '看看今日的早餐圖';
         }
         return;
     }
