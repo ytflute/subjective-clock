@@ -836,7 +836,6 @@ async function findMatchingCity() {
 
 
     let adjustedUserLocalHours = userLocalHours;
-
     let adjustedUserLocalMinutes = Math.round(userLocalMinutes / 15) * 15;
 
 
@@ -1179,23 +1178,16 @@ async function findMatchingCity() {
         
 
         const debugLat = typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) ? bestMatchCity.latitude.toFixed(2) : 'N/A';
-
         const debugLon = typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude) ? bestMatchCity.longitude.toFixed(2) : 'N/A';
-
         const debugTargetLat = typeof targetLatitude === 'number' && isFinite(targetLatitude) ? targetLatitude.toFixed(2) : 'N/A';
-
         const debugMinLatDiff = typeof minLatDiff === 'number' && isFinite(minLatDiff) ? minLatDiff.toFixed(2) : 'N/A';
-
         const debugTargetOffset = typeof targetUTCOffsetHours === 'number' && isFinite(targetUTCOffsetHours) ? targetUTCOffsetHours.toFixed(2) : 'N/A';
-
         const debugActualOffset = !isFinite(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2);
-
 
 
         debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone || '未知'})`;
 
         
-
         const recordData = {
             dataIdentifier: currentDataIdentifier,
             userDisplayName: rawUserDisplayName,
@@ -1211,8 +1203,8 @@ async function findMatchingCity() {
             targetUTCOffset: targetUTCOffsetHours,
             matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
             recordedDateString: localDateStringForRecord, 
-            greeting: greetingFromAPI,
-            trivia: triviaFromAPI
+            greeting,
+            trivia
 
         };
         console.log("findMatchingCity - 準備儲存的 recordData:", JSON.parse(JSON.stringify(recordData)));
