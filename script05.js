@@ -737,6 +737,8 @@ async function findMatchingCity() {
             country_iso_code: recordData.country_iso_code,
             latitude: recordData.latitude, 
             longitude: recordData.longitude, 
+            greeting: recordData.greeting, // ★★★ 新增 ★★★
+            trivia: recordData.trivia     // ★★★ 新增 ★★★
         };
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
