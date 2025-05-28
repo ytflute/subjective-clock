@@ -78,33 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // **新增：語言問候資料**
-    const languageGreetings = {
-        "US": { lang: "English", greeting: "Good morning!" },
-        "JP": { lang: "Japanese", greeting: "おはようございます (Ohayō gozaimasu)!" },
-        "FR": { lang: "French", greeting: "Bonjour!" },
-        "ES": { lang: "Spanish", greeting: "¡Buenos días!" },
-        "DE": { lang: "German", greeting: "Guten Morgen!" },
-        "IT": { lang: "Italian", greeting: "Buongiorno!" },
-        "CN": { lang: "Chinese", greeting: "早上好 (Zǎoshang hǎo)!" },
-        "KR": { lang: "Korean", greeting: "좋은 아침입니다 (Joheun achimimnida)!" },
-        "TW": { lang: "Chinese", greeting: "早安 (Zǎo ān)!" },
-        "GB": { lang: "English", greeting: "Good morning!" }, // United Kingdom
-        "CA": { lang: "English/French", greeting: "Good morning! / Bonjour!"},
-        // 您可以繼續添加更多國家的問候語
-        "DEFAULT": { lang: "English", greeting: "Good morning!" } // 預設
-    };
-
-    function getGreetingForCountry(countryIsoCode) {
-        const code = countryIsoCode ? countryIsoCode.toUpperCase() : null;
-        if (code === "UNIVERSE_CODE") { // 特殊處理宇宙情況
-            return { lang: "Cosmic", greeting: "Greetings, star traveler!" };
-        }
-        if (code && languageGreetings[code]) {
-            return languageGreetings[code];
-        }
-        return languageGreetings["DEFAULT"];
-    }
+ 
 
     // **新增：模擬的 fetchStoryFromAPI 函數**
     // 您需要將此函數替換為對您實際後端 API 的調用
