@@ -897,7 +897,7 @@ async function generatePostcard(record, buttonElement) {
     const story = record.story || `在${cityDisplay || '未知地點'}的美好時光`; // 如果 story 為空，提供一個通用描述
 
     const prompt = `
-創造一張有故事情境的照片關於"${story}". Illustrate this scene vividly. 不要有文字出現。 
+Top view of a traditional local breakfast commonly eaten in ${cityDisplay}, ${countryDisplay}. The food is presented on a clean table setting, with realistic textures and lighting, showcasing the variety of dishes, ingredients, and beverages typical of the region. No people, only food. Styled like a professional food photography shot.  
 `.trim().replace(/\s+/g, ' ');
 
     console.log("生成明信片的 Prompt:", prompt);
