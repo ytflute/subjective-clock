@@ -282,7 +282,7 @@ small { /* 通用 small 標籤樣式 */
 }
 /* 新增：甦醒日誌連結樣式 */
 #historyList a.log-link {
-    color: #007bff;
+    color: #a69108;
     text-decoration: none; /* 移除預設底線 */
     margin-left: 10px; /* 與左邊內容的間距 */
     font-weight: bold;
