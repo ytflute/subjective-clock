@@ -591,7 +591,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         resultTextDiv.innerHTML = `
             <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-            <p>今天的你，<br>跟<strong>${finalCityName} (${finalCountryName})</strong> 的人，<br>共同開啟了新的一天！</p>
+            <p>今天的你是<strong>${finalCityName} (${finalCountryName})</strong>人！</p>
             <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
         `;
 
