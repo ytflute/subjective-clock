@@ -747,71 +747,116 @@ async function findMatchingCity() {
         }
     }
 
-    async function loadHistory() {
-        if (!currentDataIdentifier) { 
-            historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
-            if (historyLeafletMap) {
-                historyLeafletMap.remove(); // 移除舊的地圖實例
-                historyLeafletMap = null;   // 重置實例變數
-            }
-            historyMapContainerDiv.innerHTML = '<p>設定名稱後，此處將顯示您的個人歷史地圖。</p>'; 
+async function loadHistory() {
+    if (!currentDataIdentifier) { 
+        historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
+        if (historyLeafletMap) {
+            historyLeafletMap.remove(); 
+            historyLeafletMap = null;  
+        }
+        historyMapContainerDiv.innerHTML = '<p>設定名稱後，此處將顯示您的個人歷史地圖。</p>'; 
+        return;
+    }
+    historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
+    if (!historyLeafletMap) { 
+        historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>';
+    } else if (historyMarkerLayerGroup) {
+        historyMarkerLayerGroup.clearLayers(); 
+    }
+    historyDebugInfoSmall.textContent = "";
+
+    const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+    const q_history = query(historyCollectionRef, orderBy("recordedAt", "desc"));
+
+    try {
+        const querySnapshot = await getDocs(q_history);
+        historyListUl.innerHTML = ''; 
+        const historyPoints = []; 
+
+        if (querySnapshot.empty) {
+            historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
+            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history'); 
             return;
         }
-        historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
-        // *** 修改點：只有在 Leaflet 地圖還沒建立時才設定 "載入中" ***
-        if (!historyLeafletMap) { 
-            historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>';
-        } else if (historyMarkerLayerGroup) {
-            historyMarkerLayerGroup.clearLayers(); // 如果地圖已存在，先清除標記
-        }
-        historyDebugInfoSmall.textContent = "";
 
-        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
-        const q = query(historyCollectionRef, orderBy("recordedAt", "desc")); 
+        querySnapshot.forEach((doc) => {
+            const record = doc.data();
+            const docId = doc.id; // 獲取文件ID，方便之後可能需要的操作
+            const li = document.createElement('li');
 
-        try {
-            const querySnapshot = await getDocs(q);
-            historyListUl.innerHTML = ''; 
-            const historyPoints = []; 
+            const recordDate = record.recordedAt && record.recordedAt.toDate 
+                ? record.recordedAt.toDate().toLocaleString('zh-TW', { 
+                    year: 'numeric', month: 'numeric', day: 'numeric', 
+                    hour: '2-digit', minute: '2-digit' 
+                  }) 
+                : '日期未知';
+            
+            const userLocalTime = record.localTime || '時間未知'; // 獲取使用者記錄時的本地時間
 
-            if (querySnapshot.empty) {
-                historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
-                renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history'); // 傳遞空陣列以顯示 "無資料"
-                return;
-            }
+            const cityDisplay = record.city_zh && record.city_zh !== record.city 
+                ? `${record.city_zh} (${record.city})` 
+                : record.city;
+            const countryDisplay = record.country_zh && record.country_zh !== record.country 
+                ? `${record.country_zh} (${record.country})` 
+                : record.country;
 
-            querySnapshot.forEach((doc) => {
-                const record = doc.data();
-                const li = document.createElement('li');
-                const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
+            // ★★★ 修改顯示內容 ★★★
+            let recordInfoHTML = `<span class="date">${recordDate}</span> - 
+                                  <span class="time">${userLocalTime}</span> - 
+                                  甦醒於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
+            
+            // 建立「甦醒日誌」連結
+            if (record.greeting && record.trivia) {
+                const logLink = document.createElement('a');
+                logLink.href = "#"; // 避免頁面跳轉
+                logLink.textContent = "甦醒日誌";
+                logLink.style.marginLeft = "10px"; // 加點間距
+                logLink.style.color = "#007bff";    // 連結顏色
+                logLink.style.textDecoration = "underline";
+                logLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // 阻止連結的預設行為
+                    // ★★★ 彈出視窗顯示 greeting 和 trivia ★★★
+                    const greetingText = record.greeting || "無問候語記錄。";
+                    const triviaText = record.trivia || "無小知識記錄。";
+                    // 使用 \n 換行
+                    alert(`--- 甦醒日誌 ---\n\n${greetingText}\n\n${triviaText}`); 
+                });
                 
-                const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
-                const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
+                // 將資訊和連結加入 li 元素
+                // 為了能讓連結在右邊，我們可以把 recordInfoHTML 包在一個 span 裡
+                const infoSpan = document.createElement('span');
+                infoSpan.innerHTML = recordInfoHTML;
+                infoSpan.style.flexGrow = "1"; // 讓資訊部分佔據多餘空間
 
-                li.innerHTML = `<span class="date">${recordDate}</span> - 
-                                當地時間: <span class="time">${record.localTime || '未知'}</span> - 
-                                同步於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
-                historyListUl.appendChild(li);
+                li.appendChild(infoSpan);
+                li.appendChild(logLink);
+            } else {
+                // 如果沒有 greeting 或 trivia，只顯示基本資訊
+                li.innerHTML = recordInfoHTML;
+            }
+            // ★★★ 修改結束 ★★★
+            
+            historyListUl.appendChild(li);
 
-                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
-                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
-                    historyPoints.push({ 
-                        lat: record.latitude,
-                        lon: record.longitude,
-                        title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}` 
-                    });
-                } else if (record.city !== "未知星球Unknown Planet") { 
-                    console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
-                }
-            });
-            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
-        } catch (e) {
-            console.error("讀取歷史記錄失敗:", e);
-            historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
-            historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>'; 
-            historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
-        }
+            if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
+                typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                historyPoints.push({ 
+                    lat: record.latitude,
+                    lon: record.longitude,
+                    title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}` 
+                });
+            } else if (record.city !== "Unknown Planet" && record.city !== "未知星球Unknown Planet") { 
+                console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
+            }
+        });
+        renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
+    } catch (e) {
+        console.error("讀取歷史記錄失敗:", e);
+        historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
+        historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>'; 
+        historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
     }
+}
 
     async function loadGlobalTodayMap() {
         if (!auth.currentUser) { 
