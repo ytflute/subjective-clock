@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甦醒地圖 Wake Up World Map</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <style>
+        /* 基本頁面和容器樣式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 650px; /* 你可以根據需要調整最大寬度 */
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #7a776d;
+            margin-bottom: 14px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .user-section {
+            background-color: #f9f9f9;
+            padding: 10px 15px; 
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .user-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .user-section input[type="text"] {
+            padding: 10px;
+            margin-bottom: 8px; 
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+        }
+        .user-section button {
+            padding: 10px 18px;
+            font-size: 15px;
+            color: white;
+            background-color: #a6a08f;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .user-section button:hover {
+            background-color: #827d6f;
+        }
+        .user-section p {
+            font-size: 0.85em; 
+            color: #666;
+            margin-top: 6px; 
+            margin-bottom: 6px; 
+            line-height: 1.4; 
+        }
+        .user-section span {
+            font-weight: bold;
+            color: #e8af10;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-button {
+            padding: 12px 22px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 17px;
+            margin: 0 8px;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+            color: #555;
+        }
+
+        .tab-button.active {
+            border-bottom-color: #e8af10;
+            font-weight: bold;
+            color: #d6a70b;
+        }
+        .tab-button:hover:not(.active) {
+            color: #b08b10;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+            text-align: center; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            display: inline-block; 
+            text-align: left; 
+            width: auto; 
+            max-width: 100%; 
+        }
+        #resultText { 
+            min-height: 50px; 
+            margin-bottom: 15px; 
+            font-size: 1.1em; 
+            text-align: center; 
+        }
+        #flagContainer { 
+            text-align: center;
+            min-height:40px;
+        }
+        #flagContainer img { 
+            max-width: 50px; 
+            height: auto; 
+            border: 1px solid #ddd; 
+            border-radius: 4px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        /* *** 修改點：確保所有地圖容器有固定高度 *** */
+        #mapContainer, #historyMapContainer, #globalTodayMapContainer {
+            width: 100%;
+            height: 300px; /* 或你想要的高度 */
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            margin-top:15px;
+            background-color: #f7f7f7; /* 給地圖容器一個背景色 */
+        }
+        #mapContainer iframe, #historyMapContainer iframe { /* iframe 的樣式可以保留，如果某些地圖仍用 iframe */
+             width: 100%;
+             height: 100%; /* 讓 iframe 填滿父容器 */
+             border: none; /* Leaflet 地圖不需要 iframe 邊框 */
+        }
+
+        #debugInfo, #historyDebugInfo, #globalTodayDebugInfo { 
+            font-size: 0.85em; 
+            color: #777; 
+            margin-top: 15px; 
+            word-wrap: break-word; 
+            background-color: #f9f9f9;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: left; 
+        }
+
+        #historyList {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        #historyList li {
+            padding: 12px 15px; 
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+            font-size: 0.9em; 
+            gap: 10px;
+        }
+        #historyList li:hover {
+            background-color: #f9f9f9;
+        }
+        #historyList li:last-child {
+            border-bottom: none;
+        }
+        #historyList .date { 
+            font-weight: bold; 
+            color: #007bff; 
+            flex-shrink: 0; 
+            margin-right: 6px; 
+        }
+        #historyList .time { 
+            color: #28a745; 
+            margin-right: 6px; 
+        }
+        #historyList .location { 
+            color: #555; 
+            text-align: right; 
+            flex-grow: 1;
+        }
+
+        #findCityButton, #refreshHistoryButton, #refreshGlobalMapButton {
+            display: block;
+            width: -webkit-fit-content; 
+            width: -moz-fit-content;    
+            width: fit-content;         
+            margin-left: auto;
+            margin-right: auto;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: white;
+            background-color: #d4b208;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        #findCityButton:hover, #refreshHistoryButton:hover, #refreshGlobalMapButton:hover {
+            background-color: #b89e1d;
+        }
+        #findCityButton:active, #refreshHistoryButton:active, #refreshGlobalMapButton:active {
+            transform: translateY(1px);
+        }
+        #findCityButton:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .date-picker-container {
+            margin-bottom: 15px;
+        }
+        .date-picker-container label {
+            margin-right: 8px;
+        }
+
+        /* 歷史記錄中的「吃早餐」按鈕樣式 */
+        .history-log-button {
+            padding: 6px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+        }
+        .history-log-button:hover {
+            background-color: #218838;
+        }
+
+        /* 模態框樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-dialog {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        .modal-content-wrapper {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .modal-header {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .modal-close-button {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+        .modal-close-button:hover {
+            color: #333;
+        }
+        .modal-body {
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .modal-footer {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            text-align: right;
+        }
+        .modal-button-secondary {
+            padding: 8px 16px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal-button-secondary:hover {
+            background-color: #5a6268;
+        }
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-10%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* 明信片圖片容器樣式 */
+        .postcard-image-container {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .postcard-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .postcard-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+        .postcard-button:hover {
+            background-color: #0056b3;
+        }
+        .postcard-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* 確保模態框內的內容可以正確換行 */
+        #logBasicInfo {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>甦醒地圖 Wake Up World Map</h1>
+
+        <div class="user-section">
+            <label for="userName">輸入你的名字:</label>
+            <input type="text" id="userName" placeholder="輸入你的名稱...">
+            <button id="setUserNameButton">設定/更新名稱</button>
+            <p>目前資料識別碼: <span id="currentUserId">載入中...</span> (此ID用於區分不同使用者的記錄)</p>
+            <p>你的顯示名稱: <span id="currentUserDisplayName"> 未設定</span></p>
+        </div>
+
+        <div class="tabs">
+            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">今日甦醒位置</button>
+            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">過去甦醒軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人甦醒地圖</button>
+        </div>
+
+        <div id="ClockTab" class="tab-content active">
+            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+            <button id="findCityButton" disabled>開始這一天</button>
+            
+            <div id="result">
+                <p id="resultText"></p>
+                <div id="flagContainer"> 
+                    <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
+                </div>
+                <div id="mapContainer"> </div>
+                <small id="debugInfo"></small>
+            </div>
+        </div>
+
+        <div id="HistoryTab" class="tab-content">
+            <h2>你的每日起床地圖軌跡</h2>
+            <p>記錄關於你每日於地球上的哪一個角落起床。</p>
+            <button id="refreshHistoryButton">刷新記錄</button>
+            <ul id="historyList"></ul>
+            <div id="historyMapContainer"> <p>地圖軌跡功能已移除。</p>
+            </div>
+            <small id="historyDebugInfo"></small>
+        </div>
+
+        <div id="historyLogModal" class="modal" style="display:none;"> <div class="modal-dialog">                                   <div class="modal-content-wrapper">                        <div class="modal-header">
+            <h2 id="modalTitle">甦醒日誌詳情</h2>               <span id="historyLogModalClose" class="modal-close-button">&times;</span> </div>
+            <div id="historyLogModalContent" class="modal-body">
+                </div>
+            <div class="modal-footer">
+                <button id="closeModalFooterButton" class="modal-button-secondary">關閉</button> </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="GlobalTodayMapTab" class="tab-content">
+            <h2>今日眾人甦醒地圖</h2>
+            <p>看看今天大家都在地球的哪些角落開啟新的一天！</p>
+            <div class="date-picker-container">
+                <label for="globalDate">選擇日期:</label>
+                <input type="date" id="globalDate">
+                <button id="refreshGlobalMapButton">查詢地圖</button>
+            </div>
+            <div id="globalTodayMapContainer">
+                </div>
+            <small id="globalTodayDebugInfo"></small>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; 
+
+        window.firebaseSDK = {
+            initializeApp,
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
+            setLogLevel
+        };
+    </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="script06.js"></script>
+</body>
+</html>
