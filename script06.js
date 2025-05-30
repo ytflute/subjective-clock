@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
-    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
+    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory02 for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
-        const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
+        const response = await fetch('/api/generateStory02', { // 呼叫您 Vercel 部署的 API 路徑
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!response.ok) {
             // 如果 API 返回 HTTP 錯誤狀態 (例如 4xx, 5xx)
             const errorData = await response.json().catch(() => ({ error: "無法解析 API 錯誤回應" })); // 嘗試解析錯誤詳情
-            console.error(`API Error from /api/generateStory: ${response.status} ${response.statusText}`, errorData);
+            console.error(`API Error from /api/generateStory02: ${response.status} ${response.statusText}`, errorData);
             // 返回一個包含錯誤訊息的物件，讓調用者可以處理
             return {
                 greeting: `(系統提示：問候語獲取失敗 - ${response.status})`,
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
     } catch (error) {
-        console.error("Error calling /api/generateStory from frontend:", error);
+        console.error("Error calling /api/generateStory02 from frontend:", error);
         // 網路錯誤或其他前端 fetch 相關的錯誤
         return {
             greeting: "(系統提示：網路錯誤，無法獲取問候語)",
@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // 生成早餐圖片
             try {
-                const imageResponse = await fetch('/api/generateImage', {
+                const imageResponse = await fetch('/api/generateImage02', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -735,7 +735,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 生成早餐圖片
         try {
-            const imageResponse = await fetch('/api/generateImage', {
+            const imageResponse = await fetch('/api/generateImage02', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -1075,7 +1075,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             buttonElement.textContent = '生成中...';
             postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
 
-            const response = await fetch('/api/generateImage', {
+            const response = await fetch('/api/generateImage02', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
