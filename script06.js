@@ -457,6 +457,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         mapContainerDiv.innerHTML = "";
         mapContainerDiv.classList.remove('universe-message');
         debugInfoSmall.innerHTML = "";
+
+        // 清除所有已存在的早餐圖片容器
+        const existingBreakfastContainers = document.querySelectorAll('#breakfastImageContainer');
+        existingBreakfastContainers.forEach(container => container.remove());
     }
 
     async function findMatchingCity() {
