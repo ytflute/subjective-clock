@@ -847,15 +847,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // 使用使用者的本地日期，而不是匹配城市的日期
+        // 使用使用者的本地日期
         const userLocalDate = new Date();
         const userLocalDateString = userLocalDate.toISOString().split('T')[0];
+
+        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}`);
+        console.log(`[saveToGlobalDailyRecord] 原始記錄日期: ${recordData.recordedDateString}`);
 
         const globalRecord = {
             dataIdentifier: recordData.dataIdentifier,
             userDisplayName: recordData.userDisplayName,
             recordedAt: recordData.recordedAt,
-            recordedDateString: userLocalDateString,  // 使用使用者的本地日期
+            recordedDateString: userLocalDateString,  // 使用使用者的本地日期，而不是匹配城市的日期
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
@@ -863,19 +866,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             country_iso_code: recordData.country_iso_code,
             latitude: recordData.latitude,
             longitude: recordData.longitude,
-            // 全域記錄通常不需要儲存個人化的問候或故事，但如果需要也可以加入
-            // greeting: recordData.greeting,
-            // story: recordData.story
+            timezone: recordData.timezone || "Unknown"
         };
-
-        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}, 原始記錄日期: ${recordData.recordedDateString}`);
 
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
-            console.log("全域每日記錄已儲存，文件 ID:", docRef.id);
+            console.log(`[saveToGlobalDailyRecord] 全域每日記錄已儲存，文件 ID: ${docRef.id}`);
         } catch (e) {
-            console.error("儲存全域每日記錄到 Firestore 失敗:", e);
+            console.error("[saveToGlobalDailyRecord] 儲存全域每日記錄到 Firestore 失敗:", e);
         }
     }
 
@@ -1381,23 +1380,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        console.log(`[loadGlobalTodayMap] 開始載入日期 ${selectedDateValue} 的全域地圖`);
+
         if (!globalLeafletMap) globalTodayMapContainerDiv.innerHTML = '<p>載入今日眾人地圖中...</p>';
         else if (globalMarkerLayerGroup) globalMarkerLayerGroup.clearLayers();
 
         globalTodayDebugInfoSmall.textContent = `查詢日期: ${selectedDateValue}`;
-        console.log(`[loadGlobalTodayMap] 查詢日期: ${selectedDateValue}`);
 
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         const q = query(globalCollectionRef, where("recordedDateString", "==", selectedDateValue));
 
         try {
             const querySnapshot = await getDocs(q);
-            console.log(`[loadGlobalTodayMap] Firestore 查詢完成。找到 ${querySnapshot.size} 筆記錄。`);
+            console.log(`[loadGlobalTodayMap] 查詢完成，找到 ${querySnapshot.size} 筆記錄`);
             const globalPoints = [];
 
             if (!querySnapshot.empty) {
                 querySnapshot.forEach((doc) => {
                     const record = doc.data();
+                    console.log(`[loadGlobalTodayMap] 處理記錄:`, record);
+
                     if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                         typeof record.longitude === 'number' && isFinite(record.longitude)) {
 
@@ -1411,14 +1413,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                             title: `${userDisplay} @ ${cityDisplay}, ${countryDisplay}`
                         });
                     } else {
-                        console.warn("跳過全域記錄中經緯度無效的點 (或宇宙記錄):", record);
+                        console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
                     }
                 });
             }
+
+            console.log(`[loadGlobalTodayMap] 準備渲染 ${globalPoints.length} 個點位`);
             renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`, 'global');
 
         } catch (e) {
-            console.error("讀取全域每日記錄失敗:", e);
+            console.error("[loadGlobalTodayMap] 讀取全域每日記錄失敗:", e);
             globalTodayMapContainerDiv.innerHTML = '<p>讀取全域地圖資料失敗。</p>';
             globalTodayDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
