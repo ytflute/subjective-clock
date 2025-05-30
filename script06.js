@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const timeDiff = Math.abs(cityLocalTime - targetHour);
             const adjustedTimeDiff = Math.min(timeDiff, 24 - timeDiff);
             
-            if (adjustedTimeDiff <= 0.5) { // 0.5 小時 = 30 分鐘
+            if (adjustedTimeDiff <= 1.0) { // 1.0 小時 = 60 分鐘
                 candidateCities.push({
                     ...city,
                     timeDiff: adjustedTimeDiff,
@@ -610,20 +610,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             breakfastContainer.id = 'breakfastImageContainer';
             breakfastContainer.style.marginTop = '20px';
             breakfastContainer.style.textAlign = 'center';
-            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備宇宙早餐......</i></p>';
+            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
             
             // 將早餐圖片容器插入到地圖和 debugInfo 之間
             debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
             debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
-            // 生成早餐圖片
+            // 生成早餐圖片，使用特殊的宇宙主題提示
             try {
                 const imageResponse = await fetch('/api/generateImage02', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
                         city: "未知星球",
-                        country: "宇宙"
+                        country: "宇宙",
+                        isUniverseTheme: true  // 只需要傳遞這個標記，讓後端決定使用哪個 prompt
                     })
                 });
 
@@ -634,7 +635,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
                             <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
-                            <p style="font-size: 0.9em; color: #555;"><em>今日的宇宙早餐</em></p>
+                            <p style="font-size: 0.9em; color: #555;"><em>今日的星際早餐</em></p>
                         </div>
                     `;
 
@@ -656,14 +657,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                         greeting: greetingFromAPI,
                         story: storyFromAPI,
                         imageUrl: imageData.imageUrl,
-                        timezone: "Cosmic/Unknown"
+                        timezone: "Cosmic/Unknown",
+                        isUniverseTheme: true
                     };
                     await saveHistoryRecord(universeRecord);
                     await saveToGlobalDailyRecord(universeRecord);
                 }
             } catch (error) {
                 console.error("生成早餐圖片失敗:", error);
-                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
+                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成星際早餐圖片時發生錯誤：${error.message}</p>`;
             }
 
             console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
