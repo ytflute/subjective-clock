@@ -187,22 +187,45 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    function generateSafeId(originalName) {
+        // 生成一個基於時間戳的唯一識別碼
+        const timestamp = new Date().getTime();
+        // 如果原始名稱含有英文或數字，將其保留
+        const safeChars = originalName.replace(/[^a-zA-Z0-9]/g, '');
+        // 如果沒有英文或數字，使用 'user' 作為前綴
+        const prefix = safeChars.length > 0 ? safeChars : 'user';
+        // 組合成最終的識別碼
+        return `${prefix}_${timestamp}`;
+    }
+
     function sanitizeNameToFirestoreId(name) {
         if (!name || typeof name !== 'string') return null;
+        
+        // 檢查名稱是否只包含空白字符
+        if (!name.trim()) return null;
+        
+        // 如果名稱中包含中文字符，生成一個唯一的安全 ID
+        if (/[\u4e00-\u9fa5]/.test(name)) {
+            return generateSafeId(name);
+        }
+        
+        // 對於非中文名稱，保持原有的處理邏輯
         let sanitized = name.toLowerCase().trim();
         sanitized = sanitized.replace(/\s+/g, '_');
         sanitized = sanitized.replace(/[^a-z0-9_.-]/g, '');
+        
         if (sanitized === "." || sanitized === "..") {
             sanitized = `name_${sanitized.replace(/\./g, '')}`;
         }
         if (sanitized.startsWith("__") && sanitized.endsWith("__") && sanitized.length > 4) {
-             sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
+            sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
         } else if (sanitized.startsWith("__")) {
-             sanitized = `name${sanitized.substring(2)}`;
+            sanitized = `name${sanitized.substring(2)}`;
         } else if (sanitized.endsWith("__")) {
-             sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
+            sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
         }
-        return sanitized.substring(0, 100) || null;
+        
+        return sanitized.substring(0, 100) || generateSafeId(name);
     }
 
     async function setOrLoadUserName(name, showAlert = true) {
@@ -214,18 +237,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         const sanitizedName = sanitizeNameToFirestoreId(newDisplayNameRaw);
         if (!sanitizedName) {
-            if (showAlert) alert("處理後的名稱無效（可能包含不允許的字元或過短），請嘗試其他名稱。");
+            if (showAlert) alert("處理後的名稱無效（可能為空或過短），請嘗試其他名稱。");
             return false;
         }
 
         currentDataIdentifier = sanitizedName;
-        rawUserDisplayName = newDisplayNameRaw;
-        currentUserIdSpan.textContent = currentDataIdentifier;
-        currentUserDisplayNameSpan.textContent = rawUserDisplayName;
+        rawUserDisplayName = newDisplayNameRaw;  // 保存原始名稱，包含中文
+        currentUserIdSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
+        currentUserDisplayNameSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
         userNameInput.value = rawUserDisplayName;
         localStorage.setItem('worldClockUserName', rawUserDisplayName);
 
         console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
+        console.log("[setOrLoadUserName] 顯示名稱設定為:", rawUserDisplayName);
         if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
 
         if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) {
