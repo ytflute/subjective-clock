@@ -188,14 +188,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     function generateSafeId(originalName) {
-        // 生成一個基於時間戳的唯一識別碼
-        const timestamp = new Date().getTime();
+        // 對中文名稱進行 MD5 雜湊（使用簡單的字串轉換方式模擬）
+        let hash = 0;
+        for (let i = 0; i < originalName.length; i++) {
+            const char = originalName.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32-bit integer
+        }
+        // 確保 hash 是正數
+        hash = Math.abs(hash);
+        
         // 如果原始名稱含有英文或數字，將其保留
         const safeChars = originalName.replace(/[^a-zA-Z0-9]/g, '');
         // 如果沒有英文或數字，使用 'user' 作為前綴
         const prefix = safeChars.length > 0 ? safeChars : 'user';
-        // 組合成最終的識別碼
-        return `${prefix}_${timestamp}`;
+        // 使用雜湊值而不是時間戳
+        return `${prefix}_${hash}`;
     }
 
     function sanitizeNameToFirestoreId(name) {
@@ -204,7 +212,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 檢查名稱是否只包含空白字符
         if (!name.trim()) return null;
         
-        // 如果名稱中包含中文字符，生成一個唯一的安全 ID
+        // 如果名稱中包含中文字符，使用雜湊函數生成固定的識別碼
         if (/[\u4e00-\u9fa5]/.test(name)) {
             return generateSafeId(name);
         }
@@ -218,11 +226,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             sanitized = `name_${sanitized.replace(/\./g, '')}`;
         }
         if (sanitized.startsWith("__") && sanitized.endsWith("__") && sanitized.length > 4) {
-            sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
+             sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
         } else if (sanitized.startsWith("__")) {
-            sanitized = `name${sanitized.substring(2)}`;
+             sanitized = `name${sanitized.substring(2)}`;
         } else if (sanitized.endsWith("__")) {
-            sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
+             sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
         }
         
         return sanitized.substring(0, 100) || generateSafeId(name);
