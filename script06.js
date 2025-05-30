@@ -877,6 +877,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             // 收集所有有效的歷史記錄點
+            const markerMap = new Map(); // 用於存儲標記的引用
+            
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
                 const docId = doc.id;
@@ -890,24 +892,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 甦醒於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 
                 const detailsButton = document.createElement('button');
-                detailsButton.textContent = '吃早餐';
+                detailsButton.textContent = '查看日誌';
                 detailsButton.className = 'history-log-button';
                 detailsButton.onclick = () => showHistoryLogModal(record);
                 li.appendChild(detailsButton);
 
-                historyListUl.appendChild(li);
-
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                    
+                    // 為列表項添加懸停效果的類
+                    li.classList.add('hoverable-history-item');
+                    
+                    // 存儲對應的座標信息，用於後續與地圖標記關聯
+                    li.dataset.lat = record.latitude;
+                    li.dataset.lon = record.longitude;
+                    li.dataset.timestamp = record.recordedAt.toMillis();
+
                     historyPoints.push({
                         lat: record.latitude,
                         lon: record.longitude,
                         title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}`,
-                        timestamp: record.recordedAt.toMillis() // 添加時間戳以便排序
+                        timestamp: record.recordedAt.toMillis(),
+                        listItem: li // 保存對列表項的引用
                     });
-                } else if (record.city !== "Unknown Planet" && record.city_zh !== "未知星球") {
-                    console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
                 }
+
+                historyListUl.appendChild(li);
             });
 
             // 按時間順序排序點位（從舊到新）
@@ -947,10 +957,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                     // 添加標記
                     const marker = L.circleMarker([point.lat, point.lon], {
                         color: '#3388ff',
-                        fillColor: index === historyPoints.length - 1 ? '#ff4444' : '#3388ff', // 最新的點用紅色
+                        fillColor: index === historyPoints.length - 1 ? '#ff4444' : '#3388ff',
                         fillOpacity: 0.8,
-                        radius: index === historyPoints.length - 1 ? 8 : 6 // 最新的點稍大
+                        radius: index === historyPoints.length - 1 ? 8 : 6
                     }).addTo(historyMarkerLayerGroup);
+
+                    // 保存標記引用到 markerMap
+                    markerMap.set(point.timestamp.toString(), {
+                        marker: marker,
+                        originalRadius: index === historyPoints.length - 1 ? 8 : 6
+                    });
                     
                     // 添加序號和標題
                     marker.bindTooltip(`#${index + 1}: ${point.title}`, {
@@ -972,11 +988,79 @@ document.addEventListener('DOMContentLoaded', async () => {
                             color: '#3388ff',
                             weight: 2,
                             opacity: 0.6,
-                            dashArray: '5, 10' // 虛線效果
+                            dashArray: '5, 10'
                         }).addTo(historyMarkerLayerGroup);
 
                         // 在線段70%處添加箭頭
                         L.circleMarker(arrowLatLng, arrowHead).addTo(historyMarkerLayerGroup);
+                    }
+
+                    // 為對應的列表項添加滑鼠事件
+                    if (point.listItem) {
+                        const highlightMarker = () => {
+                            const markerInfo = markerMap.get(point.timestamp.toString());
+                            if (markerInfo) {
+                                markerInfo.marker.setRadius(markerInfo.originalRadius * 1.5);
+                                markerInfo.marker.setStyle({
+                                    weight: 3,
+                                    fillOpacity: 1
+                                });
+                            }
+                            point.listItem.classList.add('active');
+                        };
+
+                        const resetMarker = () => {
+                            const markerInfo = markerMap.get(point.timestamp.toString());
+                            if (markerInfo) {
+                                markerInfo.marker.setRadius(markerInfo.originalRadius);
+                                markerInfo.marker.setStyle({
+                                    weight: 2,
+                                    fillOpacity: 0.8
+                                });
+                            }
+                            point.listItem.classList.remove('active');
+                        };
+
+                        // 滑鼠事件
+                        point.listItem.addEventListener('mouseenter', highlightMarker);
+                        point.listItem.addEventListener('mouseleave', resetMarker);
+
+                        // 觸控事件
+                        let touchTimeout;
+                        point.listItem.addEventListener('touchstart', (e) => {
+                            // 防止觸發滾動
+                            e.preventDefault();
+                            
+                            // 重置所有其他項目的狀態
+                            historyPoints.forEach(p => {
+                                if (p.listItem && p !== point) {
+                                    const otherMarkerInfo = markerMap.get(p.timestamp.toString());
+                                    if (otherMarkerInfo) {
+                                        otherMarkerInfo.marker.setRadius(otherMarkerInfo.originalRadius);
+                                        otherMarkerInfo.marker.setStyle({
+                                            weight: 2,
+                                            fillOpacity: 0.8
+                                        });
+                                    }
+                                    p.listItem.classList.remove('active');
+                                }
+                            });
+
+                            // 高亮當前項目
+                            highlightMarker();
+
+                            // 設置一個計時器，在一段時間後自動取消高亮
+                            clearTimeout(touchTimeout);
+                            touchTimeout = setTimeout(() => {
+                                resetMarker();
+                            }, 3000); // 3秒後自動取消高亮
+                        });
+
+                        // 確保在滾動時取消高亮
+                        historyListUl.addEventListener('scroll', () => {
+                            clearTimeout(touchTimeout);
+                            resetMarker();
+                        });
                     }
                 });
 
@@ -1434,5 +1518,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
     }
+
+    // 添加 CSS 樣式
+    const style = document.createElement('style');
+    style.textContent = `
+        .hoverable-history-item {
+            transition: background-color 0.3s ease;
+            padding: 5px;
+            border-radius: 4px;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hoverable-history-item:hover,
+        .hoverable-history-item.active {
+            background-color: rgba(51, 136, 255, 0.1);
+            cursor: pointer;
+        }
+        @media (hover: none) {
+            .hoverable-history-item:hover {
+                background-color: transparent;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 
 });
