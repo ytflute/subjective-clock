@@ -5,12 +5,22 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-// 生成圖片的 prompt
-function generateImagePrompt(city, country) {
+// 生成一般早餐圖片的 prompt
+function generateBreakfastPrompt(city, country) {
   return `Top view of a traditional local breakfast commonly eaten in ${city}, ${country}. 
           The food is presented on a clean table setting, with realistic textures and lighting, 
           showcasing the variety of dishes, ingredients, and beverages typical of the region. 
           No people, only food. Styled like a professional food photography shot.`.trim().replace(/\s+/g, ' ');
+}
+
+// 生成宇宙主題早餐圖片的 prompt
+function generateUniverseBreakfastPrompt() {
+  return `Top view of a creative and surreal cosmic breakfast scene from an alien civilization. 
+          The food items appear otherworldly yet appetizing, with bioluminescent elements 
+          and strange geometric shapes. The scene includes exotic alien fruits and beverages 
+          that glow with ethereal light. The setting suggests a space station or alien planet 
+          with a view of stars or nebulae in the background. Styled like a professional sci-fi 
+          concept art with a focus on food photography shot.`.trim().replace(/\s+/g, ' ');
 }
 
 export default async function handler(req, res) {
@@ -19,14 +29,21 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: `方法 ${req.method} 不被允許。請使用 POST。` });
   }
 
-  const { prompt, city, country } = req.body;
+  const { prompt, city, country, isUniverseTheme } = req.body;
 
-  // 如果沒有提供 prompt，但有提供 city 和 country，則生成 prompt
-  const finalPrompt = prompt || (city && country ? generateImagePrompt(city, country) : null);
+  // 根據參數決定使用哪個 prompt
+  let finalPrompt = prompt;
+  if (!finalPrompt) {
+    if (isUniverseTheme) {
+      finalPrompt = generateUniverseBreakfastPrompt();
+    } else if (city && country) {
+      finalPrompt = generateBreakfastPrompt(city, country);
+    }
+  }
 
   if (!finalPrompt) {
     return res.status(400).json({ 
-      error: '需要提供 prompt 或者 city 和 country 參數。' 
+      error: '需要提供 prompt 或者 city 和 country 參數，或指定 isUniverseTheme。' 
     });
   }
 
