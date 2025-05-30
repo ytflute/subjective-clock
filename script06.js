@@ -530,30 +530,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 計算時差（考慮跨日的情況）
         let hourDiff = targetHour - userUTCTime;
         
-        // 如果時差大於 12 小時，表示應該往前一天找
-        if (hourDiff > 12) {
+        // 調整時差到 -12 到 12 的範圍內
+        while (hourDiff > 12) {
             hourDiff -= 24;
         }
-        // 如果時差小於 -12 小時，表示應該往後一天找
-        else if (hourDiff < -12) {
+        while (hourDiff < -12) {
             hourDiff += 24;
         }
 
         // 目標 UTC 偏移就是這個時差
         const targetUTCOffsetHours = hourDiff;
 
+        console.log(`用戶當前本地時間: ${userLocalDate.toLocaleTimeString()}`);
         console.log(`用戶當前 UTC 時間: ${userUTCTime.toFixed(2)}`);
         console.log(`目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)} (尋找當地時間接近 ${targetHour}:00 的地方)`);
-
-        // 為了記錄用，我們仍然需要用戶的本地日期
-        const year = userLocalDate.getFullYear();
-        const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0');
-        const day = userLocalDate.getDate().toString().padStart(2, '0');
-        const localDateStringForRecord = `${year}-${month}-${day}`;
-        const userTimeFormatted = userLocalDate.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false });
-
-        console.log(`用戶本地時間: ${userTimeFormatted}`);
-        console.log(`用戶本地日期字串 (將用於記錄): ${localDateStringForRecord}`);
 
         let candidateCities = [];
         for (const city of citiesData) {
@@ -585,8 +575,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (adjustedTimeDiff <= 0.5) { // 0.5 小時 = 30 分鐘
                 candidateCities.push({
                     ...city,
-                    timeDiff: adjustedTimeDiff
+                    timeDiff: adjustedTimeDiff,
+                    localTime: cityLocalTime
                 });
+                console.log(`找到候選城市: ${city.city}, 當地時間: ${cityLocalTime.toFixed(2)}, 時差: ${adjustedTimeDiff.toFixed(2)}`);
             }
         }
 
@@ -600,7 +592,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             resultTextDiv.innerHTML = `
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-                <p>今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
+                <p>今天的你，在當地 <strong>${userLocalDate.toLocaleTimeString()}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
             `;
 
@@ -650,7 +642,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         dataIdentifier: currentDataIdentifier,
                         userDisplayName: rawUserDisplayName,
                         recordedAt: serverTimestamp(),
-                        localTime: userTimeFormatted,
+                        localTime: userLocalDate.toLocaleTimeString(),
                         city: "Unknown Planet",
                         country: "Universe",
                         city_zh: "未知星球",
@@ -660,7 +652,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         longitude: null,
                         targetUTCOffset: targetUTCOffsetHours,
                         matchedCityUTCOffset: null,
-                        recordedDateString: localDateStringForRecord,
+                        recordedDateString: userLocalDate.toISOString().split('T')[0],
                         greeting: greetingFromAPI,
                         story: storyFromAPI,
                         imageUrl: imageData.imageUrl,
@@ -759,7 +751,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     dataIdentifier: currentDataIdentifier,
                     userDisplayName: rawUserDisplayName,
                     recordedAt: serverTimestamp(),
-                    localTime: userTimeFormatted,
+                    localTime: userLocalDate.toLocaleTimeString(),
                     city: bestMatchCity.city,
                     country: bestMatchCity.country,
                     city_zh: bestMatchCity.city_zh || "",
@@ -769,7 +761,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     longitude: bestMatchCity.longitude,
                     targetUTCOffset: targetUTCOffsetHours,
                     matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-                    recordedDateString: localDateStringForRecord,
+                    recordedDateString: userLocalDate.toISOString().split('T')[0],
                     greeting: greetingFromAPI,
                     story: storyFromAPI,
                     imageUrl: imageData.imageUrl,
@@ -1502,8 +1494,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
     }
 
-    window.openTab = function(evt, tabName, triggeredBySetName = false) {
-        console.log(`[openTab] 切換到分頁: ${tabName}, 事件觸發: ${!!evt}, 設定名稱觸發: ${triggeredBySetName}`);
+    window.openTab = function(evt, tabName, isInitialLoad = false) {
+        console.log(`[openTab] 切換到分頁: ${tabName}, 事件觸發: ${!!evt}, 初始載入: ${isInitialLoad}`);
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
         for (i = 0; i < tabcontent.length; i++) {
@@ -1535,7 +1527,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log("[openTab] HistoryTab is visible, invalidating map size.");
                     historyLeafletMap.invalidateSize();
                 }
-                if (currentDataIdentifier && auth.currentUser && !triggeredBySetName) {
+                if (currentDataIdentifier && auth.currentUser && !isInitialLoad) {
                     console.log("[openTab] 呼叫 loadHistory for HistoryTab.");
                     loadHistory();
                 }
@@ -1544,7 +1536,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                     globalLeafletMap.invalidateSize();
                 }
-                if (auth.currentUser && !triggeredBySetName) {
+                if (auth.currentUser && !isInitialLoad) {
                     if (globalDateInput) {
                         const today = new Date();
                         const year = today.getFullYear();
@@ -1561,10 +1553,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log("[openTab] ClockTab is visible, invalidating map size.");
                     clockLeafletMap.invalidateSize();
                 }
-                // 如果是由設定名稱觸發的，displayLastRecordForCurrentUser 已經在 setOrLoadUserName 中呼叫
-                // 如果是手動切換到 ClockTab 且已有用戶，也應該確保顯示最後記錄
-                if (currentDataIdentifier && auth.currentUser && !triggeredBySetName) {
+                if (currentDataIdentifier && auth.currentUser && !isInitialLoad && !initialLoadHandled) {
                     console.log("[openTab] 手動切換到 ClockTab，準備顯示最後記錄。");
+                    initialLoadHandled = true;
                     displayLastRecordForCurrentUser();
                 }
             }
@@ -1574,16 +1565,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始載入時，嘗試設定一個預設的使用者名稱 (如果 localStorage 中有)
     // 或者，直接觸發 ClockTab 的顯示 (如果已經有用戶名)
     const initialUserName = localStorage.getItem('worldClockUserName');
-    let initialLoadHandled = false;  // 新增一個標記來追蹤初始載入是否已處理
+    let initialLoadHandled = false;  // 添加全局變量來追蹤初始載入狀態
 
     if (initialUserName) {
         userNameInput.value = initialUserName;
-        // 等待 Firebase auth 狀態確認後再執行 setOrLoadUserName
-        // onAuthStateChanged 將處理這個邏輯
+        // 等待 auth 狀態變更處理
     } else {
-        // 如果沒有預存的用戶名，並且不是在設定用戶名時，預設打開時鐘分頁
-        // 並且確保 displayLastRecordForCurrentUser 在 auth 就緒後被調用
-         openTab(null, 'ClockTab');
+        openTab(null, 'ClockTab', true);  // 添加第三個參數表示這是初始載入
     }
     
     // 確保在首次載入時，如果 ClockTab 是預設活動的，則嘗試顯示最後記錄
