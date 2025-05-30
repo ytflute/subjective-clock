@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
-    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory02 for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
+    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
-        const response = await fetch('/api/generateStory02', { // 呼叫您 Vercel 部署的 API 路徑
+        const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!response.ok) {
             // 如果 API 返回 HTTP 錯誤狀態 (例如 4xx, 5xx)
             const errorData = await response.json().catch(() => ({ error: "無法解析 API 錯誤回應" })); // 嘗試解析錯誤詳情
-            console.error(`API Error from /api/generateStory02: ${response.status} ${response.statusText}`, errorData);
+            console.error(`API Error from /api/generateStory: ${response.status} ${response.statusText}`, errorData);
             // 返回一個包含錯誤訊息的物件，讓調用者可以處理
             return {
                 greeting: `(系統提示：問候語獲取失敗 - ${response.status})`,
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
     } catch (error) {
-        console.error("Error calling /api/generateStory02 from frontend:", error);
+        console.error("Error calling /api/generateStory from frontend:", error);
         // 網路錯誤或其他前端 fetch 相關的錯誤
         return {
             greeting: "(系統提示：網路錯誤，無法獲取問候語)",
@@ -282,9 +282,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const finalCityName = lastRecord.city_zh && lastRecord.city_zh !== lastRecord.city ? `${lastRecord.city_zh} (${lastRecord.city})` : lastRecord.city;
                 const finalCountryName = lastRecord.country_zh && lastRecord.country_zh !== lastRecord.country ? `${lastRecord.country_zh} (${lastRecord.country})` : lastRecord.country;
 
-                // **修改：顯示問候語和故事**
-                const greetingText = lastRecord.greeting || ""; // 從記錄中獲取問候語
-                const storyText = lastRecord.story || "上次甦醒時的特別記事未記錄。"; // 從記錄中獲取故事
+                const greetingText = lastRecord.greeting || ""; 
+                const storyText = lastRecord.story || "上次甦醒時的特別記事未記錄。";
 
                 let mainMessage = "";
                 if (lastRecord.country === "Universe" || (lastRecord.country_zh === "宇宙" && lastRecord.city_zh === "未知星球")) {
@@ -297,7 +296,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     <p>${mainMessage}</p>
                     <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyText}</p>
                 `;
-
 
                 if (lastRecord.country_iso_code && lastRecord.country_iso_code !== 'universe_code') {
                     countryFlagImg.src = `https://flagcdn.com/w40/${lastRecord.country_iso_code.toLowerCase()}.png`;
@@ -330,6 +328,26 @@ document.addEventListener('DOMContentLoaded', async () => {
                 } else {
                     mapContainerDiv.innerHTML = "<p>無法顯示地圖，此記錄座標資訊不完整或無效。</p>";
                 }
+
+                // 添加早餐圖片顯示區域
+                const breakfastContainer = document.createElement('div');
+                breakfastContainer.id = 'breakfastImageContainer';
+                breakfastContainer.style.marginTop = '20px';
+                breakfastContainer.style.textAlign = 'center';
+
+                if (lastRecord.imageUrl) {
+                    breakfastContainer.innerHTML = `
+                        <div class="postcard-image-container">
+                            <img src="${lastRecord.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;">
+                            <p style="font-size: 0.9em; color: #555;"><em>${finalCityName}的早餐</em></p>
+                        </div>
+                    `;
+                } else {
+                    breakfastContainer.innerHTML = '<p style="color: #999;"><em>此記錄沒有早餐圖片。</em></p>';
+                }
+
+                // 將早餐圖片容器插入到地圖和 debugInfo 之間
+                debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
 
                 const recordedAtDate = lastRecord.recordedAt && lastRecord.recordedAt.toDate ? lastRecord.recordedAt.toDate().toLocaleString('zh-TW') : '未知記錄時間';
                 const targetUTCOffsetStr = (typeof lastRecord.targetUTCOffset === 'number' && isFinite(lastRecord.targetUTCOffset)) ? lastRecord.targetUTCOffset.toFixed(2) : 'N/A';
@@ -521,9 +539,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
                 <p>今天的你，在當地 <strong>${userTimeFormatted}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
-                <div id="breakfastImageContainer" style="margin-top: 20px; text-align: center;">
-                    <p style="color: #007bff;"><i>正在為你準備宇宙早餐......</i></p>
-                </div>
             `;
 
             if (clockLeafletMap) {
@@ -534,11 +549,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             mapContainerDiv.classList.add('universe-message');
             mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
             countryFlagImg.style.display = 'none';
+
+            // 創建早餐圖片容器
+            const breakfastContainer = document.createElement('div');
+            breakfastContainer.id = 'breakfastImageContainer';
+            breakfastContainer.style.marginTop = '20px';
+            breakfastContainer.style.textAlign = 'center';
+            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備宇宙早餐......</i></p>';
+            
+            // 將早餐圖片容器插入到地圖和 debugInfo 之間
+            debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
             debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
             // 生成早餐圖片
             try {
-                const imageResponse = await fetch('/api/generateImage02', {
+                const imageResponse = await fetch('/api/generateImage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -551,7 +576,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const imageData = await imageResponse.json();
 
                 if (imageData.imageUrl) {
-                    const breakfastContainer = document.getElementById('breakfastImageContainer');
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
                             <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
@@ -584,7 +608,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             } catch (error) {
                 console.error("生成早餐圖片失敗:", error);
-                const breakfastContainer = document.getElementById('breakfastImageContainer');
                 breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
             }
 
@@ -616,9 +639,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
                 <p>今天的你是<strong>${finalCityName} (${finalCountryName})</strong>人！</p>
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
-                <div id="breakfastImageContainer" style="margin-top: 20px; text-align: center;">
-                    <p style="color: #007bff;"><i>正在為你準備當地早餐......</i></p>
-                </div>
             `;
 
             if (bestMatchCity.country_iso_code) {
@@ -655,11 +675,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             const debugTargetOffset = typeof targetUTCOffsetHours === 'number' && isFinite(targetUTCOffsetHours) ? targetUTCOffsetHours.toFixed(2) : 'N/A';
             const debugActualOffset = !isFinite(cityActualUTCOffset) ? 'N/A' : cityActualUTCOffset.toFixed(2);
 
+            // 創建早餐圖片容器
+            const breakfastContainer = document.createElement('div');
+            breakfastContainer.id = 'breakfastImageContainer';
+            breakfastContainer.style.marginTop = '20px';
+            breakfastContainer.style.textAlign = 'center';
+            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備當地早餐......</i></p>';
+            
+            // 將早餐圖片容器插入到地圖和 debugInfo 之間
+            debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
             debugInfoSmall.innerHTML = `(目標城市緯度: ${debugLat}°, 計算目標緯度: ${debugTargetLat}°, 緯度差: ${debugMinLatDiff}°)<br>(目標 UTC 偏移: ${debugTargetOffset}, 城市實際 UTC 偏移: ${debugActualOffset}, 時區: ${bestMatchCity.timezone})`;
 
             // 生成早餐圖片
             try {
-                const imageResponse = await fetch('/api/generateImage02', {
+                const imageResponse = await fetch('/api/generateImage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -672,7 +701,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const imageData = await imageResponse.json();
 
                 if (imageData.imageUrl) {
-                    const breakfastContainer = document.getElementById('breakfastImageContainer');
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
                             <img src="${imageData.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;">
@@ -705,7 +733,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             } catch (error) {
                 console.error("生成早餐圖片失敗:", error);
-                const breakfastContainer = document.getElementById('breakfastImageContainer');
                 breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
             }
 
@@ -913,7 +940,7 @@ async function generatePostcard(record, buttonElement) {
         buttonElement.textContent = '生成中...';
         postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
 
-        const response = await fetch('/api/generateImage02', {
+        const response = await fetch('/api/generateImage', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
