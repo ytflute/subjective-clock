@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
-    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory02 for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
+    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
-        const response = await fetch('/api/generateStory02', { // 呼叫您 Vercel 部署的 API 路徑
+        const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!response.ok) {
             // 如果 API 返回 HTTP 錯誤狀態 (例如 4xx, 5xx)
             const errorData = await response.json().catch(() => ({ error: "無法解析 API 錯誤回應" })); // 嘗試解析錯誤詳情
-            console.error(`API Error from /api/generateStory02: ${response.status} ${response.statusText}`, errorData);
+            console.error(`API Error from /api/generateStory: ${response.status} ${response.statusText}`, errorData);
             // 返回一個包含錯誤訊息的物件，讓調用者可以處理
             return {
                 greeting: `(系統提示：問候語獲取失敗 - ${response.status})`,
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
     } catch (error) {
-        console.error("Error calling /api/generateStory02 from frontend:", error);
+        console.error("Error calling /api/generateStory from frontend:", error);
         // 網路錯誤或其他前端 fetch 相關的錯誤
         return {
             greeting: "(系統提示：網路錯誤，無法獲取問候語)",
@@ -626,7 +626,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // 生成早餐圖片
             try {
-                const imageResponse = await fetch('/api/generateImage02', {
+                const imageResponse = await fetch('/api/generateImage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -735,7 +735,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 生成早餐圖片
         try {
-            const imageResponse = await fetch('/api/generateImage02', {
+            const imageResponse = await fetch('/api/generateImage', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -876,23 +876,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
+            // 收集所有有效的歷史記錄點
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
-                const docId = doc.id; // 獲取文件ID，以便將來可能使用
-                const li = document.createElement('li');
+                const docId = doc.id;
                 const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
 
                 const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
                 const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
 
+                const li = document.createElement('li');
                 li.innerHTML = `<span class="date">${recordDate}</span> -  
                                 甦醒於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
                 
-                // **新增：查看日誌按鈕**
                 const detailsButton = document.createElement('button');
-                detailsButton.textContent = '查看日誌';
+                detailsButton.textContent = '吃早餐';
                 detailsButton.className = 'history-log-button';
-                detailsButton.onclick = () => showHistoryLogModal(record); // 傳遞整個 record 對象
+                detailsButton.onclick = () => showHistoryLogModal(record);
                 li.appendChild(detailsButton);
 
                 historyListUl.appendChild(li);
@@ -902,13 +902,95 @@ document.addEventListener('DOMContentLoaded', async () => {
                     historyPoints.push({
                         lat: record.latitude,
                         lon: record.longitude,
-                        title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}`
+                        title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}`,
+                        timestamp: record.recordedAt.toMillis() // 添加時間戳以便排序
                     });
                 } else if (record.city !== "Unknown Planet" && record.city_zh !== "未知星球") {
                     console.warn("跳過個人歷史記錄中經緯度無效的點:", record);
                 }
             });
-            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
+
+            // 按時間順序排序點位（從舊到新）
+            historyPoints.sort((a, b) => a.timestamp - b.timestamp);
+
+            // 渲染地圖
+            if (historyLeafletMap) {
+                historyLeafletMap.remove();
+                historyLeafletMap = null;
+            }
+            historyMapContainerDiv.innerHTML = '';
+
+            if (historyPoints.length > 0) {
+                // 初始化地圖
+                historyLeafletMap = L.map(historyMapContainerDiv);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                }).addTo(historyLeafletMap);
+
+                // 創建一個新的圖層組
+                historyMarkerLayerGroup = L.layerGroup().addTo(historyLeafletMap);
+
+                // 添加箭頭樣式的定義
+                const arrowHead = {
+                    color: '#3388ff',
+                    fillColor: '#3388ff',
+                    fillOpacity: 0.8,
+                    weight: 2,
+                    opacity: 0.8,
+                    radius: 6
+                };
+
+                // 為每個點添加標記
+                historyPoints.forEach((point, index) => {
+                    // 添加標記
+                    const marker = L.circleMarker([point.lat, point.lon], {
+                        color: '#3388ff',
+                        fillColor: index === historyPoints.length - 1 ? '#ff4444' : '#3388ff', // 最新的點用紅色
+                        fillOpacity: 0.8,
+                        radius: index === historyPoints.length - 1 ? 8 : 6 // 最新的點稍大
+                    }).addTo(historyMarkerLayerGroup);
+                    
+                    // 添加序號和標題
+                    marker.bindTooltip(`#${index + 1}: ${point.title}`, {
+                        permanent: false,
+                        direction: 'top'
+                    });
+
+                    // 如果不是最後一個點，畫一條線到下一個點
+                    if (index < historyPoints.length - 1) {
+                        const nextPoint = historyPoints[index + 1];
+                        
+                        // 計算箭頭的位置（在線段的70%處）
+                        const startLatLng = L.latLng(point.lat, point.lon);
+                        const endLatLng = L.latLng(nextPoint.lat, nextPoint.lon);
+                        const arrowLatLng = interpolateLatLng(startLatLng, endLatLng, 0.7);
+
+                        // 畫主線
+                        L.polyline([[point.lat, point.lon], [nextPoint.lat, nextPoint.lon]], {
+                            color: '#3388ff',
+                            weight: 2,
+                            opacity: 0.6,
+                            dashArray: '5, 10' // 虛線效果
+                        }).addTo(historyMarkerLayerGroup);
+
+                        // 在線段70%處添加箭頭
+                        L.circleMarker(arrowLatLng, arrowHead).addTo(historyMarkerLayerGroup);
+                    }
+                });
+
+                // 調整地圖視圖以顯示所有點
+                const bounds = L.latLngBounds(historyPoints.map(p => [p.lat, p.lon]));
+                historyLeafletMap.fitBounds(bounds, {
+                    padding: [50, 50]
+                });
+
+                historyDebugInfoSmall.textContent = `已顯示 ${historyPoints.length} 個歷史位置點`;
+            } else {
+                historyMapContainerDiv.innerHTML = '<p>無有效的歷史位置記錄可顯示。</p>';
+                historyDebugInfoSmall.textContent = "無有效座標點";
+            }
         } catch (e) {
             console.error("讀取歷史記錄失敗:", e);
             historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
@@ -916,167 +998,174 @@ document.addEventListener('DOMContentLoaded', async () => {
             historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
     }
-    
-// **新增：顯示歷史日誌模態框的函數 (修正版)**
-function showHistoryLogModal(record) {
-    const modal = document.getElementById('historyLogModal');
-    const modalContent = document.getElementById('historyLogModalContent');
-    if (!modal || !modalContent) {
-        console.error("找不到模態框元素");
-        return;
+
+    // 輔助函數：在兩點之間進行插值
+    function interpolateLatLng(start, end, fraction) {
+        const lat = start.lat + (end.lat - start.lat) * fraction;
+        const lng = start.lng + (end.lng - start.lng) * fraction;
+        return L.latLng(lat, lng);
     }
 
-    const cityDisplay = formatCityName(record);
-    document.getElementById('modalTitle').textContent = `${cityDisplay || '未知地點'} - 甦醒日誌`;
+    // **新增：顯示歷史日誌模態框的函數 (修正版)**
+    function showHistoryLogModal(record) {
+        const modal = document.getElementById('historyLogModal');
+        const modalContent = document.getElementById('historyLogModalContent');
+        if (!modal || !modalContent) {
+            console.error("找不到模態框元素");
+            return;
+        }
 
-    const recordDate = formatDate(record.recordedAt);
-    modalContent.innerHTML = `
-        <div id="logBasicInfo">
-            <p><strong>記錄時間:</strong> ${recordDate}</p>
-            <p><strong>使用者當地時間:</strong> ${record.localTime || '未知'}</p>
-            <p><strong>甦醒地點:</strong> ${cityDisplay}, ${formatCountryName(record)}</p>
-            <p style="margin-top:15px;"><strong>當時的問候:</strong></p>
-            <p style="font-weight: bold; font-style: italic; color: #2c3e50;">${record.greeting || '此記錄無問候語。'}</p>
-            <p style="margin-top:15px;"><strong>相關小知識/記事:</strong></p>
-            <p style="font-style: italic; color: #34495e; white-space: pre-wrap;">${record.story || '此記錄無相關記事。'}</p>
-            ${record.imageUrl ? `
-                <p style="margin-top:15px;"><strong>當日早餐:</strong></p>
-                <div class="postcard-image-container">
-                    <img src="${record.imageUrl}" alt="${cityDisplay}的早餐" style="max-width: 100%; border-radius: 8px;">
-                    <p style="font-size: 0.9em; color: #555;"><em>${cityDisplay}的早餐</em></p>
-                </div>
-            ` : '<p style="color: #999; margin-top: 15px;"><em>此記錄沒有早餐圖片。</em></p>'}
-            <hr style="margin: 20px 0;">
-            <p><small>時區: ${record.timezone || '未知'}, 國家代碼: ${record.country_iso_code || 'N/A'}</small></p>
-            <p><small>座標: Lat ${record.latitude?.toFixed(4) || 'N/A'}, Lon ${record.longitude?.toFixed(4) || 'N/A'}</small></p>
-        </div>
-    `;
+        const cityDisplay = formatCityName(record);
+        document.getElementById('modalTitle').textContent = `${cityDisplay || '未知地點'} - 甦醒日誌`;
 
-    modal.style.display = 'block';
-    setupModalClose(modal, modalContent);
-}
+        const recordDate = formatDate(record.recordedAt);
+        modalContent.innerHTML = `
+            <div id="logBasicInfo">
+                <p><strong>記錄時間:</strong> ${recordDate}</p>
+                <p><strong>使用者當地時間:</strong> ${record.localTime || '未知'}</p>
+                <p><strong>甦醒地點:</strong> ${cityDisplay}, ${formatCountryName(record)}</p>
+                <p style="margin-top:15px;"><strong>當時的問候:</strong></p>
+                <p style="font-weight: bold; font-style: italic; color: #2c3e50;">${record.greeting || '此記錄無問候語。'}</p>
+                <p style="margin-top:15px;"><strong>相關小知識/記事:</strong></p>
+                <p style="font-style: italic; color: #34495e; white-space: pre-wrap;">${record.story || '此記錄無相關記事。'}</p>
+                ${record.imageUrl ? `
+                    <p style="margin-top:15px;"><strong>當日早餐:</strong></p>
+                    <div class="postcard-image-container">
+                        <img src="${record.imageUrl}" alt="${cityDisplay}的早餐" style="max-width: 100%; border-radius: 8px;">
+                        <p style="font-size: 0.9em; color: #555;"><em>${cityDisplay}的早餐</em></p>
+                    </div>
+                ` : '<p style="color: #999; margin-top: 15px;"><em>此記錄沒有早餐圖片。</em></p>'}
+                <hr style="margin: 20px 0;">
+                <p><small>時區: ${record.timezone || '未知'}, 國家代碼: ${record.country_iso_code || 'N/A'}</small></p>
+                <p><small>座標: Lat ${record.latitude?.toFixed(4) || 'N/A'}, Lon ${record.longitude?.toFixed(4) || 'N/A'}</small></p>
+            </div>
+        `;
 
-function setupModalClose(modal, modalContent) {
-    const closeFunction = () => {
-        modal.style.display = 'none';
-        modalContent.innerHTML = '';
-    };
-
-    document.getElementById('historyLogModalClose').onclick = closeFunction;
-    document.getElementById('closeModalFooterButton').onclick = closeFunction;
-    window.onclick = event => event.target === modal && closeFunction();
-}
-
-async function generatePostcard(record, buttonElement) {
-    const postcardSection = document.getElementById('postcardSection');
-    if (!postcardSection) {
-        console.error("找不到明信片顯示區塊");
-        return;
+        modal.style.display = 'block';
+        setupModalClose(modal, modalContent);
     }
 
-    // 已有圖片則直接顯示
-    if (record.imageUrl) {
-        renderPostcard(record, postcardSection);
-        if (buttonElement) buttonElement.style.display = 'none';
-        return;
+    function setupModalClose(modal, modalContent) {
+        const closeFunction = () => {
+            modal.style.display = 'none';
+            modalContent.innerHTML = '';
+        };
+
+        document.getElementById('historyLogModalClose').onclick = closeFunction;
+        document.getElementById('closeModalFooterButton').onclick = closeFunction;
+        window.onclick = event => event.target === modal && closeFunction();
     }
 
-    try {
-        buttonElement.disabled = true;
-        buttonElement.textContent = '生成中...';
-        postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
+    async function generatePostcard(record, buttonElement) {
+        const postcardSection = document.getElementById('postcardSection');
+        if (!postcardSection) {
+            console.error("找不到明信片顯示區塊");
+            return;
+        }
 
-        const response = await fetch('/api/generateImage02', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                city: record.city_zh || record.city,
-                country: record.country_zh || record.country
-            })
-        });
+        // 已有圖片則直接顯示
+        if (record.imageUrl) {
+            renderPostcard(record, postcardSection);
+            if (buttonElement) buttonElement.style.display = 'none';
+            return;
+        }
 
-        if (!response.ok) throw new Error(await response.text());
+        try {
+            buttonElement.disabled = true;
+            buttonElement.textContent = '生成中...';
+            postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
 
-        const data = await response.json();
-        if (!data.imageUrl) throw new Error('圖片生成失敗');
+            const response = await fetch('/api/generateImage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    city: record.city_zh || record.city,
+                    country: record.country_zh || record.country
+                })
+            });
 
-        // 更新 Firestore 記錄
-        await updateRecordWithImage(record, data.imageUrl);
-        record.imageUrl = data.imageUrl;
-        renderPostcard(record, postcardSection);
-        if (buttonElement) buttonElement.style.display = 'none';
+            if (!response.ok) throw new Error(await response.text());
 
-    } catch (error) {
-        console.error("圖片生成失敗:", error);
-        postcardSection.innerHTML = `<p style="color: red;">生成圖片時發生錯誤：${error.message}</p>`;
-        if (buttonElement) {
-            buttonElement.disabled = false;
-            buttonElement.textContent = '重試生成早餐圖';
+            const data = await response.json();
+            if (!data.imageUrl) throw new Error('圖片生成失敗');
+
+            // 更新 Firestore 記錄
+            await updateRecordWithImage(record, data.imageUrl);
+            record.imageUrl = data.imageUrl;
+            renderPostcard(record, postcardSection);
+            if (buttonElement) buttonElement.style.display = 'none';
+
+        } catch (error) {
+            console.error("圖片生成失敗:", error);
+            postcardSection.innerHTML = `<p style="color: red;">生成圖片時發生錯誤：${error.message}</p>`;
+            if (buttonElement) {
+                buttonElement.disabled = false;
+                buttonElement.textContent = '重試生成早餐圖';
+            }
         }
     }
-}
 
-async function updateRecordWithImage(record, imageUrl) {
-    if (!currentDataIdentifier) return;
-    
-    try {
-        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
-        const q = query(historyCollectionRef, 
-            where("recordedAt", "==", record.recordedAt),
-            where("city", "==", record.city),
-            where("country", "==", record.country)
-        );
+    async function updateRecordWithImage(record, imageUrl) {
+        if (!currentDataIdentifier) return;
+        
+        try {
+            const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+            const q = query(historyCollectionRef, 
+                where("recordedAt", "==", record.recordedAt),
+                where("city", "==", record.city),
+                where("country", "==", record.country)
+            );
 
-        const querySnapshot = await getDocs(q);
-        if (!querySnapshot.empty) {
-            const docRef = doc(db, querySnapshot.docs[0].ref.path);
-            await setDoc(docRef, { imageUrl }, { merge: true });
-            console.log("成功更新記錄的圖片 URL");
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+                const docRef = doc(db, querySnapshot.docs[0].ref.path);
+                await setDoc(docRef, { imageUrl }, { merge: true });
+                console.log("成功更新記錄的圖片 URL");
+            }
+        } catch (e) {
+            console.error("更新記錄圖片 URL 失敗:", e);
+            throw e;
         }
-    } catch (e) {
-        console.error("更新記錄圖片 URL 失敗:", e);
-        throw e;
     }
-}
 
-function renderPostcard(record, container) {
-    const cityDisplay = formatCityName(record);
-    const countryDisplay = formatCountryName(record);
-    const recordDate = formatDate(record.recordedAt);
-    const story = record.story || `在${cityDisplay || '未知地點'}的美好時光`;
+    function renderPostcard(record, container) {
+        const cityDisplay = formatCityName(record);
+        const countryDisplay = formatCountryName(record);
+        const recordDate = formatDate(record.recordedAt);
+        const story = record.story || `在${cityDisplay || '未知地點'}的美好時光`;
 
-    container.innerHTML = `
-        <div class="postcard-image-container" style="margin-top: 10px; text-align: center;">
-            <img src="${record.imageUrl}" 
-                 alt="為 ${cityDisplay} 今日早餐圖" 
-                 style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 10px;">
-            <p style="font-size: 0.9em; color: #555;"><em>「${story.length > 70 ? story.substring(0, 70) + '...' : story}」</em></p>
-            <p style="font-size: 0.8em; color: #777;">${cityDisplay || ''}${cityDisplay && countryDisplay ? ', ' : ''}${countryDisplay || ''} - ${recordDate}</p>
-            <button onclick="window.open('${record.imageUrl}', '_blank')" 
-                    style="padding: 8px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
-                在新視窗中查看/下載圖片
-            </button>
-        </div>
-    `;
-}
+        container.innerHTML = `
+            <div class="postcard-image-container" style="margin-top: 10px; text-align: center;">
+                <img src="${record.imageUrl}" 
+                     alt="為 ${cityDisplay} 今日早餐圖" 
+                     style="max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 10px;">
+                <p style="font-size: 0.9em; color: #555;"><em>「${story.length > 70 ? story.substring(0, 70) + '...' : story}」</em></p>
+                <p style="font-size: 0.8em; color: #777;">${cityDisplay || ''}${cityDisplay && countryDisplay ? ', ' : ''}${countryDisplay || ''} - ${recordDate}</p>
+                <button onclick="window.open('${record.imageUrl}', '_blank')" 
+                        style="padding: 8px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
+                    在新視窗中查看/下載圖片
+                </button>
+            </div>
+        `;
+    }
 
-// 輔助函數
-function formatCityName(record) {
-    return record.city_zh && record.city_zh !== record.city ? 
-           `${record.city_zh} (${record.city})` : record.city;
-}
+    // 輔助函數
+    function formatCityName(record) {
+        return record.city_zh && record.city_zh !== record.city ? 
+               `${record.city_zh} (${record.city})` : record.city;
+    }
 
-function formatCountryName(record) {
-    return record.country_zh && record.country_zh !== record.country ? 
-           `${record.country_zh} (${record.country})` : record.country;
-}
+    function formatCountryName(record) {
+        return record.country_zh && record.country_zh !== record.country ? 
+               `${record.country_zh} (${record.country})` : record.country;
+    }
 
-function formatDate(timestamp) {
-    return timestamp && timestamp.toDate ? 
-           timestamp.toDate().toLocaleDateString('zh-TW', { 
-               year: 'numeric', month: 'long', day: 'numeric' 
-           }) : '一個特別的日子';
-}
+    function formatDate(timestamp) {
+        return timestamp && timestamp.toDate ? 
+               timestamp.toDate().toLocaleDateString('zh-TW', { 
+                   year: 'numeric', month: 'long', day: 'numeric' 
+               }) : '一個特別的日子';
+    }
 
     
     async function loadGlobalTodayMap() {
