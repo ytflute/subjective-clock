@@ -1413,28 +1413,28 @@ document.addEventListener('DOMContentLoaded', async () => {
                 historyLeafletMap = currentMapInstance;
                 historyMarkerLayerGroup = currentMarkerLayerGroup;
             }
-        } else {
-            console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
-            if (currentMarkerLayerGroup) {
-                currentMarkerLayerGroup.clearLayers();
-            } else {
-                 currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
-                 if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
-                 else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
-            }
-            if (currentMapInstance.getContainer().innerHTML.includes("<p>")) {
-                 mapDivElement.innerHTML = '';
-                 mapDivElement.appendChild(currentMapInstance.getContainer());
-            }
-            currentMapInstance.invalidateSize();
         }
+
+        console.log(`[renderPointsOnMap] 清除 ${mapDivElement.id} 上的舊標記。`);
+        if (currentMarkerLayerGroup) {
+            currentMarkerLayerGroup.clearLayers();
+        } else {
+            currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
+            if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
+            else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
+        }
+        if (currentMapInstance.getContainer().innerHTML.includes("<p>")) {
+            mapDivElement.innerHTML = '';
+            mapDivElement.appendChild(currentMapInstance.getContainer());
+        }
+        currentMapInstance.invalidateSize();
 
         if (!points || points.length === 0) {
             if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers();
             console.log("[renderPointsOnMap] 沒有點可以渲染，在地圖上顯示提示。");
             if(debugDivElement) debugDivElement.textContent = `${mapTitle}：尚無有效座標點可顯示。`;
             else console.warn("Debug element not provided for no-points message.");
-             // 如果地圖已初始化，但無數據，則重置視圖到一個通用位置
+            // 如果地圖已初始化，但無數據，則重置視圖到一個通用位置
             if (currentMapInstance) {
                 currentMapInstance.setView([20, 0], 2);
             }
@@ -1447,7 +1447,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         points.forEach(point => {
             if (typeof point.lat === 'number' && isFinite(point.lat) && typeof point.lon === 'number' && isFinite(point.lon)) {
                 const marker = L.circleMarker([point.lat, point.lon], {
-                    color: 'red', fillColor: '#f03', fillOpacity: 0.7, radius: 6 // Changed color for distinction
+                    color: 'red', fillColor: '#f03', fillOpacity: 0.7, radius: 6
                 }).addTo(currentMarkerLayerGroup);
                 if (point.title) {
                     marker.bindTooltip(point.title);
@@ -1482,6 +1482,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 south = centerLat - defaultMargin / 2;
                 north = centerLat + defaultMargin / 2;
             }
+
             west = Math.max(-180, Math.min(west, 179.9999));
             east = Math.min(180, Math.max(east, west + 0.0001));
             south = Math.max(-85, Math.min(south, 84.9999));
@@ -1490,7 +1491,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log(`[renderPointsOnMap] (${mapTitle}) 計算出的 BBOX:, ${west},${south},${east},${north}`);
             currentMapInstance.fitBounds([[south, west], [north, east]], {padding: [20,20]});
         } else if (currentMapInstance) {
-             currentMapInstance.setView([20, 0], 2);
+            currentMapInstance.setView([20, 0], 2);
         }
 
         if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
