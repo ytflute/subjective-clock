@@ -894,7 +894,26 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const detailsButton = document.createElement('button');
                 detailsButton.textContent = '查看日誌';
                 detailsButton.className = 'history-log-button';
-                detailsButton.onclick = () => showHistoryLogModal(record);
+
+                // 替換原本的 onclick 事件處理
+                const handleButtonClick = (e) => {
+                    e.preventDefault();  // 防止預設行為
+                    e.stopPropagation(); // 防止事件冒泡
+                    showHistoryLogModal(record);
+                };
+
+                // 添加多個事件監聽器
+                detailsButton.addEventListener('click', handleButtonClick);
+                detailsButton.addEventListener('touchstart', handleButtonClick, { passive: false });
+                detailsButton.addEventListener('touchend', (e) => {
+                    e.preventDefault();  // 防止觸控結束時的點擊事件
+                }, { passive: false });
+
+                // 防止觸控時的滾動
+                detailsButton.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                }, { passive: false });
+
                 li.appendChild(detailsButton);
 
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
@@ -1162,14 +1181,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function setupModalClose(modal, modalContent) {
-        const closeFunction = () => {
+        const closeFunction = (e) => {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
             modal.style.display = 'none';
             modalContent.innerHTML = '';
         };
 
-        document.getElementById('historyLogModalClose').onclick = closeFunction;
-        document.getElementById('closeModalFooterButton').onclick = closeFunction;
-        window.onclick = event => event.target === modal && closeFunction();
+        const closeButton = document.getElementById('historyLogModalClose');
+        const footerButton = document.getElementById('closeModalFooterButton');
+
+        // 為關閉按鈕添加事件監聽器
+        if (closeButton) {
+            closeButton.addEventListener('click', closeFunction);
+            closeButton.addEventListener('touchstart', closeFunction, { passive: false });
+        }
+        if (footerButton) {
+            footerButton.addEventListener('click', closeFunction);
+            footerButton.addEventListener('touchstart', closeFunction, { passive: false });
+        }
+
+        // 點擊模態框背景關閉
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeFunction(event);
+            }
+        });
+
+        // 觸控模態框背景關閉
+        window.addEventListener('touchstart', (event) => {
+            if (event.target === modal) {
+                closeFunction(event);
+            }
+        }, { passive: false });
     }
 
     async function generatePostcard(record, buttonElement) {
@@ -1528,6 +1574,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 初始載入時，嘗試設定一個預設的使用者名稱 (如果 localStorage 中有)
     // 或者，直接觸發 ClockTab 的顯示 (如果已經有用戶名)
     const initialUserName = localStorage.getItem('worldClockUserName');
+    let initialLoadHandled = false;  // 新增一個標記來追蹤初始載入是否已處理
+
     if (initialUserName) {
         userNameInput.value = initialUserName;
         // 等待 Firebase auth 狀態確認後再執行 setOrLoadUserName
