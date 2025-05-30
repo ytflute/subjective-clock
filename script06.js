@@ -1025,42 +1025,74 @@ document.addEventListener('DOMContentLoaded', async () => {
                         point.listItem.addEventListener('mouseenter', highlightMarker);
                         point.listItem.addEventListener('mouseleave', resetMarker);
 
-                        // 觸控事件
+                        // 觸控事件處理
                         let touchTimeout;
+                        let touchStartY;
+                        let isTouchMoved = false;
+
                         point.listItem.addEventListener('touchstart', (e) => {
-                            // 防止觸發滾動
-                            e.preventDefault();
+                            // 記錄起始觸控位置
+                            touchStartY = e.touches[0].clientY;
+                            isTouchMoved = false;
+                        }, { passive: true });
+
+                        point.listItem.addEventListener('touchmove', (e) => {
+                            if (!touchStartY) return;
                             
-                            // 重置所有其他項目的狀態
-                            historyPoints.forEach(p => {
-                                if (p.listItem && p !== point) {
-                                    const otherMarkerInfo = markerMap.get(p.timestamp.toString());
-                                    if (otherMarkerInfo) {
-                                        otherMarkerInfo.marker.setRadius(otherMarkerInfo.originalRadius);
-                                        otherMarkerInfo.marker.setStyle({
-                                            weight: 2,
-                                            fillOpacity: 0.8
-                                        });
-                                    }
-                                    p.listItem.classList.remove('active');
-                                }
-                            });
-
-                            // 高亮當前項目
-                            highlightMarker();
-
-                            // 設置一個計時器，在一段時間後自動取消高亮
-                            clearTimeout(touchTimeout);
-                            touchTimeout = setTimeout(() => {
+                            // 計算垂直移動距離
+                            const touchDeltaY = Math.abs(e.touches[0].clientY - touchStartY);
+                            
+                            // 如果移動超過 10px，標記為滾動意圖
+                            if (touchDeltaY > 10) {
+                                isTouchMoved = true;
                                 resetMarker();
-                            }, 3000); // 3秒後自動取消高亮
+                            }
+                        }, { passive: true });
+
+                        point.listItem.addEventListener('touchend', (e) => {
+                            // 只有在沒有明顯滾動時才觸發高亮
+                            if (!isTouchMoved) {
+                                e.preventDefault();
+                                
+                                // 重置所有其他項目的狀態
+                                historyPoints.forEach(p => {
+                                    if (p.listItem && p !== point) {
+                                        const otherMarkerInfo = markerMap.get(p.timestamp.toString());
+                                        if (otherMarkerInfo) {
+                                            otherMarkerInfo.marker.setRadius(otherMarkerInfo.originalRadius);
+                                            otherMarkerInfo.marker.setStyle({
+                                                weight: 2,
+                                                fillOpacity: 0.8
+                                            });
+                                        }
+                                        p.listItem.classList.remove('active');
+                                    }
+                                });
+
+                                // 高亮當前項目
+                                highlightMarker();
+
+                                // 設置自動取消高亮的計時器
+                                clearTimeout(touchTimeout);
+                                touchTimeout = setTimeout(() => {
+                                    resetMarker();
+                                }, 3000);
+                            }
+                            
+                            // 重置觸控狀態
+                            touchStartY = null;
+                            isTouchMoved = false;
                         });
 
                         // 確保在滾動時取消高亮
-                        historyListUl.addEventListener('scroll', () => {
+                        const scrollHandler = () => {
                             clearTimeout(touchTimeout);
                             resetMarker();
-                        });
+                        };
+
+                        // 為容器添加滾動事件監聽
+                        historyListUl.addEventListener('scroll', scrollHandler, { passive: true });
+                        document.addEventListener('scroll', scrollHandler, { passive: true });
                     }
                 });
 
@@ -1524,19 +1556,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     style.textContent = `
         .hoverable-history-item {
             transition: background-color 0.3s ease;
-            padding: 5px;
+            padding: 8px;  /* 增加點擊區域 */
             border-radius: 4px;
             position: relative;
             -webkit-tap-highlight-color: transparent;
+            touch-action: pan-y pinch-zoom;  /* 明確允許垂直滾動和縮放 */
         }
         .hoverable-history-item:hover,
         .hoverable-history-item.active {
             background-color: rgba(51, 136, 255, 0.1);
-            cursor: pointer;
         }
         @media (hover: none) {
             .hoverable-history-item:hover {
                 background-color: transparent;
+            }
+            .hoverable-history-item {
+                margin: 2px 0;  /* 增加項目間距，便於觸控 */
             }
         }
     `;
