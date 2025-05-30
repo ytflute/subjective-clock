@@ -193,7 +193,7 @@
             list-style-type: none;
             padding: 0;
             text-align: left;
-            max-height: 350px;
+            max-height: 400px;
             overflow-y: auto;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
@@ -201,13 +201,14 @@
             background-color: #fff;
         }
         #historyList li {
-            padding: 8px 10px; 
+            padding: 12px 15px; 
             border-bottom: 1px solid #f0f0f0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: background-color 0.2s;
-            font-size: 0.8em; 
+            font-size: 0.9em; 
+            gap: 10px;
         }
         #historyList li:hover {
             background-color: #f9f9f9;
@@ -264,6 +265,141 @@
         }
         .date-picker-container label {
             margin-right: 8px;
+        }
+
+        /* 歷史記錄中的「吃早餐」按鈕樣式 */
+        .history-log-button {
+            padding: 6px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+        }
+        .history-log-button:hover {
+            background-color: #218838;
+        }
+
+        /* 模態框樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-dialog {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        .modal-content-wrapper {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .modal-header {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .modal-close-button {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+        .modal-close-button:hover {
+            color: #333;
+        }
+        .modal-body {
+            padding: 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .modal-footer {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            text-align: right;
+        }
+        .modal-button-secondary {
+            padding: 8px 16px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal-button-secondary:hover {
+            background-color: #5a6268;
+        }
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-10%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* 明信片圖片容器樣式 */
+        .postcard-image-container {
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .postcard-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .postcard-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+        .postcard-button:hover {
+            background-color: #0056b3;
+        }
+        .postcard-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* 確保模態框內的內容可以正確換行 */
+        #logBasicInfo {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
     </style>
@@ -351,6 +487,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-    <script src="script05.js"></script>
+    <script src="script06.js"></script>
 </body>
 </html>
