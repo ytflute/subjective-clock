@@ -410,36 +410,67 @@ document.addEventListener('DOMContentLoaded', async () => {
     function getCityUTCOffsetHours(ianaTimeZone) {
         try {
             const now = new Date();
+            
+            // 方法1：使用 Intl.DateTimeFormat 的 formatToParts
             const formatter = new Intl.DateTimeFormat('en', {
                 timeZone: ianaTimeZone,
-                timeZoneName: 'longOffset',
+                timeZoneName: 'longOffset'
             });
+            
+            // 首先嘗試使用 formatToParts
             const parts = formatter.formatToParts(now);
-            let offsetStringVal = "";
-            for (const part of parts) {
-                if (part.type === 'timeZoneName' || part.type === 'unknown' || part.type === 'literal') {
-                    if ((part.value.startsWith('GMT') || part.value.startsWith('UTC')) && (part.value.includes('+') || part.value.includes('-'))) {
-                        offsetStringVal = part.value;
-                        break;
+            let offsetString = parts.find(part => 
+                (part.type === 'timeZoneName' || part.type === 'unknown') && 
+                (part.value.includes('GMT') || part.value.includes('UTC'))
+            )?.value;
+
+            // 如果 formatToParts 沒有找到偏移，嘗試其他方法
+            if (!offsetString) {
+                // 方法2：使用完整格式化字符串
+                const fullString = formatter.format(now);
+                const match = fullString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
+                if (match) {
+                    offsetString = match[0];
+                } else {
+                    // 方法3：使用另一種格式化選項
+                    const altFormatter = new Intl.DateTimeFormat('en', {
+                        timeZone: ianaTimeZone,
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        timeZoneName: 'short'
+                    });
+                    const altString = altFormatter.format(now);
+                    const altMatch = altString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
+                    if (altMatch) {
+                        offsetString = altMatch[0];
                     }
                 }
             }
-            if (!offsetStringVal) {
-                const formattedDateString = formatter.format(now);
-                const match = formattedDateString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
-                if (match && match[0]) {
-                    offsetStringVal = match[0];
-                }
+
+            // 如果還是沒有找到偏移，使用計算方法
+            if (!offsetString) {
+                // 方法4：通過比較本地時間和UTC時間來計算偏移
+                const localDate = new Date(now.toLocaleString('en-US', { timeZone: ianaTimeZone }));
+                const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+                const offsetInMinutes = (localDate - utcDate) / (60 * 1000);
+                return offsetInMinutes / 60;
             }
-            if (offsetStringVal) {
-                return parseOffsetString(offsetStringVal);
-            } else {
-                console.warn("無法從 Intl.DateTimeFormat 獲取時區偏移字串:", ianaTimeZone, "Parts:", parts);
-                return NaN;
-            }
+
+            return parseOffsetString(offsetString);
         } catch (e) {
             console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
-            return NaN;
+            
+            // 最後的備用方法：直接使用時間差異計算
+            try {
+                const now = new Date();
+                const localDate = new Date(now.toLocaleString('en-US', { timeZone: ianaTimeZone }));
+                const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
+                const offsetInMinutes = (localDate - utcDate) / (60 * 1000);
+                return offsetInMinutes / 60;
+            } catch (fallbackError) {
+                console.error("備用方法也失敗:", fallbackError);
+                return NaN;
+            }
         }
     }
 
