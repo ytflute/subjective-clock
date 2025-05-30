@@ -269,18 +269,35 @@
 
         /* 歷史記錄中的「吃早餐」按鈕樣式 */
         .history-log-button {
-            padding: 6px 12px;
-            background-color: #28a745;
+            padding: 8px 16px;
+            margin: 4px 8px;
+            background-color: #4d714f;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 0.9em;
-            white-space: nowrap;
-            transition: background-color 0.2s;
+            font-size: 14px;
+            min-width: 80px;
+            min-height: 36px;  /* 確保觸控區域足夠大 */
+            touch-action: manipulation;  /* 優化觸控行為 */
+            -webkit-tap-highlight-color: transparent;  /* 移除 iOS 觸控高亮 */
+            transition: background-color 0.2s ease;
         }
         .history-log-button:hover {
-            background-color: #218838;
+            background-color: #39543a;
+        }
+
+        /* 添加觸控設備的特定樣式 */
+        @media (hover: none) {
+            .history-log-button {
+                padding: 10px 20px;  /* 在觸控設備上增加點擊區域 */
+                margin: 6px 10px;    /* 增加按鈕間距 */
+                font-size: 16px;     /* 增加字體大小 */
+            }
+            
+            .history-log-button:active {
+                background-color: #5f8d61;  /* 觸控時的視覺回饋 */
+            }
         }
 
         /* 模態框樣式 */
@@ -412,8 +429,8 @@
             <label for="userName">輸入你的名字:</label>
             <input type="text" id="userName" placeholder="輸入你的名稱...">
             <button id="setUserNameButton">設定/更新名稱</button>
-            <p>目前資料識別碼: <span id="currentUserId">載入中...</span> (此ID用於區分不同使用者的記錄)</p>
-            <p>你的顯示名稱: <span id="currentUserDisplayName"> 未設定</span></p>
+            <p>你目前的名字為：<span id="currentUserDisplayName">載入中...</span><br><small style="color: #666;">(名字將作為紀錄資料之根據)</small></p>
+            <span id="currentUserId" style="display: none;"></span>
         </div>
 
         <div class="tabs">
