@@ -813,11 +813,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.warn("無法儲存全域記錄：Firebase 會話未就緒。");
             return;
         }
+
+        // 使用使用者的本地日期，而不是匹配城市的日期
+        const userLocalDate = new Date();
+        const userLocalDateString = userLocalDate.toISOString().split('T')[0];
+
         const globalRecord = {
             dataIdentifier: recordData.dataIdentifier,
             userDisplayName: recordData.userDisplayName,
             recordedAt: recordData.recordedAt,
-            recordedDateString: recordData.recordedDateString,
+            recordedDateString: userLocalDateString,  // 使用使用者的本地日期
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
@@ -829,6 +834,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             // greeting: recordData.greeting,
             // story: recordData.story
         };
+
+        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}, 原始記錄日期: ${recordData.recordedDateString}`);
+
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
