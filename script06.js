@@ -236,6 +236,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             return false;
         }
 
+        // 檢查是否是相同的名稱
+        if (newDisplayNameRaw === rawUserDisplayName) {
+            console.log("[setOrLoadUserName] 名稱相同，保持現有識別碼:", currentDataIdentifier);
+            if (showAlert) alert(`名稱未變更，仍然是 "${rawUserDisplayName}"`);
+            return true;
+        }
+
         // 生成安全的識別碼
         const sanitizedName = sanitizeNameToFirestoreId(newDisplayNameRaw);
         if (!sanitizedName) {
