@@ -235,21 +235,30 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (showAlert) alert("顯示名稱不能為空。");
             return false;
         }
+
+        // 生成安全的識別碼
         const sanitizedName = sanitizeNameToFirestoreId(newDisplayNameRaw);
         if (!sanitizedName) {
             if (showAlert) alert("處理後的名稱無效（可能為空或過短），請嘗試其他名稱。");
             return false;
         }
 
+        console.log("[setOrLoadUserName] 原始名稱:", newDisplayNameRaw);
+        console.log("[setOrLoadUserName] 生成的安全識別碼:", sanitizedName);
+
+        // 設置全域變數
         currentDataIdentifier = sanitizedName;
         rawUserDisplayName = newDisplayNameRaw;  // 保存原始名稱，包含中文
+
+        // 更新 UI
         currentUserIdSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
         currentUserDisplayNameSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
-        userNameInput.value = rawUserDisplayName;
+        userNameInput.value = rawUserDisplayName;  // 保持輸入框顯示原始名稱
         localStorage.setItem('worldClockUserName', rawUserDisplayName);
 
         console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
         console.log("[setOrLoadUserName] 顯示名稱設定為:", rawUserDisplayName);
+
         if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
 
         if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) {
@@ -880,6 +889,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             historyMapContainerDiv.innerHTML = '<p>設定名稱後，此處將顯示您的個人歷史地圖。</p>';
             return;
         }
+
+        console.log("[loadHistory] 準備載入歷史記錄，使用識別碼:", currentDataIdentifier);
         historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
         if (!historyLeafletMap) {
             historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>';
@@ -893,6 +904,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         try {
             const querySnapshot = await getDocs(q);
+            console.log("[loadHistory] 查詢結果:", querySnapshot.size, "筆記錄");
             historyListUl.innerHTML = '';
             const historyPoints = [];
 
@@ -907,6 +919,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
+                console.log("[loadHistory] 處理記錄:", record);
                 const docId = doc.id;
                 const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
 
