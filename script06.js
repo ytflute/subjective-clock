@@ -1573,19 +1573,61 @@ document.addEventListener('DOMContentLoaded', async () => {
         let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
         let validPointsForBboxCount = 0;
 
+        // 創建一個 Map 來存儲相同位置的點
+        const locationMap = new Map();
+
+        // 首先將所有點按位置分組
         points.forEach(point => {
-            if (typeof point.lat === 'number' && isFinite(point.lat) && typeof point.lon === 'number' && isFinite(point.lon)) {
-                const marker = L.circleMarker([point.lat, point.lon], {
-                    color: 'red', fillColor: '#f03', fillOpacity: 0.7, radius: 6
-                }).addTo(currentMarkerLayerGroup);
-                if (point.title) {
-                    marker.bindTooltip(point.title);
+            if (typeof point.lat === 'number' && isFinite(point.lat) && 
+                typeof point.lon === 'number' && isFinite(point.lon)) {
+                
+                // 使用位置作為鍵（精確到小數點後 4 位）
+                const locationKey = `${point.lat.toFixed(4)},${point.lon.toFixed(4)}`;
+                
+                if (!locationMap.has(locationKey)) {
+                    locationMap.set(locationKey, {
+                        lat: point.lat,
+                        lon: point.lon,
+                        titles: []
+                    });
                 }
+                
+                // 將此點的標題添加到該位置的列表中
+                locationMap.get(locationKey).titles.push(point.title);
+                
+                // 更新邊界框
                 minLat = Math.min(minLat, point.lat);
                 maxLat = Math.max(maxLat, point.lat);
                 minLon = Math.min(minLon, point.lon);
                 maxLon = Math.max(maxLon, point.lon);
                 validPointsForBboxCount++;
+            }
+        });
+
+        // 為每個唯一位置創建標記
+        locationMap.forEach(location => {
+            const marker = L.circleMarker([location.lat, location.lon], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.7,
+                radius: location.titles.length > 1 ? 8 : 6  // 如果有多人，標記稍大一些
+            }).addTo(currentMarkerLayerGroup);
+
+            if (location.titles.length > 0) {
+                // 創建包含所有人名字的工具提示
+                const tooltipContent = location.titles.join('<br>');
+                marker.bindTooltip(tooltipContent, {
+                    permanent: false,
+                    direction: 'top',
+                    className: 'custom-tooltip'
+                });
+
+                // 為有多人的標記添加點擊事件
+                if (location.titles.length > 1) {
+                    marker.on('click', function() {
+                        this.openTooltip();
+                    });
+                }
             }
         });
 
