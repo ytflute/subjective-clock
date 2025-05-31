@@ -533,93 +533,29 @@
         #currentGroupName {
             font-style: italic;
         }
-
-        /* 語言切換按鈕樣式 */
-        .language-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 8px;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .language-switch button {
-            padding: 8px 12px;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #495057;
-            transition: all 0.2s ease;
-        }
-
-        .language-switch button.active {
-            background-color: #e9ecef;
-            border-color: #adb5bd;
-            font-weight: bold;
-        }
-
-        .language-switch button:hover {
-            background-color: #e9ecef;
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: fixed;
-                top: auto;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="language-switch">
-        <button id="langZh" class="active">中文</button>
-        <button id="langEn">English</button>
-    </div>
     <div class="container">
-        <h1 data-translate="title">甦醒地圖</h1>
-
-        <div class="user-info-section">
-            <div class="input-group-vertical">
-                <div class="input-field">
-                    <label for="userName" data-translate="displayName">顯示名稱：</label>
-                    <input type="text" id="userName" data-translate="displayNamePlaceholder" placeholder="請輸入你的顯示名稱">
-                </div>
-                <div class="input-field">
-                    <label for="groupName" data-translate="groupName">組別名稱：</label>
-                    <div style="display: flex; gap: 8px;">
-                        <input type="text" id="groupName" data-translate="groupNamePlaceholder" placeholder="請輸入你的組別名稱（選填）" style="flex: 1;">
-                        <button id="clearGroupButton" data-translate="clearGroup">清除組別</button>
-                    </div>
-                </div>
-                <button id="setUserNameButton" data-translate="setUpdateName">設定/更新名稱</button>
-            </div>
-            <div class="current-user-info">
-                <span data-translate="currentUser">目前使用者</span>：
-                <span id="currentUserId" data-translate="notSet">未設定</span>
-                <span id="currentUserDisplayName" style="display: none;"></span>
-                <span id="currentGroupName" style="margin-left: 10px; color: #666;"></span>
-            </div>
+        <h1>甦醒地圖 Wake Up World Map</h1>
+        
+        <div class="user-section">
+            <label for="userName">顯示名稱：</label>
+            <input type="text" id="userName" placeholder="請輸入您的顯示名稱">
+            <input type="text" id="groupName" placeholder="請輸入您的組別名稱（選填）">
+            <button id="setUserNameButton">設定/更新名稱</button>
+            <p>目前使用者：<span id="currentUserId">未設定</span><span id="currentUserDisplayName"></span><span id="currentGroupName"></span></p>
         </div>
 
         <div class="tab-container">
-            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')" data-translate="todayWakeup">今日甦醒</button>
-            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')" data-translate="wakeupTrack">甦醒軌跡</button>
-            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')" data-translate="globalMap">眾人地圖</button>
+            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">今日甦醒</button>
+            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">甦醒軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人地圖</button>
         </div>
 
         <div id="ClockTab" class="tab-content active">
-            <p data-translate="startDayDescription">按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
-            <button id="findCityButton" disabled data-translate="startDay">開始這一天</button>
+            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+            <button id="findCityButton" disabled>開始這一天</button>
             
             <div id="result">
                 <p id="resultText"></p>
@@ -632,8 +568,8 @@
         </div>
 
         <div id="HistoryTab" class="tab-content">
-            <p data-translate="historyDescription">記錄關於你每日於地球上的哪一個角落起床。</p>
-            <button id="refreshHistoryButton" data-translate="refreshRecord">刷新記錄</button>
+            <p>記錄關於你每日於地球上的哪一個角落起床。</p>
+            <button id="refreshHistoryButton">刷新記錄</button>
             <ul id="historyList"></ul>
             <div id="historyMapContainer"> </div>
             <small id="historyDebugInfo"></small>
@@ -651,19 +587,19 @@
 
         
         <div id="GlobalTodayMapTab" class="tab-content">
-            <p data-translate="globalMapDescription">看看今天大家都在地球的哪些角落開啟新的一天！</p>
+            <p>看看今天大家都在地球的哪些角落開啟新的一天！</p>
             <div class="filter-container">
                 <div class="date-picker-container">
-                    <label for="globalDate" data-translate="selectDate">選擇日期:</label>
+                    <label for="globalDate">選擇日期:</label>
                     <input type="date" id="globalDate">
                 </div>
                 <div class="group-filter-container">
-                    <label for="groupFilter" data-translate="selectGroup">選擇組別:</label>
+                    <label for="groupFilter">選擇組別:</label>
                     <select id="groupFilter">
-                        <option value="all" data-translate="allUsers">所有人</option>
+                        <option value="all">所有人</option>
                     </select>
                 </div>
-                <button id="refreshGlobalMapButton" data-translate="queryMap">查詢地圖</button>
+                <button id="refreshGlobalMapButton">查詢地圖</button>
             </div>
             <div id="globalTodayMapContainer">
             </div>
@@ -687,7 +623,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-    <script src="translations.js"></script>
     <script src="script06.js"></script>
 </body>
 </html>
