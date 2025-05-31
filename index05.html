@@ -422,23 +422,84 @@
             overflow-wrap: break-word;
         }
 
+        .user-info-section {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        .current-user-info {
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .date-picker-container,
+        .group-filter-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .group-filter-container select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 150px;
+        }
+
+        #groupName {
+            color: #2c3e50;
+        }
+
+        #currentGroupName {
+            font-style: italic;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>甦醒地圖 Wake Up World Map</h1>
 
-        <div class="user-section">
-            <label for="userName">輸入你的名字:</label>
-            <input type="text" id="userName" placeholder="輸入你的名稱...">
-            <button id="setUserNameButton">設定/更新名稱</button>
-            <p style="text-align: center; margin-top: 12px;">你目前的名字為：<span id="currentUserDisplayName">載入中...</span><br><small style="color: #666;">(名字將作為紀錄資料之根據)</small></p>
-            <span id="currentUserId" style="display: none;"></span>
+        <div class="user-info-section">
+            <div class="input-group">
+                <input type="text" id="userName" placeholder="請輸入你的顯示名稱">
+                <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
+                <button id="setUserNameButton">設定/更新名稱</button>
+            </div>
+            <div class="current-user-info">
+                <span>目前使用者：</span>
+                <span id="currentUserId">未設定</span>
+                <span id="currentUserDisplayName" style="display: none;"></span>
+                <span id="currentGroupName" style="margin-left: 10px; color: #666;"></span>
+            </div>
         </div>
 
-        <div class="tabs">
-            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">今日甦醒位置</button>
-            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">過去甦醒軌跡</button>
+        <div class="tab-container">
+            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">時鐘</button>
+            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">歷史記錄</button>
             <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人甦醒地圖</button>
         </div>
 
@@ -478,13 +539,21 @@
         
         <div id="GlobalTodayMapTab" class="tab-content">
             <p>看看今天大家都在地球的哪些角落開啟新的一天！</p>
-            <div class="date-picker-container">
-                <label for="globalDate">選擇日期:</label>
-                <input type="date" id="globalDate">
+            <div class="filter-container">
+                <div class="date-picker-container">
+                    <label for="globalDate">選擇日期:</label>
+                    <input type="date" id="globalDate">
+                </div>
+                <div class="group-filter-container">
+                    <label for="groupFilter">選擇組別:</label>
+                    <select id="groupFilter">
+                        <option value="all">所有人</option>
+                    </select>
+                </div>
                 <button id="refreshGlobalMapButton">查詢地圖</button>
             </div>
             <div id="globalTodayMapContainer">
-                </div>
+            </div>
             <small id="globalTodayDebugInfo"></small>
         </div>
     </div>
@@ -505,6 +574,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-    <script src="script06.js"></script>
+    <script src="script05.js"></script>
 </body>
 </html>
