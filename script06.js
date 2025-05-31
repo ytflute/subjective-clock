@@ -1,105 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // 語言切換相關
-    let currentLang = localStorage.getItem('preferredLanguage') || 'zh';
-    const langZhButton = document.getElementById('langZh');
-    const langEnButton = document.getElementById('langEn');
-
-    // 初始化語言設定
-    function initLanguage() {
-        updateLanguageButtons();
-        translatePage();
-    }
-
-    // 更新語言按鈕狀態
-    function updateLanguageButtons() {
-        langZhButton.classList.toggle('active', currentLang === 'zh');
-        langEnButton.classList.toggle('active', currentLang === 'en');
-    }
-
-    // 翻譯頁面
-    function translatePage() {
-        const elements = document.querySelectorAll('[data-translate]');
-        elements.forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (translations[currentLang][key]) {
-                if (element.tagName === 'INPUT' && element.getAttribute('placeholder')) {
-                    element.placeholder = translations[currentLang][key];
-                } else {
-                    element.textContent = translations[currentLang][key];
-                }
-            }
-        });
-
-        // 特殊處理一些動態內容
-        document.querySelector('h1').textContent = translations[currentLang].title;
-        document.getElementById('userName').placeholder = translations[currentLang].displayNamePlaceholder;
-        document.getElementById('groupName').placeholder = translations[currentLang].groupNamePlaceholder;
-        document.getElementById('setUserNameButton').textContent = translations[currentLang].setUpdateName;
-        document.getElementById('clearGroupButton').textContent = translations[currentLang].clearGroup;
-        document.getElementById('currentUserId').previousElementSibling.textContent = translations[currentLang].currentUser + "：";
-        
-        // 更新 tab 按鈕文字
-        document.getElementById('tabButton-ClockTab').textContent = translations[currentLang].todayWakeup;
-        document.getElementById('tabButton-HistoryTab').textContent = translations[currentLang].wakeupTrack;
-        document.getElementById('tabButton-GlobalTodayMapTab').textContent = translations[currentLang].globalMap;
-
-        // 更新其他靜態文字
-        const clockTabDescription = document.querySelector('#ClockTab p');
-        if (clockTabDescription) {
-            clockTabDescription.textContent = translations[currentLang].startDayDescription;
-        }
-
-        const historyTabDescription = document.querySelector('#HistoryTab p');
-        if (historyTabDescription) {
-            historyTabDescription.textContent = translations[currentLang].historyDescription;
-        }
-
-        const globalTabDescription = document.querySelector('#GlobalTodayMapTab p');
-        if (globalTabDescription) {
-            globalTabDescription.textContent = translations[currentLang].globalMapDescription;
-        }
-
-        // 更新按鈕文字
-        document.getElementById('findCityButton').textContent = translations[currentLang].startDay;
-        document.getElementById('refreshHistoryButton').textContent = translations[currentLang].refreshRecord;
-        document.getElementById('refreshGlobalMapButton').textContent = translations[currentLang].queryMap;
-
-        // 更新日期和組別選擇器標籤
-        const dateLabel = document.querySelector('label[for="globalDate"]');
-        if (dateLabel) {
-            dateLabel.textContent = translations[currentLang].selectDate + ":";
-        }
-
-        const groupLabel = document.querySelector('label[for="groupFilter"]');
-        if (groupLabel) {
-            groupLabel.textContent = translations[currentLang].selectGroup + ":";
-        }
-
-        // 更新「所有人」選項
-        const allUsersOption = document.querySelector('#groupFilter option[value="all"]');
-        if (allUsersOption) {
-            allUsersOption.textContent = translations[currentLang].allUsers;
-        }
-    }
-
-    // 語言切換事件監聽
-    langZhButton.addEventListener('click', () => {
-        currentLang = 'zh';
-        localStorage.setItem('preferredLanguage', currentLang);
-        updateLanguageButtons();
-        translatePage();
-    });
-
-    langEnButton.addEventListener('click', () => {
-        currentLang = 'en';
-        localStorage.setItem('preferredLanguage', currentLang);
-        updateLanguageButtons();
-        translatePage();
-    });
-
-    // 初始化語言設定
-    initLanguage();
-
     // 從 window 中獲取 Firebase SDK 函數
     const {
         initializeApp,
@@ -407,27 +306,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function updateGroupFilter() {
-        console.log("[updateGroupFilter] 開始更新組別選單");
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
             const querySnapshot = await getDocs(globalCollectionRef);
             const groups = new Set(['all']);
             
-            // 添加當前使用者的組別（如果有）
-            if (currentGroupName) {
-                groups.add(currentGroupName);
-                console.log("[updateGroupFilter] 添加當前使用者組別:", currentGroupName);
-            }
-            
-            // 從歷史記錄中收集組別
             querySnapshot.forEach(doc => {
                 const data = doc.data();
                 if (data.groupName) {
                     groups.add(data.groupName);
                 }
             });
-
-            console.log("[updateGroupFilter] 找到的所有組別:", Array.from(groups));
 
             groupFilterSelect.innerHTML = '';
             groupFilterSelect.appendChild(new Option('所有人', 'all'));
@@ -442,10 +331,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (currentGroupName && groups.has(currentGroupName)) {
                 groupFilterSelect.value = currentGroupName;
             }
-            
-            console.log("[updateGroupFilter] 組別選單更新完成，當前選擇:", groupFilterSelect.value);
         } catch (error) {
-            console.error("[updateGroupFilter] 更新組別過濾器失敗:", error);
+            console.error("更新組別過濾器失敗:", error);
         }
     }
 
@@ -1048,8 +935,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
             console.log(`[saveToGlobalDailyRecord] 全域每日記錄已儲存，文件 ID: ${docRef.id}`);
-            // 儲存成功後立即更新組別選單
-            await updateGroupFilter();
+            await updateGroupFilter();  // 更新組別選擇下拉選單
         } catch (e) {
             console.error("[saveToGlobalDailyRecord] 儲存全域每日記錄到 Firestore 失敗:", e);
         }
@@ -1575,9 +1461,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const querySnapshot = await getDocs(q);
             console.log(`[loadGlobalTodayMap] 查詢完成，找到 ${querySnapshot.size} 筆記錄`);
-            
-            // 使用 Map 來收集相同座標的使用者資訊
-            const locationMap = new Map();
+            const globalPoints = [];
 
             if (!querySnapshot.empty) {
                 querySnapshot.forEach((doc) => {
@@ -1587,39 +1471,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                         typeof record.longitude === 'number' && isFinite(record.longitude)) {
 
-                        const locationKey = `${record.latitude.toFixed(6)},${record.longitude.toFixed(6)}`;
                         const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
                         const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
                         const userDisplay = record.userDisplayName || record.dataIdentifier || "匿名";
                         const groupInfo = record.groupName ? ` [${record.groupName}]` : '';
-                        const userInfo = `${userDisplay}${groupInfo}`;
 
-                        if (!locationMap.has(locationKey)) {
-                            locationMap.set(locationKey, {
-                                lat: record.latitude,
-                                lon: record.longitude,
-                                users: [userInfo],
-                                city: cityDisplay,
-                                country: countryDisplay
-                            });
-                        } else {
-                            const existingLocation = locationMap.get(locationKey);
-                            if (!existingLocation.users.includes(userInfo)) {
-                                existingLocation.users.push(userInfo);
-                            }
-                        }
+                        globalPoints.push({
+                            lat: record.latitude,
+                            lon: record.longitude,
+                            title: `${userDisplay}${groupInfo} @ ${cityDisplay}, ${countryDisplay}`
+                        });
                     } else {
                         console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
                     }
                 });
             }
-
-            // 將收集到的資訊轉換為點位陣列
-            const globalPoints = Array.from(locationMap.values()).map(location => ({
-                lat: location.lat,
-                lon: location.lon,
-                title: `${location.users.join('、')} @ ${location.city}, ${location.country}`
-            }));
 
             console.log(`[loadGlobalTodayMap] 準備渲染 ${globalPoints.length} 個點位`);
             renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, 
@@ -1764,7 +1630,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currentTabDiv = document.getElementById(tabName);
         if (currentTabDiv) {
             currentTabDiv.style.display = "block";
-            console.log(`[openTab] ${tabName} 設為 display: block`);
+             console.log(`[openTab] ${tabName} 設為 display: block`);
         } else {
             console.warn(`[openTab] 找不到 ID 為 ${tabName} 的分頁內容元素。`);
         }
@@ -1774,7 +1640,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (targetButton) {
             targetButton.classList.add("active");
         } else if (evt && evt.currentTarget) {
-            evt.currentTarget.classList.add("active");
+             evt.currentTarget.classList.add("active");
         }
 
         setTimeout(() => {
@@ -1792,25 +1658,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                     globalLeafletMap.invalidateSize();
                 }
-                if (auth.currentUser) {
-                    // 切換到眾人甦醒地圖時，先更新組別選單
-                    updateGroupFilter().then(() => {
-                        if (!isInitialLoad) {
-                            if (globalDateInput) {
-                                const today = new Date();
-                                const year = today.getFullYear();
-                                const month = (today.getMonth() + 1).toString().padStart(2, '0');
-                                const day = today.getDate().toString().padStart(2, '0');
-                                globalDateInput.value = `${year}-${month}-${day}`;
-                                console.log("[openTab] GlobalTodayMapTab: 日期已重設為今天:", globalDateInput.value);
-                            }
-                            console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab (日期已重設為今天).");
-                            loadGlobalTodayMap();
-                        }
-                    });
+                if (auth.currentUser && !isInitialLoad) {
+                    if (globalDateInput) {
+                        const today = new Date();
+                        const year = today.getFullYear();
+                        const month = (today.getMonth() + 1).toString().padStart(2, '0');
+                        const day = today.getDate().toString().padStart(2, '0');
+                        globalDateInput.value = `${year}-${month}-${day}`;
+                        console.log("[openTab] GlobalTodayMapTab: 日期已重設為今天:", globalDateInput.value);
+                    }
+                    console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab (日期已重設為今天).");
+                    loadGlobalTodayMap();
                 }
             } else if (tabName === 'ClockTab') {
-                if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
+                 if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
                     console.log("[openTab] ClockTab is visible, invalidating map size.");
                     clockLeafletMap.invalidateSize();
                 }
