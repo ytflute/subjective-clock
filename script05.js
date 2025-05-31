@@ -72,13 +72,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         setLogLevel('debug');
+        console.log("開始初始化 Firebase，配置:", { ...firebaseConfig, apiKey: '***' });
         const app = initializeApp(firebaseConfig);
         auth = getAuth(app);
         db = getFirestore(app);
         storage = getStorage(app);
-        console.log("Firebase 初始化成功。App ID (用於路徑前綴):", appId, "Project ID (來自設定):", firebaseConfig.projectId);
+        console.log("Firebase 初始化成功");
+        console.log("- Auth 初始化狀態:", !!auth);
+        console.log("- Firestore 初始化狀態:", !!db);
+        console.log("- Storage 初始化狀態:", !!storage);
+        console.log("- Storage bucket:", storage.app.options.storageBucket);
     } catch (e) {
         console.error("Firebase 初始化失敗:", e);
+        console.error("錯誤堆疊:", e.stack);
         currentUserIdSpan.textContent = "Firebase 初始化失敗";
         alert("Firebase 初始化失敗，部分功能可能無法使用。");
         return;
@@ -1384,8 +1390,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        console.log("開始生成明信片，記錄數據:", record);
+
         // 已有圖片則直接顯示
         if (record.imageUrl) {
+            console.log("記錄已有圖片，直接顯示:", record.imageUrl);
             renderPostcard(record, postcardSection);
             if (buttonElement) buttonElement.style.display = 'none';
             return;
@@ -1397,8 +1406,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
 
             // 獲取當前用戶的認證 token
+            console.log("正在獲取用戶認證 token...");
             const token = auth.currentUser ? await auth.currentUser.getIdToken() : null;
+            console.log("用戶認證狀態:", !!auth.currentUser, "Token 獲取狀態:", !!token);
 
+            console.log("準備調用圖片生成 API...");
             const response = await fetch('/api/generateImage02', {
                 method: 'POST',
                 headers: { 
@@ -1412,25 +1424,38 @@ document.addEventListener('DOMContentLoaded', async () => {
                 })
             });
 
+            console.log("API 響應狀態:", response.status);
             if (!response.ok) {
                 const errorText = await response.text();
+                console.error("API 錯誤響應:", errorText);
                 throw new Error(`API 錯誤 (${response.status}): ${errorText}`);
             }
 
             const data = await response.json();
-            if (!data.imageUrl) throw new Error('圖片生成失敗：未收到圖片 URL');
+            console.log("API 返回數據:", data);
+            
+            if (!data.imageUrl) {
+                console.error("API 返回數據中沒有 imageUrl");
+                throw new Error('圖片生成失敗：未收到圖片 URL');
+            }
 
+            console.log("準備將臨時圖片上傳到 Firebase Storage...");
             // 上傳到 Firebase Storage 並獲取永久 URL
             const permanentUrl = await uploadImageToFirebase(data.imageUrl, record);
+            console.log("獲得永久 URL:", permanentUrl);
             record.imageUrl = permanentUrl;
 
             // 更新 Firestore 記錄
+            console.log("準備更新 Firestore 記錄...");
             await updateRecordWithImage(record, permanentUrl);
+            console.log("Firestore 記錄更新完成");
+
             renderPostcard(record, postcardSection);
             if (buttonElement) buttonElement.style.display = 'none';
 
         } catch (error) {
-            console.error("生成圖片失敗:", error);
+            console.error("生成圖片過程中發生錯誤:", error);
+            console.error("錯誤堆疊:", error.stack);
             postcardSection.innerHTML = `<p style="color: red;">生成圖片時發生錯誤：${error.message}</p>`;
             if (buttonElement) {
                 buttonElement.disabled = false;
