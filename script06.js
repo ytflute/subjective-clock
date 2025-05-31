@@ -1,4 +1,105 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // 語言切換相關
+    let currentLang = localStorage.getItem('preferredLanguage') || 'zh';
+    const langZhButton = document.getElementById('langZh');
+    const langEnButton = document.getElementById('langEn');
+
+    // 初始化語言設定
+    function initLanguage() {
+        updateLanguageButtons();
+        translatePage();
+    }
+
+    // 更新語言按鈕狀態
+    function updateLanguageButtons() {
+        langZhButton.classList.toggle('active', currentLang === 'zh');
+        langEnButton.classList.toggle('active', currentLang === 'en');
+    }
+
+    // 翻譯頁面
+    function translatePage() {
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[currentLang][key]) {
+                if (element.tagName === 'INPUT' && element.getAttribute('placeholder')) {
+                    element.placeholder = translations[currentLang][key];
+                } else {
+                    element.textContent = translations[currentLang][key];
+                }
+            }
+        });
+
+        // 特殊處理一些動態內容
+        document.querySelector('h1').textContent = translations[currentLang].title;
+        document.getElementById('userName').placeholder = translations[currentLang].displayNamePlaceholder;
+        document.getElementById('groupName').placeholder = translations[currentLang].groupNamePlaceholder;
+        document.getElementById('setUserNameButton').textContent = translations[currentLang].setUpdateName;
+        document.getElementById('clearGroupButton').textContent = translations[currentLang].clearGroup;
+        document.getElementById('currentUserId').previousElementSibling.textContent = translations[currentLang].currentUser + "：";
+        
+        // 更新 tab 按鈕文字
+        document.getElementById('tabButton-ClockTab').textContent = translations[currentLang].todayWakeup;
+        document.getElementById('tabButton-HistoryTab').textContent = translations[currentLang].wakeupTrack;
+        document.getElementById('tabButton-GlobalTodayMapTab').textContent = translations[currentLang].globalMap;
+
+        // 更新其他靜態文字
+        const clockTabDescription = document.querySelector('#ClockTab p');
+        if (clockTabDescription) {
+            clockTabDescription.textContent = translations[currentLang].startDayDescription;
+        }
+
+        const historyTabDescription = document.querySelector('#HistoryTab p');
+        if (historyTabDescription) {
+            historyTabDescription.textContent = translations[currentLang].historyDescription;
+        }
+
+        const globalTabDescription = document.querySelector('#GlobalTodayMapTab p');
+        if (globalTabDescription) {
+            globalTabDescription.textContent = translations[currentLang].globalMapDescription;
+        }
+
+        // 更新按鈕文字
+        document.getElementById('findCityButton').textContent = translations[currentLang].startDay;
+        document.getElementById('refreshHistoryButton').textContent = translations[currentLang].refreshRecord;
+        document.getElementById('refreshGlobalMapButton').textContent = translations[currentLang].queryMap;
+
+        // 更新日期和組別選擇器標籤
+        const dateLabel = document.querySelector('label[for="globalDate"]');
+        if (dateLabel) {
+            dateLabel.textContent = translations[currentLang].selectDate + ":";
+        }
+
+        const groupLabel = document.querySelector('label[for="groupFilter"]');
+        if (groupLabel) {
+            groupLabel.textContent = translations[currentLang].selectGroup + ":";
+        }
+
+        // 更新「所有人」選項
+        const allUsersOption = document.querySelector('#groupFilter option[value="all"]');
+        if (allUsersOption) {
+            allUsersOption.textContent = translations[currentLang].allUsers;
+        }
+    }
+
+    // 語言切換事件監聽
+    langZhButton.addEventListener('click', () => {
+        currentLang = 'zh';
+        localStorage.setItem('preferredLanguage', currentLang);
+        updateLanguageButtons();
+        translatePage();
+    });
+
+    langEnButton.addEventListener('click', () => {
+        currentLang = 'en';
+        localStorage.setItem('preferredLanguage', currentLang);
+        updateLanguageButtons();
+        translatePage();
+    });
+
+    // 初始化語言設定
+    initLanguage();
+
     // 從 window 中獲取 Firebase SDK 函數
     const {
         initializeApp,
