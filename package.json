@@ -1,23 +1,23 @@
 {
-  "name": "subjective-clock",
-  "version": "1.0.0",
-  "description": "A subjective world clock map that generates adventure stories based on location and time.",
-  "main": "index05.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "map",
-    "clock",
-    "world",
-    "openai",
-    "story",
-    "vercel",
-    "firebase"
-  ],
-  "author": "Yu-Ting Cheng",
-  "license": "ISC",
-  "dependencies": {
-    "openai": "^4.0.0"
+    "name": "subjective-clock",
+    "version": "1.0.0",
+    "description": "A subjective world clock map that generates adventure stories based on location and time.",
+    "main": "index05.html",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+      "map",
+      "clock",
+      "world",
+      "openai",
+      "story",
+      "vercel",
+      "firebase"
+    ],
+    "author": "Yu-Ting Cheng",
+    "license": "ISC",
+    "dependencies": {
+      "openai": "^4.0.0"
+    }
   }
-}
