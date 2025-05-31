@@ -29,57 +29,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             }
         });
-
-        // 特殊處理一些動態內容
-        document.querySelector('h1').textContent = translations[currentLang].title;
-        document.getElementById('userName').placeholder = translations[currentLang].displayNamePlaceholder;
-        document.getElementById('groupName').placeholder = translations[currentLang].groupNamePlaceholder;
-        document.getElementById('setUserNameButton').textContent = translations[currentLang].setUpdateName;
-        document.getElementById('clearGroupButton').textContent = translations[currentLang].clearGroup;
-        document.getElementById('currentUserId').previousElementSibling.textContent = translations[currentLang].currentUser + "：";
-        
-        // 更新 tab 按鈕文字
-        document.getElementById('tabButton-ClockTab').textContent = translations[currentLang].todayWakeup;
-        document.getElementById('tabButton-HistoryTab').textContent = translations[currentLang].wakeupTrack;
-        document.getElementById('tabButton-GlobalTodayMapTab').textContent = translations[currentLang].globalMap;
-
-        // 更新其他靜態文字
-        const clockTabDescription = document.querySelector('#ClockTab p');
-        if (clockTabDescription) {
-            clockTabDescription.textContent = translations[currentLang].startDayDescription;
-        }
-
-        const historyTabDescription = document.querySelector('#HistoryTab p');
-        if (historyTabDescription) {
-            historyTabDescription.textContent = translations[currentLang].historyDescription;
-        }
-
-        const globalTabDescription = document.querySelector('#GlobalTodayMapTab p');
-        if (globalTabDescription) {
-            globalTabDescription.textContent = translations[currentLang].globalMapDescription;
-        }
-
-        // 更新按鈕文字
-        document.getElementById('findCityButton').textContent = translations[currentLang].startDay;
-        document.getElementById('refreshHistoryButton').textContent = translations[currentLang].refreshRecord;
-        document.getElementById('refreshGlobalMapButton').textContent = translations[currentLang].queryMap;
-
-        // 更新日期和組別選擇器標籤
-        const dateLabel = document.querySelector('label[for="globalDate"]');
-        if (dateLabel) {
-            dateLabel.textContent = translations[currentLang].selectDate + ":";
-        }
-
-        const groupLabel = document.querySelector('label[for="groupFilter"]');
-        if (groupLabel) {
-            groupLabel.textContent = translations[currentLang].selectGroup + ":";
-        }
-
-        // 更新「所有人」選項
-        const allUsersOption = document.querySelector('#groupFilter option[value="all"]');
-        if (allUsersOption) {
-            allUsersOption.textContent = translations[currentLang].allUsers;
-        }
     }
 
     // 語言切換事件監聽
@@ -88,6 +37,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('preferredLanguage', currentLang);
         updateLanguageButtons();
         translatePage();
+        // 重新載入當前頁面的內容
+        if (document.getElementById('ClockTab').classList.contains('active')) {
+            displayLastRecordForCurrentUser();
+        } else if (document.getElementById('HistoryTab').classList.contains('active')) {
+            loadHistory();
+        } else if (document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
+            loadGlobalTodayMap();
+        }
     });
 
     langEnButton.addEventListener('click', () => {
@@ -95,6 +52,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         localStorage.setItem('preferredLanguage', currentLang);
         updateLanguageButtons();
         translatePage();
+        // 重新載入當前頁面的內容
+        if (document.getElementById('ClockTab').classList.contains('active')) {
+            displayLastRecordForCurrentUser();
+        } else if (document.getElementById('HistoryTab').classList.contains('active')) {
+            loadHistory();
+        } else if (document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
+            loadGlobalTodayMap();
+        }
     });
 
     // 初始化語言設定
