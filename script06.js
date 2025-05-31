@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 更新語言按鈕狀態
     function updateLanguageButtons() {
+        if (!langZhButton || !langEnButton) return;
         langZhButton.classList.toggle('active', currentLang === 'zh');
         langEnButton.classList.toggle('active', currentLang === 'en');
     }
@@ -21,46 +22,69 @@ document.addEventListener('DOMContentLoaded', async () => {
         const elements = document.querySelectorAll('[data-translate]');
         elements.forEach(element => {
             const key = element.getAttribute('data-translate');
-            if (translations[currentLang][key]) {
-                if (element.tagName === 'INPUT' && element.getAttribute('placeholder')) {
+            if (translations[currentLang] && translations[currentLang][key]) {
+                if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
                     element.placeholder = translations[currentLang][key];
+                } else if (element.tagName === 'OPTION') {
+                    element.text = translations[currentLang][key];
                 } else {
                     element.textContent = translations[currentLang][key];
                 }
             }
         });
+
+        // 更新動態生成的內容
+        updateDynamicContent();
+    }
+
+    // 更新動態生成的內容
+    function updateDynamicContent() {
+        // 更新歷史記錄標題
+        const modalTitle = document.getElementById('modalTitle');
+        if (modalTitle) {
+            modalTitle.textContent = currentLang === 'zh' ? '甦醒日誌詳情' : 'Wake Up Log Details';
+        }
+
+        // 更新關閉按鈕
+        const closeButton = document.getElementById('closeModalFooterButton');
+        if (closeButton) {
+            closeButton.textContent = translations[currentLang].close;
+        }
+
+        // 如果當前在歷史記錄頁面，重新載入歷史記錄
+        if (document.getElementById('HistoryTab').classList.contains('active')) {
+            loadHistory();
+        }
+
+        // 如果當前在全球地圖頁面，重新載入地圖
+        if (document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
+            loadGlobalTodayMap();
+        }
+
+        // 如果當前在今日甦醒頁面，重新顯示最後記錄
+        if (document.getElementById('ClockTab').classList.contains('active')) {
+            displayLastRecordForCurrentUser();
+        }
     }
 
     // 語言切換事件監聽
-    langZhButton.addEventListener('click', () => {
-        currentLang = 'zh';
-        localStorage.setItem('preferredLanguage', currentLang);
-        updateLanguageButtons();
-        translatePage();
-        // 重新載入當前頁面的內容
-        if (document.getElementById('ClockTab').classList.contains('active')) {
-            displayLastRecordForCurrentUser();
-        } else if (document.getElementById('HistoryTab').classList.contains('active')) {
-            loadHistory();
-        } else if (document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
-            loadGlobalTodayMap();
-        }
-    });
+    if (langZhButton) {
+        langZhButton.addEventListener('click', () => {
+            currentLang = 'zh';
+            localStorage.setItem('preferredLanguage', currentLang);
+            updateLanguageButtons();
+            translatePage();
+        });
+    }
 
-    langEnButton.addEventListener('click', () => {
-        currentLang = 'en';
-        localStorage.setItem('preferredLanguage', currentLang);
-        updateLanguageButtons();
-        translatePage();
-        // 重新載入當前頁面的內容
-        if (document.getElementById('ClockTab').classList.contains('active')) {
-            displayLastRecordForCurrentUser();
-        } else if (document.getElementById('HistoryTab').classList.contains('active')) {
-            loadHistory();
-        } else if (document.getElementById('GlobalTodayMapTab').classList.contains('active')) {
-            loadGlobalTodayMap();
-        }
-    });
+    if (langEnButton) {
+        langEnButton.addEventListener('click', () => {
+            currentLang = 'en';
+            localStorage.setItem('preferredLanguage', currentLang);
+            updateLanguageButtons();
+            translatePage();
+        });
+    }
 
     // 初始化語言設定
     initLanguage();
