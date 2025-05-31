@@ -1338,19 +1338,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             buttonElement.textContent = '生成中...';
             postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
 
+            // 獲取當前用戶的認證 token
+            const token = auth.currentUser ? await auth.currentUser.getIdToken() : null;
+
             const response = await fetch('/api/generateImage02', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify({ 
                     city: record.city_zh || record.city,
                     country: record.country_zh || record.country
                 })
             });
 
-            if (!response.ok) throw new Error(await response.text());
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error("圖片生成 API 錯誤:", response.status, errorText);
+                throw new Error(`API 錯誤 (${response.status}): ${errorText}`);
+            }
 
             const data = await response.json();
-            if (!data.imageUrl) throw new Error('圖片生成失敗');
+            if (!data.imageUrl) throw new Error('圖片生成失敗：未收到圖片 URL');
 
             // 更新 Firestore 記錄
             await updateRecordWithImage(record, data.imageUrl);
