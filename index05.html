@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>甦醒地圖 Wake Up World Map</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -533,77 +535,18 @@
         #currentGroupName {
             font-style: italic;
         }
-
-        /* 語言切換按鈕樣式 */
-        .language-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .language-switch button {
-            padding: 8px 12px;
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            color: #495057;
-            transition: all 0.2s ease;
-        }
-
-        .language-switch button.active {
-            background-color: #e9ecef;
-            border-color: #adb5bd;
-            font-weight: bold;
-        }
-
-        .language-switch button:hover {
-            background-color: #e9ecef;
-        }
-
-        @media (max-width: 768px) {
-            .language-switch {
-                position: relative;
-                top: 0;
-                right: 0;
-                margin-bottom: 15px;
-                justify-content: center;
-            }
-        }
-
     </style>
 </head>
 <body>
-    <div class="language-switch">
-        <button id="langZh" class="active">中文</button>
-        <button id="langEn">English</button>
-    </div>
     <div class="container">
         <h1>甦醒地圖 Wake Up World Map</h1>
-
-        <div class="user-info-section">
-            <div class="input-group-vertical">
-                <div class="input-field">
-                    <label for="userName">顯示名稱：</label>
-                    <input type="text" id="userName" placeholder="請輸入你的顯示名稱">
-                </div>
-                <div class="input-field">
-                    <label for="groupName">組別名稱：</label>
-                    <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
-                </div>
-                <button id="setUserNameButton">設定/更新名稱</button>
-            </div>
-            <div class="current-user-info">
-                <span>目前使用者：</span>
-                <span id="currentUserId">未設定</span>
-                <span id="currentUserDisplayName" style="display: none;"></span>
-                <span id="currentGroupName" style="margin-left: 10px; color: #666;"></span>
-            </div>
+        
+        <div class="user-section">
+            <label for="userName">顯示名稱：</label>
+            <input type="text" id="userName" placeholder="請輸入您的顯示名稱">
+            <input type="text" id="groupName" placeholder="請輸入您的組別名稱（選填）">
+            <button id="setUserNameButton">設定/更新名稱</button>
+            <p>目前使用者：<span id="currentUserId">未設定</span><span id="currentUserDisplayName"></span><span id="currentGroupName"></span></p>
         </div>
 
         <div class="tab-container">
@@ -630,8 +573,7 @@
             <p>記錄關於你每日於地球上的哪一個角落起床。</p>
             <button id="refreshHistoryButton">刷新記錄</button>
             <ul id="historyList"></ul>
-            <div id="historyMapContainer"> <p>地圖軌跡功能已移除。</p>
-            </div>
+            <div id="historyMapContainer"> </div>
             <small id="historyDebugInfo"></small>
         </div>
 
@@ -683,7 +625,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-    <script src="translations.js"></script>
     <script src="script06.js"></script>
 </body>
 </html>
