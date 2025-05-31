@@ -306,17 +306,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function updateGroupFilter() {
+        console.log("[updateGroupFilter] 開始更新組別選單");
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
             const querySnapshot = await getDocs(globalCollectionRef);
             const groups = new Set(['all']);
             
+            // 添加當前使用者的組別（如果有）
+            if (currentGroupName) {
+                groups.add(currentGroupName);
+                console.log("[updateGroupFilter] 添加當前使用者組別:", currentGroupName);
+            }
+            
+            // 從歷史記錄中收集組別
             querySnapshot.forEach(doc => {
                 const data = doc.data();
                 if (data.groupName) {
                     groups.add(data.groupName);
                 }
             });
+
+            console.log("[updateGroupFilter] 找到的所有組別:", Array.from(groups));
 
             groupFilterSelect.innerHTML = '';
             groupFilterSelect.appendChild(new Option('所有人', 'all'));
@@ -331,8 +341,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (currentGroupName && groups.has(currentGroupName)) {
                 groupFilterSelect.value = currentGroupName;
             }
+            
+            console.log("[updateGroupFilter] 組別選單更新完成，當前選擇:", groupFilterSelect.value);
         } catch (error) {
-            console.error("更新組別過濾器失敗:", error);
+            console.error("[updateGroupFilter] 更新組別過濾器失敗:", error);
         }
     }
 
@@ -935,7 +947,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
             console.log(`[saveToGlobalDailyRecord] 全域每日記錄已儲存，文件 ID: ${docRef.id}`);
-            await updateGroupFilter();  // 更新組別選擇下拉選單
+            // 儲存成功後立即更新組別選單
+            await updateGroupFilter();
         } catch (e) {
             console.error("[saveToGlobalDailyRecord] 儲存全域每日記錄到 Firestore 失敗:", e);
         }
@@ -1461,7 +1474,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const querySnapshot = await getDocs(q);
             console.log(`[loadGlobalTodayMap] 查詢完成，找到 ${querySnapshot.size} 筆記錄`);
-            const globalPoints = [];
+            
+            // 使用 Map 來收集相同座標的使用者資訊
+            const locationMap = new Map();
 
             if (!querySnapshot.empty) {
                 querySnapshot.forEach((doc) => {
@@ -1471,21 +1486,39 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                         typeof record.longitude === 'number' && isFinite(record.longitude)) {
 
+                        const locationKey = `${record.latitude.toFixed(6)},${record.longitude.toFixed(6)}`;
                         const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
                         const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
                         const userDisplay = record.userDisplayName || record.dataIdentifier || "匿名";
                         const groupInfo = record.groupName ? ` [${record.groupName}]` : '';
+                        const userInfo = `${userDisplay}${groupInfo}`;
 
-                        globalPoints.push({
-                            lat: record.latitude,
-                            lon: record.longitude,
-                            title: `${userDisplay}${groupInfo} @ ${cityDisplay}, ${countryDisplay}`
-                        });
+                        if (!locationMap.has(locationKey)) {
+                            locationMap.set(locationKey, {
+                                lat: record.latitude,
+                                lon: record.longitude,
+                                users: [userInfo],
+                                city: cityDisplay,
+                                country: countryDisplay
+                            });
+                        } else {
+                            const existingLocation = locationMap.get(locationKey);
+                            if (!existingLocation.users.includes(userInfo)) {
+                                existingLocation.users.push(userInfo);
+                            }
+                        }
                     } else {
                         console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
                     }
                 });
             }
+
+            // 將收集到的資訊轉換為點位陣列
+            const globalPoints = Array.from(locationMap.values()).map(location => ({
+                lat: location.lat,
+                lon: location.lon,
+                title: `${location.users.join('、')} @ ${location.city}, ${location.country}`
+            }));
 
             console.log(`[loadGlobalTodayMap] 準備渲染 ${globalPoints.length} 個點位`);
             renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, 
@@ -1630,7 +1663,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currentTabDiv = document.getElementById(tabName);
         if (currentTabDiv) {
             currentTabDiv.style.display = "block";
-             console.log(`[openTab] ${tabName} 設為 display: block`);
+            console.log(`[openTab] ${tabName} 設為 display: block`);
         } else {
             console.warn(`[openTab] 找不到 ID 為 ${tabName} 的分頁內容元素。`);
         }
@@ -1640,7 +1673,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (targetButton) {
             targetButton.classList.add("active");
         } else if (evt && evt.currentTarget) {
-             evt.currentTarget.classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
 
         setTimeout(() => {
@@ -1658,20 +1691,25 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                     globalLeafletMap.invalidateSize();
                 }
-                if (auth.currentUser && !isInitialLoad) {
-                    if (globalDateInput) {
-                        const today = new Date();
-                        const year = today.getFullYear();
-                        const month = (today.getMonth() + 1).toString().padStart(2, '0');
-                        const day = today.getDate().toString().padStart(2, '0');
-                        globalDateInput.value = `${year}-${month}-${day}`;
-                        console.log("[openTab] GlobalTodayMapTab: 日期已重設為今天:", globalDateInput.value);
-                    }
-                    console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab (日期已重設為今天).");
-                    loadGlobalTodayMap();
+                if (auth.currentUser) {
+                    // 切換到眾人甦醒地圖時，先更新組別選單
+                    updateGroupFilter().then(() => {
+                        if (!isInitialLoad) {
+                            if (globalDateInput) {
+                                const today = new Date();
+                                const year = today.getFullYear();
+                                const month = (today.getMonth() + 1).toString().padStart(2, '0');
+                                const day = today.getDate().toString().padStart(2, '0');
+                                globalDateInput.value = `${year}-${month}-${day}`;
+                                console.log("[openTab] GlobalTodayMapTab: 日期已重設為今天:", globalDateInput.value);
+                            }
+                            console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab (日期已重設為今天).");
+                            loadGlobalTodayMap();
+                        }
+                    });
                 }
             } else if (tabName === 'ClockTab') {
-                 if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
+                if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
                     console.log("[openTab] ClockTab is visible, invalidating map size.");
                     clockLeafletMap.invalidateSize();
                 }
