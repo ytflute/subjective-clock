@@ -91,23 +91,36 @@
             color: #e8af10;
         }
 
-        .tabs {
+        .tab-container {
             display: flex;
             justify-content: center;
             margin-bottom: 25px;
             border-bottom: 2px solid #e0e0e0;
+            flex-wrap: nowrap; /* 確保不換行 */
+            gap: 4px; /* 減少按鈕之間的間距 */
         }
 
         .tab-button {
-            padding: 12px 22px;
+            padding: 12px 12px; /* 減少左右內邊距 */
             cursor: pointer;
             border: none;
             background-color: transparent;
-            font-size: 17px;
-            margin: 0 8px;
+            font-size: 15px; /* 稍微縮小字體 */
+            margin: 0; /* 移除外邊距 */
             border-bottom: 3px solid transparent;
             transition: border-color 0.3s, color 0.3s;
             color: #555;
+            white-space: nowrap; /* 確保文字不換行 */
+            flex: 1; /* 平均分配空間 */
+            min-width: 0; /* 允許按鈕縮小 */
+        }
+
+        /* 添加響應式樣式 */
+        @media screen and (max-width: 480px) {
+            .tab-button {
+                padding: 10px 8px; /* 在更小的螢幕上進一步減少內邊距 */
+                font-size: 14px; /* 在更小的螢幕上進一步縮小字體 */
+            }
         }
 
         .tab-button.active {
@@ -530,11 +543,11 @@
         <div class="user-info-section">
             <div class="input-group-vertical">
                 <div class="input-field">
-                    <label for="userName">顯示名稱：</label>
+                    <label for="userName">顯示名稱(必要)：</label>
                     <input type="text" id="userName" placeholder="請輸入你的顯示名稱">
                 </div>
                 <div class="input-field">
-                    <label for="groupName">組別名稱：</label>
+                    <label for="groupName">組別名稱(選填)：</label>
                     <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
                 </div>
                 <button id="setUserNameButton">設定/更新名稱</button>
