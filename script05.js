@@ -1382,6 +1382,44 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    async function uploadImageToGoogleDrive(tempImageUrl, recordData) {
+        try {
+            console.log("開始上傳圖片到 Google Drive");
+            console.log("臨時圖片 URL:", tempImageUrl);
+            
+            // 從臨時 URL 獲取圖片數據
+            const response = await fetch(tempImageUrl);
+            if (!response.ok) {
+                console.error(`獲取圖片失敗: ${response.status}`);
+                throw new Error(`獲取圖片失敗: ${response.status}`);
+            }
+            const imageBlob = await response.blob();
+            console.log("成功獲取圖片數據，大小:", imageBlob.size, "bytes");
+
+            // 上傳到後端 API
+            const formData = new FormData();
+            formData.append('image', imageBlob);
+            formData.append('fileName', `breakfast_${recordData.recordedDateString}_${recordData.dataIdentifier}.png`);
+            
+            const uploadResponse = await fetch('/api/uploadToDrive', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!uploadResponse.ok) {
+                throw new Error(`上傳失敗: ${uploadResponse.status}`);
+            }
+
+            const result = await uploadResponse.json();
+            console.log("上傳成功，Google Drive URL:", result.fileUrl);
+            
+            return result.fileUrl;
+        } catch (error) {
+            console.error("上傳圖片到 Google Drive 失敗:", error);
+            throw error;
+        }
+    }
+
     // 修改：generatePostcard 函數
     async function generatePostcard(record, buttonElement) {
         const postcardSection = document.getElementById('postcardSection');
@@ -1441,7 +1479,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             console.log("準備將臨時圖片上傳到 Firebase Storage...");
             // 上傳到 Firebase Storage 並獲取永久 URL
-            const permanentUrl = await uploadImageToFirebase(data.imageUrl, record);
+            const permanentUrl = await uploadImageToGoogleDrive(data.imageUrl, record);
             console.log("獲得永久 URL:", permanentUrl);
             record.imageUrl = permanentUrl;
 
@@ -1575,7 +1613,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                         globalPoints.push({
                             lat: record.latitude,
                             lon: record.longitude,
-                            title: `${userDisplay}${groupInfo} @ ${cityDisplay}, ${countryDisplay}`
+                            title: `${userDisplay}${groupInfo} @ ${cityDisplay}, ${countryDisplay}`,
+                            userDisplayName: userDisplay,
+                            groupName: record.groupName || '',
+                            city: cityDisplay,
+                            country: countryDisplay
                         });
                     } else {
                         console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
@@ -1638,26 +1680,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (mapType === 'global') globalMarkerLayerGroup = currentMarkerLayerGroup;
             else if (mapType === 'history') historyMarkerLayerGroup = currentMarkerLayerGroup;
         }
-        if (currentMapInstance.getContainer().innerHTML.includes("<p>")) {
-            mapDivElement.innerHTML = '';
-            mapDivElement.appendChild(currentMapInstance.getContainer());
-        }
-        currentMapInstance.invalidateSize();
 
         if (!points || points.length === 0) {
-            if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers();
             console.log("[renderPointsOnMap] 沒有點可以渲染，在地圖上顯示提示。");
             if(debugDivElement) debugDivElement.textContent = `${mapTitle}：尚無有效座標點可顯示。`;
-            else console.warn("Debug element not provided for no-points message.");
-            // 如果地圖已初始化，但無數據，則重置視圖到一個通用位置
             if (currentMapInstance) {
                 currentMapInstance.setView([20, 0], 2);
             }
             return;
         }
-
-        let minLat = 90, maxLat = -90, minLon = 180, maxLon = -180;
-        let validPointsForBboxCount = 0;
 
         // 創建一個 Map 來存儲相同位置的點
         const locationMap = new Map();
@@ -1674,21 +1705,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                     locationMap.set(locationKey, {
                         lat: point.lat,
                         lon: point.lon,
-                        titles: []
+                        points: []
                     });
                 }
                 
-                // 將此點的標題添加到該位置的列表中
-                locationMap.get(locationKey).titles.push(point.title);
-                
-                // 更新邊界框
-                minLat = Math.min(minLat, point.lat);
-                maxLat = Math.max(maxLat, point.lat);
-                minLon = Math.min(minLon, point.lon);
-                maxLon = Math.max(maxLon, point.lon);
-                validPointsForBboxCount++;
+                // 將此點的資訊添加到該位置的列表中
+                locationMap.get(locationKey).points.push({
+                    title: point.title,
+                    userDisplayName: point.userDisplayName,
+                    groupName: point.groupName,
+                    city: point.city,
+                    country: point.country
+                });
             }
         });
+
+        let bounds = null;
 
         // 為每個唯一位置創建標記
         locationMap.forEach(location => {
@@ -1696,12 +1728,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.7,
-                radius: location.titles.length > 1 ? 8 : 6  // 如果有多人，標記稍大一些
+                radius: location.points.length > 1 ? 8 : 6  // 如果有多人，標記稍大一些
             }).addTo(currentMarkerLayerGroup);
 
-            if (location.titles.length > 0) {
-                // 創建包含所有人名字的工具提示
-                const tooltipContent = location.titles.join('<br>');
+            if (location.points.length > 0) {
+                // 創建包含所有資訊的工具提示內容
+                const tooltipContent = location.points.map(p => 
+                    `${p.userDisplayName}${p.groupName ? ` [${p.groupName}]` : ''} @ ${p.city}, ${p.country}`
+                ).join('<br>');
+                
                 marker.bindTooltip(tooltipContent, {
                     permanent: false,
                     direction: 'top',
@@ -1709,49 +1744,34 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
 
                 // 為有多人的標記添加點擊事件
-                if (location.titles.length > 1) {
+                if (location.points.length > 1) {
                     marker.on('click', function() {
                         this.openTooltip();
                     });
                 }
             }
+
+            // 更新邊界
+            if (!bounds) {
+                bounds = L.latLngBounds([location.lat, location.lon], [location.lat, location.lon]);
+            } else {
+                bounds.extend([location.lat, location.lon]);
+            }
         });
 
-        if (validPointsForBboxCount > 0) {
-            const latDiff = maxLat - minLat;
-            const lonDiff = maxLon - minLon;
-            const defaultMargin = 1.0;
-            const latMargin = latDiff < 0.1 ? defaultMargin : latDiff * 0.2 + 0.1;
-            const lonMargin = lonDiff < 0.1 ? defaultMargin : lonDiff * 0.2 + 0.1;
-
-            let south = Math.max(-85, minLat - latMargin);
-            let west = Math.max(-180, minLon - lonMargin);
-            let north = Math.min(85, maxLat + latMargin);
-            let east = Math.min(180, maxLon + lonMargin);
-
-            if (west >= east) {
-                const centerLon = validPointsForBboxCount === 1 ? minLon : (minLon + maxLon) / 2;
-                west = centerLon - defaultMargin / 2;
-                east = centerLon + defaultMargin / 2;
-            }
-            if (south >= north) {
-                const centerLat = validPointsForBboxCount === 1 ? minLat : (minLat + maxLat) / 2;
-                south = centerLat - defaultMargin / 2;
-                north = centerLat + defaultMargin / 2;
-            }
-
-            west = Math.max(-180, Math.min(west, 179.9999));
-            east = Math.min(180, Math.max(east, west + 0.0001));
-            south = Math.max(-85, Math.min(south, 84.9999));
-            north = Math.min(85, Math.max(north, south + 0.0001));
-
-            console.log(`[renderPointsOnMap] (${mapTitle}) 計算出的 BBOX:, ${west},${south},${east},${north}`);
-            currentMapInstance.fitBounds([[south, west], [north, east]], {padding: [20,20]});
-        } else if (currentMapInstance) {
+        // 調整地圖視圖
+        if (bounds) {
+            const padding = 50;
+            currentMapInstance.fitBounds(bounds, {
+                padding: [padding, padding]
+            });
+        } else {
             currentMapInstance.setView([20, 0], 2);
         }
 
-        if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
+        if(debugDivElement) {
+            debugDivElement.textContent = `${mapTitle} - 顯示 ${locationMap.size} 個位置，共 ${points.length} 個記錄。`;
+        }
     }
 
     window.openTab = function(evt, tabName, isInitialLoad = false) {
