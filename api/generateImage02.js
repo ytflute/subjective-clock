@@ -1,18 +1,18 @@
 // pages/api/generateImage.js (Vercel API 路由)
 import OpenAI from 'openai';
-import { initializeApp } from 'firebase-admin/app';
-import { getStorage } from 'firebase-admin/storage';
+import admin from 'firebase-admin';
 import fetch from 'node-fetch';
 
 // 初始化 Firebase Admin
-let app;
-try {
-  app = initializeApp({
-    credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)),
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET
-  });
-} catch (error) {
-  console.error('Firebase Admin 初始化失敗:', error);
+if (!admin.apps.length) {
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)),
+      storageBucket: "subjective-clock.appspot.com"
+    });
+  } catch (error) {
+    console.error('Firebase Admin 初始化失敗:', error);
+  }
 }
 
 const openai = new OpenAI({
@@ -40,7 +40,7 @@ function generateUniverseBreakfastPrompt() {
 // 將圖片上傳到 Firebase Storage
 async function uploadImageToFirebase(imageBuffer, fileName) {
   try {
-    const bucket = getStorage().bucket();
+    const bucket = admin.storage().bucket();
     const file = bucket.file(`breakfast-images/${fileName}`);
     
     await file.save(imageBuffer, {
@@ -50,13 +50,12 @@ async function uploadImageToFirebase(imageBuffer, fileName) {
       },
     });
 
-    // 獲取公開訪問 URL
-    const [url] = await file.getSignedUrl({
-      action: 'read',
-      expires: '01-01-2100', // 設定一個很遠的過期時間
-    });
+    // 生成公開訪問 URL
+    await file.makePublic();
+    
+    // 返回公開 URL
+    return `https://storage.googleapis.com/${bucket.name}/${file.name}`;
 
-    return url;
   } catch (error) {
     console.error('上傳圖片到 Firebase Storage 失敗:', error);
     throw error;
