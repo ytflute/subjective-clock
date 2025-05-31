@@ -34,7 +34,23 @@ const translations = {
         nameRequired: "請輸入顯示名稱",
         nameUpdated: "名稱已更新",
         errorOccurred: "發生錯誤",
-        loadingHistory: "載入歷史記錄中..."
+        loadingHistory: "載入歷史記錄中...",
+        modalTitle: "甦醒日誌詳情",
+        recordTime: "記錄時間",
+        userLocalTime: "使用者當地時間",
+        wakeupLocation: "甦醒地點",
+        greeting: "當時的問候",
+        story: "相關小知識/記事",
+        breakfast: "當日早餐",
+        noBreakfastImage: "此記錄沒有早餐圖片",
+        timezone: "時區",
+        coordinates: "座標",
+        unknown: "未知",
+        noRecords: "尚無歷史記錄",
+        pleaseWait: "請稍候...",
+        authError: "認證失敗",
+        nameRequired: "請先設定你的顯示名稱",
+        groupCleared: "組別已清除"
     },
     en: {
         title: "Wake Up World Map",
@@ -71,6 +87,22 @@ const translations = {
         nameRequired: "Please enter display name",
         nameUpdated: "Name updated",
         errorOccurred: "An error occurred",
-        loadingHistory: "Loading history..."
+        loadingHistory: "Loading history...",
+        modalTitle: "Wake Up Log Details",
+        recordTime: "Record Time",
+        userLocalTime: "User Local Time",
+        wakeupLocation: "Wake Up Location",
+        greeting: "Greeting",
+        story: "Related Story/Facts",
+        breakfast: "Today's Breakfast",
+        noBreakfastImage: "No breakfast image for this record",
+        timezone: "Timezone",
+        coordinates: "Coordinates",
+        unknown: "Unknown",
+        noRecords: "No history records yet",
+        pleaseWait: "Please wait...",
+        authError: "Authentication failed",
+        nameRequired: "Please set your display name first",
+        groupCleared: "Group cleared"
     }
 }; 
