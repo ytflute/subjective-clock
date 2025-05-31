@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const globalTodayMapContainerDiv = document.getElementById('globalTodayMapContainer');
     const globalTodayDebugInfoSmall = document.getElementById('globalTodayDebugInfo');
 
+    let currentGroupName = "";
+    const groupNameInput = document.getElementById('groupName');
+    const currentGroupNameSpan = document.getElementById('currentGroupName');
+    const groupFilterSelect = document.getElementById('groupFilter');
+
     // 全域變數
     let citiesData = [];
     let db, auth;
@@ -77,10 +82,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
-    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory02 for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
+    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
-        const response = await fetch('/api/generateStory02', { // 呼叫您 Vercel 部署的 API 路徑
+        const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -95,7 +100,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!response.ok) {
             // 如果 API 返回 HTTP 錯誤狀態 (例如 4xx, 5xx)
             const errorData = await response.json().catch(() => ({ error: "無法解析 API 錯誤回應" })); // 嘗試解析錯誤詳情
-            console.error(`API Error from /api/generateStory02: ${response.status} ${response.statusText}`, errorData);
+            console.error(`API Error from /api/generateStory: ${response.status} ${response.statusText}`, errorData);
             // 返回一個包含錯誤訊息的物件，讓調用者可以處理
             return {
                 greeting: `(系統提示：問候語獲取失敗 - ${response.status})`,
@@ -121,7 +126,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
     } catch (error) {
-        console.error("Error calling /api/generateStory02 from frontend:", error);
+        console.error("Error calling /api/generateStory from frontend:", error);
         // 網路錯誤或其他前端 fetch 相關的錯誤
         return {
             greeting: "(系統提示：網路錯誤，無法獲取問候語)",
@@ -239,15 +244,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function setOrLoadUserName(name, showAlert = true) {
         console.log("[setOrLoadUserName] 接收到名稱:", name, "showAlert:", showAlert);
         const newDisplayNameRaw = name.trim();
+        const newGroupName = groupNameInput.value.trim();
+        
         if (!newDisplayNameRaw) {
             if (showAlert) alert("顯示名稱不能為空。");
             return false;
         }
 
-        // 檢查是否是相同的名稱
-        if (newDisplayNameRaw === rawUserDisplayName) {
-            console.log("[setOrLoadUserName] 名稱相同，保持現有識別碼:", currentDataIdentifier);
-            if (showAlert) alert(`名稱未變更，仍然是 "${rawUserDisplayName}"`);
+        // 檢查是否是相同的名稱和組別
+        if (newDisplayNameRaw === rawUserDisplayName && newGroupName === currentGroupName) {
+            console.log("[setOrLoadUserName] 名稱和組別都相同，保持現有識別碼:", currentDataIdentifier);
+            if (showAlert) alert(`名稱和組別未變更，仍然是 "${rawUserDisplayName}"`);
             return true;
         }
 
@@ -260,21 +267,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log("[setOrLoadUserName] 原始名稱:", newDisplayNameRaw);
         console.log("[setOrLoadUserName] 生成的安全識別碼:", sanitizedName);
+        console.log("[setOrLoadUserName] 組別名稱:", newGroupName);
 
         // 設置全域變數
         currentDataIdentifier = sanitizedName;
         rawUserDisplayName = newDisplayNameRaw;  // 保存原始名稱，包含中文
+        currentGroupName = newGroupName;  // 保存組別名稱
 
         // 更新 UI
         currentUserIdSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
         currentUserDisplayNameSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
         userNameInput.value = rawUserDisplayName;  // 保持輸入框顯示原始名稱
+        currentGroupNameSpan.textContent = currentGroupName ? `(${currentGroupName})` : '';
         localStorage.setItem('worldClockUserName', rawUserDisplayName);
+        localStorage.setItem('worldClockGroupName', currentGroupName);
 
         console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
         console.log("[setOrLoadUserName] 顯示名稱設定為:", rawUserDisplayName);
+        console.log("[setOrLoadUserName] 組別名稱設定為:", currentGroupName);
 
-        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"。你的歷史記錄將以此名稱關聯。`);
+        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"${currentGroupName ? `，組別為 "${currentGroupName}"` : ''}。你的歷史記錄將以此名稱關聯。`);
+
+        // 更新組別選擇下拉選單
+        await updateGroupFilter();
 
         if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) {
             console.log("[setOrLoadUserName] 所有條件滿足，啟用 findCityButton。");
@@ -288,6 +303,37 @@ document.addEventListener('DOMContentLoaded', async () => {
         openTab(null, 'ClockTab', true);
         await displayLastRecordForCurrentUser();
         return true;
+    }
+
+    async function updateGroupFilter() {
+        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
+        try {
+            const querySnapshot = await getDocs(globalCollectionRef);
+            const groups = new Set(['all']);
+            
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.groupName) {
+                    groups.add(data.groupName);
+                }
+            });
+
+            groupFilterSelect.innerHTML = '';
+            groupFilterSelect.appendChild(new Option('所有人', 'all'));
+            Array.from(groups)
+                .filter(group => group !== 'all')
+                .sort()
+                .forEach(group => {
+                    groupFilterSelect.appendChild(new Option(group, group));
+                });
+
+            // 如果當前使用者有組別，預設選擇該組別
+            if (currentGroupName && groups.has(currentGroupName)) {
+                groupFilterSelect.value = currentGroupName;
+            }
+        } catch (error) {
+            console.error("更新組別過濾器失敗:", error);
+        }
     }
 
     setUserNameButton.addEventListener('click', async () => {
@@ -666,7 +712,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // 生成早餐圖片，使用特殊的宇宙主題提示
             try {
-                const imageResponse = await fetch('/api/generateImage02', {
+                const imageResponse = await fetch('/api/generateImage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -777,7 +823,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 生成早餐圖片
         try {
-            const imageResponse = await fetch('/api/generateImage02', {
+            const imageResponse = await fetch('/api/generateImage', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -834,10 +880,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.warn("無法儲存歷史記錄：使用者名稱未設定。");
             return;
         }
-        // 確保記錄數據包含 greeting 和 story，即使是空字符串
+        // 確保記錄數據包含所有必要欄位
         recordData.greeting = recordData.greeting || "";
         recordData.story = recordData.story || "";
-        recordData.imageUrl = recordData.imageUrl || null; // 新增 imageUrl 欄位
+        recordData.imageUrl = recordData.imageUrl || null;
+        recordData.groupName = currentGroupName || "";  // 添加組別資訊
 
         if (recordData.city !== "Unknown Planet" && recordData.city_zh !== "未知星球" &&
             (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) ||
@@ -848,8 +895,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
         try {
             const docRef = await addDoc(historyCollectionRef, recordData);
-            console.log("個人歷史記錄已儲存，文件 ID:", docRef.id, "包含問候與故事。");
-            return docRef.id; // 返回新建立的文件 ID
+            console.log("個人歷史記錄已儲存，文件 ID:", docRef.id);
+            return docRef.id;
         } catch (e) {
             console.error("儲存個人歷史記錄到 Firestore 失敗:", e);
             return null;
@@ -862,7 +909,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // 使用使用者的本地日期
         const userLocalDate = new Date();
         const userLocalDateString = userLocalDate.toISOString().split('T')[0];
 
@@ -872,8 +918,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         const globalRecord = {
             dataIdentifier: recordData.dataIdentifier,
             userDisplayName: recordData.userDisplayName,
+            groupName: currentGroupName || "",  // 添加組別資訊
             recordedAt: recordData.recordedAt,
-            recordedDateString: userLocalDateString,  // 使用使用者的本地日期，而不是匹配城市的日期
+            recordedDateString: userLocalDateString,
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
@@ -888,6 +935,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
             console.log(`[saveToGlobalDailyRecord] 全域每日記錄已儲存，文件 ID: ${docRef.id}`);
+            await updateGroupFilter();  // 更新組別選擇下拉選單
         } catch (e) {
             console.error("[saveToGlobalDailyRecord] 儲存全域每日記錄到 Firestore 失敗:", e);
         }
@@ -1290,7 +1338,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             buttonElement.textContent = '生成中...';
             postcardSection.innerHTML = '<p style="color: #007bff; text-align:center;"><i>正在為你準備當地人常吃的早餐......</i></p>';
 
-            const response = await fetch('/api/generateImage02', {
+            const response = await fetch('/api/generateImage', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
@@ -1395,15 +1443,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        console.log(`[loadGlobalTodayMap] 開始載入日期 ${selectedDateValue} 的全域地圖`);
+        const selectedGroup = groupFilterSelect.value;
+        console.log(`[loadGlobalTodayMap] 開始載入日期 ${selectedDateValue} 的全域地圖，組別: ${selectedGroup}`);
 
         if (!globalLeafletMap) globalTodayMapContainerDiv.innerHTML = '<p>載入今日眾人地圖中...</p>';
         else if (globalMarkerLayerGroup) globalMarkerLayerGroup.clearLayers();
 
-        globalTodayDebugInfoSmall.textContent = `查詢日期: ${selectedDateValue}`;
+        globalTodayDebugInfoSmall.textContent = `查詢日期: ${selectedDateValue}${selectedGroup !== 'all' ? `, 組別: ${selectedGroup}` : ''}`;
 
         const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
-        const q = query(globalCollectionRef, where("recordedDateString", "==", selectedDateValue));
+        let q = query(globalCollectionRef, where("recordedDateString", "==", selectedDateValue));
+        
+        if (selectedGroup !== 'all') {
+            q = query(q, where("groupName", "==", selectedGroup));
+        }
 
         try {
             const querySnapshot = await getDocs(q);
@@ -1421,11 +1474,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                         const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
                         const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
                         const userDisplay = record.userDisplayName || record.dataIdentifier || "匿名";
+                        const groupInfo = record.groupName ? ` [${record.groupName}]` : '';
 
                         globalPoints.push({
                             lat: record.latitude,
                             lon: record.longitude,
-                            title: `${userDisplay} @ ${cityDisplay}, ${countryDisplay}`
+                            title: `${userDisplay}${groupInfo} @ ${cityDisplay}, ${countryDisplay}`
                         });
                     } else {
                         console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
@@ -1434,7 +1488,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             console.log(`[loadGlobalTodayMap] 準備渲染 ${globalPoints.length} 個點位`);
-            renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, `日期 ${selectedDateValue} 的眾人甦醒地圖`, 'global');
+            renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, 
+                `日期 ${selectedDateValue} 的${selectedGroup !== 'all' ? `${selectedGroup}組別` : '眾人'}甦醒地圖`, 'global');
 
         } catch (e) {
             console.error("[loadGlobalTodayMap] 讀取全域每日記錄失敗:", e);
@@ -1652,6 +1707,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                  resultTextDiv.innerHTML = `<p>歡迎！請在上方設定您的顯示名稱以開始使用。</p>`;
             }
         });
+    }
+
+    // 初始化時嘗試恢復組別設定
+    const initialGroupName = localStorage.getItem('worldClockGroupName');
+    if (initialGroupName) {
+        groupNameInput.value = initialGroupName;
+        currentGroupName = initialGroupName;
+        currentGroupNameSpan.textContent = `(${initialGroupName})`;
     }
 
     // 添加 CSS 樣式
