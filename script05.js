@@ -756,7 +756,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         longitude: null,
                         targetUTCOffset: targetUTCOffsetHours,
                         matchedCityUTCOffset: null,
-                        recordedDateString: userLocalDate.toISOString().split('T')[0],
+                        recordedDateString: userLocalDate.toISOString().split('T')[0],  // 確保使用 ISO 格式的日期
                         greeting: greetingFromAPI,
                         story: storyFromAPI,
                         imageUrl: imageData.imageUrl,
@@ -866,7 +866,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     longitude: bestMatchCity.longitude,
                     targetUTCOffset: targetUTCOffsetHours,
                     matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-                    recordedDateString: userLocalDate.toISOString().split('T')[0],
+                    recordedDateString: userLocalDate.toISOString().split('T')[0],  // 確保使用 ISO 格式的日期
                     greeting: greetingFromAPI,
                     story: storyFromAPI,
                     imageUrl: imageData.imageUrl,
@@ -914,22 +914,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function saveToGlobalDailyRecord(recordData) {
         if (!auth.currentUser) {
-            console.warn("無法儲存全域記錄：Firebase 會話未就緒。");
+            console.warn("[saveToGlobalDailyRecord] 無法儲存全域記錄：Firebase 會話未就緒。");
             return;
         }
 
-        const userLocalDate = new Date();
-        const userLocalDateString = userLocalDate.toISOString().split('T')[0];
-
-        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}`);
-        console.log(`[saveToGlobalDailyRecord] 原始記錄日期: ${recordData.recordedDateString}`);
+        // 使用記錄中的日期，而不是用戶的本地日期
+        const recordDate = recordData.recordedDateString;
+        
+        console.log(`[saveToGlobalDailyRecord] 準備儲存全域記錄，日期: ${recordDate}`);
+        console.log(`[saveToGlobalDailyRecord] 記錄資料:`, recordData);
 
         const globalRecord = {
             dataIdentifier: recordData.dataIdentifier,
             userDisplayName: recordData.userDisplayName,
             groupName: currentGroupName || "",  // 添加組別資訊
             recordedAt: recordData.recordedAt,
-            recordedDateString: userLocalDateString,
+            recordedDateString: recordDate,
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
@@ -944,9 +944,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const docRef = await addDoc(globalCollectionRef, globalRecord);
             console.log(`[saveToGlobalDailyRecord] 全域每日記錄已儲存，文件 ID: ${docRef.id}`);
+            console.log(`[saveToGlobalDailyRecord] 儲存的記錄內容:`, globalRecord);
             await updateGroupFilter();  // 更新組別選擇下拉選單
         } catch (e) {
             console.error("[saveToGlobalDailyRecord] 儲存全域每日記錄到 Firestore 失敗:", e);
+            console.error("錯誤詳情:", e.stack);
+            throw e;
         }
     }
 
@@ -1577,6 +1580,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        // 檢查是否是未來日期
+        const selectedDate = new Date(selectedDateValue);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        
+        if (selectedDate > today) {
+            globalTodayMapContainerDiv.innerHTML = '<p>您選擇的是未來日期。請選擇今天或過去的日期。</p>';
+            if (globalMarkerLayerGroup) globalMarkerLayerGroup.clearLayers();
+            return;
+        }
+
         const selectedGroup = groupFilterSelect.value;
         console.log(`[loadGlobalTodayMap] 開始載入日期 ${selectedDateValue} 的全域地圖，組別: ${selectedGroup}`);
 
@@ -1623,9 +1637,33 @@ document.addEventListener('DOMContentLoaded', async () => {
                         console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
                     }
                 });
+            } else {
+                // 添加無資料提示
+                globalTodayMapContainerDiv.innerHTML = `
+                    <p>在 ${selectedDateValue} 這一天還沒有任何人記錄甦醒地點。</p>
+                    <p>提示：</p>
+                    <ul>
+                        <li>請確認您選擇的日期是否正確</li>
+                        <li>可以先在「今日甦醒」分頁中點擊「開始這一天」來記錄您的甦醒地點</li>
+                        <li>選擇其他日期試試看</li>
+                    </ul>
+                `;
+                return;
             }
 
             console.log(`[loadGlobalTodayMap] 準備渲染 ${globalPoints.length} 個點位`);
+            if (globalPoints.length === 0) {
+                globalTodayMapContainerDiv.innerHTML = `
+                    <p>在 ${selectedDateValue} 這一天的記錄中沒有有效的地理座標。</p>
+                    <p>這可能是因為：</p>
+                    <ul>
+                        <li>記錄中的座標資料不完整</li>
+                        <li>記錄為宇宙模式（無地理座標）</li>
+                    </ul>
+                `;
+                return;
+            }
+
             renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, 
                 `日期 ${selectedDateValue} 的${selectedGroup !== 'all' ? `${selectedGroup}組別` : '眾人'}甦醒地圖`, 'global');
 
