@@ -1325,6 +1325,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 新增：將臨時圖片 URL 上傳到 Firebase Storage
     async function uploadImageToFirebase(tempImageUrl, recordData) {
         try {
+            if (!storage) {
+                console.error("Firebase Storage 未初始化");
+                throw new Error("Firebase Storage 未初始化");
+            }
+
             console.log("開始上傳圖片到 Firebase Storage");
             
             // 從臨時 URL 獲取圖片數據
@@ -1336,12 +1341,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             const timestamp = new Date().getTime();
             const fileName = `breakfast_images/${recordData.recordedDateString}/${recordData.dataIdentifier}_${timestamp}.png`;
             
+            console.log("準備上傳到路徑:", fileName);
+            
             // 創建 storage 引用
             const imageRef = ref(storage, fileName);
             
             // 上傳圖片
-            await uploadBytes(imageRef, imageBlob);
-            console.log("圖片上傳成功");
+            const uploadResult = await uploadBytes(imageRef, imageBlob);
+            console.log("圖片上傳成功，結果:", uploadResult);
             
             // 獲取永久 URL
             const permanentUrl = await getDownloadURL(imageRef);
