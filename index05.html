@@ -98,16 +98,35 @@
             border-bottom: 2px solid #e0e0e0;
         }
 
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: nowrap; /* 防止換行 */
+            width: 100%;
+            overflow-x: auto; /* 在需要時允許水平滾動 */
+            -webkit-overflow-scrolling: touch; /* 在 iOS 上提供平滑滾動 */
+            scrollbar-width: none; /* 隱藏 Firefox 滾動條 */
+            -ms-overflow-style: none; /* 隱藏 IE 和 Edge 滾動條 */
+        }
+
+        .tab-container::-webkit-scrollbar {
+            display: none; /* 隱藏 Chrome 和 Safari 滾動條 */
+        }
+
         .tab-button {
-            padding: 12px 22px;
+            padding: 12px 16px; /* 減少左右內邊距 */
             cursor: pointer;
             border: none;
             background-color: transparent;
-            font-size: 17px;
-            margin: 0 8px;
+            font-size: 15px; /* 稍微減小字體大小 */
+            white-space: nowrap; /* 防止文字換行 */
+            margin: 0 4px; /* 減少按鈕之間的間距 */
             border-bottom: 3px solid transparent;
             transition: border-color 0.3s, color 0.3s;
             color: #555;
+            flex-shrink: 0; /* 防止按鈕被壓縮 */
         }
 
         .tab-button.active {
@@ -117,6 +136,15 @@
         }
         .tab-button:hover:not(.active) {
             color: #b08b10;
+        }
+
+        /* 在較小的螢幕上進一步優化 */
+        @media screen and (max-width: 480px) {
+            .tab-button {
+                padding: 10px 12px; /* 更小的內邊距 */
+                font-size: 14px; /* 更小的字體 */
+                margin: 0 2px; /* 更小的間距 */
+            }
         }
 
         .tab-content {
@@ -519,6 +547,34 @@
 
         #currentGroupName {
             font-style: italic;
+        }
+
+        /* 自定義工具提示樣式 */
+        .custom-tooltip {
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            max-width: 300px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .custom-tooltip.leaflet-tooltip-top:before {
+            border-top-color: #ccc;
+        }
+        
+        .custom-tooltip.leaflet-tooltip-bottom:before {
+            border-bottom-color: #ccc;
+        }
+        
+        .custom-tooltip.leaflet-tooltip-left:before {
+            border-left-color: #ccc;
+        }
+        
+        .custom-tooltip.leaflet-tooltip-right:before {
+            border-right-color: #ccc;
         }
 
     </style>
