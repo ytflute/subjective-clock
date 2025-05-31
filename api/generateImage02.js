@@ -1,5 +1,19 @@
 // pages/api/generateImage.js (Vercel API 路由)
 import OpenAI from 'openai';
+import { initializeApp } from 'firebase-admin/app';
+import { getStorage } from 'firebase-admin/storage';
+import fetch from 'node-fetch';
+
+// 初始化 Firebase Admin
+let app;
+try {
+  app = initializeApp({
+    credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)),
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET
+  });
+} catch (error) {
+  console.error('Firebase Admin 初始化失敗:', error);
+}
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -21,6 +35,32 @@ function generateUniverseBreakfastPrompt() {
           that glow with ethereal light. The setting suggests a space station or alien planet 
           with a view of stars or nebulae in the background. Styled like a professional sci-fi 
           concept art with a focus on food photography shot.`.trim().replace(/\s+/g, ' ');
+}
+
+// 將圖片上傳到 Firebase Storage
+async function uploadImageToFirebase(imageBuffer, fileName) {
+  try {
+    const bucket = getStorage().bucket();
+    const file = bucket.file(`breakfast-images/${fileName}`);
+    
+    await file.save(imageBuffer, {
+      metadata: {
+        contentType: 'image/png',
+        cacheControl: 'public, max-age=31536000',
+      },
+    });
+
+    // 獲取公開訪問 URL
+    const [url] = await file.getSignedUrl({
+      action: 'read',
+      expires: '01-01-2100', // 設定一個很遠的過期時間
+    });
+
+    return url;
+  } catch (error) {
+    console.error('上傳圖片到 Firebase Storage 失敗:', error);
+    throw error;
+  }
 }
 
 export default async function handler(req, res) {
@@ -61,7 +101,17 @@ export default async function handler(req, res) {
       throw new Error('無法獲取生成的圖片 URL');
     }
 
-    return res.status(200).json({ imageUrl });
+    // 下載圖片
+    const imageResponse = await fetch(imageUrl);
+    const imageBuffer = await imageResponse.buffer();
+
+    // 生成唯一的檔案名
+    const fileName = `${Date.now()}-${Math.random().toString(36).substring(7)}.png`;
+
+    // 上傳到 Firebase Storage
+    const permanentUrl = await uploadImageToFirebase(imageBuffer, fileName);
+
+    return res.status(200).json({ imageUrl: permanentUrl });
 
   } catch (error) {
     console.error('圖片生成失敗:', error);
