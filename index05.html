@@ -614,6 +614,16 @@
         import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; 
 
+        const firebaseConfig = {
+          apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o",
+          authDomain: "subjective-clock.firebaseapp.com",
+          projectId: "subjective-clock",
+          storageBucket: "subjective-clock.firebasestorage.app",
+          messagingSenderId: "452566766153",
+          appId: "1:452566766153:web:522312f3ed5c81403f2598",
+          measurementId: "G-QZ6440LZEM"
+        };
+
         window.firebaseSDK = {
             initializeApp,
             getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
