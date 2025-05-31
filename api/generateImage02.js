@@ -29,6 +29,12 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: `方法 ${req.method} 不被允許。請使用 POST。` });
   }
 
+  console.log('收到圖片生成請求:', {
+    method: req.method,
+    body: req.body,
+    hasOpenAIKey: !!process.env.OPENAI_API_KEY
+  });
+
   const { prompt, city, country, isUniverseTheme } = req.body;
 
   // 根據參數決定使用哪個 prompt
@@ -48,13 +54,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    console.log('生成圖片，使用 prompt:', finalPrompt);
+    console.log('準備生成圖片，使用 prompt:', finalPrompt);
 
     const response = await openai.images.generate({
       prompt: finalPrompt,
       n: 1,
       size: "512x512",
     });
+
+    console.log('OpenAI 回應:', response);
 
     const imageUrl = response.data?.[0]?.url;
     if (!imageUrl) {
@@ -64,10 +72,10 @@ export default async function handler(req, res) {
     return res.status(200).json({ imageUrl });
 
   } catch (error) {
-    console.error('圖片生成失敗:', error);
+    console.error('圖片生成過程中發生錯誤:', error);
     return res.status(500).json({ 
       error: '圖片生成失敗', 
-      details: error.message 
+      details: error.message
     });
   }
 }
