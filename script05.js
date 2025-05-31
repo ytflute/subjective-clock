@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       apiKey: "AIzaSyC5-AKkFhx9olWx57bdB985IwZA9DpH66o", // 請替換成您的 Firebase API Key
       authDomain: "subjective-clock.firebaseapp.com",
       projectId: "subjective-clock",
-      storageBucket: "subjective-clock.appspot.com",
+      storageBucket: "subjective-clock.firebasestorage.app",
       messagingSenderId: "452566766153",
       appId: "1:452566766153:web:522312f3ed5c81403f2598",
       measurementId: "G-QZ6440LZEM"
@@ -1330,12 +1330,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 throw new Error("Firebase Storage 未初始化");
             }
 
+            if (!auth.currentUser) {
+                console.error("用戶未登入");
+                throw new Error("用戶未登入");
+            }
+
             console.log("開始上傳圖片到 Firebase Storage");
+            console.log("臨時圖片 URL:", tempImageUrl);
+            console.log("記錄數據:", recordData);
             
             // 從臨時 URL 獲取圖片數據
             const response = await fetch(tempImageUrl);
-            if (!response.ok) throw new Error(`獲取圖片失敗: ${response.status}`);
+            if (!response.ok) {
+                console.error(`獲取圖片失敗: ${response.status}, ${response.statusText}`);
+                throw new Error(`獲取圖片失敗: ${response.status}`);
+            }
             const imageBlob = await response.blob();
+            console.log("成功獲取圖片數據，大小:", imageBlob.size, "bytes");
 
             // 創建唯一的檔案名稱
             const timestamp = new Date().getTime();
@@ -1345,18 +1356,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             // 創建 storage 引用
             const imageRef = ref(storage, fileName);
+            console.log("已創建 Storage 引用");
             
             // 上傳圖片
+            console.log("開始上傳...");
             const uploadResult = await uploadBytes(imageRef, imageBlob);
             console.log("圖片上傳成功，結果:", uploadResult);
             
             // 獲取永久 URL
+            console.log("正在獲取永久 URL...");
             const permanentUrl = await getDownloadURL(imageRef);
             console.log("獲取永久 URL 成功:", permanentUrl);
             
             return permanentUrl;
         } catch (error) {
             console.error("上傳圖片到 Firebase Storage 失敗:", error);
+            console.error("錯誤詳情:", error.stack);
             throw error;
         }
     }
