@@ -756,7 +756,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         longitude: null,
                         targetUTCOffset: targetUTCOffsetHours,
                         matchedCityUTCOffset: null,
-                        recordedDateString: userLocalDate.toISOString().split('T')[0],  // 確保使用 ISO 格式的日期
+                        recordedDateString: `${userLocalDate.getFullYear()}-${(userLocalDate.getMonth() + 1).toString().padStart(2, '0')}-${userLocalDate.getDate().toString().padStart(2, '0')}`,  // 使用本地時間的日期
                         greeting: greetingFromAPI,
                         story: storyFromAPI,
                         imageUrl: imageData.imageUrl,
@@ -866,7 +866,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     longitude: bestMatchCity.longitude,
                     targetUTCOffset: targetUTCOffsetHours,
                     matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-                    recordedDateString: userLocalDate.toISOString().split('T')[0],  // 確保使用 ISO 格式的日期
+                    recordedDateString: `${userLocalDate.getFullYear()}-${(userLocalDate.getMonth() + 1).toString().padStart(2, '0')}-${userLocalDate.getDate().toString().padStart(2, '0')}`,  // 使用本地時間的日期
                     greeting: greetingFromAPI,
                     story: storyFromAPI,
                     imageUrl: imageData.imageUrl,
