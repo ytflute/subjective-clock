@@ -108,6 +108,15 @@ small { /* 通用 small 標籤樣式 */
     justify-content: center;
     margin-bottom: 25px;
     border-bottom: 2px solid #e0e0e0;
+    flex-wrap: nowrap; /* 防止換行 */
+    overflow-x: auto; /* 如果內容過寬，允許水平滾動 */
+    -webkit-overflow-scrolling: touch; /* 在 iOS 上提供平滑滾動 */
+    scrollbar-width: none; /* Firefox 隱藏滾動條 */
+    -ms-overflow-style: none; /* IE 和 Edge 隱藏滾動條 */
+}
+
+.tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari 和 Opera 隱藏滾動條 */
 }
 
 .tab-button {
@@ -115,12 +124,14 @@ small { /* 通用 small 標籤樣式 */
     cursor: pointer;
     border: none;
     background-color: transparent;
-    font-size: 1em; /* 相對於 body 字體大小 */
-    margin: 0 5px; /* 微調按鈕間距 */
+    font-size: 1em;
+    margin: 0 5px;
     border-bottom: 3px solid transparent;
     transition: border-color 0.3s, color 0.3s;
     color: #555;
-    font-weight: 500; /* 正常字重 */
+    font-weight: 500;
+    white-space: nowrap; /* 防止按鈕文字換行 */
+    flex-shrink: 0; /* 防止按鈕被壓縮 */
 }
 
 .tab-button.active {
@@ -128,6 +139,7 @@ small { /* 通用 small 標籤樣式 */
     font-weight: bold;
     color: #d6a70b;
 }
+
 .tab-button:hover:not(.active) {
     color: #b08b10;
 }
@@ -305,41 +317,25 @@ small { /* 通用 small 標籤樣式 */
 #refreshGlobalMapButton,
 button[id^="peekActivityButton"] /* 如果您之後加回偷看按鈕並可能有相似ID */
 {
-    display: inline-block; /* 改為 inline-block，如果想讓它們不獨佔一行 */
-    /* width: -webkit-fit-content; 
-    width: -moz-fit-content;    
-    width: fit-content;         
-    margin-left: auto;
-    margin-right: auto; */ /* 如果希望按鈕水平置中且獨佔一行，則用 display: block; margin: 0 auto; */
-    padding: 10px 22px; /* 調整 padding */
-    font-size: 1em; /* 相對字體大小 */
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 1em;
     color: white;
-    background-color: #d4b208; /* 從 HTML style 引用 */
+    background-color: #d4b208; /* 恢復原有顏色 */
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 15px; /* 調整上方間距 */
-    margin-bottom: 15px; /* 調整下方間距 */
+    margin-top: 15px;
+    margin-bottom: 15px;
     transition: background-color 0.2s, transform 0.1s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 加一點陰影 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
 #findCityButton:hover, 
 #refreshHistoryButton:hover, 
 #refreshGlobalMapButton:hover,
 button[id^="peekActivityButton"]:hover {
-    background-color: #b89e1d; /* 從 HTML style 引用 */
-}
-#findCityButton:active, 
-#refreshHistoryButton:active, 
-#refreshGlobalMapButton:active,
-button[id^="peekActivityButton"]:active {
-    transform: translateY(1px); /* 從 HTML style 引用 */
-}
-#findCityButton:disabled,
-button[id^="peekActivityButton"]:disabled { /* 確保禁用樣式也應用到新按鈕 */
-    background-color: #ccc;
-    cursor: not-allowed;
-    box-shadow: none;
+    background-color: #b89e1d; /* 恢復原有顏色 */
 }
 
 /* 日期選擇器容器 */
