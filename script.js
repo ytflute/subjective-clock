@@ -67,10 +67,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         console.log("等待 Firebase 配置載入...");
         const firebaseConfig = await waitForFirebaseConfig();
-        
-        if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+
+    if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
             throw new Error("Firebase 設定不完整!");
-        }
+    }
 
         console.log("Firebase 配置已載入，開始初始化...");
         setLogLevel('debug');
@@ -669,11 +669,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             const cityLocalTime = (userUTCTime + cityUTCOffset + 24) % 24;
             
             // 檢查該城市的當地時間是否接近目標時間（早上 8:00）
-            // 允許 30 分鐘的誤差
+            // 允許 40 分鐘的誤差
             const timeDiff = Math.abs(cityLocalTime - targetHour);
             const adjustedTimeDiff = Math.min(timeDiff, 24 - timeDiff);
             
-            if (adjustedTimeDiff <= 1.0) { // 1.0 小時 = 60 分鐘
+            if (adjustedTimeDiff <= 0.67) { // 0.67 小時 = 40 分鐘
                 candidateCities.push({
                     ...city,
                     timeDiff: adjustedTimeDiff,
