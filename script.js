@@ -375,10 +375,54 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    setUserNameButton.addEventListener('click', async () => {
+    // 設定名稱按鈕的事件處理
+    setUserNameButton.addEventListener('click', async (e) => {
+        e.preventDefault();
         console.log("「設定/更新名稱」按鈕被點擊。");
         await setOrLoadUserName(userNameInput.value.trim());
     });
+
+    // 添加觸控事件支援
+    setUserNameButton.addEventListener('touchstart', async (e) => {
+        e.preventDefault();
+        console.log("「設定/更新名稱」按鈕被觸控。");
+        await setOrLoadUserName(userNameInput.value.trim());
+    }, { passive: false });
+
+    // 防止觸控時的滾動
+    setUserNameButton.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+    }, { passive: false });
+
+    // 防止觸控結束時的點擊事件
+    setUserNameButton.addEventListener('touchend', (e) => {
+        e.preventDefault();
+    }, { passive: false });
+
+    // 添加 CSS 樣式以改善手機上的按鈕體驗
+    const buttonStyle = document.createElement('style');
+    buttonStyle.textContent = `
+        #setUserNameButton {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            cursor: pointer;
+            min-height: 44px; /* 確保按鈕在手機上有足夠的點擊區域 */
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #f8f9fa;
+            transition: background-color 0.2s;
+        }
+        #setUserNameButton:active {
+            background-color: #e9ecef;
+        }
+        @media (hover: hover) {
+            #setUserNameButton:hover {
+                background-color: #e9ecef;
+            }
+        }
+    `;
+    document.head.appendChild(buttonStyle);
 
     async function displayLastRecordForCurrentUser() {
         console.log("[displayLastRecordForCurrentUser] 函數被呼叫。currentDataIdentifier:", currentDataIdentifier);
@@ -1642,6 +1686,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     window.openTab = function(evt, tabName, isInitialLoad = false) {
         console.log(`[openTab] 切換到分頁: ${tabName}, 事件觸發: ${!!evt}, 初始載入: ${isInitialLoad}`);
+        
+        // 如果是觸控事件，阻止預設行為
+        if (evt && evt.type === 'touchstart') {
+            evt.preventDefault();
+        }
+
         let i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tab-content");
         for (i = 0; i < tabcontent.length; i++) {
@@ -1654,7 +1704,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currentTabDiv = document.getElementById(tabName);
         if (currentTabDiv) {
             currentTabDiv.style.display = "block";
-             console.log(`[openTab] ${tabName} 設為 display: block`);
+            console.log(`[openTab] ${tabName} 設為 display: block`);
         } else {
             console.warn(`[openTab] 找不到 ID 為 ${tabName} 的分頁內容元素。`);
         }
@@ -1664,7 +1714,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (targetButton) {
             targetButton.classList.add("active");
         } else if (evt && evt.currentTarget) {
-             evt.currentTarget.classList.add("active");
+            evt.currentTarget.classList.add("active");
         }
 
         setTimeout(() => {
@@ -1695,7 +1745,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     loadGlobalTodayMap();
                 }
             } else if (tabName === 'ClockTab') {
-                 if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
+                if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
                     console.log("[openTab] ClockTab is visible, invalidating map size.");
                     clockLeafletMap.invalidateSize();
                 }
@@ -1707,6 +1757,81 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }, 0);
     }
+
+    // 添加分頁按鈕的觸控事件處理
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.getElementsByClassName('tab-button');
+        Array.from(tabButtons).forEach(button => {
+            // 移除原有的 onclick 屬性
+            const tabName = button.getAttribute('data-tab');
+            if (tabName) {
+                button.removeAttribute('onclick');
+                
+                // 添加點擊事件
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openTab(e, tabName);
+                });
+
+                // 添加觸控事件
+                button.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    openTab(e, tabName);
+                }, { passive: false });
+
+                // 防止觸控時的滾動
+                button.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                }, { passive: false });
+
+                // 防止觸控結束時的點擊事件
+                button.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                }, { passive: false });
+            }
+        });
+    });
+
+    // 添加分頁按鈕的樣式
+    const tabButtonStyle = document.createElement('style');
+    tabButtonStyle.textContent = `
+        .tab-button {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            cursor: pointer;
+            min-height: 44px;
+            padding: 8px 16px;
+            margin: 0 4px;
+            border: none;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .tab-button.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .tab-button:active {
+            background-color: #e9ecef;
+        }
+        @media (hover: hover) {
+            .tab-button:hover {
+                background-color: #e9ecef;
+            }
+        }
+        @media (max-width: 768px) {
+            .tab-button {
+                flex: 1;
+                text-align: center;
+                margin: 0 2px;
+                font-size: 14px;
+                padding: 10px 8px;
+            }
+        }
+    `;
+    document.head.appendChild(tabButtonStyle);
 
     // 初始載入時，嘗試設定一個預設的使用者名稱 (如果 localStorage 中有)
     // 或者，直接觸發 ClockTab 的顯示 (如果已經有用戶名)
