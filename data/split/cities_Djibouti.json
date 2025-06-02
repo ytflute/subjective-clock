@@ -1,0 +1,702 @@
+[
+  {
+    "city": "Yoboki",
+    "city_zh": "Yoboki",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.51139,
+    "longitude": 42.10639
+  },
+  {
+    "city": "Ouê‘a",
+    "city_zh": "Ouê‘a",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.50306,
+    "longitude": 42.85528
+  },
+  {
+    "city": "Tew‘o",
+    "city_zh": "Tew‘o",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.43833,
+    "longitude": 42.05722
+  },
+  {
+    "city": "Tadjoura",
+    "city_zh": "塔朱拉",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.78778,
+    "longitude": 42.88222
+  },
+  {
+    "city": "Sêdorre",
+    "city_zh": "Sêdorre",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.36216,
+    "longitude": 43.18898
+  },
+  {
+    "city": "Randa",
+    "city_zh": "Randa",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.84694,
+    "longitude": 42.66056
+  },
+  {
+    "city": "Obock",
+    "city_zh": "奧博克",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.96693,
+    "longitude": 43.28835
+  },
+  {
+    "city": "Moudo",
+    "city_zh": "Moudo",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.3,
+    "longitude": 42.43333
+  },
+  {
+    "city": "Médého",
+    "city_zh": "Médého",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.97306,
+    "longitude": 43.02611
+  },
+  {
+    "city": "Loyada",
+    "city_zh": "Loyada",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.46111,
+    "longitude": 43.25278
+  },
+  {
+    "city": "La Plaine",
+    "city_zh": "La Plaine",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.6,
+    "longitude": 43.15
+  },
+  {
+    "city": "Khôr Angar",
+    "city_zh": "Khôr Angar",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.38725,
+    "longitude": 43.3347
+  },
+  {
+    "city": "Ambouli",
+    "city_zh": "Ambouli",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.56944,
+    "longitude": 43.13667
+  },
+  {
+    "city": "Holhol",
+    "city_zh": "霍勒霍勒",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.31028,
+    "longitude": 42.92944
+  },
+  {
+    "city": "Goubéto",
+    "city_zh": "Goubéto",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.41667,
+    "longitude": 42.98333
+  },
+  {
+    "city": "Dorra",
+    "city_zh": "Dorra",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.15028,
+    "longitude": 42.47624
+  },
+  {
+    "city": "Djibouti",
+    "city_zh": "吉布地市",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.58901,
+    "longitude": 43.14503
+  },
+  {
+    "city": "Dikhil",
+    "city_zh": "迪基勒",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.10454,
+    "longitude": 42.36971
+  },
+  {
+    "city": "Ḏânan",
+    "city_zh": "Ḏânan",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.18333,
+    "longitude": 42.93333
+  },
+  {
+    "city": "Dadda’to",
+    "city_zh": "Dadda’to",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.37933,
+    "longitude": 42.71048
+  },
+  {
+    "city": "Boûl’aos",
+    "city_zh": "Boûl’aos",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.58333,
+    "longitude": 43.15
+  },
+  {
+    "city": "Bankoualé",
+    "city_zh": "Bankoualé",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.82278,
+    "longitude": 42.67361
+  },
+  {
+    "city": "Balho",
+    "city_zh": "Balho",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.05786,
+    "longitude": 42.19547
+  },
+  {
+    "city": "‘As ‘Êla",
+    "city_zh": "‘As ‘Êla",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.00361,
+    "longitude": 42.1025
+  },
+  {
+    "city": "Arta",
+    "city_zh": "Arta",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.52639,
+    "longitude": 42.85194
+  },
+  {
+    "city": "Ali Sabih",
+    "city_zh": "Ali Sabih",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.15583,
+    "longitude": 42.7125
+  },
+  {
+    "city": "‘Ali ‘Addé",
+    "city_zh": "‘Ali ‘Addé",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.13333,
+    "longitude": 42.88583
+  },
+  {
+    "city": "Airolaf",
+    "city_zh": "Airolaf",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.77028,
+    "longitude": 42.65194
+  },
+  {
+    "city": "Ouê‘a",
+    "city_zh": "Ouê‘a",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.69056,
+    "longitude": 42.68667
+  },
+  {
+    "city": "Ambabbo",
+    "city_zh": "Ambabbo",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.75111,
+    "longitude": 42.81444
+  },
+  {
+    "city": "Bissîdiro",
+    "city_zh": "Bissîdiro",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.645,
+    "longitude": 42.97333
+  },
+  {
+    "city": "Alaïli Ḏaḏḏa‘",
+    "city_zh": "Alaïli Ḏaḏḏa‘",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.42167,
+    "longitude": 42.89556
+  },
+  {
+    "city": "Damêrdjôg",
+    "city_zh": "Damêrdjôg",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.48556,
+    "longitude": 43.18722
+  },
+  {
+    "city": "Goubétto",
+    "city_zh": "Goubétto",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.42389,
+    "longitude": 43.00028
+  },
+  {
+    "city": "Gâlâfi",
+    "city_zh": "Gâlâfi",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.71583,
+    "longitude": 41.83611
+  },
+  {
+    "city": "Ḏigri",
+    "city_zh": "Ḏigri",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.2975,
+    "longitude": 42.85333
+  },
+  {
+    "city": "Gaherré",
+    "city_zh": "Gaherré",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.28694,
+    "longitude": 43.35556
+  },
+  {
+    "city": "Moulhoulé",
+    "city_zh": "Moulhoulé",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.59167,
+    "longitude": 43.2
+  },
+  {
+    "city": "Koûta Boûyya",
+    "city_zh": "Koûta Boûyya",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.01611,
+    "longitude": 41.96194
+  },
+  {
+    "city": "Balbala",
+    "city_zh": "Balbala",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.56194,
+    "longitude": 43.10666
+  },
+  {
+    "city": "Waddi",
+    "city_zh": "Waddi",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.35444,
+    "longitude": 42.92639
+  },
+  {
+    "city": "Gorabous",
+    "city_zh": "Gorabous",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.30434,
+    "longitude": 42.21703
+  },
+  {
+    "city": "Vasama",
+    "city_zh": "Vasama",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 10.98914,
+    "longitude": 42.84125
+  },
+  {
+    "city": "Mouloud",
+    "city_zh": "Mouloud",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.16667,
+    "longitude": 42.5
+  },
+  {
+    "city": "Seventh District",
+    "city_zh": "Seventh District",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.57583,
+    "longitude": 43.14111
+  },
+  {
+    "city": "Nakhchivan",
+    "city_zh": "Nakhchivan",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.60764,
+    "longitude": 43.15279
+  },
+  {
+    "city": "Quartier 7",
+    "city_zh": "Quartier 7",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.57019,
+    "longitude": 43.13729
+  },
+  {
+    "city": "Chabelley",
+    "city_zh": "Chabelley",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.4895,
+    "longitude": 43.07528
+  },
+  {
+    "city": "Adailou",
+    "city_zh": "Adailou",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.95186,
+    "longitude": 42.90535
+  },
+  {
+    "city": "Ali Oune",
+    "city_zh": "Ali Oune",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.39153,
+    "longitude": 43.1415
+  },
+  {
+    "city": "Andali",
+    "city_zh": "Andali",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.48402,
+    "longitude": 42.98668
+  },
+  {
+    "city": "Adoyla",
+    "city_zh": "Adoyla",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.9584,
+    "longitude": 42.64788
+  },
+  {
+    "city": "Anaba",
+    "city_zh": "Anaba",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.35271,
+    "longitude": 42.94184
+  },
+  {
+    "city": "Assa Hougoud",
+    "city_zh": "Assa Hougoud",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.38526,
+    "longitude": 42.82796
+  },
+  {
+    "city": "Bouyya",
+    "city_zh": "Bouyya",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.36799,
+    "longitude": 42.36343
+  },
+  {
+    "city": "Koussour Koussour",
+    "city_zh": "Koussour Koussour",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.52287,
+    "longitude": 42.40627
+  },
+  {
+    "city": "Guirrari",
+    "city_zh": "Guirrari",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.04898,
+    "longitude": 42.78536
+  },
+  {
+    "city": "Guelile",
+    "city_zh": "Guelile",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.09456,
+    "longitude": 42.64849
+  },
+  {
+    "city": "Fagal",
+    "city_zh": "Fagal",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.45346,
+    "longitude": 43.30217
+  },
+  {
+    "city": "Egahlou",
+    "city_zh": "Egahlou",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.12484,
+    "longitude": 42.93739
+  },
+  {
+    "city": "Doudoub Bolole",
+    "city_zh": "Doudoub Bolole",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.21393,
+    "longitude": 42.65822
+  },
+  {
+    "city": "Debne",
+    "city_zh": "Debne",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.57356,
+    "longitude": 42.4021
+  },
+  {
+    "city": "Dasbiyo",
+    "city_zh": "Dasbiyo",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.25271,
+    "longitude": 42.79879
+  },
+  {
+    "city": "Daoudaouga",
+    "city_zh": "Daoudaouga",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.75829,
+    "longitude": 42.15362
+  },
+  {
+    "city": "Dagguirou",
+    "city_zh": "Dagguirou",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.54492,
+    "longitude": 42.11576
+  },
+  {
+    "city": "La`assa",
+    "city_zh": "La`assa",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.36506,
+    "longitude": 43.14336
+  },
+  {
+    "city": "Madgoul",
+    "city_zh": "Madgoul",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.35495,
+    "longitude": 42.47629
+  },
+  {
+    "city": "Malaho",
+    "city_zh": "Malaho",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.09889,
+    "longitude": 42.20977
+  },
+  {
+    "city": "Oued Ouea",
+    "city_zh": "Oued Ouea",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 11.68004,
+    "longitude": 42.68989
+  },
+  {
+    "city": "Ribta",
+    "city_zh": "Ribta",
+    "country": "Djibouti",
+    "country_zh": "吉布地",
+    "country_iso_code": "DJ",
+    "timezone": "Africa/Djibouti",
+    "latitude": 12.45751,
+    "longitude": 42.84784
+  }
+]

@@ -1,0 +1,992 @@
+[
+  {
+    "city": "Zeelandia",
+    "city_zh": "Zeelandia",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.9
+  },
+  {
+    "city": "Wishi",
+    "city_zh": "Wishi",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.12648,
+    "longitude": -68.96065
+  },
+  {
+    "city": "Willemstad",
+    "city_zh": "威廉斯塔德",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.12246,
+    "longitude": -68.88641
+  },
+  {
+    "city": "Weitje",
+    "city_zh": "Weitje",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.01667,
+    "longitude": -68.98333
+  },
+  {
+    "city": "Weis",
+    "city_zh": "Weis",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Vredeberg",
+    "city_zh": "Vredeberg",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.09167,
+    "longitude": -68.85
+  },
+  {
+    "city": "Vianen",
+    "city_zh": "Vianen",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Valentijn",
+    "city_zh": "Valentijn",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Suriname Dorp",
+    "city_zh": "Suriname Dorp",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Suffisant Dorp",
+    "city_zh": "Suffisant Dorp",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Su Casa",
+    "city_zh": "Su Casa",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.96667
+  },
+  {
+    "city": "Slangenbaai",
+    "city_zh": "Slangenbaai",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.98333
+  },
+  {
+    "city": "Sint Michiel Liber",
+    "city_zh": "Sint Michiel Liber",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.98333
+  },
+  {
+    "city": "Sint Jozefsdal",
+    "city_zh": "Sint Jozefsdal",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.28333,
+    "longitude": -69.08333
+  },
+  {
+    "city": "Seritu",
+    "city_zh": "Seritu",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Ser’i Bientu",
+    "city_zh": "Ser’i Bientu",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.31667,
+    "longitude": -69.1
+  },
+  {
+    "city": "Scharloo",
+    "city_zh": "Scharloo",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Santa Rosa",
+    "city_zh": "Santa Rosa",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.88333
+  },
+  {
+    "city": "Santa Maria",
+    "city_zh": "Santa Maria",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Santa Krus",
+    "city_zh": "Santa Krus",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.30155,
+    "longitude": -69.12997
+  },
+  {
+    "city": "San Pedro",
+    "city_zh": "San Pedro",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.38333,
+    "longitude": -69.15
+  },
+  {
+    "city": "San Pedro",
+    "city_zh": "San Pedro",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.25,
+    "longitude": -69.03333
+  },
+  {
+    "city": "Saliña Abou",
+    "city_zh": "Saliña Abou",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.9
+  },
+  {
+    "city": "Saliña",
+    "city_zh": "Saliña",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.9
+  },
+  {
+    "city": "Sabana Westpunt",
+    "city_zh": "Sabana Westpunt",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.37047,
+    "longitude": -69.15405
+  },
+  {
+    "city": "Rust en Vrede",
+    "city_zh": "Rust en Vrede",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.9
+  },
+  {
+    "city": "Roosendaal",
+    "city_zh": "Roosendaal",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.95
+  },
+  {
+    "city": "Rancho",
+    "city_zh": "Rancho",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Punda",
+    "city_zh": "Punda",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10588,
+    "longitude": -68.92925
+  },
+  {
+    "city": "Pietermaai",
+    "city_zh": "Pietermaai",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Parera",
+    "city_zh": "Parera",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Otrabanda",
+    "city_zh": "Otrabanda",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1089,
+    "longitude": -68.93826
+  },
+  {
+    "city": "Newport",
+    "city_zh": "Newport",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.05,
+    "longitude": -68.81667
+  },
+  {
+    "city": "Mundo Nobo",
+    "city_zh": "Mundo Nobo",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11091,
+    "longitude": -68.9532
+  },
+  {
+    "city": "Morgenster",
+    "city_zh": "Morgenster",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.08333,
+    "longitude": -68.83333
+  },
+  {
+    "city": "Montan’i Rei",
+    "city_zh": "Montan’i Rei",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.86667
+  },
+  {
+    "city": "Marchena",
+    "city_zh": "Marchena",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Libie",
+    "city_zh": "Libie",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.86667
+  },
+  {
+    "city": "Lagún",
+    "city_zh": "Lagún",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.32206,
+    "longitude": -69.15044
+  },
+  {
+    "city": "Kura Juri",
+    "city_zh": "Kura Juri",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.35,
+    "longitude": -69.15
+  },
+  {
+    "city": "Kunuku Abou",
+    "city_zh": "Kunuku Abou",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.2,
+    "longitude": -69.01667
+  },
+  {
+    "city": "Krakeel",
+    "city_zh": "Krakeel",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.23333,
+    "longitude": -69.03333
+  },
+  {
+    "city": "Kolontjie",
+    "city_zh": "Kolontjie",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.9
+  },
+  {
+    "city": "Kas Chikitu",
+    "city_zh": "Kas Chikitu",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.96667
+  },
+  {
+    "city": "Julianadorp",
+    "city_zh": "Julianadorp",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.95
+  },
+  {
+    "city": "Juan Domingo",
+    "city_zh": "Juan Domingo",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.16667,
+    "longitude": -68.95
+  },
+  {
+    "city": "Janwé",
+    "city_zh": "Janwé",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.9
+  },
+  {
+    "city": "Jan Thiel",
+    "city_zh": "Jan Thiel",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.08333,
+    "longitude": -68.86667
+  },
+  {
+    "city": "Jan Doret",
+    "city_zh": "Jan Doret",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.96667
+  },
+  {
+    "city": "Groot Kwartier",
+    "city_zh": "Groot Kwartier",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Gato",
+    "city_zh": "Gato",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.16571,
+    "longitude": -68.96496
+  },
+  {
+    "city": "Fortuna Abou",
+    "city_zh": "Fortuna Abou",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.16667,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Fontein",
+    "city_zh": "Fontein",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.25,
+    "longitude": -69.08333
+  },
+  {
+    "city": "Fleur de Marie",
+    "city_zh": "Fleur de Marie",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Emmastad",
+    "city_zh": "Emmastad",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Dorp Westpunt",
+    "city_zh": "Dorp Westpunt",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.36667,
+    "longitude": -69.13333
+  },
+  {
+    "city": "Dorp Soto",
+    "city_zh": "Dorp Soto",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.27749,
+    "longitude": -69.1125
+  },
+  {
+    "city": "Dorp Sint Willebrordus",
+    "city_zh": "Dorp Sint Willebrordus",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.21537,
+    "longitude": -69.06246
+  },
+  {
+    "city": "Dorp Sint Michiel",
+    "city_zh": "Dorp Sint Michiel",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.98333
+  },
+  {
+    "city": "Dominguito",
+    "city_zh": "Dominguito",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.9
+  },
+  {
+    "city": "De Hoop",
+    "city_zh": "De Hoop",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.95
+  },
+  {
+    "city": "Bullenbaai",
+    "city_zh": "Bullenbaai",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.18345,
+    "longitude": -69.01547
+  },
+  {
+    "city": "Buena Vista",
+    "city_zh": "Buena Vista",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.95
+  },
+  {
+    "city": "Brievengat",
+    "city_zh": "佈雷芬加特",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.9
+  },
+  {
+    "city": "Bou’i Seru",
+    "city_zh": "Bou’i Seru",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.3,
+    "longitude": -69.1
+  },
+  {
+    "city": "Bonavista",
+    "city_zh": "Bonavista",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.16667,
+    "longitude": -68.98333
+  },
+  {
+    "city": "Bona Vista",
+    "city_zh": "Bona Vista",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.85
+  },
+  {
+    "city": "Boka Samí",
+    "city_zh": "Boka Samí",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.13333,
+    "longitude": -68.98333
+  },
+  {
+    "city": "Blomonte",
+    "city_zh": "Blomonte",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.15,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Barber",
+    "city_zh": "Barber",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.29014,
+    "longitude": -69.07389
+  },
+  {
+    "city": "Australie",
+    "city_zh": "Australie",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.95
+  },
+  {
+    "city": "Habai",
+    "city_zh": "Habai",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.12111,
+    "longitude": -68.95226
+  },
+  {
+    "city": "Welgelegen",
+    "city_zh": "Welgelegen",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.12,
+    "longitude": -68.94667
+  },
+  {
+    "city": "Domi",
+    "city_zh": "Domi",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1175,
+    "longitude": -68.94278
+  },
+  {
+    "city": "Mundo",
+    "city_zh": "Mundo",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11611,
+    "longitude": -68.94722
+  },
+  {
+    "city": "Nobo",
+    "city_zh": "Nobo",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11444,
+    "longitude": -68.94667
+  },
+  {
+    "city": "Kortijn",
+    "city_zh": "Kortijn",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11528,
+    "longitude": -68.9375
+  },
+  {
+    "city": "Motet",
+    "city_zh": "Motet",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11667,
+    "longitude": -68.93333
+  },
+  {
+    "city": "Sint Jago",
+    "city_zh": "Sint Jago",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10972,
+    "longitude": -68.92222
+  },
+  {
+    "city": "Ararat",
+    "city_zh": "Ararat",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11056,
+    "longitude": -68.91944
+  },
+  {
+    "city": "Cornet",
+    "city_zh": "Cornet",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10583,
+    "longitude": -68.92
+  },
+  {
+    "city": "Berg Altena",
+    "city_zh": "Berg Altena",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10778,
+    "longitude": -68.9175
+  },
+  {
+    "city": "Cher Asile",
+    "city_zh": "Cher Asile",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10667,
+    "longitude": -68.91528
+  },
+  {
+    "city": "Nieuw Nederland",
+    "city_zh": "Nieuw Nederland",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10389,
+    "longitude": -68.91667
+  },
+  {
+    "city": "Paradijs",
+    "city_zh": "Paradijs",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10889,
+    "longitude": -68.91333
+  },
+  {
+    "city": "Steenrijk",
+    "city_zh": "Steenrijk",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.10056,
+    "longitude": -68.91056
+  },
+  {
+    "city": "Mari Pompun",
+    "city_zh": "Mari Pompun",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.1,
+    "longitude": -68.90833
+  },
+  {
+    "city": "Colon",
+    "city_zh": "Colon",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11389,
+    "longitude": -68.94028
+  },
+  {
+    "city": "Piedras Negras",
+    "city_zh": "Piedras Negras",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.14444,
+    "longitude": -68.93833
+  },
+  {
+    "city": "St. Michiel",
+    "city_zh": "St. Michiel",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.14335,
+    "longitude": -68.99487
+  },
+  {
+    "city": "Piscadera",
+    "city_zh": "Piscadera",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.11998,
+    "longitude": -68.96534
+  },
+  {
+    "city": "Santa Catharina",
+    "city_zh": "Santa Catharina",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.14188,
+    "longitude": -68.83638
+  },
+  {
+    "city": "Coral Estate Rif St. Marie",
+    "city_zh": "Coral Estate Rif St. Marie",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.20902,
+    "longitude": -69.07328
+  },
+  {
+    "city": "Grote Berg",
+    "city_zh": "Grote Berg",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.19239,
+    "longitude": -68.99826
+  },
+  {
+    "city": "Daniel",
+    "city_zh": "Daniel",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.20904,
+    "longitude": -69.02066
+  },
+  {
+    "city": "Bandabou",
+    "city_zh": "Bandabou",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.31578,
+    "longitude": -69.12044
+  },
+  {
+    "city": "Kashutuin",
+    "city_zh": "Kashutuin",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.20617,
+    "longitude": -69.02063
+  },
+  {
+    "city": "Bandariba",
+    "city_zh": "Bandariba",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.09257,
+    "longitude": -68.83092
+  },
+  {
+    "city": "Bandabou",
+    "city_zh": "Bandabou",
+    "country": "Curacao",
+    "country_zh": "Curacao",
+    "country_iso_code": "CW",
+    "timezone": "America/Curacao",
+    "latitude": 12.27177,
+    "longitude": -69.06533
+  }
+]

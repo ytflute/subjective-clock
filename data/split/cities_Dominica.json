@@ -1,0 +1,1322 @@
+[
+  {
+    "city": "Woodford Hill",
+    "city_zh": "伍德福德希尔",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58093,
+    "longitude": -61.33149
+  },
+  {
+    "city": "Wesley",
+    "city_zh": "Wesley",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.56667,
+    "longitude": -61.31667
+  },
+  {
+    "city": "Wall House",
+    "city_zh": "Wall House",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.27822,
+    "longitude": -61.37139
+  },
+  {
+    "city": "Vieille Case",
+    "city_zh": "Vieille Case",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61418,
+    "longitude": -61.40823
+  },
+  {
+    "city": "Trafalgar",
+    "city_zh": "Trafalgar",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.32728,
+    "longitude": -61.3456
+  },
+  {
+    "city": "Toucari",
+    "city_zh": "Toucari",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61124,
+    "longitude": -61.46382
+  },
+  {
+    "city": "Tobino",
+    "city_zh": "Tobino",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61435,
+    "longitude": -61.40592
+  },
+  {
+    "city": "Thibaud",
+    "city_zh": "Thibaud",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.59969,
+    "longitude": -61.39729
+  },
+  {
+    "city": "The Cross",
+    "city_zh": "The Cross",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.3636,
+    "longitude": -61.27371
+  },
+  {
+    "city": "Tête Morne",
+    "city_zh": "Tête Morne",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.23545,
+    "longitude": -61.33396
+  },
+  {
+    "city": "Tarou",
+    "city_zh": "Tarou",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.38862,
+    "longitude": -61.41484
+  },
+  {
+    "city": "Tanetane",
+    "city_zh": "Tanetane",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.60188,
+    "longitude": -61.46111
+  },
+  {
+    "city": "Sylvania",
+    "city_zh": "Sylvania",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.3593,
+    "longitude": -61.35555
+  },
+  {
+    "city": "Stowe",
+    "city_zh": "Stowe",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.24568,
+    "longitude": -61.29336
+  },
+  {
+    "city": "Soufrière",
+    "city_zh": "Soufrière",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.23374,
+    "longitude": -61.35881
+  },
+  {
+    "city": "Sineku",
+    "city_zh": "Sineku",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.46632,
+    "longitude": -61.24825
+  },
+  {
+    "city": "Sibouli",
+    "city_zh": "Sibouli",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.25795,
+    "longitude": -61.37702
+  },
+  {
+    "city": "Scotts Head Village",
+    "city_zh": "Scotts Head Village",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.21222,
+    "longitude": -61.36482
+  },
+  {
+    "city": "Salisbury",
+    "city_zh": "索爾茲伯里_",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.43689,
+    "longitude": -61.43637
+  },
+  {
+    "city": "Salybia",
+    "city_zh": "Salybia",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.49382,
+    "longitude": -61.25753
+  },
+  {
+    "city": "Saint Sauveur",
+    "city_zh": "Saint Sauveur",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.40258,
+    "longitude": -61.2547
+  },
+  {
+    "city": "Saint Joseph",
+    "city_zh": "Saint Joseph",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.4061,
+    "longitude": -61.42374
+  },
+  {
+    "city": "Saint Cyr",
+    "city_zh": "Saint Cyr",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.49025,
+    "longitude": -61.25353
+  },
+  {
+    "city": "Roseau",
+    "city_zh": "羅索",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30174,
+    "longitude": -61.38808
+  },
+  {
+    "city": "Rosalie",
+    "city_zh": "Rosalie",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.36667,
+    "longitude": -61.26667
+  },
+  {
+    "city": "Roger",
+    "city_zh": "Roger",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.33904,
+    "longitude": -61.38812
+  },
+  {
+    "city": "Rivière Ciriques",
+    "city_zh": "Rivière Ciriques",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.3599,
+    "longitude": -61.25835
+  },
+  {
+    "city": "Riversdale",
+    "city_zh": "Riversdale",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.41667,
+    "longitude": -61.36667
+  },
+  {
+    "city": "Potter’s Ville",
+    "city_zh": "Potter’s Ville",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30243,
+    "longitude": -61.38958
+  },
+  {
+    "city": "Portsmouth",
+    "city_zh": "Portsmouth",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58288,
+    "longitude": -61.45592
+  },
+  {
+    "city": "Pont Cassé",
+    "city_zh": "Pont Cassé",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.36667,
+    "longitude": -61.35
+  },
+  {
+    "city": "Pointe Michel",
+    "city_zh": "Pointe Michel",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.25976,
+    "longitude": -61.37452
+  },
+  {
+    "city": "Pichelin",
+    "city_zh": "Pichelin",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.26423,
+    "longitude": -61.32583
+  },
+  {
+    "city": "Petite Soufrière",
+    "city_zh": "Petite Soufrière",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.39025,
+    "longitude": -61.25617
+  },
+  {
+    "city": "Petite Savane",
+    "city_zh": "小薩凡納",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.25534,
+    "longitude": -61.26792
+  },
+  {
+    "city": "Pineville",
+    "city_zh": "Pineville",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.6311,
+    "longitude": -61.42456
+  },
+  {
+    "city": "Paix Bouche",
+    "city_zh": "佩布奇",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.59248,
+    "longitude": -61.41133
+  },
+  {
+    "city": "Morpo",
+    "city_zh": "Morpo",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.42663,
+    "longitude": -61.25556
+  },
+  {
+    "city": "Morne Soleil",
+    "city_zh": "Morne Soleil",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61374,
+    "longitude": -61.46537
+  },
+  {
+    "city": "Morne Raquette",
+    "city_zh": "Morne Raquette",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.45637,
+    "longitude": -61.44732
+  },
+  {
+    "city": "Morne Prosper",
+    "city_zh": "Morne Prosper",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29698,
+    "longitude": -61.36002
+  },
+  {
+    "city": "Morne Jaune",
+    "city_zh": "Morne Jaune",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.35285,
+    "longitude": -61.26401
+  },
+  {
+    "city": "Morne Aux Frégates",
+    "city_zh": "Morne Aux Frégates",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.35741,
+    "longitude": -61.26206
+  },
+  {
+    "city": "Monkey Hill",
+    "city_zh": "Monkey Hill",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.49959,
+    "longitude": -61.26481
+  },
+  {
+    "city": "Méro",
+    "city_zh": "Méro",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.41866,
+    "longitude": -61.42894
+  },
+  {
+    "city": "Melville Hall",
+    "city_zh": "Melville Hall",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.54526,
+    "longitude": -61.29222
+  },
+  {
+    "city": "Massacre",
+    "city_zh": "馬薩克雷",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.34685,
+    "longitude": -61.3916
+  },
+  {
+    "city": "Marigot",
+    "city_zh": "Marigot",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.53743,
+    "longitude": -61.282
+  },
+  {
+    "city": "Mahaut",
+    "city_zh": "馬歐",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.36357,
+    "longitude": -61.39701
+  },
+  {
+    "city": "Madjini",
+    "city_zh": "Madjini",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.46766,
+    "longitude": -61.24937
+  },
+  {
+    "city": "Loubiere",
+    "city_zh": "Loubiere",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.27893,
+    "longitude": -61.3722
+  },
+  {
+    "city": "Layou",
+    "city_zh": "Layou",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.397,
+    "longitude": -61.42546
+  },
+  {
+    "city": "Laudat",
+    "city_zh": "勞達特",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.3372,
+    "longitude": -61.33211
+  },
+  {
+    "city": "La Source",
+    "city_zh": "La Source",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58788,
+    "longitude": -61.40574
+  },
+  {
+    "city": "Larieu",
+    "city_zh": "Larieu",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58617,
+    "longitude": -61.3287
+  },
+  {
+    "city": "La Plaine",
+    "city_zh": "La Plaine",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.32768,
+    "longitude": -61.24753
+  },
+  {
+    "city": "Là Haut",
+    "city_zh": "Là Haut",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.62603,
+    "longitude": -61.41628
+  },
+  {
+    "city": "Lagon",
+    "city_zh": "Lagon",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.57998,
+    "longitude": -61.45782
+  },
+  {
+    "city": "Hampstead",
+    "city_zh": "Hampstead",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.59457,
+    "longitude": -61.3663
+  },
+  {
+    "city": "Guillet",
+    "city_zh": "Guillet",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.6051,
+    "longitude": -61.46106
+  },
+  {
+    "city": "Grand Fond",
+    "city_zh": "Grand Fond",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.35626,
+    "longitude": -61.28187
+  },
+  {
+    "city": "Goodwill",
+    "city_zh": "Goodwill",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.3051,
+    "longitude": -61.38352
+  },
+  {
+    "city": "Good Hope",
+    "city_zh": "Good Hope",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.41168,
+    "longitude": -61.25406
+  },
+  {
+    "city": "Gommier",
+    "city_zh": "Gommier",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.6097,
+    "longitude": -61.40347
+  },
+  {
+    "city": "Glanvillia",
+    "city_zh": "Glanvillia",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.56707,
+    "longitude": -61.45612
+  },
+  {
+    "city": "Giraudet",
+    "city_zh": "Giraudet",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.2918,
+    "longitude": -61.34869
+  },
+  {
+    "city": "Geneva",
+    "city_zh": "Geneva",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.24539,
+    "longitude": -61.31658
+  },
+  {
+    "city": "Gaulette",
+    "city_zh": "Gaulette",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.48255,
+    "longitude": -61.25279
+  },
+  {
+    "city": "Galion",
+    "city_zh": "加利恩",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.22258,
+    "longitude": -61.35736
+  },
+  {
+    "city": "Fond Saint Jean",
+    "city_zh": "Fond Saint Jean",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.24485,
+    "longitude": -61.28211
+  },
+  {
+    "city": "Fond Cani",
+    "city_zh": "Fond Cani",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.31875,
+    "longitude": -61.35401
+  },
+  {
+    "city": "Dubuc",
+    "city_zh": "Dubuc",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.24671,
+    "longitude": -61.30379
+  },
+  {
+    "city": "Dublanc",
+    "city_zh": "迪布朗",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.51361,
+    "longitude": -61.46679
+  },
+  {
+    "city": "Dos D’Âne",
+    "city_zh": "Dos D’Âne",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58516,
+    "longitude": -61.41271
+  },
+  {
+    "city": "Demitrie",
+    "city_zh": "Demitrie",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.62968,
+    "longitude": -61.41829
+  },
+  {
+    "city": "Délices",
+    "city_zh": "代利斯",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.28735,
+    "longitude": -61.26617
+  },
+  {
+    "city": "Crayfish River",
+    "city_zh": "Crayfish River",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.49702,
+    "longitude": -61.25755
+  },
+  {
+    "city": "Coulibistrie",
+    "city_zh": "Coulibistrie",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.46066,
+    "longitude": -61.45089
+  },
+  {
+    "city": "Cottage",
+    "city_zh": "Cottage",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61579,
+    "longitude": -61.46369
+  },
+  {
+    "city": "Colihaut",
+    "city_zh": "Colihaut",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.48478,
+    "longitude": -61.46215
+  },
+  {
+    "city": "Cocoyer",
+    "city_zh": "Cocoyer",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61677,
+    "longitude": -61.46035
+  },
+  {
+    "city": "Cochrane",
+    "city_zh": "Cochrane",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.33775,
+    "longitude": -61.3619
+  },
+  {
+    "city": "Clifton",
+    "city_zh": "Clifton",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.6238,
+    "longitude": -61.46284
+  },
+  {
+    "city": "Newtown",
+    "city_zh": "Newtown",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29437,
+    "longitude": -61.38173
+  },
+  {
+    "city": "Castle Bruce",
+    "city_zh": "Castle Bruce",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.44397,
+    "longitude": -61.25723
+  },
+  {
+    "city": "Capucin",
+    "city_zh": "Capucin",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.63071,
+    "longitude": -61.46124
+  },
+  {
+    "city": "Calibishie",
+    "city_zh": "Calibishie",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.59297,
+    "longitude": -61.34901
+  },
+  {
+    "city": "Borne",
+    "city_zh": "Borne",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.57946,
+    "longitude": -61.42076
+  },
+  {
+    "city": "Boetica",
+    "city_zh": "Boetica",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30911,
+    "longitude": -61.25053
+  },
+  {
+    "city": "Bioche",
+    "city_zh": "Bioche",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.50895,
+    "longitude": -61.46683
+  },
+  {
+    "city": "Berekua",
+    "city_zh": "Berekua",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.23333,
+    "longitude": -61.31667
+  },
+  {
+    "city": "Bense",
+    "city_zh": "Bense",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58771,
+    "longitude": -61.37558
+  },
+  {
+    "city": "Belvidere",
+    "city_zh": "Belvidere",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.28333,
+    "longitude": -61.25
+  },
+  {
+    "city": "Belmanier",
+    "city_zh": "Belmanier",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.58867,
+    "longitude": -61.40725
+  },
+  {
+    "city": "Bells",
+    "city_zh": "Bells",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.42214,
+    "longitude": -61.33933
+  },
+  {
+    "city": "Bellevue Chopin",
+    "city_zh": "Bellevue Chopin",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.26448,
+    "longitude": -61.34504
+  },
+  {
+    "city": "Bataka",
+    "city_zh": "巴塔卡",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.50646,
+    "longitude": -61.2663
+  },
+  {
+    "city": "Bassinville",
+    "city_zh": "Bassinville",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.43333,
+    "longitude": -61.36667
+  },
+  {
+    "city": "Au Parc",
+    "city_zh": "Au Parc",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.61143,
+    "longitude": -61.40646
+  },
+  {
+    "city": "atkinson",
+    "city_zh": "atkinson",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.51667,
+    "longitude": -61.26667
+  },
+  {
+    "city": "Anse de Mai",
+    "city_zh": "Anse de Mai",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.59311,
+    "longitude": -61.38278
+  },
+  {
+    "city": "Canefield",
+    "city_zh": "坎菲尔德",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.33137,
+    "longitude": -61.38916
+  },
+  {
+    "city": "Bath Estate",
+    "city_zh": "Bath Estate",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30327,
+    "longitude": -61.37864
+  },
+  {
+    "city": "St Aroment",
+    "city_zh": "St Aroment",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30708,
+    "longitude": -61.37269
+  },
+  {
+    "city": "Fond Cole",
+    "city_zh": "Fond Cole",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.31413,
+    "longitude": -61.38689
+  },
+  {
+    "city": "Upper Goodwill",
+    "city_zh": "Upper Goodwill",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30582,
+    "longitude": -61.38072
+  },
+  {
+    "city": "Goodwill",
+    "city_zh": "Goodwill",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30637,
+    "longitude": -61.38675
+  },
+  {
+    "city": "Capuchin",
+    "city_zh": "Capuchin",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.6315,
+    "longitude": -61.46033
+  },
+  {
+    "city": "Castle Comfort",
+    "city_zh": "Castle Comfort",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.28439,
+    "longitude": -61.37049
+  },
+  {
+    "city": "Wotten Waven",
+    "city_zh": "Wotten Waven",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.31813,
+    "longitude": -61.33839
+  },
+  {
+    "city": "Elms Hall",
+    "city_zh": "Elms Hall",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30223,
+    "longitude": -61.37379
+  },
+  {
+    "city": "Citronier",
+    "city_zh": "Citronier",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.28841,
+    "longitude": -61.37615
+  },
+  {
+    "city": "Upper King's Hill",
+    "city_zh": "Upper King's Hill",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.299,
+    "longitude": -61.37521
+  },
+  {
+    "city": "Belfast",
+    "city_zh": "Belfast",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.3668,
+    "longitude": -61.39615
+  },
+  {
+    "city": "Eggleston",
+    "city_zh": "Eggleston",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29785,
+    "longitude": -61.35688
+  },
+  {
+    "city": "Grand Savane",
+    "city_zh": "Grand Savane",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.44491,
+    "longitude": -61.43518
+  },
+  {
+    "city": "Jimmit",
+    "city_zh": "Jimmit",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.37145,
+    "longitude": -61.40314
+  },
+  {
+    "city": "Campbell",
+    "city_zh": "Campbell",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.37521,
+    "longitude": -61.37282
+  },
+  {
+    "city": "Warner",
+    "city_zh": "Warner",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.39298,
+    "longitude": -61.39375
+  },
+  {
+    "city": "Picard",
+    "city_zh": "Picard",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.55281,
+    "longitude": -61.45939
+  },
+  {
+    "city": "Emsall Estate",
+    "city_zh": "Emsall Estate",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30232,
+    "longitude": -61.37385
+  },
+  {
+    "city": "Fortuné Estate",
+    "city_zh": "Fortuné Estate",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29118,
+    "longitude": -61.37602
+  },
+  {
+    "city": "Bon Repos",
+    "city_zh": "Bon Repos",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.37359,
+    "longitude": -61.38572
+  },
+  {
+    "city": "Kings Hill",
+    "city_zh": "Kings Hill",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29685,
+    "longitude": -61.3779
+  },
+  {
+    "city": "Stock Farm",
+    "city_zh": "Stock Farm",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.31017,
+    "longitude": -61.38484
+  },
+  {
+    "city": "Copt Hall Estate",
+    "city_zh": "Copt Hall Estate",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.31299,
+    "longitude": -61.35756
+  },
+  {
+    "city": "Laronde",
+    "city_zh": "Laronde",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.31912,
+    "longitude": -61.24782
+  },
+  {
+    "city": "River Estate",
+    "city_zh": "River Estate",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.32849,
+    "longitude": -61.38732
+  },
+  {
+    "city": "Citronnière",
+    "city_zh": "Citronnière",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.28919,
+    "longitude": -61.37698
+  },
+  {
+    "city": "Charlotte Valley",
+    "city_zh": "Charlotte Valley",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29336,
+    "longitude": -61.37808
+  },
+  {
+    "city": "Saint Aromant Estate",
+    "city_zh": "Saint Aromant Estate",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.30666,
+    "longitude": -61.37376
+  },
+  {
+    "city": "Mount Saint Mary’s",
+    "city_zh": "Mount Saint Mary’s",
+    "country": "Dominica",
+    "country_zh": "多米尼克",
+    "country_iso_code": "DM",
+    "timezone": "America/Dominica",
+    "latitude": 15.29063,
+    "longitude": -61.3729
+  }
+]
