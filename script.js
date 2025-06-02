@@ -321,6 +321,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 更新組別選擇下拉選單
         await updateGroupFilter();
 
+        // 檢查是否在歷史記錄分頁，如果是則重新載入歷史記錄
+        if (document.getElementById('HistoryTab').style.display !== 'none') {
+            console.log("[setOrLoadUserName] 在歷史記錄分頁，重新載入歷史記錄");
+            await loadHistory();
+        }
+
+        // 檢查是否在時鐘分頁，如果是則顯示最後記錄
+        if (document.getElementById('ClockTab').style.display !== 'none') {
+            console.log("[setOrLoadUserName] 在時鐘分頁，顯示最後記錄");
+            await displayLastRecordForCurrentUser();
+        }
+
         if (citiesData.length > 0 && auth.currentUser && currentDataIdentifier) {
             console.log("[setOrLoadUserName] 所有條件滿足，啟用 findCityButton。");
             findCityButton.disabled = false;
@@ -329,8 +341,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             findCityButton.disabled = true;
         }
 
-        console.log("[setOrLoadUserName] 準備切換到時鐘分頁。");
-        openTab(null, 'ClockTab', true);
         return true;
     }
 
@@ -508,7 +518,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function getCityUTCOffsetHours(ianaTimeZone) {
+        if (!ianaTimeZone || typeof ianaTimeZone !== 'string') {
+            console.warn("無效的時區輸入:", ianaTimeZone);
+            return NaN;
+        }
+
         try {
+            // 檢查是否為有效的 IANA 時區
+            const validTimeZones = Intl.supportedValuesOf('timeZone');
+            if (!validTimeZones.includes(ianaTimeZone)) {
+                console.warn(`不支援的時區: ${ianaTimeZone}，嘗試使用 UTC`);
+                return 0; // 對於無效時區，返回 UTC 偏移
+            }
+
             const now = new Date();
             
             // 方法1：使用 Intl.DateTimeFormat 的 formatToParts
@@ -558,19 +580,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             return parseOffsetString(offsetString);
         } catch (e) {
-            console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
-            
-            // 最後的備用方法：直接使用時間差異計算
-            try {
-                const now = new Date();
-                const localDate = new Date(now.toLocaleString('en-US', { timeZone: ianaTimeZone }));
-                const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
-                const offsetInMinutes = (localDate - utcDate) / (60 * 1000);
-                return offsetInMinutes / 60;
-            } catch (fallbackError) {
-                console.error("備用方法也失敗:", fallbackError);
-                return NaN;
-            }
+            console.warn(`處理時區 ${ianaTimeZone} 時發生錯誤:`, e);
+            return 0; // 對於任何錯誤，返回 UTC 偏移
         }
     }
 
