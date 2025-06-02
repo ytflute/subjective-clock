@@ -1,0 +1,1272 @@
+[
+  {
+    "city": "‘Ushaysh al Jahrā’",
+    "city_zh": "‘Ushaysh al Jahrā’",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31583,
+    "longitude": 47.66389
+  },
+  {
+    "city": "‘Urayfijān",
+    "city_zh": "‘Urayfijān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.9,
+    "longitude": 48.18333
+  },
+  {
+    "city": "Umm Qaşbah",
+    "city_zh": "Umm Qaşbah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.99222,
+    "longitude": 48.16556
+  },
+  {
+    "city": "Shumaymah",
+    "city_zh": "Shumaymah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.61778,
+    "longitude": 48.15056
+  },
+  {
+    "city": "Jalīb ash Shuyūkh",
+    "city_zh": "Jalīb ash Shuyūkh",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.25861,
+    "longitude": 47.92417
+  },
+  {
+    "city": "An Nuqrah",
+    "city_zh": "An Nuqrah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3375,
+    "longitude": 48.01056
+  },
+  {
+    "city": "Az Zawr",
+    "city_zh": "Az Zawr",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.7375,
+    "longitude": 48.37278
+  },
+  {
+    "city": "Manīfah",
+    "city_zh": "Manīfah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.16083,
+    "longitude": 48.08111
+  },
+  {
+    "city": "Kayfān",
+    "city_zh": "Kayfān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.34139,
+    "longitude": 47.96333
+  },
+  {
+    "city": "Ju‘aydān",
+    "city_zh": "Ju‘aydān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.96667,
+    "longitude": 47.96722
+  },
+  {
+    "city": "Janūb as Surrah",
+    "city_zh": "Janūb as Surrah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.26917,
+    "longitude": 47.97806
+  },
+  {
+    "city": "Jalīb ash Shuyūkh",
+    "city_zh": "Jalīb ash Shuyūkh",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.26667,
+    "longitude": 47.93333
+  },
+  {
+    "city": "Ḩawallī",
+    "city_zh": "Ḩawallī",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.33278,
+    "longitude": 48.02861
+  },
+  {
+    "city": "Duwaydāt",
+    "city_zh": "Duwaydāt",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.58278,
+    "longitude": 48.39917
+  },
+  {
+    "city": "Ḑulay‘ Su‘ūd",
+    "city_zh": "Ḑulay‘ Su‘ūd",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.20111,
+    "longitude": 48.11111
+  },
+  {
+    "city": "Dant",
+    "city_zh": "Dant",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.16667,
+    "longitude": 48.11667
+  },
+  {
+    "city": "Bayān",
+    "city_zh": "Bayān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3032,
+    "longitude": 48.04881
+  },
+  {
+    "city": "Az Zawr",
+    "city_zh": "Az Zawr",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.4425,
+    "longitude": 48.27472
+  },
+  {
+    "city": "Aş Şulaybīkhāt",
+    "city_zh": "Aş Şulaybīkhāt",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31528,
+    "longitude": 47.83583
+  },
+  {
+    "city": "As Sālimīyah",
+    "city_zh": "As Sālimīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.33389,
+    "longitude": 48.07611
+  },
+  {
+    "city": "Aş Şabāḩīyah",
+    "city_zh": "Aş Şabāḩīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.10583,
+    "longitude": 48.10806
+  },
+  {
+    "city": "Ash Shuwaykh",
+    "city_zh": "Ash Shuwaykh",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.34361,
+    "longitude": 47.94611
+  },
+  {
+    "city": "Ash Shu‘aybah",
+    "city_zh": "Ash Shu‘aybah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.04111,
+    "longitude": 48.1375
+  },
+  {
+    "city": "Ash Shāmīyah",
+    "city_zh": "Ash Shāmīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.34722,
+    "longitude": 47.96167
+  },
+  {
+    "city": "Ash Shadādīyah",
+    "city_zh": "Ash Shadādīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.26806,
+    "longitude": 47.84556
+  },
+  {
+    "city": "Ar Rumaythīyah",
+    "city_zh": "Ar Rumaythīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31167,
+    "longitude": 48.07417
+  },
+  {
+    "city": "Ar Riqqah",
+    "city_zh": "Ar Riqqah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.14583,
+    "longitude": 48.09472
+  },
+  {
+    "city": "Ar Rawḑah",
+    "city_zh": "Ar Rawḑah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.32472,
+    "longitude": 48.00139
+  },
+  {
+    "city": "An Nuqayyāt",
+    "city_zh": "An Nuqayyāt",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.94306,
+    "longitude": 48.19861
+  },
+  {
+    "city": "An Nijfah",
+    "city_zh": "An Nijfah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.24639,
+    "longitude": 48.07583
+  },
+  {
+    "city": "An Nāmī",
+    "city_zh": "An Nāmī",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.63972,
+    "longitude": 48.36444
+  },
+  {
+    "city": "Al Wafrah",
+    "city_zh": "Al Wafrah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.63917,
+    "longitude": 47.93056
+  },
+  {
+    "city": "Al ‘Uqaylah",
+    "city_zh": "Al ‘Uqaylah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.17778,
+    "longitude": 48.09472
+  },
+  {
+    "city": "Al ‘Udaylīyah",
+    "city_zh": "Al ‘Udaylīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3,
+    "longitude": 47.96667
+  },
+  {
+    "city": "Al Qulay‘ah",
+    "city_zh": "Al Qulay‘ah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.86583,
+    "longitude": 48.27472
+  },
+  {
+    "city": "Al Qash‘ānīyah",
+    "city_zh": "Al Qash‘ānīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.98337,
+    "longitude": 47.75866
+  },
+  {
+    "city": "Al Maqwa‘",
+    "city_zh": "Al Maqwa‘",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.16667,
+    "longitude": 47.98333
+  },
+  {
+    "city": "Al Manqaf",
+    "city_zh": "Al Manqaf",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.09611,
+    "longitude": 48.13278
+  },
+  {
+    "city": "Al Mahbūlah",
+    "city_zh": "Al Mahbūlah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.145,
+    "longitude": 48.13028
+  },
+  {
+    "city": "Al Maghāsil",
+    "city_zh": "Al Maghāsil",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.74194,
+    "longitude": 48.09444
+  },
+  {
+    "city": "Kuwait City",
+    "city_zh": "科威特市",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.36972,
+    "longitude": 47.97833
+  },
+  {
+    "city": "Al Khīrān",
+    "city_zh": "Al Khīrān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.663,
+    "longitude": 48.379
+  },
+  {
+    "city": "Al Jahrā’",
+    "city_zh": "Al Jahrā’",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3375,
+    "longitude": 47.65806
+  },
+  {
+    "city": "Al Ḩujayjah",
+    "city_zh": "Al Ḩujayjah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.65472,
+    "longitude": 48.13111
+  },
+  {
+    "city": "Al Ḩadīqah",
+    "city_zh": "Al Ḩadīqah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.33333,
+    "longitude": 47.98333
+  },
+  {
+    "city": "Al Funayţīs",
+    "city_zh": "Al Funayţīs",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.22528,
+    "longitude": 48.10167
+  },
+  {
+    "city": "Al Faḩāḩīl",
+    "city_zh": "Al Faḩāḩīl",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.0825,
+    "longitude": 48.13028
+  },
+  {
+    "city": "Al Finţās",
+    "city_zh": "Al Finţās",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.17389,
+    "longitude": 48.12111
+  },
+  {
+    "city": "Al Fayḩā’",
+    "city_zh": "Al Fayḩā’",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.33639,
+    "longitude": 47.97583
+  },
+  {
+    "city": "Al Farwānīyah",
+    "city_zh": "Al Farwānīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.2775,
+    "longitude": 47.95861
+  },
+  {
+    "city": "Al Bida‘",
+    "city_zh": "Al Bida‘",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3025,
+    "longitude": 48.08694
+  },
+  {
+    "city": "Al Bhar",
+    "city_zh": "Al Bhar",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.38333,
+    "longitude": 47.83333
+  },
+  {
+    "city": "Bahra",
+    "city_zh": "Bahra",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.66667,
+    "longitude": 47.86667
+  },
+  {
+    "city": "Al Aḩmadī",
+    "city_zh": "Al Aḩmadī",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.07694,
+    "longitude": 48.08389
+  },
+  {
+    "city": "Al Ad‘amī",
+    "city_zh": "Al Ad‘amī",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.81667,
+    "longitude": 48.26667
+  },
+  {
+    "city": "Al ‘Abdalīyah",
+    "city_zh": "Al ‘Abdalīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.0425,
+    "longitude": 47.70611
+  },
+  {
+    "city": "Aḑ Ḑibā‘īyah",
+    "city_zh": "Aḑ Ḑibā‘īyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.93333,
+    "longitude": 48.16667
+  },
+  {
+    "city": "Ad Dawḩah",
+    "city_zh": "Ad Dawḩah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.36778,
+    "longitude": 47.81
+  },
+  {
+    "city": "Ad Dasmah",
+    "city_zh": "Ad Dasmah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.365,
+    "longitude": 48.00139
+  },
+  {
+    "city": "Ad Da‘īyah",
+    "city_zh": "Ad Da‘īyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.33333,
+    "longitude": 47.98333
+  },
+  {
+    "city": "Abū Ḩulayfah",
+    "city_zh": "Abū Ḩulayfah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.13222,
+    "longitude": 48.12611
+  },
+  {
+    "city": "Abraq Khayţān",
+    "city_zh": "Abraq Khayţān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.2925,
+    "longitude": 47.96889
+  },
+  {
+    "city": "Aţ Ţawīl",
+    "city_zh": "Aţ Ţawīl",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.97861,
+    "longitude": 47.90722
+  },
+  {
+    "city": "Şubayḩīyah",
+    "city_zh": "Şubayḩīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.87944,
+    "longitude": 47.91389
+  },
+  {
+    "city": "Wārah",
+    "city_zh": "Wārah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.99611,
+    "longitude": 47.98222
+  },
+  {
+    "city": "Al Wafrah",
+    "city_zh": "Al Wafrah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.55417,
+    "longitude": 48.05306
+  },
+  {
+    "city": "Al Khuwaysāt",
+    "city_zh": "Al Khuwaysāt",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.40333,
+    "longitude": 47.71111
+  },
+  {
+    "city": "Al Khiḑr",
+    "city_zh": "Al Khiḑr",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.46444,
+    "longitude": 48.28833
+  },
+  {
+    "city": "Al Bulţ",
+    "city_zh": "Al Bulţ",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.4575,
+    "longitude": 48.28139
+  },
+  {
+    "city": "Ash Shubaykah",
+    "city_zh": "Ash Shubaykah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.43167,
+    "longitude": 48.29917
+  },
+  {
+    "city": "Ad Dasht",
+    "city_zh": "Ad Dasht",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.4625,
+    "longitude": 48.31389
+  },
+  {
+    "city": "Qullat Shujayr",
+    "city_zh": "Qullat Shujayr",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.45917,
+    "longitude": 48.29972
+  },
+  {
+    "city": "Al ‘Awāzim",
+    "city_zh": "Al ‘Awāzim",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.42028,
+    "longitude": 48.385
+  },
+  {
+    "city": "Bunayd al Qār",
+    "city_zh": "Bunayd al Qār",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.37556,
+    "longitude": 48.0025
+  },
+  {
+    "city": "Ad Da‘īyah",
+    "city_zh": "Ad Da‘īyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.35806,
+    "longitude": 48.01472
+  },
+  {
+    "city": "Ash Sha‘b",
+    "city_zh": "Ash Sha‘b",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.34694,
+    "longitude": 48.025
+  },
+  {
+    "city": "Al Qādisīyah",
+    "city_zh": "Al Qādisīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.35028,
+    "longitude": 48.00694
+  },
+  {
+    "city": "Maydān Ḩawallī",
+    "city_zh": "Maydān Ḩawallī",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.33611,
+    "longitude": 48.0425
+  },
+  {
+    "city": "Ar Rawḑah",
+    "city_zh": "Ar Rawḑah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31583,
+    "longitude": 48.00639
+  },
+  {
+    "city": "Al Jābirīyah",
+    "city_zh": "Al Jābirīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.32222,
+    "longitude": 48.02361
+  },
+  {
+    "city": "Salwá",
+    "city_zh": "Salwá",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.29583,
+    "longitude": 48.07861
+  },
+  {
+    "city": "Mishrif",
+    "city_zh": "Mishrif",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.28917,
+    "longitude": 48.05
+  },
+  {
+    "city": "Al Masīlah",
+    "city_zh": "Al Masīlah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.26194,
+    "longitude": 48.07972
+  },
+  {
+    "city": "Al Badawīyah",
+    "city_zh": "Al Badawīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.08139,
+    "longitude": 48.11778
+  },
+  {
+    "city": "‘Ashīsh ad Dawḩah",
+    "city_zh": "‘Ashīsh ad Dawḩah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.38528,
+    "longitude": 47.84222
+  },
+  {
+    "city": "Ash Sharq",
+    "city_zh": "Ash Sharq",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.37944,
+    "longitude": 47.98722
+  },
+  {
+    "city": "Al Qiblah",
+    "city_zh": "Al Qiblah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.37361,
+    "longitude": 47.97167
+  },
+  {
+    "city": "Al Murqāb",
+    "city_zh": "Al Murqāb",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.36556,
+    "longitude": 47.97806
+  },
+  {
+    "city": "Aş Şāliḩīyah",
+    "city_zh": "Aş Şāliḩīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.36333,
+    "longitude": 47.96889
+  },
+  {
+    "city": "Al Manşūrīyah",
+    "city_zh": "Al Manşūrīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.35556,
+    "longitude": 47.98056
+  },
+  {
+    "city": "Al Khālidīyah",
+    "city_zh": "Al Khālidīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.32806,
+    "longitude": 47.96556
+  },
+  {
+    "city": "Al ‘Adīlīyah",
+    "city_zh": "Al ‘Adīlīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.32056,
+    "longitude": 47.97694
+  },
+  {
+    "city": "An Nuzhah",
+    "city_zh": "An Nuzhah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.34167,
+    "longitude": 47.98972
+  },
+  {
+    "city": "Al Qādisīyah",
+    "city_zh": "Al Qādisīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3475,
+    "longitude": 47.985
+  },
+  {
+    "city": "Ḑāhiyat ‘Abd Allāh as Sālim",
+    "city_zh": "Ḑāhiyat ‘Abd Allāh as Sālim",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.35139,
+    "longitude": 47.98
+  },
+  {
+    "city": "Al Mīnā’",
+    "city_zh": "Al Mīnā’",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.32972,
+    "longitude": 47.93611
+  },
+  {
+    "city": "Al Murayţibah",
+    "city_zh": "Al Murayţibah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.36472,
+    "longitude": 47.6525
+  },
+  {
+    "city": "‘Ashīsh al Jahrā’",
+    "city_zh": "‘Ashīsh al Jahrā’",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31722,
+    "longitude": 47.67778
+  },
+  {
+    "city": "Ad Dawḩah",
+    "city_zh": "Ad Dawḩah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31444,
+    "longitude": 47.81194
+  },
+  {
+    "city": "Ar Rayy",
+    "city_zh": "Ar Rayy",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.30917,
+    "longitude": 47.93417
+  },
+  {
+    "city": "Al Yarmūk",
+    "city_zh": "Al Yarmūk",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.30778,
+    "longitude": 47.9675
+  },
+  {
+    "city": "Qurţubah",
+    "city_zh": "Qurţubah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31222,
+    "longitude": 47.98556
+  },
+  {
+    "city": "As Surrah",
+    "city_zh": "As Surrah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.27528,
+    "longitude": 47.99
+  },
+  {
+    "city": "Janūb Khayţān",
+    "city_zh": "Janūb Khayţān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.27222,
+    "longitude": 47.97778
+  },
+  {
+    "city": "Al ‘Umarīyah",
+    "city_zh": "Al ‘Umarīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.29333,
+    "longitude": 47.95333
+  },
+  {
+    "city": "Ar Rābiyah",
+    "city_zh": "Ar Rābiyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.295,
+    "longitude": 47.93306
+  },
+  {
+    "city": "Al ‘Āriḑīyah",
+    "city_zh": "Al ‘Āriḑīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.28417,
+    "longitude": 47.875
+  },
+  {
+    "city": "Al ‘Abbāsīyah",
+    "city_zh": "Al ‘Abbāsīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.25028,
+    "longitude": 47.93111
+  },
+  {
+    "city": "Aḑ Ḑubā‘īyah",
+    "city_zh": "Aḑ Ḑubā‘īyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 28.92361,
+    "longitude": 48.20722
+  },
+  {
+    "city": "Qaşm Dasmān",
+    "city_zh": "Qaşm Dasmān",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.38,
+    "longitude": 47.99611
+  },
+  {
+    "city": "Al Bid‘",
+    "city_zh": "Al Bid‘",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.31222,
+    "longitude": 48.08778
+  },
+  {
+    "city": "Şabāḩ as Sālim",
+    "city_zh": "Şabāḩ as Sālim",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.25722,
+    "longitude": 48.05722
+  },
+  {
+    "city": "Umm Şiddah",
+    "city_zh": "Umm Şiddah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.36194,
+    "longitude": 47.9925
+  },
+  {
+    "city": "Al ‘Arfajīyah",
+    "city_zh": "Al ‘Arfajīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.70028,
+    "longitude": 48.09556
+  },
+  {
+    "city": "Al ‘Ulaymīyah",
+    "city_zh": "Al ‘Ulaymīyah",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.68806,
+    "longitude": 48.11417
+  },
+  {
+    "city": "Highway of Death",
+    "city_zh": "Highway of Death",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.3842,
+    "longitude": 47.6518
+  },
+  {
+    "city": "Al Quşūr",
+    "city_zh": "Al Quşūr",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.21748,
+    "longitude": 48.0726
+  },
+  {
+    "city": "Al Qurayn",
+    "city_zh": "Al Qurayn",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.2043,
+    "longitude": 48.0757
+  },
+  {
+    "city": "Mubārak al Kabīr",
+    "city_zh": "Mubārak al Kabīr",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.18979,
+    "longitude": 48.08716
+  },
+  {
+    "city": "Al ‘Adan",
+    "city_zh": "Al ‘Adan",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.23274,
+    "longitude": 48.0685
+  },
+  {
+    "city": "Jaber Al Ali",
+    "city_zh": "Jaber Al Ali",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.17082,
+    "longitude": 48.0724
+  },
+  {
+    "city": "Safat",
+    "city_zh": "Safat",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.37136,
+    "longitude": 47.97298
+  },
+  {
+    "city": "Sawabir",
+    "city_zh": "Sawabir",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.37549,
+    "longitude": 47.98254
+  },
+  {
+    "city": "Mazāri‘ al ‘Abdalī",
+    "city_zh": "Mazāri‘ al ‘Abdalī",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 30.04219,
+    "longitude": 47.72205
+  },
+  {
+    "city": "Al-Masayel",
+    "city_zh": "Al-Masayel",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.2393,
+    "longitude": 48.08862
+  },
+  {
+    "city": "Abu Fatira",
+    "city_zh": "Abu Fatira",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.19746,
+    "longitude": 48.10278
+  },
+  {
+    "city": "Abu Al Hasaniya",
+    "city_zh": "Abu Al Hasaniya",
+    "country": "Kuwait",
+    "country_zh": "科威特",
+    "country_iso_code": "KW",
+    "timezone": "Asia/Kuwait",
+    "latitude": 29.19076,
+    "longitude": 48.11355
+  }
+]

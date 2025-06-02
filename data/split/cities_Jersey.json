@@ -1,0 +1,852 @@
+[
+  {
+    "city": "Vinchelez de Haut Manor",
+    "city_zh": "Vinchelez de Haut Manor",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24475,
+    "longitude": -2.21851
+  },
+  {
+    "city": "Vinchelez de Bas Manor",
+    "city_zh": "Vinchelez de Bas Manor",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24643,
+    "longitude": -2.21705
+  },
+  {
+    "city": "Ville des Quennevais",
+    "city_zh": "Ville des Quennevais",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.20194,
+    "longitude": -2.20028
+  },
+  {
+    "city": "Six Rues",
+    "city_zh": "Six Rues",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23333,
+    "longitude": -2.15
+  },
+  {
+    "city": "Saint Ouen’s Bay",
+    "city_zh": "Saint Ouen’s Bay",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22135,
+    "longitude": -2.21387
+  },
+  {
+    "city": "Saint John",
+    "city_zh": "Saint John",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24556,
+    "longitude": -2.13861
+  },
+  {
+    "city": "Saint Helier",
+    "city_zh": "Saint Helier",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18804,
+    "longitude": -2.10491
+  },
+  {
+    "city": "Saint Aubin",
+    "city_zh": "Saint Aubin",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.1875,
+    "longitude": -2.17056
+  },
+  {
+    "city": "Rozel",
+    "city_zh": "Rozel",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23639,
+    "longitude": -2.04611
+  },
+  {
+    "city": "Millbrook",
+    "city_zh": "Millbrook",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19861,
+    "longitude": -2.13833
+  },
+  {
+    "city": "Lower Blanc Pignon",
+    "city_zh": "Lower Blanc Pignon",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19472,
+    "longitude": -2.16222
+  },
+  {
+    "city": "Longueville",
+    "city_zh": "Longueville",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18333,
+    "longitude": -2.08333
+  },
+  {
+    "city": "L’Etacq",
+    "city_zh": "L’Etacq",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23534,
+    "longitude": -2.23516
+  },
+  {
+    "city": "La Hougue",
+    "city_zh": "La Hougue",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21667,
+    "longitude": -2.21667
+  },
+  {
+    "city": "La Haule",
+    "city_zh": "La Haule",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18333,
+    "longitude": -2.18333
+  },
+  {
+    "city": "Grand Chemins",
+    "city_zh": "Grand Chemins",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.2,
+    "longitude": -2.06667
+  },
+  {
+    "city": "Gorey",
+    "city_zh": "Gorey",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19937,
+    "longitude": -2.02826
+  },
+  {
+    "city": "Bel Royal",
+    "city_zh": "Bel Royal",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19806,
+    "longitude": -2.14722
+  },
+  {
+    "city": "Belle Vue",
+    "city_zh": "Belle Vue",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19139,
+    "longitude": -2.17306
+  },
+  {
+    "city": "Beaumont",
+    "city_zh": "Beaumont",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19639,
+    "longitude": -2.15861
+  },
+  {
+    "city": "Les Creux",
+    "city_zh": "Les Creux",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18056,
+    "longitude": -2.20556
+  },
+  {
+    "city": "Mont Fiquet",
+    "city_zh": "Mont Fiquet",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.17972,
+    "longitude": -2.21417
+  },
+  {
+    "city": "La Moye",
+    "city_zh": "La Moye",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18222,
+    "longitude": -2.22222
+  },
+  {
+    "city": "Ville ès Nouaux",
+    "city_zh": "Ville ès Nouaux",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19472,
+    "longitude": -2.12861
+  },
+  {
+    "city": "La Fosse",
+    "city_zh": "La Fosse",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.17472,
+    "longitude": -2.18056
+  },
+  {
+    "city": "La Ville au Bas",
+    "city_zh": "La Ville au Bas",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22766,
+    "longitude": -2.21563
+  },
+  {
+    "city": "La Villaise",
+    "city_zh": "La Villaise",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24083,
+    "longitude": -2.23667
+  },
+  {
+    "city": "Portinfer",
+    "city_zh": "Portinfer",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.25019,
+    "longitude": -2.2258
+  },
+  {
+    "city": "La Ville Bagot",
+    "city_zh": "La Ville Bagot",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24265,
+    "longitude": -2.20722
+  },
+  {
+    "city": "Le Rondin",
+    "city_zh": "Le Rondin",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23889,
+    "longitude": -2.18111
+  },
+  {
+    "city": "La Falaise",
+    "city_zh": "La Falaise",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24944,
+    "longitude": -2.16889
+  },
+  {
+    "city": "Grand Mourier",
+    "city_zh": "Grand Mourier",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.25528,
+    "longitude": -2.14833
+  },
+  {
+    "city": "Perruque",
+    "city_zh": "Perruque",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.25167,
+    "longitude": -2.14417
+  },
+  {
+    "city": "Mont Mado",
+    "city_zh": "Mont Mado",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24694,
+    "longitude": -2.12417
+  },
+  {
+    "city": "La Moye",
+    "city_zh": "La Moye",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.1847,
+    "longitude": -2.22031
+  },
+  {
+    "city": "Les Platons",
+    "city_zh": "Les Platons",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.2462,
+    "longitude": -2.1044
+  },
+  {
+    "city": "Trinity",
+    "city_zh": "Trinity",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23408,
+    "longitude": -2.09272
+  },
+  {
+    "city": "St Mary's Village",
+    "city_zh": "St Mary's Village",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23646,
+    "longitude": -2.17628
+  },
+  {
+    "city": "St Brelade",
+    "city_zh": "St Brelade",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19146,
+    "longitude": -2.20482
+  },
+  {
+    "city": "St Lawrence",
+    "city_zh": "St Lawrence",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21583,
+    "longitude": -2.14139
+  },
+  {
+    "city": "Grouville",
+    "city_zh": "Grouville",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18395,
+    "longitude": -2.05032
+  },
+  {
+    "city": "Saint Clements",
+    "city_zh": "Saint Clements",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.17404,
+    "longitude": -2.05715
+  },
+  {
+    "city": "Fliquet",
+    "city_zh": "Fliquet",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.2278,
+    "longitude": -2.02869
+  },
+  {
+    "city": "La Grève de Lecq",
+    "city_zh": "La Grève de Lecq",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24542,
+    "longitude": -2.20287
+  },
+  {
+    "city": "St Martin",
+    "city_zh": "St Martin",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22006,
+    "longitude": -2.05127
+  },
+  {
+    "city": "Five Oaks",
+    "city_zh": "Five Oaks",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19828,
+    "longitude": -2.08139
+  },
+  {
+    "city": "St Peter",
+    "city_zh": "St Peter",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21479,
+    "longitude": -2.18263
+  },
+  {
+    "city": "St Peters Village",
+    "city_zh": "St Peters Village",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21294,
+    "longitude": -2.18353
+  },
+  {
+    "city": "La Presse",
+    "city_zh": "La Presse",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21423,
+    "longitude": -2.19422
+  },
+  {
+    "city": "St Ouen's Manor",
+    "city_zh": "St Ouen's Manor",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22499,
+    "longitude": -2.20014
+  },
+  {
+    "city": "St. Peters Arsenal",
+    "city_zh": "St. Peters Arsenal",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.20204,
+    "longitude": -2.1822
+  },
+  {
+    "city": "La Fontaine",
+    "city_zh": "La Fontaine",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.20742,
+    "longitude": -2.17546
+  },
+  {
+    "city": "La Saline",
+    "city_zh": "La Saline",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23371,
+    "longitude": -2.23885
+  },
+  {
+    "city": "La Porte",
+    "city_zh": "La Porte",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23929,
+    "longitude": -2.24185
+  },
+  {
+    "city": "Les Labeurs",
+    "city_zh": "Les Labeurs",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22976,
+    "longitude": -2.234
+  },
+  {
+    "city": "La Crabiere",
+    "city_zh": "La Crabiere",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22665,
+    "longitude": -2.23117
+  },
+  {
+    "city": "St Ouen's Village",
+    "city_zh": "St Ouen's Village",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23282,
+    "longitude": -2.20426
+  },
+  {
+    "city": "St Ouen Town",
+    "city_zh": "St Ouen Town",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.2345,
+    "longitude": -2.20353
+  },
+  {
+    "city": "Creux Baillot",
+    "city_zh": "Creux Baillot",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23492,
+    "longitude": -2.19774
+  },
+  {
+    "city": "Leoville",
+    "city_zh": "Leoville",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23828,
+    "longitude": -2.20714
+  },
+  {
+    "city": "La Ville de L'Eglise",
+    "city_zh": "La Ville de L'Eglise",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22542,
+    "longitude": -2.20842
+  },
+  {
+    "city": "La Caroline",
+    "city_zh": "La Caroline",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22326,
+    "longitude": -2.20769
+  },
+  {
+    "city": "L'Amiral",
+    "city_zh": "L'Amiral",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22217,
+    "longitude": -2.20563
+  },
+  {
+    "city": "Le Port",
+    "city_zh": "Le Port",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.20725,
+    "longitude": -2.22314
+  },
+  {
+    "city": "Le Braye",
+    "city_zh": "Le Braye",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.19808,
+    "longitude": -2.22439
+  },
+  {
+    "city": "La Pulente",
+    "city_zh": "La Pulente",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18765,
+    "longitude": -2.22997
+  },
+  {
+    "city": "Le Grouet",
+    "city_zh": "Le Grouet",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18238,
+    "longitude": -2.24181
+  },
+  {
+    "city": "La Corbiere",
+    "city_zh": "La Corbiere",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18159,
+    "longitude": -2.23722
+  },
+  {
+    "city": "Le Mont es Croix",
+    "city_zh": "Le Mont es Croix",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.18218,
+    "longitude": -2.21658
+  },
+  {
+    "city": "Le Hocq",
+    "city_zh": "Le Hocq",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.16823,
+    "longitude": -2.06178
+  },
+  {
+    "city": "Les St Germain",
+    "city_zh": "Les St Germain",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22511,
+    "longitude": -2.12062
+  },
+  {
+    "city": "Vill es Normans",
+    "city_zh": "Vill es Normans",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22547,
+    "longitude": -2.10663
+  },
+  {
+    "city": "Trinity Manor",
+    "city_zh": "Trinity Manor",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.2273,
+    "longitude": -2.10221
+  },
+  {
+    "city": "La Chesnee",
+    "city_zh": "La Chesnee",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22225,
+    "longitude": -2.09491
+  },
+  {
+    "city": "Le Hurrel",
+    "city_zh": "Le Hurrel",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21981,
+    "longitude": -2.09401
+  },
+  {
+    "city": "Les Vaux",
+    "city_zh": "Les Vaux",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.22242,
+    "longitude": -2.08251
+  },
+  {
+    "city": "Victoria Village",
+    "city_zh": "Victoria Village",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21594,
+    "longitude": -2.082
+  },
+  {
+    "city": "Maufant",
+    "city_zh": "Maufant",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.2102,
+    "longitude": -2.06582
+  },
+  {
+    "city": "Les Carrieres",
+    "city_zh": "Les Carrieres",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.21289,
+    "longitude": -2.05813
+  },
+  {
+    "city": "La Robeline",
+    "city_zh": "La Robeline",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23593,
+    "longitude": -2.22503
+  },
+  {
+    "city": "Millais",
+    "city_zh": "Millais",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24091,
+    "longitude": -2.22271
+  },
+  {
+    "city": "Trodez",
+    "city_zh": "Trodez",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.23892,
+    "longitude": -2.21653
+  },
+  {
+    "city": "Le Bas de Lecq",
+    "city_zh": "Le Bas de Lecq",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24806,
+    "longitude": -2.20885
+  },
+  {
+    "city": "Les Pallieres",
+    "city_zh": "Les Pallieres",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.24789,
+    "longitude": -2.2319
+  },
+  {
+    "city": "Plemont",
+    "city_zh": "Plemont",
+    "country": "Jersey",
+    "country_zh": "Jersey",
+    "country_iso_code": "JE",
+    "timezone": "Europe/Jersey",
+    "latitude": 49.25666,
+    "longitude": -2.22761
+  }
+]
