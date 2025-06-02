@@ -1,0 +1,572 @@
+[
+  {
+    "city": "Walker Creek",
+    "city_zh": "Walker Creek",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.96667,
+    "longitude": -58.76667
+  },
+  {
+    "city": "Tranquilidad",
+    "city_zh": "Tranquilidad",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.81374,
+    "longitude": -59.09212
+  },
+  {
+    "city": "Teal Inlet Settlement",
+    "city_zh": "Teal Inlet Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.54571,
+    "longitude": -58.42355
+  },
+  {
+    "city": "Stanley",
+    "city_zh": "斯坦利",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.69382,
+    "longitude": -57.85701
+  },
+  {
+    "city": "Salvador Settlement",
+    "city_zh": "Salvador Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.43409,
+    "longitude": -58.37199
+  },
+  {
+    "city": "Sand Fountain",
+    "city_zh": "Sand Fountain",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.48333,
+    "longitude": -58.75
+  },
+  {
+    "city": "San Carlos Settlement",
+    "city_zh": "San Carlos Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.57357,
+    "longitude": -59.03499
+  },
+  {
+    "city": "Rincon Grande Settlement",
+    "city_zh": "Rincon Grande Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.46151,
+    "longitude": -58.30933
+  },
+  {
+    "city": "Port San Carlos Settlement",
+    "city_zh": "Port San Carlos Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.50184,
+    "longitude": -58.98751
+  },
+  {
+    "city": "Port Louis South",
+    "city_zh": "Port Louis South",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.6,
+    "longitude": -58.15
+  },
+  {
+    "city": "Port Louis Settlement",
+    "city_zh": "Port Louis Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.52367,
+    "longitude": -58.10896
+  },
+  {
+    "city": "Port Howard",
+    "city_zh": "Port Howard",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.6154,
+    "longitude": -59.52301
+  },
+  {
+    "city": "Piedra Sola",
+    "city_zh": "Piedra Sola",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.53333,
+    "longitude": -58.76667
+  },
+  {
+    "city": "Pebble Island Settlement",
+    "city_zh": "Pebble Island Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.31818,
+    "longitude": -59.6039
+  },
+  {
+    "city": "Orqueta",
+    "city_zh": "Orqueta",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.86667,
+    "longitude": -59.23333
+  },
+  {
+    "city": "North Arm Settlement",
+    "city_zh": "北安",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -52.12373,
+    "longitude": -59.36763
+  },
+  {
+    "city": "Mid Rancho",
+    "city_zh": "Mid Rancho",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.83333,
+    "longitude": -58.6
+  },
+  {
+    "city": "Mariquita",
+    "city_zh": "Mariquita",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.9,
+    "longitude": -59.4
+  },
+  {
+    "city": "Mare Harbour Rancho",
+    "city_zh": "Mare Harbour Rancho",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.9,
+    "longitude": -58.4
+  },
+  {
+    "city": "Johnson Harbour Settlement",
+    "city_zh": "Johnson Harbour Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.49837,
+    "longitude": -58.03967
+  },
+  {
+    "city": "Horseshoe Bay",
+    "city_zh": "Horseshoe Bay",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.53333,
+    "longitude": -58.21667
+  },
+  {
+    "city": "Hope Cottage",
+    "city_zh": "Hope Cottage",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.86315,
+    "longitude": -59.35632
+  },
+  {
+    "city": "Goose Green Settlement",
+    "city_zh": "鵝綠",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.82774,
+    "longitude": -58.97255
+  },
+  {
+    "city": "Fitzroy North",
+    "city_zh": "Fitzroy North",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.73333,
+    "longitude": -58.25
+  },
+  {
+    "city": "Fitzroy Settlement",
+    "city_zh": "Fitzroy Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.78694,
+    "longitude": -58.22629
+  },
+  {
+    "city": "Estancia House",
+    "city_zh": "Estancia House",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.6353,
+    "longitude": -58.16517
+  },
+  {
+    "city": "Douglas Settlement",
+    "city_zh": "Douglas Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.45986,
+    "longitude": -58.60883
+  },
+  {
+    "city": "Dos Lomas",
+    "city_zh": "Dos Lomas",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.78333,
+    "longitude": -59.25
+  },
+  {
+    "city": "Darwin",
+    "city_zh": "Darwin",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.80693,
+    "longitude": -58.95961
+  },
+  {
+    "city": "Cranmer",
+    "city_zh": "Cranmer",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.33333,
+    "longitude": -59.93333
+  },
+  {
+    "city": "Ceritos",
+    "city_zh": "Ceritos",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.71667,
+    "longitude": -58.85
+  },
+  {
+    "city": "Camp Verde",
+    "city_zh": "Camp Verde",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.53333,
+    "longitude": -58.96667
+  },
+  {
+    "city": "Burnside House",
+    "city_zh": "Burnside House",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.78409,
+    "longitude": -58.93937
+  },
+  {
+    "city": "Bombilia House",
+    "city_zh": "Bombilia House",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.54812,
+    "longitude": -58.68586
+  },
+  {
+    "city": "Bluff Cove",
+    "city_zh": "Bluff Cove",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.74826,
+    "longitude": -58.17847
+  },
+  {
+    "city": "Speedwell Island Settlement",
+    "city_zh": "Speedwell Island Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -52.22074,
+    "longitude": -59.68825
+  },
+  {
+    "city": "Lively Settlement",
+    "city_zh": "Lively Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.99407,
+    "longitude": -58.45664
+  },
+  {
+    "city": "Bluff Cove Settlement",
+    "city_zh": "Bluff Cove Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.74753,
+    "longitude": -58.17563
+  },
+  {
+    "city": "Green Patch Settlement",
+    "city_zh": "Green Patch Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.54833,
+    "longitude": -58.11785
+  },
+  {
+    "city": "Foam Creek House",
+    "city_zh": "Foam Creek House",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.46784,
+    "longitude": -58.33088
+  },
+  {
+    "city": "Keppel Settlement",
+    "city_zh": "Keppel Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.33121,
+    "longitude": -59.94331
+  },
+  {
+    "city": "Spring Point Settlement",
+    "city_zh": "Spring Point Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.82968,
+    "longitude": -60.45588
+  },
+  {
+    "city": "Roy Cove Settlement",
+    "city_zh": "Roy Cove Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.54836,
+    "longitude": -60.38558
+  },
+  {
+    "city": "Port Stephens Settlement",
+    "city_zh": "Port Stephens Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -52.10243,
+    "longitude": -60.84451
+  },
+  {
+    "city": "Hill Cove",
+    "city_zh": "Hill Cove",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.49741,
+    "longitude": -60.11559
+  },
+  {
+    "city": "Fox Bay West Settlement",
+    "city_zh": "Fox Bay West Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.95168,
+    "longitude": -60.08438
+  },
+  {
+    "city": "Fox Bay East Settlement",
+    "city_zh": "Fox Bay East Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.95656,
+    "longitude": -60.06929
+  },
+  {
+    "city": "Dunnose Head Settlement",
+    "city_zh": "Dunnose Head Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.74147,
+    "longitude": -60.41657
+  },
+  {
+    "city": "Chartres",
+    "city_zh": "Chartres",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.71108,
+    "longitude": -60.07954
+  },
+  {
+    "city": "Weddell Settlement",
+    "city_zh": "Weddell Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.89231,
+    "longitude": -60.90485
+  },
+  {
+    "city": "New Island Settlement",
+    "city_zh": "New Island Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.72557,
+    "longitude": -61.2988
+  },
+  {
+    "city": "Saunders Island Settlement",
+    "city_zh": "Saunders Island Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.36589,
+    "longitude": -60.08726
+  },
+  {
+    "city": "Beaver Settlement",
+    "city_zh": "Beaver Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.85317,
+    "longitude": -61.25385
+  },
+  {
+    "city": "Westpoint Island Settlement",
+    "city_zh": "Westpoint Island Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.34879,
+    "longitude": -60.68685
+  },
+  {
+    "city": "Carcass Island Settlement",
+    "city_zh": "Carcass Island Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.29086,
+    "longitude": -60.55696
+  },
+  {
+    "city": "Mount Pleasant",
+    "city_zh": "Mount Pleasant",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -51.82899,
+    "longitude": -58.46083
+  },
+  {
+    "city": "Port Edgar Settlement",
+    "city_zh": "Port Edgar Settlement",
+    "country": "Falkland Islands",
+    "country_zh": "Falkland Islands",
+    "country_iso_code": "FK",
+    "timezone": "Atlantic/Stanley",
+    "latitude": -52.04937,
+    "longitude": -60.27978
+  }
+]

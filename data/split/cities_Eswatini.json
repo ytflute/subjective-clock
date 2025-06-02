@@ -1,0 +1,6812 @@
+[
+  {
+    "city": "Von Wissel",
+    "city_zh": "Von Wissel",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86667,
+    "longitude": 31.93333
+  },
+  {
+    "city": "Verdun",
+    "city_zh": "Verdun",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85,
+    "longitude": 31.4
+  },
+  {
+    "city": "Usutu",
+    "city_zh": "Usutu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.58333,
+    "longitude": 31.18333
+  },
+  {
+    "city": "Thunzini",
+    "city_zh": "Thunzini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.95764,
+    "longitude": 31.7274
+  },
+  {
+    "city": "Stylkloof",
+    "city_zh": "Stylkloof",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78333,
+    "longitude": 31.13333
+  },
+  {
+    "city": "Sigombeni",
+    "city_zh": "Sigombeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.38596,
+    "longitude": 31.33781
+  },
+  {
+    "city": "Sithobela",
+    "city_zh": "Sithobela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.87963,
+    "longitude": 31.5932
+  },
+  {
+    "city": "Siteki",
+    "city_zh": "Siteki",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.4525,
+    "longitude": 31.94722
+  },
+  {
+    "city": "Siphofaneni",
+    "city_zh": "Siphofaneni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.67779,
+    "longitude": 31.68735
+  },
+  {
+    "city": "Sinceni",
+    "city_zh": "Sinceni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78,
+    "longitude": 31.56567
+  },
+  {
+    "city": "Sidvokodvo",
+    "city_zh": "Sidvokodvo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6282,
+    "longitude": 31.42021
+  },
+  {
+    "city": "Sicunusa",
+    "city_zh": "Sicunusa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84518,
+    "longitude": 30.93769
+  },
+  {
+    "city": "Sandlane",
+    "city_zh": "Sandlane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.56667,
+    "longitude": 30.78333
+  },
+  {
+    "city": "Rondspring",
+    "city_zh": "Rondspring",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88439,
+    "longitude": 31.69711
+  },
+  {
+    "city": "Rocklands",
+    "city_zh": "Rocklands",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.94607,
+    "longitude": 31.28366
+  },
+  {
+    "city": "Piggs Peak",
+    "city_zh": "Piggs Peak",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.96082,
+    "longitude": 31.24666
+  },
+  {
+    "city": "Nyabe",
+    "city_zh": "Nyabe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.75,
+    "longitude": 31.08333
+  },
+  {
+    "city": "Nsoko",
+    "city_zh": "恩索科",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.02921,
+    "longitude": 31.94195
+  },
+  {
+    "city": "Nokwane",
+    "city_zh": "Nokwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.13333,
+    "longitude": 31.91667
+  },
+  {
+    "city": "Nkonjane",
+    "city_zh": "Nkonjane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.75643,
+    "longitude": 32.04765
+  },
+  {
+    "city": "Nkanini",
+    "city_zh": "Nkanini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45394,
+    "longitude": 31.21756
+  },
+  {
+    "city": "Nhlangano",
+    "city_zh": "Nhlangano",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.11222,
+    "longitude": 31.19833
+  },
+  {
+    "city": "Ngonini",
+    "city_zh": "Ngonini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.76667,
+    "longitude": 31.38333
+  },
+  {
+    "city": "Mvangatini",
+    "city_zh": "Mvangatini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.7386,
+    "longitude": 31.57935
+  },
+  {
+    "city": "Mooihoek",
+    "city_zh": "Mooihoek",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.96532,
+    "longitude": 31.4741
+  },
+  {
+    "city": "Mliba",
+    "city_zh": "Mliba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23974,
+    "longitude": 31.58364
+  },
+  {
+    "city": "Mlawula",
+    "city_zh": "Mlawula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.18333,
+    "longitude": 31.98333
+  },
+  {
+    "city": "Mhlumeni",
+    "city_zh": "Mhlumeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.25745,
+    "longitude": 32.08228
+  },
+  {
+    "city": "Mhlume",
+    "city_zh": "Mhlume",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.02607,
+    "longitude": 31.81423
+  },
+  {
+    "city": "Mhlosheni",
+    "city_zh": "Mhlosheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.18929,
+    "longitude": 31.39571
+  },
+  {
+    "city": "Mhlambanyatsi",
+    "city_zh": "Mhlambanyatsi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45174,
+    "longitude": 31.05248
+  },
+  {
+    "city": "Mgamane",
+    "city_zh": "Mgamane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.825,
+    "longitude": 31.1122
+  },
+  {
+    "city": "Mbuluzana",
+    "city_zh": "Mbuluzana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.35,
+    "longitude": 31.51667
+  },
+  {
+    "city": "Mbabane",
+    "city_zh": "墨巴本",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31667,
+    "longitude": 31.13333
+  },
+  {
+    "city": "Matsapha",
+    "city_zh": "Matsapha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.50253,
+    "longitude": 31.30795
+  },
+  {
+    "city": "Manzini",
+    "city_zh": "曼齐尼",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.49884,
+    "longitude": 31.38004
+  },
+  {
+    "city": "Mankayane",
+    "city_zh": "Mankayane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6684,
+    "longitude": 31.06487
+  },
+  {
+    "city": "Maloma",
+    "city_zh": "Maloma",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.00328,
+    "longitude": 31.65357
+  },
+  {
+    "city": "Malkerns",
+    "city_zh": "Malkerns",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.52872,
+    "longitude": 31.19193
+  },
+  {
+    "city": "Mahlanya",
+    "city_zh": "Mahlanya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.5,
+    "longitude": 31.28333
+  },
+  {
+    "city": "Mahamba",
+    "city_zh": "Mahamba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.09668,
+    "longitude": 31.07916
+  },
+  {
+    "city": "Magomba",
+    "city_zh": "Magomba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.56586,
+    "longitude": 31.83927
+  },
+  {
+    "city": "Madlangempisi",
+    "city_zh": "Madlangempisi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.08766,
+    "longitude": 31.54917
+  },
+  {
+    "city": "Macnab",
+    "city_zh": "Macnab",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.36508,
+    "longitude": 31.58847
+  },
+  {
+    "city": "Luyengo",
+    "city_zh": "Luyengo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.53333,
+    "longitude": 31.23333
+  },
+  {
+    "city": "Lubuli",
+    "city_zh": "Lubuli",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.01691,
+    "longitude": 31.90502
+  },
+  {
+    "city": "Lomati",
+    "city_zh": "Lomati",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.81667,
+    "longitude": 31.35
+  },
+  {
+    "city": "Lomahasha",
+    "city_zh": "Lomahasha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.001,
+    "longitude": 31.994
+  },
+  {
+    "city": "Lobamba",
+    "city_zh": "洛班巴",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46667,
+    "longitude": 31.2
+  },
+  {
+    "city": "Lismore",
+    "city_zh": "Lismore",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.12771,
+    "longitude": 31.92771
+  },
+  {
+    "city": "Lavumisa",
+    "city_zh": "Lavumisa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.31005,
+    "longitude": 31.89198
+  },
+  {
+    "city": "Kwaluseni",
+    "city_zh": "Kwaluseni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.47675,
+    "longitude": 31.33274
+  },
+  {
+    "city": "Kubuta",
+    "city_zh": "Kubuta",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88026,
+    "longitude": 31.48097
+  },
+  {
+    "city": "Kobolondo Heights",
+    "city_zh": "Kobolondo Heights",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.9,
+    "longitude": 31.21667
+  },
+  {
+    "city": "Inyetane",
+    "city_zh": "Inyetane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.52914,
+    "longitude": 31.95292
+  },
+  {
+    "city": "Inyetane",
+    "city_zh": "Inyetane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.53312,
+    "longitude": 32.00813
+  },
+  {
+    "city": "Horo",
+    "city_zh": "Horo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.75,
+    "longitude": 31.41667
+  },
+  {
+    "city": "Holobela",
+    "city_zh": "Holobela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.69734,
+    "longitude": 31.85222
+  },
+  {
+    "city": "Hluti",
+    "city_zh": "Hluti",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.221,
+    "longitude": 31.58685
+  },
+  {
+    "city": "Hlathikhulu",
+    "city_zh": "Hlathikhulu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97991,
+    "longitude": 31.32569
+  },
+  {
+    "city": "Herefords",
+    "city_zh": "Herefords",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.84509,
+    "longitude": 31.49511
+  },
+  {
+    "city": "Havelock",
+    "city_zh": "Havelock",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.95,
+    "longitude": 31.13333
+  },
+  {
+    "city": "Grand Valley",
+    "city_zh": "Grand Valley",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.93356,
+    "longitude": 31.29331
+  },
+  {
+    "city": "Gege",
+    "city_zh": "Gege",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.96637,
+    "longitude": 31.00919
+  },
+  {
+    "city": "Forbes Reef",
+    "city_zh": "Forbes Reef",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.17233,
+    "longitude": 31.10097
+  },
+  {
+    "city": "Ezulwini",
+    "city_zh": "Ezulwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.4,
+    "longitude": 31.16667
+  },
+  {
+    "city": "Etjanine",
+    "city_zh": "Etjanine",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.38333,
+    "longitude": 30.9
+  },
+  {
+    "city": "Dwaleni",
+    "city_zh": "Dwaleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.16667,
+    "longitude": 31.26667
+  },
+  {
+    "city": "Darkton",
+    "city_zh": "Darkton",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23333,
+    "longitude": 31.03333
+  },
+  {
+    "city": "Croydon",
+    "city_zh": "Croydon",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.19713,
+    "longitude": 31.5749
+  },
+  {
+    "city": "Commissie Nek",
+    "city_zh": "Commissie Nek",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33679,
+    "longitude": 31.23773
+  },
+  {
+    "city": "Bulembu",
+    "city_zh": "Bulembu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.95386,
+    "longitude": 31.12715
+  },
+  {
+    "city": "Bhunya",
+    "city_zh": "Bhunya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.53847,
+    "longitude": 31.01176
+  },
+  {
+    "city": "Bennetts Store",
+    "city_zh": "Bennetts Store",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.95343,
+    "longitude": 31.52056
+  },
+  {
+    "city": "Balegane",
+    "city_zh": "Balegane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1,
+    "longitude": 31.56667
+  },
+  {
+    "city": "Abercorn",
+    "city_zh": "Abercorn",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83333,
+    "longitude": 32.13333
+  },
+  {
+    "city": "Vuvulane",
+    "city_zh": "Vuvulane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.07427,
+    "longitude": 31.87672
+  },
+  {
+    "city": "Ngwenya",
+    "city_zh": "Ngwenya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.2279,
+    "longitude": 31.03926
+  },
+  {
+    "city": "Ntfonjeni",
+    "city_zh": "Ntfonjeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.82659,
+    "longitude": 31.3273
+  },
+  {
+    "city": "Maphiveni",
+    "city_zh": "Maphiveni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.14126,
+    "longitude": 31.98841
+  },
+  {
+    "city": "Fairview North",
+    "city_zh": "Fairview North",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.48661,
+    "longitude": 31.36121
+  },
+  {
+    "city": "Mhlangatane",
+    "city_zh": "Mhlangatane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.93333,
+    "longitude": 31.63333
+  },
+  {
+    "city": "Mpolonjeni",
+    "city_zh": "Mpolonjeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.55497,
+    "longitude": 31.86901
+  },
+  {
+    "city": "Ekukhanyeni",
+    "city_zh": "Ekukhanyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.3875,
+    "longitude": 31.52806
+  },
+  {
+    "city": "Mbangweni",
+    "city_zh": "Mbangweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.29321,
+    "longitude": 31.11164
+  },
+  {
+    "city": "Simunye",
+    "city_zh": "錫穆涅",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.20889,
+    "longitude": 31.91889
+  },
+  {
+    "city": "Hluthi",
+    "city_zh": "Hluthi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.21,
+    "longitude": 31.57
+  },
+  {
+    "city": "Mgazini",
+    "city_zh": "Mgazini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.796,
+    "longitude": 30.949
+  },
+  {
+    "city": "Mafutseni",
+    "city_zh": "Mafutseni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.44,
+    "longitude": 31.52
+  },
+  {
+    "city": "Nkambeni",
+    "city_zh": "Nkambeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.05,
+    "longitude": 31.66667
+  },
+  {
+    "city": "Ndzingeni",
+    "city_zh": "Ndzingeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.97518,
+    "longitude": 31.29344
+  },
+  {
+    "city": "Mahlangatja",
+    "city_zh": "Mahlangatja",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78139,
+    "longitude": 31.24806
+  },
+  {
+    "city": "Mhlangatane",
+    "city_zh": "Mhlangatane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.305,
+    "longitude": 31.11472
+  },
+  {
+    "city": "Malindza",
+    "city_zh": "Malindza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.40294,
+    "longitude": 31.75317
+  },
+  {
+    "city": "Nyonyane",
+    "city_zh": "Nyonyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.11405,
+    "longitude": 31.44916
+  },
+  {
+    "city": "Vusweni",
+    "city_zh": "Vusweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.86711,
+    "longitude": 31.37564
+  },
+  {
+    "city": "Mpaka",
+    "city_zh": "Mpaka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.412,
+    "longitude": 31.78
+  },
+  {
+    "city": "Dvokolwako",
+    "city_zh": "Dvokolwako",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.16037,
+    "longitude": 31.58878
+  },
+  {
+    "city": "Mkhulamini",
+    "city_zh": "Mkhulamini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.42765,
+    "longitude": 31.38627
+  },
+  {
+    "city": "Hhelehhele",
+    "city_zh": "Hhelehhele",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.488,
+    "longitude": 31.456
+  },
+  {
+    "city": "Mbasheni",
+    "city_zh": "Mbasheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.8284,
+    "longitude": 31.39092
+  },
+  {
+    "city": "Mangwaneni",
+    "city_zh": "Mangwaneni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33858,
+    "longitude": 31.14403
+  },
+  {
+    "city": "Ndzevane",
+    "city_zh": "Ndzevane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94646,
+    "longitude": 31.95394
+  },
+  {
+    "city": "Mambane",
+    "city_zh": "Mambane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.768,
+    "longitude": 32.034
+  },
+  {
+    "city": "Hlatsi",
+    "city_zh": "Hlatsi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97479,
+    "longitude": 31.3252
+  },
+  {
+    "city": "Nsongweni",
+    "city_zh": "Nsongweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.08748,
+    "longitude": 31.19324
+  },
+  {
+    "city": "Ngculwini",
+    "city_zh": "Ngculwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54698,
+    "longitude": 31.48251
+  },
+  {
+    "city": "Lundzi",
+    "city_zh": "Lundzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.4548,
+    "longitude": 30.85798
+  },
+  {
+    "city": "Mthongwaneni",
+    "city_zh": "Mthongwaneni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.49785,
+    "longitude": 31.47173
+  },
+  {
+    "city": "Mathendele",
+    "city_zh": "Mathendele",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.09539,
+    "longitude": 31.19652
+  },
+  {
+    "city": "Mahlalini",
+    "city_zh": "Mahlalini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.07567,
+    "longitude": 31.31136
+  },
+  {
+    "city": "Buhleni",
+    "city_zh": "Buhleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.92138,
+    "longitude": 31.50967
+  },
+  {
+    "city": "Msunduza",
+    "city_zh": "Msunduza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33113,
+    "longitude": 31.15066
+  },
+  {
+    "city": "Matsamo Border Post",
+    "city_zh": "Matsamo Border Post",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.751,
+    "longitude": 31.46449
+  },
+  {
+    "city": "Emoyeni",
+    "city_zh": "Emoyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.93301,
+    "longitude": 31.2708
+  },
+  {
+    "city": "Nkhundia",
+    "city_zh": "Nkhundia",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.85575,
+    "longitude": 31.49612
+  },
+  {
+    "city": "Mnigeleli",
+    "city_zh": "Mnigeleli",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.88396,
+    "longitude": 31.35461
+  },
+  {
+    "city": "Mshinande",
+    "city_zh": "Mshinande",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.86996,
+    "longitude": 31.34342
+  },
+  {
+    "city": "Mzimnene",
+    "city_zh": "Mzimnene",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.93862,
+    "longitude": 31.36822
+  },
+  {
+    "city": "Jeke",
+    "city_zh": "Jeke",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.92303,
+    "longitude": 31.46135
+  },
+  {
+    "city": "Mshingishingini",
+    "city_zh": "Mshingishingini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.87891,
+    "longitude": 31.34641
+  },
+  {
+    "city": "Mhlekwa",
+    "city_zh": "Mhlekwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.85514,
+    "longitude": 31.3154
+  },
+  {
+    "city": "Siblela",
+    "city_zh": "Siblela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.81068,
+    "longitude": 31.37309
+  },
+  {
+    "city": "Mnikwa",
+    "city_zh": "Mnikwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.97568,
+    "longitude": 31.41204
+  },
+  {
+    "city": "Sidwashini",
+    "city_zh": "Sidwashini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.78395,
+    "longitude": 31.35448
+  },
+  {
+    "city": "Lomshiyo",
+    "city_zh": "Lomshiyo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.82208,
+    "longitude": 31.31653
+  },
+  {
+    "city": "Ndlalambi",
+    "city_zh": "Ndlalambi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.79394,
+    "longitude": 31.45928
+  },
+  {
+    "city": "Jacks",
+    "city_zh": "Jacks",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.91262,
+    "longitude": 31.46009
+  },
+  {
+    "city": "Emvembili",
+    "city_zh": "Emvembili",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.76255,
+    "longitude": 31.40734
+  },
+  {
+    "city": "Wosheni",
+    "city_zh": "Wosheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.77486,
+    "longitude": 31.43792
+  },
+  {
+    "city": "Heleba",
+    "city_zh": "Heleba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.9951,
+    "longitude": 31.44874
+  },
+  {
+    "city": "Mgobodzi",
+    "city_zh": "Mgobodzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.8722,
+    "longitude": 31.39744
+  },
+  {
+    "city": "Boshimela",
+    "city_zh": "Boshimela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.91504,
+    "longitude": 31.30477
+  },
+  {
+    "city": "Mgecelwe",
+    "city_zh": "Mgecelwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.8171,
+    "longitude": 31.35129
+  },
+  {
+    "city": "Magutulela",
+    "city_zh": "Magutulela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.85008,
+    "longitude": 31.37917
+  },
+  {
+    "city": "Msahweni",
+    "city_zh": "Msahweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.79488,
+    "longitude": 31.42717
+  },
+  {
+    "city": "Cumasana",
+    "city_zh": "Cumasana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.84905,
+    "longitude": 31.33021
+  },
+  {
+    "city": "Kekela",
+    "city_zh": "Kekela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.9793,
+    "longitude": 31.39712
+  },
+  {
+    "city": "Mkhiweni",
+    "city_zh": "Mkhiweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.87503,
+    "longitude": 31.31515
+  },
+  {
+    "city": "Yihomu",
+    "city_zh": "Yihomu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.83909,
+    "longitude": 31.3747
+  },
+  {
+    "city": "Msuduga",
+    "city_zh": "Msuduga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.79622,
+    "longitude": 31.38425
+  },
+  {
+    "city": "Ekuthuleni",
+    "city_zh": "Ekuthuleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.97786,
+    "longitude": 31.29201
+  },
+  {
+    "city": "Unlo",
+    "city_zh": "Unlo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.949,
+    "longitude": 31.3657
+  },
+  {
+    "city": "Gomba",
+    "city_zh": "Gomba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.82571,
+    "longitude": 31.29215
+  },
+  {
+    "city": "Daisy Mine",
+    "city_zh": "Daisy Mine",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.74453,
+    "longitude": 31.42445
+  },
+  {
+    "city": "Mayiwane",
+    "city_zh": "Mayiwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.82166,
+    "longitude": 31.47828
+  },
+  {
+    "city": "Ntintinyane",
+    "city_zh": "Ntintinyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.79454,
+    "longitude": 31.34134
+  },
+  {
+    "city": "Bordergate",
+    "city_zh": "Bordergate",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Johannesburg",
+    "latitude": -25.9334,
+    "longitude": 31.7619
+  },
+  {
+    "city": "Sukasambe",
+    "city_zh": "Sukasambe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.9875,
+    "longitude": 31.78506
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.98689,
+    "longitude": 31.98838
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.95804,
+    "longitude": 31.24723
+  },
+  {
+    "city": "Sihehle",
+    "city_zh": "Sihehle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.84628,
+    "longitude": 31.59577
+  },
+  {
+    "city": "Zanyane",
+    "city_zh": "Zanyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.8969,
+    "longitude": 31.65265
+  },
+  {
+    "city": "Mquaba",
+    "city_zh": "Mquaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.83211,
+    "longitude": 31.52756
+  },
+  {
+    "city": "Mgunungu",
+    "city_zh": "Mgunungu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.85859,
+    "longitude": 31.50393
+  },
+  {
+    "city": "Nkundla",
+    "city_zh": "Nkundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.89297,
+    "longitude": 31.51015
+  },
+  {
+    "city": "Mavula",
+    "city_zh": "Mavula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.8411,
+    "longitude": 31.51738
+  },
+  {
+    "city": "Sihhoye",
+    "city_zh": "Sihhoye",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.97349,
+    "longitude": 31.62171
+  },
+  {
+    "city": "Shumi",
+    "city_zh": "Shumi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.91692,
+    "longitude": 31.71883
+  },
+  {
+    "city": "Katshasa",
+    "city_zh": "Katshasa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.99618,
+    "longitude": 31.63308
+  },
+  {
+    "city": "Mangwen",
+    "city_zh": "Mangwen",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.92218,
+    "longitude": 31.66107
+  },
+  {
+    "city": "Nhlanguyavuka",
+    "city_zh": "Nhlanguyavuka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.90962,
+    "longitude": 31.70015
+  },
+  {
+    "city": "Tubha",
+    "city_zh": "Tubha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.92229,
+    "longitude": 31.72612
+  },
+  {
+    "city": "Mkhuzweni",
+    "city_zh": "Mkhuzweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -25.894,
+    "longitude": 31.5233
+  },
+  {
+    "city": "Droxford",
+    "city_zh": "Droxford",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.22991,
+    "longitude": 30.9947
+  },
+  {
+    "city": "Oshoek Border Post",
+    "city_zh": "Oshoek Border Post",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.21446,
+    "longitude": 30.98823
+  },
+  {
+    "city": "Ngwenya Border Post",
+    "city_zh": "Ngwenya Border Post",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.21153,
+    "longitude": 30.99251
+  },
+  {
+    "city": "Motjane",
+    "city_zh": "Motjane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.2494,
+    "longitude": 31.05489
+  },
+  {
+    "city": "Hawane",
+    "city_zh": "Hawane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.22691,
+    "longitude": 31.09527
+  },
+  {
+    "city": "Mbuluzi",
+    "city_zh": "Mbuluzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23036,
+    "longitude": 31.18557
+  },
+  {
+    "city": "Museni",
+    "city_zh": "Museni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23388,
+    "longitude": 31.20401
+  },
+  {
+    "city": "Thembelihle",
+    "city_zh": "Thembelihle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.22745,
+    "longitude": 31.20686
+  },
+  {
+    "city": "Mbuluzi",
+    "city_zh": "Mbuluzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.21868,
+    "longitude": 31.21638
+  },
+  {
+    "city": "Masilela",
+    "city_zh": "Masilela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.19022,
+    "longitude": 31.24169
+  },
+  {
+    "city": "Jubukweni",
+    "city_zh": "Jubukweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1905,
+    "longitude": 31.1885
+  },
+  {
+    "city": "Mhlosheni",
+    "city_zh": "Mhlosheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.2001,
+    "longitude": 31.13168
+  },
+  {
+    "city": "Mnyokane",
+    "city_zh": "Mnyokane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.14487,
+    "longitude": 31.19776
+  },
+  {
+    "city": "Nkomanzi",
+    "city_zh": "Nkomanzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.08742,
+    "longitude": 31.22227
+  },
+  {
+    "city": "Nkomazi",
+    "city_zh": "Nkomazi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.07577,
+    "longitude": 31.22169
+  },
+  {
+    "city": "Mpalatane",
+    "city_zh": "Mpalatane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.01903,
+    "longitude": 31.22776
+  },
+  {
+    "city": "Mphalatane",
+    "city_zh": "Mphalatane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.02866,
+    "longitude": 31.21726
+  },
+  {
+    "city": "Hlangotsini",
+    "city_zh": "Hlangotsini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.0369,
+    "longitude": 31.20136
+  },
+  {
+    "city": "Mkhumbane",
+    "city_zh": "Mkhumbane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.01506,
+    "longitude": 31.19001
+  },
+  {
+    "city": "Kufika",
+    "city_zh": "Kufika",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.06,
+    "longitude": 31.15513
+  },
+  {
+    "city": "Nkhaba",
+    "city_zh": "Nkhaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.14817,
+    "longitude": 31.14431
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1427,
+    "longitude": 31.15906
+  },
+  {
+    "city": "Nkhaba",
+    "city_zh": "Nkhaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.16424,
+    "longitude": 31.1336
+  },
+  {
+    "city": "Nasilela",
+    "city_zh": "Nasilela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23745,
+    "longitude": 31.29124
+  },
+  {
+    "city": "Nsingweni",
+    "city_zh": "Nsingweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23334,
+    "longitude": 31.35195
+  },
+  {
+    "city": "Nsingwenl Nkhundla",
+    "city_zh": "Nsingwenl Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.23886,
+    "longitude": 31.37446
+  },
+  {
+    "city": "Lomagewaba",
+    "city_zh": "Lomagewaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.22946,
+    "longitude": 31.3818
+  },
+  {
+    "city": "Ngudlula",
+    "city_zh": "Ngudlula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.19962,
+    "longitude": 31.40011
+  },
+  {
+    "city": "Giba",
+    "city_zh": "Giba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.19371,
+    "longitude": 31.29473
+  },
+  {
+    "city": "Maphalaleni",
+    "city_zh": "Maphalaleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.16072,
+    "longitude": 31.29039
+  },
+  {
+    "city": "Malandezela",
+    "city_zh": "Malandezela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.12064,
+    "longitude": 31.2784
+  },
+  {
+    "city": "Nginamadolo",
+    "city_zh": "Nginamadolo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.01972,
+    "longitude": 31.26675
+  },
+  {
+    "city": "Mbeni",
+    "city_zh": "Mbeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.01647,
+    "longitude": 31.29779
+  },
+  {
+    "city": "Mbuyaze",
+    "city_zh": "Mbuyaze",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.05791,
+    "longitude": 31.30307
+  },
+  {
+    "city": "Melete",
+    "city_zh": "Melete",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.10715,
+    "longitude": 31.34252
+  },
+  {
+    "city": "Nsangwini",
+    "city_zh": "Nsangwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.04593,
+    "longitude": 31.30974
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.0168,
+    "longitude": 31.36998
+  },
+  {
+    "city": "Somtsewu",
+    "city_zh": "Somtsewu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.03486,
+    "longitude": 31.37317
+  },
+  {
+    "city": "Ngowane",
+    "city_zh": "Ngowane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.0675,
+    "longitude": 31.34845
+  },
+  {
+    "city": "Nduna",
+    "city_zh": "Nduna",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.0454,
+    "longitude": 31.34911
+  },
+  {
+    "city": "Sokhonzaphi",
+    "city_zh": "Sokhonzaphi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.01103,
+    "longitude": 31.43381
+  },
+  {
+    "city": "Sidzindzini",
+    "city_zh": "Sidzindzini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.03525,
+    "longitude": 31.43463
+  },
+  {
+    "city": "Nkamanzi",
+    "city_zh": "Nkamanzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.00854,
+    "longitude": 31.47895
+  },
+  {
+    "city": "Dinane",
+    "city_zh": "Dinane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.05482,
+    "longitude": 31.46049
+  },
+  {
+    "city": "Mansengu",
+    "city_zh": "Mansengu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.02492,
+    "longitude": 31.54848
+  },
+  {
+    "city": "Deliwe",
+    "city_zh": "Deliwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.03784,
+    "longitude": 31.55975
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.08971,
+    "longitude": 31.55095
+  },
+  {
+    "city": "Shumehill",
+    "city_zh": "Shumehill",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.05168,
+    "longitude": 31.63699
+  },
+  {
+    "city": "Nomgayi",
+    "city_zh": "Nomgayi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.04998,
+    "longitude": 31.64515
+  },
+  {
+    "city": "Njakeni",
+    "city_zh": "Njakeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.04638,
+    "longitude": 31.66009
+  },
+  {
+    "city": "Mbhamuza",
+    "city_zh": "Mbhamuza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.09928,
+    "longitude": 31.55652
+  },
+  {
+    "city": "Zandondo",
+    "city_zh": "Zandondo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.14888,
+    "longitude": 31.52091
+  },
+  {
+    "city": "Masinda",
+    "city_zh": "Masinda",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.13602,
+    "longitude": 31.57051
+  },
+  {
+    "city": "Black Mbuluzi",
+    "city_zh": "Black Mbuluzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.16157,
+    "longitude": 31.58777
+  },
+  {
+    "city": "Warren Wood",
+    "city_zh": "Warren Wood",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.19765,
+    "longitude": 31.67652
+  },
+  {
+    "city": "Isilele",
+    "city_zh": "Isilele",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.22649,
+    "longitude": 31.67973
+  },
+  {
+    "city": "Sherwood Ranch",
+    "city_zh": "Sherwood Ranch",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.17425,
+    "longitude": 31.63035
+  },
+  {
+    "city": "Mthonga",
+    "city_zh": "Mthonga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.21811,
+    "longitude": 31.55039
+  },
+  {
+    "city": "Buckham",
+    "city_zh": "Buckham",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.17417,
+    "longitude": 31.58353
+  },
+  {
+    "city": "Sukumbili",
+    "city_zh": "Sukumbili",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1778,
+    "longitude": 31.59783
+  },
+  {
+    "city": "Mliba Ranch",
+    "city_zh": "Mliba Ranch",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.22586,
+    "longitude": 31.61934
+  },
+  {
+    "city": "Khuphuka",
+    "city_zh": "Khuphuka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.24896,
+    "longitude": 31.63501
+  },
+  {
+    "city": "Makwenya",
+    "city_zh": "Makwenya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1476,
+    "longitude": 32.07595
+  },
+  {
+    "city": "Ngwenya Kop",
+    "city_zh": "Ngwenya Kop",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1451,
+    "longitude": 32.08178
+  },
+  {
+    "city": "Ekuthuleni",
+    "city_zh": "Ekuthuleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.07363,
+    "longitude": 32.04461
+  },
+  {
+    "city": "Shewula",
+    "city_zh": "Shewula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.13336,
+    "longitude": 32.0553
+  },
+  {
+    "city": "Majembeni",
+    "city_zh": "Majembeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.11213,
+    "longitude": 32.05364
+  },
+  {
+    "city": "Khayeni",
+    "city_zh": "Khayeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.14204,
+    "longitude": 31.92371
+  },
+  {
+    "city": "Phahleni",
+    "city_zh": "Phahleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.07271,
+    "longitude": 31.91058
+  },
+  {
+    "city": "Thabankulu Estate",
+    "city_zh": "Thabankulu Estate",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.104,
+    "longitude": 31.92173
+  },
+  {
+    "city": "Mafucula",
+    "city_zh": "Mafucula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.05464,
+    "longitude": 31.93982
+  },
+  {
+    "city": "Ngomane",
+    "city_zh": "Ngomane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1988,
+    "longitude": 31.8159
+  },
+  {
+    "city": "Stinini",
+    "city_zh": "Stinini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.16049,
+    "longitude": 31.90224
+  },
+  {
+    "city": "Thandanani",
+    "city_zh": "Thandanani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.00435,
+    "longitude": 31.75522
+  },
+  {
+    "city": "Enyokeni",
+    "city_zh": "Enyokeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.10301,
+    "longitude": 31.9389
+  },
+  {
+    "city": "Mhlume Nkhundla",
+    "city_zh": "Mhlume Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.07265,
+    "longitude": 31.87677
+  },
+  {
+    "city": "Mahlelesakeni",
+    "city_zh": "Mahlelesakeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.1249,
+    "longitude": 31.94134
+  },
+  {
+    "city": "Nkalashane",
+    "city_zh": "Nkalashane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.01882,
+    "longitude": 31.94958
+  },
+  {
+    "city": "Lomkehle",
+    "city_zh": "Lomkehle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.09671,
+    "longitude": 31.87994
+  },
+  {
+    "city": "Ngwenya",
+    "city_zh": "Ngwenya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.11605,
+    "longitude": 31.91723
+  },
+  {
+    "city": "Ngwenyameni",
+    "city_zh": "Ngwenyameni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.14271,
+    "longitude": 31.9521
+  },
+  {
+    "city": "Mbuluzi Estates",
+    "city_zh": "Mbuluzi Estates",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.13623,
+    "longitude": 31.93297
+  },
+  {
+    "city": "Shonalanga",
+    "city_zh": "Shonalanga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.10289,
+    "longitude": 31.90972
+  },
+  {
+    "city": "Velabatfu",
+    "city_zh": "Velabatfu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46832,
+    "longitude": 30.91432
+  },
+  {
+    "city": "Sigangeni",
+    "city_zh": "Sigangeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.35026,
+    "longitude": 30.98145
+  },
+  {
+    "city": "Lundzi",
+    "city_zh": "Lundzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.32895,
+    "longitude": 30.89068
+  },
+  {
+    "city": "Ngotjane",
+    "city_zh": "Ngotjane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.49614,
+    "longitude": 30.90745
+  },
+  {
+    "city": "Thembisa",
+    "city_zh": "Thembisa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.4692,
+    "longitude": 30.98647
+  },
+  {
+    "city": "Langeni",
+    "city_zh": "Langeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.28598,
+    "longitude": 30.98495
+  },
+  {
+    "city": "Luhlendlweni",
+    "city_zh": "Luhlendlweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.32297,
+    "longitude": 30.92502
+  },
+  {
+    "city": "Lundzi",
+    "city_zh": "Lundzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.37127,
+    "longitude": 30.896
+  },
+  {
+    "city": "Fyfes",
+    "city_zh": "Fyfes",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33219,
+    "longitude": 30.8972
+  },
+  {
+    "city": "Tjaneni",
+    "city_zh": "Tjaneni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.38845,
+    "longitude": 30.91251
+  },
+  {
+    "city": "Mafanyana",
+    "city_zh": "Mafanyana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39879,
+    "longitude": 31.25507
+  },
+  {
+    "city": "Makalane",
+    "city_zh": "Makalane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.26177,
+    "longitude": 31.38812
+  },
+  {
+    "city": "Lugaganeni",
+    "city_zh": "Lugaganeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.48095,
+    "longitude": 31.42856
+  },
+  {
+    "city": "Nkiliji",
+    "city_zh": "Nkiliji",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.30387,
+    "longitude": 31.40288
+  },
+  {
+    "city": "Nyakeni",
+    "city_zh": "Nyakeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.38167,
+    "longitude": 31.42232
+  },
+  {
+    "city": "Dlamini",
+    "city_zh": "Dlamini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.47441,
+    "longitude": 31.37149
+  },
+  {
+    "city": "Mgudlula",
+    "city_zh": "Mgudlula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31692,
+    "longitude": 31.40246
+  },
+  {
+    "city": "Lozitha",
+    "city_zh": "Lozitha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.47013,
+    "longitude": 31.26039
+  },
+  {
+    "city": "Bhekinkosi",
+    "city_zh": "Bhekinkosi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.32874,
+    "longitude": 31.42538
+  },
+  {
+    "city": "Sankolweni",
+    "city_zh": "Sankolweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.3204,
+    "longitude": 31.36637
+  },
+  {
+    "city": "Kutsimuleni",
+    "city_zh": "Kutsimuleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.29325,
+    "longitude": 31.47236
+  },
+  {
+    "city": "Kukhanyeni",
+    "city_zh": "Kukhanyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.3458,
+    "longitude": 31.40325
+  },
+  {
+    "city": "Dikude",
+    "city_zh": "Dikude",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.26631,
+    "longitude": 31.42253
+  },
+  {
+    "city": "Mlomo",
+    "city_zh": "Mlomo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.32301,
+    "longitude": 31.44042
+  },
+  {
+    "city": "Dlangeni",
+    "city_zh": "Dlangeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33498,
+    "longitude": 31.26487
+  },
+  {
+    "city": "Nyakeni",
+    "city_zh": "Nyakeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39702,
+    "longitude": 31.41779
+  },
+  {
+    "city": "Ekukhanyeni",
+    "city_zh": "Ekukhanyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.35644,
+    "longitude": 31.40066
+  },
+  {
+    "city": "Kutsimuleni",
+    "city_zh": "Kutsimuleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.2903,
+    "longitude": 31.44453
+  },
+  {
+    "city": "Mkhiweni Nkhundla",
+    "city_zh": "Mkhiweni Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.30503,
+    "longitude": 31.47143
+  },
+  {
+    "city": "Gija",
+    "city_zh": "Gija",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.40671,
+    "longitude": 31.28635
+  },
+  {
+    "city": "Helehele",
+    "city_zh": "Helehele",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.48521,
+    "longitude": 31.45988
+  },
+  {
+    "city": "Zombodze",
+    "city_zh": "Zombodze",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.44239,
+    "longitude": 31.28146
+  },
+  {
+    "city": "Mahlabatsini",
+    "city_zh": "Mahlabatsini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.36352,
+    "longitude": 31.45949
+  },
+  {
+    "city": "Jokovu",
+    "city_zh": "Jokovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39269,
+    "longitude": 31.4045
+  },
+  {
+    "city": "Vusweni",
+    "city_zh": "Vusweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.30003,
+    "longitude": 31.32393
+  },
+  {
+    "city": "Maliyaduma",
+    "city_zh": "Maliyaduma",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45441,
+    "longitude": 31.40585
+  },
+  {
+    "city": "Mbekelweni",
+    "city_zh": "Mbekelweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.42772,
+    "longitude": 31.31876
+  },
+  {
+    "city": "Gaberones",
+    "city_zh": "Gaberones",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.48641,
+    "longitude": 31.36596
+  },
+  {
+    "city": "Lobombi",
+    "city_zh": "Lobombi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45486,
+    "longitude": 31.2815
+  },
+  {
+    "city": "Luve",
+    "city_zh": "Luve",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.322,
+    "longitude": 31.48291
+  },
+  {
+    "city": "Nhlosana",
+    "city_zh": "Nhlosana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.27687,
+    "longitude": 31.39218
+  },
+  {
+    "city": "Didini",
+    "city_zh": "Didini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45082,
+    "longitude": 31.27202
+  },
+  {
+    "city": "Zanzana",
+    "city_zh": "Zanzana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33374,
+    "longitude": 31.37345
+  },
+  {
+    "city": "Zombodze",
+    "city_zh": "Zombodze",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.42029,
+    "longitude": 31.28239
+  },
+  {
+    "city": "Zabeni",
+    "city_zh": "Zabeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46098,
+    "longitude": 31.27552
+  },
+  {
+    "city": "Mfukuka",
+    "city_zh": "Mfukuka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39494,
+    "longitude": 31.28542
+  },
+  {
+    "city": "Scotts Ranch",
+    "city_zh": "Scotts Ranch",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.34736,
+    "longitude": 31.51463
+  },
+  {
+    "city": "Sikhuphe",
+    "city_zh": "Sikhuphe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31845,
+    "longitude": 31.70806
+  },
+  {
+    "city": "Sicusha",
+    "city_zh": "Sicusha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.41007,
+    "longitude": 31.70198
+  },
+  {
+    "city": "Glenanil",
+    "city_zh": "Glenanil",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.25848,
+    "longitude": 31.67612
+  },
+  {
+    "city": "Mpangela Ranch",
+    "city_zh": "Mpangela Ranch",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31153,
+    "longitude": 31.59824
+  },
+  {
+    "city": "Mogobi",
+    "city_zh": "Mogobi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.43667,
+    "longitude": 31.55034
+  },
+  {
+    "city": "Kabhudla",
+    "city_zh": "Kabhudla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45357,
+    "longitude": 31.62032
+  },
+  {
+    "city": "Dinedor",
+    "city_zh": "Dinedor",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.3679,
+    "longitude": 31.55185
+  },
+  {
+    "city": "Killarney",
+    "city_zh": "Killarney",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.37685,
+    "longitude": 31.52232
+  },
+  {
+    "city": "Mdumezulu",
+    "city_zh": "Mdumezulu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.47295,
+    "longitude": 31.66472
+  },
+  {
+    "city": "Thulwane",
+    "city_zh": "Thulwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.48687,
+    "longitude": 31.52138
+  },
+  {
+    "city": "Bhadlana",
+    "city_zh": "Bhadlana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.41833,
+    "longitude": 31.63725
+  },
+  {
+    "city": "Mbanjwa",
+    "city_zh": "Mbanjwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.29105,
+    "longitude": 31.53436
+  },
+  {
+    "city": "Engogola",
+    "city_zh": "Engogola",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.41418,
+    "longitude": 31.59773
+  },
+  {
+    "city": "Sijula",
+    "city_zh": "Sijula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31802,
+    "longitude": 31.51519
+  },
+  {
+    "city": "Malutha",
+    "city_zh": "Malutha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.56652,
+    "longitude": 30.7952
+  },
+  {
+    "city": "Mangcongco",
+    "city_zh": "Mangcongco",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54793,
+    "longitude": 30.82866
+  },
+  {
+    "city": "Mpuluzi",
+    "city_zh": "Mpuluzi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.5086,
+    "longitude": 30.88757
+  },
+  {
+    "city": "Zondwako",
+    "city_zh": "Zondwako",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.5373,
+    "longitude": 30.97629
+  },
+  {
+    "city": "Ngcamane",
+    "city_zh": "Ngcamane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.53336,
+    "longitude": 30.95188
+  },
+  {
+    "city": "Thandanani",
+    "city_zh": "Thandanani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.59546,
+    "longitude": 30.97226
+  },
+  {
+    "city": "Dosi",
+    "city_zh": "Dosi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.67204,
+    "longitude": 30.81985
+  },
+  {
+    "city": "Bhadzeni",
+    "city_zh": "Bhadzeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.7194,
+    "longitude": 30.9943
+  },
+  {
+    "city": "Mponono",
+    "city_zh": "Mponono",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.71132,
+    "longitude": 30.90407
+  },
+  {
+    "city": "Mbeka",
+    "city_zh": "Mbeka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.67878,
+    "longitude": 30.95266
+  },
+  {
+    "city": "Nkundla",
+    "city_zh": "Nkundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.73736,
+    "longitude": 31.01051
+  },
+  {
+    "city": "Luhleko",
+    "city_zh": "Luhleko",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.53199,
+    "longitude": 31.03544
+  },
+  {
+    "city": "Mbovana",
+    "city_zh": "Mbovana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57747,
+    "longitude": 31.07024
+  },
+  {
+    "city": "Mfukama",
+    "city_zh": "Mfukama",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61427,
+    "longitude": 31.03748
+  },
+  {
+    "city": "Dudusini",
+    "city_zh": "Dudusini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61715,
+    "longitude": 31.06952
+  },
+  {
+    "city": "Mapanga",
+    "city_zh": "Mapanga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61544,
+    "longitude": 31.08407
+  },
+  {
+    "city": "Noabaneni",
+    "city_zh": "Noabaneni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61138,
+    "longitude": 31.1269
+  },
+  {
+    "city": "Mboziawa",
+    "city_zh": "Mboziawa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.69769,
+    "longitude": 31.09995
+  },
+  {
+    "city": "Mancubeni",
+    "city_zh": "Mancubeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.72012,
+    "longitude": 31.07271
+  },
+  {
+    "city": "Umsaman",
+    "city_zh": "Umsaman",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.74477,
+    "longitude": 31.15072
+  },
+  {
+    "city": "Ngumane",
+    "city_zh": "Ngumane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.76894,
+    "longitude": 31.18012
+  },
+  {
+    "city": "Umtshezwa",
+    "city_zh": "Umtshezwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.73162,
+    "longitude": 31.17347
+  },
+  {
+    "city": "Nyatsini",
+    "city_zh": "Nyatsini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.75524,
+    "longitude": 31.25676
+  },
+  {
+    "city": "Etjebovu",
+    "city_zh": "Etjebovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.67279,
+    "longitude": 31.21801
+  },
+  {
+    "city": "Mgwadla",
+    "city_zh": "Mgwadla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.68074,
+    "longitude": 31.18648
+  },
+  {
+    "city": "Mtimane",
+    "city_zh": "Mtimane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.66274,
+    "longitude": 31.13655
+  },
+  {
+    "city": "Uniswa",
+    "city_zh": "Uniswa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57456,
+    "longitude": 31.18157
+  },
+  {
+    "city": "Masuku",
+    "city_zh": "Masuku",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6121,
+    "longitude": 31.20747
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61181,
+    "longitude": 31.20047
+  },
+  {
+    "city": "Kandinda",
+    "city_zh": "Kandinda",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.59766,
+    "longitude": 31.25883
+  },
+  {
+    "city": "Nokwane",
+    "city_zh": "Nokwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.52008,
+    "longitude": 31.2675
+  },
+  {
+    "city": "Libby",
+    "city_zh": "Libby",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.5183,
+    "longitude": 31.19246
+  },
+  {
+    "city": "Macudvulwini",
+    "city_zh": "Macudvulwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.66801,
+    "longitude": 31.01149
+  },
+  {
+    "city": "Sibanyoni",
+    "city_zh": "Sibanyoni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6371,
+    "longitude": 31.24031
+  },
+  {
+    "city": "Lwandle",
+    "city_zh": "Lwandle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54624,
+    "longitude": 31.41031
+  },
+  {
+    "city": "Sigcineni",
+    "city_zh": "Sigcineni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.73361,
+    "longitude": 31.29606
+  },
+  {
+    "city": "Malunge",
+    "city_zh": "Malunge",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.58897,
+    "longitude": 31.38449
+  },
+  {
+    "city": "Phunga",
+    "city_zh": "Phunga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.76597,
+    "longitude": 31.51702
+  },
+  {
+    "city": "Mashila",
+    "city_zh": "Mashila",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.71751,
+    "longitude": 31.43442
+  },
+  {
+    "city": "Tubungu",
+    "city_zh": "Tubungu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54156,
+    "longitude": 31.3364
+  },
+  {
+    "city": "Goedetrou",
+    "city_zh": "Goedetrou",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.77291,
+    "longitude": 31.45549
+  },
+  {
+    "city": "Gundvwini",
+    "city_zh": "Gundvwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57103,
+    "longitude": 31.43058
+  },
+  {
+    "city": "Kagwebu",
+    "city_zh": "Kagwebu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.68184,
+    "longitude": 31.47572
+  },
+  {
+    "city": "Peebles South",
+    "city_zh": "Peebles South",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.63215,
+    "longitude": 31.44856
+  },
+  {
+    "city": "Gidiyeni",
+    "city_zh": "Gidiyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6047,
+    "longitude": 31.29075
+  },
+  {
+    "city": "Emphini",
+    "city_zh": "Emphini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.60547,
+    "longitude": 31.30291
+  },
+  {
+    "city": "Nokwane Township",
+    "city_zh": "Nokwane Township",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.51955,
+    "longitude": 31.26985
+  },
+  {
+    "city": "Masundvwini",
+    "city_zh": "Masundvwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.55175,
+    "longitude": 31.34805
+  },
+  {
+    "city": "Gundvwini",
+    "city_zh": "Gundvwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57786,
+    "longitude": 31.48655
+  },
+  {
+    "city": "Mfelafutsi",
+    "city_zh": "Mfelafutsi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.63446,
+    "longitude": 31.34444
+  },
+  {
+    "city": "Nhlambeni",
+    "city_zh": "Nhlambeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57982,
+    "longitude": 31.38056
+  },
+  {
+    "city": "Dwaleni",
+    "city_zh": "Dwaleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.58393,
+    "longitude": 31.31659
+  },
+  {
+    "city": "Belloch",
+    "city_zh": "Belloch",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54136,
+    "longitude": 31.35069
+  },
+  {
+    "city": "Mayaluka",
+    "city_zh": "Mayaluka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.76918,
+    "longitude": 31.93217
+  },
+  {
+    "city": "Tambuti",
+    "city_zh": "Tambuti",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.73781,
+    "longitude": 31.76278
+  },
+  {
+    "city": "Mnga Fula",
+    "city_zh": "Mnga Fula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.64939,
+    "longitude": 32.03191
+  },
+  {
+    "city": "Sivunga",
+    "city_zh": "Sivunga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.66003,
+    "longitude": 31.95941
+  },
+  {
+    "city": "Mtindzekwa",
+    "city_zh": "Mtindzekwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.51681,
+    "longitude": 31.84566
+  },
+  {
+    "city": "Steenkamp",
+    "city_zh": "Steenkamp",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.7441,
+    "longitude": 31.77176
+  },
+  {
+    "city": "Mabhulohwani",
+    "city_zh": "Mabhulohwani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.77493,
+    "longitude": 31.93733
+  },
+  {
+    "city": "Emaphaylphini",
+    "city_zh": "Emaphaylphini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.72196,
+    "longitude": 31.93159
+  },
+  {
+    "city": "Zondwako",
+    "city_zh": "Zondwako",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54532,
+    "longitude": 32.02408
+  },
+  {
+    "city": "Sivunga",
+    "city_zh": "Sivunga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.64383,
+    "longitude": 31.98948
+  },
+  {
+    "city": "Mgababa",
+    "city_zh": "Mgababa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.7388,
+    "longitude": 31.7776
+  },
+  {
+    "city": "Mapobeni",
+    "city_zh": "Mapobeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.75489,
+    "longitude": 31.79457
+  },
+  {
+    "city": "Sangwaluma",
+    "city_zh": "Sangwaluma",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.74537,
+    "longitude": 31.95226
+  },
+  {
+    "city": "Buhlenl",
+    "city_zh": "Buhlenl",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.7412,
+    "longitude": 31.77115
+  },
+  {
+    "city": "Mbabayi",
+    "city_zh": "Mbabayi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57921,
+    "longitude": 31.89405
+  },
+  {
+    "city": "Jabhane Dube",
+    "city_zh": "Jabhane Dube",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.51844,
+    "longitude": 31.89334
+  },
+  {
+    "city": "Bar Circle",
+    "city_zh": "Bar Circle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.67661,
+    "longitude": 31.88562
+  },
+  {
+    "city": "Sihosha",
+    "city_zh": "Sihosha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.7541,
+    "longitude": 31.9903
+  },
+  {
+    "city": "Sibengwane",
+    "city_zh": "Sibengwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6166,
+    "longitude": 31.86478
+  },
+  {
+    "city": "Mphundle",
+    "city_zh": "Mphundle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.59345,
+    "longitude": 31.98348
+  },
+  {
+    "city": "Khayelihke",
+    "city_zh": "Khayelihke",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.70269,
+    "longitude": 31.94637
+  },
+  {
+    "city": "Majomba",
+    "city_zh": "Majomba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.72303,
+    "longitude": 31.96102
+  },
+  {
+    "city": "Vundla",
+    "city_zh": "Vundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.623,
+    "longitude": 31.91742
+  },
+  {
+    "city": "Umgebisa",
+    "city_zh": "Umgebisa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.52378,
+    "longitude": 31.53191
+  },
+  {
+    "city": "Endlandlameni",
+    "city_zh": "Endlandlameni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.51627,
+    "longitude": 31.55421
+  },
+  {
+    "city": "Maphilingo",
+    "city_zh": "Maphilingo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.72771,
+    "longitude": 31.64363
+  },
+  {
+    "city": "Syringa",
+    "city_zh": "Syringa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.71474,
+    "longitude": 31.586
+  },
+  {
+    "city": "Madvuma",
+    "city_zh": "Madvuma",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.6922,
+    "longitude": 31.59453
+  },
+  {
+    "city": "Holomi",
+    "city_zh": "Holomi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.66801,
+    "longitude": 31.58085
+  },
+  {
+    "city": "Hlawulen",
+    "city_zh": "Hlawulen",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.65378,
+    "longitude": 31.58053
+  },
+  {
+    "city": "Vikizijula",
+    "city_zh": "Vikizijula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.59776,
+    "longitude": 31.64075
+  },
+  {
+    "city": "Phonjwane",
+    "city_zh": "Phonjwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.62275,
+    "longitude": 31.63813
+  },
+  {
+    "city": "Masinane",
+    "city_zh": "Masinane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.52328,
+    "longitude": 31.70066
+  },
+  {
+    "city": "Bangindaba",
+    "city_zh": "Bangindaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.51455,
+    "longitude": 31.7322
+  },
+  {
+    "city": "Esigcaweni",
+    "city_zh": "Esigcaweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.54179,
+    "longitude": 31.72571
+  },
+  {
+    "city": "Duze",
+    "city_zh": "Duze",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.62763,
+    "longitude": 31.67881
+  },
+  {
+    "city": "Sikhotseni",
+    "city_zh": "Sikhotseni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.69422,
+    "longitude": 31.6679
+  },
+  {
+    "city": "Babile",
+    "city_zh": "Babile",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.72565,
+    "longitude": 31.73556
+  },
+  {
+    "city": "Sikhunyane",
+    "city_zh": "Sikhunyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.77662,
+    "longitude": 31.59428
+  },
+  {
+    "city": "Indanya",
+    "city_zh": "Indanya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.76614,
+    "longitude": 31.74952
+  },
+  {
+    "city": "Lesibovu",
+    "city_zh": "Lesibovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.66109,
+    "longitude": 31.52173
+  },
+  {
+    "city": "Hlano",
+    "city_zh": "Hlano",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.62913,
+    "longitude": 31.56903
+  },
+  {
+    "city": "Kamkhweli",
+    "city_zh": "Kamkhweli",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61487,
+    "longitude": 31.55285
+  },
+  {
+    "city": "Nyumbane",
+    "city_zh": "Nyumbane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.61357,
+    "longitude": 31.53615
+  },
+  {
+    "city": "Sikhunyane",
+    "city_zh": "Sikhunyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.56262,
+    "longitude": 31.57411
+  },
+  {
+    "city": "Kuphileni",
+    "city_zh": "Kuphileni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.53992,
+    "longitude": 31.53224
+  },
+  {
+    "city": "Thulwane",
+    "city_zh": "Thulwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.50575,
+    "longitude": 31.57432
+  },
+  {
+    "city": "Maphungwane",
+    "city_zh": "Maphungwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.57508,
+    "longitude": 32.03326
+  },
+  {
+    "city": "Mubalati",
+    "city_zh": "Mubalati",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.58433,
+    "longitude": 32.0373
+  },
+  {
+    "city": "Tikhuba",
+    "city_zh": "Tikhuba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.62521,
+    "longitude": 32.062
+  },
+  {
+    "city": "Lukhetseni",
+    "city_zh": "Lukhetseni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.66629,
+    "longitude": 32.06159
+  },
+  {
+    "city": "Mvimbi",
+    "city_zh": "Mvimbi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.75171,
+    "longitude": 32.04476
+  },
+  {
+    "city": "Eluchachweni",
+    "city_zh": "Eluchachweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.72854,
+    "longitude": 32.02955
+  },
+  {
+    "city": "Mambana",
+    "city_zh": "Mambana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.77104,
+    "longitude": 32.04487
+  },
+  {
+    "city": "Lushikishini",
+    "city_zh": "Lushikishini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78932,
+    "longitude": 30.87972
+  },
+  {
+    "city": "Tsawela",
+    "city_zh": "Tsawela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.77757,
+    "longitude": 30.96235
+  },
+  {
+    "city": "Nkanyezini",
+    "city_zh": "Nkanyezini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.75586,
+    "longitude": 30.8974
+  },
+  {
+    "city": "Holfontein",
+    "city_zh": "Holfontein",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95152,
+    "longitude": 30.98821
+  },
+  {
+    "city": "Ludzidzini",
+    "city_zh": "Ludzidzini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46089,
+    "longitude": 31.20151
+  },
+  {
+    "city": "Mpolonjeni",
+    "city_zh": "Mpolonjeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33117,
+    "longitude": 31.06599
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.32891,
+    "longitude": 31.13667
+  },
+  {
+    "city": "Mpolonjeni",
+    "city_zh": "Mpolonjeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.29719,
+    "longitude": 31.06252
+  },
+  {
+    "city": "Mazandini",
+    "city_zh": "Mazandini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.3886,
+    "longitude": 31.07988
+  },
+  {
+    "city": "Sigangeni",
+    "city_zh": "Sigangeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.35692,
+    "longitude": 31.009
+  },
+  {
+    "city": "Nduma",
+    "city_zh": "Nduma",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.25764,
+    "longitude": 31.05123
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39379,
+    "longitude": 31.08942
+  },
+  {
+    "city": "Lilomuli",
+    "city_zh": "Lilomuli",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.27453,
+    "longitude": 31.08132
+  },
+  {
+    "city": "Ndlovula",
+    "city_zh": "Ndlovula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.27552,
+    "longitude": 31.01791
+  },
+  {
+    "city": "Jabhane's Kraal",
+    "city_zh": "Jabhane's Kraal",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.28997,
+    "longitude": 31.06281
+  },
+  {
+    "city": "Maloya",
+    "city_zh": "Maloya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.33978,
+    "longitude": 31.01116
+  },
+  {
+    "city": "Sitsheni",
+    "city_zh": "Sitsheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.47135,
+    "longitude": 31.18309
+  },
+  {
+    "city": "Jabhane Duba",
+    "city_zh": "Jabhane Duba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31977,
+    "longitude": 31.07877
+  },
+  {
+    "city": "Zulangangani",
+    "city_zh": "Zulangangani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.27707,
+    "longitude": 31.21831
+  },
+  {
+    "city": "Langeni",
+    "city_zh": "Langeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.44043,
+    "longitude": 31.23212
+  },
+  {
+    "city": "Dalriach",
+    "city_zh": "Dalriach",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.2976,
+    "longitude": 31.12929
+  },
+  {
+    "city": "Dinabantu",
+    "city_zh": "Dinabantu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.28686,
+    "longitude": 31.22568
+  },
+  {
+    "city": "Mahlabatsini",
+    "city_zh": "Mahlabatsini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94013,
+    "longitude": 31.04257
+  },
+  {
+    "city": "Ngcakane",
+    "city_zh": "Ngcakane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.89564,
+    "longitude": 31.14038
+  },
+  {
+    "city": "Emkhltini",
+    "city_zh": "Emkhltini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.9726,
+    "longitude": 31.27782
+  },
+  {
+    "city": "Mkhitsini",
+    "city_zh": "Mkhitsini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.92628,
+    "longitude": 31.2068
+  },
+  {
+    "city": "Sibovu",
+    "city_zh": "Sibovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.81898,
+    "longitude": 31.0736
+  },
+  {
+    "city": "Ngcoseni",
+    "city_zh": "Ngcoseni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.79384,
+    "longitude": 31.07468
+  },
+  {
+    "city": "Mshengu",
+    "city_zh": "Mshengu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.99802,
+    "longitude": 31.09979
+  },
+  {
+    "city": "Mgomfelweni",
+    "city_zh": "Mgomfelweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85162,
+    "longitude": 31.17907
+  },
+  {
+    "city": "Riceland",
+    "city_zh": "Riceland",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88514,
+    "longitude": 31.2785
+  },
+  {
+    "city": "Lagubhu",
+    "city_zh": "Lagubhu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95992,
+    "longitude": 31.14259
+  },
+  {
+    "city": "Foxhill",
+    "city_zh": "Foxhill",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98928,
+    "longitude": 31.27864
+  },
+  {
+    "city": "Mtungulube",
+    "city_zh": "Mtungulube",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.81845,
+    "longitude": 31.05952
+  },
+  {
+    "city": "Makholwa",
+    "city_zh": "Makholwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.96808,
+    "longitude": 31.04733
+  },
+  {
+    "city": "Ngodvwane",
+    "city_zh": "Ngodvwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84321,
+    "longitude": 31.07405
+  },
+  {
+    "city": "Makubulando",
+    "city_zh": "Makubulando",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.8119,
+    "longitude": 31.1123
+  },
+  {
+    "city": "Sidwala",
+    "city_zh": "Sidwala",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83747,
+    "longitude": 31.00495
+  },
+  {
+    "city": "Umkobo",
+    "city_zh": "Umkobo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.81084,
+    "longitude": 31.13489
+  },
+  {
+    "city": "Pbelindaba",
+    "city_zh": "Pbelindaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88009,
+    "longitude": 31.41658
+  },
+  {
+    "city": "Kontshingila",
+    "city_zh": "Kontshingila",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.99975,
+    "longitude": 31.40772
+  },
+  {
+    "city": "Kontshingila",
+    "city_zh": "Kontshingila",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.02518,
+    "longitude": 31.3672
+  },
+  {
+    "city": "Madulini",
+    "city_zh": "Madulini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.0138,
+    "longitude": 31.28666
+  },
+  {
+    "city": "Zishinani",
+    "city_zh": "Zishinani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83185,
+    "longitude": 31.47032
+  },
+  {
+    "city": "Pypklin",
+    "city_zh": "Pypklin",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.87332,
+    "longitude": 31.41274
+  },
+  {
+    "city": "Nkwene",
+    "city_zh": "Nkwene",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.8828,
+    "longitude": 31.31114
+  },
+  {
+    "city": "Mtsambame Nkhundla",
+    "city_zh": "Mtsambame Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94156,
+    "longitude": 31.37624
+  },
+  {
+    "city": "Toakoms",
+    "city_zh": "Toakoms",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.82658,
+    "longitude": 31.48952
+  },
+  {
+    "city": "Terrasse",
+    "city_zh": "Terrasse",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86853,
+    "longitude": 31.47508
+  },
+  {
+    "city": "Nkwene Nkhundla",
+    "city_zh": "Nkwene Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83557,
+    "longitude": 31.32654
+  },
+  {
+    "city": "Singwane",
+    "city_zh": "Singwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94642,
+    "longitude": 31.29798
+  },
+  {
+    "city": "Crystal Fountain",
+    "city_zh": "Crystal Fountain",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95929,
+    "longitude": 31.28529
+  },
+  {
+    "city": "Kandlovu",
+    "city_zh": "Kandlovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83114,
+    "longitude": 31.44733
+  },
+  {
+    "city": "Ekuvukeni",
+    "city_zh": "Ekuvukeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.0237,
+    "longitude": 31.45853
+  },
+  {
+    "city": "Kahlatsi",
+    "city_zh": "Kahlatsi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.96839,
+    "longitude": 31.33482
+  },
+  {
+    "city": "Nyanyali",
+    "city_zh": "Nyanyali",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.80388,
+    "longitude": 31.36061
+  },
+  {
+    "city": "Kuphumleni",
+    "city_zh": "Kuphumleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.80168,
+    "longitude": 31.49772
+  },
+  {
+    "city": "Kwendzeni",
+    "city_zh": "Kwendzeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94354,
+    "longitude": 31.35438
+  },
+  {
+    "city": "Rosendal",
+    "city_zh": "Rosendal",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.89401,
+    "longitude": 31.41982
+  },
+  {
+    "city": "Lugaje",
+    "city_zh": "Lugaje",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.9412,
+    "longitude": 31.37344
+  },
+  {
+    "city": "Simamuva",
+    "city_zh": "Simamuva",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85166,
+    "longitude": 31.40512
+  },
+  {
+    "city": "Kambhokwe",
+    "city_zh": "Kambhokwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.93905,
+    "longitude": 31.46185
+  },
+  {
+    "city": "Angloswazi",
+    "city_zh": "Angloswazi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.91227,
+    "longitude": 31.48004
+  },
+  {
+    "city": "Glenavis",
+    "city_zh": "Glenavis",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86925,
+    "longitude": 31.3838
+  },
+  {
+    "city": "Brahwini",
+    "city_zh": "Brahwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.80088,
+    "longitude": 31.30673
+  },
+  {
+    "city": "Dukumbane",
+    "city_zh": "Dukumbane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84333,
+    "longitude": 31.44759
+  },
+  {
+    "city": "Magele",
+    "city_zh": "Magele",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.92467,
+    "longitude": 31.33385
+  },
+  {
+    "city": "Lobuya",
+    "city_zh": "Lobuya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.92675,
+    "longitude": 31.39432
+  },
+  {
+    "city": "Teylsa",
+    "city_zh": "Teylsa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95815,
+    "longitude": 31.44963
+  },
+  {
+    "city": "Madarp",
+    "city_zh": "Madarp",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.91283,
+    "longitude": 31.33459
+  },
+  {
+    "city": "Ekuphakamen",
+    "city_zh": "Ekuphakamen",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84313,
+    "longitude": 31.40802
+  },
+  {
+    "city": "Jabulani",
+    "city_zh": "Jabulani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.89464,
+    "longitude": 31.31408
+  },
+  {
+    "city": "Satugahe",
+    "city_zh": "Satugahe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94169,
+    "longitude": 31.48986
+  },
+  {
+    "city": "Endleni",
+    "city_zh": "Endleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.8984,
+    "longitude": 31.39249
+  },
+  {
+    "city": "Bananadraal",
+    "city_zh": "Bananadraal",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.87793,
+    "longitude": 31.38415
+  },
+  {
+    "city": "Cibo",
+    "city_zh": "Cibo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78253,
+    "longitude": 31.39421
+  },
+  {
+    "city": "Helena",
+    "city_zh": "Helena",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97022,
+    "longitude": 31.2964
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83542,
+    "longitude": 31.40983
+  },
+  {
+    "city": "Sismane",
+    "city_zh": "Sismane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90972,
+    "longitude": 31.37582
+  },
+  {
+    "city": "Zaaihoek",
+    "city_zh": "Zaaihoek",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86751,
+    "longitude": 31.42094
+  },
+  {
+    "city": "Abundance",
+    "city_zh": "Abundance",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.9211,
+    "longitude": 31.2911
+  },
+  {
+    "city": "Menziwa",
+    "city_zh": "Menziwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.89505,
+    "longitude": 31.44446
+  },
+  {
+    "city": "Sikhunyane",
+    "city_zh": "Sikhunyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78625,
+    "longitude": 31.42475
+  },
+  {
+    "city": "Kaphunga",
+    "city_zh": "Kaphunga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.79052,
+    "longitude": 31.48127
+  },
+  {
+    "city": "Siguqa",
+    "city_zh": "Siguqa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86994,
+    "longitude": 31.38749
+  },
+  {
+    "city": "Kanyew",
+    "city_zh": "Kanyew",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.99059,
+    "longitude": 31.48456
+  },
+  {
+    "city": "Mbotsheni",
+    "city_zh": "Mbotsheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95018,
+    "longitude": 31.33923
+  },
+  {
+    "city": "Buseleni",
+    "city_zh": "Buseleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84346,
+    "longitude": 31.31348
+  },
+  {
+    "city": "Mthonjeni Wengwavuma",
+    "city_zh": "Mthonjeni Wengwavuma",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.96972,
+    "longitude": 31.39378
+  },
+  {
+    "city": "Rastfontein",
+    "city_zh": "Rastfontein",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98151,
+    "longitude": 31.47426
+  },
+  {
+    "city": "Nkalondze",
+    "city_zh": "Nkalondze",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.06665,
+    "longitude": 31.71713
+  },
+  {
+    "city": "Makhava",
+    "city_zh": "Makhava",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.16964,
+    "longitude": 31.66429
+  },
+  {
+    "city": "Gundvwini",
+    "city_zh": "Gundvwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.2289,
+    "longitude": 31.5581
+  },
+  {
+    "city": "Mdlebeni",
+    "city_zh": "Mdlebeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.16505,
+    "longitude": 31.77496
+  },
+  {
+    "city": "Ntjanini",
+    "city_zh": "Ntjanini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.07991,
+    "longitude": 31.57265
+  },
+  {
+    "city": "Qomintaba",
+    "city_zh": "Qomintaba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.10824,
+    "longitude": 31.73267
+  },
+  {
+    "city": "Weltevrede",
+    "city_zh": "Weltevrede",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.21397,
+    "longitude": 31.57496
+  },
+  {
+    "city": "Thrings Post",
+    "city_zh": "Thrings Post",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.2046,
+    "longitude": 31.54431
+  },
+  {
+    "city": "Mkhwahkweni",
+    "city_zh": "Mkhwahkweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.30233,
+    "longitude": 31.54886
+  },
+  {
+    "city": "Lushop",
+    "city_zh": "Lushop",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.1916,
+    "longitude": 31.58344
+  },
+  {
+    "city": "Ensingizini",
+    "city_zh": "Ensingizini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.17862,
+    "longitude": 31.5824
+  },
+  {
+    "city": "Mgampondo",
+    "city_zh": "Mgampondo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.29198,
+    "longitude": 31.76724
+  },
+  {
+    "city": "Matsanjeni",
+    "city_zh": "Matsanjeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.23724,
+    "longitude": 31.7335
+  },
+  {
+    "city": "Ekukhanyeni",
+    "city_zh": "Ekukhanyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.1369,
+    "longitude": 31.72547
+  },
+  {
+    "city": "Sigwe",
+    "city_zh": "Sigwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.11388,
+    "longitude": 31.68403
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.25519,
+    "longitude": 31.747
+  },
+  {
+    "city": "Oslo",
+    "city_zh": "Oslo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.23889,
+    "longitude": 31.64507
+  },
+  {
+    "city": "Sigwe Nkhundla",
+    "city_zh": "Sigwe Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.11466,
+    "longitude": 31.64609
+  },
+  {
+    "city": "Sigumbili",
+    "city_zh": "Sigumbili",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.17099,
+    "longitude": 31.56432
+  },
+  {
+    "city": "Hlushwana",
+    "city_zh": "Hlushwana",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.20209,
+    "longitude": 31.63884
+  },
+  {
+    "city": "Lusitini",
+    "city_zh": "Lusitini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.06449,
+    "longitude": 31.54977
+  },
+  {
+    "city": "Makhonza",
+    "city_zh": "Makhonza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.20264,
+    "longitude": 31.30815
+  },
+  {
+    "city": "Upper Nyamane",
+    "city_zh": "Upper Nyamane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.14195,
+    "longitude": 31.21127
+  },
+  {
+    "city": "Matimatima",
+    "city_zh": "Matimatima",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.16047,
+    "longitude": 31.14594
+  },
+  {
+    "city": "Nyakenye",
+    "city_zh": "Nyakenye",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.06789,
+    "longitude": 31.22512
+  },
+  {
+    "city": "Mahlandle",
+    "city_zh": "Mahlandle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.15156,
+    "longitude": 31.12953
+  },
+  {
+    "city": "Tfokotani",
+    "city_zh": "Tfokotani",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.10046,
+    "longitude": 31.10216
+  },
+  {
+    "city": "Chibide",
+    "city_zh": "Chibide",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.22148,
+    "longitude": 31.2998
+  },
+  {
+    "city": "Vusweni",
+    "city_zh": "Vusweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.10717,
+    "longitude": 31.11447
+  },
+  {
+    "city": "Mashobeni",
+    "city_zh": "Mashobeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.17308,
+    "longitude": 31.2087
+  },
+  {
+    "city": "Ntabantu",
+    "city_zh": "Ntabantu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.04519,
+    "longitude": 31.30504
+  },
+  {
+    "city": "Mabhudlweni",
+    "city_zh": "Mabhudlweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.08514,
+    "longitude": 31.13279
+  },
+  {
+    "city": "Priberi",
+    "city_zh": "Priberi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.10388,
+    "longitude": 31.18508
+  },
+  {
+    "city": "Ndukuzibovu",
+    "city_zh": "Ndukuzibovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.05961,
+    "longitude": 31.12061
+  },
+  {
+    "city": "Makhatsatweni",
+    "city_zh": "Makhatsatweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.0703,
+    "longitude": 31.20054
+  },
+  {
+    "city": "Zombodze",
+    "city_zh": "Zombodze",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.24184,
+    "longitude": 31.30246
+  },
+  {
+    "city": "Mlambo",
+    "city_zh": "Mlambo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.09506,
+    "longitude": 31.12366
+  },
+  {
+    "city": "Ndlela",
+    "city_zh": "Ndlela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.1418,
+    "longitude": 31.13485
+  },
+  {
+    "city": "Lower Nyamane",
+    "city_zh": "Lower Nyamane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.19234,
+    "longitude": 31.22247
+  },
+  {
+    "city": "Makhosini",
+    "city_zh": "Makhosini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.19355,
+    "longitude": 31.1865
+  },
+  {
+    "city": "Nzama",
+    "city_zh": "Nzama",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.18839,
+    "longitude": 31.19853
+  },
+  {
+    "city": "Maseyisini",
+    "city_zh": "Maseyisini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.11223,
+    "longitude": 31.14399
+  },
+  {
+    "city": "Luqolweni",
+    "city_zh": "Luqolweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.05957,
+    "longitude": 31.46453
+  },
+  {
+    "city": "Memeza",
+    "city_zh": "Memeza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.05334,
+    "longitude": 31.32153
+  },
+  {
+    "city": "Sibovu",
+    "city_zh": "Sibovu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.12619,
+    "longitude": 31.32516
+  },
+  {
+    "city": "Msila",
+    "city_zh": "Msila",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.19921,
+    "longitude": 31.48984
+  },
+  {
+    "city": "Kamsizi",
+    "city_zh": "Kamsizi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.22367,
+    "longitude": 31.43266
+  },
+  {
+    "city": "Velebantfu",
+    "city_zh": "Velebantfu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.05009,
+    "longitude": 31.48987
+  },
+  {
+    "city": "Kalomshiyo",
+    "city_zh": "Kalomshiyo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.10553,
+    "longitude": 31.46022
+  },
+  {
+    "city": "Nhlanhle",
+    "city_zh": "Nhlanhle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.14874,
+    "longitude": 31.3934
+  },
+  {
+    "city": "Sivule",
+    "city_zh": "Sivule",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.27661,
+    "longitude": 31.41388
+  },
+  {
+    "city": "Masiphula",
+    "city_zh": "Masiphula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.25576,
+    "longitude": 31.4927
+  },
+  {
+    "city": "Manyandzeni",
+    "city_zh": "Manyandzeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.27617,
+    "longitude": 31.44797
+  },
+  {
+    "city": "Mbulungwane",
+    "city_zh": "Mbulungwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.0566,
+    "longitude": 31.42946
+  },
+  {
+    "city": "Gubuda",
+    "city_zh": "Gubuda",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.21412,
+    "longitude": 31.40825
+  },
+  {
+    "city": "Mahanga",
+    "city_zh": "Mahanga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.17699,
+    "longitude": 31.44807
+  },
+  {
+    "city": "Nhkungwini",
+    "city_zh": "Nhkungwini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.13049,
+    "longitude": 31.40444
+  },
+  {
+    "city": "Zibondeni",
+    "city_zh": "Zibondeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.15796,
+    "longitude": 31.42102
+  },
+  {
+    "city": "Mzinsangu",
+    "city_zh": "Mzinsangu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.24687,
+    "longitude": 31.36024
+  },
+  {
+    "city": "Mthombe",
+    "city_zh": "Mthombe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.14449,
+    "longitude": 31.31374
+  },
+  {
+    "city": "Mlotshwa",
+    "city_zh": "Mlotshwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.08096,
+    "longitude": 31.48021
+  },
+  {
+    "city": "Paradys",
+    "city_zh": "Paradys",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.20068,
+    "longitude": 31.45052
+  },
+  {
+    "city": "Mantambe",
+    "city_zh": "Mantambe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.25075,
+    "longitude": 31.43021
+  },
+  {
+    "city": "Terblanche",
+    "city_zh": "Terblanche",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95592,
+    "longitude": 31.76429
+  },
+  {
+    "city": "Mbhoke",
+    "city_zh": "Mbhoke",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94601,
+    "longitude": 31.53199
+  },
+  {
+    "city": "Charmay",
+    "city_zh": "Charmay",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.8542,
+    "longitude": 31.7493
+  },
+  {
+    "city": "Mcathuzane",
+    "city_zh": "Mcathuzane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97121,
+    "longitude": 31.7563
+  },
+  {
+    "city": "Shanse",
+    "city_zh": "Shanse",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.87115,
+    "longitude": 31.74325
+  },
+  {
+    "city": "Mhambi",
+    "city_zh": "Mhambi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85841,
+    "longitude": 31.62025
+  },
+  {
+    "city": "Madubeni",
+    "city_zh": "Madubeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88863,
+    "longitude": 31.66548
+  },
+  {
+    "city": "Makhwekhweti",
+    "city_zh": "Makhwekhweti",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.93688,
+    "longitude": 31.56407
+  },
+  {
+    "city": "Baxter",
+    "city_zh": "Baxter",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90737,
+    "longitude": 31.77445
+  },
+  {
+    "city": "Elubaneni",
+    "city_zh": "Elubaneni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.03162,
+    "longitude": 31.54435
+  },
+  {
+    "city": "Mpompotha",
+    "city_zh": "Mpompotha",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.89582,
+    "longitude": 31.54066
+  },
+  {
+    "city": "Makhwekhweti Hills",
+    "city_zh": "Makhwekhweti Hills",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95609,
+    "longitude": 31.55954
+  },
+  {
+    "city": "Nhlupheko",
+    "city_zh": "Nhlupheko",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98052,
+    "longitude": 31.59384
+  },
+  {
+    "city": "Umshikashika",
+    "city_zh": "Umshikashika",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78332,
+    "longitude": 31.75998
+  },
+  {
+    "city": "Simoyi",
+    "city_zh": "Simoyi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83158,
+    "longitude": 31.55406
+  },
+  {
+    "city": "Lochner",
+    "city_zh": "Lochner",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90163,
+    "longitude": 31.735
+  },
+  {
+    "city": "Nhloya",
+    "city_zh": "Nhloya",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.0426,
+    "longitude": 31.67586
+  },
+  {
+    "city": "Nkonjane",
+    "city_zh": "Nkonjane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.80503,
+    "longitude": 31.596
+  },
+  {
+    "city": "Ndabazezwe",
+    "city_zh": "Ndabazezwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.05519,
+    "longitude": 31.67427
+  },
+  {
+    "city": "Magongolweni",
+    "city_zh": "Magongolweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78936,
+    "longitude": 31.70274
+  },
+  {
+    "city": "Mtsambotsi",
+    "city_zh": "Mtsambotsi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.93359,
+    "longitude": 31.75011
+  },
+  {
+    "city": "Makhobeni",
+    "city_zh": "Makhobeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90367,
+    "longitude": 31.63344
+  },
+  {
+    "city": "Keswick",
+    "city_zh": "Keswick",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.03353,
+    "longitude": 31.68609
+  },
+  {
+    "city": "Logoba",
+    "city_zh": "Logoba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.80679,
+    "longitude": 31.76922
+  },
+  {
+    "city": "Ngudzeni",
+    "city_zh": "Ngudzeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.99974,
+    "longitude": 31.59553
+  },
+  {
+    "city": "Nkundla",
+    "city_zh": "Nkundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.87681,
+    "longitude": 31.5974
+  },
+  {
+    "city": "Guquka",
+    "city_zh": "Guquka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.79796,
+    "longitude": 31.66871
+  },
+  {
+    "city": "Ngujane",
+    "city_zh": "Ngujane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78678,
+    "longitude": 31.77905
+  },
+  {
+    "city": "Nkonjwa",
+    "city_zh": "Nkonjwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.92828,
+    "longitude": 31.63087
+  },
+  {
+    "city": "Mdumezulu",
+    "city_zh": "Mdumezulu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.93312,
+    "longitude": 31.77773
+  },
+  {
+    "city": "Mhawu",
+    "city_zh": "Mhawu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78029,
+    "longitude": 31.77796
+  },
+  {
+    "city": "Mbungeni",
+    "city_zh": "Mbungeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98655,
+    "longitude": 31.75508
+  },
+  {
+    "city": "Locela",
+    "city_zh": "Locela",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83091,
+    "longitude": 31.7669
+  },
+  {
+    "city": "Ekukhanyeni",
+    "city_zh": "Ekukhanyeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.82734,
+    "longitude": 31.88165
+  },
+  {
+    "city": "Mekanduva",
+    "city_zh": "Mekanduva",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.91372,
+    "longitude": 31.8367
+  },
+  {
+    "city": "Ebholi",
+    "city_zh": "Ebholi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.81574,
+    "longitude": 31.92973
+  },
+  {
+    "city": "Picardy",
+    "city_zh": "Picardy",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84915,
+    "longitude": 31.97227
+  },
+  {
+    "city": "Kugwane",
+    "city_zh": "Kugwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83493,
+    "longitude": 31.80021
+  },
+  {
+    "city": "Ntambo",
+    "city_zh": "Ntambo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.99673,
+    "longitude": 31.84799
+  },
+  {
+    "city": "Nkhanini",
+    "city_zh": "Nkhanini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90254,
+    "longitude": 31.8327
+  },
+  {
+    "city": "Malibe",
+    "city_zh": "Malibe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.8657,
+    "longitude": 31.81763
+  },
+  {
+    "city": "Nkunge",
+    "city_zh": "Nkunge",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98171,
+    "longitude": 31.8431
+  },
+  {
+    "city": "Ngcamphalala",
+    "city_zh": "Ngcamphalala",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78711,
+    "longitude": 31.80922
+  },
+  {
+    "city": "Matsenjwa",
+    "city_zh": "Matsenjwa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90154,
+    "longitude": 31.98216
+  },
+  {
+    "city": "Zombizwe",
+    "city_zh": "Zombizwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97945,
+    "longitude": 31.88437
+  },
+  {
+    "city": "Ematsinyo",
+    "city_zh": "Ematsinyo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.92494,
+    "longitude": 31.87585
+  },
+  {
+    "city": "Lushikishini",
+    "city_zh": "Lushikishini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.80847,
+    "longitude": 31.9806
+  },
+  {
+    "city": "Ematsheni",
+    "city_zh": "Ematsheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83623,
+    "longitude": 31.87251
+  },
+  {
+    "city": "Poortzicht",
+    "city_zh": "Poortzicht",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.78951,
+    "longitude": 31.98444
+  },
+  {
+    "city": "Ntuthwakazi",
+    "city_zh": "Ntuthwakazi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.03556,
+    "longitude": 31.81488
+  },
+  {
+    "city": "Malwelwe",
+    "city_zh": "Malwelwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95574,
+    "longitude": 31.82899
+  },
+  {
+    "city": "Mndobandoba",
+    "city_zh": "Mndobandoba",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86915,
+    "longitude": 31.88706
+  },
+  {
+    "city": "Hlunyane",
+    "city_zh": "Hlunyane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84466,
+    "longitude": 31.81053
+  },
+  {
+    "city": "Sauolla",
+    "city_zh": "Sauolla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.83302,
+    "longitude": 31.98841
+  },
+  {
+    "city": "Ookwane",
+    "city_zh": "Ookwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.79376,
+    "longitude": 31.9403
+  },
+  {
+    "city": "Makosane",
+    "city_zh": "Makosane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88269,
+    "longitude": 31.91998
+  },
+  {
+    "city": "Rasheni",
+    "city_zh": "Rasheni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86371,
+    "longitude": 31.8987
+  },
+  {
+    "city": "Emadlozini",
+    "city_zh": "Emadlozini",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.92325,
+    "longitude": 31.80842
+  },
+  {
+    "city": "Twinridge",
+    "city_zh": "Twinridge",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.82581,
+    "longitude": 31.97546
+  },
+  {
+    "city": "Eludlodlweni",
+    "city_zh": "Eludlodlweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.95297,
+    "longitude": 31.88116
+  },
+  {
+    "city": "Kamchoza",
+    "city_zh": "Kamchoza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.88453,
+    "longitude": 31.96276
+  },
+  {
+    "city": "Mavimbeni",
+    "city_zh": "Mavimbeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.94532,
+    "longitude": 31.8317
+  },
+  {
+    "city": "Vimvane",
+    "city_zh": "Vimvane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85043,
+    "longitude": 31.8798
+  },
+  {
+    "city": "Ingcotu",
+    "city_zh": "Ingcotu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98112,
+    "longitude": 31.905
+  },
+  {
+    "city": "Kotten",
+    "city_zh": "Kotten",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97573,
+    "longitude": 31.8443
+  },
+  {
+    "city": "Gamula",
+    "city_zh": "Gamula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85717,
+    "longitude": 31.97685
+  },
+  {
+    "city": "Mateta",
+    "city_zh": "Mateta",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86686,
+    "longitude": 31.92243
+  },
+  {
+    "city": "Mablobane",
+    "city_zh": "Mablobane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.86881,
+    "longitude": 31.95251
+  },
+  {
+    "city": "Dumisa",
+    "city_zh": "Dumisa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.8684,
+    "longitude": 31.89934
+  },
+  {
+    "city": "Wltboomlaagte",
+    "city_zh": "Wltboomlaagte",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.98784,
+    "longitude": 31.88446
+  },
+  {
+    "city": "Nkhundla",
+    "city_zh": "Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.79205,
+    "longitude": 31.93152
+  },
+  {
+    "city": "Mkhiweni",
+    "city_zh": "Mkhiweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.85212,
+    "longitude": 31.92872
+  },
+  {
+    "city": "Geja",
+    "city_zh": "Geja",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.84751,
+    "longitude": 31.86445
+  },
+  {
+    "city": "Fotogaku",
+    "city_zh": "Fotogaku",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.97249,
+    "longitude": 31.87592
+  },
+  {
+    "city": "Mhadlo",
+    "city_zh": "Mhadlo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.93761,
+    "longitude": 31.83006
+  },
+  {
+    "city": "Katwyk",
+    "city_zh": "Katwyk",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.90849,
+    "longitude": 31.81005
+  },
+  {
+    "city": "Mlindazwe",
+    "city_zh": "Mlindazwe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.21948,
+    "longitude": 31.80729
+  },
+  {
+    "city": "Mbutu",
+    "city_zh": "Mbutu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.07808,
+    "longitude": 31.92619
+  },
+  {
+    "city": "Mhlabeni",
+    "city_zh": "Mhlabeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.07956,
+    "longitude": 31.86614
+  },
+  {
+    "city": "Mbutfu",
+    "city_zh": "Mbutfu",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.1063,
+    "longitude": 31.92371
+  },
+  {
+    "city": "Nsubane",
+    "city_zh": "Nsubane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.15149,
+    "longitude": 31.95647
+  },
+  {
+    "city": "Mkhayeni",
+    "city_zh": "Mkhayeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.11541,
+    "longitude": 31.87838
+  },
+  {
+    "city": "Ezindwendweni",
+    "city_zh": "Ezindwendweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.11292,
+    "longitude": 31.79795
+  },
+  {
+    "city": "Somntongo Nkundla",
+    "city_zh": "Somntongo Nkundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -27.27583,
+    "longitude": 31.82881
+  },
+  {
+    "city": "Mbobo",
+    "city_zh": "Mbobo",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.4016,
+    "longitude": 32.04565
+  },
+  {
+    "city": "Mbehla",
+    "city_zh": "Mbehla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.41711,
+    "longitude": 32.04317
+  },
+  {
+    "city": "Mhobeni",
+    "city_zh": "Mhobeni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39988,
+    "longitude": 32.04174
+  },
+  {
+    "city": "Mhosi",
+    "city_zh": "Mhosi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.41649,
+    "longitude": 32.06309
+  },
+  {
+    "city": "Mashicaka",
+    "city_zh": "Mashicaka",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.38622,
+    "longitude": 32.02878
+  },
+  {
+    "city": "Lubilweni",
+    "city_zh": "Lubilweni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46981,
+    "longitude": 31.84922
+  },
+  {
+    "city": "Makhandza",
+    "city_zh": "Makhandza",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46368,
+    "longitude": 31.7849
+  },
+  {
+    "city": "Mantanta",
+    "city_zh": "Mantanta",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.43993,
+    "longitude": 31.89507
+  },
+  {
+    "city": "Hlane Nkhundla",
+    "city_zh": "Hlane Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.25203,
+    "longitude": 31.78198
+  },
+  {
+    "city": "Flame",
+    "city_zh": "Flame",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.43282,
+    "longitude": 31.94316
+  },
+  {
+    "city": "Notcliffe",
+    "city_zh": "Notcliffe",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.42399,
+    "longitude": 31.94285
+  },
+  {
+    "city": "Groenpan",
+    "city_zh": "Groenpan",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.34328,
+    "longitude": 31.97127
+  },
+  {
+    "city": "Kalanga",
+    "city_zh": "Kalanga",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45055,
+    "longitude": 31.84811
+  },
+  {
+    "city": "Mahuku",
+    "city_zh": "Mahuku",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.40277,
+    "longitude": 31.91555
+  },
+  {
+    "city": "Moveni",
+    "city_zh": "Moveni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.43075,
+    "longitude": 31.97039
+  },
+  {
+    "city": "Siboteleni",
+    "city_zh": "Siboteleni",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.44007,
+    "longitude": 31.92061
+  },
+  {
+    "city": "Lukhula",
+    "city_zh": "Lukhula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.4126,
+    "longitude": 31.91313
+  },
+  {
+    "city": "Cyrildene",
+    "city_zh": "Cyrildene",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.31742,
+    "longitude": 31.99216
+  },
+  {
+    "city": "Lokayisa",
+    "city_zh": "Lokayisa",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.48267,
+    "longitude": 31.8916
+  },
+  {
+    "city": "Lugongolweni Nkhundla",
+    "city_zh": "Lugongolweni Nkhundla",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39334,
+    "longitude": 31.94627
+  },
+  {
+    "city": "Lonhlupheko",
+    "city_zh": "Lonhlupheko",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.40077,
+    "longitude": 31.85664
+  },
+  {
+    "city": "Hlane",
+    "city_zh": "Hlane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.25235,
+    "longitude": 31.77597
+  },
+  {
+    "city": "Ngwane",
+    "city_zh": "Ngwane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.45063,
+    "longitude": 31.91985
+  },
+  {
+    "city": "Lubhuku",
+    "city_zh": "Lubhuku",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.49252,
+    "longitude": 31.78671
+  },
+  {
+    "city": "Khalakahle",
+    "city_zh": "Khalakahle",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46042,
+    "longitude": 31.90258
+  },
+  {
+    "city": "Tengwasi",
+    "city_zh": "Tengwasi",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.39317,
+    "longitude": 31.9695
+  },
+  {
+    "city": "Hamula",
+    "city_zh": "Hamula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.46537,
+    "longitude": 31.84708
+  },
+  {
+    "city": "Mkutshane",
+    "city_zh": "Mkutshane",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.49425,
+    "longitude": 31.88718
+  },
+  {
+    "city": "Lukhula",
+    "city_zh": "Lukhula",
+    "country": "Eswatini",
+    "country_zh": "史瓦帝尼",
+    "country_iso_code": "SZ",
+    "timezone": "Africa/Mbabane",
+    "latitude": -26.42237,
+    "longitude": 31.89198
+  }
+]
