@@ -1,0 +1,152 @@
+[
+  {
+    "city": "Yangor",
+    "city_zh": "Yangor",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.53536,
+    "longitude": 166.91048
+  },
+  {
+    "city": "Uaboe",
+    "city_zh": "Uaboe",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.51393,
+    "longitude": 166.92384
+  },
+  {
+    "city": "Ronave",
+    "city_zh": "Ronave",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.50352,
+    "longitude": 166.9433
+  },
+  {
+    "city": "Baiti",
+    "city_zh": "白帝區",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.50803,
+    "longitude": 166.92945
+  },
+  {
+    "city": "Ijuw",
+    "city_zh": "Ijuw",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.521,
+    "longitude": 166.95813
+  },
+  {
+    "city": "Arubo",
+    "city_zh": "Arubo",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.50489,
+    "longitude": 166.9323
+  },
+  {
+    "city": "Anibare",
+    "city_zh": "Anibare",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.52792,
+    "longitude": 166.95249
+  },
+  {
+    "city": "Anabar",
+    "city_zh": "Anabar",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.50845,
+    "longitude": 166.95326
+  },
+  {
+    "city": "Yaren",
+    "city_zh": "亞倫區",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.55085,
+    "longitude": 166.9252
+  },
+  {
+    "city": "Arijejen",
+    "city_zh": "Arijejen",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.52545,
+    "longitude": 166.91247
+  },
+  {
+    "city": "Arenibek",
+    "city_zh": "Arenibek",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.53307,
+    "longitude": 166.92378
+  },
+  {
+    "city": "Boe",
+    "city_zh": "Boe",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.54098,
+    "longitude": 166.91305
+  },
+  {
+    "city": "Menen",
+    "city_zh": "Menen",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.54539,
+    "longitude": 166.94871
+  },
+  {
+    "city": "Nibok",
+    "city_zh": "Nibok",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.51757,
+    "longitude": 166.92056
+  },
+  {
+    "city": "Denigomodu",
+    "city_zh": "Denigomodu",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.52574,
+    "longitude": 166.91259
+  }
+]
