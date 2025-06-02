@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async () => {
     // 從 window 中獲取 Firebase SDK 函數
     const {
@@ -1835,26 +1834,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('DOMContentLoaded', function() {
         const tabButtons = document.getElementsByClassName('tab-button');
         Array.from(tabButtons).forEach(button => {
-            const tabName = button.getAttribute('data-tab');
-            if (!tabName) return;
-
-            // 移除所有現有的事件監聽器
-            const newButton = button.cloneNode(true);
-            button.parentNode.replaceChild(newButton, button);
-
-            // 添加新的點擊事件處理
-            newButton.addEventListener('click', function(e) {
+            button.addEventListener('click', function(e) {
                 e.preventDefault();
-                e.stopPropagation();
+                const tabName = this.getAttribute('data-tab');
                 openTab(e, tabName);
             });
-
-            // 添加新的觸控事件處理
-            newButton.addEventListener('touchend', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                openTab(e, tabName);
-            }, { passive: false });
         });
     });
 
@@ -1900,14 +1884,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 font-size: 14px;
                 padding: 10px 8px;
                 min-width: 60px;
-                touch-action: manipulation;
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -khtml-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                -webkit-tap-highlight-color: transparent;
             }
             .tabs {
                 -webkit-overflow-scrolling: touch;
@@ -1915,10 +1891,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 -ms-overflow-style: none;
                 overflow-x: auto;
                 white-space: nowrap;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
             }
             .tabs::-webkit-scrollbar {
                 display: none;
