@@ -693,10 +693,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         let latitudeRange;
         switch(adventureSpectrum) {
             case 'peaceful':
-                latitudeRange = { min: 70, max: 90 }; // 極地地區
+                latitudeRange = { min: 50, max: 90 }; // 極地地區
                 break;
             case 'leisurely':
-                latitudeRange = { min: 45, max: 70 }; // 中高緯度地區
+                latitudeRange = { min: 45, max: 50 }; // 中高緯度地區
                 break;
             case 'exploring':
                 latitudeRange = { min: 20, max: 45 }; // 中緯度地區
