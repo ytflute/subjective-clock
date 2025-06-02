@@ -1,0 +1,4712 @@
+[
+  {
+    "city": "Guroor",
+    "city_zh": "Guroor",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.44731,
+    "longitude": 138.06705
+  },
+  {
+    "city": "Yinuuf",
+    "city_zh": "Yinuuf",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.49405,
+    "longitude": 138.09844
+  },
+  {
+    "city": "Yin",
+    "city_zh": "Yin",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.58297,
+    "longitude": 138.11764
+  },
+  {
+    "city": "Yabach",
+    "city_zh": "Yabach",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.49806,
+    "longitude": 138.06798
+  },
+  {
+    "city": "Wuluuq",
+    "city_zh": "Wuluuq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.57476,
+    "longitude": 138.12982
+  },
+  {
+    "city": "Woriilaq",
+    "city_zh": "Woriilaq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.58522,
+    "longitude": 138.14852
+  },
+  {
+    "city": "Wanyaan",
+    "city_zh": "Wanyaan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.54866,
+    "longitude": 138.19041
+  },
+  {
+    "city": "Tooruw",
+    "city_zh": "Tooruw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.60949,
+    "longitude": 138.17629
+  },
+  {
+    "city": "Thool",
+    "city_zh": "Thool",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53583,
+    "longitude": 138.16818
+  },
+  {
+    "city": "Thabeeth",
+    "city_zh": "Thabeeth",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.45495,
+    "longitude": 138.05903
+  },
+  {
+    "city": "Tageegiin",
+    "city_zh": "Tageegiin",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51941,
+    "longitude": 138.08276
+  },
+  {
+    "city": "Tabnifiy",
+    "city_zh": "Tabnifiy",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.47133,
+    "longitude": 138.06969
+  },
+  {
+    "city": "Wanead",
+    "city_zh": "Wanead",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.60708,
+    "longitude": 138.1775
+  },
+  {
+    "city": "Ruunuw",
+    "city_zh": "Ruunuw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.58664,
+    "longitude": 138.12539
+  },
+  {
+    "city": "Riy - temp LL",
+    "city_zh": "Riy - temp LL",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.63079,
+    "longitude": 138.16011
+  },
+  {
+    "city": "Raeng",
+    "city_zh": "Raeng",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.56688,
+    "longitude": 138.10645
+  },
+  {
+    "city": "Qokaaw",
+    "city_zh": "Qokaaw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.54275,
+    "longitude": 138.09767
+  },
+  {
+    "city": "Qamun",
+    "city_zh": "Qamun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.55255,
+    "longitude": 138.17803
+  },
+  {
+    "city": "Qamin",
+    "city_zh": "Qamin",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.61099,
+    "longitude": 138.1593
+  },
+  {
+    "city": "Qadibweq",
+    "city_zh": "Qadibweq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.54782,
+    "longitude": 138.09686
+  },
+  {
+    "city": "Nimaar",
+    "city_zh": "Nimaar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51936,
+    "longitude": 138.11976
+  },
+  {
+    "city": "Ngoof",
+    "city_zh": "Ngoof",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.47738,
+    "longitude": 138.07035
+  },
+  {
+    "city": "Ngolog",
+    "city_zh": "Ngolog",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51366,
+    "longitude": 138.11637
+  },
+  {
+    "city": "Ngariy",
+    "city_zh": "Ngariy",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.45744,
+    "longitude": 138.06598
+  },
+  {
+    "city": "Neel",
+    "city_zh": "Neel",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.47852,
+    "longitude": 138.06828
+  },
+  {
+    "city": "Mulroq",
+    "city_zh": "Mulroq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51683,
+    "longitude": 138.11046
+  },
+  {
+    "city": "Meqruur",
+    "city_zh": "Meqruur",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52175,
+    "longitude": 138.14375
+  },
+  {
+    "city": "Meay",
+    "city_zh": "Meay",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.55824,
+    "longitude": 138.18543
+  },
+  {
+    "city": "Maqweach",
+    "city_zh": "Maqweach",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52893,
+    "longitude": 138.12384
+  },
+  {
+    "city": "Malaaf",
+    "city_zh": "Malaaf",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.59504,
+    "longitude": 138.1566
+  },
+  {
+    "city": "Maaq",
+    "city_zh": "Maaq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52767,
+    "longitude": 138.16179
+  },
+  {
+    "city": "Maakiy",
+    "city_zh": "Maakiy",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5585,
+    "longitude": 138.16305
+  },
+  {
+    "city": "Leebinaew",
+    "city_zh": "Leebinaew",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52814,
+    "longitude": 138.17983
+  },
+  {
+    "city": "Leang",
+    "city_zh": "Leang",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53378,
+    "longitude": 138.18604
+  },
+  {
+    "city": "Laay",
+    "city_zh": "Laay",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.45495,
+    "longitude": 138.06515
+  },
+  {
+    "city": "Keeng",
+    "city_zh": "Keeng",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52591,
+    "longitude": 138.12352
+  },
+  {
+    "city": "Kanif",
+    "city_zh": "Kanif",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52762,
+    "longitude": 138.08468
+  },
+  {
+    "city": "Kadaay",
+    "city_zh": "Kadaay",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53672,
+    "longitude": 138.0872
+  },
+  {
+    "city": "Gilfith",
+    "city_zh": "Gilfith",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5732,
+    "longitude": 138.1108
+  },
+  {
+    "city": "Gargey",
+    "city_zh": "Gargey",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5571,
+    "longitude": 138.12835
+  },
+  {
+    "city": "Gaqnaqun - temp LL",
+    "city_zh": "Gaqnaqun - temp LL",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.63832,
+    "longitude": 138.16063
+  },
+  {
+    "city": "Gachpar",
+    "city_zh": "Gachpar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5404,
+    "longitude": 138.18535
+  },
+  {
+    "city": "Faraq",
+    "city_zh": "Faraq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.48568,
+    "longitude": 138.06927
+  },
+  {
+    "city": "Dulkaan",
+    "city_zh": "Dulkaan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.46494,
+    "longitude": 138.0684
+  },
+  {
+    "city": "Doqomchuuy",
+    "city_zh": "Doqomchuuy",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52517,
+    "longitude": 138.15123
+  },
+  {
+    "city": "Dechumur",
+    "city_zh": "Dechumur",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5187,
+    "longitude": 138.16103
+  },
+  {
+    "city": "Dachangar",
+    "city_zh": "Dachangar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51357,
+    "longitude": 138.10428
+  },
+  {
+    "city": "Choqol",
+    "city_zh": "Choqol",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.58998,
+    "longitude": 138.17797
+  },
+  {
+    "city": "Bulwol - temp LL",
+    "city_zh": "Bulwol - temp LL",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.63443,
+    "longitude": 138.14715
+  },
+  {
+    "city": "Beenik",
+    "city_zh": "Beenik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5072,
+    "longitude": 138.11231
+  },
+  {
+    "city": "Bechyal",
+    "city_zh": "Bechyal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.61552,
+    "longitude": 138.17259
+  },
+  {
+    "city": "Unikappi",
+    "city_zh": "Unikappi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33451,
+    "longitude": 151.55942
+  },
+  {
+    "city": "Weno",
+    "city_zh": "維諾",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.44648,
+    "longitude": 151.84135
+  },
+  {
+    "city": "Oumoar",
+    "city_zh": "Oumoar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93764,
+    "longitude": 158.17302
+  },
+  {
+    "city": "Wonpiepi",
+    "city_zh": "Wonpiepi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38681,
+    "longitude": 151.88045
+  },
+  {
+    "city": "Winisi",
+    "city_zh": "Winisi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.4096,
+    "longitude": 151.66356
+  },
+  {
+    "city": "Winipis",
+    "city_zh": "Winipis",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.44533,
+    "longitude": 151.88526
+  },
+  {
+    "city": "Winifei",
+    "city_zh": "Winifei",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33123,
+    "longitude": 151.63798
+  },
+  {
+    "city": "Wichukuno - temp LL",
+    "city_zh": "Wichukuno - temp LL",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35163,
+    "longitude": 151.61146
+  },
+  {
+    "city": "JP Dublon Town WW2",
+    "city_zh": "JP Dublon Town WW2",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37238,
+    "longitude": 151.88886
+  },
+  {
+    "city": "Tofol",
+    "city_zh": "Tofol",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.32479,
+    "longitude": 163.00781
+  },
+  {
+    "city": "Tafunsak Village",
+    "city_zh": "Tafunsak Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36711,
+    "longitude": 162.98519
+  },
+  {
+    "city": "Sopuo",
+    "city_zh": "Sopuo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.31555,
+    "longitude": 151.84001
+  },
+  {
+    "city": "Sapou",
+    "city_zh": "Sapou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38764,
+    "longitude": 151.89178
+  },
+  {
+    "city": "Sapou",
+    "city_zh": "Sapou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.28773,
+    "longitude": 151.87911
+  },
+  {
+    "city": "Sapotiu",
+    "city_zh": "Sapotiu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.31431,
+    "longitude": 151.84753
+  },
+  {
+    "city": "Sapota",
+    "city_zh": "Sapota",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.31714,
+    "longitude": 151.8518
+  },
+  {
+    "city": "Saporanong",
+    "city_zh": "Saporanong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34019,
+    "longitude": 151.8388
+  },
+  {
+    "city": "Saponong",
+    "city_zh": "Saponong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37289,
+    "longitude": 151.88294
+  },
+  {
+    "city": "Sapore",
+    "city_zh": "Sapore",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33746,
+    "longitude": 151.84968
+  },
+  {
+    "city": "Sapitiw",
+    "city_zh": "Sapitiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38399,
+    "longitude": 151.60089
+  },
+  {
+    "city": "Manukun",
+    "city_zh": "Manukun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33705,
+    "longitude": 151.83985
+  },
+  {
+    "city": "Saladak",
+    "city_zh": "Saladak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95356,
+    "longitude": 158.15462
+  },
+  {
+    "city": "Roro",
+    "city_zh": "Roro",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37924,
+    "longitude": 151.87682
+  },
+  {
+    "city": "Rewo",
+    "city_zh": "Rewo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35436,
+    "longitude": 149.19427
+  },
+  {
+    "city": "Relong",
+    "city_zh": "Relong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36052,
+    "longitude": 149.19776
+  },
+  {
+    "city": "Pwene",
+    "city_zh": "Pwene",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36711,
+    "longitude": 151.86553
+  },
+  {
+    "city": "Putukte",
+    "city_zh": "Putukte",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.34803,
+    "longitude": 163.02244
+  },
+  {
+    "city": "Tepat",
+    "city_zh": "Tepat",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.35529,
+    "longitude": 162.97565
+  },
+  {
+    "city": "Finfokoa",
+    "city_zh": "Finfokoa",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36327,
+    "longitude": 163.02162
+  },
+  {
+    "city": "Pohnmangahng",
+    "city_zh": "Pohnmangahng",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96667,
+    "longitude": 158.23333
+  },
+  {
+    "city": "Penior",
+    "city_zh": "Penior",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37916,
+    "longitude": 151.89614
+  },
+  {
+    "city": "Peniesene",
+    "city_zh": "Peniesene",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.4557,
+    "longitude": 151.87388
+  },
+  {
+    "city": "Peniata",
+    "city_zh": "Peniata",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.39408,
+    "longitude": 151.59786
+  },
+  {
+    "city": "Paliais",
+    "city_zh": "Paliais",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95733,
+    "longitude": 158.22632
+  },
+  {
+    "city": "Pwel Weita",
+    "city_zh": "Pwel Weita",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.87027,
+    "longitude": 158.16246
+  },
+  {
+    "city": "Pata",
+    "city_zh": "Pata",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38844,
+    "longitude": 151.87622
+  },
+  {
+    "city": "Opun",
+    "city_zh": "Opun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35585,
+    "longitude": 151.78779
+  },
+  {
+    "city": "Onongoch",
+    "city_zh": "Onongoch",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35138,
+    "longitude": 151.82449
+  },
+  {
+    "city": "Nukanap",
+    "city_zh": "Nukanap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37609,
+    "longitude": 151.90024
+  },
+  {
+    "city": "Nukan",
+    "city_zh": "Nukan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36519,
+    "longitude": 151.87645
+  },
+  {
+    "city": "Nukaf",
+    "city_zh": "Nukaf",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37912,
+    "longitude": 151.57717
+  },
+  {
+    "city": "Nin Soksok",
+    "city_zh": "Nin Soksok",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9697,
+    "longitude": 158.22341
+  },
+  {
+    "city": "Neton",
+    "city_zh": "Neton",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34428,
+    "longitude": 151.59019
+  },
+  {
+    "city": "Nepononong",
+    "city_zh": "Nepononong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30073,
+    "longitude": 151.88895
+  },
+  {
+    "city": "Nepon",
+    "city_zh": "Nepon",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.29036,
+    "longitude": 151.88504
+  },
+  {
+    "city": "Nemwan",
+    "city_zh": "Nemwan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.45082,
+    "longitude": 151.89278
+  },
+  {
+    "city": "Neiwe",
+    "city_zh": "Neiwe",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.414,
+    "longitude": 151.84602
+  },
+  {
+    "city": "Nechocho",
+    "city_zh": "Nechocho",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.3261,
+    "longitude": 151.62549
+  },
+  {
+    "city": "Nechap",
+    "city_zh": "Nechap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37926,
+    "longitude": 151.86298
+  },
+  {
+    "city": "Pahlap",
+    "city_zh": "Pahlap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94683,
+    "longitude": 158.27458
+  },
+  {
+    "city": "Kepin Lahpar",
+    "city_zh": "Kepin Lahpar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93452,
+    "longitude": 158.13622
+  },
+  {
+    "city": "Munien",
+    "city_zh": "Munien",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32157,
+    "longitude": 151.61534
+  },
+  {
+    "city": "Kuplu Te",
+    "city_zh": "Kuplu Te",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.26349,
+    "longitude": 162.98604
+  },
+  {
+    "city": "Monowe",
+    "city_zh": "Monowe",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.3781,
+    "longitude": 151.7106
+  },
+  {
+    "city": "Muanon",
+    "city_zh": "Muanon",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.3758,
+    "longitude": 151.88379
+  },
+  {
+    "city": "Mechitiw",
+    "city_zh": "Mechitiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.46139,
+    "longitude": 151.85868
+  },
+  {
+    "city": "Malsu",
+    "city_zh": "Malsu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36864,
+    "longitude": 162.99456
+  },
+  {
+    "city": "Malem Village",
+    "city_zh": "Malem Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.28601,
+    "longitude": 163.02601
+  },
+  {
+    "city": "Palikir - National Government Center",
+    "city_zh": "帕利基尔",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.92477,
+    "longitude": 158.16109
+  },
+  {
+    "city": "Lelu Village",
+    "city_zh": "Lelu Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.33359,
+    "longitude": 163.02237
+  },
+  {
+    "city": "Walung",
+    "city_zh": "Walung",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.30778,
+    "longitude": 162.91528
+  },
+  {
+    "city": "Kukuwu",
+    "city_zh": "Kukuwu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33014,
+    "longitude": 151.83908
+  },
+  {
+    "city": "Kolonia Town",
+    "city_zh": "Kolonia Town",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.964,
+    "longitude": 158.206
+  },
+  {
+    "city": "Ipat",
+    "city_zh": "Ipat",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95673,
+    "longitude": 158.19648
+  },
+  {
+    "city": "Inkoeya",
+    "city_zh": "Inkoeya",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36853,
+    "longitude": 163.01591
+  },
+  {
+    "city": "Foup",
+    "city_zh": "Foup",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37113,
+    "longitude": 151.62306
+  },
+  {
+    "city": "Finkol Te",
+    "city_zh": "Finkol Te",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.27711,
+    "longitude": 162.97793
+  },
+  {
+    "city": "Finfukul",
+    "city_zh": "Finfukul",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36821,
+    "longitude": 163.00708
+  },
+  {
+    "city": "Finfoko",
+    "city_zh": "Finfoko",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36883,
+    "longitude": 162.99021
+  },
+  {
+    "city": "Finaunpes",
+    "city_zh": "Finaunpes",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.3678,
+    "longitude": 163.01917
+  },
+  {
+    "city": "Fanip",
+    "city_zh": "Fanip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36304,
+    "longitude": 151.78558
+  },
+  {
+    "city": "Danipei",
+    "city_zh": "Danipei",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.97913,
+    "longitude": 158.19272
+  },
+  {
+    "city": "Chun",
+    "city_zh": "Chun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37526,
+    "longitude": 151.86255
+  },
+  {
+    "city": "Chukuram",
+    "city_zh": "Chukuram",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34908,
+    "longitude": 151.59843
+  },
+  {
+    "city": "Awak Powe",
+    "city_zh": "Awak Powe",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9669,
+    "longitude": 158.26218
+  },
+  {
+    "city": "Alohkapw",
+    "city_zh": "Alohkapw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.91837,
+    "longitude": 158.28917
+  },
+  {
+    "city": "Dienpo",
+    "city_zh": "Dienpo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.83129,
+    "longitude": 158.15703
+  },
+  {
+    "city": "Worwoq",
+    "city_zh": "Worwoq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51025,
+    "longitude": 138.1216
+  },
+  {
+    "city": "Baleabaat",
+    "city_zh": "Baleabaat",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.5042,
+    "longitude": 138.12203
+  },
+  {
+    "city": "Binaew",
+    "city_zh": "Binaew",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53137,
+    "longitude": 138.08544
+  },
+  {
+    "city": "Rumuuq",
+    "city_zh": "Rumuuq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.54273,
+    "longitude": 138.12491
+  },
+  {
+    "city": "Bugol",
+    "city_zh": "Bugol",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51588,
+    "longitude": 138.15559
+  },
+  {
+    "city": "Peey",
+    "city_zh": "Peey",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.56141,
+    "longitude": 138.16964
+  },
+  {
+    "city": "Dugor",
+    "city_zh": "Dugor",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53393,
+    "longitude": 138.11705
+  },
+  {
+    "city": "Rumung",
+    "city_zh": "Rumung",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.622,
+    "longitude": 138.154
+  },
+  {
+    "city": "Feeduqor",
+    "city_zh": "Feeduqor",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.50339,
+    "longitude": 138.07482
+  },
+  {
+    "city": "Gachalaaw",
+    "city_zh": "Gachalaaw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.46138,
+    "longitude": 138.06396
+  },
+  {
+    "city": "Gitaem",
+    "city_zh": "Gitaem",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.50635,
+    "longitude": 138.10548
+  },
+  {
+    "city": "Lamear",
+    "city_zh": "Lamear",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.48443,
+    "longitude": 138.07844
+  },
+  {
+    "city": "Luweech",
+    "city_zh": "Luweech",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.48686,
+    "longitude": 138.0828
+  },
+  {
+    "city": "Magachgil",
+    "city_zh": "Magachgil",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.44533,
+    "longitude": 138.0641
+  },
+  {
+    "city": "Magaaf",
+    "city_zh": "Magaaf",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53164,
+    "longitude": 138.08793
+  },
+  {
+    "city": "Malaay",
+    "city_zh": "Malaay",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.46222,
+    "longitude": 138.05781
+  },
+  {
+    "city": "Malawaay",
+    "city_zh": "Malawaay",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.56612,
+    "longitude": 138.12635
+  },
+  {
+    "city": "Meechoqol",
+    "city_zh": "Meechoqol",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.61852,
+    "longitude": 138.15049
+  },
+  {
+    "city": "Daabach",
+    "city_zh": "Daabach",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.54317,
+    "longitude": 138.14406
+  },
+  {
+    "city": "Muyuub",
+    "city_zh": "Muyuub",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.55604,
+    "longitude": 138.1826
+  },
+  {
+    "city": "Qaringeel",
+    "city_zh": "Qaringeel",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52221,
+    "longitude": 138.08179
+  },
+  {
+    "city": "Palaaw",
+    "city_zh": "Palaaw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.57638,
+    "longitude": 138.14989
+  },
+  {
+    "city": "Qaaf",
+    "city_zh": "Qaaf",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51615,
+    "longitude": 138.1526
+  },
+  {
+    "city": "Qanooth",
+    "city_zh": "Qanooth",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.44294,
+    "longitude": 138.06162
+  },
+  {
+    "city": "Bineaw",
+    "city_zh": "Bineaw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.54002,
+    "longitude": 138.18005
+  },
+  {
+    "city": "Qatliw",
+    "city_zh": "Qatliw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.55463,
+    "longitude": 138.10206
+  },
+  {
+    "city": "Qayirech",
+    "city_zh": "Qayirech",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.57936,
+    "longitude": 138.12479
+  },
+  {
+    "city": "Teanfaar",
+    "city_zh": "Teanfaar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.53846,
+    "longitude": 138.17857
+  },
+  {
+    "city": "Taafniith",
+    "city_zh": "Taafniith",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.49082,
+    "longitude": 138.06755
+  },
+  {
+    "city": "Talangith",
+    "city_zh": "Talangith",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.59145,
+    "longitude": 138.15422
+  },
+  {
+    "city": "Gael",
+    "city_zh": "Gael",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.47065,
+    "longitude": 138.06499
+  },
+  {
+    "city": "Tawoowaay",
+    "city_zh": "Tawoowaay",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.44721,
+    "longitude": 138.05824
+  },
+  {
+    "city": "Wachaelaeb",
+    "city_zh": "Wachaelaeb",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.59716,
+    "longitude": 138.17891
+  },
+  {
+    "city": "Weenfaraq",
+    "city_zh": "Weenfaraq",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.62006,
+    "longitude": 138.15889
+  },
+  {
+    "city": "Teab",
+    "city_zh": "Teab",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.52123,
+    "longitude": 138.146
+  },
+  {
+    "city": "Waalooy",
+    "city_zh": "Waalooy",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.58537,
+    "longitude": 138.17357
+  },
+  {
+    "city": "Wugeem",
+    "city_zh": "Wugeem",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.45247,
+    "longitude": 138.06287
+  },
+  {
+    "city": "Peniemwan",
+    "city_zh": "Peniemwan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38678,
+    "longitude": 151.74115
+  },
+  {
+    "city": "Iras",
+    "city_zh": "Iras",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.45843,
+    "longitude": 151.84354
+  },
+  {
+    "city": "Pohnrakied Village",
+    "city_zh": "Pohnrakied Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96196,
+    "longitude": 158.20517
+  },
+  {
+    "city": "Pohnseiuh",
+    "city_zh": "Pohnseiuh",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.81786,
+    "longitude": 158.21697
+  },
+  {
+    "city": "Pokochou",
+    "city_zh": "Pokochou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37147,
+    "longitude": 151.57822
+  },
+  {
+    "city": "Pukusruk Te",
+    "city_zh": "Pukusruk Te",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.35594,
+    "longitude": 163.02093
+  },
+  {
+    "city": "Ifalik Village",
+    "city_zh": "Ifalik Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.25439,
+    "longitude": 144.45338
+  },
+  {
+    "city": "Pwudoi",
+    "city_zh": "Pwudoi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8508,
+    "longitude": 158.16125
+  },
+  {
+    "city": "Seidihne",
+    "city_zh": "Seidihne",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9433,
+    "longitude": 158.27497
+  },
+  {
+    "city": "Rekihpas",
+    "city_zh": "Rekihpas",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8218,
+    "longitude": 158.18243
+  },
+  {
+    "city": "Reou",
+    "city_zh": "Reou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95544,
+    "longitude": 158.19044
+  },
+  {
+    "city": "Roie",
+    "city_zh": "Roie",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9699,
+    "longitude": 158.17746
+  },
+  {
+    "city": "Sakariso",
+    "city_zh": "Sakariso",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9877,
+    "longitude": 158.29834
+  },
+  {
+    "city": "Sakartik",
+    "city_zh": "Sakartik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8845,
+    "longitude": 158.15828
+  },
+  {
+    "city": "Salong",
+    "city_zh": "Salong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.85371,
+    "longitude": 158.32016
+  },
+  {
+    "city": "Sehp",
+    "city_zh": "Sehp",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95831,
+    "longitude": 158.29893
+  },
+  {
+    "city": "Nukan",
+    "city_zh": "Nukan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30871,
+    "longitude": 151.88157
+  },
+  {
+    "city": "Sapitiu",
+    "city_zh": "Sapitiu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.39054,
+    "longitude": 151.59284
+  },
+  {
+    "city": "Sapota",
+    "city_zh": "Sapota",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38292,
+    "longitude": 151.58551
+  },
+  {
+    "city": "Sapotiw",
+    "city_zh": "Sapotiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.29409,
+    "longitude": 151.88734
+  },
+  {
+    "city": "Sapunap",
+    "city_zh": "Sapunap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.29291,
+    "longitude": 151.8246
+  },
+  {
+    "city": "Sapworo",
+    "city_zh": "Sapworo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93787,
+    "longitude": 158.28861
+  },
+  {
+    "city": "Sekeren Iap",
+    "city_zh": "Sekeren Iap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.81624,
+    "longitude": 158.16806
+  },
+  {
+    "city": "Sekeren Lapahu",
+    "city_zh": "Sekeren Lapahu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.85404,
+    "longitude": 158.16206
+  },
+  {
+    "city": "Pahn Kalang",
+    "city_zh": "Pahn Kalang",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.92391,
+    "longitude": 158.30894
+  },
+  {
+    "city": "Sialat",
+    "city_zh": "Sialat",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36869,
+    "longitude": 163.00934
+  },
+  {
+    "city": "Soledi",
+    "city_zh": "Soledi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96095,
+    "longitude": 158.18499
+  },
+  {
+    "city": "Tahio",
+    "city_zh": "Tahio",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.87277,
+    "longitude": 158.31503
+  },
+  {
+    "city": "Etten",
+    "city_zh": "Etten",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35859,
+    "longitude": 151.88634
+  },
+  {
+    "city": "Sopwlong",
+    "city_zh": "Sopwlong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93101,
+    "longitude": 158.31151
+  },
+  {
+    "city": "Sounamw",
+    "city_zh": "Sounamw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9317,
+    "longitude": 158.29502
+  },
+  {
+    "city": "Sounting",
+    "city_zh": "Sounting",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9727,
+    "longitude": 158.22282
+  },
+  {
+    "city": "Supun",
+    "city_zh": "Supun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36537,
+    "longitude": 151.88041
+  },
+  {
+    "city": "Srupunyot",
+    "city_zh": "Srupunyot",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.35959,
+    "longitude": 162.98299
+  },
+  {
+    "city": "Taf Te",
+    "city_zh": "Taf Te",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.27182,
+    "longitude": 162.97629
+  },
+  {
+    "city": "Tamwarohi",
+    "city_zh": "Tamwarohi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93243,
+    "longitude": 158.13558
+  },
+  {
+    "city": "Tolokas",
+    "city_zh": "Tolokas",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37661,
+    "longitude": 151.60728
+  },
+  {
+    "city": "Tomwara",
+    "city_zh": "Tomwara",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96153,
+    "longitude": 158.2375
+  },
+  {
+    "city": "Tonof",
+    "city_zh": "Tonof",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38924,
+    "longitude": 151.86664
+  },
+  {
+    "city": "Utwe Village",
+    "city_zh": "Utwe Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.27486,
+    "longitude": 162.97662
+  },
+  {
+    "city": "Ununo",
+    "city_zh": "Ununo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36651,
+    "longitude": 151.8193
+  },
+  {
+    "city": "Or",
+    "city_zh": "Or",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.44936,
+    "longitude": 151.90074
+  },
+  {
+    "city": "Upwein",
+    "city_zh": "Upwein",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34161,
+    "longitude": 151.85056
+  },
+  {
+    "city": "Wichap",
+    "city_zh": "Wichap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.42417,
+    "longitude": 151.85993
+  },
+  {
+    "city": "Wininis",
+    "city_zh": "Wininis",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35933,
+    "longitude": 151.85035
+  },
+  {
+    "city": "Yekula",
+    "city_zh": "Yekula",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36866,
+    "longitude": 163.00211
+  },
+  {
+    "city": "Wonip",
+    "city_zh": "Wonip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33276,
+    "longitude": 151.60923
+  },
+  {
+    "city": "Wiya",
+    "city_zh": "Wiya",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36939,
+    "longitude": 162.99825
+  },
+  {
+    "city": "Niheke",
+    "city_zh": "Niheke",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95761,
+    "longitude": 158.23778
+  },
+  {
+    "city": "Pelusrik",
+    "city_zh": "Pelusrik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.33955,
+    "longitude": 162.96484
+  },
+  {
+    "city": "Chorong",
+    "city_zh": "Chorong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.41071,
+    "longitude": 151.66922
+  },
+  {
+    "city": "Sanuk",
+    "city_zh": "Sanuk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30822,
+    "longitude": 151.88603
+  },
+  {
+    "city": "Sapota",
+    "city_zh": "Sapota",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.29792,
+    "longitude": 151.88813
+  },
+  {
+    "city": "Nipaip",
+    "city_zh": "Nipaip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93348,
+    "longitude": 158.19027
+  },
+  {
+    "city": "Nin Loang",
+    "city_zh": "Nin Loang",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.85093,
+    "longitude": 158.16493
+  },
+  {
+    "city": "Nihwel",
+    "city_zh": "Nihwel",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.84973,
+    "longitude": 158.3296
+  },
+  {
+    "city": "Nihmoak",
+    "city_zh": "Nihmoak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9293,
+    "longitude": 158.27863
+  },
+  {
+    "city": "Nihkaras",
+    "city_zh": "Nihkaras",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95294,
+    "longitude": 158.29479
+  },
+  {
+    "city": "Nih Pwongin",
+    "city_zh": "Nih Pwongin",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.87609,
+    "longitude": 158.28987
+  },
+  {
+    "city": "Nihkawad",
+    "city_zh": "Nihkawad",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8434,
+    "longitude": 158.31252
+  },
+  {
+    "city": "Fanip",
+    "city_zh": "Fanip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.48269,
+    "longitude": 151.87972
+  },
+  {
+    "city": "Nesarau",
+    "city_zh": "Nesarau",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30375,
+    "longitude": 151.8885
+  },
+  {
+    "city": "Nesamo",
+    "city_zh": "Nesamo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.29894,
+    "longitude": 151.82498
+  },
+  {
+    "city": "Mwan",
+    "city_zh": "Mwan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.43675,
+    "longitude": 151.83902
+  },
+  {
+    "city": "Nepukos",
+    "city_zh": "Nepukos",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.44369,
+    "longitude": 151.84316
+  },
+  {
+    "city": "Tunuk",
+    "city_zh": "Tunuk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37921,
+    "longitude": 151.7237
+  },
+  {
+    "city": "Nukanap",
+    "city_zh": "Nukanap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.44375,
+    "longitude": 151.88042
+  },
+  {
+    "city": "Nanwei",
+    "city_zh": "Nanwei",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.82221,
+    "longitude": 158.15806
+  },
+  {
+    "city": "Nansolohi",
+    "city_zh": "Nansolohi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94826,
+    "longitude": 158.27442
+  },
+  {
+    "city": "Nanpwok",
+    "city_zh": "Nanpwok",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94992,
+    "longitude": 158.30112
+  },
+  {
+    "city": "Nanpei",
+    "city_zh": "Nanpei",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 7.01046,
+    "longitude": 158.25579
+  },
+  {
+    "city": "Mahnd",
+    "city_zh": "Mahnd",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.84429,
+    "longitude": 158.29013
+  },
+  {
+    "city": "Nan Paremwed",
+    "city_zh": "Nan Paremwed",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.83514,
+    "longitude": 158.17117
+  },
+  {
+    "city": "Nan Dapang",
+    "city_zh": "Nan Dapang",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96081,
+    "longitude": 158.2246
+  },
+  {
+    "city": "Nambo",
+    "city_zh": "Nambo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38707,
+    "longitude": 151.5925
+  },
+  {
+    "city": "Mwoakot",
+    "city_zh": "Mwoakot",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.92879,
+    "longitude": 158.30915
+  },
+  {
+    "city": "Mwen",
+    "city_zh": "Mwen",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.3439,
+    "longitude": 151.83624
+  },
+  {
+    "city": "Meseiku",
+    "city_zh": "Meseiku",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33308,
+    "longitude": 151.8409
+  },
+  {
+    "city": "Muntakai",
+    "city_zh": "Muntakai",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93548,
+    "longitude": 158.29845
+  },
+  {
+    "city": "Mochon",
+    "city_zh": "Mochon",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30889,
+    "longitude": 151.88401
+  },
+  {
+    "city": "Messa",
+    "city_zh": "Messa",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35582,
+    "longitude": 151.85202
+  },
+  {
+    "city": "Mesor",
+    "city_zh": "Mesor",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.48442,
+    "longitude": 151.88286
+  },
+  {
+    "city": "Meseran",
+    "city_zh": "Meseran",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38728,
+    "longitude": 151.88524
+  },
+  {
+    "city": "Meseniko",
+    "city_zh": "Meseniko",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.29694,
+    "longitude": 151.82637
+  },
+  {
+    "city": "Meiuhpw",
+    "city_zh": "Meiuhpw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95275,
+    "longitude": 158.2605
+  },
+  {
+    "city": "Maramosok",
+    "city_zh": "Maramosok",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93435,
+    "longitude": 158.27786
+  },
+  {
+    "city": "Manukun",
+    "city_zh": "Manukun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30871,
+    "longitude": 151.87429
+  },
+  {
+    "city": "Lukopoas",
+    "city_zh": "Lukopoas",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95369,
+    "longitude": 158.27711
+  },
+  {
+    "city": "Lugav",
+    "city_zh": "Lugav",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35739,
+    "longitude": 149.19883
+  },
+  {
+    "city": "Lehiak",
+    "city_zh": "Lehiak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.84373,
+    "longitude": 158.31831
+  },
+  {
+    "city": "Kolonia",
+    "city_zh": "Kolonia",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.964,
+    "longitude": 158.2062
+  },
+  {
+    "city": "Kitialap",
+    "city_zh": "Kitialap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.91907,
+    "longitude": 158.32327
+  },
+  {
+    "city": "Kitamw",
+    "city_zh": "Kitamw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.88627,
+    "longitude": 158.29003
+  },
+  {
+    "city": "Nihkewe",
+    "city_zh": "Nihkewe",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94043,
+    "longitude": 158.16832
+  },
+  {
+    "city": "Kepin Keileng",
+    "city_zh": "Kepin Keileng",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96767,
+    "longitude": 158.25118
+  },
+  {
+    "city": "Kepehs",
+    "city_zh": "Kepehs",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.98526,
+    "longitude": 158.29182
+  },
+  {
+    "city": "Kamwele",
+    "city_zh": "Kamwele",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95999,
+    "longitude": 158.19644
+  },
+  {
+    "city": "Ipwek",
+    "city_zh": "Ipwek",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95627,
+    "longitude": 158.24838
+  },
+  {
+    "city": "Ipwal",
+    "city_zh": "Ipwal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.81318,
+    "longitude": 158.30054
+  },
+  {
+    "city": "Sapou",
+    "city_zh": "Sapou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33514,
+    "longitude": 151.57075
+  },
+  {
+    "city": "Foupo",
+    "city_zh": "Foupo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36263,
+    "longitude": 151.63165
+  },
+  {
+    "city": "Fongen",
+    "city_zh": "Fongen",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35502,
+    "longitude": 151.82292
+  },
+  {
+    "city": "Feini",
+    "city_zh": "Feini",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34607,
+    "longitude": 151.83006
+  },
+  {
+    "city": "Fason",
+    "city_zh": "Fason",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34041,
+    "longitude": 151.6318
+  },
+  {
+    "city": "Faro",
+    "city_zh": "Faro",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32855,
+    "longitude": 151.63069
+  },
+  {
+    "city": "Farekich",
+    "city_zh": "Farekich",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32399,
+    "longitude": 151.60468
+  },
+  {
+    "city": "Fanomo",
+    "city_zh": "Fanomo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38347,
+    "longitude": 151.71881
+  },
+  {
+    "city": "Penia",
+    "city_zh": "Penia",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.39189,
+    "longitude": 151.7092
+  },
+  {
+    "city": "Faichopuech",
+    "city_zh": "Faichopuech",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30211,
+    "longitude": 151.82168
+  },
+  {
+    "city": "Epin",
+    "city_zh": "Epin",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37446,
+    "longitude": 151.57216
+  },
+  {
+    "city": "Malaio",
+    "city_zh": "Malaio",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34423,
+    "longitude": 151.57155
+  },
+  {
+    "city": "Seinwar",
+    "city_zh": "Seinwar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.83879,
+    "longitude": 158.15515
+  },
+  {
+    "city": "Aun",
+    "city_zh": "Aun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33338,
+    "longitude": 151.85118
+  },
+  {
+    "city": "Alamoar",
+    "city_zh": "Alamoar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96254,
+    "longitude": 158.26198
+  },
+  {
+    "city": "Ahseia",
+    "city_zh": "Ahseia",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95667,
+    "longitude": 158.18639
+  },
+  {
+    "city": "Aderew",
+    "city_zh": "Aderew",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93836,
+    "longitude": 158.27836
+  },
+  {
+    "city": "Nanitipw",
+    "city_zh": "Nanitipw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94504,
+    "longitude": 158.23578
+  },
+  {
+    "city": "Finpukal",
+    "city_zh": "Finpukal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.3419,
+    "longitude": 163.01907
+  },
+  {
+    "city": "Mwalok",
+    "city_zh": "Mwalok",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96826,
+    "longitude": 158.19666
+  },
+  {
+    "city": "Amachang",
+    "city_zh": "Amachang",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35355,
+    "longitude": 151.6364
+  },
+  {
+    "city": "Pohndimur",
+    "city_zh": "Pohndimur",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95925,
+    "longitude": 158.23808
+  },
+  {
+    "city": "Pohndau",
+    "city_zh": "Pohndau",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9637,
+    "longitude": 158.23602
+  },
+  {
+    "city": "Pohn Sok",
+    "city_zh": "Pohn Sok",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.82879,
+    "longitude": 158.17411
+  },
+  {
+    "city": "Pohn Pwehl",
+    "city_zh": "Pohn Pwehl",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.81361,
+    "longitude": 158.24064
+  },
+  {
+    "city": "Pohn Koi",
+    "city_zh": "Pohn Koi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94213,
+    "longitude": 158.14512
+  },
+  {
+    "city": "Poatoik",
+    "city_zh": "Poatoik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 7.00317,
+    "longitude": 158.2581
+  },
+  {
+    "city": "Petiw",
+    "city_zh": "Petiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.4405,
+    "longitude": 151.8756
+  },
+  {
+    "city": "Peniemuan",
+    "city_zh": "Peniemuan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36349,
+    "longitude": 151.79495
+  },
+  {
+    "city": "Penia",
+    "city_zh": "Penia",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.45335,
+    "longitude": 151.87708
+  },
+  {
+    "city": "Peilong",
+    "city_zh": "Peilong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.97484,
+    "longitude": 158.17769
+  },
+  {
+    "city": "Peiak",
+    "city_zh": "Peiak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95028,
+    "longitude": 158.29972
+  },
+  {
+    "city": "Peiai",
+    "city_zh": "Peiai",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.87239,
+    "longitude": 158.28549
+  },
+  {
+    "city": "Parau",
+    "city_zh": "Parau",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.84822,
+    "longitude": 158.30097
+  },
+  {
+    "city": "Panaihs",
+    "city_zh": "Panaihs",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.82315,
+    "longitude": 158.2348
+  },
+  {
+    "city": "Pahntorong",
+    "city_zh": "Pahntorong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94958,
+    "longitude": 158.22654
+  },
+  {
+    "city": "Pahntipwe",
+    "city_zh": "Pahntipwe",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9505,
+    "longitude": 158.15143
+  },
+  {
+    "city": "Diadi",
+    "city_zh": "Diadi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.86337,
+    "longitude": 158.32639
+  },
+  {
+    "city": "Pahnasang",
+    "city_zh": "Pahnasang",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96492,
+    "longitude": 158.22456
+  },
+  {
+    "city": "Pahlap",
+    "city_zh": "Pahlap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.85165,
+    "longitude": 158.29792
+  },
+  {
+    "city": "Nukuno",
+    "city_zh": "Nukuno",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36415,
+    "longitude": 151.873
+  },
+  {
+    "city": "Nukanap",
+    "city_zh": "Nukanap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35689,
+    "longitude": 151.79051
+  },
+  {
+    "city": "Pohnlangas",
+    "city_zh": "Pohnlangas",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.83785,
+    "longitude": 158.29904
+  },
+  {
+    "city": "Nihsein",
+    "city_zh": "Nihsein",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96176,
+    "longitude": 158.30279
+  },
+  {
+    "city": "Nihkaikes",
+    "city_zh": "Nihkaikes",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.92055,
+    "longitude": 158.27604
+  },
+  {
+    "city": "Tunuk",
+    "city_zh": "Tunuk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.45783,
+    "longitude": 151.86429
+  },
+  {
+    "city": "Nukan",
+    "city_zh": "Nukan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.30422,
+    "longitude": 151.82165
+  },
+  {
+    "city": "Sapotiw",
+    "city_zh": "Sapotiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35668,
+    "longitude": 151.66519
+  },
+  {
+    "city": "Nepanonong",
+    "city_zh": "Nepanonong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32612,
+    "longitude": 151.58725
+  },
+  {
+    "city": "Fanip",
+    "city_zh": "Fanip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38446,
+    "longitude": 151.73749
+  },
+  {
+    "city": "Nanpei",
+    "city_zh": "Nanpei",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95876,
+    "longitude": 158.27784
+  },
+  {
+    "city": "Nankepiniak",
+    "city_zh": "Nankepiniak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.84781,
+    "longitude": 158.31656
+  },
+  {
+    "city": "Nanehngk",
+    "city_zh": "Nanehngk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.92532,
+    "longitude": 158.31002
+  },
+  {
+    "city": "Nan Pahlap",
+    "city_zh": "Nan Pahlap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8155,
+    "longitude": 158.24887
+  },
+  {
+    "city": "Fason",
+    "city_zh": "Fason",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35126,
+    "longitude": 151.85076
+  },
+  {
+    "city": "Marap",
+    "city_zh": "Marap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93447,
+    "longitude": 158.28778
+  },
+  {
+    "city": "Luhke",
+    "city_zh": "Luhke",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9551,
+    "longitude": 158.24545
+  },
+  {
+    "city": "Lipwour",
+    "city_zh": "Lipwour",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9509,
+    "longitude": 158.23557
+  },
+  {
+    "city": "Likkie",
+    "city_zh": "Likkie",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94778,
+    "longitude": 158.15903
+  },
+  {
+    "city": "Kepinleh Village",
+    "city_zh": "Kepinleh Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96954,
+    "longitude": 158.20582
+  },
+  {
+    "city": "Kamweng",
+    "city_zh": "Kamweng",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.80201,
+    "longitude": 158.29428
+  },
+  {
+    "city": "Iohl",
+    "city_zh": "Iohl",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93992,
+    "longitude": 158.14874
+  },
+  {
+    "city": "Ikeme",
+    "city_zh": "Ikeme",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8669,
+    "longitude": 158.16085
+  },
+  {
+    "city": "Peniamwan",
+    "city_zh": "Peniamwan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.34678,
+    "longitude": 151.668
+  },
+  {
+    "city": "Epinup",
+    "city_zh": "Epinup",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.43503,
+    "longitude": 151.86198
+  },
+  {
+    "city": "Dienrar",
+    "city_zh": "Dienrar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.97789,
+    "longitude": 158.2837
+  },
+  {
+    "city": "Dekehn Iap",
+    "city_zh": "Dekehn Iap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9447,
+    "longitude": 158.22059
+  },
+  {
+    "city": "Chukienu",
+    "city_zh": "Chukienu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35327,
+    "longitude": 151.62109
+  },
+  {
+    "city": "Fais Village",
+    "city_zh": "Fais Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.75612,
+    "longitude": 140.51422
+  },
+  {
+    "city": "Etiemar",
+    "city_zh": "Etiemar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37182,
+    "longitude": 151.58426
+  },
+  {
+    "city": "Fankachau",
+    "city_zh": "Fankachau",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38419,
+    "longitude": 151.88483
+  },
+  {
+    "city": "Irenkodi",
+    "city_zh": "Irenkodi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94183,
+    "longitude": 158.15268
+  },
+  {
+    "city": "Keimwin Kiti",
+    "city_zh": "Keimwin Kiti",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95079,
+    "longitude": 158.27655
+  },
+  {
+    "city": "Kepindau",
+    "city_zh": "Kepindau",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.97755,
+    "longitude": 158.18669
+  },
+  {
+    "city": "Kepinwou",
+    "city_zh": "Kepinwou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.80889,
+    "longitude": 158.25954
+  },
+  {
+    "city": "Komwonlaid Village",
+    "city_zh": "Komwonlaid Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.97137,
+    "longitude": 158.20835
+  },
+  {
+    "city": "Lehle Mwahu",
+    "city_zh": "Lehle Mwahu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.93018,
+    "longitude": 158.23655
+  },
+  {
+    "city": "Miari",
+    "city_zh": "Miari",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32535,
+    "longitude": 151.59006
+  },
+  {
+    "city": "Metipw En Uh",
+    "city_zh": "Metipw En Uh",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96029,
+    "longitude": 158.27208
+  },
+  {
+    "city": "Mesenpal",
+    "city_zh": "Mesenpal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96951,
+    "longitude": 158.25442
+  },
+  {
+    "city": "Nipaip",
+    "city_zh": "Nipaip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94756,
+    "longitude": 158.22531
+  },
+  {
+    "city": "Mutunte",
+    "city_zh": "Mutunte",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.36459,
+    "longitude": 162.98836
+  },
+  {
+    "city": "Mwanitiw",
+    "city_zh": "Mwanitiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37907,
+    "longitude": 151.70508
+  },
+  {
+    "city": "Mwetihleng",
+    "city_zh": "Mwetihleng",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.91725,
+    "longitude": 158.30512
+  },
+  {
+    "city": "Nanseinpwel",
+    "city_zh": "Nanseinpwel",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.95118,
+    "longitude": 158.19276
+  },
+  {
+    "city": "Nankapairong",
+    "city_zh": "Nankapairong",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.92666,
+    "longitude": 158.28029
+  },
+  {
+    "city": "Naneir",
+    "city_zh": "Naneir",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9743,
+    "longitude": 158.1958
+  },
+  {
+    "city": "Nanpahlap",
+    "city_zh": "Nanpahlap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.82357,
+    "longitude": 158.28299
+  },
+  {
+    "city": "Neirenom",
+    "city_zh": "Neirenom",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32817,
+    "longitude": 151.59225
+  },
+  {
+    "city": "Totiw",
+    "city_zh": "Totiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.33853,
+    "longitude": 151.77612
+  },
+  {
+    "city": "Nepos",
+    "city_zh": "Nepos",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.39315,
+    "longitude": 151.60434
+  },
+  {
+    "city": "Nihmesehl",
+    "city_zh": "Nihmesehl",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.8112,
+    "longitude": 158.24471
+  },
+  {
+    "city": "Pohn Uhs",
+    "city_zh": "Pohn Uhs",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.81564,
+    "longitude": 158.18138
+  },
+  {
+    "city": "Pohn Mwasowel",
+    "city_zh": "Pohn Mwasowel",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94562,
+    "longitude": 158.29402
+  },
+  {
+    "city": "Pohn Iak",
+    "city_zh": "Pohn Iak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.79106,
+    "longitude": 158.29282
+  },
+  {
+    "city": "Penienuk",
+    "city_zh": "Penienuk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.3729,
+    "longitude": 151.89639
+  },
+  {
+    "city": "Pahnaul",
+    "city_zh": "Pahnaul",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96453,
+    "longitude": 158.25035
+  },
+  {
+    "city": "Pahina",
+    "city_zh": "Pahina",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.94006,
+    "longitude": 158.27737
+  },
+  {
+    "city": "Nukuoro Village",
+    "city_zh": "Nukuoro Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 3.83626,
+    "longitude": 154.97141
+  },
+  {
+    "city": "Pahn Tehlap",
+    "city_zh": "Pahn Tehlap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.81472,
+    "longitude": 158.23785
+  },
+  {
+    "city": "Pahn Kipar",
+    "city_zh": "Pahn Kipar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.90231,
+    "longitude": 158.14098
+  },
+  {
+    "city": "Sakarakapw",
+    "city_zh": "Sakarakapw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.85828,
+    "longitude": 158.29192
+  },
+  {
+    "city": "Paison",
+    "city_zh": "Paison",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.86636,
+    "longitude": 158.32913
+  },
+  {
+    "city": "Pieis",
+    "city_zh": "Pieis",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.36225,
+    "longitude": 151.8391
+  },
+  {
+    "city": "Peilik",
+    "city_zh": "Peilik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.96483,
+    "longitude": 158.26097
+  },
+  {
+    "city": "Wonip",
+    "city_zh": "Wonip",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37913,
+    "longitude": 151.73269
+  },
+  {
+    "city": "Pohniak",
+    "city_zh": "Pohniak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.87044,
+    "longitude": 158.29116
+  },
+  {
+    "city": "Tofol Village",
+    "city_zh": "Tofol Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.32714,
+    "longitude": 163.00778
+  },
+  {
+    "city": "Faal",
+    "city_zh": "Faal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.62381,
+    "longitude": 138.15992
+  },
+  {
+    "city": "Kapingamarangi Village",
+    "city_zh": "Kapingamarangi Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 1.07861,
+    "longitude": 154.80758
+  },
+  {
+    "city": "Wenua",
+    "city_zh": "Wenua",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 1.08215,
+    "longitude": 154.80631
+  },
+  {
+    "city": "Kapingamarangi",
+    "city_zh": "Kapingamarangi",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 1.07861,
+    "longitude": 154.80752
+  },
+  {
+    "city": "Nukuoro",
+    "city_zh": "Nukuoro",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 3.83619,
+    "longitude": 154.97143
+  },
+  {
+    "city": "Ngatik",
+    "city_zh": "Ngatik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 5.78849,
+    "longitude": 157.15954
+  },
+  {
+    "city": "Pingelap Inhabitants Refuge WW2",
+    "city_zh": "Pingelap Inhabitants Refuge WW2",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.22578,
+    "longitude": 160.70035
+  },
+  {
+    "city": "Pingelap Village",
+    "city_zh": "Pingelap Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.20589,
+    "longitude": 160.70305
+  },
+  {
+    "city": "Pingelap",
+    "city_zh": "Pingelap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.20589,
+    "longitude": 160.70327
+  },
+  {
+    "city": "Mokil Village",
+    "city_zh": "Mokil Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.69282,
+    "longitude": 159.76274
+  },
+  {
+    "city": "Kapingamarangi Settlement not permanent",
+    "city_zh": "Kapingamarangi Settlement not permanent",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 7.61963,
+    "longitude": 155.15974
+  },
+  {
+    "city": "Pakin Village",
+    "city_zh": "Pakin Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 7.07651,
+    "longitude": 157.77635
+  },
+  {
+    "city": "frmr Pohn Sanghi Settlement",
+    "city_zh": "frmr Pohn Sanghi Settlement",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.77879,
+    "longitude": 158.01988
+  },
+  {
+    "city": "frmr Imwintiati Settlement",
+    "city_zh": "frmr Imwintiati Settlement",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.72564,
+    "longitude": 157.9331
+  },
+  {
+    "city": "Namoluk Village",
+    "city_zh": "Namoluk Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.92197,
+    "longitude": 153.11889
+  },
+  {
+    "city": "Namoluk",
+    "city_zh": "Namoluk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 5.924,
+    "longitude": 153.152
+  },
+  {
+    "city": "Houk Village",
+    "city_zh": "Houk Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.6894,
+    "longitude": 149.29897
+  },
+  {
+    "city": "Houk",
+    "city_zh": "Houk",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.6894,
+    "longitude": 149.29908
+  },
+  {
+    "city": "Polowat",
+    "city_zh": "Polowat",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35661,
+    "longitude": 149.19908
+  },
+  {
+    "city": "Pulap Village",
+    "city_zh": "Pulap Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.63665,
+    "longitude": 149.42788
+  },
+  {
+    "city": "Pulap",
+    "city_zh": "Pulap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.6366,
+    "longitude": 149.42878
+  },
+  {
+    "city": "Tamatam Village",
+    "city_zh": "Tamatam Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.53876,
+    "longitude": 149.41363
+  },
+  {
+    "city": "Tamatam",
+    "city_zh": "Tamatam",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.53868,
+    "longitude": 149.41428
+  },
+  {
+    "city": "Onoun",
+    "city_zh": "Onoun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.575,
+    "longitude": 149.687
+  },
+  {
+    "city": "Onoun",
+    "city_zh": "Onoun",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.57895,
+    "longitude": 149.68328
+  },
+  {
+    "city": "Pisaras",
+    "city_zh": "Pisaras",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.569,
+    "longitude": 150.4195
+  },
+  {
+    "city": "Pisaras Village",
+    "city_zh": "Pisaras Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.57169,
+    "longitude": 150.41541
+  },
+  {
+    "city": "Onou",
+    "city_zh": "Onou",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.799,
+    "longitude": 150.2915
+  },
+  {
+    "city": "Onou Village",
+    "city_zh": "Onou Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.79641,
+    "longitude": 150.2925
+  },
+  {
+    "city": "Unanu",
+    "city_zh": "Unanu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.75,
+    "longitude": 150.341
+  },
+  {
+    "city": "Unanu Village",
+    "city_zh": "Unanu Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.75663,
+    "longitude": 150.33664
+  },
+  {
+    "city": "Makur",
+    "city_zh": "Makur",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.985,
+    "longitude": 150.1275
+  },
+  {
+    "city": "Makur Village",
+    "city_zh": "Makur Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.98257,
+    "longitude": 150.12526
+  },
+  {
+    "city": "Mokil",
+    "city_zh": "Mokil",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.69281,
+    "longitude": 159.76283
+  },
+  {
+    "city": "Nomwin",
+    "city_zh": "Nomwin",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.43,
+    "longitude": 151.748
+  },
+  {
+    "city": "Nomwin Village",
+    "city_zh": "Nomwin Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.43269,
+    "longitude": 151.74628
+  },
+  {
+    "city": "Fananu",
+    "city_zh": "Fananu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.55811,
+    "longitude": 151.90922
+  },
+  {
+    "city": "Fananu Village",
+    "city_zh": "Fananu Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.5585,
+    "longitude": 151.90254
+  },
+  {
+    "city": "Murilo",
+    "city_zh": "Murilo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.69242,
+    "longitude": 152.33934
+  },
+  {
+    "city": "Ruo",
+    "city_zh": "Ruo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.609,
+    "longitude": 152.2455
+  },
+  {
+    "city": "Ruo",
+    "city_zh": "Ruo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.61016,
+    "longitude": 152.2418
+  },
+  {
+    "city": "Nema",
+    "city_zh": "Nema",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.98922,
+    "longitude": 152.57377
+  },
+  {
+    "city": "Losap",
+    "city_zh": "Losap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.894,
+    "longitude": 152.74
+  },
+  {
+    "city": "Piis",
+    "city_zh": "Piis",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.834,
+    "longitude": 152.701
+  },
+  {
+    "city": "Piis Village",
+    "city_zh": "Piis Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.83636,
+    "longitude": 152.70226
+  },
+  {
+    "city": "Losap Village",
+    "city_zh": "Losap Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.89153,
+    "longitude": 152.7306
+  },
+  {
+    "city": "former Amas Village",
+    "city_zh": "former Amas Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.89593,
+    "longitude": 153.14987
+  },
+  {
+    "city": "Ettal",
+    "city_zh": "Ettal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.584,
+    "longitude": 153.586
+  },
+  {
+    "city": "Ettal Village",
+    "city_zh": "Ettal Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.56564,
+    "longitude": 153.57855
+  },
+  {
+    "city": "Lukunor",
+    "city_zh": "Lukunor",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.507,
+    "longitude": 153.8205
+  },
+  {
+    "city": "Lukunor Village",
+    "city_zh": "Lukunor Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.507,
+    "longitude": 153.821
+  },
+  {
+    "city": "Oneop",
+    "city_zh": "Oneop",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.5066,
+    "longitude": 153.7105
+  },
+  {
+    "city": "Oneop Village",
+    "city_zh": "Oneop Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.5066,
+    "longitude": 153.711
+  },
+  {
+    "city": "Moch",
+    "city_zh": "Moch",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.4918,
+    "longitude": 153.54
+  },
+  {
+    "city": "Moch Village",
+    "city_zh": "Moch Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.4918,
+    "longitude": 153.5405
+  },
+  {
+    "city": "Kuttu",
+    "city_zh": "Kuttu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.453,
+    "longitude": 153.4575
+  },
+  {
+    "city": "Kuttu Village",
+    "city_zh": "Kuttu Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.45674,
+    "longitude": 153.45965
+  },
+  {
+    "city": "Ta",
+    "city_zh": "Ta",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.2842,
+    "longitude": 153.648
+  },
+  {
+    "city": "Ta Village",
+    "city_zh": "Ta Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.2842,
+    "longitude": 153.6485
+  },
+  {
+    "city": "Satowan",
+    "city_zh": "Satowan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.334,
+    "longitude": 153.738
+  },
+  {
+    "city": "Satowan Village",
+    "city_zh": "Satowan Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 5.334,
+    "longitude": 153.7385
+  },
+  {
+    "city": "Satawal",
+    "city_zh": "Satawal",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.382,
+    "longitude": 147.0322
+  },
+  {
+    "city": "Satawal Village",
+    "city_zh": "Satawal Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.38035,
+    "longitude": 147.02598
+  },
+  {
+    "city": "Lamotrek",
+    "city_zh": "Lamotrek",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.491,
+    "longitude": 146.305
+  },
+  {
+    "city": "Lamotrek Village",
+    "city_zh": "Lamotrek Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.45758,
+    "longitude": 146.37841
+  },
+  {
+    "city": "Elato",
+    "city_zh": "Elato",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.502,
+    "longitude": 146.166
+  },
+  {
+    "city": "Elato Village",
+    "city_zh": "Elato Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.51023,
+    "longitude": 146.17059
+  },
+  {
+    "city": "Faraulep",
+    "city_zh": "Faraulep",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.588,
+    "longitude": 144.508
+  },
+  {
+    "city": "Ifalik",
+    "city_zh": "Ifalik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.25,
+    "longitude": 144.4445
+  },
+  {
+    "city": "Eauripik",
+    "city_zh": "Eauripik",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.687,
+    "longitude": 143.0375
+  },
+  {
+    "city": "Sorol",
+    "city_zh": "Sorol",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.1435,
+    "longitude": 140.394
+  },
+  {
+    "city": "Fais",
+    "city_zh": "Fais",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.766,
+    "longitude": 140.52
+  },
+  {
+    "city": "Ngulu",
+    "city_zh": "Ngulu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.45,
+    "longitude": 137.484
+  },
+  {
+    "city": "Faraulep Village",
+    "city_zh": "Faraulep Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.58889,
+    "longitude": 144.52029
+  },
+  {
+    "city": "Piig",
+    "city_zh": "Piig",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.59764,
+    "longitude": 144.50873
+  },
+  {
+    "city": "Woleai Village",
+    "city_zh": "Woleai Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37042,
+    "longitude": 143.90434
+  },
+  {
+    "city": "Tagaulap",
+    "city_zh": "Tagaulap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.35694,
+    "longitude": 143.87966
+  },
+  {
+    "city": "Seliap",
+    "city_zh": "Seliap",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37223,
+    "longitude": 143.85266
+  },
+  {
+    "city": "Wottegai",
+    "city_zh": "Wottegai",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37166,
+    "longitude": 143.83773
+  },
+  {
+    "city": "Falalis",
+    "city_zh": "Falalis",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.32671,
+    "longitude": 143.84133
+  },
+  {
+    "city": "Eauripik Village - temp LL",
+    "city_zh": "Eauripik Village - temp LL",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 6.68722,
+    "longitude": 143.0821
+  },
+  {
+    "city": "Sorol Village - temp LL",
+    "city_zh": "Sorol Village - temp LL",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.13333,
+    "longitude": 140.411
+  },
+  {
+    "city": "Ngulu Village",
+    "city_zh": "Ngulu Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 8.297,
+    "longitude": 137.4899
+  },
+  {
+    "city": "Mogmog",
+    "city_zh": "Mogmog",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 10.08685,
+    "longitude": 139.70852
+  },
+  {
+    "city": "Asor",
+    "city_zh": "Asor",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 10.02838,
+    "longitude": 139.76469
+  },
+  {
+    "city": "Falalop Village",
+    "city_zh": "Falalop Village",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 10.0162,
+    "longitude": 139.78735
+  },
+  {
+    "city": "Fassarai",
+    "city_zh": "Fassarai",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.90274,
+    "longitude": 139.65618
+  },
+  {
+    "city": "Colonia",
+    "city_zh": "Colonia",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 9.51638,
+    "longitude": 138.12167
+  },
+  {
+    "city": "Lelu",
+    "city_zh": "Lelu",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.33359,
+    "longitude": 163.02248
+  },
+  {
+    "city": "Tafunsak",
+    "city_zh": "Tafunsak",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.3671,
+    "longitude": 162.98532
+  },
+  {
+    "city": "Malem",
+    "city_zh": "Malem",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.28599,
+    "longitude": 163.02609
+  },
+  {
+    "city": "Utwe",
+    "city_zh": "Utwe",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Kosrae",
+    "latitude": 5.27486,
+    "longitude": 162.97656
+  },
+  {
+    "city": "Diendoar",
+    "city_zh": "Diendoar",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.99818,
+    "longitude": 158.25631
+  },
+  {
+    "city": "Madolenihm Municipality Government",
+    "city_zh": "Madolenihm Municipality Government",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.83493,
+    "longitude": 158.2987
+  },
+  {
+    "city": "Sapatiw",
+    "city_zh": "Sapatiw",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.67548,
+    "longitude": 151.76273
+  },
+  {
+    "city": "Nukan",
+    "city_zh": "Nukan",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.67873,
+    "longitude": 151.76829
+  },
+  {
+    "city": "Ruo",
+    "city_zh": "Ruo",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.59969,
+    "longitude": 151.94188
+  },
+  {
+    "city": "Beneniem",
+    "city_zh": "Beneniem",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.45218,
+    "longitude": 151.89978
+  },
+  {
+    "city": "Tonoas Municipal Building",
+    "city_zh": "Tonoas Municipal Building",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Chuuk",
+    "latitude": 7.37597,
+    "longitude": 151.88433
+  }
+]
