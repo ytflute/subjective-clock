@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
+        const adventureSpectrum = document.getElementById('adventureSpectrum').value;
         const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
             method: 'POST',
             headers: {
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             body: JSON.stringify({
                 city: city,
                 country: country,
-                // language: "Traditional Chinese" // 後端預設為繁體中文，如果需要可以從前端傳遞
+                adventureSpectrum: adventureSpectrum
             }),
         });
 
@@ -692,10 +693,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         let latitudeRange;
         switch(adventureSpectrum) {
             case 'peaceful':
-                latitudeRange = { min: 60, max: 90 }; // 高緯度地區
+                latitudeRange = { min: 70, max: 90 }; // 極地地區
                 break;
             case 'leisurely':
-                latitudeRange = { min: 45, max: 60 }; // 中高緯度地區
+                latitudeRange = { min: 45, max: 70 }; // 中高緯度地區
                 break;
             case 'exploring':
                 latitudeRange = { min: 20, max: 45 }; // 中緯度地區
