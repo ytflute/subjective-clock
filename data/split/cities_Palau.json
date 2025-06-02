@@ -1,0 +1,862 @@
+[
+  {
+    "city": "Iebukel Hamlet",
+    "city_zh": "Iebukel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.70006,
+    "longitude": 134.64097
+  },
+  {
+    "city": "Ngermid Hamlet",
+    "city_zh": "Ngermid Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.33983,
+    "longitude": 134.50163
+  },
+  {
+    "city": "Kloulklubed Hamlet",
+    "city_zh": "Kloulklubed Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.04193,
+    "longitude": 134.25549
+  },
+  {
+    "city": "Tngeronger Hamlet",
+    "city_zh": "Tngeronger Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34449,
+    "longitude": 134.47912
+  },
+  {
+    "city": "Ngchesechang Hamlet",
+    "city_zh": "Ngchesechang Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.38472,
+    "longitude": 134.58027
+  },
+  {
+    "city": "Ngerbeched Hamlet",
+    "city_zh": "Ngerbeched Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.33249,
+    "longitude": 134.47623
+  },
+  {
+    "city": "Oikull Hamlet",
+    "city_zh": "Oikull Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.37192,
+    "longitude": 134.58773
+  },
+  {
+    "city": "Echang Hamlet",
+    "city_zh": "Echang Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34661,
+    "longitude": 134.45289
+  },
+  {
+    "city": "Koror",
+    "city_zh": "Koror",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.33978,
+    "longitude": 134.47326
+  },
+  {
+    "city": "Ngermelech Hamlet",
+    "city_zh": "Ngermelech Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.49966,
+    "longitude": 134.6347
+  },
+  {
+    "city": "Ngchemiangel Hamlet",
+    "city_zh": "Ngchemiangel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.446,
+    "longitude": 134.47596
+  },
+  {
+    "city": "Echol Hamlet",
+    "city_zh": "Echol Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35133,
+    "longitude": 134.44693
+  },
+  {
+    "city": "Idid Hamlet",
+    "city_zh": "Idid Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34299,
+    "longitude": 134.48373
+  },
+  {
+    "city": "Ngerkeai Hamlet",
+    "city_zh": "Ngerkeai Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.42072,
+    "longitude": 134.49786
+  },
+  {
+    "city": "Ngerchemai Hamlet",
+    "city_zh": "Ngerchemai Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35,
+    "longitude": 134.4889
+  },
+  {
+    "city": "Ngetkib Hamlet",
+    "city_zh": "Ngetkib Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.36438,
+    "longitude": 134.51439
+  },
+  {
+    "city": "Urdmang Hamlet",
+    "city_zh": "Urdmang Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.61175,
+    "longitude": 134.57865
+  },
+  {
+    "city": "Ulimang",
+    "city_zh": "Ulimang",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.62416,
+    "longitude": 134.64208
+  },
+  {
+    "city": "Chollei Hamlet",
+    "city_zh": "Chollei Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.71985,
+    "longitude": 134.61414
+  },
+  {
+    "city": "Ngriil Hamlet",
+    "city_zh": "Ngriil Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.69032,
+    "longitude": 134.63609
+  },
+  {
+    "city": "Ertong Hamlet",
+    "city_zh": "Ertong Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.50442,
+    "longitude": 134.6148
+  },
+  {
+    "city": "Ngetbong Hamlet",
+    "city_zh": "Ngetbong Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.60828,
+    "longitude": 134.57433
+  },
+  {
+    "city": "Ngeruikl Hamlet",
+    "city_zh": "Ngeruikl Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.48362,
+    "longitude": 134.61664
+  },
+  {
+    "city": "Ngeruluobel Hamlet",
+    "city_zh": "Ngeruluobel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.36448,
+    "longitude": 134.52412
+  },
+  {
+    "city": "Ngerngesang Hamlet",
+    "city_zh": "Ngerngesang Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.45304,
+    "longitude": 134.60375
+  },
+  {
+    "city": "Ngermetengel Hamlet",
+    "city_zh": "Ngermetengel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.52253,
+    "longitude": 134.50268
+  },
+  {
+    "city": "Elechui Hamlet",
+    "city_zh": "Elechui Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.43161,
+    "longitude": 134.47997
+  },
+  {
+    "city": "Meketii Hamlet",
+    "city_zh": "Meketii Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34708,
+    "longitude": 134.48299
+  },
+  {
+    "city": "Ngerekebesang Hamlet",
+    "city_zh": "Ngerekebesang Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35444,
+    "longitude": 134.44648
+  },
+  {
+    "city": "Ngerkeai",
+    "city_zh": "Ngerkeai",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.55458,
+    "longitude": 134.63582
+  },
+  {
+    "city": "Ngerbodel Hamlet",
+    "city_zh": "Ngerbodel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35,
+    "longitude": 134.4939
+  },
+  {
+    "city": "Ngerbau Hamlet",
+    "city_zh": "Ngerbau Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.70291,
+    "longitude": 134.64106
+  },
+  {
+    "city": "Ngeburch Hamlet",
+    "city_zh": "Ngeburch Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.50762,
+    "longitude": 134.62932
+  },
+  {
+    "city": "Ikelau Hamlet",
+    "city_zh": "Ikelau Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34139,
+    "longitude": 134.48201
+  },
+  {
+    "city": "Angaur",
+    "city_zh": "Angaur",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 6.90331,
+    "longitude": 134.13133
+  },
+  {
+    "city": "Meyungs Hamlet",
+    "city_zh": "Meyungs Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35381,
+    "longitude": 134.45963
+  },
+  {
+    "city": "Dilong Hamlet",
+    "city_zh": "Dilong Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 8.08115,
+    "longitude": 134.71757
+  },
+  {
+    "city": "Melekeok Village",
+    "city_zh": "Melekeok Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.49567,
+    "longitude": 134.63671
+  },
+  {
+    "city": "Medorm Hamlet",
+    "city_zh": "Medorm Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.4565,
+    "longitude": 134.47901
+  },
+  {
+    "city": "Medalaii Hamlet",
+    "city_zh": "Medalaii Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34391,
+    "longitude": 134.46588
+  },
+  {
+    "city": "Ngereklmadel",
+    "city_zh": "Ngereklmadel",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.48826,
+    "longitude": 134.48562
+  },
+  {
+    "city": "Iyebukel Hamlet",
+    "city_zh": "Iyebukel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34929,
+    "longitude": 134.48594
+  },
+  {
+    "city": "Dimes Hamlet",
+    "city_zh": "Dimes Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 8.07805,
+    "longitude": 134.71775
+  },
+  {
+    "city": "Imeong Hamlet",
+    "city_zh": "Imeong Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.53134,
+    "longitude": 134.52713
+  },
+  {
+    "city": "Eimelik Hamlet",
+    "city_zh": "Eimelik Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.3973,
+    "longitude": 134.51034
+  },
+  {
+    "city": "Chelab Hamlet",
+    "city_zh": "Chelab Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.63575,
+    "longitude": 134.63885
+  },
+  {
+    "city": "Airai Hamlet",
+    "city_zh": "Airai Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35985,
+    "longitude": 134.55946
+  },
+  {
+    "city": "Ngchesar Hamlet",
+    "city_zh": "Ngchesar Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.46932,
+    "longitude": 134.60991
+  },
+  {
+    "city": "Chol Hamlet",
+    "city_zh": "Chol Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.67063,
+    "longitude": 134.63587
+  },
+  {
+    "city": "Elauesachel Hamlet",
+    "city_zh": "Elauesachel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.45743,
+    "longitude": 134.50616
+  },
+  {
+    "city": "Ngerubesang Hamlet",
+    "city_zh": "Ngerubesang Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.48969,
+    "longitude": 134.63093
+  },
+  {
+    "city": "Imelechol Hamlet",
+    "city_zh": "Imelechol Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.03966,
+    "longitude": 134.2656
+  },
+  {
+    "city": "Ngebei Hamlet",
+    "city_zh": "Ngebei Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.69887,
+    "longitude": 134.63672
+  },
+  {
+    "city": "Ngerkeai",
+    "city_zh": "Ngerkeai",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.55456,
+    "longitude": 134.63612
+  },
+  {
+    "city": "Ngereklmadel",
+    "city_zh": "Ngereklmadel",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.48822,
+    "longitude": 134.4848
+  },
+  {
+    "city": "Ngerkesou Hamlet",
+    "city_zh": "Ngerkesou Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.46363,
+    "longitude": 134.60478
+  },
+  {
+    "city": "Ngerkeseuaol Hamlet",
+    "city_zh": "Ngerkeseuaol Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34301,
+    "longitude": 134.48949
+  },
+  {
+    "city": "Ngersuul Hamlet",
+    "city_zh": "Ngersuul Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.43479,
+    "longitude": 134.59495
+  },
+  {
+    "city": "Ngersung Hamlet",
+    "city_zh": "Ngersung Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35412,
+    "longitude": 134.53576
+  },
+  {
+    "city": "Ngeruling Hamlet",
+    "city_zh": "Ngeruling Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.50535,
+    "longitude": 134.63249
+  },
+  {
+    "city": "Ngerusar Hamlet",
+    "city_zh": "Ngerusar Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.35987,
+    "longitude": 134.52965
+  },
+  {
+    "city": "Ngesang",
+    "city_zh": "Ngesang",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.62695,
+    "longitude": 134.64373
+  },
+  {
+    "city": "Ngerutoi Hamlet",
+    "city_zh": "Ngerutoi Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.61092,
+    "longitude": 134.57641
+  },
+  {
+    "city": "Mengellang",
+    "city_zh": "Mengellang",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.6957,
+    "longitude": 134.63054
+  },
+  {
+    "city": "Ngkeklau Hamlet",
+    "city_zh": "Ngkeklau Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.59296,
+    "longitude": 134.6402
+  },
+  {
+    "city": "Angaur State",
+    "city_zh": "Angaur State",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 6.90601,
+    "longitude": 134.12997
+  },
+  {
+    "city": "Ngardmau Village",
+    "city_zh": "Ngardmau Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.60988,
+    "longitude": 134.57418
+  },
+  {
+    "city": "Yelch - New Village",
+    "city_zh": "Yelch - New Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.36051,
+    "longitude": 134.5457
+  },
+  {
+    "city": "former Eastern Village",
+    "city_zh": "former Eastern Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 3.00508,
+    "longitude": 131.1255
+  },
+  {
+    "city": "Tobi Village",
+    "city_zh": "Tobi Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 3.00488,
+    "longitude": 131.12168
+  },
+  {
+    "city": "former Northern Village",
+    "city_zh": "former Northern Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 3.00971,
+    "longitude": 131.12168
+  },
+  {
+    "city": "Sonsorol Village",
+    "city_zh": "Sonsorol Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 5.32608,
+    "longitude": 132.21943
+  },
+  {
+    "city": "Pulo Anna Village",
+    "city_zh": "Pulo Anna Village",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 4.65404,
+    "longitude": 131.94901
+  },
+  {
+    "city": "Kayangel",
+    "city_zh": "Kayangel",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 8.08228,
+    "longitude": 134.71725
+  },
+  {
+    "city": "Kloulklubed",
+    "city_zh": "Kloulklubed",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.04192,
+    "longitude": 134.25561
+  },
+  {
+    "city": "Ngebuked Hamlet",
+    "city_zh": "Ngebuked Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.64191,
+    "longitude": 134.63049
+  },
+  {
+    "city": "Ordomel Hamlet",
+    "city_zh": "Ordomel Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.38111,
+    "longitude": 134.5552
+  },
+  {
+    "city": "Ngetkib",
+    "city_zh": "Ngetkib",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.36451,
+    "longitude": 134.51484
+  },
+  {
+    "city": "Ngchemiangel",
+    "city_zh": "Ngchemiangel",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.44613,
+    "longitude": 134.47678
+  },
+  {
+    "city": "Ngardmau",
+    "city_zh": "Ngardmau",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.60986,
+    "longitude": 134.5744
+  },
+  {
+    "city": "Ngeremecheluch Hamlet",
+    "city_zh": "Ngeremecheluch Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.49199,
+    "longitude": 134.63596
+  },
+  {
+    "city": "Koror Town",
+    "city_zh": "Koror Town",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.34257,
+    "longitude": 134.47888
+  },
+  {
+    "city": "Ngeraus Hamlet",
+    "city_zh": "Ngeraus Hamlet",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.47667,
+    "longitude": 134.61346
+  },
+  {
+    "city": "Ngerulmud",
+    "city_zh": "Ngerulmud",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.50077,
+    "longitude": 134.6238
+  },
+  {
+    "city": "Kesebalau",
+    "city_zh": "Kesebalau",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.36177,
+    "longitude": 134.54267
+  },
+  {
+    "city": "Koska",
+    "city_zh": "Koska",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.03526,
+    "longitude": 134.25199
+  }
+]
