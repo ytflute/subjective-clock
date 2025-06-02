@@ -89,7 +89,7 @@ The scene includes subtle space elements like stars or nebulae in the background
 No people, only food. Styled like a professional food photography shot with a sci-fi twist.`;
         } else {
             prompt = `Top view of a traditional local breakfast commonly eaten in ${city}, ${country}. \
-The food is presented on a clean table setting, with realistic textures and lighting, \
+The food is presented on a table setting, with realistic textures and lighting, \
 showcasing the variety of dishes, ingredients, and beverages typical of the region. \
 No people, only food. Styled like a professional food photography shot.`;
         }
