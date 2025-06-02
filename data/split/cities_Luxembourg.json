@@ -1,0 +1,6922 @@
+[
+  {
+    "city": "Zittig",
+    "city_zh": "Zittig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73889,
+    "longitude": 6.345
+  },
+  {
+    "city": "Wormeldange",
+    "city_zh": "Wormeldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61114,
+    "longitude": 6.40546
+  },
+  {
+    "city": "Wues",
+    "city_zh": "Wues",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79667,
+    "longitude": 6.15556
+  },
+  {
+    "city": "Wolwelange",
+    "city_zh": "Wolwelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82861,
+    "longitude": 5.76472
+  },
+  {
+    "city": "Wolpert",
+    "city_zh": "Wolpert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76421,
+    "longitude": 6.3536
+  },
+  {
+    "city": "Wolfsmuhle",
+    "city_zh": "Wolfsmuhle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53333,
+    "longitude": 6.31667
+  },
+  {
+    "city": "Wollefsmillen",
+    "city_zh": "Wollefsmillen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71639,
+    "longitude": 6.49
+  },
+  {
+    "city": "Wintrange",
+    "city_zh": "Wintrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50139,
+    "longitude": 6.35278
+  },
+  {
+    "city": "Winseler",
+    "city_zh": "Winseler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96778,
+    "longitude": 5.89028
+  },
+  {
+    "city": "Wincrange",
+    "city_zh": "Wincrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05333,
+    "longitude": 5.91917
+  },
+  {
+    "city": "Wilwerwiltz",
+    "city_zh": "Wilwerwiltz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.98889,
+    "longitude": 5.99917
+  },
+  {
+    "city": "Wilwerdange",
+    "city_zh": "Wilwerdange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.14056,
+    "longitude": 6.02389
+  },
+  {
+    "city": "Wiltzermühle",
+    "city_zh": "Wiltzermühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65,
+    "longitude": 6.05
+  },
+  {
+    "city": "Wiltz",
+    "city_zh": "Wiltz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96547,
+    "longitude": 5.9339
+  },
+  {
+    "city": "Wilmeshof",
+    "city_zh": "Wilmeshof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85,
+    "longitude": 6.11667
+  },
+  {
+    "city": "Wickrange",
+    "city_zh": "Wickrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54139,
+    "longitude": 6.02167
+  },
+  {
+    "city": "Wickelscheid",
+    "city_zh": "Wickelscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75,
+    "longitude": 6.2
+  },
+  {
+    "city": "Weyer",
+    "city_zh": "Weyer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71972,
+    "longitude": 6.2
+  },
+  {
+    "city": "Wemperhardt",
+    "city_zh": "Wemperhardt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.15556,
+    "longitude": 6.05333
+  },
+  {
+    "city": "Welsdorf",
+    "city_zh": "Welsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81727,
+    "longitude": 6.08677
+  },
+  {
+    "city": "Welscheid",
+    "city_zh": "Welscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88806,
+    "longitude": 6.06778
+  },
+  {
+    "city": "Wellenstein",
+    "city_zh": "Wellenstein",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52389,
+    "longitude": 6.34222
+  },
+  {
+    "city": "Welfrange",
+    "city_zh": "Welfrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53806,
+    "longitude": 6.28417
+  },
+  {
+    "city": "Weiswampach",
+    "city_zh": "Weiswampach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.13722,
+    "longitude": 6.075
+  },
+  {
+    "city": "Weissenhof",
+    "city_zh": "Weissenhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56667,
+    "longitude": 6.11667
+  },
+  {
+    "city": "Weimerskirch",
+    "city_zh": "Weimerskirch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62361,
+    "longitude": 6.13639
+  },
+  {
+    "city": "Weimershof",
+    "city_zh": "Weimershof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6,
+    "longitude": 6.15
+  },
+  {
+    "city": "Weileschbach",
+    "city_zh": "Weileschbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86667,
+    "longitude": 6.21667
+  },
+  {
+    "city": "Weiler",
+    "city_zh": "Weiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96361,
+    "longitude": 6.12417
+  },
+  {
+    "city": "Weiler-la-Tour",
+    "city_zh": "Weiler-la-Tour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54083,
+    "longitude": 6.20083
+  },
+  {
+    "city": "Weilerbach",
+    "city_zh": "Weilerbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83333,
+    "longitude": 6.38278
+  },
+  {
+    "city": "Weiler",
+    "city_zh": "Weiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.10444,
+    "longitude": 5.94611
+  },
+  {
+    "city": "Weidingen",
+    "city_zh": "Weidingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97068,
+    "longitude": 5.93884
+  },
+  {
+    "city": "Weicherdange",
+    "city_zh": "Weicherdange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.03833,
+    "longitude": 5.98944
+  },
+  {
+    "city": "Wecker",
+    "city_zh": "Wecker",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69473,
+    "longitude": 6.38525
+  },
+  {
+    "city": "Webershof",
+    "city_zh": "Webershof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81667,
+    "longitude": 6.25
+  },
+  {
+    "city": "Watrange",
+    "city_zh": "Watrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.94417,
+    "longitude": 5.78583
+  },
+  {
+    "city": "Wasserbillig",
+    "city_zh": "Wasserbillig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71534,
+    "longitude": 6.49861
+  },
+  {
+    "city": "Warken",
+    "city_zh": "Warken",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85918,
+    "longitude": 6.08415
+  },
+  {
+    "city": "Walferdange",
+    "city_zh": "Walferdange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66321,
+    "longitude": 6.13224
+  },
+  {
+    "city": "Walsdorf",
+    "city_zh": "Walsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92667,
+    "longitude": 6.17361
+  },
+  {
+    "city": "Waldbredimus",
+    "city_zh": "Waldbredimus",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.55676,
+    "longitude": 6.28789
+  },
+  {
+    "city": "Waldbillig",
+    "city_zh": "Waldbillig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79636,
+    "longitude": 6.28431
+  },
+  {
+    "city": "Wakelterhof",
+    "city_zh": "Wakelterhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81667,
+    "longitude": 6.3
+  },
+  {
+    "city": "Wahlhausen",
+    "city_zh": "Wahlhausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.98528,
+    "longitude": 6.12667
+  },
+  {
+    "city": "Wahl",
+    "city_zh": "Wahl",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83667,
+    "longitude": 5.90639
+  },
+  {
+    "city": "Vichten",
+    "city_zh": "Vichten",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.80306,
+    "longitude": 6.0
+  },
+  {
+    "city": "Vianden",
+    "city_zh": "維安登",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.935,
+    "longitude": 6.20889
+  },
+  {
+    "city": "Useldange",
+    "city_zh": "Useldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76972,
+    "longitude": 5.98222
+  },
+  {
+    "city": "Urspelt",
+    "city_zh": "Urspelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.07556,
+    "longitude": 6.04667
+  },
+  {
+    "city": "Untereisenbach",
+    "city_zh": "Untereisenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.00167,
+    "longitude": 6.14556
+  },
+  {
+    "city": "Uebersyren",
+    "city_zh": "Uebersyren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6319,
+    "longitude": 6.2771
+  },
+  {
+    "city": "Tuntange",
+    "city_zh": "Tuntange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71778,
+    "longitude": 6.01028
+  },
+  {
+    "city": "Troisvierges",
+    "city_zh": "Troisvierges",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.12111,
+    "longitude": 6.00028
+  },
+  {
+    "city": "Troine",
+    "city_zh": "Troine",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.06444,
+    "longitude": 5.88306
+  },
+  {
+    "city": "Trintange",
+    "city_zh": "Trintange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57083,
+    "longitude": 6.28056
+  },
+  {
+    "city": "Pommerloch",
+    "city_zh": "Pommerloch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96028,
+    "longitude": 5.86083
+  },
+  {
+    "city": "Tockmuhle",
+    "city_zh": "Tockmuhle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91667,
+    "longitude": 5.78333
+  },
+  {
+    "city": "Tomm",
+    "city_zh": "Tomm",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.89444,
+    "longitude": 6.16361
+  },
+  {
+    "city": "Thillen",
+    "city_zh": "Thillen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7,
+    "longitude": 6.43333
+  },
+  {
+    "city": "Tétange",
+    "city_zh": "Tétange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.47583,
+    "longitude": 6.04222
+  },
+  {
+    "city": "Tarchamps",
+    "city_zh": "Tarchamps",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95056,
+    "longitude": 5.79611
+  },
+  {
+    "city": "Tandel",
+    "city_zh": "Tandel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8975,
+    "longitude": 6.18333
+  },
+  {
+    "city": "Tadler",
+    "city_zh": "Tadler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91139,
+    "longitude": 5.99556
+  },
+  {
+    "city": "Syren",
+    "city_zh": "Syren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56194,
+    "longitude": 6.22167
+  },
+  {
+    "city": "Surré",
+    "city_zh": "Surré",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90306,
+    "longitude": 5.78
+  },
+  {
+    "city": "Strassen",
+    "city_zh": "Strassen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62056,
+    "longitude": 6.07333
+  },
+  {
+    "city": "Stolzembourg",
+    "city_zh": "Stolzembourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96549,
+    "longitude": 6.16745
+  },
+  {
+    "city": "Stockem",
+    "city_zh": "Stockem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.07889,
+    "longitude": 5.95806
+  },
+  {
+    "city": "Steinsel",
+    "city_zh": "Steinsel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67694,
+    "longitude": 6.12389
+  },
+  {
+    "city": "Staekaul",
+    "city_zh": "Staekaul",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69611,
+    "longitude": 5.92028
+  },
+  {
+    "city": "Steinheim",
+    "city_zh": "Steinheim",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81794,
+    "longitude": 6.47713
+  },
+  {
+    "city": "Steinfort",
+    "city_zh": "Steinfort",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66139,
+    "longitude": 5.91917
+  },
+  {
+    "city": "Stegen",
+    "city_zh": "Stegen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83,
+    "longitude": 6.17194
+  },
+  {
+    "city": "Stadtbredimus",
+    "city_zh": "Stadtbredimus",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56278,
+    "longitude": 6.36444
+  },
+  {
+    "city": "Sprinkange",
+    "city_zh": "Sprinkange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58049,
+    "longitude": 5.96493
+  },
+  {
+    "city": "Sonlez",
+    "city_zh": "Sonlez",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.965,
+    "longitude": 5.82667
+  },
+  {
+    "city": "Soleuvre",
+    "city_zh": "Soleuvre",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52148,
+    "longitude": 5.93781
+  },
+  {
+    "city": "Siebenaler",
+    "city_zh": "Siebenaler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01056,
+    "longitude": 6.02667
+  },
+  {
+    "city": "Septfontaines",
+    "city_zh": "Septfontaines",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70111,
+    "longitude": 5.96722
+  },
+  {
+    "city": "Septfontaines",
+    "city_zh": "Septfontaines",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62806,
+    "longitude": 6.10444
+  },
+  {
+    "city": "Senningen",
+    "city_zh": "Senningen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64535,
+    "longitude": 6.23927
+  },
+  {
+    "city": "Selscheid",
+    "city_zh": "Selscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01806,
+    "longitude": 5.94889
+  },
+  {
+    "city": "Scierie Schleif",
+    "city_zh": "Scierie Schleif",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71667,
+    "longitude": 6.13333
+  },
+  {
+    "city": "Schwidelbrouch",
+    "city_zh": "Schwidelbrouch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83056,
+    "longitude": 5.85444
+  },
+  {
+    "city": "Schweich",
+    "city_zh": "Schweich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72278,
+    "longitude": 5.9275
+  },
+  {
+    "city": "Schwebsange",
+    "city_zh": "Schwebsange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51167,
+    "longitude": 6.35694
+  },
+  {
+    "city": "Schwebach",
+    "city_zh": "Schwebach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74611,
+    "longitude": 5.97194
+  },
+  {
+    "city": "Schwachtgesmühle",
+    "city_zh": "Schwachtgesmühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71667,
+    "longitude": 6.21667
+  },
+  {
+    "city": "Schuttrange",
+    "city_zh": "Schuttrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62056,
+    "longitude": 6.26861
+  },
+  {
+    "city": "Schrondweiler",
+    "city_zh": "Schrondweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79778,
+    "longitude": 6.15917
+  },
+  {
+    "city": "Schrassig",
+    "city_zh": "Schrassig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61014,
+    "longitude": 6.25903
+  },
+  {
+    "city": "Schouweiler",
+    "city_zh": "Schouweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5825,
+    "longitude": 5.95639
+  },
+  {
+    "city": "Schoos",
+    "city_zh": "Schoos",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74417,
+    "longitude": 6.17083
+  },
+  {
+    "city": "Schoenfels",
+    "city_zh": "Schoenfels",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71889,
+    "longitude": 6.09222
+  },
+  {
+    "city": "Schneideschhof",
+    "city_zh": "Schneideschhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68333,
+    "longitude": 5.95
+  },
+  {
+    "city": "Schmëtt",
+    "city_zh": "Schmëtt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.18167,
+    "longitude": 6.02528
+  },
+  {
+    "city": "Schlindermanderscheid",
+    "city_zh": "Schlindermanderscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93306,
+    "longitude": 6.06361
+  },
+  {
+    "city": "Schleiwenhaff",
+    "city_zh": "Schleiwenhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57833,
+    "longitude": 6.05889
+  },
+  {
+    "city": "Schleif",
+    "city_zh": "Schleif",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.99056,
+    "longitude": 5.8575
+  },
+  {
+    "city": "Schimpach",
+    "city_zh": "Schimpach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01028,
+    "longitude": 5.85222
+  },
+  {
+    "city": "Schifflange",
+    "city_zh": "Schifflange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50639,
+    "longitude": 6.01278
+  },
+  {
+    "city": "Schieren",
+    "city_zh": "Schieren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83056,
+    "longitude": 6.09861
+  },
+  {
+    "city": "Scheierhaff",
+    "city_zh": "Scheierhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.59,
+    "longitude": 6.31611
+  },
+  {
+    "city": "Schengen",
+    "city_zh": "申根",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.47,
+    "longitude": 6.362
+  },
+  {
+    "city": "Scheidgen",
+    "city_zh": "Scheidgen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78059,
+    "longitude": 6.3607
+  },
+  {
+    "city": "Scheidel",
+    "city_zh": "Scheidel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.89361,
+    "longitude": 6.04472
+  },
+  {
+    "city": "Schandel",
+    "city_zh": "Schandel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79222,
+    "longitude": 5.97583
+  },
+  {
+    "city": "Savelborn",
+    "city_zh": "Savelborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81163,
+    "longitude": 6.25483
+  },
+  {
+    "city": "Sassel",
+    "city_zh": "Sassel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09944,
+    "longitude": 5.9975
+  },
+  {
+    "city": "Sanem",
+    "city_zh": "Sanem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54806,
+    "longitude": 5.92889
+  },
+  {
+    "city": "Sandweiler",
+    "city_zh": "Sandweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61471,
+    "longitude": 6.22221
+  },
+  {
+    "city": "Saeul",
+    "city_zh": "Saeul",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72722,
+    "longitude": 5.98639
+  },
+  {
+    "city": "Gaichel",
+    "city_zh": "Gaichel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69467,
+    "longitude": 5.86859
+  },
+  {
+    "city": "Rumlange",
+    "city_zh": "Rumlange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.08,
+    "longitude": 5.97556
+  },
+  {
+    "city": "Rumelange",
+    "city_zh": "Rumelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.45964,
+    "longitude": 6.03089
+  },
+  {
+    "city": "Roullingen",
+    "city_zh": "Roullingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95583,
+    "longitude": 5.92472
+  },
+  {
+    "city": "Roost",
+    "city_zh": "Roost",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78667,
+    "longitude": 6.09611
+  },
+  {
+    "city": "Rosport",
+    "city_zh": "Rosport",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8047,
+    "longitude": 6.50532
+  },
+  {
+    "city": "Roodt-sur-Syre",
+    "city_zh": "Roodt-sur-Syre",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66591,
+    "longitude": 6.30257
+  },
+  {
+    "city": "Roodt",
+    "city_zh": "Roodt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69194,
+    "longitude": 6.00222
+  },
+  {
+    "city": "Roodt",
+    "city_zh": "Roodt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79444,
+    "longitude": 5.82167
+  },
+  {
+    "city": "Rombach-Martelange",
+    "city_zh": "Rombach-Martelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83472,
+    "longitude": 5.74278
+  },
+  {
+    "city": "Rollingergrund",
+    "city_zh": "Rollingergrund",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62278,
+    "longitude": 6.10778
+  },
+  {
+    "city": "Rollingen",
+    "city_zh": "Rollingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74167,
+    "longitude": 6.11444
+  },
+  {
+    "city": "Rolling",
+    "city_zh": "Rolling",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54889,
+    "longitude": 6.31722
+  },
+  {
+    "city": "Roeser",
+    "city_zh": "Roeser",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53721,
+    "longitude": 6.14629
+  },
+  {
+    "city": "Roedt",
+    "city_zh": "Roedt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56778,
+    "longitude": 6.285
+  },
+  {
+    "city": "Roedgen",
+    "city_zh": "Roedgen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57472,
+    "longitude": 6.03472
+  },
+  {
+    "city": "Rodershausen",
+    "city_zh": "Rodershausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.03667,
+    "longitude": 6.13111
+  },
+  {
+    "city": "Roder",
+    "city_zh": "Roder",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05583,
+    "longitude": 6.08361
+  },
+  {
+    "city": "Rodenbourg",
+    "city_zh": "Rodenbourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68671,
+    "longitude": 6.28939
+  },
+  {
+    "city": "Rodbach",
+    "city_zh": "Rodbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77972,
+    "longitude": 5.93528
+  },
+  {
+    "city": "Rodange",
+    "city_zh": "Rodange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54639,
+    "longitude": 5.84083
+  },
+  {
+    "city": "Rippweiler",
+    "city_zh": "Rippweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75167,
+    "longitude": 5.9575
+  },
+  {
+    "city": "Rippig",
+    "city_zh": "Rippig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73417,
+    "longitude": 6.31944
+  },
+  {
+    "city": "Ringel",
+    "city_zh": "Ringel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91694,
+    "longitude": 6.01194
+  },
+  {
+    "city": "Rindschleiden",
+    "city_zh": "Rindschleiden",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85028,
+    "longitude": 5.90139
+  },
+  {
+    "city": "Reuler",
+    "city_zh": "Reuler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05778,
+    "longitude": 6.0375
+  },
+  {
+    "city": "Reuland",
+    "city_zh": "Reuland",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75316,
+    "longitude": 6.2604
+  },
+  {
+    "city": "Remich",
+    "city_zh": "雷米希",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.545,
+    "longitude": 6.36694
+  },
+  {
+    "city": "Remerschen",
+    "city_zh": "Remerschen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48861,
+    "longitude": 6.35167
+  },
+  {
+    "city": "Reisdorf",
+    "city_zh": "Reisdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86861,
+    "longitude": 6.26778
+  },
+  {
+    "city": "Reimberg",
+    "city_zh": "Reimberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79722,
+    "longitude": 5.95389
+  },
+  {
+    "city": "Reichlange",
+    "city_zh": "Reichlange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77361,
+    "longitude": 5.92806
+  },
+  {
+    "city": "Redange-sur-Attert",
+    "city_zh": "Redange-sur-Attert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76437,
+    "longitude": 5.88997
+  },
+  {
+    "city": "Reckingerhaff",
+    "city_zh": "Reckingerhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53333,
+    "longitude": 6.31667
+  },
+  {
+    "city": "Reckange-sur-Mess",
+    "city_zh": "Reckange-sur-Mess",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5625,
+    "longitude": 6.00889
+  },
+  {
+    "city": "Reckange",
+    "city_zh": "Reckange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74972,
+    "longitude": 6.08306
+  },
+  {
+    "city": "Rameldange",
+    "city_zh": "Rameldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66032,
+    "longitude": 6.23238
+  },
+  {
+    "city": "Rambrouch",
+    "city_zh": "Rambrouch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83083,
+    "longitude": 5.845
+  },
+  {
+    "city": "Putscheid",
+    "city_zh": "Putscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96083,
+    "longitude": 6.14306
+  },
+  {
+    "city": "Pulvermuhl",
+    "city_zh": "Pulvermuhl",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.609,
+    "longitude": 6.15147
+  },
+  {
+    "city": "Prettingen",
+    "city_zh": "Prettingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7175,
+    "longitude": 6.12028
+  },
+  {
+    "city": "Pratz",
+    "city_zh": "Pratz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.80167,
+    "longitude": 5.93917
+  },
+  {
+    "city": "Potaschberg",
+    "city_zh": "Potaschberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67333,
+    "longitude": 6.40083
+  },
+  {
+    "city": "Pontpierre",
+    "city_zh": "Pontpierre",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53639,
+    "longitude": 6.02944
+  },
+  {
+    "city": "Platen",
+    "city_zh": "Platen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78933,
+    "longitude": 5.93382
+  },
+  {
+    "city": "Pissange",
+    "city_zh": "Pissange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54944,
+    "longitude": 6.00028
+  },
+  {
+    "city": "Pintsch",
+    "city_zh": "Pintsch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.99444,
+    "longitude": 6.01306
+  },
+  {
+    "city": "Pfaffenthal",
+    "city_zh": "Pfaffenthal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91667,
+    "longitude": 6.0
+  },
+  {
+    "city": "Pfaffenthal",
+    "city_zh": "Pfaffenthal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61667,
+    "longitude": 6.13333
+  },
+  {
+    "city": "Pettingen",
+    "city_zh": "Pettingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77028,
+    "longitude": 6.10917
+  },
+  {
+    "city": "Petit-Nobressart",
+    "city_zh": "Petit-Nobressart",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77972,
+    "longitude": 5.80944
+  },
+  {
+    "city": "Pétange",
+    "city_zh": "Pétange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.55833,
+    "longitude": 5.88056
+  },
+  {
+    "city": "Perlé",
+    "city_zh": "Perlé",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81167,
+    "longitude": 5.76583
+  },
+  {
+    "city": "Peppange",
+    "city_zh": "Peppange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52444,
+    "longitude": 6.12972
+  },
+  {
+    "city": "Osweiler",
+    "city_zh": "Osweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78667,
+    "longitude": 6.44254
+  },
+  {
+    "city": "Ospern",
+    "city_zh": "Ospern",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78389,
+    "longitude": 5.90444
+  },
+  {
+    "city": "Olm",
+    "city_zh": "Olm",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65722,
+    "longitude": 6.00028
+  },
+  {
+    "city": "Olingen",
+    "city_zh": "Olingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67985,
+    "longitude": 6.31392
+  },
+  {
+    "city": "Ohligsmühle",
+    "city_zh": "Ohligsmühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61667,
+    "longitude": 6.26667
+  },
+  {
+    "city": "Oetrange",
+    "city_zh": "Oetrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.59639,
+    "longitude": 6.26
+  },
+  {
+    "city": "Oberwampach",
+    "city_zh": "Oberwampach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01667,
+    "longitude": 5.86083
+  },
+  {
+    "city": "Oberschlinder",
+    "city_zh": "Oberschlinder",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95,
+    "longitude": 6.06667
+  },
+  {
+    "city": "Oberschieren",
+    "city_zh": "Oberschieren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83333,
+    "longitude": 6.1
+  },
+  {
+    "city": "Oberpallen",
+    "city_zh": "Oberpallen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73028,
+    "longitude": 5.84389
+  },
+  {
+    "city": "Ober-Merzig",
+    "city_zh": "Ober-Merzig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83333,
+    "longitude": 6.01667
+  },
+  {
+    "city": "Obercorn",
+    "city_zh": "Obercorn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51361,
+    "longitude": 5.89611
+  },
+  {
+    "city": "Oberglabach",
+    "city_zh": "Oberglabach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7775,
+    "longitude": 6.15056
+  },
+  {
+    "city": "Oberfeulen",
+    "city_zh": "Oberfeulen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.84806,
+    "longitude": 6.03556
+  },
+  {
+    "city": "Obereisenbach",
+    "city_zh": "Obereisenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01,
+    "longitude": 6.084
+  },
+  {
+    "city": "Oberdonven",
+    "city_zh": "Oberdonven",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64667,
+    "longitude": 6.40056
+  },
+  {
+    "city": "Oberanven",
+    "city_zh": "上安文",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65743,
+    "longitude": 6.24302
+  },
+  {
+    "city": "Nothum",
+    "city_zh": "Nothum",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.94139,
+    "longitude": 5.88278
+  },
+  {
+    "city": "Nospelt",
+    "city_zh": "Nospelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67528,
+    "longitude": 6.00889
+  },
+  {
+    "city": "Nommern",
+    "city_zh": "Nommern",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78694,
+    "longitude": 6.17472
+  },
+  {
+    "city": "Noertzange",
+    "city_zh": "Noertzange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50917,
+    "longitude": 6.05611
+  },
+  {
+    "city": "Noertrange",
+    "city_zh": "Noertrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97972,
+    "longitude": 5.91083
+  },
+  {
+    "city": "Noerdange",
+    "city_zh": "Noerdange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74222,
+    "longitude": 5.92611
+  },
+  {
+    "city": "Nocher",
+    "city_zh": "Nocher",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.94653,
+    "longitude": 5.97626
+  },
+  {
+    "city": "Niederwiltz",
+    "city_zh": "Niederwiltz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96917,
+    "longitude": 5.92306
+  },
+  {
+    "city": "Niederwampach",
+    "city_zh": "Niederwampach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01167,
+    "longitude": 5.84361
+  },
+  {
+    "city": "Niederschlinder",
+    "city_zh": "Niederschlinder",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93333,
+    "longitude": 6.06667
+  },
+  {
+    "city": "Niederschieren",
+    "city_zh": "Niederschieren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83333,
+    "longitude": 6.1
+  },
+  {
+    "city": "Niederpallen",
+    "city_zh": "Niederpallen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75528,
+    "longitude": 5.91222
+  },
+  {
+    "city": "Nieder-Merzig",
+    "city_zh": "Nieder-Merzig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83333,
+    "longitude": 6.01667
+  },
+  {
+    "city": "Niedercorn",
+    "city_zh": "Niedercorn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53611,
+    "longitude": 5.89306
+  },
+  {
+    "city": "Niederdonven",
+    "city_zh": "Niederdonven",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63479,
+    "longitude": 6.40243
+  },
+  {
+    "city": "Niederanven",
+    "city_zh": "Niederanven",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65196,
+    "longitude": 6.26199
+  },
+  {
+    "city": "Neunhausen",
+    "city_zh": "Neunhausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87672,
+    "longitude": 5.88597
+  },
+  {
+    "city": "Neimillen",
+    "city_zh": "Neimillen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.08056,
+    "longitude": 5.92167
+  },
+  {
+    "city": "Neumühle",
+    "city_zh": "Neumühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.9,
+    "longitude": 5.95
+  },
+  {
+    "city": "Neumühle",
+    "city_zh": "Neumühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7,
+    "longitude": 5.9
+  },
+  {
+    "city": "Neumühle",
+    "city_zh": "Neumühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61667,
+    "longitude": 6.23333
+  },
+  {
+    "city": "Neihaischen",
+    "city_zh": "Neihaischen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62483,
+    "longitude": 6.23408
+  },
+  {
+    "city": "Neudorf",
+    "city_zh": "Neudorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61639,
+    "longitude": 6.15667
+  },
+  {
+    "city": "Neidhausen",
+    "city_zh": "Neidhausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.02889,
+    "longitude": 6.06667
+  },
+  {
+    "city": "Nagem",
+    "city_zh": "Nagem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78917,
+    "longitude": 5.85778
+  },
+  {
+    "city": "Nachtmanderscheid",
+    "city_zh": "Nachtmanderscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.94833,
+    "longitude": 6.12944
+  },
+  {
+    "city": "Münsbach",
+    "city_zh": "Münsbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63277,
+    "longitude": 6.26459
+  },
+  {
+    "city": "Munshausen",
+    "city_zh": "Munshausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.03361,
+    "longitude": 6.03861
+  },
+  {
+    "city": "Münschecker",
+    "city_zh": "Münschecker",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69389,
+    "longitude": 6.44222
+  },
+  {
+    "city": "Müllerthal",
+    "city_zh": "Müllerthal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7902,
+    "longitude": 6.30665
+  },
+  {
+    "city": "Müllendorf",
+    "city_zh": "Müllendorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68028,
+    "longitude": 6.13
+  },
+  {
+    "city": "Muhlenbach",
+    "city_zh": "Muhlenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63167,
+    "longitude": 6.11917
+  },
+  {
+    "city": "Moutfort",
+    "city_zh": "Moutfort",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58528,
+    "longitude": 6.25556
+  },
+  {
+    "city": "Moulin Schenk",
+    "city_zh": "Moulin Schenk",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73333,
+    "longitude": 6.21667
+  },
+  {
+    "city": "Moulin Colmesch",
+    "city_zh": "Moulin Colmesch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7,
+    "longitude": 6.11667
+  },
+  {
+    "city": "Mondorf-les-Bains",
+    "city_zh": "Mondorf-les-Bains",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.505,
+    "longitude": 6.28111
+  },
+  {
+    "city": "Mondercange",
+    "city_zh": "Mondercange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53306,
+    "longitude": 5.98833
+  },
+  {
+    "city": "Mompach",
+    "city_zh": "Mompach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74611,
+    "longitude": 6.465
+  },
+  {
+    "city": "Moestroff",
+    "city_zh": "Moestroff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86778,
+    "longitude": 6.23944
+  },
+  {
+    "city": "Moesdorf",
+    "city_zh": "Moesdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76806,
+    "longitude": 6.11667
+  },
+  {
+    "city": "Moersdorf",
+    "city_zh": "Moersdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73833,
+    "longitude": 6.5
+  },
+  {
+    "city": "Misèrehof",
+    "city_zh": "Misèrehof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86667,
+    "longitude": 5.83333
+  },
+  {
+    "city": "Michelbouch",
+    "city_zh": "Michelbouch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81861,
+    "longitude": 6.02028
+  },
+  {
+    "city": "Michelau",
+    "city_zh": "Michelau",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.9,
+    "longitude": 6.09194
+  },
+  {
+    "city": "Meysembourg",
+    "city_zh": "Meysembourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76971,
+    "longitude": 6.18709
+  },
+  {
+    "city": "Mertzig",
+    "city_zh": "Mertzig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83389,
+    "longitude": 6.0075
+  },
+  {
+    "city": "Mertert",
+    "city_zh": "Mertert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70261,
+    "longitude": 6.47966
+  },
+  {
+    "city": "Merscheid",
+    "city_zh": "Merscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87107,
+    "longitude": 5.96995
+  },
+  {
+    "city": "Merscheid",
+    "city_zh": "Merscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95472,
+    "longitude": 6.10694
+  },
+  {
+    "city": "Mersch",
+    "city_zh": "梅尔施",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74889,
+    "longitude": 6.10611
+  },
+  {
+    "city": "Merl",
+    "city_zh": "Merl",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60333,
+    "longitude": 6.09556
+  },
+  {
+    "city": "Merkholz",
+    "city_zh": "Merkholz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96133,
+    "longitude": 5.98042
+  },
+  {
+    "city": "Mergenhof",
+    "city_zh": "Mergenhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81667,
+    "longitude": 5.86667
+  },
+  {
+    "city": "Mensdorf",
+    "city_zh": "Mensdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65467,
+    "longitude": 6.30416
+  },
+  {
+    "city": "Meispelt",
+    "city_zh": "Meispelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69111,
+    "longitude": 6.05917
+  },
+  {
+    "city": "Medingen",
+    "city_zh": "Medingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57278,
+    "longitude": 6.24861
+  },
+  {
+    "city": "Medernach",
+    "city_zh": "Medernach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.80955,
+    "longitude": 6.21521
+  },
+  {
+    "city": "Mecher",
+    "city_zh": "Mecher",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.04083,
+    "longitude": 6.0175
+  },
+  {
+    "city": "Mecher",
+    "city_zh": "Mecher",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92333,
+    "longitude": 5.87222
+  },
+  {
+    "city": "Maulin Diederich",
+    "city_zh": "Maulin Diederich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6,
+    "longitude": 6.25
+  },
+  {
+    "city": "Moulin de Bascharage",
+    "city_zh": "Moulin de Bascharage",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88333,
+    "longitude": 5.9
+  },
+  {
+    "city": "Massen",
+    "city_zh": "Massen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.1175,
+    "longitude": 5.99278
+  },
+  {
+    "city": "Masseler",
+    "city_zh": "Masseler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93083,
+    "longitude": 6.03722
+  },
+  {
+    "city": "Marxberg",
+    "city_zh": "Marxberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.9,
+    "longitude": 6.20917
+  },
+  {
+    "city": "Martelinville",
+    "city_zh": "Martelinville",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86694,
+    "longitude": 5.77333
+  },
+  {
+    "city": "Marnach",
+    "city_zh": "Marnach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05333,
+    "longitude": 6.06194
+  },
+  {
+    "city": "Marienthal",
+    "city_zh": "Marienthal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71,
+    "longitude": 6.06167
+  },
+  {
+    "city": "Marbourg",
+    "city_zh": "Marbourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05167,
+    "longitude": 6.07472
+  },
+  {
+    "city": "Manternach",
+    "city_zh": "Manternach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70278,
+    "longitude": 6.42639
+  },
+  {
+    "city": "Mamer",
+    "city_zh": "马默",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6275,
+    "longitude": 6.02333
+  },
+  {
+    "city": "Maison Wangert",
+    "city_zh": "Maison Wangert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8,
+    "longitude": 5.86667
+  },
+  {
+    "city": "Maisons Prevent",
+    "city_zh": "Maisons Prevent",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71667,
+    "longitude": 6.18333
+  },
+  {
+    "city": "Maisons Boussert",
+    "city_zh": "Maisons Boussert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73333,
+    "longitude": 6.13333
+  },
+  {
+    "city": "Maisons Alteschmeltz",
+    "city_zh": "Maisons Alteschmeltz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7,
+    "longitude": 5.98333
+  },
+  {
+    "city": "Maison Peffer",
+    "city_zh": "Maison Peffer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51667,
+    "longitude": 6.16667
+  },
+  {
+    "city": "Maison Leh",
+    "city_zh": "Maison Leh",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88333,
+    "longitude": 6.23333
+  },
+  {
+    "city": "Maison Klein",
+    "city_zh": "Maison Klein",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75,
+    "longitude": 5.85
+  },
+  {
+    "city": "Maison Hoffmann",
+    "city_zh": "Maison Hoffmann",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7,
+    "longitude": 6.28333
+  },
+  {
+    "city": "Maison Cronière",
+    "city_zh": "Maison Cronière",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51667,
+    "longitude": 5.85
+  },
+  {
+    "city": "Maison Burg",
+    "city_zh": "Maison Burg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83333,
+    "longitude": 6.18333
+  },
+  {
+    "city": "Machtum",
+    "city_zh": "Machtum",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65897,
+    "longitude": 6.43599
+  },
+  {
+    "city": "Luxembourg",
+    "city_zh": "盧森堡市",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61167,
+    "longitude": 6.13
+  },
+  {
+    "city": "Lultzhausen",
+    "city_zh": "Lultzhausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90944,
+    "longitude": 5.89083
+  },
+  {
+    "city": "Lullange",
+    "city_zh": "Lullange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.06,
+    "longitude": 5.94194
+  },
+  {
+    "city": "Loorbierg",
+    "city_zh": "Loorbierg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85944,
+    "longitude": 5.85111
+  },
+  {
+    "city": "Lorentzweiler",
+    "city_zh": "Lorentzweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70131,
+    "longitude": 6.14234
+  },
+  {
+    "city": "Longsdorf",
+    "city_zh": "Longsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.89889,
+    "longitude": 6.20528
+  },
+  {
+    "city": "Livange",
+    "city_zh": "Livange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53028,
+    "longitude": 6.12028
+  },
+  {
+    "city": "Lipperscheid",
+    "city_zh": "Lipperscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91861,
+    "longitude": 6.08667
+  },
+  {
+    "city": "Lintgen",
+    "city_zh": "Lintgen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72243,
+    "longitude": 6.13016
+  },
+  {
+    "city": "Linger",
+    "city_zh": "Linger",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56583,
+    "longitude": 5.88667
+  },
+  {
+    "city": "Limpertsberg",
+    "city_zh": "Limpertsberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62083,
+    "longitude": 6.12167
+  },
+  {
+    "city": "Limpach",
+    "city_zh": "Limpach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.55889,
+    "longitude": 5.98056
+  },
+  {
+    "city": "Lieler",
+    "city_zh": "Lieler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.12444,
+    "longitude": 6.11
+  },
+  {
+    "city": "Liefrange",
+    "city_zh": "Liefrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91,
+    "longitude": 5.8775
+  },
+  {
+    "city": "Levelange",
+    "city_zh": "Levelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73972,
+    "longitude": 5.85667
+  },
+  {
+    "city": "Leudelange",
+    "city_zh": "Leudelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56833,
+    "longitude": 6.06528
+  },
+  {
+    "city": "Lentzweiler",
+    "city_zh": "Lentzweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.0667,
+    "longitude": 5.98051
+  },
+  {
+    "city": "Lenningen",
+    "city_zh": "Lenningen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60045,
+    "longitude": 6.36719
+  },
+  {
+    "city": "Lellerhaff",
+    "city_zh": "Lellerhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79944,
+    "longitude": 6.08611
+  },
+  {
+    "city": "Lellingen",
+    "city_zh": "Lellingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.98361,
+    "longitude": 6.01444
+  },
+  {
+    "city": "Lellig",
+    "city_zh": "Lellig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71611,
+    "longitude": 6.43639
+  },
+  {
+    "city": "Leithum",
+    "city_zh": "Leithum",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.16083,
+    "longitude": 6.10889
+  },
+  {
+    "city": "Leihof",
+    "city_zh": "Leihof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8,
+    "longitude": 6.1
+  },
+  {
+    "city": "Lauterbour",
+    "city_zh": "Lauterbour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79684,
+    "longitude": 6.38984
+  },
+  {
+    "city": "Lausdorn",
+    "city_zh": "Lausdorn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.11917,
+    "longitude": 6.08333
+  },
+  {
+    "city": "Lasauvage",
+    "city_zh": "Lasauvage",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.525,
+    "longitude": 5.8375
+  },
+  {
+    "city": "Larochette",
+    "city_zh": "Larochette",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78362,
+    "longitude": 6.21891
+  },
+  {
+    "city": "Lannenerbierg",
+    "city_zh": "Lannenerbierg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79861,
+    "longitude": 5.83528
+  },
+  {
+    "city": "Lannen",
+    "city_zh": "Lannen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78944,
+    "longitude": 5.83972
+  },
+  {
+    "city": "Landscheid",
+    "city_zh": "Landscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92407,
+    "longitude": 6.129
+  },
+  {
+    "city": "Lamadelaine",
+    "city_zh": "Lamadelaine",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54639,
+    "longitude": 5.85639
+  },
+  {
+    "city": "Kuborn",
+    "city_zh": "Kuborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87056,
+    "longitude": 5.90306
+  },
+  {
+    "city": "Kreizerbuch",
+    "city_zh": "Kreizerbuch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70167,
+    "longitude": 5.91639
+  },
+  {
+    "city": "Kopstal",
+    "city_zh": "Kopstal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66444,
+    "longitude": 6.07306
+  },
+  {
+    "city": "Koetschette",
+    "city_zh": "Koetschette",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83806,
+    "longitude": 5.84028
+  },
+  {
+    "city": "Koerich",
+    "city_zh": "Koerich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67,
+    "longitude": 5.95
+  },
+  {
+    "city": "Koedange",
+    "city_zh": "Koedange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72833,
+    "longitude": 6.21028
+  },
+  {
+    "city": "Kockelscheuer",
+    "city_zh": "Kockelscheuer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56111,
+    "longitude": 6.11222
+  },
+  {
+    "city": "Kocherei",
+    "city_zh": "Kocherei",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.06944,
+    "longitude": 6.07056
+  },
+  {
+    "city": "Kobenbour",
+    "city_zh": "Kobenbour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75028,
+    "longitude": 6.30611
+  },
+  {
+    "city": "Knaphoscheid",
+    "city_zh": "Knaphoscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01333,
+    "longitude": 5.96472
+  },
+  {
+    "city": "Kneppchen",
+    "city_zh": "Kneppchen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74194,
+    "longitude": 6.01861
+  },
+  {
+    "city": "Kleinmacher",
+    "city_zh": "Kleinmacher",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5325,
+    "longitude": 6.35528
+  },
+  {
+    "city": "Kleinhoscheid",
+    "city_zh": "Kleinhoscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01944,
+    "longitude": 5.96806
+  },
+  {
+    "city": "Kleinbettingen",
+    "city_zh": "Kleinbettingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64639,
+    "longitude": 5.91639
+  },
+  {
+    "city": "Kirchberg",
+    "city_zh": "基希贝格",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62389,
+    "longitude": 6.14944
+  },
+  {
+    "city": "Koeppenhaff",
+    "city_zh": "Koeppenhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90313,
+    "longitude": 6.13314
+  },
+  {
+    "city": "Kéisbierg",
+    "city_zh": "Kéisbierg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67472,
+    "longitude": 6.32056
+  },
+  {
+    "city": "Keispelt",
+    "city_zh": "Keispelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69394,
+    "longitude": 6.06789
+  },
+  {
+    "city": "Kehmen",
+    "city_zh": "Kehmen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90083,
+    "longitude": 6.03722
+  },
+  {
+    "city": "Kehlen",
+    "city_zh": "Kehlen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66833,
+    "longitude": 6.03583
+  },
+  {
+    "city": "Kayl",
+    "city_zh": "Kayl",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48917,
+    "longitude": 6.03972
+  },
+  {
+    "city": "Kautenbach",
+    "city_zh": "Kautenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95278,
+    "longitude": 6.02
+  },
+  {
+    "city": "Kaundorf",
+    "city_zh": "Kaundorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92139,
+    "longitude": 5.90306
+  },
+  {
+    "city": "Kapweiler",
+    "city_zh": "Kapweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73944,
+    "longitude": 5.97056
+  },
+  {
+    "city": "Kapendahl",
+    "city_zh": "Kapendahl",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86667,
+    "longitude": 6.23333
+  },
+  {
+    "city": "Kapenacker",
+    "city_zh": "Kapenacker",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63444,
+    "longitude": 6.35583
+  },
+  {
+    "city": "Kalborn",
+    "city_zh": "Kalborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.10278,
+    "longitude": 6.11306
+  },
+  {
+    "city": "Kahler",
+    "city_zh": "Kahler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63139,
+    "longitude": 5.91778
+  },
+  {
+    "city": "Junglinster",
+    "city_zh": "Junglinster",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70722,
+    "longitude": 6.25306
+  },
+  {
+    "city": "Jockelsmuhle",
+    "city_zh": "Jockelsmuhle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71667,
+    "longitude": 6.36667
+  },
+  {
+    "city": "Jenkenhof",
+    "city_zh": "Jenkenhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81667,
+    "longitude": 5.95
+  },
+  {
+    "city": "Itzig",
+    "city_zh": "Itzig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58769,
+    "longitude": 6.17065
+  },
+  {
+    "city": "Italien",
+    "city_zh": "Italien",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.47444,
+    "longitude": 6.07944
+  },
+  {
+    "city": "Insenborn",
+    "city_zh": "Insenborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90167,
+    "longitude": 5.88472
+  },
+  {
+    "city": "Ingeldorf",
+    "city_zh": "Ingeldorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85194,
+    "longitude": 6.13472
+  },
+  {
+    "city": "Imbringen",
+    "city_zh": "Imbringen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6975,
+    "longitude": 6.1975
+  },
+  {
+    "city": "Hëttermillen",
+    "city_zh": "Hëttermillen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58611,
+    "longitude": 6.37361
+  },
+  {
+    "city": "Huttange",
+    "city_zh": "Huttange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73611,
+    "longitude": 5.89861
+  },
+  {
+    "city": "Hupperdange",
+    "city_zh": "Hupperdange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09611,
+    "longitude": 6.05917
+  },
+  {
+    "city": "Hunsdorf",
+    "city_zh": "Hunsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69667,
+    "longitude": 6.13167
+  },
+  {
+    "city": "Huncherange",
+    "city_zh": "Huncherange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51694,
+    "longitude": 6.065
+  },
+  {
+    "city": "Huldange",
+    "city_zh": "Huldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.16472,
+    "longitude": 6.015
+  },
+  {
+    "city": "Hubertsmuhle",
+    "city_zh": "Hubertsmuhle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.13333,
+    "longitude": 6.06667
+  },
+  {
+    "city": "Hovelange",
+    "city_zh": "Hovelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7225,
+    "longitude": 5.90722
+  },
+  {
+    "city": "Houschthauser",
+    "city_zh": "Houschthauser",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95,
+    "longitude": 5.8
+  },
+  {
+    "city": "Hostert",
+    "city_zh": "Hostert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81,
+    "longitude": 5.86667
+  },
+  {
+    "city": "Hostert",
+    "city_zh": "Hostert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65749,
+    "longitude": 6.23268
+  },
+  {
+    "city": "Hosingen",
+    "city_zh": "Hosingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01218,
+    "longitude": 6.09089
+  },
+  {
+    "city": "Houschterhaff",
+    "city_zh": "Houschterhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93531,
+    "longitude": 6.15709
+  },
+  {
+    "city": "Hoscheiderdickt",
+    "city_zh": "Hoscheiderdickt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97306,
+    "longitude": 6.09167
+  },
+  {
+    "city": "Hoscheid",
+    "city_zh": "Hoscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.94722,
+    "longitude": 6.08167
+  },
+  {
+    "city": "Horas",
+    "city_zh": "Horas",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81056,
+    "longitude": 5.91861
+  },
+  {
+    "city": "Hondsjang",
+    "city_zh": "Hondsjang",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.08333,
+    "longitude": 6.0
+  },
+  {
+    "city": "Holzthum",
+    "city_zh": "Holzthum",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.985,
+    "longitude": 6.07333
+  },
+  {
+    "city": "Holzem",
+    "city_zh": "Holzem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61639,
+    "longitude": 5.99028
+  },
+  {
+    "city": "Holtz",
+    "city_zh": "Holtz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.80722,
+    "longitude": 5.79167
+  },
+  {
+    "city": "Hollerich",
+    "city_zh": "Hollerich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60314,
+    "longitude": 6.11423
+  },
+  {
+    "city": "Holler",
+    "city_zh": "Holler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.12361,
+    "longitude": 6.04944
+  },
+  {
+    "city": "Hollenfels",
+    "city_zh": "Hollenfels",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71306,
+    "longitude": 6.05083
+  },
+  {
+    "city": "Hoffelt",
+    "city_zh": "Hoffelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09972,
+    "longitude": 5.92333
+  },
+  {
+    "city": "Hoesdorf",
+    "city_zh": "Hoesdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88389,
+    "longitude": 6.25806
+  },
+  {
+    "city": "Hoerchen",
+    "city_zh": "Hoerchen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56667,
+    "longitude": 5.93333
+  },
+  {
+    "city": "Héienhaff",
+    "city_zh": "Héienhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6325,
+    "longitude": 6.22083
+  },
+  {
+    "city": "Hobscheid",
+    "city_zh": "Hobscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68861,
+    "longitude": 5.91472
+  },
+  {
+    "city": "Hivange",
+    "city_zh": "Hivange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60722,
+    "longitude": 5.93222
+  },
+  {
+    "city": "Hinkel",
+    "city_zh": "Hinkel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77639,
+    "longitude": 6.51528
+  },
+  {
+    "city": "Hesperange",
+    "city_zh": "Hesperange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56806,
+    "longitude": 6.15139
+  },
+  {
+    "city": "Hersberg",
+    "city_zh": "Hersberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75629,
+    "longitude": 6.32756
+  },
+  {
+    "city": "Hierheck",
+    "city_zh": "Hierheck",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87306,
+    "longitude": 5.93111
+  },
+  {
+    "city": "Herborn",
+    "city_zh": "Herborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74167,
+    "longitude": 6.42778
+  },
+  {
+    "city": "Hemstal",
+    "city_zh": "Hemstal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73444,
+    "longitude": 6.33611
+  },
+  {
+    "city": "Helmsange",
+    "city_zh": "Helmsange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65278,
+    "longitude": 6.14139
+  },
+  {
+    "city": "Helmdange",
+    "city_zh": "Helmdange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69387,
+    "longitude": 6.14166
+  },
+  {
+    "city": "Hellange",
+    "city_zh": "Hellange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50759,
+    "longitude": 6.14978
+  },
+  {
+    "city": "Heispelt",
+    "city_zh": "Heispelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85722,
+    "longitude": 5.88056
+  },
+  {
+    "city": "Heisdorf",
+    "city_zh": "Heisdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67207,
+    "longitude": 6.14202
+  },
+  {
+    "city": "Heinerscheid",
+    "city_zh": "Heinerscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09611,
+    "longitude": 6.08806
+  },
+  {
+    "city": "Heiderscheid",
+    "city_zh": "Heiderscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88734,
+    "longitude": 5.97892
+  },
+  {
+    "city": "Heffingen",
+    "city_zh": "Heffingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76907,
+    "longitude": 6.24049
+  },
+  {
+    "city": "Heckenhof",
+    "city_zh": "Heckenhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68333,
+    "longitude": 5.93333
+  },
+  {
+    "city": "Haut-Martelange",
+    "city_zh": "Haut-Martelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.825,
+    "longitude": 5.75111
+  },
+  {
+    "city": "Hautcharage",
+    "city_zh": "Hautcharage",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57499,
+    "longitude": 5.9097
+  },
+  {
+    "city": "Hautbellain",
+    "city_zh": "Hautbellain",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.15667,
+    "longitude": 5.97861
+  },
+  {
+    "city": "Hau",
+    "city_zh": "Hau",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52083,
+    "longitude": 6.18667
+  },
+  {
+    "city": "Hassel",
+    "city_zh": "Hassel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.55019,
+    "longitude": 6.20826
+  },
+  {
+    "city": "Harlange",
+    "city_zh": "Harlange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93139,
+    "longitude": 5.79
+  },
+  {
+    "city": "Hamm",
+    "city_zh": "Hamm",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60694,
+    "longitude": 6.16861
+  },
+  {
+    "city": "Hamiville",
+    "city_zh": "Hamiville",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.04611,
+    "longitude": 5.90417
+  },
+  {
+    "city": "Haller",
+    "city_zh": "Haller",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81982,
+    "longitude": 6.28006
+  },
+  {
+    "city": "Hagen",
+    "city_zh": "Hagen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64944,
+    "longitude": 5.93167
+  },
+  {
+    "city": "Hagelsdorf",
+    "city_zh": "Hagelsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68778,
+    "longitude": 6.36556
+  },
+  {
+    "city": "Hachiville",
+    "city_zh": "Hachiville",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.10806,
+    "longitude": 5.92333
+  },
+  {
+    "city": "Grundmuhle",
+    "city_zh": "Grundmuhle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.9,
+    "longitude": 5.9
+  },
+  {
+    "city": "Grundhof",
+    "city_zh": "Grundhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.835,
+    "longitude": 6.33139
+  },
+  {
+    "city": "Grund",
+    "city_zh": "Grund",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60997,
+    "longitude": 6.13791
+  },
+  {
+    "city": "Grumelscheid",
+    "city_zh": "Grumelscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.98343,
+    "longitude": 5.87072
+  },
+  {
+    "city": "Grosbous",
+    "city_zh": "Grosbous",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82778,
+    "longitude": 5.96722
+  },
+  {
+    "city": "Gruef",
+    "city_zh": "Gruef",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88028,
+    "longitude": 6.22194
+  },
+  {
+    "city": "Grindhausen",
+    "city_zh": "Grindhausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.08333,
+    "longitude": 6.06
+  },
+  {
+    "city": "Grevenmacher",
+    "city_zh": "格雷文马赫",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67751,
+    "longitude": 6.44022
+  },
+  {
+    "city": "Grevenknapp",
+    "city_zh": "Grevenknapp",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7625,
+    "longitude": 6.03389
+  },
+  {
+    "city": "Grevelscheuer",
+    "city_zh": "Grevelscheuer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63333,
+    "longitude": 6.2
+  },
+  {
+    "city": "Grevels",
+    "city_zh": "Grevels",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85138,
+    "longitude": 5.91399
+  },
+  {
+    "city": "Grentzingen",
+    "city_zh": "Grentzingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83194,
+    "longitude": 6.09306
+  },
+  {
+    "city": "Greiveldange",
+    "city_zh": "Greiveldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58389,
+    "longitude": 6.35917
+  },
+  {
+    "city": "Greisch",
+    "city_zh": "Greisch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70972,
+    "longitude": 5.98833
+  },
+  {
+    "city": "Graulinster",
+    "city_zh": "Graulinster",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74008,
+    "longitude": 6.28757
+  },
+  {
+    "city": "Grass",
+    "city_zh": "Grass",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63083,
+    "longitude": 5.89139
+  },
+  {
+    "city": "Gralingen",
+    "city_zh": "Gralingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93694,
+    "longitude": 6.10167
+  },
+  {
+    "city": "Gostingen",
+    "city_zh": "Gostingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61917,
+    "longitude": 6.35444
+  },
+  {
+    "city": "Gosseldange",
+    "city_zh": "Gosseldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72639,
+    "longitude": 6.11694
+  },
+  {
+    "city": "Gonderange",
+    "city_zh": "Gonderange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69537,
+    "longitude": 6.24577
+  },
+  {
+    "city": "Goetzingen",
+    "city_zh": "Goetzingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66028,
+    "longitude": 5.98167
+  },
+  {
+    "city": "Goesdorf",
+    "city_zh": "Goesdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92131,
+    "longitude": 5.96601
+  },
+  {
+    "city": "Goeldt",
+    "city_zh": "Goeldt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82222,
+    "longitude": 5.85583
+  },
+  {
+    "city": "Goedange",
+    "city_zh": "Goedange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.14917,
+    "longitude": 6.01333
+  },
+  {
+    "city": "Goeblange",
+    "city_zh": "Goeblange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66972,
+    "longitude": 5.96528
+  },
+  {
+    "city": "Goebelsmuhle",
+    "city_zh": "Goebelsmuhle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92139,
+    "longitude": 6.05372
+  },
+  {
+    "city": "Godbrange",
+    "city_zh": "Godbrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73395,
+    "longitude": 6.23238
+  },
+  {
+    "city": "Givenich",
+    "city_zh": "Givenich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74222,
+    "longitude": 6.48
+  },
+  {
+    "city": "Girsterklaus",
+    "city_zh": "Girsterklaus",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77778,
+    "longitude": 6.49944
+  },
+  {
+    "city": "Girst",
+    "city_zh": "Girst",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76722,
+    "longitude": 6.49889
+  },
+  {
+    "city": "Gilsdorf",
+    "city_zh": "Gilsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86499,
+    "longitude": 6.17979
+  },
+  {
+    "city": "Geyershaff",
+    "city_zh": "Geyershaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76552,
+    "longitude": 6.38754
+  },
+  {
+    "city": "Geimer",
+    "city_zh": "Geimer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75,
+    "longitude": 6.0
+  },
+  {
+    "city": "Gasperich",
+    "city_zh": "加斯佩里希",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58556,
+    "longitude": 6.12306
+  },
+  {
+    "city": "Garnich",
+    "city_zh": "Garnich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61667,
+    "longitude": 5.9525
+  },
+  {
+    "city": "Gantenbeinmühle",
+    "city_zh": "Gantenbeinmühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6,
+    "longitude": 6.16667
+  },
+  {
+    "city": "Fronay",
+    "city_zh": "Fronay",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66667,
+    "longitude": 6.41667
+  },
+  {
+    "city": "Frisange",
+    "city_zh": "Frisange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51616,
+    "longitude": 6.18858
+  },
+  {
+    "city": "Fouhren",
+    "city_zh": "Fouhren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91556,
+    "longitude": 6.19611
+  },
+  {
+    "city": "Heischtergronn",
+    "city_zh": "Heischtergronn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90188,
+    "longitude": 5.96008
+  },
+  {
+    "city": "Folschette",
+    "city_zh": "Folschette",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81417,
+    "longitude": 5.87472
+  },
+  {
+    "city": "Folkendange",
+    "city_zh": "Folkendange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.84306,
+    "longitude": 6.20417
+  },
+  {
+    "city": "Foetz",
+    "city_zh": "Foetz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52944,
+    "longitude": 6.01083
+  },
+  {
+    "city": "Fleibur",
+    "city_zh": "Fleibur",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.89917,
+    "longitude": 5.81278
+  },
+  {
+    "city": "Flaxweiler",
+    "city_zh": "Flaxweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66602,
+    "longitude": 6.34321
+  },
+  {
+    "city": "Flatzbour",
+    "city_zh": "Flatzbour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83488,
+    "longitude": 5.78766
+  },
+  {
+    "city": "Fischbach",
+    "city_zh": "Fischbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.07528,
+    "longitude": 6.06889
+  },
+  {
+    "city": "Fischbach",
+    "city_zh": "Fischbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.746,
+    "longitude": 6.18702
+  },
+  {
+    "city": "Fënsterdall",
+    "city_zh": "Fënsterdall",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75295,
+    "longitude": 6.03583
+  },
+  {
+    "city": "Fingig",
+    "city_zh": "Fingig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60361,
+    "longitude": 5.90083
+  },
+  {
+    "city": "Findel",
+    "city_zh": "Findel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62456,
+    "longitude": 6.1756
+  },
+  {
+    "city": "Filsdorf",
+    "city_zh": "Filsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5325,
+    "longitude": 6.24833
+  },
+  {
+    "city": "Niederfeulen",
+    "city_zh": "Niederfeulen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85556,
+    "longitude": 6.04722
+  },
+  {
+    "city": "Ferme Thibesart",
+    "city_zh": "Ferme Thibesart",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81667,
+    "longitude": 6.11667
+  },
+  {
+    "city": "Ferme Grossenbour",
+    "city_zh": "Ferme Grossenbour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88333,
+    "longitude": 6.16667
+  },
+  {
+    "city": "Ferme Fuhrman",
+    "city_zh": "Ferme Fuhrman",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93333,
+    "longitude": 5.8
+  },
+  {
+    "city": "Ferme du Flamand",
+    "city_zh": "Ferme du Flamand",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.15,
+    "longitude": 6.05
+  },
+  {
+    "city": "Vesquenhaff",
+    "city_zh": "Vesquenhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51111,
+    "longitude": 5.87389
+  },
+  {
+    "city": "Roudenhaff",
+    "city_zh": "Roudenhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53111,
+    "longitude": 5.84722
+  },
+  {
+    "city": "Fentange",
+    "city_zh": "Fentange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56278,
+    "longitude": 6.15389
+  },
+  {
+    "city": "Fennbierg",
+    "city_zh": "Fennbierg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01278,
+    "longitude": 6.09139
+  },
+  {
+    "city": "Fennange",
+    "city_zh": "Fennange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51972,
+    "longitude": 6.07833
+  },
+  {
+    "city": "Everlange",
+    "city_zh": "Everlange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77417,
+    "longitude": 5.95556
+  },
+  {
+    "city": "Ettelbruck",
+    "city_zh": "Ettelbruck",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8475,
+    "longitude": 6.10417
+  },
+  {
+    "city": "Essingen",
+    "city_zh": "Essingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77889,
+    "longitude": 6.11667
+  },
+  {
+    "city": "Eselborn",
+    "city_zh": "Eselborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.06278,
+    "longitude": 6.00361
+  },
+  {
+    "city": "Eschweiler",
+    "city_zh": "Eschweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71749,
+    "longitude": 6.31016
+  },
+  {
+    "city": "Eschweiler",
+    "city_zh": "Eschweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.99778,
+    "longitude": 5.94889
+  },
+  {
+    "city": "Esch-sur-Sûre",
+    "city_zh": "Esch-sur-Sûre",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91139,
+    "longitude": 5.93639
+  },
+  {
+    "city": "Esch-sur-Alzette",
+    "city_zh": "阿尔泽特河畔埃施",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49583,
+    "longitude": 5.98056
+  },
+  {
+    "city": "Eschette",
+    "city_zh": "Eschette",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82306,
+    "longitude": 5.88833
+  },
+  {
+    "city": "Eschdorf",
+    "city_zh": "Eschdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8859,
+    "longitude": 5.93421
+  },
+  {
+    "city": "Ersange",
+    "city_zh": "Ersange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57444,
+    "longitude": 6.27556
+  },
+  {
+    "city": "Erpeldange",
+    "city_zh": "Erpeldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86472,
+    "longitude": 6.11472
+  },
+  {
+    "city": "Erpeldange",
+    "city_zh": "Erpeldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54444,
+    "longitude": 6.3275
+  },
+  {
+    "city": "Erpeldange",
+    "city_zh": "Erpeldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97806,
+    "longitude": 5.94861
+  },
+  {
+    "city": "Ernzen",
+    "city_zh": "Ernzen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77253,
+    "longitude": 6.22118
+  },
+  {
+    "city": "Ernster",
+    "city_zh": "Ernster",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.67901,
+    "longitude": 6.24822
+  },
+  {
+    "city": "Ermsdorf",
+    "city_zh": "Ermsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82944,
+    "longitude": 6.22278
+  },
+  {
+    "city": "Eppeldorf",
+    "city_zh": "Eppeldorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.84444,
+    "longitude": 6.24972
+  },
+  {
+    "city": "Enscherange",
+    "city_zh": "Enscherange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.99944,
+    "longitude": 5.99278
+  },
+  {
+    "city": "Emerange",
+    "city_zh": "Emerange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48694,
+    "longitude": 6.29167
+  },
+  {
+    "city": "Elvange",
+    "city_zh": "Elvange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72472,
+    "longitude": 5.91778
+  },
+  {
+    "city": "Elvange",
+    "city_zh": "Elvange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50528,
+    "longitude": 6.31639
+  },
+  {
+    "city": "Eltz",
+    "city_zh": "Eltz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77833,
+    "longitude": 5.895
+  },
+  {
+    "city": "Ellange",
+    "city_zh": "Ellange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52,
+    "longitude": 6.29833
+  },
+  {
+    "city": "Ell",
+    "city_zh": "Ell",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76389,
+    "longitude": 5.85722
+  },
+  {
+    "city": "Eisenborn",
+    "city_zh": "Eisenborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69138,
+    "longitude": 6.18363
+  },
+  {
+    "city": "Eischen",
+    "city_zh": "Eischen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68556,
+    "longitude": 5.87861
+  },
+  {
+    "city": "Eich",
+    "city_zh": "Eich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62889,
+    "longitude": 6.13194
+  },
+  {
+    "city": "Ehner",
+    "city_zh": "Ehner",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7175,
+    "longitude": 5.95
+  },
+  {
+    "city": "Ehnen",
+    "city_zh": "Ehnen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60155,
+    "longitude": 6.38664
+  },
+  {
+    "city": "Éimeschbaach",
+    "city_zh": "Éimeschbaach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09361,
+    "longitude": 5.95667
+  },
+  {
+    "city": "Ehlerange",
+    "city_zh": "Ehlerange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52417,
+    "longitude": 5.96611
+  },
+  {
+    "city": "Ehlange",
+    "city_zh": "Ehlange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54889,
+    "longitude": 6.01694
+  },
+  {
+    "city": "Echternach",
+    "city_zh": "Echternach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81212,
+    "longitude": 6.41846
+  },
+  {
+    "city": "Dudelange",
+    "city_zh": "Dudelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48056,
+    "longitude": 6.0875
+  },
+  {
+    "city": "Drinklange",
+    "city_zh": "Drinklange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.13361,
+    "longitude": 6.01917
+  },
+  {
+    "city": "Dreiborn",
+    "city_zh": "Dreiborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61722,
+    "longitude": 6.39389
+  },
+  {
+    "city": "Drauffelt",
+    "city_zh": "Drauffelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01778,
+    "longitude": 6.00611
+  },
+  {
+    "city": "Dorscheiderhaischen",
+    "city_zh": "Dorscheiderhaischen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.03917,
+    "longitude": 6.07972
+  },
+  {
+    "city": "Dorscheid",
+    "city_zh": "Dorscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.03611,
+    "longitude": 6.07139
+  },
+  {
+    "city": "Doennange",
+    "city_zh": "Doennange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.06222,
+    "longitude": 5.95583
+  },
+  {
+    "city": "Doncols",
+    "city_zh": "Doncols",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97,
+    "longitude": 5.83722
+  },
+  {
+    "city": "Dommeldange",
+    "city_zh": "Dommeldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.63411,
+    "longitude": 6.13864
+  },
+  {
+    "city": "Dirbach",
+    "city_zh": "Dirbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92111,
+    "longitude": 6.03833
+  },
+  {
+    "city": "Dippach",
+    "city_zh": "Dippach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58701,
+    "longitude": 5.9833
+  },
+  {
+    "city": "Dillingen",
+    "city_zh": "Dillingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85361,
+    "longitude": 6.31917
+  },
+  {
+    "city": "Diggel",
+    "city_zh": "Diggel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72611,
+    "longitude": 5.84111
+  },
+  {
+    "city": "Differdange",
+    "city_zh": "迪弗當日",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52417,
+    "longitude": 5.89139
+  },
+  {
+    "city": "Diekirch",
+    "city_zh": "迪基希",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86778,
+    "longitude": 6.15583
+  },
+  {
+    "city": "Dickweiler",
+    "city_zh": "Dickweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7775,
+    "longitude": 6.47222
+  },
+  {
+    "city": "Derenbach",
+    "city_zh": "Derenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.015,
+    "longitude": 5.88972
+  },
+  {
+    "city": "Dellen",
+    "city_zh": "Dellen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85917,
+    "longitude": 5.96139
+  },
+  {
+    "city": "Deiffelt",
+    "city_zh": "Deiffelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.06556,
+    "longitude": 5.96389
+  },
+  {
+    "city": "Daundorf",
+    "city_zh": "Daundorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5075,
+    "longitude": 6.2875
+  },
+  {
+    "city": "Dalheim",
+    "city_zh": "Dalheim",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54083,
+    "longitude": 6.25972
+  },
+  {
+    "city": "Dahlem",
+    "city_zh": "Dahlem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60222,
+    "longitude": 5.94833
+  },
+  {
+    "city": "Dahl",
+    "city_zh": "Dahl",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93528,
+    "longitude": 5.97583
+  },
+  {
+    "city": "Cruchten",
+    "city_zh": "Cruchten",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79908,
+    "longitude": 6.13235
+  },
+  {
+    "city": "Crendal",
+    "city_zh": "Crendal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05778,
+    "longitude": 5.89806
+  },
+  {
+    "city": "Crauthem",
+    "city_zh": "Crauthem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53556,
+    "longitude": 6.14694
+  },
+  {
+    "city": "Contern",
+    "city_zh": "Contern",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58194,
+    "longitude": 6.22667
+  },
+  {
+    "city": "Consthum",
+    "city_zh": "Consthum",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97472,
+    "longitude": 6.05417
+  },
+  {
+    "city": "Consdorf",
+    "city_zh": "Consdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78018,
+    "longitude": 6.3395
+  },
+  {
+    "city": "Colpach-Haut",
+    "city_zh": "Colpach-Haut",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76861,
+    "longitude": 5.82
+  },
+  {
+    "city": "Colpach-Bas",
+    "city_zh": "Colpach-Bas",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75833,
+    "longitude": 5.82694
+  },
+  {
+    "city": "Colmar",
+    "city_zh": "Colmar",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81028,
+    "longitude": 6.09722
+  },
+  {
+    "city": "Colbette",
+    "city_zh": "Colbette",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76843,
+    "longitude": 6.30285
+  },
+  {
+    "city": "Clervaux",
+    "city_zh": "Clervaux",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05472,
+    "longitude": 6.03139
+  },
+  {
+    "city": "Clemency",
+    "city_zh": "Clemency",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.59667,
+    "longitude": 5.87583
+  },
+  {
+    "city": "Clausen",
+    "city_zh": "Clausen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61313,
+    "longitude": 6.14278
+  },
+  {
+    "city": "Clairefontaine",
+    "city_zh": "Clairefontaine",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86667,
+    "longitude": 6.18333
+  },
+  {
+    "city": "Cinqfontaines",
+    "city_zh": "Cinqfontaines",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.10722,
+    "longitude": 6.00778
+  },
+  {
+    "city": "Christnach",
+    "city_zh": "Christnach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78805,
+    "longitude": 6.27337
+  },
+  {
+    "city": "Château Faubourg",
+    "city_zh": "Château Faubourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93333,
+    "longitude": 6.21667
+  },
+  {
+    "city": "Cessange",
+    "city_zh": "Cessange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58944,
+    "longitude": 6.10694
+  },
+  {
+    "city": "Capellen",
+    "city_zh": "Capellen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.645,
+    "longitude": 5.99083
+  },
+  {
+    "city": "Cap",
+    "city_zh": "Cap",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64444,
+    "longitude": 5.98444
+  },
+  {
+    "city": "Canach",
+    "city_zh": "Canach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60694,
+    "longitude": 6.32583
+  },
+  {
+    "city": "Calmus",
+    "city_zh": "Calmus",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72556,
+    "longitude": 5.96444
+  },
+  {
+    "city": "Buschrodt",
+    "city_zh": "Buschrodt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82722,
+    "longitude": 5.93583
+  },
+  {
+    "city": "Buschdorf",
+    "city_zh": "Buschdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75083,
+    "longitude": 6.00833
+  },
+  {
+    "city": "Burmerange",
+    "city_zh": "Burmerange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48528,
+    "longitude": 6.32306
+  },
+  {
+    "city": "Buurgfried",
+    "city_zh": "Buurgfried",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90083,
+    "longitude": 5.85861
+  },
+  {
+    "city": "Burden",
+    "city_zh": "Burden",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87987,
+    "longitude": 6.08943
+  },
+  {
+    "city": "Burange",
+    "city_zh": "Burange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49111,
+    "longitude": 6.0925
+  },
+  {
+    "city": "Buderscheid",
+    "city_zh": "Buderscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.93426,
+    "longitude": 5.93815
+  },
+  {
+    "city": "Budersberg",
+    "city_zh": "Budersberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49278,
+    "longitude": 6.06944
+  },
+  {
+    "city": "Buchholz",
+    "city_zh": "Buchholz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65833,
+    "longitude": 6.36472
+  },
+  {
+    "city": "Brill",
+    "city_zh": "Brill",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.98167,
+    "longitude": 5.90611
+  },
+  {
+    "city": "Brouch",
+    "city_zh": "Brouch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7289,
+    "longitude": 6.33838
+  },
+  {
+    "city": "Brouch",
+    "city_zh": "Brouch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73611,
+    "longitude": 6.02306
+  },
+  {
+    "city": "Broderbour",
+    "city_zh": "Broderbour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85306,
+    "longitude": 6.18722
+  },
+  {
+    "city": "Bridel",
+    "city_zh": "Bridel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65579,
+    "longitude": 6.07999
+  },
+  {
+    "city": "Breinert",
+    "city_zh": "Breinert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7119,
+    "longitude": 6.3422
+  },
+  {
+    "city": "Breidweiler",
+    "city_zh": "Breidweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77766,
+    "longitude": 6.30332
+  },
+  {
+    "city": "Breidfeld",
+    "city_zh": "Breidfeld",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.12417,
+    "longitude": 6.06361
+  },
+  {
+    "city": "Brattert",
+    "city_zh": "Brattert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85556,
+    "longitude": 5.90361
+  },
+  {
+    "city": "Brandenbourg",
+    "city_zh": "Brandenbourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91141,
+    "longitude": 6.1384
+  },
+  {
+    "city": "Brameschhaff",
+    "city_zh": "Brameschhaff",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65667,
+    "longitude": 6.04972
+  },
+  {
+    "city": "Brachtenbach",
+    "city_zh": "Brachtenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.02139,
+    "longitude": 5.91139
+  },
+  {
+    "city": "Boxhorn",
+    "city_zh": "Boxhorn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.08389,
+    "longitude": 5.9925
+  },
+  {
+    "city": "Bous",
+    "city_zh": "Bous",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.55389,
+    "longitude": 6.32917
+  },
+  {
+    "city": "Boursdorf",
+    "city_zh": "Boursdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75806,
+    "longitude": 6.47861
+  },
+  {
+    "city": "Bourscheid",
+    "city_zh": "Bourscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90862,
+    "longitude": 6.0675
+  },
+  {
+    "city": "Bourglinster",
+    "city_zh": "Bourglinster",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70306,
+    "longitude": 6.21725
+  },
+  {
+    "city": "Bour",
+    "city_zh": "Bour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70139,
+    "longitude": 6.01889
+  },
+  {
+    "city": "Boulaide",
+    "city_zh": "Boulaide",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.88778,
+    "longitude": 5.81639
+  },
+  {
+    "city": "Boudler",
+    "city_zh": "Boudler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72276,
+    "longitude": 6.35454
+  },
+  {
+    "city": "Born",
+    "city_zh": "Born",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75928,
+    "longitude": 6.51227
+  },
+  {
+    "city": "Bonnevoie",
+    "city_zh": "Bonnevoie",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.59444,
+    "longitude": 6.15
+  },
+  {
+    "city": "Bonnal",
+    "city_zh": "Bonnal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90361,
+    "longitude": 5.88806
+  },
+  {
+    "city": "Bombatsch",
+    "city_zh": "Bombatsch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.05833,
+    "longitude": 6.06639
+  },
+  {
+    "city": "Bohey",
+    "city_zh": "Bohey",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97417,
+    "longitude": 5.84389
+  },
+  {
+    "city": "Bofferdange",
+    "city_zh": "波弗丹格",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69062,
+    "longitude": 6.13998
+  },
+  {
+    "city": "Boevange-sur-Attert",
+    "city_zh": "Boevange-sur-Attert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.77256,
+    "longitude": 6.01532
+  },
+  {
+    "city": "Boevange",
+    "city_zh": "Boevange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.04639,
+    "longitude": 5.93417
+  },
+  {
+    "city": "Bockholtz",
+    "city_zh": "Bockholtz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.01222,
+    "longitude": 6.05278
+  },
+  {
+    "city": "Bockholtz",
+    "city_zh": "Bockholtz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92333,
+    "longitude": 5.9975
+  },
+  {
+    "city": "Blumenthal",
+    "city_zh": "Blumenthal",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74492,
+    "longitude": 6.26564
+  },
+  {
+    "city": "Blaschette",
+    "city_zh": "Blaschette",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70279,
+    "longitude": 6.16876
+  },
+  {
+    "city": "Biwisch",
+    "city_zh": "Biwisch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.11806,
+    "longitude": 5.97917
+  },
+  {
+    "city": "Biwer",
+    "city_zh": "Biwer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70605,
+    "longitude": 6.37201
+  },
+  {
+    "city": "Bivels",
+    "city_zh": "Bivels",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.96028,
+    "longitude": 6.19222
+  },
+  {
+    "city": "Bissen",
+    "city_zh": "Bissen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.78733,
+    "longitude": 6.0654
+  },
+  {
+    "city": "Bischenrech",
+    "city_zh": "Bischenrech",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.08333,
+    "longitude": 6.0
+  },
+  {
+    "city": "Birtrange",
+    "city_zh": "Birtrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82694,
+    "longitude": 6.09139
+  },
+  {
+    "city": "Birel",
+    "city_zh": "Birel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61667,
+    "longitude": 6.21667
+  },
+  {
+    "city": "Bivange",
+    "city_zh": "Bivange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54444,
+    "longitude": 6.13778
+  },
+  {
+    "city": "Binsfeld",
+    "city_zh": "Binsfeld",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.11889,
+    "longitude": 6.03861
+  },
+  {
+    "city": "Bilsdorf",
+    "city_zh": "Bilsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8575,
+    "longitude": 5.825
+  },
+  {
+    "city": "Béil",
+    "city_zh": "Béil",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75917,
+    "longitude": 6.23972
+  },
+  {
+    "city": "Bigonville",
+    "city_zh": "Bigonville",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.85167,
+    "longitude": 5.79333
+  },
+  {
+    "city": "Bigelbach",
+    "city_zh": "Bigelbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86028,
+    "longitude": 6.28806
+  },
+  {
+    "city": "Beyren",
+    "city_zh": "Beyren",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62639,
+    "longitude": 6.33694
+  },
+  {
+    "city": "Betzdorf",
+    "city_zh": "Betzdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68333,
+    "longitude": 6.35
+  },
+  {
+    "city": "Bettendorf",
+    "city_zh": "Bettendorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87667,
+    "longitude": 6.21806
+  },
+  {
+    "city": "Bettembourg",
+    "city_zh": "Bettembourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51861,
+    "longitude": 6.10278
+  },
+  {
+    "city": "Bettel",
+    "city_zh": "Bettel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91575,
+    "longitude": 6.22693
+  },
+  {
+    "city": "Bettborn",
+    "city_zh": "Bettborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.79528,
+    "longitude": 5.94111
+  },
+  {
+    "city": "Bettange-sur-Mess",
+    "city_zh": "Bettange-sur-Mess",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.57583,
+    "longitude": 5.98389
+  },
+  {
+    "city": "Bertrange",
+    "city_zh": "Bertrange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61111,
+    "longitude": 6.05
+  },
+  {
+    "city": "Berschbach",
+    "city_zh": "Berschbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.74389,
+    "longitude": 6.115
+  },
+  {
+    "city": "Berlé",
+    "city_zh": "Berlé",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.95222,
+    "longitude": 5.85611
+  },
+  {
+    "city": "Beringen",
+    "city_zh": "Beringen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75833,
+    "longitude": 6.11694
+  },
+  {
+    "city": "Berg",
+    "city_zh": "Berg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.68342,
+    "longitude": 6.35776
+  },
+  {
+    "city": "Bergem",
+    "city_zh": "Bergem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.525,
+    "longitude": 6.04222
+  },
+  {
+    "city": "Berg",
+    "city_zh": "Berg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81361,
+    "longitude": 6.08917
+  },
+  {
+    "city": "Berens",
+    "city_zh": "Berens",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.84361,
+    "longitude": 6.26806
+  },
+  {
+    "city": "Béreldange",
+    "city_zh": "Béreldange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.65507,
+    "longitude": 6.11874
+  },
+  {
+    "city": "Berdorf",
+    "city_zh": "Berdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.82051,
+    "longitude": 6.34945
+  },
+  {
+    "city": "Berchem",
+    "city_zh": "Berchem",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.54028,
+    "longitude": 6.12917
+  },
+  {
+    "city": "Berbourg",
+    "city_zh": "Berbourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7306,
+    "longitude": 6.39355
+  },
+  {
+    "city": "Belvaux",
+    "city_zh": "Belvaux",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51014,
+    "longitude": 5.92414
+  },
+  {
+    "city": "Belval",
+    "city_zh": "Belval",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51028,
+    "longitude": 5.94361
+  },
+  {
+    "city": "Beiler",
+    "city_zh": "Beiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.16556,
+    "longitude": 6.08889
+  },
+  {
+    "city": "Beidweiler",
+    "city_zh": "Beidweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.72333,
+    "longitude": 6.3025
+  },
+  {
+    "city": "Beggen",
+    "city_zh": "Beggen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64506,
+    "longitude": 6.12932
+  },
+  {
+    "city": "Beckerich",
+    "city_zh": "Beckerich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.73114,
+    "longitude": 5.88241
+  },
+  {
+    "city": "Bech",
+    "city_zh": "Bech",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7526,
+    "longitude": 6.36379
+  },
+  {
+    "city": "Bech-Kleinmacher",
+    "city_zh": "Bech-Kleinmacher",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52806,
+    "longitude": 6.35389
+  },
+  {
+    "city": "Beaufort",
+    "city_zh": "Beaufort",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83583,
+    "longitude": 6.29167
+  },
+  {
+    "city": "Bavigne",
+    "city_zh": "Bavigne",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92194,
+    "longitude": 5.84944
+  },
+  {
+    "city": "Bastendorf",
+    "city_zh": "Bastendorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.89194,
+    "longitude": 6.16528
+  },
+  {
+    "city": "Baschleiden",
+    "city_zh": "Baschleiden",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.89833,
+    "longitude": 5.82028
+  },
+  {
+    "city": "Bascharage",
+    "city_zh": "Bascharage",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.56727,
+    "longitude": 5.9073
+  },
+  {
+    "city": "Basbellain",
+    "city_zh": "Basbellain",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.14583,
+    "longitude": 5.98389
+  },
+  {
+    "city": "Troine-Route",
+    "city_zh": "Troine-Route",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.04611,
+    "longitude": 5.87806
+  },
+  {
+    "city": "Banzelt",
+    "city_zh": "Banzelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.66833,
+    "longitude": 6.33028
+  },
+  {
+    "city": "Asselborn",
+    "city_zh": "Asselborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09722,
+    "longitude": 5.97306
+  },
+  {
+    "city": "Asselborn",
+    "city_zh": "Asselborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.9,
+    "longitude": 6.05
+  },
+  {
+    "city": "Assel",
+    "city_zh": "Assel",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.55278,
+    "longitude": 6.31583
+  },
+  {
+    "city": "Aspelt",
+    "city_zh": "Aspelt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.52278,
+    "longitude": 6.22472
+  },
+  {
+    "city": "Arsdorf",
+    "city_zh": "Arsdorf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.86139,
+    "longitude": 5.84389
+  },
+  {
+    "city": "Ansembourg",
+    "city_zh": "Ansembourg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7025,
+    "longitude": 6.04333
+  },
+  {
+    "city": "Angelsberg",
+    "city_zh": "Angelsberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75639,
+    "longitude": 6.16083
+  },
+  {
+    "city": "Amberg",
+    "city_zh": "Amberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.76667,
+    "longitude": 5.86667
+  },
+  {
+    "city": "Alzingen",
+    "city_zh": "Alzingen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.565,
+    "longitude": 6.16361
+  },
+  {
+    "city": "Altwies",
+    "city_zh": "Altwies",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51056,
+    "longitude": 6.25722
+  },
+  {
+    "city": "Altrier",
+    "city_zh": "Altrier",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75009,
+    "longitude": 6.32656
+  },
+  {
+    "city": "Altlinster",
+    "city_zh": "Altlinster",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.71556,
+    "longitude": 6.21667
+  },
+  {
+    "city": "Alscheid",
+    "city_zh": "Alscheid",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.97111,
+    "longitude": 6.00972
+  },
+  {
+    "city": "Allerborn",
+    "city_zh": "Allerborn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.03667,
+    "longitude": 5.87083
+  },
+  {
+    "city": "Ahn",
+    "city_zh": "Ahn",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.62444,
+    "longitude": 6.42167
+  },
+  {
+    "city": "Aciérie",
+    "city_zh": "Aciérie",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53333,
+    "longitude": 5.9
+  },
+  {
+    "city": "Abweiler",
+    "city_zh": "Abweiler",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53361,
+    "longitude": 6.08083
+  },
+  {
+    "city": "Woulkeschdall",
+    "city_zh": "Woulkeschdall",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48472,
+    "longitude": 6.09778
+  },
+  {
+    "city": "Bech-Kleinmacher",
+    "city_zh": "Bech-Kleinmacher",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.53083,
+    "longitude": 6.355
+  },
+  {
+    "city": "Dunkrodt",
+    "city_zh": "Dunkrodt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.92306,
+    "longitude": 5.87861
+  },
+  {
+    "city": "Wallendorf-Pont",
+    "city_zh": "Wallendorf-Pont",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.8739,
+    "longitude": 6.28674
+  },
+  {
+    "city": "Senningerberg",
+    "city_zh": "Senningerberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64907,
+    "longitude": 6.22607
+  },
+  {
+    "city": "Bollendorf-Pont",
+    "city_zh": "Bollendorf-Pont",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.84847,
+    "longitude": 6.35787
+  },
+  {
+    "city": "Dasbourg-Pont",
+    "city_zh": "Dasbourg-Pont",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.04922,
+    "longitude": 6.12588
+  },
+  {
+    "city": "Howald",
+    "city_zh": "Howald",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.58387,
+    "longitude": 6.14277
+  },
+  {
+    "city": "Maulusmühle",
+    "city_zh": "Maulusmühle",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09619,
+    "longitude": 6.02823
+  },
+  {
+    "city": "Eisenbach",
+    "city_zh": "Eisenbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.00128,
+    "longitude": 6.14166
+  },
+  {
+    "city": "Flebour",
+    "city_zh": "Flebour",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91006,
+    "longitude": 6.10788
+  },
+  {
+    "city": "Schiltzberg",
+    "city_zh": "Schiltzberg",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7384,
+    "longitude": 6.22154
+  },
+  {
+    "city": "Kalkesbach",
+    "city_zh": "Kalkesbach",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.80143,
+    "longitude": 6.35379
+  },
+  {
+    "city": "Wormeldange-Haut",
+    "city_zh": "Wormeldange-Haut",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60983,
+    "longitude": 6.39999
+  },
+  {
+    "city": "Windhof",
+    "city_zh": "Windhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.64635,
+    "longitude": 5.95755
+  },
+  {
+    "city": "Asselscheuer",
+    "city_zh": "Asselscheuer",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69192,
+    "longitude": 6.17478
+  },
+  {
+    "city": "Weydig",
+    "city_zh": "Weydig",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.7165,
+    "longitude": 6.3303
+  },
+  {
+    "city": "Simmerfarm",
+    "city_zh": "Simmerfarm",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69326,
+    "longitude": 5.98566
+  },
+  {
+    "city": "Bourscheid-Moulin",
+    "city_zh": "Bourscheid-Moulin",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.91108,
+    "longitude": 6.08746
+  },
+  {
+    "city": "Simmerschmelz",
+    "city_zh": "Simmerschmelz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69745,
+    "longitude": 5.98982
+  },
+  {
+    "city": "Dondelange",
+    "city_zh": "Dondelange",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.69001,
+    "longitude": 6.03051
+  },
+  {
+    "city": "Wecker-Gare",
+    "city_zh": "Wecker-Gare",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.70125,
+    "longitude": 6.38688
+  },
+  {
+    "city": "Riesenhof",
+    "city_zh": "Riesenhof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83914,
+    "longitude": 5.81481
+  },
+  {
+    "city": "Bigonville-Poteau",
+    "city_zh": "Bigonville-Poteau",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.83818,
+    "longitude": 5.78306
+  },
+  {
+    "city": "Nocher-Route",
+    "city_zh": "Nocher-Route",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.94815,
+    "longitude": 5.96021
+  },
+  {
+    "city": "Bourscheid-Plage",
+    "city_zh": "Bourscheid-Plage",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.90879,
+    "longitude": 6.08087
+  },
+  {
+    "city": "Colmar-Pont",
+    "city_zh": "Colmar-Pont",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.81489,
+    "longitude": 6.10286
+  },
+  {
+    "city": "Kaesfurt",
+    "city_zh": "Kaesfurt",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 50.09253,
+    "longitude": 6.07325
+  },
+  {
+    "city": "Lilien",
+    "city_zh": "Lilien",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.75405,
+    "longitude": 6.3956
+  },
+  {
+    "city": "Fuussekaul",
+    "city_zh": "Fuussekaul",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87775,
+    "longitude": 5.99092
+  },
+  {
+    "city": "Niederfeulen",
+    "city_zh": "Niederfeulen",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.87235,
+    "longitude": 5.99785
+  },
+  {
+    "city": "Rollingergrund-Belair-Nord",
+    "city_zh": "Rollingergrund-Belair-Nord",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6332,
+    "longitude": 6.09291
+  },
+  {
+    "city": "Ville Haute",
+    "city_zh": "Ville Haute",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61173,
+    "longitude": 6.12648
+  },
+  {
+    "city": "Neudorf-Weimershof",
+    "city_zh": "Neudorf-Weimershof",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6256,
+    "longitude": 6.16926
+  },
+  {
+    "city": "Belair",
+    "city_zh": "Belair",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.6116,
+    "longitude": 6.10682
+  },
+  {
+    "city": "Gare",
+    "city_zh": "Gare",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60175,
+    "longitude": 6.12971
+  },
+  {
+    "city": "Bonnevoie-Sud",
+    "city_zh": "Bonnevoie-Sud",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.59679,
+    "longitude": 6.14719
+  },
+  {
+    "city": "Bonnevoie-Nord-Verlorenkost",
+    "city_zh": "Bonnevoie-Nord-Verlorenkost",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.60431,
+    "longitude": 6.14187
+  },
+  {
+    "city": "Cents",
+    "city_zh": "Cents",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.61707,
+    "longitude": 6.16413
+  },
+  {
+    "city": "Grenz",
+    "city_zh": "Grenz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.47387,
+    "longitude": 5.98118
+  },
+  {
+    "city": "Park",
+    "city_zh": "Park",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48505,
+    "longitude": 5.9867
+  },
+  {
+    "city": "Uecht",
+    "city_zh": "Uecht",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49682,
+    "longitude": 5.9745
+  },
+  {
+    "city": "Lankelz",
+    "city_zh": "Lankelz",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50969,
+    "longitude": 5.983
+  },
+  {
+    "city": "Al-Esch",
+    "city_zh": "Al-Esch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49605,
+    "longitude": 5.98391
+  },
+  {
+    "city": "Universitéit",
+    "city_zh": "Universitéit",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50439,
+    "longitude": 5.94975
+  },
+  {
+    "city": "Neiduerf",
+    "city_zh": "Neiduerf",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.48699,
+    "longitude": 5.99662
+  },
+  {
+    "city": "Raemerich",
+    "city_zh": "Raemerich",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5101,
+    "longitude": 5.95237
+  },
+  {
+    "city": "Zaepert",
+    "city_zh": "Zaepert",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.5094,
+    "longitude": 5.97288
+  },
+  {
+    "city": "Belval",
+    "city_zh": "Belval",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49828,
+    "longitude": 5.95967
+  },
+  {
+    "city": "Wobrecken",
+    "city_zh": "Wobrecken",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50393,
+    "longitude": 5.9798
+  },
+  {
+    "city": "Fettmeth",
+    "city_zh": "Fettmeth",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50474,
+    "longitude": 5.97315
+  },
+  {
+    "city": "Bruch",
+    "city_zh": "Bruch",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50324,
+    "longitude": 5.96729
+  },
+  {
+    "city": "Dellhéicht",
+    "city_zh": "Dellhéicht",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50132,
+    "longitude": 5.98315
+  },
+  {
+    "city": "Brill",
+    "city_zh": "Brill",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.49263,
+    "longitude": 5.9783
+  },
+  {
+    "city": "Schlassgoard",
+    "city_zh": "Schlassgoard",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50339,
+    "longitude": 5.99246
+  },
+  {
+    "city": "Lalleng",
+    "city_zh": "Lalleng",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.51187,
+    "longitude": 5.99391
+  },
+  {
+    "city": "Sommet",
+    "city_zh": "Sommet",
+    "country": "Luxembourg",
+    "country_zh": "盧森堡",
+    "country_iso_code": "LU",
+    "timezone": "Europe/Luxembourg",
+    "latitude": 49.50971,
+    "longitude": 5.96358
+  }
+]

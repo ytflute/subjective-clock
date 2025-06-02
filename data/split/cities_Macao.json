@@ -1,0 +1,72 @@
+[
+  {
+    "city": "Taipa",
+    "city_zh": "氹仔",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.15583,
+    "longitude": 113.55694
+  },
+  {
+    "city": "Macau",
+    "city_zh": "澳门",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.20056,
+    "longitude": 113.54611
+  },
+  {
+    "city": "Lai Chi Van",
+    "city_zh": "荔枝碗",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.11972,
+    "longitude": 113.55111
+  },
+  {
+    "city": "Heisha",
+    "city_zh": "黑沙",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.11917,
+    "longitude": 113.56778
+  },
+  {
+    "city": "Luhuan",
+    "city_zh": "Luhuan",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.11806,
+    "longitude": 113.55194
+  },
+  {
+    "city": "Zhuojiacun",
+    "city_zh": "卓家村",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.16139,
+    "longitude": 113.55639
+  },
+  {
+    "city": "Jiu’ao",
+    "city_zh": "九澳",
+    "country": "Macao",
+    "country_zh": "Macao",
+    "country_iso_code": "MO",
+    "timezone": "Asia/Macau",
+    "latitude": 22.13306,
+    "longitude": 113.58139
+  }
+]
