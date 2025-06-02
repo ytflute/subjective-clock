@@ -1,0 +1,3542 @@
+[
+  {
+    "city": "Zonicles",
+    "city_zh": "Zonicles",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.15357,
+    "longitude": -75.36243
+  },
+  {
+    "city": "Zion Hill",
+    "city_zh": "Zion Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.61667,
+    "longitude": -75.65
+  },
+  {
+    "city": "Yamacraw Beach Estate",
+    "city_zh": "Yamacraw Beach Estate",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.28333
+  },
+  {
+    "city": "Wood Cay",
+    "city_zh": "Wood Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.9,
+    "longitude": -77.73333
+  },
+  {
+    "city": "Winton Meadows",
+    "city_zh": "Winton Meadows",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.26667
+  },
+  {
+    "city": "Winton Heights",
+    "city_zh": "Winton Heights",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.26667
+  },
+  {
+    "city": "Winton",
+    "city_zh": "Winton",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.28333
+  },
+  {
+    "city": "Wilson City",
+    "city_zh": "Wilson City",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.36667,
+    "longitude": -77.03333
+  },
+  {
+    "city": "Williams Town",
+    "city_zh": "Williams Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.48333,
+    "longitude": -78.66667
+  },
+  {
+    "city": "William’s Town",
+    "city_zh": "William’s Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.42595,
+    "longitude": -75.55892
+  },
+  {
+    "city": "Whitehouse",
+    "city_zh": "Whitehouse",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.4,
+    "longitude": -75.16667
+  },
+  {
+    "city": "West End",
+    "city_zh": "West End",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.68711,
+    "longitude": -78.97702
+  },
+  {
+    "city": "Wemyss Bight",
+    "city_zh": "Wemyss Bight",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.75,
+    "longitude": -76.25
+  },
+  {
+    "city": "Wemyss Bight",
+    "city_zh": "Wemyss Bight",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.70855,
+    "longitude": -76.21323
+  },
+  {
+    "city": "Wemyss",
+    "city_zh": "Wemyss",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.41667,
+    "longitude": -75.18333
+  },
+  {
+    "city": "Waterloo",
+    "city_zh": "Waterloo",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.53333
+  },
+  {
+    "city": "Waterford",
+    "city_zh": "Waterford",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.75,
+    "longitude": -76.23333
+  },
+  {
+    "city": "Water Cay",
+    "city_zh": "Water Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.75,
+    "longitude": -78.5
+  },
+  {
+    "city": "Vincent Town",
+    "city_zh": "Vincent Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.66667,
+    "longitude": -78.95
+  },
+  {
+    "city": "Victoria Village",
+    "city_zh": "Victoria Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.08333,
+    "longitude": -74.95
+  },
+  {
+    "city": "Victoria Hill",
+    "city_zh": "Victoria Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.0935,
+    "longitude": -74.52338
+  },
+  {
+    "city": "Victoria Hill",
+    "city_zh": "Victoria Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.03333,
+    "longitude": -74.46667
+  },
+  {
+    "city": "Upper Bogue",
+    "city_zh": "Upper Bogue",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.45,
+    "longitude": -76.66667
+  },
+  {
+    "city": "United Estates",
+    "city_zh": "United Estates",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.1,
+    "longitude": -74.45
+  },
+  {
+    "city": "Twin Lakes",
+    "city_zh": "Twin Lakes",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.7258,
+    "longitude": -77.99798
+  },
+  {
+    "city": "Tusculum",
+    "city_zh": "Tusculum",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.48333
+  },
+  {
+    "city": "Turnbull",
+    "city_zh": "Turnbull",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.08333,
+    "longitude": -75.01667
+  },
+  {
+    "city": "True Blue",
+    "city_zh": "True Blue",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.06667,
+    "longitude": -74.06667
+  },
+  {
+    "city": "Trial Farm",
+    "city_zh": "Trial Farm",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.96667,
+    "longitude": -74.48333
+  },
+  {
+    "city": "Thurston Hill",
+    "city_zh": "Thurston Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.53333,
+    "longitude": -75.63333
+  },
+  {
+    "city": "Thomas Town",
+    "city_zh": "Thomas Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.65,
+    "longitude": -78.96667
+  },
+  {
+    "city": "The Village",
+    "city_zh": "The Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.25,
+    "longitude": -75.4
+  },
+  {
+    "city": "The Lot",
+    "city_zh": "The Lot",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.63333,
+    "longitude": -75.68333
+  },
+  {
+    "city": "The Ferry Settlement",
+    "city_zh": "The Ferry Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.45,
+    "longitude": -75.56667
+  },
+  {
+    "city": "The Bluff",
+    "city_zh": "The Bluff",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.49907,
+    "longitude": -76.72337
+  },
+  {
+    "city": "The Bluff",
+    "city_zh": "The Bluff",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.11667,
+    "longitude": -77.55
+  },
+  {
+    "city": "The Bight",
+    "city_zh": "The Bight",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.3,
+    "longitude": -77.55
+  },
+  {
+    "city": "The Bight",
+    "city_zh": "The Bight",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.28961,
+    "longitude": -75.41522
+  },
+  {
+    "city": "Tea Bay",
+    "city_zh": "Tea Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.4,
+    "longitude": -75.51667
+  },
+  {
+    "city": "Tatnall",
+    "city_zh": "Tatnall",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.48333,
+    "longitude": -75.2
+  },
+  {
+    "city": "Tarpum Bay",
+    "city_zh": "Tarpum Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.97,
+    "longitude": -76.18157
+  },
+  {
+    "city": "Taits",
+    "city_zh": "Taits",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.98333,
+    "longitude": -74.88333
+  },
+  {
+    "city": "Sweetings Village",
+    "city_zh": "Sweetings Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.35,
+    "longitude": -77.03333
+  },
+  {
+    "city": "Sweeting Cay",
+    "city_zh": "Sweeting Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.61334,
+    "longitude": -77.86931
+  },
+  {
+    "city": "Sugar Loaf",
+    "city_zh": "Sugar Loaf",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.65,
+    "longitude": -74.51667
+  },
+  {
+    "city": "Stuart Manor",
+    "city_zh": "Stuart Manor",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.63333,
+    "longitude": -76.0
+  },
+  {
+    "city": "Steventon",
+    "city_zh": "Steventon",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.64265,
+    "longitude": -75.9448
+  },
+  {
+    "city": "Stevens",
+    "city_zh": "Stevens",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.08333,
+    "longitude": -75.01667
+  },
+  {
+    "city": "Stephenson",
+    "city_zh": "Stephenson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.4442,
+    "longitude": -75.54202
+  },
+  {
+    "city": "Stella Maris",
+    "city_zh": "Stella Maris",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.59199,
+    "longitude": -75.2651
+  },
+  {
+    "city": "Stapleton Gardens",
+    "city_zh": "Stapleton Gardens",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.36667
+  },
+  {
+    "city": "Staniard Creek",
+    "city_zh": "Staniard Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.83141,
+    "longitude": -77.88762
+  },
+  {
+    "city": "Stafford Creek",
+    "city_zh": "Stafford Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.90594,
+    "longitude": -77.93668
+  },
+  {
+    "city": "Spring Point",
+    "city_zh": "Spring Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.45883,
+    "longitude": -73.96057
+  },
+  {
+    "city": "Spring City Settlement",
+    "city_zh": "Spring City Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.47465,
+    "longitude": -77.08913
+  },
+  {
+    "city": "Spanish Wells",
+    "city_zh": "Spanish Wells",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.54717,
+    "longitude": -76.76405
+  },
+  {
+    "city": "Southwest Point",
+    "city_zh": "Southwest Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.49139,
+    "longitude": -78.74999
+  },
+  {
+    "city": "South Victoria Hill",
+    "city_zh": "South Victoria Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.0,
+    "longitude": -74.46667
+  },
+  {
+    "city": "South Palmetto Point",
+    "city_zh": "South Palmetto Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.15,
+    "longitude": -76.18333
+  },
+  {
+    "city": "Snug Corner",
+    "city_zh": "Snug Corner",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.55501,
+    "longitude": -73.87829
+  },
+  {
+    "city": "Snake Cay",
+    "city_zh": "Snake Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.45678,
+    "longitude": -77.0482
+  },
+  {
+    "city": "Smith’s Hill",
+    "city_zh": "Smith’s Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.05,
+    "longitude": -77.53333
+  },
+  {
+    "city": "Smith Point",
+    "city_zh": "Smith Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.5,
+    "longitude": -78.61667
+  },
+  {
+    "city": "Smith Bay",
+    "city_zh": "Smith Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.34378,
+    "longitude": -75.47732
+  },
+  {
+    "city": "Simms",
+    "city_zh": "Simms",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.47922,
+    "longitude": -75.23597
+  },
+  {
+    "city": "Seymour’s",
+    "city_zh": "Seymour’s",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.65619,
+    "longitude": -75.31136
+  },
+  {
+    "city": "Seminets",
+    "city_zh": "Seminets",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.86667,
+    "longitude": -77.93333
+  },
+  {
+    "city": "Seaview Settlement",
+    "city_zh": "Seaview Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.81667,
+    "longitude": -74.28333
+  },
+  {
+    "city": "Sea Grape",
+    "city_zh": "Sea Grape",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53333,
+    "longitude": -78.81667
+  },
+  {
+    "city": "Sea Breeze Estates",
+    "city_zh": "Sea Breeze Estates",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.31667
+  },
+  {
+    "city": "Scrub Hill",
+    "city_zh": "Scrub Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.48333,
+    "longitude": -75.23333
+  },
+  {
+    "city": "Scrub Hill",
+    "city_zh": "Scrub Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.1,
+    "longitude": -75.01667
+  },
+  {
+    "city": "Savannah Sound",
+    "city_zh": "Savannah Sound",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.08416,
+    "longitude": -76.13714
+  },
+  {
+    "city": "Sandy Point",
+    "city_zh": "Sandy Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.02052,
+    "longitude": -77.39
+  },
+  {
+    "city": "Sandilands Village",
+    "city_zh": "Sandilands Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.31667
+  },
+  {
+    "city": "San Andros",
+    "city_zh": "San Andros",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -78.05
+  },
+  {
+    "city": "Sam McKinnons",
+    "city_zh": "Sam McKinnons",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.4,
+    "longitude": -75.18333
+  },
+  {
+    "city": "Salt Pond",
+    "city_zh": "Salt Pond",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.34594,
+    "longitude": -75.12311
+  },
+  {
+    "city": "Salina Point",
+    "city_zh": "Salina Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.20478,
+    "longitude": -74.2435
+  },
+  {
+    "city": "Roses",
+    "city_zh": "Roses",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.98333,
+    "longitude": -74.88429
+  },
+  {
+    "city": "Rolleville",
+    "city_zh": "Rolleville",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.67332,
+    "longitude": -75.98484
+  },
+  {
+    "city": "Rolletown",
+    "city_zh": "Rolletown",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.46312,
+    "longitude": -75.70421
+  },
+  {
+    "city": "Rokers Point Settlement",
+    "city_zh": "Rokers Point Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.61667,
+    "longitude": -75.91667
+  },
+  {
+    "city": "Roakers",
+    "city_zh": "Roakers",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.51922,
+    "longitude": -75.58333
+  },
+  {
+    "city": "Roberts Town",
+    "city_zh": "Roberts Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.66667,
+    "longitude": -78.95
+  },
+  {
+    "city": "Richmond Hill",
+    "city_zh": "Richmond Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.60676,
+    "longitude": -75.99432
+  },
+  {
+    "city": "Richmond",
+    "city_zh": "Richmond",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.8,
+    "longitude": -74.33333
+  },
+  {
+    "city": "Red Bay Settlement",
+    "city_zh": "Red Bay Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.13782,
+    "longitude": -78.19544
+  },
+  {
+    "city": "Reckley Hill",
+    "city_zh": "Reckley Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.1,
+    "longitude": -74.45
+  },
+  {
+    "city": "Ramsey",
+    "city_zh": "Ramsey",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.56667,
+    "longitude": -75.86667
+  },
+  {
+    "city": "Quarters",
+    "city_zh": "Quarters",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.10382,
+    "longitude": -74.51899
+  },
+  {
+    "city": "Pure Gold",
+    "city_zh": "Pure Gold",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.96667,
+    "longitude": -77.53333
+  },
+  {
+    "city": "Port Nelson",
+    "city_zh": "Port Nelson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.64967,
+    "longitude": -74.84157
+  },
+  {
+    "city": "Port Howe",
+    "city_zh": "Port Howe",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.15848,
+    "longitude": -75.33861
+  },
+  {
+    "city": "Port Boyd",
+    "city_zh": "Port Boyd",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.70354,
+    "longitude": -74.82068
+  },
+  {
+    "city": "Pompey Bay",
+    "city_zh": "Pompey Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.41143,
+    "longitude": -73.99381
+  },
+  {
+    "city": "Polly Hill",
+    "city_zh": "Polly Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.08333,
+    "longitude": -74.43333
+  },
+  {
+    "city": "Pirates Well",
+    "city_zh": "Pirates Well",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.43071,
+    "longitude": -73.09457
+  },
+  {
+    "city": "Pinewood Gardens Estate",
+    "city_zh": "Pinewood Gardens Estate",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.0
+  },
+  {
+    "city": "Pine Ridge",
+    "city_zh": "Pine Ridge",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.55,
+    "longitude": -78.73333
+  },
+  {
+    "city": "Pinefield",
+    "city_zh": "Pinefield",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.65,
+    "longitude": -73.86667
+  },
+  {
+    "city": "Pinders Point",
+    "city_zh": "Pinders Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.48333,
+    "longitude": -78.68333
+  },
+  {
+    "city": "Pinders",
+    "city_zh": "Pinders",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.28333,
+    "longitude": -75.1
+  },
+  {
+    "city": "Pelican Point",
+    "city_zh": "Pelican Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.65,
+    "longitude": -78.08333
+  },
+  {
+    "city": "Palmetto Point",
+    "city_zh": "Palmetto Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.16667,
+    "longitude": -76.16667
+  },
+  {
+    "city": "Owens Town",
+    "city_zh": "Owens Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.87762,
+    "longitude": -78.03575
+  },
+  {
+    "city": "Orange Hill",
+    "city_zh": "Orange Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.48333
+  },
+  {
+    "city": "Orange Creek",
+    "city_zh": "Orange Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.65,
+    "longitude": -75.71667
+  },
+  {
+    "city": "O’Neils",
+    "city_zh": "O’Neils",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.5,
+    "longitude": -75.21667
+  },
+  {
+    "city": "Old Place",
+    "city_zh": "Old Place",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.96667,
+    "longitude": -74.48333
+  },
+  {
+    "city": "Old Grays",
+    "city_zh": "Old Grays",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.21667,
+    "longitude": -75.08333
+  },
+  {
+    "city": "Old Bight",
+    "city_zh": "Old Bight",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.23037,
+    "longitude": -75.3796
+  },
+  {
+    "city": "North Palmetto Point",
+    "city_zh": "North Palmetto Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.16667,
+    "longitude": -76.18333
+  },
+  {
+    "city": "Normans Castle",
+    "city_zh": "Normans Castle",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.71907,
+    "longitude": -77.4438
+  },
+  {
+    "city": "Nicholls Town",
+    "city_zh": "尼科尔斯镇",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.14534,
+    "longitude": -78.0016
+  },
+  {
+    "city": "New Bight",
+    "city_zh": "New Bight",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.32078,
+    "longitude": -75.47002
+  },
+  {
+    "city": "Nassau Estate",
+    "city_zh": "Nassau Estate",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.28333
+  },
+  {
+    "city": "Nassau",
+    "city_zh": "拿骚",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05823,
+    "longitude": -77.34306
+  },
+  {
+    "city": "Murphy Town",
+    "city_zh": "Murphy Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.55261,
+    "longitude": -77.09585
+  },
+  {
+    "city": "Moxey Town",
+    "city_zh": "Moxey Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.2954,
+    "longitude": -77.67995
+  },
+  {
+    "city": "Mount Thompson",
+    "city_zh": "Mount Thompson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.58333,
+    "longitude": -75.88333
+  },
+  {
+    "city": "Mount Pleasant",
+    "city_zh": "Mount Pleasant",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.51667
+  },
+  {
+    "city": "Mount Hope",
+    "city_zh": "Mount Hope",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.9,
+    "longitude": -77.76667
+  },
+  {
+    "city": "Moss Town",
+    "city_zh": "Moss Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.24618,
+    "longitude": -75.38681
+  },
+  {
+    "city": "Moss Town",
+    "city_zh": "Moss Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.54675,
+    "longitude": -75.85571
+  },
+  {
+    "city": "Moss Town",
+    "city_zh": "Moss Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.8,
+    "longitude": -74.25
+  },
+  {
+    "city": "Mortimers",
+    "city_zh": "Mortimers",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.90621,
+    "longitude": -74.87432
+  },
+  {
+    "city": "Morgan’s Bluff",
+    "city_zh": "Morgan’s Bluff",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.16667,
+    "longitude": -78.03333
+  },
+  {
+    "city": "Morant Bay",
+    "city_zh": "Morant Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.4,
+    "longitude": -74.03333
+  },
+  {
+    "city": "Montreal",
+    "city_zh": "Montreal",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.95637,
+    "longitude": -74.49443
+  },
+  {
+    "city": "Minns",
+    "city_zh": "Minns",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.7,
+    "longitude": -77.76667
+  },
+  {
+    "city": "Millerton",
+    "city_zh": "Millerton",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.55,
+    "longitude": -75.25
+  },
+  {
+    "city": "Millers Hill",
+    "city_zh": "Millers Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.11667,
+    "longitude": -77.98333
+  },
+  {
+    "city": "Millers",
+    "city_zh": "Millers",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.4,
+    "longitude": -75.16667
+  },
+  {
+    "city": "Millars",
+    "city_zh": "Millars",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.98485,
+    "longitude": -77.43039
+  },
+  {
+    "city": "Millars",
+    "city_zh": "Millars",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.67405,
+    "longitude": -76.19164
+  },
+  {
+    "city": "Millar Heights",
+    "city_zh": "Millar Heights",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.38333
+  },
+  {
+    "city": "Michelson",
+    "city_zh": "Michelson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.49052,
+    "longitude": -75.7658
+  },
+  {
+    "city": "McQueens",
+    "city_zh": "McQueens",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.17791,
+    "longitude": -75.47081
+  },
+  {
+    "city": "McLeans Town",
+    "city_zh": "McLeans Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.65798,
+    "longitude": -77.99191
+  },
+  {
+    "city": "McKenzie",
+    "city_zh": "McKenzie",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.13333,
+    "longitude": -75.06667
+  },
+  {
+    "city": "McKenzie",
+    "city_zh": "McKenzie",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.01667,
+    "longitude": -74.88333
+  },
+  {
+    "city": "McKanns",
+    "city_zh": "McKanns",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.36667,
+    "longitude": -75.16667
+  },
+  {
+    "city": "Matthew Town",
+    "city_zh": "Matthew Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 20.94982,
+    "longitude": -73.67346
+  },
+  {
+    "city": "Mather Town",
+    "city_zh": "Mather Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.55,
+    "longitude": -78.58333
+  },
+  {
+    "city": "Mastic Point",
+    "city_zh": "Mastic Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06729,
+    "longitude": -77.96937
+  },
+  {
+    "city": "Masons Bay",
+    "city_zh": "Masons Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.54352,
+    "longitude": -73.8778
+  },
+  {
+    "city": "Martin Town",
+    "city_zh": "Martin Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53333,
+    "longitude": -78.8
+  },
+  {
+    "city": "Marsh Harbour",
+    "city_zh": "Marsh Harbour",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.54124,
+    "longitude": -77.0636
+  },
+  {
+    "city": "Mars Bay",
+    "city_zh": "Mars Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.8671,
+    "longitude": -77.51581
+  },
+  {
+    "city": "Man of War Sound",
+    "city_zh": "Man of War Sound",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.55,
+    "longitude": -77.75
+  },
+  {
+    "city": "Man of War Cay Settlement",
+    "city_zh": "Man of War Cay Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.59536,
+    "longitude": -77.00077
+  },
+  {
+    "city": "Mangrove Cay",
+    "city_zh": "Mangrove Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.26035,
+    "longitude": -77.66287
+  },
+  {
+    "city": "Mangrove Bush",
+    "city_zh": "Mangrove Bush",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.13333,
+    "longitude": -75.06667
+  },
+  {
+    "city": "Majors",
+    "city_zh": "Majors",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.72677,
+    "longitude": -74.15616
+  },
+  {
+    "city": "Macbride",
+    "city_zh": "Macbride",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.46667
+  },
+  {
+    "city": "Lucaya",
+    "city_zh": "Lucaya",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53333,
+    "longitude": -78.66667
+  },
+  {
+    "city": "Lowe Sound Settlement",
+    "city_zh": "Lowe Sound Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.14891,
+    "longitude": -78.0917
+  },
+  {
+    "city": "Lower Deadman’s Cay",
+    "city_zh": "Lower Deadman’s Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.1664,
+    "longitude": -75.09602
+  },
+  {
+    "city": "Lower Bogue",
+    "city_zh": "Lower Bogue",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.46667,
+    "longitude": -76.71667
+  },
+  {
+    "city": "Lovely Bay",
+    "city_zh": "Lovely Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.69135,
+    "longitude": -73.98199
+  },
+  {
+    "city": "Love Hill",
+    "city_zh": "Love Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.75,
+    "longitude": -77.85
+  },
+  {
+    "city": "Love",
+    "city_zh": "Love",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.5
+  },
+  {
+    "city": "Louis Town",
+    "city_zh": "Louis Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.55253,
+    "longitude": -79.27854
+  },
+  {
+    "city": "Long Bay",
+    "city_zh": "Long Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.01151,
+    "longitude": -74.52542
+  },
+  {
+    "city": "Little Farmers Cay",
+    "city_zh": "Little Farmers Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.95,
+    "longitude": -76.31667
+  },
+  {
+    "city": "Little Creek",
+    "city_zh": "Little Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.94674,
+    "longitude": -77.52248
+  },
+  {
+    "city": "Little Bay Settlement",
+    "city_zh": "Little Bay Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.33333,
+    "longitude": -76.83333
+  },
+  {
+    "city": "Little Bay",
+    "city_zh": "Little Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.83333,
+    "longitude": -77.16667
+  },
+  {
+    "city": "Lisbon Creek",
+    "city_zh": "Lisbon Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.21397,
+    "longitude": -77.63751
+  },
+  {
+    "city": "Landrail Point",
+    "city_zh": "Landrail Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.80353,
+    "longitude": -74.33731
+  },
+  {
+    "city": "Knowles Village",
+    "city_zh": "Knowles Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.36727,
+    "longitude": -75.4999
+  },
+  {
+    "city": "Killarney",
+    "city_zh": "Killarney",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.41667
+  },
+  {
+    "city": "Kemps Bay",
+    "city_zh": "Kemps Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.027,
+    "longitude": -77.53343
+  },
+  {
+    "city": "John Millars",
+    "city_zh": "John Millars",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.68984,
+    "longitude": -76.20255
+  },
+  {
+    "city": "Jimmy Hill",
+    "city_zh": "Jimmy Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.56667,
+    "longitude": -75.86667
+  },
+  {
+    "city": "James Cistern",
+    "city_zh": "James Cistern",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.32566,
+    "longitude": -76.36181
+  },
+  {
+    "city": "Industrious Hill",
+    "city_zh": "Industrious Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.45,
+    "longitude": -75.55
+  },
+  {
+    "city": "Hunters",
+    "city_zh": "Hunters",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.48333,
+    "longitude": -78.71667
+  },
+  {
+    "city": "Hope Town",
+    "city_zh": "Hope Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53855,
+    "longitude": -76.95745
+  },
+  {
+    "city": "Hope Estate",
+    "city_zh": "Hope Estate",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.66667,
+    "longitude": -78.93333
+  },
+  {
+    "city": "Holmes Rock",
+    "city_zh": "Holmes Rock",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.55,
+    "longitude": -78.83333
+  },
+  {
+    "city": "Holmes Rock",
+    "city_zh": "Holmes Rock",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53333,
+    "longitude": -78.8
+  },
+  {
+    "city": "Holdiday Track",
+    "city_zh": "Holdiday Track",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.01667,
+    "longitude": -74.45
+  },
+  {
+    "city": "High Rock",
+    "city_zh": "High Rock",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.62651,
+    "longitude": -78.28209
+  },
+  {
+    "city": "High Rock",
+    "city_zh": "High Rock",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.16667,
+    "longitude": -77.58333
+  },
+  {
+    "city": "Highbury Park",
+    "city_zh": "Highbury Park",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.31667
+  },
+  {
+    "city": "Hermitage",
+    "city_zh": "Hermitage",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.51667,
+    "longitude": -75.83333
+  },
+  {
+    "city": "Hawks Nest",
+    "city_zh": "Hawks Nest",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.15881,
+    "longitude": -75.50938
+  },
+  {
+    "city": "Hawksbill",
+    "city_zh": "Hawksbill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.5,
+    "longitude": -78.73333
+  },
+  {
+    "city": "Hartswell",
+    "city_zh": "Hartswell",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.43333,
+    "longitude": -75.66667
+  },
+  {
+    "city": "Harts Bay Hill",
+    "city_zh": "Harts Bay Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.41667,
+    "longitude": -75.53333
+  },
+  {
+    "city": "Hard Hill",
+    "city_zh": "Hard Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.60179,
+    "longitude": -73.87764
+  },
+  {
+    "city": "Hard Bargain",
+    "city_zh": "Hard Bargain",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.31667,
+    "longitude": -77.56667
+  },
+  {
+    "city": "Hard Bargain",
+    "city_zh": "Hard Bargain",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.75535,
+    "longitude": -77.79751
+  },
+  {
+    "city": "Hard Bargain",
+    "city_zh": "Hard Bargain",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.06667,
+    "longitude": -74.45
+  },
+  {
+    "city": "Hard Bargain",
+    "city_zh": "Hard Bargain",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.01848,
+    "longitude": -74.89245
+  },
+  {
+    "city": "Harbour Estate",
+    "city_zh": "Harbour Estate",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.1,
+    "longitude": -74.51667
+  },
+  {
+    "city": "Halls Landing",
+    "city_zh": "Halls Landing",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.0,
+    "longitude": -74.51667
+  },
+  {
+    "city": "Gregory Town",
+    "city_zh": "Gregory Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.39086,
+    "longitude": -76.55715
+  },
+  {
+    "city": "Green Turtle Village",
+    "city_zh": "Green Turtle Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.81667,
+    "longitude": -77.45
+  },
+  {
+    "city": "Green Turtle Cay",
+    "city_zh": "Green Turtle Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.75818,
+    "longitude": -77.32482
+  },
+  {
+    "city": "Green Castle",
+    "city_zh": "Green Castle",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.79834,
+    "longitude": -76.27378
+  },
+  {
+    "city": "Great Guana Cay",
+    "city_zh": "Great Guana Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.6666,
+    "longitude": -77.10782
+  },
+  {
+    "city": "Grays",
+    "city_zh": "Grays",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.25293,
+    "longitude": -75.10293
+  },
+  {
+    "city": "Governor’s Harbour",
+    "city_zh": "Governor’s Harbour",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.16667,
+    "longitude": -76.23333
+  },
+  {
+    "city": "Gordon’s",
+    "city_zh": "Gordon’s",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.86667,
+    "longitude": -74.85
+  },
+  {
+    "city": "Goodwill",
+    "city_zh": "Goodwill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.53678,
+    "longitude": -73.87533
+  },
+  {
+    "city": "Golden Grove",
+    "city_zh": "Golden Grove",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.6,
+    "longitude": -78.33333
+  },
+  {
+    "city": "Golden Grove",
+    "city_zh": "Golden Grove",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.46667,
+    "longitude": -73.9
+  },
+  {
+    "city": "Golden Gates Estates",
+    "city_zh": "Golden Gates Estates",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.35
+  },
+  {
+    "city": "Glintons",
+    "city_zh": "Glintons",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.63333,
+    "longitude": -75.3
+  },
+  {
+    "city": "Gilbert Grant",
+    "city_zh": "Gilbert Grant",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.6,
+    "longitude": -75.91667
+  },
+  {
+    "city": "George Town",
+    "city_zh": "George Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.51616,
+    "longitude": -75.78665
+  },
+  {
+    "city": "Gambier Village",
+    "city_zh": "Gambier Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.5
+  },
+  {
+    "city": "Galloway Landing",
+    "city_zh": "Galloway Landing",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.06231,
+    "longitude": -74.97146
+  },
+  {
+    "city": "Gaitor’s",
+    "city_zh": "Gaitor’s",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.46667,
+    "longitude": -75.55
+  },
+  {
+    "city": "French Wells",
+    "city_zh": "French Wells",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.68333,
+    "longitude": -74.3
+  },
+  {
+    "city": "Freetown",
+    "city_zh": "Freetown",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.56667,
+    "longitude": -78.45
+  },
+  {
+    "city": "Freetown",
+    "city_zh": "Freetown",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.3033,
+    "longitude": -75.43058
+  },
+  {
+    "city": "Freeport",
+    "city_zh": "Freeport",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53333,
+    "longitude": -78.7
+  },
+  {
+    "city": "Fox Town",
+    "city_zh": "Fox Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.91767,
+    "longitude": -77.7998
+  },
+  {
+    "city": "Fortune Hill",
+    "city_zh": "Fortune Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.01667,
+    "longitude": -74.45
+  },
+  {
+    "city": "Forest",
+    "city_zh": "Forest",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.58697,
+    "longitude": -75.91443
+  },
+  {
+    "city": "Ford",
+    "city_zh": "Ford",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.91667,
+    "longitude": -74.86667
+  },
+  {
+    "city": "Forbes Hill",
+    "city_zh": "Forbes Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.46001,
+    "longitude": -75.64732
+  },
+  {
+    "city": "Fire Road Village",
+    "city_zh": "Fire Road Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.86164,
+    "longitude": -77.50077
+  },
+  {
+    "city": "Farquharson",
+    "city_zh": "Farquharson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.0,
+    "longitude": -74.46667
+  },
+  {
+    "city": "Farmer’s Hill",
+    "city_zh": "Farmer’s Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.6,
+    "longitude": -75.9
+  },
+  {
+    "city": "Fairfield",
+    "city_zh": "Fairfield",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.78333,
+    "longitude": -74.21667
+  },
+  {
+    "city": "Exuma Harbour Estates",
+    "city_zh": "Exuma Harbour Estates",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.5,
+    "longitude": -75.76667
+  },
+  {
+    "city": "Englerston",
+    "city_zh": "Englerston",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.33333
+  },
+  {
+    "city": "Eight Mile Rock",
+    "city_zh": "Eight Mile Rock",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.51667,
+    "longitude": -78.78333
+  },
+  {
+    "city": "Dunmore Town",
+    "city_zh": "Dunmore Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.50216,
+    "longitude": -76.63633
+  },
+  {
+    "city": "Dunmore",
+    "city_zh": "Dunmore",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.04769,
+    "longitude": -74.9055
+  },
+  {
+    "city": "Dundas Town",
+    "city_zh": "Dundas Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.54638,
+    "longitude": -77.07978
+  },
+  {
+    "city": "Duncan Town",
+    "city_zh": "Duncan Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.19083,
+    "longitude": -75.72583
+  },
+  {
+    "city": "Dumfries",
+    "city_zh": "Dumfries",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.60081,
+    "longitude": -75.64669
+  },
+  {
+    "city": "Driggs Hill",
+    "city_zh": "Driggs Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.20864,
+    "longitude": -77.59949
+  },
+  {
+    "city": "Douds",
+    "city_zh": "Douds",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.28006,
+    "longitude": -75.40741
+  },
+  {
+    "city": "Doctor’s Creek",
+    "city_zh": "Doctor’s Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.46667,
+    "longitude": -75.21667
+  },
+  {
+    "city": "Dixons",
+    "city_zh": "Dixons",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.1,
+    "longitude": -74.45
+  },
+  {
+    "city": "Devil’s Point",
+    "city_zh": "Devil’s Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.11667,
+    "longitude": -75.46667
+  },
+  {
+    "city": "Delectable Point",
+    "city_zh": "Delectable Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.42006,
+    "longitude": -73.99215
+  },
+  {
+    "city": "Delancey Town",
+    "city_zh": "Delancey Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.76667,
+    "longitude": -76.26667
+  },
+  {
+    "city": "Deep Creek",
+    "city_zh": "Deep Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.77333,
+    "longitude": -76.26959
+  },
+  {
+    "city": "Deep Creek",
+    "city_zh": "Deep Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.0,
+    "longitude": -77.55
+  },
+  {
+    "city": "Deadman's Cay",
+    "city_zh": "Deadman's Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.17919,
+    "longitude": -75.1131
+  },
+  {
+    "city": "Curtis",
+    "city_zh": "Curtis",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.63333,
+    "longitude": -75.96667
+  },
+  {
+    "city": "Current Island Settlement",
+    "city_zh": "Current Island Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.34494,
+    "longitude": -76.81622
+  },
+  {
+    "city": "Current",
+    "city_zh": "Current",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.408,
+    "longitude": -76.78397
+  },
+  {
+    "city": "Cunningham",
+    "city_zh": "Cunningham",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.08333,
+    "longitude": -77.43333
+  },
+  {
+    "city": "Crown Haven",
+    "city_zh": "Crown Haven",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.9,
+    "longitude": -77.81667
+  },
+  {
+    "city": "Crossing Rocks",
+    "city_zh": "Crossing Rocks",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.13333,
+    "longitude": -77.18333
+  },
+  {
+    "city": "Cripple Hill",
+    "city_zh": "Cripple Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.78333,
+    "longitude": -74.23333
+  },
+  {
+    "city": "Creek Village",
+    "city_zh": "Creek Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.3
+  },
+  {
+    "city": "Cove",
+    "city_zh": "Cove",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.41667,
+    "longitude": -75.53333
+  },
+  {
+    "city": "Cornishtown",
+    "city_zh": "Cornishtown",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.86289,
+    "longitude": -77.52717
+  },
+  {
+    "city": "Coral Heights",
+    "city_zh": "Coral Heights",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.9982,
+    "longitude": -77.45555
+  },
+  {
+    "city": "Coral Harbour",
+    "city_zh": "Coral Harbour",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.98176,
+    "longitude": -77.46534
+  },
+  {
+    "city": "Cooper’s Town",
+    "city_zh": "Cooper’s Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.87137,
+    "longitude": -77.51131
+  },
+  {
+    "city": "Congo Town",
+    "city_zh": "Congo Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.16614,
+    "longitude": -77.58425
+  },
+  {
+    "city": "Conch Sound Settlement",
+    "city_zh": "Conch Sound Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.12188,
+    "longitude": -77.99571
+  },
+  {
+    "city": "Colonel Hill",
+    "city_zh": "Colonel Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.7545,
+    "longitude": -74.20415
+  },
+  {
+    "city": "Colebrooke Dale",
+    "city_zh": "Colebrooke Dale",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.2,
+    "longitude": -76.25
+  },
+  {
+    "city": "Cockburn Town",
+    "city_zh": "Cockburn Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.05179,
+    "longitude": -74.53138
+  },
+  {
+    "city": "Coakley Town",
+    "city_zh": "Coakley Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.72625,
+    "longitude": -77.79488
+  },
+  {
+    "city": "Clifton",
+    "city_zh": "Clifton",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.56667
+  },
+  {
+    "city": "Clarence Town",
+    "city_zh": "Clarence Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.1,
+    "longitude": -74.98333
+  },
+  {
+    "city": "Church Grove",
+    "city_zh": "Church Grove",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.75,
+    "longitude": -74.21667
+  },
+  {
+    "city": "Chub Cay",
+    "city_zh": "Chub Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.41254,
+    "longitude": -77.90264
+  },
+  {
+    "city": "Chesters",
+    "city_zh": "Chesters",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.70657,
+    "longitude": -73.9179
+  },
+  {
+    "city": "Cherokee Sound",
+    "city_zh": "Cherokee Sound",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.28333,
+    "longitude": -77.03333
+  },
+  {
+    "city": "Cedar Harbour",
+    "city_zh": "Cedar Harbour",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.89532,
+    "longitude": -77.65198
+  },
+  {
+    "city": "Cartwright",
+    "city_zh": "Cartwright",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.13333,
+    "longitude": -75.06667
+  },
+  {
+    "city": "Carmichael Village",
+    "city_zh": "Carmichael Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.43333
+  },
+  {
+    "city": "Cargill Creek",
+    "city_zh": "Cargill Creek",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.49863,
+    "longitude": -77.71995
+  },
+  {
+    "city": "Camperdown",
+    "city_zh": "Camperdown",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.26667
+  },
+  {
+    "city": "Calvin Hill",
+    "city_zh": "Calvin Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.6,
+    "longitude": -75.96667
+  },
+  {
+    "city": "Calabash Bay",
+    "city_zh": "Calabash Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.73333,
+    "longitude": -77.8
+  },
+  {
+    "city": "Cairey’s",
+    "city_zh": "Cairey’s",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.48333,
+    "longitude": -75.56667
+  },
+  {
+    "city": "Cabbage Point",
+    "city_zh": "Cabbage Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.93279,
+    "longitude": -74.88568
+  },
+  {
+    "city": "Cabbage Hill",
+    "city_zh": "Cabbage Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.76376,
+    "longitude": -74.21994
+  },
+  {
+    "city": "Burnt Ground",
+    "city_zh": "Burnt Ground",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.61126,
+    "longitude": -75.28682
+  },
+  {
+    "city": "Bullocks Harbour",
+    "city_zh": "Bullocks Harbour",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.75205,
+    "longitude": -77.86895
+  },
+  {
+    "city": "Buckleys",
+    "city_zh": "Buckleys",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.15,
+    "longitude": -75.08333
+  },
+  {
+    "city": "Browns",
+    "city_zh": "Browns",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.72917,
+    "longitude": -74.06036
+  },
+  {
+    "city": "Braudies Point",
+    "city_zh": "Braudies Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.53333,
+    "longitude": -78.73333
+  },
+  {
+    "city": "Brandy Hill",
+    "city_zh": "Brandy Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.08333,
+    "longitude": -74.43333
+  },
+  {
+    "city": "Bradford",
+    "city_zh": "Bradford",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.06667,
+    "longitude": -77.51667
+  },
+  {
+    "city": "Bowers",
+    "city_zh": "Bowers",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.25,
+    "longitude": -75.08333
+  },
+  {
+    "city": "Bowen Sound",
+    "city_zh": "Bowen Sound",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.58333,
+    "longitude": -77.73333
+  },
+  {
+    "city": "Bluff",
+    "city_zh": "Bluff",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.78333,
+    "longitude": -79.31667
+  },
+  {
+    "city": "Bluff Settlement",
+    "city_zh": "Bluff Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.52271,
+    "longitude": -75.59193
+  },
+  {
+    "city": "Blanket Sound",
+    "city_zh": "Blanket Sound",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.85,
+    "longitude": -77.9
+  },
+  {
+    "city": "Blair Estates",
+    "city_zh": "Blair Estates",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05,
+    "longitude": -77.3
+  },
+  {
+    "city": "Blackwood Village",
+    "city_zh": "Blackwood Village",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.81393,
+    "longitude": -77.43928
+  },
+  {
+    "city": "Black Point",
+    "city_zh": "Black Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.1,
+    "longitude": -76.38333
+  },
+  {
+    "city": "Black Point",
+    "city_zh": "Black Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.98333,
+    "longitude": -77.55
+  },
+  {
+    "city": "Binnacle Hill",
+    "city_zh": "Binnacle Hill",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.32116,
+    "longitude": -74.13847
+  },
+  {
+    "city": "Bevans Town",
+    "city_zh": "Bevans Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.6,
+    "longitude": -78.31667
+  },
+  {
+    "city": "Betsy Bay",
+    "city_zh": "Betsy Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.41862,
+    "longitude": -73.13409
+  },
+  {
+    "city": "Berrys",
+    "city_zh": "Berrys",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.9543,
+    "longitude": -74.88286
+  },
+  {
+    "city": "Bennetts Harbor",
+    "city_zh": "Bennetts Harbor",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.56347,
+    "longitude": -75.63989
+  },
+  {
+    "city": "Belair Estates",
+    "city_zh": "Belair Estates",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.01667,
+    "longitude": -77.36667
+  },
+  {
+    "city": "Behring Point",
+    "city_zh": "Behring Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.48004,
+    "longitude": -77.72355
+  },
+  {
+    "city": "Bastian Point",
+    "city_zh": "Bastian Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.23461,
+    "longitude": -77.62529
+  },
+  {
+    "city": "Baraterre",
+    "city_zh": "Baraterre",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.69573,
+    "longitude": -76.04125
+  },
+  {
+    "city": "Baraterre",
+    "city_zh": "Baraterre",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.68333,
+    "longitude": -76.03333
+  },
+  {
+    "city": "Bannerman Town",
+    "city_zh": "Bannerman Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.66055,
+    "longitude": -76.18396
+  },
+  {
+    "city": "Bain Town",
+    "city_zh": "Bain Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.1502,
+    "longitude": -75.38353
+  },
+  {
+    "city": "Bain Town",
+    "city_zh": "Bain Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.51667,
+    "longitude": -78.78333
+  },
+  {
+    "city": "Bain Town",
+    "city_zh": "Bain Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.65441,
+    "longitude": -75.71481
+  },
+  {
+    "city": "Bains",
+    "city_zh": "Bains",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.45,
+    "longitude": -75.21667
+  },
+  {
+    "city": "Bailey Town",
+    "city_zh": "Bailey Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.7437,
+    "longitude": -79.2861
+  },
+  {
+    "city": "Bailey Town",
+    "city_zh": "Bailey Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.15249,
+    "longitude": -75.31667
+  },
+  {
+    "city": "August Town",
+    "city_zh": "August Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03333,
+    "longitude": -77.98333
+  },
+  {
+    "city": "Arthur’s Town",
+    "city_zh": "Arthur’s Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.6224,
+    "longitude": -75.67151
+  },
+  {
+    "city": "Anne’s Tract Settlement",
+    "city_zh": "Anne’s Tract Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.68333,
+    "longitude": -76.05
+  },
+  {
+    "city": "Andros Town",
+    "city_zh": "Andros Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.70502,
+    "longitude": -77.76912
+  },
+  {
+    "city": "Andersons",
+    "city_zh": "Andersons",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.21667,
+    "longitude": -75.08333
+  },
+  {
+    "city": "Anderson",
+    "city_zh": "Anderson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.53333,
+    "longitude": -75.23333
+  },
+  {
+    "city": "Anderson",
+    "city_zh": "Anderson",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.61667,
+    "longitude": -73.86667
+  },
+  {
+    "city": "Alligator Bay Settlement",
+    "city_zh": "Alligator Bay Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.45,
+    "longitude": -75.21667
+  },
+  {
+    "city": "Allen",
+    "city_zh": "Allen",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.95,
+    "longitude": -74.51667
+  },
+  {
+    "city": "Alice Town",
+    "city_zh": "Alice Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.728,
+    "longitude": -79.29721
+  },
+  {
+    "city": "Alice Town",
+    "city_zh": "Alice Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.34604,
+    "longitude": -76.48531
+  },
+  {
+    "city": "Alexander",
+    "city_zh": "Alexander",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.65,
+    "longitude": -76.01667
+  },
+  {
+    "city": "Albert Town",
+    "city_zh": "Albert Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.60091,
+    "longitude": -74.34687
+  },
+  {
+    "city": "Adelaide",
+    "city_zh": "Adelaide",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.0022,
+    "longitude": -77.49052
+  },
+  {
+    "city": "Adderly",
+    "city_zh": "Adderly",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.58059,
+    "longitude": -75.2542
+  },
+  {
+    "city": "Abraham’s Bay",
+    "city_zh": "Abraham’s Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.36667,
+    "longitude": -72.96667
+  },
+  {
+    "city": "Abercorn",
+    "city_zh": "Abercorn",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 22.36667,
+    "longitude": -73.95
+  },
+  {
+    "city": "Russell Town",
+    "city_zh": "Russell Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.51667,
+    "longitude": -78.7
+  },
+  {
+    "city": "South Palmetto Point",
+    "city_zh": "South Palmetto Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.15,
+    "longitude": -76.17222
+  },
+  {
+    "city": "Sugar Loaf",
+    "city_zh": "Sugar Loaf",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.0017,
+    "longitude": -74.53516
+  },
+  {
+    "city": "New Town",
+    "city_zh": "New Town",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.0526,
+    "longitude": -77.98499
+  },
+  {
+    "city": "Markey",
+    "city_zh": "Markey",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.48806,
+    "longitude": -77.72111
+  },
+  {
+    "city": "Kemps Point",
+    "city_zh": "Kemps Point",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.90698,
+    "longitude": -76.18216
+  },
+  {
+    "city": "Davis Harbor",
+    "city_zh": "Davis Harbor",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.73095,
+    "longitude": -76.22016
+  },
+  {
+    "city": "Treasure Cay",
+    "city_zh": "Treasure Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.67691,
+    "longitude": -77.28581
+  },
+  {
+    "city": "Rainbow Bay",
+    "city_zh": "Rainbow Bay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.3334,
+    "longitude": -76.42764
+  },
+  {
+    "city": "Eleuthera",
+    "city_zh": "Eleuthera",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.136,
+    "longitude": -76.15023
+  },
+  {
+    "city": "Graham's Harbour",
+    "city_zh": "Graham's Harbour",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.11903,
+    "longitude": -74.46438
+  },
+  {
+    "city": "Grantstown (Historical)",
+    "city_zh": "Grantstown (Historical)",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.05563,
+    "longitude": -77.33826
+  },
+  {
+    "city": "North Cat Cay",
+    "city_zh": "North Cat Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.55549,
+    "longitude": -79.28434
+  },
+  {
+    "city": "Gun Cay",
+    "city_zh": "Gun Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.58228,
+    "longitude": -79.29992
+  },
+  {
+    "city": "Port Royal",
+    "city_zh": "Port Royal",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.70078,
+    "longitude": -79.30254
+  },
+  {
+    "city": "Freetown",
+    "city_zh": "Freetown",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 24.77894,
+    "longitude": -76.27705
+  },
+  {
+    "city": "The Bluff Settlement",
+    "city_zh": "The Bluff Settlement",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 26.63287,
+    "longitude": -77.34254
+  },
+  {
+    "city": "Pigeon Cay",
+    "city_zh": "Pigeon Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 23.4299,
+    "longitude": -75.67808
+  },
+  {
+    "city": "Grand Cay",
+    "city_zh": "Grand Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 27.21983,
+    "longitude": -78.32771
+  },
+  {
+    "city": "Walker Cay",
+    "city_zh": "Walker Cay",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 27.25993,
+    "longitude": -78.40243
+  },
+  {
+    "city": "Nassau",
+    "city_zh": "Nassau",
+    "country": "Bahamas",
+    "country_zh": "巴哈馬",
+    "country_iso_code": "BS",
+    "timezone": "America/Nassau",
+    "latitude": 25.03254,
+    "longitude": -77.47713
+  }
+]

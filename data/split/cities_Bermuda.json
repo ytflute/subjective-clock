@@ -1,0 +1,232 @@
+[
+  {
+    "city": "Warwick Camp",
+    "city_zh": "Warwick Camp",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.25722,
+    "longitude": -64.81611
+  },
+  {
+    "city": "Tucker’s Town",
+    "city_zh": "Tucker’s Town",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.33278,
+    "longitude": -64.68806
+  },
+  {
+    "city": "Flatt’s Village",
+    "city_zh": "Flatt’s Village",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.32094,
+    "longitude": -64.74016
+  },
+  {
+    "city": "Sunnyside",
+    "city_zh": "Sunnyside",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.32639,
+    "longitude": -64.74111
+  },
+  {
+    "city": "Somerset",
+    "city_zh": "Somerset",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.29833,
+    "longitude": -64.86833
+  },
+  {
+    "city": "Scotts Hill",
+    "city_zh": "Scotts Hill",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.29722,
+    "longitude": -64.86556
+  },
+  {
+    "city": "Saint George",
+    "city_zh": "圣乔治斯",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.38167,
+    "longitude": -64.67806
+  },
+  {
+    "city": "North Shore Village",
+    "city_zh": "North Shore Village",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.30639,
+    "longitude": -64.77361
+  },
+  {
+    "city": "Mount Pleasant",
+    "city_zh": "Mount Pleasant",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.27417,
+    "longitude": -64.78361
+  },
+  {
+    "city": "Melrose",
+    "city_zh": "Melrose",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.36845,
+    "longitude": -64.67739
+  },
+  {
+    "city": "Hog Bay",
+    "city_zh": "Hog Bay",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.27111,
+    "longitude": -64.88
+  },
+  {
+    "city": "Hinson Hall",
+    "city_zh": "Hinson Hall",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.31361,
+    "longitude": -64.74361
+  },
+  {
+    "city": "Hill View",
+    "city_zh": "Hill View",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.26944,
+    "longitude": -64.80889
+  },
+  {
+    "city": "Hamilton",
+    "city_zh": "哈密尔顿",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.2949,
+    "longitude": -64.78303
+  },
+  {
+    "city": "Chelston",
+    "city_zh": "Chelston",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.28361,
+    "longitude": -64.77056
+  },
+  {
+    "city": "Cashew City",
+    "city_zh": "Cashew City",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.37028,
+    "longitude": -64.65444
+  },
+  {
+    "city": "Camden",
+    "city_zh": "Camden",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.29417,
+    "longitude": -64.76056
+  },
+  {
+    "city": "Bethaven",
+    "city_zh": "Bethaven",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.28333,
+    "longitude": -64.75
+  },
+  {
+    "city": "Harrington Hundreds",
+    "city_zh": "Harrington Hundreds",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.31861,
+    "longitude": -64.72889
+  },
+  {
+    "city": "Darrell's Wharf Ferry Stop",
+    "city_zh": "Darrell's Wharf Ferry Stop",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.28096,
+    "longitude": -64.79591
+  },
+  {
+    "city": "Pembroke Parish",
+    "city_zh": "Pembroke Parish",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.30019,
+    "longitude": -64.79204
+  },
+  {
+    "city": "Cross Bay",
+    "city_zh": "Cross Bay",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.25346,
+    "longitude": -64.83882
+  },
+  {
+    "city": "Stovel Bay",
+    "city_zh": "Stovel Bay",
+    "country": "Bermuda",
+    "country_zh": "Bermuda",
+    "country_iso_code": "BM",
+    "timezone": "Atlantic/Bermuda",
+    "latitude": 32.30587,
+    "longitude": -64.81429
+  }
+]
