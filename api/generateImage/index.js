@@ -100,7 +100,7 @@ No people, only food. Styled like a professional food photography shot.`;
                 model: "dall-e-3",
                 prompt: prompt,
                 n: 1,
-                size: "512x512",
+                size: "1024x1024",
                 quality: "standard",
                 style: "natural"
             });
