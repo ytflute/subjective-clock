@@ -830,9 +830,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 生成早餐圖片
         try {
+            // 先獲取認證令牌
+            const token = await auth.currentUser.getIdToken();
+            
             const imageResponse = await fetch('/api/generateImage', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`  // 添加認證令牌
+                },
                 body: JSON.stringify({ 
                     city: bestMatchCity.city_zh || bestMatchCity.city,
                     country: bestMatchCity.country_zh || bestMatchCity.country
