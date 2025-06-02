@@ -81,27 +81,17 @@ export default async function handler(req, res) {
         // 根據是否為宇宙主題選擇不同的提示
         let prompt;
         if (isUniverseTheme) {
-            prompt = `請生成一張充滿想像力的太空早餐圖片。這應該是一頓在宇宙深處享用的未來風格早餐。
-要求：
-1. 餐點應該看起來既奇特又美味
-2. 可以包含懸浮的食物元素
-3. 使用未來科技感的餐具
-4. 背景可以有星空或其他太空元素
-5. 整體色調要夢幻且充滿科幻感
-6. 風格要寫實，不要卡通化
-7. 要有精緻的擺盤
-8. 光影效果要突出`;
+            prompt = `Top view of a futuristic cosmic breakfast in deep space. \
+The food is presented on a high-tech floating table or platform, with ethereal lighting and cosmic atmosphere. \
+Various otherworldly dishes and space-inspired beverages are artfully arranged, \
+featuring floating elements, glowing ingredients, and advanced utensils. \
+The scene includes subtle space elements like stars or nebulae in the background. \
+No people, only food. Styled like a professional food photography shot with a sci-fi twist.`;
         } else {
-            prompt = `請生成一張關於${city}, ${country}當地特色早餐的圖片。
-要求：
-1. 要符合當地飲食文化特色
-2. 擺盤要精緻且富有美感
-3. 背景要簡潔，突出食物
-4. 要有適當的餐具搭配
-5. 光線要明亮自然
-6. 風格要寫實，不要卡通化
-7. 可以搭配一些當地特色裝飾
-8. 整體構圖要平衡`;
+            prompt = `Top view of a traditional local breakfast commonly eaten in ${city}, ${country}. \
+The food is presented on a clean table setting, with realistic textures and lighting, \
+showcasing the variety of dishes, ingredients, and beverages typical of the region. \
+No people, only food. Styled like a professional food photography shot.`;
         }
 
         let imageUrl;
