@@ -1802,4 +1802,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     `;
     document.head.appendChild(style);
 
+    // 等待 Firebase 準備就緒
+    window.addEventListener('firebaseReady', async (event) => {
+        const firebaseConfig = event.detail;
+        
+        // 從 window 中獲取 Firebase SDK 函數
+        const {
+            initializeApp,
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
+            setLogLevel
+        } = window.firebaseSDK;
+
+        // DOM 元素獲取
+        const findCityButton = document.getElementById('findCityButton');
+        const resultTextDiv = document.getElementById('resultText');
+        const countryFlagImg = document.getElementById('countryFlag');
+        const mapContainerDiv = document.getElementById('mapContainer');
+        const debugInfoSmall = document.getElementById('debugInfo');
+
+        // ... rest of your existing code ...
+
+        // 初始化 Firebase
+        try {
+            console.log("開始初始化 Firebase...");
+            setLogLevel('debug');
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            console.log("Firebase 初始化成功。App ID:", appId, "Project ID:", firebaseConfig.projectId);
+
+            // 初始化成功後載入城市數據
+            await loadCitiesData();
+        } catch (e) {
+            console.error("Firebase 初始化失敗:", e);
+            currentUserIdSpan.textContent = "Firebase 初始化失敗";
+            alert("Firebase 初始化失敗，部分功能可能無法使用。");
+            return;
+        }
+
+        // ... rest of your existing code ...
+    });
+
 });
