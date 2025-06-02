@@ -329,9 +329,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             findCityButton.disabled = true;
         }
 
-        console.log("[setOrLoadUserName] 準備切換到時鐘分頁並顯示最後記錄。");
+        console.log("[setOrLoadUserName] 準備切換到時鐘分頁。");
         openTab(null, 'ClockTab', true);
-        await displayLastRecordForCurrentUser();
         return true;
     }
 
