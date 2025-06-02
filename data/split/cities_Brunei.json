@@ -1,0 +1,2232 @@
+[
+  {
+    "city": "Tutong",
+    "city_zh": "Tutong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.80278,
+    "longitude": 114.64917
+  },
+  {
+    "city": "Tempuan Ugas",
+    "city_zh": "Tempuan Ugas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.76667,
+    "longitude": 114.58333
+  },
+  {
+    "city": "Temada",
+    "city_zh": "Temada",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.55,
+    "longitude": 115.06667
+  },
+  {
+    "city": "Tangki Ayer",
+    "city_zh": "Tangki Ayer",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.91667,
+    "longitude": 114.93333
+  },
+  {
+    "city": "Sukang Hilir",
+    "city_zh": "Sukang Hilir",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.4,
+    "longitude": 114.6
+  },
+  {
+    "city": "Sukang",
+    "city_zh": "Sukang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.31667,
+    "longitude": 114.61667
+  },
+  {
+    "city": "Seria",
+    "city_zh": "Seria",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.60637,
+    "longitude": 114.32476
+  },
+  {
+    "city": "Rumah Supon",
+    "city_zh": "Rumah Supon",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.48333,
+    "longitude": 114.78333
+  },
+  {
+    "city": "Rumah Samawa",
+    "city_zh": "Rumah Samawa",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.23333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Rumah Bawang Grang",
+    "city_zh": "Rumah Bawang Grang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.21667,
+    "longitude": 114.68333
+  },
+  {
+    "city": "Rasau",
+    "city_zh": "Rasau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.55,
+    "longitude": 114.21667
+  },
+  {
+    "city": "Rampayoh",
+    "city_zh": "Rampayoh",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.38333,
+    "longitude": 114.45
+  },
+  {
+    "city": "Purau Purau",
+    "city_zh": "Purau Purau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.38333,
+    "longitude": 114.61667
+  },
+  {
+    "city": "Pangkalan Siong",
+    "city_zh": "Pangkalan Siong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.48333,
+    "longitude": 114.55
+  },
+  {
+    "city": "Panaga",
+    "city_zh": "Panaga",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.6,
+    "longitude": 114.28333
+  },
+  {
+    "city": "Muara",
+    "city_zh": "Muara",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 5.02699,
+    "longitude": 115.06913
+  },
+  {
+    "city": "Melilas",
+    "city_zh": "Melilas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.23333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Labi",
+    "city_zh": "Labi",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.38333,
+    "longitude": 114.43333
+  },
+  {
+    "city": "Kuala Belait",
+    "city_zh": "马来奕",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.58361,
+    "longitude": 114.2312
+  },
+  {
+    "city": "Kuala Balai",
+    "city_zh": "Kuala Balai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.45,
+    "longitude": 114.31667
+  },
+  {
+    "city": "Kampong Wasan",
+    "city_zh": "Kampong Wasan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.76667,
+    "longitude": 114.78333
+  },
+  {
+    "city": "Kampong Ukong",
+    "city_zh": "Kampong Ukong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 114.63333
+  },
+  {
+    "city": "Kampong Tunggulian",
+    "city_zh": "Kampong Tunggulian",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 114.5
+  },
+  {
+    "city": "Kampong Tunah Jambu",
+    "city_zh": "Kampong Tunah Jambu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.98333,
+    "longitude": 114.98333
+  },
+  {
+    "city": "Kampong Tulang",
+    "city_zh": "Kampong Tulang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Timbunan",
+    "city_zh": "Kampong Timbunan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 114.96667
+  },
+  {
+    "city": "Kampong Timahu",
+    "city_zh": "Kampong Timahu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Kampong Terap Bau",
+    "city_zh": "Kampong Terap Bau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.93333
+  },
+  {
+    "city": "Telisai",
+    "city_zh": "Telisai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73558,
+    "longitude": 114.56324
+  },
+  {
+    "city": "Telamba",
+    "city_zh": "Telamba",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.72964,
+    "longitude": 114.56675
+  },
+  {
+    "city": "Kampong Telaga Baka",
+    "city_zh": "Kampong Telaga Baka",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81667,
+    "longitude": 114.68333
+  },
+  {
+    "city": "Kampong Tanjong Santul",
+    "city_zh": "Kampong Tanjong Santul",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Tanjong Nangka",
+    "city_zh": "Kampong Tanjong Nangka",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Kampong Tanjong Menungan",
+    "city_zh": "Kampong Tanjong Menungan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Kampong Tanjong Maya",
+    "city_zh": "Kampong Tanjong Maya",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Tanjong Durian",
+    "city_zh": "Kampong Tanjong Durian",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81667,
+    "longitude": 114.75
+  },
+  {
+    "city": "Kampong Tanjong Berapan",
+    "city_zh": "Kampong Tanjong Berapan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81667,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Tanjong",
+    "city_zh": "Kampong Tanjong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Sungai Liang Kechil",
+    "city_zh": "Kampong Sungai Liang Kechil",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 114.48333
+  },
+  {
+    "city": "Liang",
+    "city_zh": "Liang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.67747,
+    "longitude": 114.49587
+  },
+  {
+    "city": "Kampong Sungai Lampai",
+    "city_zh": "Kampong Sungai Lampai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.95
+  },
+  {
+    "city": "Kampong Sungai Kelugus",
+    "city_zh": "Kampong Sungai Kelugus",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Sungai Hanching",
+    "city_zh": "Sungai Hanching",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.96806,
+    "longitude": 114.97753
+  },
+  {
+    "city": "Kampong Sungai Burong",
+    "city_zh": "Kampong Sungai Burong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.71667,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Kampong Sungai Bubus",
+    "city_zh": "Kampong Sungai Bubus",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 5.01667,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Sungai Besar",
+    "city_zh": "Kampong Sungai Besar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.93333,
+    "longitude": 115.01667
+  },
+  {
+    "city": "Jalan Sungai Asam",
+    "city_zh": "Jalan Sungai Asam",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.87156,
+    "longitude": 114.93698
+  },
+  {
+    "city": "Kampong Sumbiling",
+    "city_zh": "Kampong Sumbiling",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.58333,
+    "longitude": 115.11667
+  },
+  {
+    "city": "Subok",
+    "city_zh": "Subok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.89311,
+    "longitude": 114.96588
+  },
+  {
+    "city": "Kampong Sinonuk",
+    "city_zh": "Kampong Sinonuk",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.63333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Sinaut",
+    "city_zh": "Kampong Sinaut",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81667,
+    "longitude": 114.75
+  },
+  {
+    "city": "Sinarubai",
+    "city_zh": "Sinarubai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83797,
+    "longitude": 114.87473
+  },
+  {
+    "city": "Kampong Sibut",
+    "city_zh": "Kampong Sibut",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Sibakit",
+    "city_zh": "Kampong Sibakit",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Serusup",
+    "city_zh": "Kampong Serusup",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 114.93333
+  },
+  {
+    "city": "Kampong Serdang",
+    "city_zh": "Kampong Serdang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.9,
+    "longitude": 114.98333
+  },
+  {
+    "city": "Serasa",
+    "city_zh": "Serasa",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 5.01761,
+    "longitude": 115.05798
+  },
+  {
+    "city": "Sengkurong",
+    "city_zh": "Sengkurong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Semabat",
+    "city_zh": "Kampong Semabat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.56667,
+    "longitude": 115.06667
+  },
+  {
+    "city": "Kampong Selayun",
+    "city_zh": "Kampong Selayun",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.9,
+    "longitude": 114.85
+  },
+  {
+    "city": "Kampong Selangan",
+    "city_zh": "Kampong Selangan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.91667,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Sawah",
+    "city_zh": "Kampong Sawah",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.51667,
+    "longitude": 114.55
+  },
+  {
+    "city": "Sengkarai",
+    "city_zh": "Sengkarai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.80476,
+    "longitude": 114.64558
+  },
+  {
+    "city": "Kampong Salapit",
+    "city_zh": "Kampong Salapit",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Salambigar",
+    "city_zh": "Salambigar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.97877,
+    "longitude": 114.9878
+  },
+  {
+    "city": "Kampong Sabun",
+    "city_zh": "Kampong Sabun",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 5.03333,
+    "longitude": 115.06667
+  },
+  {
+    "city": "Kampong Riong",
+    "city_zh": "Kampong Riong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85,
+    "longitude": 114.98333
+  },
+  {
+    "city": "Kampong Riong",
+    "city_zh": "Kampong Riong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81667,
+    "longitude": 114.68333
+  },
+  {
+    "city": "Kampong Rimba",
+    "city_zh": "Kampong Rimba",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.91667,
+    "longitude": 114.9
+  },
+  {
+    "city": "Kampong Rendangan",
+    "city_zh": "Kampong Rendangan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Ranggu",
+    "city_zh": "Kampong Ranggu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Rampaya",
+    "city_zh": "Kampong Rampaya",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.63333,
+    "longitude": 114.65
+  },
+  {
+    "city": "Rambai",
+    "city_zh": "Rambai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.63882,
+    "longitude": 114.65148
+  },
+  {
+    "city": "Kampong Putat",
+    "city_zh": "Kampong Putat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.98333
+  },
+  {
+    "city": "Kampong Purau Purau",
+    "city_zh": "Kampong Purau Purau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.36667,
+    "longitude": 114.6
+  },
+  {
+    "city": "Kampong Meragang",
+    "city_zh": "Kampong Meragang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.93333,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Pulaie",
+    "city_zh": "Pulaie",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.92994,
+    "longitude": 114.95523
+  },
+  {
+    "city": "Kampong Pugat",
+    "city_zh": "Kampong Pugat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Kampong Pudak",
+    "city_zh": "Kampong Pudak",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.9,
+    "longitude": 114.98333
+  },
+  {
+    "city": "Kampong Potong",
+    "city_zh": "Kampong Potong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.78333
+  },
+  {
+    "city": "Kampong Perupok",
+    "city_zh": "Kampong Perupok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.61667
+  },
+  {
+    "city": "Kampong Perumpong",
+    "city_zh": "Kampong Perumpong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 114.48333
+  },
+  {
+    "city": "Kampong Peradayan",
+    "city_zh": "Kampong Peradayan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 115.08333
+  },
+  {
+    "city": "Kampong Pepatan",
+    "city_zh": "Kampong Pepatan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.9,
+    "longitude": 115.03333
+  },
+  {
+    "city": "Kampong Pepara",
+    "city_zh": "Kampong Pepara",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Kampong Penyatang",
+    "city_zh": "Kampong Penyatang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.58333
+  },
+  {
+    "city": "Kampong Peninjau",
+    "city_zh": "Kampong Peninjau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.93333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Penapar",
+    "city_zh": "Kampong Penapar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Penanjong",
+    "city_zh": "Penanjong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83793,
+    "longitude": 114.68014
+  },
+  {
+    "city": "Kampong Penabai",
+    "city_zh": "Kampong Penabai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.61667
+  },
+  {
+    "city": "Kampong Pelumpong",
+    "city_zh": "Kampong Pelumpong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 5.03333,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Pelambayan",
+    "city_zh": "Kampong Pelambayan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.96667
+  },
+  {
+    "city": "Pengkalan Batu",
+    "city_zh": "Pengkalan Batu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.78333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Patong",
+    "city_zh": "Kampong Patong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81667,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Pasang",
+    "city_zh": "Kampong Pasang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.91667,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Parit Biang",
+    "city_zh": "Kampong Parit Biang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Parit",
+    "city_zh": "Kampong Parit",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88594,
+    "longitude": 114.92867
+  },
+  {
+    "city": "Kampong Paring",
+    "city_zh": "Kampong Paring",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 115.01667
+  },
+  {
+    "city": "Kampong Pantau Marai",
+    "city_zh": "Kampong Pantau Marai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.8
+  },
+  {
+    "city": "Kampong Panjang",
+    "city_zh": "Kampong Panjang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 114.9
+  },
+  {
+    "city": "Kampong Pangkalan Ran",
+    "city_zh": "Kampong Pangkalan Ran",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 114.63333
+  },
+  {
+    "city": "Kampong Pangkalan Piasau",
+    "city_zh": "Kampong Pangkalan Piasau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 114.65
+  },
+  {
+    "city": "Kampong Pangkalan Parai",
+    "city_zh": "Kampong Pangkalan Parai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 114.63333
+  },
+  {
+    "city": "Kampong Pangkalan Mau",
+    "city_zh": "Kampong Pangkalan Mau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.73333
+  },
+  {
+    "city": "Perumahan Negara Panchor",
+    "city_zh": "Perumahan Negara Panchor",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.96667,
+    "longitude": 115.01667
+  },
+  {
+    "city": "Panchor Papan",
+    "city_zh": "Panchor Papan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8089,
+    "longitude": 114.67301
+  },
+  {
+    "city": "Panchor Dulit",
+    "city_zh": "Panchor Dulit",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.80546,
+    "longitude": 114.66491
+  },
+  {
+    "city": "Kampong Pak",
+    "city_zh": "Kampong Pak",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 115.18333
+  },
+  {
+    "city": "Kampong Paganan",
+    "city_zh": "Kampong Paganan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.55,
+    "longitude": 115.06667
+  },
+  {
+    "city": "Pad Nunok",
+    "city_zh": "Pad Nunok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.71749,
+    "longitude": 114.72825
+  },
+  {
+    "city": "Kampong Nong Kelulau",
+    "city_zh": "Kampong Nong Kelulau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.65
+  },
+  {
+    "city": "Kampong Nangka",
+    "city_zh": "Kampong Nangka",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Mungkom",
+    "city_zh": "Kampong Mungkom",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.75
+  },
+  {
+    "city": "Mulaut",
+    "city_zh": "Mulaut",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86458,
+    "longitude": 114.84583
+  },
+  {
+    "city": "Kampong Mulaut",
+    "city_zh": "Kampong Mulaut",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Menunggol",
+    "city_zh": "Kampong Menunggol",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.93333,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Menunggol",
+    "city_zh": "Kampong Menunggol",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.98333
+  },
+  {
+    "city": "Mentiri",
+    "city_zh": "Mentiri",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.97058,
+    "longitude": 115.02078
+  },
+  {
+    "city": "Kampong Mengawang",
+    "city_zh": "Kampong Mengawang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.85
+  },
+  {
+    "city": "Kampong Medaras",
+    "city_zh": "Kampong Medaras",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.96667,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Mata Mata",
+    "city_zh": "Kampong Mata Mata",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.9,
+    "longitude": 114.9
+  },
+  {
+    "city": "Madewa",
+    "city_zh": "Madewa",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85583,
+    "longitude": 114.89512
+  },
+  {
+    "city": "Kampong Lupak Luas",
+    "city_zh": "Kampong Lupak Luas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86972,
+    "longitude": 114.94047
+  },
+  {
+    "city": "Lumapas",
+    "city_zh": "Lumapas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Lugu",
+    "city_zh": "Kampong Lugu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.8
+  },
+  {
+    "city": "Kampong Lubok Tanjong Maya",
+    "city_zh": "Kampong Lubok Tanjong Maya",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Lubok Pulau",
+    "city_zh": "Lubok Pulau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.76403,
+    "longitude": 114.66356
+  },
+  {
+    "city": "Kampong Luagan Dudok",
+    "city_zh": "Kampong Luagan Dudok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81734,
+    "longitude": 114.72979
+  },
+  {
+    "city": "Kampong Lopat",
+    "city_zh": "Kampong Lopat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 115.2
+  },
+  {
+    "city": "Kampong Limpas",
+    "city_zh": "Kampong Limpas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Limau Manis",
+    "city_zh": "Kampong Limau Manis",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Kampong Lilas",
+    "city_zh": "Kampong Lilas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.7,
+    "longitude": 114.51667
+  },
+  {
+    "city": "Kampong Lepong",
+    "city_zh": "Kampong Lepong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.6,
+    "longitude": 115.05
+  },
+  {
+    "city": "Layong",
+    "city_zh": "Layong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68895,
+    "longitude": 114.67753
+  },
+  {
+    "city": "Lamunin",
+    "city_zh": "Lamunin",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.6816,
+    "longitude": 114.71537
+  },
+  {
+    "city": "Kampong Lambak A",
+    "city_zh": "Kampong Lambak A",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.96611,
+    "longitude": 114.94296
+  },
+  {
+    "city": "Kampong Labut",
+    "city_zh": "Kampong Labut",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kupang",
+    "city_zh": "Kupang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.84309,
+    "longitude": 114.79445
+  },
+  {
+    "city": "Kampong Kuala Ungar",
+    "city_zh": "Kampong Kuala Ungar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Kuala Tutong",
+    "city_zh": "Kampong Kuala Tutong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.78333,
+    "longitude": 114.6
+  },
+  {
+    "city": "Kuala Abang",
+    "city_zh": "Kuala Abang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.70108,
+    "longitude": 114.67683
+  },
+  {
+    "city": "Kota Batu",
+    "city_zh": "Kota Batu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.95
+  },
+  {
+    "city": "Kampong Kobong",
+    "city_zh": "Kampong Kobong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.63333,
+    "longitude": 115.03333
+  },
+  {
+    "city": "Kiudang",
+    "city_zh": "Kiudang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.73333
+  },
+  {
+    "city": "Kampong Kiajong",
+    "city_zh": "Kampong Kiajong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88896,
+    "longitude": 114.91912
+  },
+  {
+    "city": "Keriam",
+    "city_zh": "Keriam",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81603,
+    "longitude": 114.6941
+  },
+  {
+    "city": "Kampong Kerangan Nyatan",
+    "city_zh": "Kampong Kerangan Nyatan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.41667,
+    "longitude": 114.6
+  },
+  {
+    "city": "Kampong Kenua",
+    "city_zh": "Kampong Kenua",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 115.05
+  },
+  {
+    "city": "Kampong Keluyoh",
+    "city_zh": "Kampong Keluyoh",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 114.5
+  },
+  {
+    "city": "Kampong Kelalang",
+    "city_zh": "Kampong Kelalang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Kebun",
+    "city_zh": "Kampong Kebun",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.75,
+    "longitude": 114.73333
+  },
+  {
+    "city": "Kampong Kebia",
+    "city_zh": "Kampong Kebia",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.76667,
+    "longitude": 114.73333
+  },
+  {
+    "city": "Kampong Kayu Kapur",
+    "city_zh": "Kampong Kayu Kapur",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Katok",
+    "city_zh": "Katok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.91619,
+    "longitude": 114.89353
+  },
+  {
+    "city": "Katimahar",
+    "city_zh": "Katimahar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86807,
+    "longitude": 114.81454
+  },
+  {
+    "city": "Kampong Kasat",
+    "city_zh": "Kampong Kasat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.82307,
+    "longitude": 114.9471
+  },
+  {
+    "city": "Kapok",
+    "city_zh": "Kapok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 5.02447,
+    "longitude": 115.04664
+  },
+  {
+    "city": "Kampong Kandang",
+    "city_zh": "Kampong Kandang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.65
+  },
+  {
+    "city": "Kampong Kalamasi",
+    "city_zh": "Kampong Kalamasi",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.95
+  },
+  {
+    "city": "Junjongan",
+    "city_zh": "Junjongan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81032,
+    "longitude": 114.85343
+  },
+  {
+    "city": "Kampong Jerudong",
+    "city_zh": "Kampong Jerudong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 114.85
+  },
+  {
+    "city": "Kampong Jangsak",
+    "city_zh": "Kampong Jangsak",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.86667
+  },
+  {
+    "city": "Kampong Imang",
+    "city_zh": "Kampong Imang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.8
+  },
+  {
+    "city": "Kampong Ikas",
+    "city_zh": "Kampong Ikas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.8
+  },
+  {
+    "city": "Kampong Gadong",
+    "city_zh": "Kampong Gadong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.91667,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Empat Setengah",
+    "city_zh": "Kampong Empat Setengah",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 114.95
+  },
+  {
+    "city": "Kampong Delima",
+    "city_zh": "Kampong Delima",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.95,
+    "longitude": 114.95
+  },
+  {
+    "city": "Kampong Danau",
+    "city_zh": "Kampong Danau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.76667,
+    "longitude": 114.58333
+  },
+  {
+    "city": "Kampong Burong Pingai Berakas",
+    "city_zh": "Kampong Burong Pingai Berakas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.93333,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Kampong Burong Pingai",
+    "city_zh": "Kampong Burong Pingai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.65,
+    "longitude": 114.63333
+  },
+  {
+    "city": "Bunut",
+    "city_zh": "Bunut",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85348,
+    "longitude": 114.88683
+  },
+  {
+    "city": "Kampong Bukok",
+    "city_zh": "Kampong Bukok",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.65,
+    "longitude": 115.05
+  },
+  {
+    "city": "Kampong Bukit Tambai",
+    "city_zh": "Kampong Bukit Tambai",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.76667,
+    "longitude": 114.73333
+  },
+  {
+    "city": "Bukit Sulang",
+    "city_zh": "Bukit Sulang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.65826,
+    "longitude": 114.73664
+  },
+  {
+    "city": "Bukit Panggal",
+    "city_zh": "Bukit Panggal",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.82774,
+    "longitude": 114.72628
+  },
+  {
+    "city": "Kampong Bukit Kota",
+    "city_zh": "Kampong Bukit Kota",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.7,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Kampong Bukit Bang Tangur",
+    "city_zh": "Kampong Bukit Bang Tangur",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 114.6
+  },
+  {
+    "city": "Kampong Bukit",
+    "city_zh": "Kampong Bukit",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.63333,
+    "longitude": 114.65
+  },
+  {
+    "city": "Kampong Buang Tawar",
+    "city_zh": "Kampong Buang Tawar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.96667
+  },
+  {
+    "city": "Kampong Buangsakar",
+    "city_zh": "Kampong Buangsakar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85,
+    "longitude": 114.95
+  },
+  {
+    "city": "Kampong Buang Bulan",
+    "city_zh": "Kampong Buang Bulan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 115.08333
+  },
+  {
+    "city": "Kampong Buangang",
+    "city_zh": "Kampong Buangang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 114.68333
+  },
+  {
+    "city": "Kampong Birau",
+    "city_zh": "Kampong Birau",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.78333,
+    "longitude": 114.73333
+  },
+  {
+    "city": "Kampong Bintauran",
+    "city_zh": "Kampong Bintauran",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Kampong Binchaya",
+    "city_zh": "Kampong Binchaya",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.73333,
+    "longitude": 114.56667
+  },
+  {
+    "city": "Kampong Bibit",
+    "city_zh": "Kampong Bibit",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.9
+  },
+  {
+    "city": "Kampong Biang",
+    "city_zh": "Kampong Biang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.65,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Beribi",
+    "city_zh": "Kampong Beribi",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.88333
+  },
+  {
+    "city": "Kampong Berbunot",
+    "city_zh": "Kampong Berbunot",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 115.03333
+  },
+  {
+    "city": "Kampong Berakas",
+    "city_zh": "Kampong Berakas",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.94794,
+    "longitude": 114.93583
+  },
+  {
+    "city": "Kampong Benutan",
+    "city_zh": "Kampong Benutan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.6,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Kampong Belayong",
+    "city_zh": "Kampong Belayong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.63333,
+    "longitude": 115.05
+  },
+  {
+    "city": "Kampong Belaban",
+    "city_zh": "Kampong Belaban",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 115.08333
+  },
+  {
+    "city": "Kampong Bebatek",
+    "city_zh": "Kampong Bebatek",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85,
+    "longitude": 114.83333
+  },
+  {
+    "city": "Kampong Bawong",
+    "city_zh": "Kampong Bawong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.83333,
+    "longitude": 114.96667
+  },
+  {
+    "city": "Batu Marang",
+    "city_zh": "Batu Marang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.98203,
+    "longitude": 115.03506
+  },
+  {
+    "city": "Kampong Batu Lapan",
+    "city_zh": "Kampong Batu Lapan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.85
+  },
+  {
+    "city": "Kampong Batu Empat",
+    "city_zh": "Kampong Batu Empat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.86667,
+    "longitude": 114.9
+  },
+  {
+    "city": "Kampong Batu Empat",
+    "city_zh": "Kampong Batu Empat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.78333,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Batong",
+    "city_zh": "Batong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.81992,
+    "longitude": 114.81663
+  },
+  {
+    "city": "Kampong Batang Duri",
+    "city_zh": "Kampong Batang Duri",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.56667,
+    "longitude": 115.13333
+  },
+  {
+    "city": "Kampong Baru Baru",
+    "city_zh": "Kampong Baru Baru",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.66667,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Bantun",
+    "city_zh": "Kampong Bantun",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.86667
+  },
+  {
+    "city": "Kampong Bang Togor",
+    "city_zh": "Kampong Bang Togor",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 114.61667
+  },
+  {
+    "city": "Kampong Bangana",
+    "city_zh": "Kampong Bangana",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.65,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Kampong Bandong",
+    "city_zh": "Kampong Bandong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.76667
+  },
+  {
+    "city": "Kampong Bakaladong",
+    "city_zh": "Kampong Bakaladong",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 114.66667
+  },
+  {
+    "city": "Kampong Baharu",
+    "city_zh": "Kampong Baharu",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8,
+    "longitude": 114.8
+  },
+  {
+    "city": "Kampong Ampar",
+    "city_zh": "Kampong Ampar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.78333,
+    "longitude": 114.81667
+  },
+  {
+    "city": "Kampong Amo",
+    "city_zh": "Kampong Amo",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.61667,
+    "longitude": 115.1
+  },
+  {
+    "city": "Kampong Abang",
+    "city_zh": "Kampong Abang",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.68333,
+    "longitude": 114.71667
+  },
+  {
+    "city": "Istana Darul Hana",
+    "city_zh": "Istana Darul Hana",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88333,
+    "longitude": 114.91667
+  },
+  {
+    "city": "Bukit Puan",
+    "city_zh": "Bukit Puan",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.53333,
+    "longitude": 114.45
+  },
+  {
+    "city": "Batu Apoi",
+    "city_zh": "Batu Apoi",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.7,
+    "longitude": 115.1
+  },
+  {
+    "city": "Bangar",
+    "city_zh": "Bangar",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.70861,
+    "longitude": 115.07167
+  },
+  {
+    "city": "Bandar Seri Begawan",
+    "city_zh": "斯里巴加湾市",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.89035,
+    "longitude": 114.94006
+  },
+  {
+    "city": "Masin",
+    "city_zh": "Masin",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.8375,
+    "longitude": 114.84472
+  },
+  {
+    "city": "Kulapis",
+    "city_zh": "Kulapis",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.85045,
+    "longitude": 114.82322
+  },
+  {
+    "city": "Bukit Salat",
+    "city_zh": "Bukit Salat",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.89015,
+    "longitude": 114.93675
+  },
+  {
+    "city": "Kuala Peminyak",
+    "city_zh": "Kuala Peminyak",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88509,
+    "longitude": 114.93934
+  },
+  {
+    "city": "Pemancha Lama",
+    "city_zh": "Pemancha Lama",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.88562,
+    "longitude": 114.93996
+  },
+  {
+    "city": "Kampung Sungai Teraban",
+    "city_zh": "Kampung Sungai Teraban",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.58445,
+    "longitude": 114.18117
+  },
+  {
+    "city": "Kampung Lubok Palam",
+    "city_zh": "Kampung Lubok Palam",
+    "country": "Brunei",
+    "country_zh": "汶萊",
+    "country_iso_code": "BN",
+    "timezone": "Asia/Brunei",
+    "latitude": 4.5782,
+    "longitude": 114.19675
+  }
+]

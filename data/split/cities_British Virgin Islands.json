@@ -1,0 +1,1422 @@
+[
+  {
+    "city": "Wesley Will",
+    "city_zh": "Wesley Will",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44676,
+    "longitude": -64.60223
+  },
+  {
+    "city": "Threllfall",
+    "city_zh": "Threllfall",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41215,
+    "longitude": -64.63484
+  },
+  {
+    "city": "The Settlement",
+    "city_zh": "The Settlement",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.71983,
+    "longitude": -64.3167
+  },
+  {
+    "city": "The Mill",
+    "city_zh": "The Mill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44322,
+    "longitude": -64.53476
+  },
+  {
+    "city": "Spanish Town",
+    "city_zh": "西班牙镇",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4481,
+    "longitude": -64.43474
+  },
+  {
+    "city": "South Sound",
+    "city_zh": "South Sound",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.48185,
+    "longitude": -64.39018
+  },
+  {
+    "city": "Road Town",
+    "city_zh": "罗德城",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42693,
+    "longitude": -64.62079
+  },
+  {
+    "city": "Maya Cove",
+    "city_zh": "Maya Cove",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41667,
+    "longitude": -64.56667
+  },
+  {
+    "city": "Long Swamp",
+    "city_zh": "Long Swamp",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43333,
+    "longitude": -64.56667
+  },
+  {
+    "city": "Little Harbour",
+    "city_zh": "Little Harbour",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44004,
+    "longitude": -64.73323
+  },
+  {
+    "city": "Little Carrot Bay",
+    "city_zh": "Little Carrot Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.40592,
+    "longitude": -64.67407
+  },
+  {
+    "city": "Lettsome Settlement",
+    "city_zh": "Lettsome Settlement",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45354,
+    "longitude": -64.72359
+  },
+  {
+    "city": "Leonards",
+    "city_zh": "Leonards",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4275,
+    "longitude": -64.64111
+  },
+  {
+    "city": "Kingstown",
+    "city_zh": "Kingstown",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41784,
+    "longitude": -64.59952
+  },
+  {
+    "city": "Hannah",
+    "city_zh": "Hannah",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.40262,
+    "longitude": -64.63646
+  },
+  {
+    "city": "Great Mountain",
+    "city_zh": "Great Mountain",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43678,
+    "longitude": -64.62965
+  },
+  {
+    "city": "Great Carrot Bay",
+    "city_zh": "Great Carrot Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41103,
+    "longitude": -64.67121
+  },
+  {
+    "city": "Freshwater Pond",
+    "city_zh": "Freshwater Pond",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39142,
+    "longitude": -64.68132
+  },
+  {
+    "city": "Cane Garden Bay",
+    "city_zh": "Cane Garden Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42693,
+    "longitude": -64.65701
+  },
+  {
+    "city": "Belle Vue",
+    "city_zh": "Belle Vue",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44615,
+    "longitude": -64.75151
+  },
+  {
+    "city": "Anderson",
+    "city_zh": "Anderson",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44149,
+    "longitude": -64.63922
+  },
+  {
+    "city": "East End",
+    "city_zh": "East End",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44024,
+    "longitude": -64.55638
+  },
+  {
+    "city": "Creek Village",
+    "city_zh": "Creek Village",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.49111,
+    "longitude": -64.38111
+  },
+  {
+    "city": "South Side",
+    "city_zh": "South Side",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44095,
+    "longitude": -64.74733
+  },
+  {
+    "city": "Cotton Ground",
+    "city_zh": "Cotton Ground",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44721,
+    "longitude": -64.75239
+  },
+  {
+    "city": "Skeleton Land",
+    "city_zh": "Skeleton Land",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44539,
+    "longitude": -64.7333
+  },
+  {
+    "city": "Spring Bay Land",
+    "city_zh": "Spring Bay Land",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43328,
+    "longitude": -64.44188
+  },
+  {
+    "city": "Rhymers Estate",
+    "city_zh": "Rhymers Estate",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43503,
+    "longitude": -64.43504
+  },
+  {
+    "city": "The Country",
+    "city_zh": "The Country",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43207,
+    "longitude": -64.43641
+  },
+  {
+    "city": "Copper Mine",
+    "city_zh": "Copper Mine",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43268,
+    "longitude": -64.42552
+  },
+  {
+    "city": "Windy Hill",
+    "city_zh": "Windy Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44028,
+    "longitude": -64.43111
+  },
+  {
+    "city": "Trunk Bay Land",
+    "city_zh": "Trunk Bay Land",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43869,
+    "longitude": -64.43951
+  },
+  {
+    "city": "Taylors Bay",
+    "city_zh": "Taylors Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4458,
+    "longitude": -64.43111
+  },
+  {
+    "city": "Princess Quarters",
+    "city_zh": "Princess Quarters",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44329,
+    "longitude": -64.43655
+  },
+  {
+    "city": "Stevens Pasture",
+    "city_zh": "Stevens Pasture",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44928,
+    "longitude": -64.43354
+  },
+  {
+    "city": "Church Hill",
+    "city_zh": "Church Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44186,
+    "longitude": -64.43352
+  },
+  {
+    "city": "Town Bay",
+    "city_zh": "Town Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44422,
+    "longitude": -64.43989
+  },
+  {
+    "city": "Head of the Bay",
+    "city_zh": "Head of the Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45421,
+    "longitude": -64.43386
+  },
+  {
+    "city": "Crab Hill",
+    "city_zh": "Crab Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45238,
+    "longitude": -64.42996
+  },
+  {
+    "city": "Handsome Bay",
+    "city_zh": "Handsome Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45704,
+    "longitude": -64.42765
+  },
+  {
+    "city": "Fanny Mac Hill",
+    "city_zh": "Fanny Mac Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45491,
+    "longitude": -64.42843
+  },
+  {
+    "city": "Harrigan Pasture",
+    "city_zh": "Harrigan Pasture",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45594,
+    "longitude": -64.42974
+  },
+  {
+    "city": "Little Dix Bay",
+    "city_zh": "Little Dix Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45865,
+    "longitude": -64.43398
+  },
+  {
+    "city": "Pond Bay",
+    "city_zh": "Pond Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.47013,
+    "longitude": -64.41334
+  },
+  {
+    "city": "John Tarter",
+    "city_zh": "John Tarter",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.47869,
+    "longitude": -64.413
+  },
+  {
+    "city": "Plum Tree Bay",
+    "city_zh": "Plum Tree Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.48398,
+    "longitude": -64.41164
+  },
+  {
+    "city": "Bakers Bay",
+    "city_zh": "Bakers Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4929,
+    "longitude": -64.38523
+  },
+  {
+    "city": "North Sound",
+    "city_zh": "North Sound",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.49058,
+    "longitude": -64.38307
+  },
+  {
+    "city": "The Bond",
+    "city_zh": "The Bond",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.48976,
+    "longitude": -64.39242
+  },
+  {
+    "city": "North Sound Settlement",
+    "city_zh": "North Sound Settlement",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.49722,
+    "longitude": -64.38481
+  },
+  {
+    "city": "Dawson",
+    "city_zh": "Dawson",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39177,
+    "longitude": -64.7056
+  },
+  {
+    "city": "Belmont",
+    "city_zh": "Belmont",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.3923,
+    "longitude": -64.70086
+  },
+  {
+    "city": "West End",
+    "city_zh": "West End",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.38802,
+    "longitude": -64.69775
+  },
+  {
+    "city": "Long Bay",
+    "city_zh": "Long Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39658,
+    "longitude": -64.68612
+  },
+  {
+    "city": "Little Apple Bay",
+    "city_zh": "Little Apple Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39521,
+    "longitude": -64.68186
+  },
+  {
+    "city": "Cappoons Bay",
+    "city_zh": "Cappoons Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39953,
+    "longitude": -64.67979
+  },
+  {
+    "city": "Apple Bay",
+    "city_zh": "Apple Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.40207,
+    "longitude": -64.67678
+  },
+  {
+    "city": "Cart Path",
+    "city_zh": "Cart Path",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39472,
+    "longitude": -64.67514
+  },
+  {
+    "city": "Recovery",
+    "city_zh": "Recovery",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.3886,
+    "longitude": -64.67348
+  },
+  {
+    "city": "Boway",
+    "city_zh": "Boway",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.38504,
+    "longitude": -64.67311
+  },
+  {
+    "city": "Daseys",
+    "city_zh": "Daseys",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.38687,
+    "longitude": -64.67287
+  },
+  {
+    "city": "Pockwood Pond",
+    "city_zh": "Pockwood Pond",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39445,
+    "longitude": -64.65257
+  },
+  {
+    "city": "Havers",
+    "city_zh": "Havers",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.39442,
+    "longitude": -64.64386
+  },
+  {
+    "city": "Arundell",
+    "city_zh": "Arundell",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41607,
+    "longitude": -64.65707
+  },
+  {
+    "city": "Ballast Bay",
+    "city_zh": "Ballast Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41509,
+    "longitude": -64.66747
+  },
+  {
+    "city": "Edney",
+    "city_zh": "Edney",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41053,
+    "longitude": -64.65118
+  },
+  {
+    "city": "Shannon",
+    "city_zh": "Shannon",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42066,
+    "longitude": -64.65129
+  },
+  {
+    "city": "Hodge",
+    "city_zh": "Hodge",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4279,
+    "longitude": -64.65567
+  },
+  {
+    "city": "McIntosh",
+    "city_zh": "McIntosh",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43196,
+    "longitude": -64.65331
+  },
+  {
+    "city": "Ross",
+    "city_zh": "Ross",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43336,
+    "longitude": -64.65713
+  },
+  {
+    "city": "Martin",
+    "city_zh": "Martin",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43871,
+    "longitude": -64.65314
+  },
+  {
+    "city": "Mount Healthy",
+    "city_zh": "Mount Healthy",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4485,
+    "longitude": -64.64293
+  },
+  {
+    "city": "Spooner",
+    "city_zh": "Spooner",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44329,
+    "longitude": -64.63347
+  },
+  {
+    "city": "Henley",
+    "city_zh": "Henley",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43959,
+    "longitude": -64.63292
+  },
+  {
+    "city": "Turnbull Hill",
+    "city_zh": "Turnbull Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44041,
+    "longitude": -64.62444
+  },
+  {
+    "city": "Trunk Bay",
+    "city_zh": "Trunk Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44655,
+    "longitude": -64.61122
+  },
+  {
+    "city": "Fahie Hill",
+    "city_zh": "Fahie Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43843,
+    "longitude": -64.62106
+  },
+  {
+    "city": "Green Bank",
+    "city_zh": "Green Bank",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43164,
+    "longitude": -64.64351
+  },
+  {
+    "city": "New Bush",
+    "city_zh": "New Bush",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43284,
+    "longitude": -64.63772
+  },
+  {
+    "city": "Primrose Garden",
+    "city_zh": "Primrose Garden",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43691,
+    "longitude": -64.63331
+  },
+  {
+    "city": "Huntums Ghut",
+    "city_zh": "Huntums Ghut",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43347,
+    "longitude": -64.62642
+  },
+  {
+    "city": "Johnson Ghut",
+    "city_zh": "Johnson Ghut",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43517,
+    "longitude": -64.60961
+  },
+  {
+    "city": "Pasea Estate",
+    "city_zh": "Pasea Estate",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43049,
+    "longitude": -64.61468
+  },
+  {
+    "city": "Meyers",
+    "city_zh": "Meyers",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42634,
+    "longitude": -64.64518
+  },
+  {
+    "city": "Martins Joes Hill",
+    "city_zh": "Martins Joes Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42739,
+    "longitude": -64.63916
+  },
+  {
+    "city": "Diamond",
+    "city_zh": "Diamond",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43146,
+    "longitude": -64.63438
+  },
+  {
+    "city": "Long Bush",
+    "city_zh": "Long Bush",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42419,
+    "longitude": -64.62524
+  },
+  {
+    "city": "Pleasant Valley",
+    "city_zh": "Pleasant Valley",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.40419,
+    "longitude": -64.64129
+  },
+  {
+    "city": "Duffs Bottom",
+    "city_zh": "Duffs Bottom",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.40855,
+    "longitude": -64.62447
+  },
+  {
+    "city": "Slaney",
+    "city_zh": "Slaney",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.40731,
+    "longitude": -64.61795
+  },
+  {
+    "city": "Fisher Estate",
+    "city_zh": "Fisher Estate",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4128,
+    "longitude": -64.61646
+  },
+  {
+    "city": "McNamara",
+    "city_zh": "McNamara",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41438,
+    "longitude": -64.61778
+  },
+  {
+    "city": "Albion",
+    "city_zh": "Albion",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41435,
+    "longitude": -64.6287
+  },
+  {
+    "city": "Blyden",
+    "city_zh": "Blyden",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42065,
+    "longitude": -64.62995
+  },
+  {
+    "city": "Nibbs",
+    "city_zh": "Nibbs",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41431,
+    "longitude": -64.63548
+  },
+  {
+    "city": "Chalwell",
+    "city_zh": "Chalwell",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41954,
+    "longitude": -64.64539
+  },
+  {
+    "city": "Doty",
+    "city_zh": "Doty",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41413,
+    "longitude": -64.64618
+  },
+  {
+    "city": "Georges Hollow",
+    "city_zh": "Georges Hollow",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42183,
+    "longitude": -64.62535
+  },
+  {
+    "city": "Lower Estate",
+    "city_zh": "Lower Estate",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42946,
+    "longitude": -64.62572
+  },
+  {
+    "city": "John’s Hole",
+    "city_zh": "John’s Hole",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42891,
+    "longitude": -64.61904
+  },
+  {
+    "city": "Free Bottom",
+    "city_zh": "Free Bottom",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43014,
+    "longitude": -64.60809
+  },
+  {
+    "city": "Wickhams Cay One",
+    "city_zh": "Wickhams Cay One",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42221,
+    "longitude": -64.6157
+  },
+  {
+    "city": "Wickhams Cay Two",
+    "city_zh": "Wickhams Cay Two",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42708,
+    "longitude": -64.61367
+  },
+  {
+    "city": "Blyden Yard",
+    "city_zh": "Blyden Yard",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42331,
+    "longitude": -64.6229
+  },
+  {
+    "city": "Russell Hill",
+    "city_zh": "Russell Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41946,
+    "longitude": -64.62035
+  },
+  {
+    "city": "Steep Hill",
+    "city_zh": "Steep Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41746,
+    "longitude": -64.62714
+  },
+  {
+    "city": "Cocodella",
+    "city_zh": "Cocodella",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41911,
+    "longitude": -64.62981
+  },
+  {
+    "city": "Road Reef",
+    "city_zh": "Road Reef",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41271,
+    "longitude": -64.61296
+  },
+  {
+    "city": "Purcell",
+    "city_zh": "Purcell",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43131,
+    "longitude": -64.61003
+  },
+  {
+    "city": "Fort Hill",
+    "city_zh": "Fort Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42632,
+    "longitude": -64.60619
+  },
+  {
+    "city": "Rogues Bay",
+    "city_zh": "Rogues Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44642,
+    "longitude": -64.6049
+  },
+  {
+    "city": "Carrot Bay",
+    "city_zh": "Carrot Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4517,
+    "longitude": -64.60409
+  },
+  {
+    "city": "Cooten Bay",
+    "city_zh": "Cooten Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44647,
+    "longitude": -64.59992
+  },
+  {
+    "city": "Pickering",
+    "city_zh": "Pickering",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43185,
+    "longitude": -64.63026
+  },
+  {
+    "city": "Lambert",
+    "city_zh": "Lambert",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4515,
+    "longitude": -64.5751
+  },
+  {
+    "city": "Upper Hope",
+    "city_zh": "Upper Hope",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43616,
+    "longitude": -64.5941
+  },
+  {
+    "city": "Lower Hope",
+    "city_zh": "Lower Hope",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4376,
+    "longitude": -64.59039
+  },
+  {
+    "city": "Martin Spring Ghut",
+    "city_zh": "Martin Spring Ghut",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43514,
+    "longitude": -64.58258
+  },
+  {
+    "city": "Belle Vue",
+    "city_zh": "Belle Vue",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43098,
+    "longitude": -64.59469
+  },
+  {
+    "city": "Nottingham Estate",
+    "city_zh": "Nottingham Estate",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43286,
+    "longitude": -64.57838
+  },
+  {
+    "city": "Hedrington Spring Ghut",
+    "city_zh": "Hedrington Spring Ghut",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42922,
+    "longitude": -64.58423
+  },
+  {
+    "city": "Brandywine Bay",
+    "city_zh": "Brandywine Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.41809,
+    "longitude": -64.58436
+  },
+  {
+    "city": "Fish Bay",
+    "city_zh": "Fish Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42049,
+    "longitude": -64.59959
+  },
+  {
+    "city": "Baughers Bay",
+    "city_zh": "Baughers Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42565,
+    "longitude": -64.60207
+  },
+  {
+    "city": "Paraquita Bay",
+    "city_zh": "Paraquita Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42592,
+    "longitude": -64.58176
+  },
+  {
+    "city": "Josias Bay",
+    "city_zh": "Josias Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44309,
+    "longitude": -64.58806
+  },
+  {
+    "city": "Fat Hogs Bay",
+    "city_zh": "Fat Hogs Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43185,
+    "longitude": -64.56953
+  },
+  {
+    "city": "Hodge’s Creek",
+    "city_zh": "Hodge’s Creek",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.42599,
+    "longitude": -64.569
+  },
+  {
+    "city": "Hodge Estate",
+    "city_zh": "Hodge Estate",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43391,
+    "longitude": -64.56982
+  },
+  {
+    "city": "Vanterpool",
+    "city_zh": "Vanterpool",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43609,
+    "longitude": -64.57006
+  },
+  {
+    "city": "Long Look",
+    "city_zh": "Long Look",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.43701,
+    "longitude": -64.57392
+  },
+  {
+    "city": "Old Plantation",
+    "city_zh": "Old Plantation",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44048,
+    "longitude": -64.57248
+  },
+  {
+    "city": "Greenland",
+    "city_zh": "Greenland",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44156,
+    "longitude": -64.57084
+  },
+  {
+    "city": "Major Bay",
+    "city_zh": "Major Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4399,
+    "longitude": -64.56607
+  },
+  {
+    "city": "Parham Town",
+    "city_zh": "Parham Town",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44247,
+    "longitude": -64.55993
+  },
+  {
+    "city": "Tarris Hill",
+    "city_zh": "Tarris Hill",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4407,
+    "longitude": -64.56295
+  },
+  {
+    "city": "Red Bay",
+    "city_zh": "Red Bay",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44072,
+    "longitude": -64.55976
+  },
+  {
+    "city": "James Young",
+    "city_zh": "James Young",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.4415,
+    "longitude": -64.56651
+  },
+  {
+    "city": "Thomas Land",
+    "city_zh": "Thomas Land",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44342,
+    "longitude": -64.55481
+  },
+  {
+    "city": "Lloyds",
+    "city_zh": "Lloyds",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.44747,
+    "longitude": -64.5609
+  },
+  {
+    "city": "Hawks Nest",
+    "city_zh": "Hawks Nest",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45642,
+    "longitude": -64.56075
+  },
+  {
+    "city": "Balsom Ghut",
+    "city_zh": "Balsom Ghut",
+    "country": "British Virgin Islands",
+    "country_zh": "British Virgin Islands",
+    "country_iso_code": "VG",
+    "timezone": "America/Tortola",
+    "latitude": 18.45411,
+    "longitude": -64.56824
+  }
+]
