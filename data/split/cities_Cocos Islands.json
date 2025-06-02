@@ -1,0 +1,22 @@
+[
+  {
+    "city": "Bantam Village",
+    "city_zh": "Bantam Village",
+    "country": "Cocos Islands",
+    "country_zh": "Cocos Islands",
+    "country_iso_code": "CC",
+    "timezone": "Indian/Cocos",
+    "latitude": -12.11645,
+    "longitude": 96.89497
+  },
+  {
+    "city": "West Island",
+    "city_zh": "West Island",
+    "country": "Cocos Islands",
+    "country_zh": "Cocos Islands",
+    "country_iso_code": "CC",
+    "timezone": "Indian/Cocos",
+    "latitude": -12.15681,
+    "longitude": 96.82251
+  }
+]
