@@ -564,17 +564,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     function getCityUTCOffsetHours(ianaTimeZone) {
         if (!ianaTimeZone || typeof ianaTimeZone !== 'string') {
             console.warn("無效的時區輸入:", ianaTimeZone);
-            return NaN;
+            return 0; // 返回 UTC 偏移
         }
 
         try {
-            // 檢查是否為有效的 IANA 時區
-            const validTimeZones = Intl.supportedValuesOf('timeZone');
-            if (!validTimeZones.includes(ianaTimeZone)) {
-                console.warn(`不支援的時區: ${ianaTimeZone}，嘗試使用 UTC`);
-                return 0; // 對於無效時區，返回 UTC 偏移
-            }
-
             const now = new Date();
             
             // 方法1：使用 Intl.DateTimeFormat 的 formatToParts
@@ -737,6 +730,87 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
+        // 如果沒有找到任何候選城市，顯示宇宙訊息
+        if (candidateCities.length === 0) {
+            resultTextDiv.innerHTML = `
+                <p style="font-weight: bold; font-size: 1.1em;">(系統提示：無法找到符合條件的城市)</p>
+                <p>今天的你已脫離地球，<br>與<strong>未知星球 (Universe)</strong>非地球生物共同開啟了新的一天！</p>
+                <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">在浩瀚宇宙中，時間的概念變得模糊。這裡沒有日出日落，沒有晨昏交替，只有永恆的星光陪伴著你。</p>
+            `;
+
+            countryFlagImg.style.display = 'none';
+            mapContainerDiv.classList.add('universe-message');
+            mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
+
+            // 創建早餐圖片容器
+            const breakfastContainer = document.createElement('div');
+            breakfastContainer.id = 'breakfastImageContainer';
+            breakfastContainer.style.marginTop = '20px';
+            breakfastContainer.style.textAlign = 'center';
+            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備宇宙早餐......</i></p>';
+            
+            // 將早餐圖片容器插入到地圖和 debugInfo 之間
+            debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+            debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 時區: Unknown)`;
+
+            // 生成宇宙早餐圖片
+            try {
+                const token = await auth.currentUser.getIdToken();
+                const imageResponse = await fetch('/api/generateImage', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ 
+                        city: "Unknown Planet",
+                        country: "Universe"
+                    })
+                });
+
+                if (!imageResponse.ok) throw new Error(await imageResponse.text());
+                const imageData = await imageResponse.json();
+
+                if (imageData.imageUrl) {
+                    breakfastContainer.innerHTML = `
+                        <div class="postcard-image-container">
+                            <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
+                            <p style="font-size: 0.9em; color: #555;"><em>宇宙早餐</em></p>
+                        </div>
+                    `;
+
+                    const recordData = {
+                        dataIdentifier: currentDataIdentifier,
+                        userDisplayName: rawUserDisplayName,
+                        recordedAt: serverTimestamp(),
+                        localTime: userLocalDate.toLocaleTimeString(),
+                        city: "Unknown Planet",
+                        country: "Universe",
+                        city_zh: "未知星球",
+                        country_zh: "宇宙",
+                        country_iso_code: "universe_code",
+                        latitude: null,
+                        longitude: null,
+                        targetUTCOffset: targetUTCOffsetHours,
+                        matchedCityUTCOffset: null,
+                        recordedDateString: userLocalDate.toISOString().split('T')[0],
+                        greeting: "(系統提示：無法找到符合條件的城市)",
+                        story: "在浩瀚宇宙中，時間的概念變得模糊。這裡沒有日出日落，沒有晨昏交替，只有永恆的星光陪伴著你。",
+                        imageUrl: imageData.imageUrl,
+                        timezone: "Unknown"
+                    };
+                    await saveHistoryRecord(recordData);
+                    await saveToGlobalDailyRecord(recordData);
+                }
+            } catch (error) {
+                console.error("生成宇宙早餐圖片失敗:", error);
+                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成宇宙早餐圖片時發生錯誤：${error.message}</p>`;
+            }
+
+            findCityButton.disabled = false;
+            return;
+        }
+
         // 根據時間差排序候選城市
         candidateCities.sort((a, b) => a.timeDiff - b.timeDiff);
 
@@ -746,9 +820,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 根據冒險指數設定緯度範圍
         let latitudeRange;
         switch(adventureSpectrum) {
-            //case 'peaceful':
-          //      latitudeRange = { min: 60, max: 90 }; // 高緯度地區
-           //     break;
             case 'leisurely':
                 latitudeRange = { min: 45, max: 90 }; // 中高緯度地區
                 break;
