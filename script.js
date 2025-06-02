@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', async () => {
     // 從 window 中獲取 Firebase SDK 函數
     const {
@@ -1756,99 +1757,106 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(debugDivElement) debugDivElement.textContent = `${mapTitle} - 顯示 ${validPointsForBboxCount} 個有效位置。`;
     }
 
-    // 重寫分頁切換邏輯
-    function initializeTabs() {
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
+    window.openTab = function(evt, tabName, isInitialLoad = false) {
+        console.log(`[openTab] 切換到分頁: ${tabName}, 事件觸發: ${!!evt}, 初始載入: ${isInitialLoad}`);
+        
+        // 如果是觸控事件，阻止預設行為
+        if (evt && evt.type === 'touchstart') {
+            evt.preventDefault();
+        }
 
-        function switchTab(tabName) {
-            // 隱藏所有分頁內容
-            tabContents.forEach(content => {
-                content.style.display = 'none';
-            });
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        const currentTabDiv = document.getElementById(tabName);
+        if (currentTabDiv) {
+            currentTabDiv.style.display = "block";
+            console.log(`[openTab] ${tabName} 設為 display: block`);
+        } else {
+            console.warn(`[openTab] 找不到 ID 為 ${tabName} 的分頁內容元素。`);
+        }
 
-            // 移除所有按鈕的 active 類
-            tabButtons.forEach(button => {
-                button.classList.remove('active');
-            });
+        const targetButtonId = `tabButton-${tabName}`;
+        const targetButton = document.getElementById(targetButtonId);
+        if (targetButton) {
+            targetButton.classList.add("active");
+        } else if (evt && evt.currentTarget) {
+            evt.currentTarget.classList.add("active");
+        }
 
-            // 顯示選中的分頁
-            const selectedTab = document.getElementById(tabName);
-            if (selectedTab) {
-                selectedTab.style.display = 'block';
-            }
-
-            // 設置對應按鈕為 active
-            const selectedButton = document.getElementById(`tabButton-${tabName}`);
-            if (selectedButton) {
-                selectedButton.classList.add('active');
-            }
-
-            // 處理特定分頁的額外邏輯
+        setTimeout(() => {
             if (tabName === 'HistoryTab') {
                 if (historyLeafletMap && historyMapContainerDiv.offsetParent !== null) {
+                    console.log("[openTab] HistoryTab is visible, invalidating map size.");
                     historyLeafletMap.invalidateSize();
                 }
-                if (currentDataIdentifier && auth.currentUser) {
+                if (currentDataIdentifier && auth.currentUser && !isInitialLoad) {
+                    console.log("[openTab] 呼叫 loadHistory for HistoryTab.");
                     loadHistory();
                 }
             } else if (tabName === 'GlobalTodayMapTab') {
                 if (globalLeafletMap && globalTodayMapContainerDiv.offsetParent !== null) {
+                    console.log("[openTab] GlobalTodayMapTab is visible, invalidating map size.");
                     globalLeafletMap.invalidateSize();
                 }
-                if (auth.currentUser) {
+                if (auth.currentUser && !isInitialLoad) {
                     if (globalDateInput) {
                         const today = new Date();
                         const year = today.getFullYear();
                         const month = (today.getMonth() + 1).toString().padStart(2, '0');
                         const day = today.getDate().toString().padStart(2, '0');
                         globalDateInput.value = `${year}-${month}-${day}`;
+                        console.log("[openTab] GlobalTodayMapTab: 日期已重設為今天:", globalDateInput.value);
                     }
+                    console.log("[openTab] 呼叫 loadGlobalTodayMap for GlobalTodayMapTab (日期已重設為今天).");
                     loadGlobalTodayMap();
                 }
             } else if (tabName === 'ClockTab') {
                 if (clockLeafletMap && mapContainerDiv.offsetParent !== null) {
+                    console.log("[openTab] ClockTab is visible, invalidating map size.");
                     clockLeafletMap.invalidateSize();
                 }
-                if (currentDataIdentifier && auth.currentUser && !initialLoadHandled) {
+                if (currentDataIdentifier && auth.currentUser && !isInitialLoad && !initialLoadHandled) {
+                    console.log("[openTab] 手動切換到 ClockTab，準備顯示最後記錄。");
                     initialLoadHandled = true;
                     displayLastRecordForCurrentUser();
                 }
             }
-        }
+        }, 0);
+    }
 
-        // 為每個按鈕添加事件監聽器
-        tabButtons.forEach(button => {
+    // 重寫分頁按鈕的事件處理
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.getElementsByClassName('tab-button');
+        Array.from(tabButtons).forEach(button => {
             const tabName = button.getAttribute('data-tab');
             if (!tabName) return;
 
-            // 點擊事件
-            button.addEventListener('click', (e) => {
+            // 移除所有現有的事件監聽器
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+
+            // 添加新的點擊事件處理
+            newButton.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                switchTab(tabName);
+                openTab(e, tabName);
             });
 
-            // 觸控事件
-            button.addEventListener('touchend', (e) => {
+            // 添加新的觸控事件處理
+            newButton.addEventListener('touchend', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                switchTab(tabName);
+                openTab(e, tabName);
             }, { passive: false });
         });
-
-        // 設置初始分頁
-        const initialTab = document.querySelector('.tab-button.active');
-        if (initialTab) {
-            const initialTabName = initialTab.getAttribute('data-tab');
-            if (initialTabName) {
-                switchTab(initialTabName);
-            }
-        }
-    }
-
-    // 在 DOMContentLoaded 時初始化分頁
-    document.addEventListener('DOMContentLoaded', initializeTabs);
+    });
 
     // 修改分頁按鈕的樣式
     const tabButtonStyle = document.createElement('style');
@@ -1870,11 +1878,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             z-index: 1;
             display: inline-block;
             text-align: center;
-            width: auto;
-            min-width: 80px;
         }
         .tab-button.active {
-            border-bottom: 2px solid #e8af10;
+            border-bottom-color: #e8af10;
             color: #d6a70b;
             font-weight: bold;
         }
@@ -1913,9 +1919,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
             }
             .tabs::-webkit-scrollbar {
                 display: none;
