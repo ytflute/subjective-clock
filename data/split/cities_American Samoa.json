@@ -1,0 +1,1492 @@
+[
+  {
+    "city": "Sogi",
+    "city_zh": "Sogi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.35417,
+    "longitude": -170.78361
+  },
+  {
+    "city": "Utulei",
+    "city_zh": "Utulei",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28694,
+    "longitude": -170.68306
+  },
+  {
+    "city": "Aganoa",
+    "city_zh": "Aganoa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27944,
+    "longitude": -170.57917
+  },
+  {
+    "city": "Afulei",
+    "city_zh": "Afulei",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28,
+    "longitude": -170.62389
+  },
+  {
+    "city": "Afao",
+    "city_zh": "Afao",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33667,
+    "longitude": -170.79917
+  },
+  {
+    "city": "A‘asufou",
+    "city_zh": "A‘asufou",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.32028,
+    "longitude": -170.76389
+  },
+  {
+    "city": "Aasu",
+    "city_zh": "Aasu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2975,
+    "longitude": -170.75833
+  },
+  {
+    "city": "Āfono",
+    "city_zh": "Āfono",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26417,
+    "longitude": -170.65083
+  },
+  {
+    "city": "Alofau",
+    "city_zh": "Alofau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27917,
+    "longitude": -170.60222
+  },
+  {
+    "city": "Alaufau",
+    "city_zh": "Alaufau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16705,
+    "longitude": -169.68073
+  },
+  {
+    "city": "Alao",
+    "city_zh": "Alao",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2675,
+    "longitude": -170.56361
+  },
+  {
+    "city": "Ālega",
+    "city_zh": "Ālega",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28528,
+    "longitude": -170.6375
+  },
+  {
+    "city": "Agugulu",
+    "city_zh": "Agugulu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33556,
+    "longitude": -170.82167
+  },
+  {
+    "city": "A‘oloaufou",
+    "city_zh": "A‘oloaufou",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31972,
+    "longitude": -170.76778
+  },
+  {
+    "city": "Amalau (historical)",
+    "city_zh": "Amalau (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2575,
+    "longitude": -170.65833
+  },
+  {
+    "city": "‘Āmanave",
+    "city_zh": "‘Āmanave",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33,
+    "longitude": -170.82944
+  },
+  {
+    "city": "Amaluia",
+    "city_zh": "Amaluia",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33833,
+    "longitude": -170.79111
+  },
+  {
+    "city": "Amaua",
+    "city_zh": "Amaua",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27694,
+    "longitude": -170.62167
+  },
+  {
+    "city": "Āmouli",
+    "city_zh": "Āmouli",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27806,
+    "longitude": -170.5825
+  },
+  {
+    "city": "Amouli (historical)",
+    "city_zh": "Amouli (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27139,
+    "longitude": -169.49417
+  },
+  {
+    "city": "Anasosopo",
+    "city_zh": "Anasosopo",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28861,
+    "longitude": -170.66278
+  },
+  {
+    "city": "Aoloautuai (historical)",
+    "city_zh": "Aoloautuai (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30028,
+    "longitude": -170.78
+  },
+  {
+    "city": "Tafeta",
+    "city_zh": "Tafeta",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.32556,
+    "longitude": -170.75167
+  },
+  {
+    "city": "Anua",
+    "city_zh": "Anua",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26958,
+    "longitude": -170.68771
+  },
+  {
+    "city": "Asili",
+    "city_zh": "Asili",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33556,
+    "longitude": -170.79556
+  },
+  {
+    "city": "‘Aoa",
+    "city_zh": "‘Aoa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26556,
+    "longitude": -170.58389
+  },
+  {
+    "city": "Atu‘u",
+    "city_zh": "Atu‘u",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26934,
+    "longitude": -170.68539
+  },
+  {
+    "city": "Aūa",
+    "city_zh": "Aūa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27032,
+    "longitude": -170.66528
+  },
+  {
+    "city": "Auasi",
+    "city_zh": "Auasi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27667,
+    "longitude": -170.57444
+  },
+  {
+    "city": "Aoloau",
+    "city_zh": "Aoloau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31972,
+    "longitude": -170.77
+  },
+  {
+    "city": "Auma",
+    "city_zh": "Auma",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.333,
+    "longitude": -170.786
+  },
+  {
+    "city": "Aumi",
+    "city_zh": "Aumi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29194,
+    "longitude": -170.64667
+  },
+  {
+    "city": "Aunu‘u",
+    "city_zh": "Aunu‘u",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2836,
+    "longitude": -170.56055
+  },
+  {
+    "city": "Auto",
+    "city_zh": "Auto",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.275,
+    "longitude": -170.628
+  },
+  {
+    "city": "Avau",
+    "city_zh": "Avau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31083,
+    "longitude": -170.69278
+  },
+  {
+    "city": "Autapini",
+    "city_zh": "Autapini",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27889,
+    "longitude": -170.6975
+  },
+  {
+    "city": "Avaio",
+    "city_zh": "Avaio",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28528,
+    "longitude": -170.63083
+  },
+  {
+    "city": "Vatia",
+    "city_zh": "Vatia",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.255,
+    "longitude": -170.67528
+  },
+  {
+    "city": "Vasaaiga",
+    "city_zh": "Vasaaiga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30556,
+    "longitude": -170.68611
+  },
+  {
+    "city": "Faalaaga (historical)",
+    "city_zh": "Faalaaga (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16985,
+    "longitude": -169.64175
+  },
+  {
+    "city": "Vaitogi",
+    "city_zh": "Vaitogi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.35259,
+    "longitude": -170.73796
+  },
+  {
+    "city": "Faga‘itua",
+    "city_zh": "Faga‘itua",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27194,
+    "longitude": -170.61194
+  },
+  {
+    "city": "Fagalea",
+    "city_zh": "Fagalea",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28917,
+    "longitude": -170.71861
+  },
+  {
+    "city": "Vailoatai",
+    "city_zh": "Vailoatai",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.3534,
+    "longitude": -170.7808
+  },
+  {
+    "city": "Fagali‘i",
+    "city_zh": "Fagali‘i",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31222,
+    "longitude": -170.82472
+  },
+  {
+    "city": "Fagamalo",
+    "city_zh": "Fagamalo",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30361,
+    "longitude": -170.80889
+  },
+  {
+    "city": "Vaiala",
+    "city_zh": "Vaiala",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34611,
+    "longitude": -170.77861
+  },
+  {
+    "city": "Tafananai",
+    "city_zh": "Tafananai",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28788,
+    "longitude": -170.66285
+  },
+  {
+    "city": "Utusia",
+    "city_zh": "Utusia",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27583,
+    "longitude": -170.61861
+  },
+  {
+    "city": "Se‘etaga",
+    "city_zh": "Se‘etaga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33056,
+    "longitude": -170.81056
+  },
+  {
+    "city": "Sa‘ilele",
+    "city_zh": "Sa‘ilele",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26222,
+    "longitude": -170.59639
+  },
+  {
+    "city": "Satala",
+    "city_zh": "Satala",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27124,
+    "longitude": -170.69222
+  },
+  {
+    "city": "Samoi (historical)",
+    "city_zh": "Samoi (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16087,
+    "longitude": -169.6745
+  },
+  {
+    "city": "Saua (historical)",
+    "city_zh": "Saua (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.24139,
+    "longitude": -169.42
+  },
+  {
+    "city": "Fitiuta",
+    "city_zh": "Fitiuta",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.21675,
+    "longitude": -169.42493
+  },
+  {
+    "city": "Si‘ufaga",
+    "city_zh": "Si‘ufaga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27917,
+    "longitude": -170.58528
+  },
+  {
+    "city": "Si‘ufaga",
+    "city_zh": "Si‘ufaga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.275,
+    "longitude": -170.69889
+  },
+  {
+    "city": "Sili",
+    "city_zh": "Sili",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16442,
+    "longitude": -169.61962
+  },
+  {
+    "city": "Si‘ufaga",
+    "city_zh": "Si‘ufaga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.24083,
+    "longitude": -169.51167
+  },
+  {
+    "city": "Utumea East",
+    "city_zh": "Utumea East",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27583,
+    "longitude": -170.56833
+  },
+  {
+    "city": "Utumea West",
+    "city_zh": "Utumea West",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33417,
+    "longitude": -170.81722
+  },
+  {
+    "city": "Utumea",
+    "city_zh": "Utumea",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27583,
+    "longitude": -170.56917
+  },
+  {
+    "city": "Utumea",
+    "city_zh": "Utumea",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33361,
+    "longitude": -170.81389
+  },
+  {
+    "city": "Utuloa",
+    "city_zh": "Utuloa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26444,
+    "longitude": -170.61722
+  },
+  {
+    "city": "Tulauta (historical)",
+    "city_zh": "Tulauta (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2575,
+    "longitude": -170.5675
+  },
+  {
+    "city": "Tula",
+    "city_zh": "Tula",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25806,
+    "longitude": -170.56417
+  },
+  {
+    "city": "Faiava",
+    "city_zh": "Faiava",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16069,
+    "longitude": -169.61746
+  },
+  {
+    "city": "Tuaolo",
+    "city_zh": "Tuaolo",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31944,
+    "longitude": -170.75917
+  },
+  {
+    "city": "Tuafanua (historical)",
+    "city_zh": "Tuafanua (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16762,
+    "longitude": -169.65324
+  },
+  {
+    "city": "Tō‘aga (historical)",
+    "city_zh": "Tō‘aga (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.17602,
+    "longitude": -169.6535
+  },
+  {
+    "city": "Taulaga",
+    "city_zh": "Taulaga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -11.05528,
+    "longitude": -171.08833
+  },
+  {
+    "city": "Ta`ū",
+    "city_zh": "Ta`ū",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.23361,
+    "longitude": -169.51444
+  },
+  {
+    "city": "Taputimu",
+    "city_zh": "Taputimu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.36028,
+    "longitude": -170.77306
+  },
+  {
+    "city": "Falili",
+    "city_zh": "Falili",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.35639,
+    "longitude": -170.78
+  },
+  {
+    "city": "Tafunafou",
+    "city_zh": "Tafunafou",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.32917,
+    "longitude": -170.73083
+  },
+  {
+    "city": "Tagapofu",
+    "city_zh": "Tagapofu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30333,
+    "longitude": -170.6825
+  },
+  {
+    "city": "Tāfuna",
+    "city_zh": "塔富纳",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33583,
+    "longitude": -170.72
+  },
+  {
+    "city": "Puapua",
+    "city_zh": "Puapua",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34472,
+    "longitude": -170.7719
+  },
+  {
+    "city": "Tafalau (historical)",
+    "city_zh": "Tafalau (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16935,
+    "longitude": -169.61085
+  },
+  {
+    "city": "Etena - Jennings Residency",
+    "city_zh": "Etena - Jennings Residency",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -11.06028,
+    "longitude": -171.07476
+  },
+  {
+    "city": "Faalefu",
+    "city_zh": "Faalefu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26694,
+    "longitude": -170.58917
+  },
+  {
+    "city": "Faleniu",
+    "city_zh": "Faleniu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.3325,
+    "longitude": -170.74444
+  },
+  {
+    "city": "Faganeanea",
+    "city_zh": "Faganeanea",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30611,
+    "longitude": -170.68889
+  },
+  {
+    "city": "Faga",
+    "city_zh": "Faga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.21778,
+    "longitude": -169.455
+  },
+  {
+    "city": "Faga‘alu",
+    "city_zh": "Faga‘alu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29639,
+    "longitude": -170.68361
+  },
+  {
+    "city": "Fagamutu",
+    "city_zh": "Fagamutu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33611,
+    "longitude": -170.805
+  },
+  {
+    "city": "Fagalele",
+    "city_zh": "Fagalele",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34667,
+    "longitude": -170.78444
+  },
+  {
+    "city": "Fagamalo (historical)",
+    "city_zh": "Fagamalo (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25056,
+    "longitude": -169.50222
+  },
+  {
+    "city": "Fagatogo",
+    "city_zh": "Fagatogo",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2825,
+    "longitude": -170.69
+  },
+  {
+    "city": "Fagatele",
+    "city_zh": "Fagatele",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29333,
+    "longitude": -170.72278
+  },
+  {
+    "city": "Fagasā",
+    "city_zh": "Fagasā",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29083,
+    "longitude": -170.71861
+  },
+  {
+    "city": "Failolo",
+    "city_zh": "Failolo",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33361,
+    "longitude": -170.82583
+  },
+  {
+    "city": "Faleāsao",
+    "city_zh": "Faleāsao",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.2222,
+    "longitude": -169.51278
+  },
+  {
+    "city": "Fatumafuti",
+    "city_zh": "Fatumafuti",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.297,
+    "longitude": -170.679
+  },
+  {
+    "city": "Fogāgogo",
+    "city_zh": "Fogāgogo",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34278,
+    "longitude": -170.72222
+  },
+  {
+    "city": "Fogaau",
+    "city_zh": "Fogaau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28194,
+    "longitude": -170.58806
+  },
+  {
+    "city": "Itū‘au",
+    "city_zh": "Itū‘au",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34778,
+    "longitude": -170.76639
+  },
+  {
+    "city": "Fusi",
+    "city_zh": "Fusi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.24361,
+    "longitude": -169.51028
+  },
+  {
+    "city": "Fogausa",
+    "city_zh": "Fogausa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28611,
+    "longitude": -170.60361
+  },
+  {
+    "city": "Fusi",
+    "city_zh": "Fusi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27889,
+    "longitude": -170.70028
+  },
+  {
+    "city": "Ili‘ili",
+    "city_zh": "Ili‘ili",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.35167,
+    "longitude": -170.74694
+  },
+  {
+    "city": "Lalopua",
+    "city_zh": "Lalopua",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27528,
+    "longitude": -170.69528
+  },
+  {
+    "city": "Lauagae",
+    "city_zh": "Lauagae",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25444,
+    "longitude": -170.56861
+  },
+  {
+    "city": "Lauliituai",
+    "city_zh": "Lauliituai",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29167,
+    "longitude": -170.65278
+  },
+  {
+    "city": "Leloaloa",
+    "city_zh": "Leloaloa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26736,
+    "longitude": -170.67832
+  },
+  {
+    "city": "Leone",
+    "city_zh": "Leone",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34389,
+    "longitude": -170.785
+  },
+  {
+    "city": "Lepua (historical)",
+    "city_zh": "Lepua (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.17726,
+    "longitude": -169.6079
+  },
+  {
+    "city": "Lepine",
+    "city_zh": "Lepine",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.32389,
+    "longitude": -170.72778
+  },
+  {
+    "city": "Lauliifou",
+    "city_zh": "Lauliifou",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29361,
+    "longitude": -170.65889
+  },
+  {
+    "city": "Lepisi (historical)",
+    "city_zh": "Lepisi (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26806,
+    "longitude": -169.47583
+  },
+  {
+    "city": "Lauli‘i",
+    "city_zh": "Lauli‘i",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.29222,
+    "longitude": -170.65306
+  },
+  {
+    "city": "Lepula (historical)",
+    "city_zh": "Lepula (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.21917,
+    "longitude": -169.43611
+  },
+  {
+    "city": "Leusoali‘i",
+    "city_zh": "Leusoali‘i",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.22611,
+    "longitude": -169.42111
+  },
+  {
+    "city": "Letula (historical)",
+    "city_zh": "Letula (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.21917,
+    "longitude": -169.44389
+  },
+  {
+    "city": "Luamaa (historical)",
+    "city_zh": "Luamaa (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25333,
+    "longitude": -169.42028
+  },
+  {
+    "city": "Lumā",
+    "city_zh": "Lumā",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.23167,
+    "longitude": -169.51472
+  },
+  {
+    "city": "Malaeloa/Ituau",
+    "city_zh": "Malaeloa/Ituau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34722,
+    "longitude": -170.76722
+  },
+  {
+    "city": "Mafafa (historical)",
+    "city_zh": "Mafafa (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16829,
+    "longitude": -169.64392
+  },
+  {
+    "city": "Malaeloa/Aitulagi",
+    "city_zh": "Malaeloa/Aitulagi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33861,
+    "longitude": -170.76784
+  },
+  {
+    "city": "Malaeimi",
+    "city_zh": "馬拉埃米",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.32278,
+    "longitude": -170.73389
+  },
+  {
+    "city": "Maia",
+    "city_zh": "Maia",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.21944,
+    "longitude": -169.42833
+  },
+  {
+    "city": "Malaeloa",
+    "city_zh": "Malaeloa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34417,
+    "longitude": -170.76722
+  },
+  {
+    "city": "Malaloa",
+    "city_zh": "Malaloa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.28083,
+    "longitude": -170.6925
+  },
+  {
+    "city": "Lalomoana",
+    "city_zh": "Lalomoana",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.16571,
+    "longitude": -169.6235
+  },
+  {
+    "city": "Maloata",
+    "city_zh": "Maloata",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30944,
+    "longitude": -170.81472
+  },
+  {
+    "city": "Mapusaga",
+    "city_zh": "Mapusaga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.323,
+    "longitude": -170.7553
+  },
+  {
+    "city": "Mapusagafou",
+    "city_zh": "Mapusagafou",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.323,
+    "longitude": -170.754
+  },
+  {
+    "city": "Masefau",
+    "city_zh": "Masefau",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25917,
+    "longitude": -170.63056
+  },
+  {
+    "city": "Masausi",
+    "city_zh": "Masausi",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.26472,
+    "longitude": -170.60417
+  },
+  {
+    "city": "Matu‘u",
+    "city_zh": "Matu‘u",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.30361,
+    "longitude": -170.68389
+  },
+  {
+    "city": "Mesepa",
+    "city_zh": "Mesepa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.3233,
+    "longitude": -170.7471
+  },
+  {
+    "city": "Maupua (historical)",
+    "city_zh": "Maupua (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25361,
+    "longitude": -170.57083
+  },
+  {
+    "city": "Nua",
+    "city_zh": "Nua",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33306,
+    "longitude": -170.80583
+  },
+  {
+    "city": "Nu‘uuli",
+    "city_zh": "Nu‘uuli",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31583,
+    "longitude": -170.6975
+  },
+  {
+    "city": "Ofu",
+    "city_zh": "Ofu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.17117,
+    "longitude": -169.67851
+  },
+  {
+    "city": "Oa (historical)",
+    "city_zh": "Oa (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25861,
+    "longitude": -170.64139
+  },
+  {
+    "city": "Oge (historical)",
+    "city_zh": "Oge (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.18352,
+    "longitude": -169.60989
+  },
+  {
+    "city": "Ogegase (historical)",
+    "city_zh": "Ogegase (historical)",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25833,
+    "longitude": -170.58417
+  },
+  {
+    "city": "Ogefao",
+    "city_zh": "Ogefao",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25389,
+    "longitude": -170.57778
+  },
+  {
+    "city": "Olosega",
+    "city_zh": "Olosega",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.17699,
+    "longitude": -169.62425
+  },
+  {
+    "city": "Pago Pago",
+    "city_zh": "帕果帕果",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.27806,
+    "longitude": -170.7025
+  },
+  {
+    "city": "Oneoneloa",
+    "city_zh": "Oneoneloa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31278,
+    "longitude": -170.69444
+  },
+  {
+    "city": "Onenoa",
+    "city_zh": "Onenoa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.25667,
+    "longitude": -170.57972
+  },
+  {
+    "city": "Ottoville",
+    "city_zh": "Ottoville",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.33472,
+    "longitude": -170.72972
+  },
+  {
+    "city": "Pagai",
+    "city_zh": "帕蓋",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.269,
+    "longitude": -170.607
+  },
+  {
+    "city": "Futiga",
+    "city_zh": "Futiga",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.35333,
+    "longitude": -170.75417
+  },
+  {
+    "city": "Poloa",
+    "city_zh": "Poloa",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.31468,
+    "longitude": -170.83308
+  },
+  {
+    "city": "Pava‘ia‘i",
+    "city_zh": "Pava‘ia‘i",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.34083,
+    "longitude": -170.75083
+  },
+  {
+    "city": "Motu o Manu",
+    "city_zh": "Motu o Manu",
+    "country": "American Samoa",
+    "country_zh": "American Samoa",
+    "country_iso_code": "AS",
+    "timezone": "Pacific/Pago_Pago",
+    "latitude": -14.54313,
+    "longitude": -168.16592
+  }
+]

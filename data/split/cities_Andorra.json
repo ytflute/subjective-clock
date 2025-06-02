@@ -1,0 +1,702 @@
+[
+  {
+    "city": "Xixerella",
+    "city_zh": "Xixerella",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55327,
+    "longitude": 1.48736
+  },
+  {
+    "city": "Vila",
+    "city_zh": "Vila",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53176,
+    "longitude": 1.56654
+  },
+  {
+    "city": "Tossalet i Vinyals1",
+    "city_zh": "Tossalet i Vinyals1",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48597,
+    "longitude": 1.4891
+  },
+  {
+    "city": "Sornàs",
+    "city_zh": "Sornàs",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56461,
+    "longitude": 1.52757
+  },
+  {
+    "city": "Soldeu",
+    "city_zh": "Soldeu",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57688,
+    "longitude": 1.66769
+  },
+  {
+    "city": "Sispony",
+    "city_zh": "Sispony",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53368,
+    "longitude": 1.51613
+  },
+  {
+    "city": "Segudet",
+    "city_zh": "Segudet",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55713,
+    "longitude": 1.53808
+  },
+  {
+    "city": "El Tarter",
+    "city_zh": "El Tarter",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57952,
+    "longitude": 1.65362
+  },
+  {
+    "city": "Sant Julià de Lòria",
+    "city_zh": "圣胡利娅－德洛里亚",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.46372,
+    "longitude": 1.49129
+  },
+  {
+    "city": "Sant Joan de Caselles",
+    "city_zh": "Sant Joan de Caselles",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57116,
+    "longitude": 1.60761
+  },
+  {
+    "city": "Santa Coloma",
+    "city_zh": "Santa Coloma",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.49454,
+    "longitude": 1.49897
+  },
+  {
+    "city": "Ransol",
+    "city_zh": "Ransol",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58137,
+    "longitude": 1.63812
+  },
+  {
+    "city": "Ràmio",
+    "city_zh": "Ràmio",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.49734,
+    "longitude": 1.57401
+  },
+  {
+    "city": "Prats",
+    "city_zh": "Prats",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56003,
+    "longitude": 1.59396
+  },
+  {
+    "city": "Pas de la Casa",
+    "city_zh": "Pas de la Casa",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54277,
+    "longitude": 1.73361
+  },
+  {
+    "city": "Pal",
+    "city_zh": "Pal",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54592,
+    "longitude": 1.47524
+  },
+  {
+    "city": "Ordino",
+    "city_zh": "Ordino",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55623,
+    "longitude": 1.53319
+  },
+  {
+    "city": "Nagol",
+    "city_zh": "Nagol",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.47142,
+    "longitude": 1.50231
+  },
+  {
+    "city": "Molleres",
+    "city_zh": "Molleres",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55093,
+    "longitude": 1.58985
+  },
+  {
+    "city": "Meritxell",
+    "city_zh": "Meritxell",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55403,
+    "longitude": 1.59087
+  },
+  {
+    "city": "Mas de Ribafeta",
+    "city_zh": "Mas de Ribafeta",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56932,
+    "longitude": 1.48858
+  },
+  {
+    "city": "Mas d’Alins",
+    "city_zh": "Mas d’Alins",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.44112,
+    "longitude": 1.45128
+  },
+  {
+    "city": "Llumeneres",
+    "city_zh": "Llumeneres",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.47229,
+    "longitude": 1.51165
+  },
+  {
+    "city": "Llorts",
+    "city_zh": "Llorts",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.59625,
+    "longitude": 1.52658
+  },
+  {
+    "city": "Les Subiranes",
+    "city_zh": "Les Subiranes",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.62055,
+    "longitude": 1.54147
+  },
+  {
+    "city": "Les Salines",
+    "city_zh": "Les Salines",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.60952,
+    "longitude": 1.53697
+  },
+  {
+    "city": "les Escaldes",
+    "city_zh": "萊塞斯卡爾德－恩戈爾達",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50729,
+    "longitude": 1.53414
+  },
+  {
+    "city": "Les Bons",
+    "city_zh": "Les Bons",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53873,
+    "longitude": 1.58649
+  },
+  {
+    "city": "La Plana",
+    "city_zh": "La Plana",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50471,
+    "longitude": 1.53862
+  },
+  {
+    "city": "la Massana",
+    "city_zh": "la Massana",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54499,
+    "longitude": 1.51483
+  },
+  {
+    "city": "l'Aldosa de canillo",
+    "city_zh": "l'Aldosa de canillo",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57895,
+    "longitude": 1.62902
+  },
+  {
+    "city": "l'Aldosa",
+    "city_zh": "l'Aldosa",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54391,
+    "longitude": 1.52289
+  },
+  {
+    "city": "La Cortinada",
+    "city_zh": "La Cortinada",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57423,
+    "longitude": 1.51845
+  },
+  {
+    "city": "Juberri",
+    "city_zh": "Juberri",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.44,
+    "longitude": 1.49194
+  },
+  {
+    "city": "Fontaneda",
+    "city_zh": "Fontaneda",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.45405,
+    "longitude": 1.46471
+  },
+  {
+    "city": "Escàs",
+    "city_zh": "Escàs",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.54643,
+    "longitude": 1.50895
+  },
+  {
+    "city": "Erts",
+    "city_zh": "Erts",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56218,
+    "longitude": 1.4968
+  },
+  {
+    "city": "Engordany",
+    "city_zh": "Engordany",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51115,
+    "longitude": 1.54118
+  },
+  {
+    "city": "Encamp",
+    "city_zh": "恩坎普",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53474,
+    "longitude": 1.58014
+  },
+  {
+    "city": "El Vilar",
+    "city_zh": "El Vilar",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57204,
+    "longitude": 1.608
+  },
+  {
+    "city": "Els Plans",
+    "city_zh": "Els Plans",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58143,
+    "longitude": 1.63273
+  },
+  {
+    "city": "El Serrat",
+    "city_zh": "El Serrat",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.6183,
+    "longitude": 1.53912
+  },
+  {
+    "city": "Els Cortals",
+    "city_zh": "Els Cortals",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53338,
+    "longitude": 1.58853
+  },
+  {
+    "city": "Certers",
+    "city_zh": "Certers",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.47457,
+    "longitude": 1.50611
+  },
+  {
+    "city": "Canillo",
+    "city_zh": "卡尼略",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.5676,
+    "longitude": 1.59756
+  },
+  {
+    "city": "Bixessarri",
+    "city_zh": "Bixessarri",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48197,
+    "longitude": 1.46052
+  },
+  {
+    "city": "Aubinyà",
+    "city_zh": "Aubinyà",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.4531,
+    "longitude": 1.49247
+  },
+  {
+    "city": "Arinsal",
+    "city_zh": "Arinsal",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.57205,
+    "longitude": 1.48453
+  },
+  {
+    "city": "Arans",
+    "city_zh": "Arans",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58226,
+    "longitude": 1.51844
+  },
+  {
+    "city": "Anyós",
+    "city_zh": "Anyós",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.53465,
+    "longitude": 1.5251
+  },
+  {
+    "city": "Ansalonga",
+    "city_zh": "Ansalonga",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.56881,
+    "longitude": 1.52198
+  },
+  {
+    "city": "Andorra la Vella",
+    "city_zh": "Andorra la Vella",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50779,
+    "longitude": 1.52109
+  },
+  {
+    "city": "Aixovall",
+    "city_zh": "Aixovall",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.4764,
+    "longitude": 1.48899
+  },
+  {
+    "city": "Aixirivall",
+    "city_zh": "Aixirivall",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.46245,
+    "longitude": 1.50209
+  },
+  {
+    "city": "Aixàs",
+    "city_zh": "Aixàs",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48647,
+    "longitude": 1.46838
+  },
+  {
+    "city": "La Margineda",
+    "city_zh": "La Margineda",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.48599,
+    "longitude": 1.49024
+  },
+  {
+    "city": "Incles",
+    "city_zh": "Incles",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.58285,
+    "longitude": 1.66267
+  },
+  {
+    "city": "Bordes d'Envalira",
+    "city_zh": "Bordes d'Envalira",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.55962,
+    "longitude": 1.68576
+  },
+  {
+    "city": "Sant Miquel d'Engolasters",
+    "city_zh": "Sant Miquel d'Engolasters",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51119,
+    "longitude": 1.55987
+  },
+  {
+    "city": "Puiol del Piu",
+    "city_zh": "Puiol del Piu",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.5652,
+    "longitude": 1.49159
+  },
+  {
+    "city": "Els Vilars",
+    "city_zh": "Els Vilars",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51636,
+    "longitude": 1.53356
+  },
+  {
+    "city": "Urbanització Ermengol-Serra",
+    "city_zh": "Urbanització Ermengol-Serra",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51418,
+    "longitude": 1.5418
+  },
+  {
+    "city": "Urbanització Guem",
+    "city_zh": "Urbanització Guem",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51202,
+    "longitude": 1.54505
+  },
+  {
+    "city": "Urbanització Sa Calma",
+    "city_zh": "Urbanització Sa Calma",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.51095,
+    "longitude": 1.54373
+  },
+  {
+    "city": "El Barri",
+    "city_zh": "El Barri",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50909,
+    "longitude": 1.54499
+  },
+  {
+    "city": "Urbanització la Plana",
+    "city_zh": "Urbanització la Plana",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50526,
+    "longitude": 1.53995
+  },
+  {
+    "city": "Urbanització Can Noguer",
+    "city_zh": "Urbanització Can Noguer",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50886,
+    "longitude": 1.55052
+  },
+  {
+    "city": "Urbanització Terra Vella",
+    "city_zh": "Urbanització Terra Vella",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50335,
+    "longitude": 1.5225
+  },
+  {
+    "city": "La Comella",
+    "city_zh": "La Comella",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.50117,
+    "longitude": 1.52879
+  },
+  {
+    "city": "El Cedre",
+    "city_zh": "El Cedre",
+    "country": "Andorra",
+    "country_zh": "安道爾",
+    "country_iso_code": "AD",
+    "timezone": "Europe/Andorra",
+    "latitude": 42.49776,
+    "longitude": 1.50143
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "city": "Kunlun Qundao",
+    "city_zh": "Kunlun Qundao",
+    "country": "Antarctica",
+    "country_zh": "Antarctica",
+    "country_iso_code": "AQ",
+    "timezone": "Antarctica/Davis",
+    "latitude": -69.42,
+    "longitude": 76.025
+  },
+  {
+    "city": "Villa Las Estrellas",
+    "city_zh": "Villa Las Estrellas",
+    "country": "Antarctica",
+    "country_zh": "Antarctica",
+    "country_iso_code": "AQ",
+    "timezone": "Antarctica/Palmer",
+    "latitude": -62.20001,
+    "longitude": -58.96109
+  }
+]

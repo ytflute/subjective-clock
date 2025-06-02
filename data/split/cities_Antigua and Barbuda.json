@@ -1,0 +1,1812 @@
+[
+  {
+    "city": "Yorks",
+    "city_zh": "Yorks",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07897,
+    "longitude": -61.87497
+  },
+  {
+    "city": "Woods",
+    "city_zh": "Woods",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.13526,
+    "longitude": -61.82585
+  },
+  {
+    "city": "Willoughby",
+    "city_zh": "Willoughby",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04051,
+    "longitude": -61.71994
+  },
+  {
+    "city": "Willis Freemans",
+    "city_zh": "Willis Freemans",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04954,
+    "longitude": -61.77897
+  },
+  {
+    "city": "Willikies",
+    "city_zh": "Willikies",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08684,
+    "longitude": -61.7093
+  },
+  {
+    "city": "Weatherills",
+    "city_zh": "Weatherills",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16514,
+    "longitude": -61.83534
+  },
+  {
+    "city": "Watsons",
+    "city_zh": "Watsons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05451,
+    "longitude": -61.67789
+  },
+  {
+    "city": "Vernons",
+    "city_zh": "Vernons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09192,
+    "longitude": -61.77132
+  },
+  {
+    "city": "Urlings",
+    "city_zh": "Urlings",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02687,
+    "longitude": -61.87618
+  },
+  {
+    "city": "Tyrells",
+    "city_zh": "Tyrells",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04828,
+    "longitude": -61.79516
+  },
+  {
+    "city": "Tramontania",
+    "city_zh": "Tramontania",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02552,
+    "longitude": -61.83731
+  },
+  {
+    "city": "Tomlinson",
+    "city_zh": "Tomlinson",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11327,
+    "longitude": -61.80808
+  },
+  {
+    "city": "The Grove",
+    "city_zh": "The Grove",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.1,
+    "longitude": -61.8
+  },
+  {
+    "city": "The Garden",
+    "city_zh": "The Garden",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07111,
+    "longitude": -61.74342
+  },
+  {
+    "city": "The Diamond",
+    "city_zh": "The Diamond",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07759,
+    "longitude": -61.76047
+  },
+  {
+    "city": "The Caves",
+    "city_zh": "The Caves",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.68581,
+    "longitude": -61.78784
+  },
+  {
+    "city": "The Brook",
+    "city_zh": "The Brook",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05972,
+    "longitude": -61.68061
+  },
+  {
+    "city": "Table Hill Gordon",
+    "city_zh": "Table Hill Gordon",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04332,
+    "longitude": -61.77991
+  },
+  {
+    "city": "Swetes",
+    "city_zh": "斯威茨",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05037,
+    "longitude": -61.80091
+  },
+  {
+    "city": "Sutherlands Development",
+    "city_zh": "Sutherlands Development",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12268,
+    "longitude": -61.8295
+  },
+  {
+    "city": "Sutherland",
+    "city_zh": "Sutherland",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11241,
+    "longitude": -61.88007
+  },
+  {
+    "city": "Spencers",
+    "city_zh": "Spencers",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09391,
+    "longitude": -61.70389
+  },
+  {
+    "city": "Sign",
+    "city_zh": "Sign",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09096,
+    "longitude": -61.71179
+  },
+  {
+    "city": "Sea View Farm",
+    "city_zh": "Sea View Farm",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08809,
+    "longitude": -61.80281
+  },
+  {
+    "city": "Seatons",
+    "city_zh": "Seatons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09435,
+    "longitude": -61.72552
+  },
+  {
+    "city": "Seaforths",
+    "city_zh": "Seaforths",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09376,
+    "longitude": -61.8643
+  },
+  {
+    "city": "Sawcolts",
+    "city_zh": "Sawcolts",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05038,
+    "longitude": -61.82014
+  },
+  {
+    "city": "Savannah",
+    "city_zh": "Savannah",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02083,
+    "longitude": -61.73871
+  },
+  {
+    "city": "Sandersons",
+    "city_zh": "Sandersons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07527,
+    "longitude": -61.76991
+  },
+  {
+    "city": "Saint Philips",
+    "city_zh": "Saint Philips",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04628,
+    "longitude": -61.72373
+  },
+  {
+    "city": "Saint Lukes",
+    "city_zh": "Saint Lukes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07877,
+    "longitude": -61.83437
+  },
+  {
+    "city": "Saint Johnston Village",
+    "city_zh": "Saint Johnston Village",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11861,
+    "longitude": -61.827
+  },
+  {
+    "city": "Saint John’s",
+    "city_zh": "圣约翰",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12096,
+    "longitude": -61.84329
+  },
+  {
+    "city": "Rooms",
+    "city_zh": "Rooms",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09971,
+    "longitude": -61.69749
+  },
+  {
+    "city": "Renfrew",
+    "city_zh": "Renfrew",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09023,
+    "longitude": -61.81071
+  },
+  {
+    "city": "Red Hill",
+    "city_zh": "Red Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03111,
+    "longitude": -61.7416
+  },
+  {
+    "city": "Potters Village",
+    "city_zh": "Potters Village",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11337,
+    "longitude": -61.81962
+  },
+  {
+    "city": "Piggotts",
+    "city_zh": "Piggotts",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11667,
+    "longitude": -61.8
+  },
+  {
+    "city": "Piccadilly",
+    "city_zh": "Piccadilly",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03147,
+    "longitude": -61.75312
+  },
+  {
+    "city": "Paynters",
+    "city_zh": "Paynters",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11789,
+    "longitude": -61.80678
+  },
+  {
+    "city": "Pattersons Dwelling House",
+    "city_zh": "Pattersons Dwelling House",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03333,
+    "longitude": -61.78333
+  },
+  {
+    "city": "Pattersons",
+    "city_zh": "Pattersons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02415,
+    "longitude": -61.78848
+  },
+  {
+    "city": "Parrys",
+    "city_zh": "Parrys",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07388,
+    "longitude": -61.76477
+  },
+  {
+    "city": "Parham",
+    "city_zh": "Parham",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09682,
+    "longitude": -61.77046
+  },
+  {
+    "city": "Pares",
+    "city_zh": "Pares",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08493,
+    "longitude": -61.75445
+  },
+  {
+    "city": "Paradise View",
+    "city_zh": "Paradise View",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.14953,
+    "longitude": -61.84161
+  },
+  {
+    "city": "Osbourn",
+    "city_zh": "Osbourn",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12591,
+    "longitude": -61.8044
+  },
+  {
+    "city": "Orange Valley Mill",
+    "city_zh": "Orange Valley Mill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03333,
+    "longitude": -61.86667
+  },
+  {
+    "city": "Olivers",
+    "city_zh": "Olivers",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07713,
+    "longitude": -61.81551
+  },
+  {
+    "city": "Old Road",
+    "city_zh": "舊羅德",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.01682,
+    "longitude": -61.83579
+  },
+  {
+    "city": "North Sound",
+    "city_zh": "North Sound",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09563,
+    "longitude": -61.78366
+  },
+  {
+    "city": "New Winthorpes",
+    "city_zh": "New Winthorpes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.14575,
+    "longitude": -61.81344
+  },
+  {
+    "city": "Newfield",
+    "city_zh": "Newfield",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05687,
+    "longitude": -61.7254
+  },
+  {
+    "city": "New Division",
+    "city_zh": "New Division",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08929,
+    "longitude": -61.87711
+  },
+  {
+    "city": "Mount William",
+    "city_zh": "Mount William",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03892,
+    "longitude": -61.79057
+  },
+  {
+    "city": "Morris Loobys",
+    "city_zh": "Morris Loobys",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04961,
+    "longitude": -61.75892
+  },
+  {
+    "city": "Montpelier",
+    "city_zh": "Montpelier",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05087,
+    "longitude": -61.71912
+  },
+  {
+    "city": "Mill Reef Club",
+    "city_zh": "Mill Reef Club",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03333,
+    "longitude": -61.68333
+  },
+  {
+    "city": "Mercers Creek",
+    "city_zh": "Mercers Creek",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09376,
+    "longitude": -61.73689
+  },
+  {
+    "city": "Mayers",
+    "city_zh": "Mayers",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.0868,
+    "longitude": -61.71374
+  },
+  {
+    "city": "Matthews",
+    "city_zh": "Matthews",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05816,
+    "longitude": -61.79493
+  },
+  {
+    "city": "Mannings",
+    "city_zh": "Mannings",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03779,
+    "longitude": -61.6938
+  },
+  {
+    "city": "Lyons",
+    "city_zh": "Lyons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05754,
+    "longitude": -61.73002
+  },
+  {
+    "city": "Lower Lyons",
+    "city_zh": "Lower Lyons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04407,
+    "longitude": -61.73618
+  },
+  {
+    "city": "Long Lane",
+    "city_zh": "Long Lane",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06734,
+    "longitude": -61.742
+  },
+  {
+    "city": "Little Duers",
+    "city_zh": "Little Duers",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06927,
+    "longitude": -61.74761
+  },
+  {
+    "city": "Lightfoots",
+    "city_zh": "Lightfoots",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10088,
+    "longitude": -61.80274
+  },
+  {
+    "city": "Liberta",
+    "city_zh": "Liberta",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04141,
+    "longitude": -61.79052
+  },
+  {
+    "city": "Lavingtons",
+    "city_zh": "Lavingtons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06087,
+    "longitude": -61.73883
+  },
+  {
+    "city": "Johnsons Point",
+    "city_zh": "Johnsons Point",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02985,
+    "longitude": -61.88885
+  },
+  {
+    "city": "John Hughes",
+    "city_zh": "John Hughes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04328,
+    "longitude": -61.8222
+  },
+  {
+    "city": "Jennings",
+    "city_zh": "Jennings",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07779,
+    "longitude": -61.86582
+  },
+  {
+    "city": "Herberts",
+    "city_zh": "Herberts",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.094,
+    "longitude": -61.81403
+  },
+  {
+    "city": "Harveys",
+    "city_zh": "Harveys",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03333,
+    "longitude": -61.86667
+  },
+  {
+    "city": "Hamiltons",
+    "city_zh": "Hamiltons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05,
+    "longitude": -61.83333
+  },
+  {
+    "city": "Gunthorpes",
+    "city_zh": "Gunthorpes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10975,
+    "longitude": -61.79989
+  },
+  {
+    "city": "Green Bay",
+    "city_zh": "Green Bay",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11468,
+    "longitude": -61.84892
+  },
+  {
+    "city": "Grays Hill",
+    "city_zh": "Grays Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10579,
+    "longitude": -61.84737
+  },
+  {
+    "city": "Grays",
+    "city_zh": "Grays",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07853,
+    "longitude": -61.70721
+  },
+  {
+    "city": "Grants",
+    "city_zh": "Grants",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08333,
+    "longitude": -61.71667
+  },
+  {
+    "city": "Golden Grove",
+    "city_zh": "Golden Grove",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08903,
+    "longitude": -61.84685
+  },
+  {
+    "city": "Glanvilles",
+    "city_zh": "Glanvilles",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.0858,
+    "longitude": -61.7252
+  },
+  {
+    "city": "Gilberts",
+    "city_zh": "Gilberts",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08905,
+    "longitude": -61.73903
+  },
+  {
+    "city": "Gaynors",
+    "city_zh": "Gaynors",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06739,
+    "longitude": -61.7186
+  },
+  {
+    "city": "Gambles",
+    "city_zh": "Gambles",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12735,
+    "longitude": -61.83312
+  },
+  {
+    "city": "Freetown",
+    "city_zh": "Freetown",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04791,
+    "longitude": -61.70332
+  },
+  {
+    "city": "Freemans",
+    "city_zh": "Freemans",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07917,
+    "longitude": -61.7857
+  },
+  {
+    "city": "Five Islands Village",
+    "city_zh": "Five Islands Village",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11944,
+    "longitude": -61.88388
+  },
+  {
+    "city": "Fitches Creek",
+    "city_zh": "Fitches Creek",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12419,
+    "longitude": -61.7949
+  },
+  {
+    "city": "Ffryes",
+    "city_zh": "Ffryes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05509,
+    "longitude": -61.73143
+  },
+  {
+    "city": "Falmouth",
+    "city_zh": "Falmouth",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02741,
+    "longitude": -61.78136
+  },
+  {
+    "city": "English Harbour Town",
+    "city_zh": "English Harbour Town",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.01637,
+    "longitude": -61.7674
+  },
+  {
+    "city": "Emanuel",
+    "city_zh": "Emanuel",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07217,
+    "longitude": -61.83731
+  },
+  {
+    "city": "Ebenezer",
+    "city_zh": "Ebenezer",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08285,
+    "longitude": -61.85895
+  },
+  {
+    "city": "Dunnings",
+    "city_zh": "Dunnings",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07154,
+    "longitude": -61.85441
+  },
+  {
+    "city": "Dulcina",
+    "city_zh": "Dulcina",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.59367,
+    "longitude": -61.82697
+  },
+  {
+    "city": "Denfields",
+    "city_zh": "Denfields",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11094,
+    "longitude": -61.85667
+  },
+  {
+    "city": "Delaps",
+    "city_zh": "Delaps",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06046,
+    "longitude": -61.75179
+  },
+  {
+    "city": "Dark Wood",
+    "city_zh": "Dark Wood",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04052,
+    "longitude": -61.8896
+  },
+  {
+    "city": "Crosbies",
+    "city_zh": "Crosbies",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16569,
+    "longitude": -61.82367
+  },
+  {
+    "city": "Creekside",
+    "city_zh": "Creekside",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07902,
+    "longitude": -61.85646
+  },
+  {
+    "city": "Crab Hill",
+    "city_zh": "Crab Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03437,
+    "longitude": -61.89114
+  },
+  {
+    "city": "Cooks",
+    "city_zh": "Cooks",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10498,
+    "longitude": -61.85429
+  },
+  {
+    "city": "Comfort Hall",
+    "city_zh": "Comfort Hall",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08133,
+    "longitude": -61.71415
+  },
+  {
+    "city": "Collins",
+    "city_zh": "Collins",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07615,
+    "longitude": -61.73322
+  },
+  {
+    "city": "Codrington",
+    "city_zh": "科德灵顿",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.6394,
+    "longitude": -61.82437
+  },
+  {
+    "city": "Coconut Hall",
+    "city_zh": "Coconut Hall",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11005,
+    "longitude": -61.73462
+  },
+  {
+    "city": "Cochranes",
+    "city_zh": "Cochranes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08334,
+    "longitude": -61.76691
+  },
+  {
+    "city": "Cobbs Cross",
+    "city_zh": "Cobbs Cross",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02402,
+    "longitude": -61.76599
+  },
+  {
+    "city": "Claremont",
+    "city_zh": "Claremont",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02527,
+    "longitude": -61.83586
+  },
+  {
+    "city": "Clare Hall",
+    "city_zh": "Clare Hall",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11667,
+    "longitude": -61.81667
+  },
+  {
+    "city": "Christian Hill",
+    "city_zh": "Christian Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03532,
+    "longitude": -61.75136
+  },
+  {
+    "city": "Cedar Valley Mill",
+    "city_zh": "Cedar Valley Mill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.13333,
+    "longitude": -61.8
+  },
+  {
+    "city": "Cedar Hall",
+    "city_zh": "Cedar Hall",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.0773,
+    "longitude": -61.85763
+  },
+  {
+    "city": "Cedar Grove",
+    "city_zh": "錫達格羅夫",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16225,
+    "longitude": -61.8178
+  },
+  {
+    "city": "Cassada Gardens",
+    "city_zh": "Cassada Gardens",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12824,
+    "longitude": -61.81148
+  },
+  {
+    "city": "Carlisle",
+    "city_zh": "Carlisle",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.13226,
+    "longitude": -61.80356
+  },
+  {
+    "city": "Cades Bay",
+    "city_zh": "Cades Bay",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.02581,
+    "longitude": -61.86446
+  },
+  {
+    "city": "Burkes",
+    "city_zh": "Burkes",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06011,
+    "longitude": -61.78397
+  },
+  {
+    "city": "Buckleys",
+    "city_zh": "Buckleys",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07221,
+    "longitude": -61.81337
+  },
+  {
+    "city": "Branns Hamlet",
+    "city_zh": "Branns Hamlet",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10366,
+    "longitude": -61.83612
+  },
+  {
+    "city": "Boon House",
+    "city_zh": "Boon House",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16667,
+    "longitude": -61.83333
+  },
+  {
+    "city": "Bolands",
+    "city_zh": "Bolands",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06565,
+    "longitude": -61.87466
+  },
+  {
+    "city": "Blubber Valley",
+    "city_zh": "Blubber Valley",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06651,
+    "longitude": -61.86419
+  },
+  {
+    "city": "Bishops",
+    "city_zh": "Bishops",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04523,
+    "longitude": -61.81557
+  },
+  {
+    "city": "Big Duers",
+    "city_zh": "Big Duers",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07075,
+    "longitude": -61.7633
+  },
+  {
+    "city": "Betty’s Hope",
+    "city_zh": "Betty’s Hope",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08119,
+    "longitude": -61.74479
+  },
+  {
+    "city": "Bethesda",
+    "city_zh": "Bethesda",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04331,
+    "longitude": -61.75083
+  },
+  {
+    "city": "Bendals",
+    "city_zh": "Bendals",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06807,
+    "longitude": -61.83604
+  },
+  {
+    "city": "Belmont",
+    "city_zh": "Belmont",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09964,
+    "longitude": -61.82612
+  },
+  {
+    "city": "Bellevue Heights",
+    "city_zh": "Bellevue Heights",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.0922,
+    "longitude": -61.82302
+  },
+  {
+    "city": "Bats Cave",
+    "city_zh": "Bats Cave",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.01667,
+    "longitude": -61.75
+  },
+  {
+    "city": "Barnes Hill",
+    "city_zh": "Barnes Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.14227,
+    "longitude": -61.80788
+  },
+  {
+    "city": "All Saints",
+    "city_zh": "All Saints",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06671,
+    "longitude": -61.79303
+  },
+  {
+    "city": "Aberdeen",
+    "city_zh": "Aberdeen",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06994,
+    "longitude": -61.80977
+  },
+  {
+    "city": "Guadeloupe",
+    "city_zh": "Guadeloupe",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 16.99597,
+    "longitude": -62.06764
+  },
+  {
+    "city": "Jolly Harbour",
+    "city_zh": "乔利港",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06622,
+    "longitude": -61.88646
+  },
+  {
+    "city": "Freemans Village",
+    "city_zh": "Freemans Village",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08021,
+    "longitude": -61.79273
+  },
+  {
+    "city": "Soldier",
+    "city_zh": "Soldier",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16859,
+    "longitude": -61.83619
+  },
+  {
+    "city": "Side Hill",
+    "city_zh": "Side Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11817,
+    "longitude": -61.86245
+  },
+  {
+    "city": "Roses",
+    "city_zh": "Roses",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05735,
+    "longitude": -61.87432
+  },
+  {
+    "city": "Tottenham Park",
+    "city_zh": "Tottenham Park",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06155,
+    "longitude": -61.87267
+  },
+  {
+    "city": "Willocks",
+    "city_zh": "Willocks",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04884,
+    "longitude": -61.87584
+  },
+  {
+    "city": "Nut Grove",
+    "city_zh": "Nut Grove",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10572,
+    "longitude": -61.84458
+  },
+  {
+    "city": "Grays Farm",
+    "city_zh": "Grays Farm",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11096,
+    "longitude": -61.84769
+  },
+  {
+    "city": "Kentish",
+    "city_zh": "Kentish",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11226,
+    "longitude": -61.84252
+  },
+  {
+    "city": "Ottos New Town",
+    "city_zh": "Ottos New Town",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11259,
+    "longitude": -61.83784
+  },
+  {
+    "city": "Point",
+    "city_zh": "Point",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12455,
+    "longitude": -61.84734
+  },
+  {
+    "city": "Gambles Terrace",
+    "city_zh": "Gambles Terrace",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12843,
+    "longitude": -61.84205
+  },
+  {
+    "city": "Friars Hill",
+    "city_zh": "Friars Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.14634,
+    "longitude": -61.83406
+  },
+  {
+    "city": "Black Rock",
+    "city_zh": "Black Rock",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16912,
+    "longitude": -61.82741
+  },
+  {
+    "city": "Royals",
+    "city_zh": "Royals",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.16329,
+    "longitude": -61.81057
+  },
+  {
+    "city": "Weirs",
+    "city_zh": "Weirs",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11643,
+    "longitude": -61.7909
+  },
+  {
+    "city": "Twenty Hill",
+    "city_zh": "Twenty Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10236,
+    "longitude": -61.76978
+  },
+  {
+    "city": "Parham Hill",
+    "city_zh": "Parham Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09866,
+    "longitude": -61.76522
+  },
+  {
+    "city": "Mount Joy",
+    "city_zh": "Mount Joy",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.0874,
+    "longitude": -61.77274
+  },
+  {
+    "city": "Elliots",
+    "city_zh": "Elliots",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08088,
+    "longitude": -61.7375
+  },
+  {
+    "city": "Bodkins",
+    "city_zh": "Bodkins",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04947,
+    "longitude": -61.76567
+  },
+  {
+    "city": "Richmond",
+    "city_zh": "Richmond",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03937,
+    "longitude": -61.80155
+  },
+  {
+    "city": "Green Hill",
+    "city_zh": "Green Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03821,
+    "longitude": -61.78555
+  },
+  {
+    "city": "Brooks",
+    "city_zh": "Brooks",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04195,
+    "longitude": -61.78126
+  },
+  {
+    "city": "Guinea Bush",
+    "city_zh": "Guinea Bush",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.03123,
+    "longitude": -61.77185
+  },
+  {
+    "city": "The Ordnance Land",
+    "city_zh": "The Ordnance Land",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.01042,
+    "longitude": -61.76582
+  },
+  {
+    "city": "Villa",
+    "city_zh": "Villa",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.13348,
+    "longitude": -61.84971
+  },
+  {
+    "city": "Browns",
+    "city_zh": "Browns",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06781,
+    "longitude": -61.69812
+  },
+  {
+    "city": "Follys",
+    "city_zh": "Follys",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.05105,
+    "longitude": -61.80882
+  },
+  {
+    "city": "Martin Hill",
+    "city_zh": "Martin Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07291,
+    "longitude": -61.81704
+  },
+  {
+    "city": "Belvedere",
+    "city_zh": "Belvedere",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.06772,
+    "longitude": -61.83867
+  },
+  {
+    "city": "Potters Buff",
+    "city_zh": "Potters Buff",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10366,
+    "longitude": -61.81297
+  },
+  {
+    "city": "Yepton",
+    "city_zh": "Yepton",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12493,
+    "longitude": -61.87235
+  },
+  {
+    "city": "Skerretts",
+    "city_zh": "Skerretts",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.1223,
+    "longitude": -61.82382
+  },
+  {
+    "city": "Jonas",
+    "city_zh": "Jonas",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.07413,
+    "longitude": -61.79086
+  },
+  {
+    "city": "Bellevue",
+    "city_zh": "Bellevue",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.08004,
+    "longitude": -61.79373
+  },
+  {
+    "city": "Cedar Hill",
+    "city_zh": "Cedar Hill",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.10506,
+    "longitude": -61.78067
+  },
+  {
+    "city": "Crabs Peninsula",
+    "city_zh": "Crabs Peninsula",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.12423,
+    "longitude": -61.75725
+  },
+  {
+    "city": "Union",
+    "city_zh": "Union",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11384,
+    "longitude": -61.85806
+  },
+  {
+    "city": "Hattons",
+    "city_zh": "Hattons",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.11654,
+    "longitude": -61.85302
+  },
+  {
+    "city": "Picarts",
+    "city_zh": "Picarts",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.04214,
+    "longitude": -61.88753
+  },
+  {
+    "city": "Halls",
+    "city_zh": "Halls",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.09157,
+    "longitude": -61.85801
+  },
+  {
+    "city": "James Corner",
+    "city_zh": "James Corner",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.64261,
+    "longitude": -61.81686
+  },
+  {
+    "city": "Saint Helena",
+    "city_zh": "Saint Helena",
+    "country": "Antigua and Barbuda",
+    "country_zh": "安地卡及巴布達",
+    "country_iso_code": "AG",
+    "timezone": "America/Antigua",
+    "latitude": 17.0072,
+    "longitude": -61.76225
+  }
+]
