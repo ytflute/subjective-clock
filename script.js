@@ -874,10 +874,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        const userLocalDate = new Date();
-        const userLocalDateString = userLocalDate.toISOString().split('T')[0];
-
-        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}`);
         console.log(`[saveToGlobalDailyRecord] 原始記錄日期: ${recordData.recordedDateString}`);
 
         const globalRecord = {
@@ -885,7 +881,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             userDisplayName: recordData.userDisplayName,
             groupName: currentGroupName || "",  // 添加組別資訊
             recordedAt: recordData.recordedAt,
-            recordedDateString: userLocalDateString,
+            recordedDateString: recordData.recordedDateString,  // 使用原始記錄的日期字串
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
