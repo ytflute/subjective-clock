@@ -417,10 +417,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
-        console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory02 for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
+        console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
         try {
-            const response = await fetch('/api/generateStory02', {
+            const response = await fetch('/api/generateStory', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({ error: "Unable to parse API error response" }));
-                console.error(`API Error from /api/generateStory02: ${response.status} ${response.statusText}`, errorData);
+                console.error(`API Error from /api/generateStory: ${response.status} ${response.statusText}`, errorData);
                 return {
                     greeting: `(System Message: Failed to get greeting - ${response.status})`,
                     story: `System Message: Failed to get story about ${city}, ${country}. Please try again later. Error: ${errorData.error || response.statusText}`
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
         } catch (error) {
-            console.error("Error calling /api/generateStory02 from frontend:", error);
+            console.error("Error calling /api/generateStory from frontend:", error);
             return {
                 greeting: "(System Message: Network error, unable to get greeting)",
                 story: `Network connection issue while getting story about ${city}, ${country}. Please check your network and try again.`
