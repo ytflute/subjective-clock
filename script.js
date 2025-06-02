@@ -92,20 +92,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 將城市數據載入邏輯移到單獨的函數
     async function loadCitiesData() {
         try {
-            const response = await fetch('cities_data_new.json');
+            const response = await fetch('cities_data.json');
             if (!response.ok) {
-                throw new Error('無法載入城市數據');
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const data = await response.json();
-            if (!Array.isArray(data) || data.length === 0) {
-                console.error('城市數據為空或格式不正確');
-                return;
+            citiesData = await response.json();
+            console.log("城市數據已載入", citiesData.length, "筆");
+            if (citiesData.length === 0) {
+                resultTextDiv.innerHTML = "提示：載入的城市數據為空。";
+                findCityButton.disabled = true;
+            } else if (currentDataIdentifier && auth.currentUser) {
+                findCityButton.disabled = false;
             }
-            console.log(`成功載入 ${data.length} 筆城市數據`);
-            window.citiesData = data;
-            findCityButton.disabled = false;
-        } catch (error) {
-            console.error('載入城市數據時發生錯誤:', error);
+        } catch (e) {
+            console.error("無法載入城市數據:", e);
+            resultTextDiv.innerHTML = "錯誤：無法載入城市數據。";
             findCityButton.disabled = true;
         }
     }
@@ -114,7 +115,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
-        const adventureSpectrum = document.getElementById('adventureSpectrum').value;
         const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
             method: 'POST',
             headers: {
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             body: JSON.stringify({
                 city: city,
                 country: country,
-                adventureSpectrum: adventureSpectrum
+                // language: "Traditional Chinese" // 後端預設為繁體中文，如果需要可以從前端傳遞
             }),
         });
 
@@ -691,9 +691,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 根據冒險指數設定緯度範圍
         let latitudeRange;
         switch(adventureSpectrum) {
-           // case 'peaceful':
-             //   latitudeRange = { min: 70, max: 90 }; // 極地地區
-               // break;
+            //case 'peaceful':
+          //      latitudeRange = { min: 60, max: 90 }; // 高緯度地區
+           //     break;
             case 'leisurely':
                 latitudeRange = { min: 45, max: 90 }; // 中高緯度地區
                 break;
