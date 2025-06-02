@@ -692,14 +692,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 根據冒險指數設定緯度範圍
         let latitudeRange;
         switch(adventureSpectrum) {
-            case 'peaceful':
-                latitudeRange = { min: 50, max: 90 }; // 極地地區
-                break;
+           // case 'peaceful':
+           //     latitudeRange = { min: 50, max: 90 }; // 極地地區
+           //     break;
             case 'leisurely':
-                latitudeRange = { min: 45, max: 50 }; // 中高緯度地區
+                latitudeRange = { min: 40, max: 90 }; // 中高緯度地區
                 break;
             case 'exploring':
-                latitudeRange = { min: 20, max: 45 }; // 中緯度地區
+                latitudeRange = { min: 20, max: 40 }; // 中緯度地區
                 break;
             case 'challenging':
                 latitudeRange = { min: 0, max: 20 }; // 低緯度地區
