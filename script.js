@@ -1845,26 +1845,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                     openTab(e, tabName);
                 });
 
-                // 添加觸控事件
+                // 修改觸控事件處理
                 button.addEventListener('touchstart', (e) => {
                     e.preventDefault();
                     openTab(e, tabName);
                 }, { passive: false });
 
-                // 防止觸控時的滾動
-                button.addEventListener('touchmove', (e) => {
-                    e.preventDefault();
-                }, { passive: false });
-
-                // 防止觸控結束時的點擊事件
-                button.addEventListener('touchend', (e) => {
-                    e.preventDefault();
-                }, { passive: false });
+                // 移除可能干擾觸控的事件監聽器
+                button.removeEventListener('touchmove', () => {});
+                button.removeEventListener('touchend', () => {});
             }
         });
     });
 
-    // 添加分頁按鈕的樣式
+    // 修改分頁按鈕的樣式
     const tabButtonStyle = document.createElement('style');
     tabButtonStyle.textContent = `
         .tab-button {
@@ -1880,6 +1874,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             transition: background-color 0.2s;
             user-select: none;
             -webkit-user-select: none;
+            position: relative;
+            z-index: 1;
         }
         .tab-button.active {
             border-bottom-color: #e8af10;
@@ -1901,6 +1897,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 margin: 0 2px;
                 font-size: 14px;
                 padding: 10px 8px;
+                min-width: 60px; /* 確保按鈕有最小寬度 */
+                touch-action: manipulation; /* 優化觸控行為 */
             }
         }
     `;
