@@ -685,113 +685,66 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 根據時間差排序候選城市
         candidateCities.sort((a, b) => a.timeDiff - b.timeDiff);
 
-        if (candidateCities.length === 0) {
-            const apiResponse = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE");
-            const greetingFromAPI = apiResponse.greeting;
-            const storyFromAPI = apiResponse.story;
-
-            resultTextDiv.innerHTML = `
-                <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-                <p>今天的你，在當地 <strong>${userLocalDate.toLocaleTimeString()}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
-                <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
-            `;
-
-            if (clockLeafletMap) {
-                clockLeafletMap.remove();
-                clockLeafletMap = null;
-            }
-            mapContainerDiv.innerHTML = '';
-            mapContainerDiv.classList.add('universe-message');
-            mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
-            countryFlagImg.style.display = 'none';
-
-            // 創建早餐圖片容器
-            const breakfastContainer = document.createElement('div');
-            breakfastContainer.id = 'breakfastImageContainer';
-            breakfastContainer.style.marginTop = '20px';
-            breakfastContainer.style.textAlign = 'center';
-            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
-            
-            // 將早餐圖片容器插入到地圖和 debugInfo 之間
-            debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-            debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
-
-            // 生成早餐圖片，使用特殊的宇宙主題提示
-            try {
-                const imageResponse = await fetch('/api/generateImage', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        city: "未知星球",
-                        country: "宇宙",
-                        isUniverseTheme: true  // 只需要傳遞這個標記，讓後端決定使用哪個 prompt
-                    })
-                });
-
-                if (!imageResponse.ok) throw new Error(await imageResponse.text());
-                const imageData = await imageResponse.json();
-
-                if (imageData.imageUrl) {
-                    breakfastContainer.innerHTML = `
-                        <div class="postcard-image-container">
-                            <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
-                            <p style="font-size: 0.9em; color: #555;"><em>今日的星際早餐</em></p>
-                        </div>
-                    `;
-
-                    const universeRecord = {
-                        dataIdentifier: currentDataIdentifier,
-                        userDisplayName: rawUserDisplayName,
-                        recordedAt: serverTimestamp(),
-                        localTime: userLocalDate.toLocaleTimeString(),
-                        city: "Unknown Planet",
-                        country: "Universe",
-                        city_zh: "未知星球",
-                        country_zh: "宇宙",
-                        country_iso_code: "universe_code",
-                        latitude: null,
-                        longitude: null,
-                        targetUTCOffset: targetUTCOffsetHours,
-                        matchedCityUTCOffset: null,
-                        recordedDateString: userLocalDate.toISOString().split('T')[0],
-                        greeting: greetingFromAPI,
-                        story: storyFromAPI,
-                        imageUrl: imageData.imageUrl,
-                        timezone: "Cosmic/Unknown",
-                        isUniverseTheme: true
-                    };
-                    await saveHistoryRecord(universeRecord);
-                    await saveToGlobalDailyRecord(universeRecord);
-                }
-            } catch (error) {
-                console.error("生成早餐圖片失敗:", error);
-                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成星際早餐圖片時發生錯誤：${error.message}</p>`;
-            }
-
-            console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
-            findCityButton.disabled = false;
-            return;
+        // 獲取選擇的冒險指數
+        const adventureSpectrum = document.getElementById('adventureSpectrum').value;
+        
+        // 根據冒險指數設定緯度範圍
+        let latitudeRange;
+        switch(adventureSpectrum) {
+            case 'peaceful':
+                latitudeRange = { min: 60, max: 90 }; // 高緯度地區
+                break;
+            case 'leisurely':
+                latitudeRange = { min: 45, max: 60 }; // 中高緯度地區
+                break;
+            case 'exploring':
+                latitudeRange = { min: 20, max: 45 }; // 中緯度地區
+                break;
+            case 'challenging':
+                latitudeRange = { min: 0, max: 20 }; // 低緯度地區
+                break;
+            default:
+                // 如果沒有選擇冒險指數，則不限制緯度範圍
+                latitudeRange = { min: 0, max: 90 };
         }
 
-        // 選擇時間差最小的城市
-        const bestMatchCity = candidateCities[0];
-        const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
-        const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
-        const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
+        // 找出時間差最小的值
+        const minTimeDiff = candidateCities[0].timeDiff;
+        
+        // 篩選出時間差最小的城市
+        const bestTimeCities = candidateCities.filter(city => city.timeDiff === minTimeDiff);
+        
+        // 在時間差最小的城市中，根據緯度範圍篩選
+        const matchingCities = bestTimeCities.filter(city => {
+            const latitude = Math.abs(city.latitude); // 使用絕對值以包含南北半球
+            return latitude >= latitudeRange.min && latitude <= latitudeRange.max;
+        });
 
-        const apiResponse = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code);
+        // 如果找到符合緯度範圍的城市，隨機選擇一個
+        let bestMatchCity;
+        if (matchingCities.length > 0) {
+            const randomIndex = Math.floor(Math.random() * matchingCities.length);
+            bestMatchCity = matchingCities[randomIndex];
+        } else {
+            // 如果沒有符合緯度範圍的城市，返回時間差最小的第一個城市
+            bestMatchCity = bestTimeCities[0];
+        }
+
+        const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
+
+        const apiResponse = await fetchStoryFromAPI(bestMatchCity.city_zh, bestMatchCity.country_zh, bestMatchCity.country_iso_code);
         const greetingFromAPI = apiResponse.greeting;
         const storyFromAPI = apiResponse.story;
 
         resultTextDiv.innerHTML = `
             <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-            <p>今天的你是<strong>${finalCityName} (${finalCountryName})</strong>人！</p>
+            <p>今天的你是<strong>${bestMatchCity.city_zh} (${bestMatchCity.country_zh})</strong>人！</p>
             <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
         `;
 
         if (bestMatchCity.country_iso_code) {
             countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
-            countryFlagImg.alt = `${finalCountryName} 國旗`;
+            countryFlagImg.alt = `${bestMatchCity.country_zh} 國旗`;
             countryFlagImg.style.display = 'inline-block';
         }
 
@@ -811,7 +764,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }).addTo(clockLeafletMap);
             L.circleMarker([bestMatchCity.latitude, bestMatchCity.longitude], {
                 color: 'red', fillColor: '#f03', fillOpacity: 0.8, radius: 8
-            }).addTo(clockLeafletMap).bindPopup(`<b>${finalCityName}</b><br>${finalCountryName}`).openPopup();
+            }).addTo(clockLeafletMap).bindPopup(`<b>${bestMatchCity.city_zh} (${bestMatchCity.country_zh})</b><br>${bestMatchCity.country_zh}`).openPopup();
         } else {
             mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整或無效。</p>";
         }
@@ -850,8 +803,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (imageData.imageUrl) {
                 breakfastContainer.innerHTML = `
                     <div class="postcard-image-container">
-                        <img src="${imageData.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;">
-                        <p style="font-size: 0.9em; color: #555;"><em>${finalCityName}的早餐</em></p>
+                        <img src="${imageData.imageUrl}" alt="${bestMatchCity.city_zh}的早餐" style="max-width: 100%; border-radius: 8px;">
+                        <p style="font-size: 0.9em; color: #555;"><em>${bestMatchCity.city_zh}的早餐</em></p>
                     </div>
                 `;
 
