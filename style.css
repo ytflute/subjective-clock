@@ -558,3 +558,128 @@ button[id^="peekActivityButton"]:disabled { /* 確保禁用樣式也應用到新
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+/* 新增從 index.html 移過來的樣式 */
+.user-info-section {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+}
+
+.input-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-field {
+    text-align: left;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-field input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+#setUserNameButton {
+    padding: 10px 20px;
+    background-color: #a6a08f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#setUserNameButton:hover {
+    background-color: #827d6f;
+}
+
+.current-user-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    color: #333;
+}
+
+.filter-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.date-picker-container,
+.group-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.group-filter-container select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+#groupName {
+    color: #2c3e50;
+}
+
+#currentGroupName {
+    font-style: italic;
+}
+
+/* 自定義工具提示樣式 */
+.custom-tooltip {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.custom-tooltip.leaflet-tooltip-top:before {
+    border-top-color: #ccc;
+}
+
+.custom-tooltip.leaflet-tooltip-bottom:before {
+    border-bottom-color: #ccc;
+}
+
+.custom-tooltip.leaflet-tooltip-left:before {
+    border-left-color: #ccc;
+}
+
+.custom-tooltip.leaflet-tooltip-right:before {
+    border-right-color: #ccc;
+}
+
+/* 響應式設計 */
+@media screen and (max-width: 480px) {
+    .tab-button {
+        padding: 10px 12px;
+        font-size: 14px;
+        margin: 0 2px;
+    }
+}
