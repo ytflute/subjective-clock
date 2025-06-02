@@ -1,0 +1,3872 @@
+[
+  {
+    "city": "Tanjong Pagar",
+    "city_zh": "丹戎巴葛",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.83333
+  },
+  {
+    "city": "Yio Chu Kang Estate",
+    "city_zh": "Yio Chu Kang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38972,
+    "longitude": 103.85389
+  },
+  {
+    "city": "Yio Chu Kang",
+    "city_zh": "Yio Chu Kang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39111,
+    "longitude": 103.85139
+  },
+  {
+    "city": "Yew Tee",
+    "city_zh": "Yew Tee",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39665,
+    "longitude": 103.74738
+  },
+  {
+    "city": "Yan Kit",
+    "city_zh": "Yan Kit",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35722,
+    "longitude": 103.97194
+  },
+  {
+    "city": "Woollerton Park",
+    "city_zh": "Woollerton Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31611,
+    "longitude": 103.80917
+  },
+  {
+    "city": "Woodleigh Park",
+    "city_zh": "Woodleigh Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34167,
+    "longitude": 103.86778
+  },
+  {
+    "city": "Windsor Park Estate",
+    "city_zh": "Windsor Park Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35694,
+    "longitude": 103.82472
+  },
+  {
+    "city": "West Coast Village",
+    "city_zh": "West Coast Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.75
+  },
+  {
+    "city": "Wessex Estate",
+    "city_zh": "Wessex Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29694,
+    "longitude": 103.79528
+  },
+  {
+    "city": "Watten Park",
+    "city_zh": "Watten Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33306,
+    "longitude": 103.81
+  },
+  {
+    "city": "Victoria Park",
+    "city_zh": "Victoria Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32028,
+    "longitude": 103.80222
+  },
+  {
+    "city": "Mount Vernon",
+    "city_zh": "Mount Vernon",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33583,
+    "longitude": 103.8975
+  },
+  {
+    "city": "Ulu Bedok",
+    "city_zh": "Ulu Bedok",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.93333
+  },
+  {
+    "city": "Tyersall Park",
+    "city_zh": "Tyersall Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31056,
+    "longitude": 103.81361
+  },
+  {
+    "city": "Tuas",
+    "city_zh": "Tuas",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32139,
+    "longitude": 103.65667
+  },
+  {
+    "city": "Tua Kang Lye",
+    "city_zh": "Tua Kang Lye",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31417,
+    "longitude": 103.77667
+  },
+  {
+    "city": "Toa Payoh New Town",
+    "city_zh": "大巴窑",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33611,
+    "longitude": 103.85
+  },
+  {
+    "city": "Tiong Bahru Estate",
+    "city_zh": "Tiong Bahru Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.83278
+  },
+  {
+    "city": "Thong Hoe Village",
+    "city_zh": "Thong Hoe Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41806,
+    "longitude": 103.70194
+  },
+  {
+    "city": "Thomson",
+    "city_zh": "Thomson",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34917,
+    "longitude": 103.84361
+  },
+  {
+    "city": "Teck Hock",
+    "city_zh": "Teck Hock",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3675,
+    "longitude": 103.91611
+  },
+  {
+    "city": "Teck Chong Estate",
+    "city_zh": "Teck Chong Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41556,
+    "longitude": 103.76167
+  },
+  {
+    "city": "Tay Keng Loon Estate",
+    "city_zh": "Tay Keng Loon Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.45333,
+    "longitude": 103.79889
+  },
+  {
+    "city": "Tan Hua Gek Estate",
+    "city_zh": "Tan Hua Gek Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40917,
+    "longitude": 103.69583
+  },
+  {
+    "city": "Tanglin Hill",
+    "city_zh": "Tanglin Hill",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30222,
+    "longitude": 103.81472
+  },
+  {
+    "city": "Tanglin",
+    "city_zh": "Tanglin",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.81667
+  },
+  {
+    "city": "Tampines Estate",
+    "city_zh": "Tampines Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35806,
+    "longitude": 103.94028
+  },
+  {
+    "city": "Tai Seng",
+    "city_zh": "Tai Seng",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33611,
+    "longitude": 103.90361
+  },
+  {
+    "city": "Sungai Unum Estate",
+    "city_zh": "Sungai Unum Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42139,
+    "longitude": 104.05028
+  },
+  {
+    "city": "Sungai Simpang",
+    "city_zh": "新邦",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43806,
+    "longitude": 103.82667
+  },
+  {
+    "city": "Spring Park Estate",
+    "city_zh": "Spring Park Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31583,
+    "longitude": 103.94444
+  },
+  {
+    "city": "Song Hah Estate",
+    "city_zh": "Song Hah Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35889,
+    "longitude": 103.66472
+  },
+  {
+    "city": "Somapah Serangoon",
+    "city_zh": "Somapah Serangoon",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36667,
+    "longitude": 103.88333
+  },
+  {
+    "city": "Somapah",
+    "city_zh": "Somapah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34167,
+    "longitude": 103.96361
+  },
+  {
+    "city": "Sin Watt Estate",
+    "city_zh": "Sin Watt Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41417,
+    "longitude": 103.95056
+  },
+  {
+    "city": "Singapore United Plantation",
+    "city_zh": "Singapore United Plantation",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37917,
+    "longitude": 103.85778
+  },
+  {
+    "city": "Singapore",
+    "city_zh": "新加坡",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28967,
+    "longitude": 103.85007
+  },
+  {
+    "city": "Simpang Bedok Village",
+    "city_zh": "Simpang Bedok Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33417,
+    "longitude": 103.95222
+  },
+  {
+    "city": "Serangoon Garden",
+    "city_zh": "Serangoon Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36389,
+    "longitude": 103.8575
+  },
+  {
+    "city": "Serangoon",
+    "city_zh": "Serangoon",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36278,
+    "longitude": 103.8975
+  },
+  {
+    "city": "Sennett Estate",
+    "city_zh": "Sennett Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33194,
+    "longitude": 103.87167
+  },
+  {
+    "city": "Sembawang Hills Estate",
+    "city_zh": "Sembawang Hills Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37278,
+    "longitude": 103.83028
+  },
+  {
+    "city": "Sembawang Estate",
+    "city_zh": "三巴旺",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.45083,
+    "longitude": 103.82861
+  },
+  {
+    "city": "Seletar Hills Estate",
+    "city_zh": "Seletar Hills Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38444,
+    "longitude": 103.86806
+  },
+  {
+    "city": "Seletar",
+    "city_zh": "實里達",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41,
+    "longitude": 103.87417
+  },
+  {
+    "city": "Sea View Estate",
+    "city_zh": "Sea View Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3,
+    "longitude": 103.90889
+  },
+  {
+    "city": "Sarang Rimau",
+    "city_zh": "Sarang Rimau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.25972,
+    "longitude": 103.80889
+  },
+  {
+    "city": "Sam Heng Estate",
+    "city_zh": "Sam Heng Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41361,
+    "longitude": 103.97556
+  },
+  {
+    "city": "Saga",
+    "city_zh": "Saga",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.83333
+  },
+  {
+    "city": "Mount Rosie",
+    "city_zh": "Mount Rosie",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32333,
+    "longitude": 103.83417
+  },
+  {
+    "city": "Rochester Park",
+    "city_zh": "Rochester Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30611,
+    "longitude": 103.78667
+  },
+  {
+    "city": "Raffles Park",
+    "city_zh": "Raffles Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33222,
+    "longitude": 103.80444
+  },
+  {
+    "city": "Race Course Village",
+    "city_zh": "Race Course Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.8
+  },
+  {
+    "city": "Queen Astrid Park",
+    "city_zh": "Queen Astrid Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31889,
+    "longitude": 103.79083
+  },
+  {
+    "city": "Punggol",
+    "city_zh": "榜鹅",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41444,
+    "longitude": 103.90694
+  },
+  {
+    "city": "Pulau Ubin Village",
+    "city_zh": "Pulau Ubin Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40333,
+    "longitude": 103.97139
+  },
+  {
+    "city": "Pulau Minyak",
+    "city_zh": "Pulau Minyak",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Princess Elizabeth Estate",
+    "city_zh": "Princess Elizabeth Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36222,
+    "longitude": 103.75944
+  },
+  {
+    "city": "Prince Edward Point",
+    "city_zh": "Prince Edward Point",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3,
+    "longitude": 103.76667
+  },
+  {
+    "city": "Prince Edward Park",
+    "city_zh": "Prince Edward Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29639,
+    "longitude": 103.77361
+  },
+  {
+    "city": "Mount Pleasant",
+    "city_zh": "Mount Pleasant",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33167,
+    "longitude": 103.83278
+  },
+  {
+    "city": "Playfair Estate",
+    "city_zh": "Playfair Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.88333
+  },
+  {
+    "city": "Phoenix Park",
+    "city_zh": "Phoenix Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29889,
+    "longitude": 103.81222
+  },
+  {
+    "city": "Perseverance Estate",
+    "city_zh": "Perseverance Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33028,
+    "longitude": 103.91139
+  },
+  {
+    "city": "Paya Lebar",
+    "city_zh": "Paya Lebar",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35389,
+    "longitude": 103.89056
+  },
+  {
+    "city": "Pasir Panjang",
+    "city_zh": "Pasir Panjang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29278,
+    "longitude": 103.77083
+  },
+  {
+    "city": "Opera Estate",
+    "city_zh": "Opera Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31806,
+    "longitude": 103.93694
+  },
+  {
+    "city": "Ong Lee",
+    "city_zh": "Ong Lee",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.75
+  },
+  {
+    "city": "Old Kallang Airport Estate",
+    "city_zh": "Old Kallang Airport Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30889,
+    "longitude": 103.90139
+  },
+  {
+    "city": "Oei Tiong Ham Park",
+    "city_zh": "Oei Tiong Ham Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31528,
+    "longitude": 103.79389
+  },
+  {
+    "city": "Ng Kay Boon Estate",
+    "city_zh": "Ng Kay Boon Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43944,
+    "longitude": 103.73111
+  },
+  {
+    "city": "Nepal Park",
+    "city_zh": "Nepal Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30167,
+    "longitude": 103.78806
+  },
+  {
+    "city": "Nee Soon Estate",
+    "city_zh": "Nee Soon Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40278,
+    "longitude": 103.81778
+  },
+  {
+    "city": "Namazie Estate",
+    "city_zh": "Namazie Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42194,
+    "longitude": 103.70694
+  },
+  {
+    "city": "Mok Peng Hiang Estate",
+    "city_zh": "Mok Peng Hiang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.44556,
+    "longitude": 103.79694
+  },
+  {
+    "city": "Medway Park",
+    "city_zh": "Medway Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30556,
+    "longitude": 103.77556
+  },
+  {
+    "city": "McMahon Park",
+    "city_zh": "McMahon Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31444,
+    "longitude": 103.785
+  },
+  {
+    "city": "Matilda Estate",
+    "city_zh": "Matilda Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39944,
+    "longitude": 103.90278
+  },
+  {
+    "city": "Mata Ikan",
+    "city_zh": "Mata Ikan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33611,
+    "longitude": 103.975
+  },
+  {
+    "city": "Maryland Estate",
+    "city_zh": "Maryland Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32028,
+    "longitude": 103.78694
+  },
+  {
+    "city": "Marsiling",
+    "city_zh": "马西岭",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43254,
+    "longitude": 103.77407
+  },
+  {
+    "city": "Lorong Tiga Estate",
+    "city_zh": "Lorong Tiga Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Loyang",
+    "city_zh": "Loyang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37861,
+    "longitude": 103.97167
+  },
+  {
+    "city": "Lim Chu Kang Estate",
+    "city_zh": "Lim Chu Kang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41528,
+    "longitude": 103.67667
+  },
+  {
+    "city": "Leedon Park",
+    "city_zh": "Leedon Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31694,
+    "longitude": 103.79417
+  },
+  {
+    "city": "Lam San Village",
+    "city_zh": "Lam San Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37694,
+    "longitude": 103.73139
+  },
+  {
+    "city": "Lam Kiong Estate",
+    "city_zh": "Lam Kiong Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34917,
+    "longitude": 103.65278
+  },
+  {
+    "city": "Kingsmead Hall",
+    "city_zh": "Kingsmead Hall",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31833,
+    "longitude": 103.805
+  },
+  {
+    "city": "King Albert Park",
+    "city_zh": "King Albert Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33444,
+    "longitude": 103.77972
+  },
+  {
+    "city": "Kilburn Estate",
+    "city_zh": "Kilburn Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34028,
+    "longitude": 103.78139
+  },
+  {
+    "city": "Kian Teck San Estate",
+    "city_zh": "Kian Teck San Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36167,
+    "longitude": 103.66528
+  },
+  {
+    "city": "Kian Hong Estate",
+    "city_zh": "Kian Hong Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35722,
+    "longitude": 103.72611
+  },
+  {
+    "city": "Kent Ridge",
+    "city_zh": "Kent Ridge",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29306,
+    "longitude": 103.78444
+  },
+  {
+    "city": "Keat Hong Village",
+    "city_zh": "Keat Hong Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37778,
+    "longitude": 103.74417
+  },
+  {
+    "city": "Kampong Woodleigh",
+    "city_zh": "Kampong Woodleigh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34194,
+    "longitude": 103.87194
+  },
+  {
+    "city": "Kampong Wak Tanjong",
+    "city_zh": "Kampong Wak Tanjong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.9
+  },
+  {
+    "city": "Kampong Wak Sekak",
+    "city_zh": "Kampong Wak Sekak",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.7
+  },
+  {
+    "city": "Kampong Wak Hassan",
+    "city_zh": "Kampong Wak Hassan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.46139,
+    "longitude": 103.83639
+  },
+  {
+    "city": "Kampong Wak Dulah",
+    "city_zh": "Kampong Wak Dulah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38333,
+    "longitude": 103.66667
+  },
+  {
+    "city": "Kampong Wak Bechik",
+    "city_zh": "Kampong Wak Bechik",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.71667
+  },
+  {
+    "city": "Kampong Unum",
+    "city_zh": "Kampong Unum",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43139,
+    "longitude": 104.05972
+  },
+  {
+    "city": "Kampong Ulu Pandan",
+    "city_zh": "Kampong Ulu Pandan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34611,
+    "longitude": 103.745
+  },
+  {
+    "city": "Kampong Ulu Jurong",
+    "city_zh": "Kampong Ulu Jurong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.71667
+  },
+  {
+    "city": "Kampong Ubi",
+    "city_zh": "Kampong Ubi",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.9
+  },
+  {
+    "city": "Kampong Tulloch",
+    "city_zh": "Kampong Tulloch",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3,
+    "longitude": 103.78333
+  },
+  {
+    "city": "Kampong Tongkang Pechah",
+    "city_zh": "Kampong Tongkang Pechah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39,
+    "longitude": 103.87639
+  },
+  {
+    "city": "Kampong Todak",
+    "city_zh": "Kampong Todak",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42139,
+    "longitude": 104.02167
+  },
+  {
+    "city": "Tengah",
+    "city_zh": "Tengah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.363,
+    "longitude": 103.729
+  },
+  {
+    "city": "Kampong Telok",
+    "city_zh": "Kampong Telok",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38333,
+    "longitude": 103.65
+  },
+  {
+    "city": "Kampong Tebing Terjun",
+    "city_zh": "Kampong Tebing Terjun",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.75
+  },
+  {
+    "city": "Kampong Teban",
+    "city_zh": "Kampong Teban",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37861,
+    "longitude": 103.90778
+  },
+  {
+    "city": "Kampong Tanjong Penjuru",
+    "city_zh": "Kampong Tanjong Penjuru",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3,
+    "longitude": 103.75
+  },
+  {
+    "city": "Kampong Tanjong Irau",
+    "city_zh": "Kampong Tanjong Irau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.45667,
+    "longitude": 103.84667
+  },
+  {
+    "city": "Kampong Tanah Merah",
+    "city_zh": "Kampong Tanah Merah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.2625,
+    "longitude": 103.7
+  },
+  {
+    "city": "Kampong Tampines",
+    "city_zh": "Kampong Tampines",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35806,
+    "longitude": 103.94028
+  },
+  {
+    "city": "Kampong Sungai Tengah",
+    "city_zh": "Kampong Sungai Tengah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38333,
+    "longitude": 103.9
+  },
+  {
+    "city": "Kampong Sungai Pandan",
+    "city_zh": "Kampong Sungai Pandan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.75
+  },
+  {
+    "city": "Kampong Sungai Jurong",
+    "city_zh": "Kampong Sungai Jurong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35167,
+    "longitude": 103.73361
+  },
+  {
+    "city": "Kampong Sungai Blukar",
+    "city_zh": "Kampong Sungai Blukar",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38806,
+    "longitude": 103.91833
+  },
+  {
+    "city": "Kampong Sungai Belang",
+    "city_zh": "Kampong Sungai Belang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42333,
+    "longitude": 104.06667
+  },
+  {
+    "city": "Kampong Sultan",
+    "city_zh": "Kampong Sultan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.78333
+  },
+  {
+    "city": "Kampong Sudong",
+    "city_zh": "Kampong Sudong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.20639,
+    "longitude": 103.72861
+  },
+  {
+    "city": "Kampong Soopoo",
+    "city_zh": "Kampong Soopoo",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Sireh",
+    "city_zh": "Kampong Sireh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.88333
+  },
+  {
+    "city": "Kampong Seraya",
+    "city_zh": "Kampong Seraya",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.73333
+  },
+  {
+    "city": "Kampong Serangoon Kechil",
+    "city_zh": "Kampong Serangoon Kechil",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39,
+    "longitude": 103.90722
+  },
+  {
+    "city": "Kampong Seminei",
+    "city_zh": "Kampong Seminei",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40694,
+    "longitude": 104.03944
+  },
+  {
+    "city": "Kampong Sanyonkong Parit",
+    "city_zh": "Kampong Sanyonkong Parit",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40611,
+    "longitude": 104.06583
+  },
+  {
+    "city": "Kampong Sanyongkong",
+    "city_zh": "Kampong Sanyongkong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39833,
+    "longitude": 104.05778
+  },
+  {
+    "city": "Kampong San Teng",
+    "city_zh": "Kampong San Teng",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34694,
+    "longitude": 103.84083
+  },
+  {
+    "city": "Kampong Salabin",
+    "city_zh": "Kampong Salabin",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41611,
+    "longitude": 104.03333
+  },
+  {
+    "city": "Kampong Saigon",
+    "city_zh": "Kampong Saigon",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.21667,
+    "longitude": 103.76667
+  },
+  {
+    "city": "Kampong Reteh",
+    "city_zh": "Kampong Reteh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.9
+  },
+  {
+    "city": "Radin Mas",
+    "city_zh": "Radin Mas",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.27389,
+    "longitude": 103.82417
+  },
+  {
+    "city": "Kampong Punggol",
+    "city_zh": "Kampong Punggol",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.4125,
+    "longitude": 103.91028
+  },
+  {
+    "city": "Kampong Pulau Kechil",
+    "city_zh": "Kampong Pulau Kechil",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.73333
+  },
+  {
+    "city": "Kampong Potong Pasir",
+    "city_zh": "Kampong Potong Pasir",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Pinang",
+    "city_zh": "Kampong Pinang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38111,
+    "longitude": 103.89417
+  },
+  {
+    "city": "Kampong Pesek",
+    "city_zh": "Kampong Pesek",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.68333
+  },
+  {
+    "city": "Kampong Permatang",
+    "city_zh": "Kampong Permatang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42417,
+    "longitude": 104.03889
+  },
+  {
+    "city": "Kampong Perigi Piau",
+    "city_zh": "Kampong Perigi Piau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.23333,
+    "longitude": 103.76667
+  },
+  {
+    "city": "Kampong Pengkalan Petai",
+    "city_zh": "Kampong Pengkalan Petai",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40333,
+    "longitude": 103.85
+  },
+  {
+    "city": "Kampong Pengkalan Pakau",
+    "city_zh": "Kampong Pengkalan Pakau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40944,
+    "longitude": 104.0725
+  },
+  {
+    "city": "Kampong Pengkalan Kundor",
+    "city_zh": "Kampong Pengkalan Kundor",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41,
+    "longitude": 103.84444
+  },
+  {
+    "city": "Kampong Pasir Ris",
+    "city_zh": "白沙",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37833,
+    "longitude": 103.93194
+  },
+  {
+    "city": "Kampong Pasir Merah",
+    "city_zh": "Kampong Pasir Merah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42917,
+    "longitude": 104.04694
+  },
+  {
+    "city": "Kampong Pasir",
+    "city_zh": "Kampong Pasir",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40833,
+    "longitude": 104.08417
+  },
+  {
+    "city": "Kampong Pahang",
+    "city_zh": "Kampong Pahang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40917,
+    "longitude": 104.03278
+  },
+  {
+    "city": "Kampong Padang Terbakar",
+    "city_zh": "Kampong Padang Terbakar",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33,
+    "longitude": 103.96667
+  },
+  {
+    "city": "Kampong Pachitan",
+    "city_zh": "Kampong Pachitan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.91667
+  },
+  {
+    "city": "Kampong O’Carroll Scott",
+    "city_zh": "Kampong O’Carroll Scott",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3,
+    "longitude": 103.78333
+  },
+  {
+    "city": "Kampong Noordin",
+    "city_zh": "Kampong Noordin",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41778,
+    "longitude": 103.965
+  },
+  {
+    "city": "Kampong Melayu",
+    "city_zh": "Kampong Melayu",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40861,
+    "longitude": 103.97944
+  },
+  {
+    "city": "Kampong Mandai Kechil",
+    "city_zh": "Kampong Mandai Kechil",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.44083,
+    "longitude": 103.76528
+  },
+  {
+    "city": "Kampong Mamam",
+    "city_zh": "Kampong Mamam",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41722,
+    "longitude": 103.97611
+  },
+  {
+    "city": "Kampong Mak Baok",
+    "city_zh": "Kampong Mak Baok",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.71667
+  },
+  {
+    "city": "Kampong Loyang",
+    "city_zh": "Kampong Loyang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37778,
+    "longitude": 103.95944
+  },
+  {
+    "city": "Kampong Lew Lian",
+    "city_zh": "Kampong Lew Lian",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Ladang",
+    "city_zh": "Kampong Ladang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40444,
+    "longitude": 104.03333
+  },
+  {
+    "city": "Kampong Ladang",
+    "city_zh": "Kampong Ladang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.9
+  },
+  {
+    "city": "Kampong Kuchai",
+    "city_zh": "Kampong Kuchai",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Kranji",
+    "city_zh": "克兰芝",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43333,
+    "longitude": 103.75
+  },
+  {
+    "city": "Kampong Kopit",
+    "city_zh": "Kampong Kopit",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.83333
+  },
+  {
+    "city": "Kampong Kitin",
+    "city_zh": "Kampong Kitin",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.435,
+    "longitude": 103.85917
+  },
+  {
+    "city": "Kembangan",
+    "city_zh": "Kembangan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32228,
+    "longitude": 103.91135
+  },
+  {
+    "city": "Kampong Kebun Baharu",
+    "city_zh": "Kampong Kebun Baharu",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36667,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Jelutong",
+    "city_zh": "Kampong Jelutong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40111,
+    "longitude": 103.95889
+  },
+  {
+    "city": "Kampong Java Teban",
+    "city_zh": "Kampong Java Teban",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.73333
+  },
+  {
+    "city": "Kampong Jagoh",
+    "city_zh": "Kampong Jagoh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.81667
+  },
+  {
+    "city": "Kampong Hock Soon",
+    "city_zh": "Kampong Hock Soon",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31667,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Eunos",
+    "city_zh": "Kampong Eunos",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32083,
+    "longitude": 103.91778
+  },
+  {
+    "city": "Kampong Cutforth",
+    "city_zh": "Kampong Cutforth",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38194,
+    "longitude": 103.73639
+  },
+  {
+    "city": "Kampong Che Jevah",
+    "city_zh": "Kampong Che Jevah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41444,
+    "longitude": 103.98972
+  },
+  {
+    "city": "Kampong Chantek Baharu",
+    "city_zh": "Kampong Chantek Baharu",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.78833
+  },
+  {
+    "city": "Kampong Changi",
+    "city_zh": "Kampong Changi",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38333,
+    "longitude": 104.0
+  },
+  {
+    "city": "Kampong Chai Chee",
+    "city_zh": "Kampong Chai Chee",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.93333
+  },
+  {
+    "city": "Kampong Bukit Panjang",
+    "city_zh": "Kampong Bukit Panjang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38361,
+    "longitude": 103.76
+  },
+  {
+    "city": "Kampong Bugis",
+    "city_zh": "Kampong Bugis",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Kampong Bugis",
+    "city_zh": "Kampong Bugis",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34694,
+    "longitude": 103.96583
+  },
+  {
+    "city": "Kampong Bugis",
+    "city_zh": "Kampong Bugis",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.21667,
+    "longitude": 103.76667
+  },
+  {
+    "city": "Kampong Blukang",
+    "city_zh": "Kampong Blukang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.65
+  },
+  {
+    "city": "Kampong Beremban",
+    "city_zh": "Kampong Beremban",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38139,
+    "longitude": 103.91583
+  },
+  {
+    "city": "Kampong Bereh",
+    "city_zh": "Kampong Bereh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37417,
+    "longitude": 103.68444
+  },
+  {
+    "city": "Kampong Belimbing",
+    "city_zh": "Kampong Belimbing",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37111,
+    "longitude": 103.69194
+  },
+  {
+    "city": "Kampong Batu Koyok",
+    "city_zh": "Kampong Batu Koyok",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39694,
+    "longitude": 104.04778
+  },
+  {
+    "city": "Kampong Bahru",
+    "city_zh": "Kampong Bahru",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41861,
+    "longitude": 103.97028
+  },
+  {
+    "city": "Kampong Baharu",
+    "city_zh": "Kampong Baharu",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.73333
+  },
+  {
+    "city": "Kampong Ayer Samak Darat",
+    "city_zh": "Kampong Ayer Samak Darat",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41389,
+    "longitude": 104.07222
+  },
+  {
+    "city": "Kampong Ayer Samak",
+    "city_zh": "Kampong Ayer Samak",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42056,
+    "longitude": 104.07944
+  },
+  {
+    "city": "Kampong Ayer Merbau",
+    "city_zh": "Kampong Ayer Merbau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.71667
+  },
+  {
+    "city": "Kampong Ayer Limau",
+    "city_zh": "Kampong Ayer Limau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28333,
+    "longitude": 103.71667
+  },
+  {
+    "city": "Kampong Ayer Gemuruh",
+    "city_zh": "Kampong Ayer Gemuruh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.98333
+  },
+  {
+    "city": "Kampong Ayer Bajau",
+    "city_zh": "Kampong Ayer Bajau",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36667,
+    "longitude": 103.65
+  },
+  {
+    "city": "Kampong Amoy Quee",
+    "city_zh": "Kampong Amoy Quee",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38333,
+    "longitude": 103.85
+  },
+  {
+    "city": "Kampong Amber",
+    "city_zh": "Kampong Amber",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30028,
+    "longitude": 103.91167
+  },
+  {
+    "city": "Kallang",
+    "city_zh": "Kallang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33333,
+    "longitude": 103.86667
+  },
+  {
+    "city": "Jalan Kayu",
+    "city_zh": "惹兰加由",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39722,
+    "longitude": 103.87194
+  },
+  {
+    "city": "Island View Estate",
+    "city_zh": "Island View Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29472,
+    "longitude": 103.77278
+  },
+  {
+    "city": "Hun Yeang",
+    "city_zh": "Hun Yeang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36861,
+    "longitude": 103.93194
+  },
+  {
+    "city": "Hume Heights",
+    "city_zh": "Hume Heights",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.355,
+    "longitude": 103.765
+  },
+  {
+    "city": "Huat Choe",
+    "city_zh": "Huat Choe",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34,
+    "longitude": 103.69361
+  },
+  {
+    "city": "Hong Kong Park",
+    "city_zh": "Hong Kong Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33972,
+    "longitude": 103.78556
+  },
+  {
+    "city": "Hong Kah",
+    "city_zh": "Hong Kah",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35944,
+    "longitude": 103.72278
+  },
+  {
+    "city": "Holland Village",
+    "city_zh": "Holland Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31194,
+    "longitude": 103.79333
+  },
+  {
+    "city": "Holland Grove Park",
+    "city_zh": "Holland Grove Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31361,
+    "longitude": 103.78028
+  },
+  {
+    "city": "Heap Guan Village",
+    "city_zh": "Heap Guan Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.26667,
+    "longitude": 103.8
+  },
+  {
+    "city": "Geylang",
+    "city_zh": "芽笼",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31953,
+    "longitude": 103.88689
+  },
+  {
+    "city": "Fuyong Estate",
+    "city_zh": "Fuyong Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35944,
+    "longitude": 103.76806
+  },
+  {
+    "city": "Frankel Estate",
+    "city_zh": "Frankel Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31361,
+    "longitude": 103.92944
+  },
+  {
+    "city": "Ewart Park",
+    "city_zh": "Ewart Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32472,
+    "longitude": 103.7825
+  },
+  {
+    "city": "Eden Park",
+    "city_zh": "Eden Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33139,
+    "longitude": 103.7925
+  },
+  {
+    "city": "Dunearn Estate",
+    "city_zh": "Dunearn Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32528,
+    "longitude": 103.82306
+  },
+  {
+    "city": "Chye Kay",
+    "city_zh": "Chye Kay",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.42611,
+    "longitude": 103.82417
+  },
+  {
+    "city": "Chong Pang",
+    "city_zh": "Chong Pang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.44444,
+    "longitude": 103.82389
+  },
+  {
+    "city": "Chia Tong Quah Estate",
+    "city_zh": "Chia Tong Quah Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40861,
+    "longitude": 104.05083
+  },
+  {
+    "city": "Chia Keng",
+    "city_zh": "Chia Keng",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36,
+    "longitude": 103.89167
+  },
+  {
+    "city": "Changi Village",
+    "city_zh": "樟宜村",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39037,
+    "longitude": 103.98674
+  },
+  {
+    "city": "Camden Park",
+    "city_zh": "Camden Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32778,
+    "longitude": 103.81639
+  },
+  {
+    "city": "Caldecott Hill Estate",
+    "city_zh": "Caldecott Hill Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33667,
+    "longitude": 103.835
+  },
+  {
+    "city": "Buona Vista",
+    "city_zh": "Buona Vista",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28056,
+    "longitude": 103.78806
+  },
+  {
+    "city": "Bulim",
+    "city_zh": "Bulim",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37444,
+    "longitude": 103.71778
+  },
+  {
+    "city": "Bukit Timah Estate",
+    "city_zh": "Bukit Timah Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34028,
+    "longitude": 103.77583
+  },
+  {
+    "city": "Bukit Sembawang Estate",
+    "city_zh": "Bukit Sembawang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.44444,
+    "longitude": 103.85111
+  },
+  {
+    "city": "Bukit Sembawang Estate",
+    "city_zh": "Bukit Sembawang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.45444,
+    "longitude": 103.84083
+  },
+  {
+    "city": "Bukit Sembawang Estate",
+    "city_zh": "Bukit Sembawang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39556,
+    "longitude": 103.86917
+  },
+  {
+    "city": "Bukit Merah Estate",
+    "city_zh": "Bukit Merah Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28417,
+    "longitude": 103.82306
+  },
+  {
+    "city": "Bukit Mandai Village",
+    "city_zh": "万礼",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41222,
+    "longitude": 103.75667
+  },
+  {
+    "city": "Bright Hill Crescent",
+    "city_zh": "Bright Hill Crescent",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.83333
+  },
+  {
+    "city": "Brickworks Estate",
+    "city_zh": "Brickworks Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28722,
+    "longitude": 103.80833
+  },
+  {
+    "city": "Braddell Heights Estate",
+    "city_zh": "Braddell Heights Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34528,
+    "longitude": 103.86528
+  },
+  {
+    "city": "Boon Lay",
+    "city_zh": "文礼/文禮",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.311,
+    "longitude": 103.694
+  },
+  {
+    "city": "Bin Tong Park",
+    "city_zh": "Bin Tong Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32056,
+    "longitude": 103.7975
+  },
+  {
+    "city": "Banta Tengeh",
+    "city_zh": "Banta Tengeh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.65
+  },
+  {
+    "city": "Bajau Estate",
+    "city_zh": "Bajau Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33694,
+    "longitude": 103.66333
+  },
+  {
+    "city": "Ardmore Flats",
+    "city_zh": "Ardmore Flats",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30944,
+    "longitude": 103.83
+  },
+  {
+    "city": "Ama Keng",
+    "city_zh": "Ama Keng",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.40444,
+    "longitude": 103.70667
+  },
+  {
+    "city": "Alexandra Estate",
+    "city_zh": "Alexandra Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29389,
+    "longitude": 103.81972
+  },
+  {
+    "city": "Aik Hong and Aik Chiang Estate",
+    "city_zh": "Aik Hong and Aik Chiang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39083,
+    "longitude": 103.72861
+  },
+  {
+    "city": "Adelphi Park Estate",
+    "city_zh": "Adelphi Park Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.355,
+    "longitude": 103.82889
+  },
+  {
+    "city": "Adam Park",
+    "city_zh": "Adam Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33167,
+    "longitude": 103.81222
+  },
+  {
+    "city": "Ayer Raja New Town",
+    "city_zh": "Ayer Raja New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.305,
+    "longitude": 103.78333
+  },
+  {
+    "city": "Bishan New Town",
+    "city_zh": "Bishan New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3504,
+    "longitude": 103.84875
+  },
+  {
+    "city": "Bukit Batok New Town",
+    "city_zh": "武吉巴督",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35903,
+    "longitude": 103.76368
+  },
+  {
+    "city": "Bukit Ho Swee Estate",
+    "city_zh": "Bukit Ho Swee Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28778,
+    "longitude": 103.83
+  },
+  {
+    "city": "Henderson Estate",
+    "city_zh": "Henderson Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28917,
+    "longitude": 103.82333
+  },
+  {
+    "city": "Hougang New Town",
+    "city_zh": "Hougang New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35667,
+    "longitude": 103.89083
+  },
+  {
+    "city": "Jurong East",
+    "city_zh": "Jurong East",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32888,
+    "longitude": 103.73995
+  },
+  {
+    "city": "Jurong Town",
+    "city_zh": "裕廊",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33417,
+    "longitude": 103.72278
+  },
+  {
+    "city": "Jurong West",
+    "city_zh": "裕廊东",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35028,
+    "longitude": 103.72278
+  },
+  {
+    "city": "Kaki Bukit Estate",
+    "city_zh": "Kaki Bukit Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3375,
+    "longitude": 103.90917
+  },
+  {
+    "city": "MacPherson",
+    "city_zh": "麦波申",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32713,
+    "longitude": 103.88413
+  },
+  {
+    "city": "Outram Park",
+    "city_zh": "Outram Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.2825,
+    "longitude": 103.83806
+  },
+  {
+    "city": "Serangoon New Town",
+    "city_zh": "Serangoon New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35083,
+    "longitude": 103.87083
+  },
+  {
+    "city": "Simei New Town",
+    "city_zh": "Simei New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34111,
+    "longitude": 103.95611
+  },
+  {
+    "city": "Saint Michael’s Estate",
+    "city_zh": "Saint Michael’s Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32778,
+    "longitude": 103.86083
+  },
+  {
+    "city": "Tampines New Town",
+    "city_zh": "淡滨尼",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34917,
+    "longitude": 103.94972
+  },
+  {
+    "city": "Tanglin Halt",
+    "city_zh": "Tanglin Halt",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30139,
+    "longitude": 103.7975
+  },
+  {
+    "city": "Xilin Estate",
+    "city_zh": "Xilin Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33222,
+    "longitude": 103.96583
+  },
+  {
+    "city": "Yishun New Town",
+    "city_zh": "义顺",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43333,
+    "longitude": 103.83111
+  },
+  {
+    "city": "Lim Chu Kang",
+    "city_zh": "林厝港",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43667,
+    "longitude": 103.70944
+  },
+  {
+    "city": "Woodlands",
+    "city_zh": "Woodlands",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.43801,
+    "longitude": 103.78877
+  },
+  {
+    "city": "Sungai Mandai Village",
+    "city_zh": "Sungai Mandai Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.41056,
+    "longitude": 103.77694
+  },
+  {
+    "city": "Bukit Panjang Estate",
+    "city_zh": "Bukit Panjang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38167,
+    "longitude": 103.7525
+  },
+  {
+    "city": "Springleaf Park",
+    "city_zh": "Springleaf Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39528,
+    "longitude": 103.82139
+  },
+  {
+    "city": "Teacher’s Housing Estate",
+    "city_zh": "Teacher’s Housing Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38333,
+    "longitude": 103.82861
+  },
+  {
+    "city": "Bukit Sembawang Estate",
+    "city_zh": "Bukit Sembawang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39889,
+    "longitude": 103.82861
+  },
+  {
+    "city": "Bukit Sembawang Estate",
+    "city_zh": "Bukit Sembawang Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38611,
+    "longitude": 103.895
+  },
+  {
+    "city": "Kangkar",
+    "city_zh": "Kangkar",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37611,
+    "longitude": 103.90167
+  },
+  {
+    "city": "Boon Lay Resettlement Area",
+    "city_zh": "Boon Lay Resettlement Area",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33528,
+    "longitude": 103.69889
+  },
+  {
+    "city": "Bamboo Grove Park",
+    "city_zh": "Bamboo Grove Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35778,
+    "longitude": 103.75778
+  },
+  {
+    "city": "Soo Chow Garden",
+    "city_zh": "Soo Chow Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35333,
+    "longitude": 103.83083
+  },
+  {
+    "city": "Thomson Garden Estate",
+    "city_zh": "Thomson Garden Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35361,
+    "longitude": 103.83861
+  },
+  {
+    "city": "Mayflower Estate",
+    "city_zh": "Mayflower Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37194,
+    "longitude": 103.83944
+  },
+  {
+    "city": "Thomson Ridge Estate",
+    "city_zh": "Thomson Ridge Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35139,
+    "longitude": 103.83278
+  },
+  {
+    "city": "Thomson Park",
+    "city_zh": "Thomson Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35722,
+    "longitude": 103.83639
+  },
+  {
+    "city": "Tai Hwan Gardens",
+    "city_zh": "Tai Hwan Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35528,
+    "longitude": 103.86083
+  },
+  {
+    "city": "Goldhill Gardens",
+    "city_zh": "Goldhill Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32222,
+    "longitude": 103.83194
+  },
+  {
+    "city": "Watten Estate",
+    "city_zh": "Watten Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32667,
+    "longitude": 103.81139
+  },
+  {
+    "city": "Hillcrest Park",
+    "city_zh": "Hillcrest Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33472,
+    "longitude": 103.80917
+  },
+  {
+    "city": "Lucky Park",
+    "city_zh": "Lucky Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32861,
+    "longitude": 103.79139
+  },
+  {
+    "city": "Brizay Park",
+    "city_zh": "Brizay Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33028,
+    "longitude": 103.78667
+  },
+  {
+    "city": "Ban Guan Park",
+    "city_zh": "Ban Guan Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32361,
+    "longitude": 103.78917
+  },
+  {
+    "city": "Shamrock Park",
+    "city_zh": "Shamrock Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32778,
+    "longitude": 103.79694
+  },
+  {
+    "city": "Coronation Gardens",
+    "city_zh": "Coronation Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32333,
+    "longitude": 103.80361
+  },
+  {
+    "city": "Rebecca Park",
+    "city_zh": "Rebecca Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32194,
+    "longitude": 103.80083
+  },
+  {
+    "city": "Pandan Valley",
+    "city_zh": "Pandan Valley",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31833,
+    "longitude": 103.77583
+  },
+  {
+    "city": "Eng Khong Gardens",
+    "city_zh": "Eng Khong Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33611,
+    "longitude": 103.77056
+  },
+  {
+    "city": "Hong Leong Garden",
+    "city_zh": "Hong Leong Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31944,
+    "longitude": 103.75472
+  },
+  {
+    "city": "Faber Hills",
+    "city_zh": "Faber Hills",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32083,
+    "longitude": 103.75972
+  },
+  {
+    "city": "Sussex Estate",
+    "city_zh": "Sussex Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30889,
+    "longitude": 103.76889
+  },
+  {
+    "city": "Ghim Moh",
+    "city_zh": "Ghim Moh",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31111,
+    "longitude": 103.78778
+  },
+  {
+    "city": "Chip Hock Garden",
+    "city_zh": "Chip Hock Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32028,
+    "longitude": 103.81361
+  },
+  {
+    "city": "Sommerville Estate",
+    "city_zh": "Sommerville Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31389,
+    "longitude": 103.80694
+  },
+  {
+    "city": "One Tree Hill",
+    "city_zh": "One Tree Hill",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30167,
+    "longitude": 103.82694
+  },
+  {
+    "city": "Dragon View Park",
+    "city_zh": "Dragon View Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29556,
+    "longitude": 103.82389
+  },
+  {
+    "city": "Delta Estate",
+    "city_zh": "Delta Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29111,
+    "longitude": 103.82944
+  },
+  {
+    "city": "York Hill Estate",
+    "city_zh": "York Hill Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28722,
+    "longitude": 103.8375
+  },
+  {
+    "city": "Kampong Silat Estate",
+    "city_zh": "Kampong Silat Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.27889,
+    "longitude": 103.82639
+  },
+  {
+    "city": "Mount Emily Park",
+    "city_zh": "Mount Emily Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30472,
+    "longitude": 103.84722
+  },
+  {
+    "city": "People’s Park",
+    "city_zh": "People’s Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28444,
+    "longitude": 103.84194
+  },
+  {
+    "city": "Somapah Serangoon",
+    "city_zh": "Somapah Serangoon",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35944,
+    "longitude": 103.90194
+  },
+  {
+    "city": "Charlton Park",
+    "city_zh": "Charlton Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35639,
+    "longitude": 103.90139
+  },
+  {
+    "city": "Kampong Lew Lian",
+    "city_zh": "Kampong Lew Lian",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35194,
+    "longitude": 103.89083
+  },
+  {
+    "city": "Kampong Siren",
+    "city_zh": "Kampong Siren",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35222,
+    "longitude": 103.89806
+  },
+  {
+    "city": "Peoples Garden",
+    "city_zh": "Peoples Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36944,
+    "longitude": 103.90472
+  },
+  {
+    "city": "Hai Sing Park",
+    "city_zh": "Hai Sing Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36361,
+    "longitude": 103.905
+  },
+  {
+    "city": "Fish Farming Estate",
+    "city_zh": "Fish Farming Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36361,
+    "longitude": 103.91361
+  },
+  {
+    "city": "Punggol Estate",
+    "city_zh": "Punggol Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36278,
+    "longitude": 103.90833
+  },
+  {
+    "city": "Bena Park",
+    "city_zh": "Bena Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35167,
+    "longitude": 103.975
+  },
+  {
+    "city": "Kampong Wing Loong",
+    "city_zh": "Kampong Wing Loong",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35,
+    "longitude": 103.97194
+  },
+  {
+    "city": "Kampong Darat Nanas",
+    "city_zh": "Kampong Darat Nanas",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35806,
+    "longitude": 103.97944
+  },
+  {
+    "city": "East View Garden",
+    "city_zh": "East View Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34583,
+    "longitude": 103.96528
+  },
+  {
+    "city": "Kampong Harvey",
+    "city_zh": "Kampong Harvey",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34361,
+    "longitude": 103.95861
+  },
+  {
+    "city": "Kim Chuan",
+    "city_zh": "Kim Chuan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34139,
+    "longitude": 103.90333
+  },
+  {
+    "city": "Tai Kheng Gardens",
+    "city_zh": "Tai Kheng Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3475,
+    "longitude": 103.89972
+  },
+  {
+    "city": "Ah Soo Garden",
+    "city_zh": "Ah Soo Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35028,
+    "longitude": 103.90028
+  },
+  {
+    "city": "Raya Garden",
+    "city_zh": "Raya Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34806,
+    "longitude": 103.89722
+  },
+  {
+    "city": "Quemoy Park",
+    "city_zh": "Quemoy Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34417,
+    "longitude": 103.89722
+  },
+  {
+    "city": "Happy Gardens",
+    "city_zh": "Happy Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.33056,
+    "longitude": 103.89639
+  },
+  {
+    "city": "Chai Chee Estate",
+    "city_zh": "菜市",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32667,
+    "longitude": 103.93333
+  },
+  {
+    "city": "Siew Lim Park",
+    "city_zh": "Siew Lim Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32806,
+    "longitude": 103.95333
+  },
+  {
+    "city": "Bedok Village",
+    "city_zh": "Bedok Village",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3225,
+    "longitude": 103.96139
+  },
+  {
+    "city": "Bedok Garden",
+    "city_zh": "Bedok Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32278,
+    "longitude": 103.95778
+  },
+  {
+    "city": "Kampong Tanah Merah Kechil",
+    "city_zh": "Kampong Tanah Merah Kechil",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32056,
+    "longitude": 103.95556
+  },
+  {
+    "city": "Lucky Hills",
+    "city_zh": "Lucky Hills",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32556,
+    "longitude": 103.95278
+  },
+  {
+    "city": "Kampong Sek Lim",
+    "city_zh": "Kampong Sek Lim",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3325,
+    "longitude": 103.96167
+  },
+  {
+    "city": "Eastern Gardens",
+    "city_zh": "Eastern Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31806,
+    "longitude": 103.945
+  },
+  {
+    "city": "Marine Parade",
+    "city_zh": "马林百列",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30306,
+    "longitude": 103.90778
+  },
+  {
+    "city": "Rose Garden",
+    "city_zh": "Rose Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30278,
+    "longitude": 103.91472
+  },
+  {
+    "city": "Kampong Sakeng",
+    "city_zh": "Kampong Sakeng",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.20778,
+    "longitude": 103.77778
+  },
+  {
+    "city": "Fernhill Gardens",
+    "city_zh": "Fernhill Gardens",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31444,
+    "longitude": 103.82222
+  },
+  {
+    "city": "Tian Guan Estate",
+    "city_zh": "Tian Guan Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35972,
+    "longitude": 103.82611
+  },
+  {
+    "city": "Tiong Guan Estate",
+    "city_zh": "Tiong Guan Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.35611,
+    "longitude": 103.82583
+  },
+  {
+    "city": "Ang Mo Kio New Town",
+    "city_zh": "Ang Mo Kio New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38028,
+    "longitude": 103.83972
+  },
+  {
+    "city": "Bukit Panjang New Town",
+    "city_zh": "武吉班让",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37972,
+    "longitude": 103.76472
+  },
+  {
+    "city": "Bedok New Town",
+    "city_zh": "勿洛",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32639,
+    "longitude": 103.94167
+  },
+  {
+    "city": "Clementi Housing Estate",
+    "city_zh": "Clementi Housing Estate",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31583,
+    "longitude": 103.76472
+  },
+  {
+    "city": "Pasir Ris New Town",
+    "city_zh": "Pasir Ris New Town",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37222,
+    "longitude": 103.94778
+  },
+  {
+    "city": "Queenstown Estate",
+    "city_zh": "無尾港",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29417,
+    "longitude": 103.8025
+  },
+  {
+    "city": "Telok Blangah",
+    "city_zh": "直落布兰雅",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.27472,
+    "longitude": 103.81167
+  },
+  {
+    "city": "Choa Chu Kang New Town",
+    "city_zh": "蔡厝港",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3825,
+    "longitude": 103.74972
+  },
+  {
+    "city": "Bedok Ville",
+    "city_zh": "Bedok Ville",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32444,
+    "longitude": 103.95444
+  },
+  {
+    "city": "Faber Garden",
+    "city_zh": "Faber Garden",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36306,
+    "longitude": 103.82972
+  },
+  {
+    "city": "Kam Wak Hassan",
+    "city_zh": "Kam Wak Hassan",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.4375,
+    "longitude": 103.83056
+  },
+  {
+    "city": "Blk 822 Jurong West Street 81",
+    "city_zh": "Blk 822 Jurong West Street 81",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.347,
+    "longitude": 103.69357
+  },
+  {
+    "city": "Johor",
+    "city_zh": "Johor",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.48265,
+    "longitude": 103.91041
+  },
+  {
+    "city": "Novena",
+    "city_zh": "诺维娜",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31697,
+    "longitude": 103.8438
+  },
+  {
+    "city": "Eunos",
+    "city_zh": "芽籠東",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.32252,
+    "longitude": 103.89822
+  },
+  {
+    "city": "Bugis",
+    "city_zh": "武吉士",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30056,
+    "longitude": 103.85493
+  },
+  {
+    "city": "Admiralty",
+    "city_zh": "Admiralty",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.44069,
+    "longitude": 103.80093
+  },
+  {
+    "city": "Orchard",
+    "city_zh": "Orchard",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30256,
+    "longitude": 103.83469
+  },
+  {
+    "city": "Lavender",
+    "city_zh": "Lavender",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30717,
+    "longitude": 103.86301
+  },
+  {
+    "city": "Newton",
+    "city_zh": "Newton",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30902,
+    "longitude": 103.83757
+  },
+  {
+    "city": "Raffles Place",
+    "city_zh": "Raffles Place",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28495,
+    "longitude": 103.85148
+  },
+  {
+    "city": "Sengkang New Town",
+    "city_zh": "盛港",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.39167,
+    "longitude": 103.89444
+  },
+  {
+    "city": "HarbourFront",
+    "city_zh": "HarbourFront",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.2652,
+    "longitude": 103.8201
+  },
+  {
+    "city": "Delta Road",
+    "city_zh": "Delta Road",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29176,
+    "longitude": 103.82594
+  },
+  {
+    "city": "Lower Delta Road",
+    "city_zh": "Lower Delta Road",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28126,
+    "longitude": 103.8238
+  },
+  {
+    "city": "Marina Bay",
+    "city_zh": "濱海灣",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.28105,
+    "longitude": 103.85972
+  },
+  {
+    "city": "Sentosa",
+    "city_zh": "聖淘沙",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.24969,
+    "longitude": 103.83119
+  },
+  {
+    "city": "Central Water Catchment",
+    "city_zh": "Central Water Catchment",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3557,
+    "longitude": 103.79501
+  },
+  {
+    "city": "River Valley",
+    "city_zh": "River Valley",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29606,
+    "longitude": 103.83608
+  },
+  {
+    "city": "Fajar",
+    "city_zh": "Fajar",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38436,
+    "longitude": 103.77059
+  },
+  {
+    "city": "Saujana",
+    "city_zh": "Saujana",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38254,
+    "longitude": 103.7679
+  },
+  {
+    "city": "Bangkit",
+    "city_zh": "Bangkit",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37982,
+    "longitude": 103.77251
+  },
+  {
+    "city": "Dover",
+    "city_zh": "Dover",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30458,
+    "longitude": 103.78031
+  },
+  {
+    "city": "Holland Drive",
+    "city_zh": "Holland Drive",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31001,
+    "longitude": 103.79289
+  },
+  {
+    "city": "Margaret Drive",
+    "city_zh": "Margaret Drive",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29682,
+    "longitude": 103.80839
+  },
+  {
+    "city": "Mei Chin",
+    "city_zh": "Mei Chin",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29517,
+    "longitude": 103.80284
+  },
+  {
+    "city": "One North",
+    "city_zh": "One North",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30016,
+    "longitude": 103.78711
+  },
+  {
+    "city": "Institution Hill",
+    "city_zh": "Institution Hill",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30049,
+    "longitude": 103.83257
+  },
+  {
+    "city": "Leonie Hill",
+    "city_zh": "Leonie Hill",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29819,
+    "longitude": 103.83226
+  },
+  {
+    "city": "Oxley",
+    "city_zh": "Oxley",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29786,
+    "longitude": 103.84102
+  },
+  {
+    "city": "Paterson",
+    "city_zh": "Paterson",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.301,
+    "longitude": 103.82943
+  },
+  {
+    "city": "Bencoolen",
+    "city_zh": "Bencoolen",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29867,
+    "longitude": 103.85018
+  },
+  {
+    "city": "Rochor",
+    "city_zh": "Rochor",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.30415,
+    "longitude": 103.85239
+  },
+  {
+    "city": "Farrer Park",
+    "city_zh": "Farrer Park",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.31304,
+    "longitude": 103.85369
+  },
+  {
+    "city": "Marina Centre",
+    "city_zh": "Marina Centre",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.29439,
+    "longitude": 103.85805
+  },
+  {
+    "city": "Dairy Farm",
+    "city_zh": "Dairy Farm",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.36639,
+    "longitude": 103.77449
+  },
+  {
+    "city": "Jelebu",
+    "city_zh": "Jelebu",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37953,
+    "longitude": 103.76286
+  },
+  {
+    "city": "Senja",
+    "city_zh": "Senja",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.38516,
+    "longitude": 103.76073
+  },
+  {
+    "city": "Nature Reserve",
+    "city_zh": "Nature Reserve",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3732,
+    "longitude": 103.77625
+  },
+  {
+    "city": "Anak Bukit",
+    "city_zh": "Anak Bukit",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.34067,
+    "longitude": 103.77301
+  },
+  {
+    "city": "Peng Siang",
+    "city_zh": "Peng Siang",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.37995,
+    "longitude": 103.74066
+  },
+  {
+    "city": "Teck Whye",
+    "city_zh": "Teck Whye",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.3803,
+    "longitude": 103.75197
+  },
+  {
+    "city": "Woodlands North Coast",
+    "city_zh": "Woodlands North Coast",
+    "country": "Singapore",
+    "country_zh": "新加坡",
+    "country_iso_code": "SG",
+    "timezone": "Asia/Singapore",
+    "latitude": 1.45102,
+    "longitude": 103.78373
+  }
+]

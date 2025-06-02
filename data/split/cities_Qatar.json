@@ -1,0 +1,2732 @@
+[
+  {
+    "city": "‘Ayn az Zughayn",
+    "city_zh": "‘Ayn az Zughayn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.31374,
+    "longitude": 50.88844
+  },
+  {
+    "city": "Bi’r Zikrīt",
+    "city_zh": "Bi’r Zikrīt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.48533,
+    "longitude": 50.84768
+  },
+  {
+    "city": "Al ‘Unayzah",
+    "city_zh": "Al ‘Unayzah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.33759,
+    "longitude": 51.50953
+  },
+  {
+    "city": "Umm ‘Ubayrīyah",
+    "city_zh": "Umm ‘Ubayrīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.49366,
+    "longitude": 51.37544
+  },
+  {
+    "city": "Rawḑat Shamīm",
+    "city_zh": "Rawḑat Shamīm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.22661,
+    "longitude": 51.17608
+  },
+  {
+    "city": "Umm Şalāl Muḩammad",
+    "city_zh": "Umm Şalāl Muḩammad",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.41524,
+    "longitude": 51.40647
+  },
+  {
+    "city": "Umm Şalāl ‘Alī",
+    "city_zh": "Umm Şalāl ‘Alī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.46972,
+    "longitude": 51.3975
+  },
+  {
+    "city": "Musay‘īd",
+    "city_zh": "Musay‘īd",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.99226,
+    "longitude": 51.55067
+  },
+  {
+    "city": "Umm Qayn",
+    "city_zh": "Umm Qayn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.71291,
+    "longitude": 51.49887
+  },
+  {
+    "city": "Umm Qarn",
+    "city_zh": "Umm Qarn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.55267,
+    "longitude": 51.431
+  },
+  {
+    "city": "Umm Juway‘id",
+    "city_zh": "Umm Juway‘id",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.83211,
+    "longitude": 51.06775
+  },
+  {
+    "city": "Umm Ghuwaylīnah",
+    "city_zh": "Umm Ghuwaylīnah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.58716,
+    "longitude": 51.14986
+  },
+  {
+    "city": "Umm Bāb",
+    "city_zh": "Umm Bāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.21417,
+    "longitude": 50.80722
+  },
+  {
+    "city": "Umm az Zubār ash Sharqīyah",
+    "city_zh": "Umm az Zubār ash Sharqīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17493,
+    "longitude": 51.27824
+  },
+  {
+    "city": "Umm Suwayyah",
+    "city_zh": "Umm Suwayyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.64803,
+    "longitude": 51.44936
+  },
+  {
+    "city": "Umm aş Şuwab",
+    "city_zh": "Umm aş Şuwab",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.06864,
+    "longitude": 51.07817
+  },
+  {
+    "city": "Umm ash Shubrum",
+    "city_zh": "Umm ash Shubrum",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.16386,
+    "longitude": 51.22132
+  },
+  {
+    "city": "Umm al Quhāb",
+    "city_zh": "Umm al Quhāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.76695,
+    "longitude": 51.47134
+  },
+  {
+    "city": "Aş Şunay‘",
+    "city_zh": "Aş Şunay‘",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.4927,
+    "longitude": 50.9648
+  },
+  {
+    "city": "Umm al Quhāb",
+    "city_zh": "Umm al Quhāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.37411,
+    "longitude": 51.29333
+  },
+  {
+    "city": "Umm al Qubūr",
+    "city_zh": "Umm al Qubūr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3653,
+    "longitude": 51.43691
+  },
+  {
+    "city": "Umm al ‘Iz̧ām",
+    "city_zh": "Umm al ‘Iz̧ām",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.31271,
+    "longitude": 51.00451
+  },
+  {
+    "city": "Umm al ‘Amad",
+    "city_zh": "Umm al ‘Amad",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.49065,
+    "longitude": 51.3977
+  },
+  {
+    "city": "Umm al Afā‘ī",
+    "city_zh": "Umm al Afā‘ī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35879,
+    "longitude": 51.33357
+  },
+  {
+    "city": "Umm al Abāriq",
+    "city_zh": "Umm al Abāriq",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.47748,
+    "longitude": 51.36071
+  },
+  {
+    "city": "Sumaysimah",
+    "city_zh": "Sumaysimah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.57823,
+    "longitude": 51.48319
+  },
+  {
+    "city": "Ar Rumaylah",
+    "city_zh": "Ar Rumaylah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28273,
+    "longitude": 51.53044
+  },
+  {
+    "city": "Ra’s Abū Finţās",
+    "city_zh": "Ra’s Abū Finţās",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.20401,
+    "longitude": 51.61764
+  },
+  {
+    "city": "Nu‘ayjah",
+    "city_zh": "Nu‘ayjah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.24617,
+    "longitude": 51.53227
+  },
+  {
+    "city": "Nabāt al Uşayl",
+    "city_zh": "Nabāt al Uşayl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.10966,
+    "longitude": 51.5339
+  },
+  {
+    "city": "Musaykah",
+    "city_zh": "Musaykah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.95911,
+    "longitude": 51.09753
+  },
+  {
+    "city": "Muraykh",
+    "city_zh": "Muraykh",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28553,
+    "longitude": 51.44143
+  },
+  {
+    "city": "Mu‘aydhir Rawḑat Rāshid",
+    "city_zh": "Mu‘aydhir Rawḑat Rāshid",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2617,
+    "longitude": 51.39684
+  },
+  {
+    "city": "Turaynah",
+    "city_zh": "Turaynah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.75809,
+    "longitude": 51.2107
+  },
+  {
+    "city": "Madīnat Khalīfah",
+    "city_zh": "Madīnat Khalīfah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.32047,
+    "longitude": 51.47787
+  },
+  {
+    "city": "Madīnat ash Shamāl",
+    "city_zh": "Madīnat ash Shamāl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.12933,
+    "longitude": 51.2009
+  },
+  {
+    "city": "Madīnat al Ka‘bān",
+    "city_zh": "Madīnat al Ka‘bān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.87339,
+    "longitude": 51.35265
+  },
+  {
+    "city": "Lishā",
+    "city_zh": "Lishā",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.95784,
+    "longitude": 51.07163
+  },
+  {
+    "city": "Al Kharsa‘ah",
+    "city_zh": "Al Kharsa‘ah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.26738,
+    "longitude": 50.96794
+  },
+  {
+    "city": "Ḩalwān",
+    "city_zh": "Ḩalwān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.94884,
+    "longitude": 51.06051
+  },
+  {
+    "city": "Fuḩayḩīl",
+    "city_zh": "Fuḩayḩīl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.90894,
+    "longitude": 50.99587
+  },
+  {
+    "city": "Farīq al Ghānim al Jadīd",
+    "city_zh": "Farīq al Ghānim al Jadīd",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2464,
+    "longitude": 51.44622
+  },
+  {
+    "city": "Dukhān",
+    "city_zh": "Dukhān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.42485,
+    "longitude": 50.78227
+  },
+  {
+    "city": "Bi’r al Ḩusayn",
+    "city_zh": "Bi’r al Ḩusayn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.56974,
+    "longitude": 50.9509
+  },
+  {
+    "city": "Az̧ Z̧a‘āyin",
+    "city_zh": "Az̧ Z̧a‘āyin",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.57744,
+    "longitude": 51.48306
+  },
+  {
+    "city": "‘Ayn Sinān",
+    "city_zh": "‘Ayn Sinān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.0083,
+    "longitude": 51.3294
+  },
+  {
+    "city": "‘Ayn Khālid",
+    "city_zh": "‘Ayn Khālid",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.21753,
+    "longitude": 51.45652
+  },
+  {
+    "city": "Ath Thaqab",
+    "city_zh": "Ath Thaqab",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.03153,
+    "longitude": 51.11512
+  },
+  {
+    "city": "As Suwayḩilīyah",
+    "city_zh": "As Suwayḩilīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.76673,
+    "longitude": 51.01828
+  },
+  {
+    "city": "Mazra‘at aş Şin‘",
+    "city_zh": "Mazra‘at aş Şin‘",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.5601,
+    "longitude": 51.16059
+  },
+  {
+    "city": "As Sulaymī Suḩaym Bin Ḩamad",
+    "city_zh": "As Sulaymī Suḩaym Bin Ḩamad",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.88112,
+    "longitude": 51.17918
+  },
+  {
+    "city": "As Sulaymī al Gharbī",
+    "city_zh": "As Sulaymī al Gharbī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.86801,
+    "longitude": 51.20263
+  },
+  {
+    "city": "Al Jatlāwīyah",
+    "city_zh": "Al Jatlāwīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.90572,
+    "longitude": 51.20244
+  },
+  {
+    "city": "Makīn al Fatīyah",
+    "city_zh": "Makīn al Fatīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.03293,
+    "longitude": 51.1647
+  },
+  {
+    "city": "Abū Sidrah",
+    "city_zh": "Abū Sidrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.23488,
+    "longitude": 51.42164
+  },
+  {
+    "city": "As Samrīyah",
+    "city_zh": "As Samrīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.36464,
+    "longitude": 51.2807
+  },
+  {
+    "city": "As Sulaymīyah",
+    "city_zh": "As Sulaymīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35373,
+    "longitude": 50.96052
+  },
+  {
+    "city": "Ash Shaqrā’",
+    "city_zh": "Ash Shaqrā’",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.82671,
+    "longitude": 51.3934
+  },
+  {
+    "city": "Ash Shīḩānīyah",
+    "city_zh": "Ash Shīḩānīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.37088,
+    "longitude": 51.22264
+  },
+  {
+    "city": "Ash Shafallaḩīyah",
+    "city_zh": "Ash Shafallaḩīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.64923,
+    "longitude": 51.36953
+  },
+  {
+    "city": "Ar Ruways",
+    "city_zh": "Ar Ruways",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.13978,
+    "longitude": 51.21493
+  },
+  {
+    "city": "Qaryat ar Rufayq",
+    "city_zh": "Qaryat ar Rufayq",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.52951,
+    "longitude": 50.97406
+  },
+  {
+    "city": "Ar Rayyān",
+    "city_zh": "Ar Rayyān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.29194,
+    "longitude": 51.42444
+  },
+  {
+    "city": "An Nuqay‘ah",
+    "city_zh": "An Nuqay‘ah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.75194,
+    "longitude": 50.92083
+  },
+  {
+    "city": "‘Ayn an Nu‘mān",
+    "city_zh": "‘Ayn an Nu‘mān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.85959,
+    "longitude": 51.08388
+  },
+  {
+    "city": "Al Wukayr",
+    "city_zh": "Al Wukayr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.15107,
+    "longitude": 51.53718
+  },
+  {
+    "city": "Al Wakrah",
+    "city_zh": "Al Wakrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17151,
+    "longitude": 51.60337
+  },
+  {
+    "city": "Al Waqbah",
+    "city_zh": "Al Waqbah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.30498,
+    "longitude": 51.40142
+  },
+  {
+    "city": "Al Wabrah",
+    "city_zh": "Al Wabrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.33905,
+    "longitude": 51.17333
+  },
+  {
+    "city": "Al Wa‘b",
+    "city_zh": "Al Wa‘b",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.84084,
+    "longitude": 51.46319
+  },
+  {
+    "city": "Jaww al ‘Uwaynah",
+    "city_zh": "Jaww al ‘Uwaynah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.44662,
+    "longitude": 50.95815
+  },
+  {
+    "city": "Al Muraydah",
+    "city_zh": "Al Muraydah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.93951,
+    "longitude": 51.30957
+  },
+  {
+    "city": "Al Mashrab",
+    "city_zh": "Al Mashrab",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.89459,
+    "longitude": 51.38631
+  },
+  {
+    "city": "Al Mafjar",
+    "city_zh": "Al Mafjar",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.13482,
+    "longitude": 51.30358
+  },
+  {
+    "city": "Al Kir‘ānah",
+    "city_zh": "Al Kir‘ānah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.01108,
+    "longitude": 51.04324
+  },
+  {
+    "city": "Al Khuwayr Ḩassān",
+    "city_zh": "Al Khuwayr Ḩassān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.06869,
+    "longitude": 51.0839
+  },
+  {
+    "city": "Al Khurayţīyāt",
+    "city_zh": "Al Khurayţīyāt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.38838,
+    "longitude": 51.42515
+  },
+  {
+    "city": "Al Khurayb",
+    "city_zh": "Al Khurayb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.43568,
+    "longitude": 51.22019
+  },
+  {
+    "city": "Al Khīsah",
+    "city_zh": "Al Khīsah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.92442,
+    "longitude": 51.33994
+  },
+  {
+    "city": "Al Khīsah",
+    "city_zh": "Al Khīsah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.41644,
+    "longitude": 51.45905
+  },
+  {
+    "city": "Khidāj",
+    "city_zh": "Khidāj",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.08063,
+    "longitude": 51.11145
+  },
+  {
+    "city": "Al Khawr",
+    "city_zh": "Al Khawr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.68389,
+    "longitude": 51.50583
+  },
+  {
+    "city": "Al Khaţţīyah",
+    "city_zh": "Al Khaţţīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.41867,
+    "longitude": 50.78758
+  },
+  {
+    "city": "Al Kharrārah",
+    "city_zh": "Al Kharrārah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.90325,
+    "longitude": 51.17582
+  },
+  {
+    "city": "Al Qa‘ābīyah",
+    "city_zh": "Al Qa‘ābīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.06968,
+    "longitude": 51.24531
+  },
+  {
+    "city": "Al Jumaylīyah",
+    "city_zh": "Al Jumaylīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.61068,
+    "longitude": 51.09108
+  },
+  {
+    "city": "Al Jumayl",
+    "city_zh": "Al Jumayl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.09972,
+    "longitude": 51.16111
+  },
+  {
+    "city": "Al Judhay‘",
+    "city_zh": "Al Judhay‘",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.95149,
+    "longitude": 51.34767
+  },
+  {
+    "city": "Al Jubayl",
+    "city_zh": "Al Jubayl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.70133,
+    "longitude": 51.58541
+  },
+  {
+    "city": "Al Ḩasanīyah",
+    "city_zh": "Al Ḩasanīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.33984,
+    "longitude": 51.29582
+  },
+  {
+    "city": "Al Ghuwayrīyah",
+    "city_zh": "Al Ghuwayrīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.82882,
+    "longitude": 51.24567
+  },
+  {
+    "city": "Al Ghashshāmīyah",
+    "city_zh": "Al Ghashshāmīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.98513,
+    "longitude": 51.3283
+  },
+  {
+    "city": "Al Gharrāfah al Jadīdah",
+    "city_zh": "Al Gharrāfah al Jadīdah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.33521,
+    "longitude": 51.42205
+  },
+  {
+    "city": "Al Ghārīyah",
+    "city_zh": "Al Ghārīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.07996,
+    "longitude": 51.35745
+  },
+  {
+    "city": "Al Buşayyir",
+    "city_zh": "Al Buşayyir",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.71651,
+    "longitude": 51.05597
+  },
+  {
+    "city": "Al Buraythāt",
+    "city_zh": "Al Buraythāt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.45894,
+    "longitude": 50.95678
+  },
+  {
+    "city": "Al ‘Arīsh",
+    "city_zh": "Al ‘Arīsh",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.05102,
+    "longitude": 51.05689
+  },
+  {
+    "city": "‘Adhbah",
+    "city_zh": "‘Adhbah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.05151,
+    "longitude": 51.31874
+  },
+  {
+    "city": "Rawḑat al ‘Ajūz",
+    "city_zh": "Rawḑat al ‘Ajūz",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.54622,
+    "longitude": 51.37221
+  },
+  {
+    "city": "Adh Dhakhīrah",
+    "city_zh": "Adh Dhakhīrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.73201,
+    "longitude": 51.54377
+  },
+  {
+    "city": "Doha",
+    "city_zh": "多哈",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28545,
+    "longitude": 51.53096
+  },
+  {
+    "city": "Abū Sidrah",
+    "city_zh": "Abū Sidrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.7251,
+    "longitude": 51.00192
+  },
+  {
+    "city": "Abū Hāmūr",
+    "city_zh": "Abū Hāmūr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.24275,
+    "longitude": 51.49599
+  },
+  {
+    "city": "Abū Z̧ulūf",
+    "city_zh": "Abū Z̧ulūf",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.12403,
+    "longitude": 51.18151
+  },
+  {
+    "city": "Zar‘ al ‘Atīyah",
+    "city_zh": "Zar‘ al ‘Atīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.32565,
+    "longitude": 51.34905
+  },
+  {
+    "city": "As Saylīyah",
+    "city_zh": "As Saylīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.21363,
+    "longitude": 51.37314
+  },
+  {
+    "city": "Umm Qurūn",
+    "city_zh": "Umm Qurūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.23358,
+    "longitude": 51.33043
+  },
+  {
+    "city": "Wādī Jallāl",
+    "city_zh": "Wādī Jallāl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.0306,
+    "longitude": 51.27611
+  },
+  {
+    "city": "Abū Samrah",
+    "city_zh": "Abū Samrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.7437,
+    "longitude": 50.83174
+  },
+  {
+    "city": "Al Wa‘b",
+    "city_zh": "Al Wa‘b",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.11561,
+    "longitude": 51.22603
+  },
+  {
+    "city": "Umm Şabbāḩ",
+    "city_zh": "Umm Şabbāḩ",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.11094,
+    "longitude": 51.18966
+  },
+  {
+    "city": "Az Zighāb",
+    "city_zh": "Az Zighāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.10778,
+    "longitude": 51.23965
+  },
+  {
+    "city": "Al ‘Aşmīyah",
+    "city_zh": "Al ‘Aşmīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.07644,
+    "longitude": 51.16564
+  },
+  {
+    "city": "Umm aş Şūf",
+    "city_zh": "Umm aş Şūf",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.07146,
+    "longitude": 51.21083
+  },
+  {
+    "city": "Ar Rakīyāt",
+    "city_zh": "Ar Rakīyāt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.05023,
+    "longitude": 51.13041
+  },
+  {
+    "city": "Sidrīyat Makīn",
+    "city_zh": "Sidrīyat Makīn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.03361,
+    "longitude": 51.16389
+  },
+  {
+    "city": "Umm al Qubūr",
+    "city_zh": "Umm al Qubūr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.0084,
+    "longitude": 51.08769
+  },
+  {
+    "city": "Umm al Kilāb",
+    "city_zh": "Umm al Kilāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.04787,
+    "longitude": 51.20931
+  },
+  {
+    "city": "Umm al Ghaylam",
+    "city_zh": "Umm al Ghaylam",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.99983,
+    "longitude": 51.29953
+  },
+  {
+    "city": "Fuwayriţ",
+    "city_zh": "Fuwayriţ",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.02565,
+    "longitude": 51.36971
+  },
+  {
+    "city": "Al Markhīyah",
+    "city_zh": "Al Markhīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.32488,
+    "longitude": 51.49836
+  },
+  {
+    "city": "As Sulţah al Jadīdah",
+    "city_zh": "As Sulţah al Jadīdah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2604,
+    "longitude": 51.51403
+  },
+  {
+    "city": "Al Muntazah",
+    "city_zh": "Al Muntazah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27073,
+    "longitude": 51.51969
+  },
+  {
+    "city": "Farīq ‘Abd al ‘Azīz",
+    "city_zh": "Farīq ‘Abd al ‘Azīz",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27796,
+    "longitude": 51.52421
+  },
+  {
+    "city": "Ad Dawḩah al Jadīdah",
+    "city_zh": "Ad Dawḩah al Jadīdah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27707,
+    "longitude": 51.53286
+  },
+  {
+    "city": "Al Manşūrah",
+    "city_zh": "Al Manşūrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.26807,
+    "longitude": 51.53219
+  },
+  {
+    "city": "An Najmah",
+    "city_zh": "An Najmah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.26704,
+    "longitude": 51.54322
+  },
+  {
+    "city": "Al Hilāl al Gharbīyah",
+    "city_zh": "Al Hilāl al Gharbīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2586,
+    "longitude": 51.53098
+  },
+  {
+    "city": "Al Hilāl ash Sharqīyah",
+    "city_zh": "Al Hilāl ash Sharqīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.26042,
+    "longitude": 51.54632
+  },
+  {
+    "city": "As Sulţah al Qadīmah",
+    "city_zh": "As Sulţah al Qadīmah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28806,
+    "longitude": 51.54667
+  },
+  {
+    "city": "Al Hitmī",
+    "city_zh": "Al Hitmī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28488,
+    "longitude": 51.54612
+  },
+  {
+    "city": "Al Khulayfāt",
+    "city_zh": "Al Khulayfāt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28227,
+    "longitude": 51.56174
+  },
+  {
+    "city": "Umm Ghuwaylīnah",
+    "city_zh": "Umm Ghuwaylīnah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27636,
+    "longitude": 51.54805
+  },
+  {
+    "city": "As Sūq",
+    "city_zh": "As Sūq",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.288,
+    "longitude": 51.53715
+  },
+  {
+    "city": "Al Ghānim",
+    "city_zh": "Al Ghānim",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27987,
+    "longitude": 51.54037
+  },
+  {
+    "city": "Al Jisrah",
+    "city_zh": "Al Jisrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28489,
+    "longitude": 51.53756
+  },
+  {
+    "city": "Al Bid‘ ash Sharqīyah",
+    "city_zh": "Al Bid‘ ash Sharqīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.29059,
+    "longitude": 51.52674
+  },
+  {
+    "city": "Al Bid‘ al Gharbīyah",
+    "city_zh": "Al Bid‘ al Gharbīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.29262,
+    "longitude": 51.51971
+  },
+  {
+    "city": "Al Mirqāb",
+    "city_zh": "Al Mirqāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27338,
+    "longitude": 51.49998
+  },
+  {
+    "city": "Mushayrib",
+    "city_zh": "Mushayrib",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2846,
+    "longitude": 51.5205
+  },
+  {
+    "city": "Wādī as Sayl",
+    "city_zh": "Wādī as Sayl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.30804,
+    "longitude": 51.505
+  },
+  {
+    "city": "Abū Sudayrah",
+    "city_zh": "Abū Sudayrah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28252,
+    "longitude": 51.51238
+  },
+  {
+    "city": "As Sadd",
+    "city_zh": "As Sadd",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28617,
+    "longitude": 51.50074
+  },
+  {
+    "city": "Al Jabr",
+    "city_zh": "Al Jabr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27083,
+    "longitude": 51.50583
+  },
+  {
+    "city": "Al Wa‘b",
+    "city_zh": "Al Wa‘b",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2668,
+    "longitude": 51.4865
+  },
+  {
+    "city": "As Sulaymī ash Sharqī",
+    "city_zh": "As Sulaymī ash Sharqī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.88315,
+    "longitude": 51.21974
+  },
+  {
+    "city": "As Sulaymī ‘Abd al ‘Azīz Bin Khalīfah",
+    "city_zh": "As Sulaymī ‘Abd al ‘Azīz Bin Khalīfah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.84778,
+    "longitude": 51.20583
+  },
+  {
+    "city": "Umm al ‘Iz̧ām",
+    "city_zh": "Umm al ‘Iz̧ām",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.82241,
+    "longitude": 51.15614
+  },
+  {
+    "city": "Muḩayriqat Janūb aş Şu‘lūkīyah",
+    "city_zh": "Muḩayriqat Janūb aş Şu‘lūkīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.8094,
+    "longitude": 51.05608
+  },
+  {
+    "city": "Al Ghāfah",
+    "city_zh": "Al Ghāfah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.77977,
+    "longitude": 51.0209
+  },
+  {
+    "city": "Al Ḩuwaylah",
+    "city_zh": "Al Ḩuwaylah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.94889,
+    "longitude": 51.46511
+  },
+  {
+    "city": "Al Khurayş",
+    "city_zh": "Al Khurayş",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.85694,
+    "longitude": 51.43583
+  },
+  {
+    "city": "Mazra‘at al Mājidah",
+    "city_zh": "Mazra‘at al Mājidah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.87267,
+    "longitude": 51.2578
+  },
+  {
+    "city": "Simsimah",
+    "city_zh": "Simsimah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.79508,
+    "longitude": 51.40479
+  },
+  {
+    "city": "Ash Shafallaḩīyah",
+    "city_zh": "Ash Shafallaḩīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.76032,
+    "longitude": 51.39133
+  },
+  {
+    "city": "Umm Birkah",
+    "city_zh": "Umm Birkah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.7472,
+    "longitude": 51.45082
+  },
+  {
+    "city": "Al Qā‘īyah",
+    "city_zh": "Al Qā‘īyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.66834,
+    "longitude": 51.17245
+  },
+  {
+    "city": "As Sāmirīyah",
+    "city_zh": "As Sāmirīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.49131,
+    "longitude": 51.22239
+  },
+  {
+    "city": "Abū Şuwayy",
+    "city_zh": "Abū Şuwayy",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.697,
+    "longitude": 51.25975
+  },
+  {
+    "city": "Al ‘Uqdah",
+    "city_zh": "Al ‘Uqdah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.68545,
+    "longitude": 51.46711
+  },
+  {
+    "city": "Al Ghāf",
+    "city_zh": "Al Ghāf",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.62731,
+    "longitude": 51.45508
+  },
+  {
+    "city": "Tinbak ash Sharqīyah al Qadīmah",
+    "city_zh": "Tinbak ash Sharqīyah al Qadīmah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.61119,
+    "longitude": 51.47233
+  },
+  {
+    "city": "Abū Thaylah",
+    "city_zh": "Abū Thaylah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.53383,
+    "longitude": 51.30479
+  },
+  {
+    "city": "An Naşrānīyah",
+    "city_zh": "An Naşrānīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.407,
+    "longitude": 51.07694
+  },
+  {
+    "city": "Al Gharrāfah",
+    "city_zh": "Al Gharrāfah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3313,
+    "longitude": 51.44404
+  },
+  {
+    "city": "Rawḑat Rāshid",
+    "city_zh": "Rawḑat Rāshid",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.23306,
+    "longitude": 51.20467
+  },
+  {
+    "city": "Umm Wishāḩ",
+    "city_zh": "Umm Wishāḩ",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17009,
+    "longitude": 51.09012
+  },
+  {
+    "city": "Sahlat al Markh",
+    "city_zh": "Sahlat al Markh",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.1618,
+    "longitude": 51.16457
+  },
+  {
+    "city": "Mukaynis",
+    "city_zh": "Mukaynis",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.12243,
+    "longitude": 51.21775
+  },
+  {
+    "city": "Aş Şanī‘",
+    "city_zh": "Aş Şanī‘",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.54273,
+    "longitude": 51.40815
+  },
+  {
+    "city": "Abū Kharāb",
+    "city_zh": "Abū Kharāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.7098,
+    "longitude": 51.58971
+  },
+  {
+    "city": "Umm aḑ Ḑa‘ah Khawzān",
+    "city_zh": "Umm aḑ Ḑa‘ah Khawzān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.48031,
+    "longitude": 50.94052
+  },
+  {
+    "city": "Umm Qarn",
+    "city_zh": "Umm Qarn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.29899,
+    "longitude": 51.00536
+  },
+  {
+    "city": "Umm al Quhāb al Qadīmah",
+    "city_zh": "Umm al Quhāb al Qadīmah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.5006,
+    "longitude": 50.97955
+  },
+  {
+    "city": "Al ‘Uţūrīyah",
+    "city_zh": "Al ‘Uţūrīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.51294,
+    "longitude": 51.21138
+  },
+  {
+    "city": "As Sahlah ash Shamālīyah",
+    "city_zh": "As Sahlah ash Shamālīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17778,
+    "longitude": 51.16204
+  },
+  {
+    "city": "Ash Shabhānah",
+    "city_zh": "Ash Shabhānah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.21264,
+    "longitude": 50.93687
+  },
+  {
+    "city": "Umm al Maqārīn",
+    "city_zh": "Umm al Maqārīn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17021,
+    "longitude": 51.18551
+  },
+  {
+    "city": "Umm Ghuwaylīnah",
+    "city_zh": "Umm Ghuwaylīnah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.14869,
+    "longitude": 51.20816
+  },
+  {
+    "city": "Qaryat al Muhannā",
+    "city_zh": "Qaryat al Muhannā",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.18277,
+    "longitude": 50.80483
+  },
+  {
+    "city": "Wādī al Jamāl ash Shamālī",
+    "city_zh": "Wādī al Jamāl ash Shamālī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.1906,
+    "longitude": 51.10868
+  },
+  {
+    "city": "Umm Ḩawţah",
+    "city_zh": "Umm Ḩawţah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.89011,
+    "longitude": 51.06698
+  },
+  {
+    "city": "Al ‘Āmirīyah",
+    "city_zh": "Al ‘Āmirīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.82163,
+    "longitude": 51.07673
+  },
+  {
+    "city": "Al Wusayl",
+    "city_zh": "Al Wusayl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 24.97221,
+    "longitude": 50.98623
+  },
+  {
+    "city": "Umm Qarn",
+    "city_zh": "Umm Qarn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.09297,
+    "longitude": 51.13321
+  },
+  {
+    "city": "Jarayān al Baţnah",
+    "city_zh": "Jarayān al Baţnah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.1078,
+    "longitude": 51.15298
+  },
+  {
+    "city": "Jumaylīyat ash Shahwān",
+    "city_zh": "Jumaylīyat ash Shahwān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.62016,
+    "longitude": 51.0827
+  },
+  {
+    "city": "Jumaylīyat an Na‘īm",
+    "city_zh": "Jumaylīyat an Na‘īm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.63413,
+    "longitude": 51.08078
+  },
+  {
+    "city": "Şafyā",
+    "city_zh": "Şafyā",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.02411,
+    "longitude": 51.37147
+  },
+  {
+    "city": "Al Marrūnah",
+    "city_zh": "Al Marrūnah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.99483,
+    "longitude": 51.39892
+  },
+  {
+    "city": "Ar Ruḩayyah",
+    "city_zh": "Ar Ruḩayyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.64063,
+    "longitude": 51.46313
+  },
+  {
+    "city": "Al Masākir ‘Uraydah",
+    "city_zh": "Al Masākir ‘Uraydah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.73221,
+    "longitude": 51.58859
+  },
+  {
+    "city": "Umm ‘Anīq",
+    "city_zh": "Umm ‘Anīq",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.7139,
+    "longitude": 51.53157
+  },
+  {
+    "city": "Al Julay‘ah",
+    "city_zh": "Al Julay‘ah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35261,
+    "longitude": 51.47485
+  },
+  {
+    "city": "Al Ḩammāmah",
+    "city_zh": "Al Ḩammāmah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.44623,
+    "longitude": 51.47328
+  },
+  {
+    "city": "Ad Duḩayl",
+    "city_zh": "Ad Duḩayl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35418,
+    "longitude": 51.45712
+  },
+  {
+    "city": "Burj Barzān",
+    "city_zh": "Burj Barzān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.52469,
+    "longitude": 51.30365
+  },
+  {
+    "city": "Thu‘aylib",
+    "city_zh": "Thu‘aylib",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.4184,
+    "longitude": 51.4137
+  },
+  {
+    "city": "Jarī Ibn ‘Abd al Wahhāb",
+    "city_zh": "Jarī Ibn ‘Abd al Wahhāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.438,
+    "longitude": 51.26977
+  },
+  {
+    "city": "Şin‘ al Ḩumaydī",
+    "city_zh": "Şin‘ al Ḩumaydī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3697,
+    "longitude": 51.33689
+  },
+  {
+    "city": "Abū Nakhlah",
+    "city_zh": "Abū Nakhlah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17386,
+    "longitude": 51.31733
+  },
+  {
+    "city": "Abū Naghl",
+    "city_zh": "Abū Naghl",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27303,
+    "longitude": 51.53747
+  },
+  {
+    "city": "Al Bāhiyah",
+    "city_zh": "Al Bāhiyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.12829,
+    "longitude": 51.41859
+  },
+  {
+    "city": "Al Bid‘",
+    "city_zh": "Al Bid‘",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.29139,
+    "longitude": 51.52362
+  },
+  {
+    "city": "Al Mashāf",
+    "city_zh": "Al Mashāf",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17528,
+    "longitude": 51.56902
+  },
+  {
+    "city": "Umm az Zubār al Qiblīyah",
+    "city_zh": "Umm az Zubār al Qiblīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17644,
+    "longitude": 51.25202
+  },
+  {
+    "city": "Umm Lakhbā",
+    "city_zh": "Umm Lakhbā",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.34157,
+    "longitude": 51.4706
+  },
+  {
+    "city": "Ba‘jī",
+    "city_zh": "Ba‘jī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27505,
+    "longitude": 51.43908
+  },
+  {
+    "city": "Bakrah wa Qu‘ūd",
+    "city_zh": "Bakrah wa Qu‘ūd",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28668,
+    "longitude": 51.56501
+  },
+  {
+    "city": "‘Ayn ar Rukhayşah",
+    "city_zh": "‘Ayn ar Rukhayşah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.33097,
+    "longitude": 51.24923
+  },
+  {
+    "city": "Gharāfat ar Rayyān",
+    "city_zh": "Gharāfat ar Rayyān",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.23835,
+    "longitude": 51.24617
+  },
+  {
+    "city": "Farīq al Mirqāb",
+    "city_zh": "Farīq al Mirqāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28911,
+    "longitude": 51.54209
+  },
+  {
+    "city": "Farīq al Mawālik",
+    "city_zh": "Farīq al Mawālik",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28476,
+    "longitude": 51.54228
+  },
+  {
+    "city": "Farīq an Naşr",
+    "city_zh": "Farīq an Naşr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28494,
+    "longitude": 51.5481
+  },
+  {
+    "city": "Farīq an Nu‘ayjah",
+    "city_zh": "Farīq an Nu‘ayjah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28873,
+    "longitude": 51.54541
+  },
+  {
+    "city": "Farīq al Hitmī",
+    "city_zh": "Farīq al Hitmī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28631,
+    "longitude": 51.53261
+  },
+  {
+    "city": "Kulayb",
+    "city_zh": "Kulayb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.26798,
+    "longitude": 51.55567
+  },
+  {
+    "city": "Laqţah",
+    "city_zh": "Laqţah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3413,
+    "longitude": 51.3099
+  },
+  {
+    "city": "Madīnat Khalīfah al Janūbīyah",
+    "city_zh": "Madīnat Khalīfah al Janūbīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27534,
+    "longitude": 51.48107
+  },
+  {
+    "city": "Al ‘Afjah - Musay‘īd",
+    "city_zh": "Al ‘Afjah - Musay‘īd",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.00298,
+    "longitude": 51.52137
+  },
+  {
+    "city": "Al Khurayjah",
+    "city_zh": "Al Khurayjah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.06,
+    "longitude": 51.34325
+  },
+  {
+    "city": "Al Yūsufīyah",
+    "city_zh": "Al Yūsufīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.11227,
+    "longitude": 51.15919
+  },
+  {
+    "city": "Umm Jāsim",
+    "city_zh": "Umm Jāsim",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.06693,
+    "longitude": 51.15312
+  },
+  {
+    "city": "‘Adhbah ash Shamālīyah",
+    "city_zh": "‘Adhbah ash Shamālīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.07098,
+    "longitude": 51.30453
+  },
+  {
+    "city": "Fuwayriţ al Qadīm",
+    "city_zh": "Fuwayriţ al Qadīm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.03447,
+    "longitude": 51.36717
+  },
+  {
+    "city": "At Tuwaym al Janūbī",
+    "city_zh": "At Tuwaym al Janūbī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.04601,
+    "longitude": 51.25076
+  },
+  {
+    "city": "Ar Ruwayḑah",
+    "city_zh": "Ar Ruwayḑah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 26.07282,
+    "longitude": 51.13948
+  },
+  {
+    "city": "Abā an Najm",
+    "city_zh": "Abā an Najm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.53404,
+    "longitude": 51.36992
+  },
+  {
+    "city": "Al Maşlabah",
+    "city_zh": "Al Maşlabah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.4805,
+    "longitude": 51.31806
+  },
+  {
+    "city": "Jarī Khabāb",
+    "city_zh": "Jarī Khabāb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.50619,
+    "longitude": 51.38365
+  },
+  {
+    "city": "Abū Qarn",
+    "city_zh": "Abū Qarn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.43079,
+    "longitude": 51.34598
+  },
+  {
+    "city": "Umm Aqdīr",
+    "city_zh": "Umm Aqdīr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3257,
+    "longitude": 51.27801
+  },
+  {
+    "city": "Jarī az̧ Z̧abī",
+    "city_zh": "Jarī az̧ Z̧abī",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.34751,
+    "longitude": 51.34642
+  },
+  {
+    "city": "Jarīyān as Sahm",
+    "city_zh": "Jarīyān as Sahm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.36849,
+    "longitude": 51.3545
+  },
+  {
+    "city": "Ath Thamīd",
+    "city_zh": "Ath Thamīd",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35658,
+    "longitude": 51.3792
+  },
+  {
+    "city": "Mu‘aydhir al Mashāf",
+    "city_zh": "Mu‘aydhir al Mashāf",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.41804,
+    "longitude": 51.26399
+  },
+  {
+    "city": "Mu‘aydhir ad Dasm",
+    "city_zh": "Mu‘aydhir ad Dasm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.39162,
+    "longitude": 51.26836
+  },
+  {
+    "city": "Abū Aqlīlah",
+    "city_zh": "Abū Aqlīlah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.45617,
+    "longitude": 51.27556
+  },
+  {
+    "city": "Al ‘Ab",
+    "city_zh": "Al ‘Ab",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.39395,
+    "longitude": 51.44723
+  },
+  {
+    "city": "La‘bīb",
+    "city_zh": "La‘bīb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.37535,
+    "longitude": 51.45736
+  },
+  {
+    "city": "Umm Asharīn",
+    "city_zh": "Umm Asharīn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3974,
+    "longitude": 51.34386
+  },
+  {
+    "city": "Wādī al Banāt",
+    "city_zh": "Wādī al Banāt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.39953,
+    "longitude": 51.47698
+  },
+  {
+    "city": "Aţ Ţarfah",
+    "city_zh": "Aţ Ţarfah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.37335,
+    "longitude": 51.48992
+  },
+  {
+    "city": "Farīj Kulayb",
+    "city_zh": "Farīj Kulayb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.31313,
+    "longitude": 51.4929
+  },
+  {
+    "city": "Al Luqţah",
+    "city_zh": "Al Luqţah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.31539,
+    "longitude": 51.46372
+  },
+  {
+    "city": "Ash Shaqab",
+    "city_zh": "Ash Shaqab",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.31045,
+    "longitude": 51.43775
+  },
+  {
+    "city": "Rawḑah Aqdīm",
+    "city_zh": "Rawḑah Aqdīm",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.33541,
+    "longitude": 51.39505
+  },
+  {
+    "city": "Banī Hājar",
+    "city_zh": "Banī Hājar",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.31498,
+    "longitude": 51.40351
+  },
+  {
+    "city": "Jarī as Samar",
+    "city_zh": "Jarī as Samar",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.41467,
+    "longitude": 51.34895
+  },
+  {
+    "city": "Wādī al Mazrū‘ah",
+    "city_zh": "Wādī al Mazrū‘ah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.40508,
+    "longitude": 51.37896
+  },
+  {
+    "city": "Abū Fusaylah",
+    "city_zh": "Abū Fusaylah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.43461,
+    "longitude": 51.40656
+  },
+  {
+    "city": "Azghawī Wāḩad wa Saba‘īn",
+    "city_zh": "Azghawī Wāḩad wa Saba‘īn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35449,
+    "longitude": 51.41731
+  },
+  {
+    "city": "Azghawī Wāḩad wa Khamsīn",
+    "city_zh": "Azghawī Wāḩad wa Khamsīn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.35681,
+    "longitude": 51.42875
+  },
+  {
+    "city": "Wādī al Was‘ah",
+    "city_zh": "Wādī al Was‘ah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.44569,
+    "longitude": 51.4263
+  },
+  {
+    "city": "Rawḑah al Ḩamāmah",
+    "city_zh": "Rawḑah al Ḩamāmah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.44079,
+    "longitude": 51.45758
+  },
+  {
+    "city": "Rawḑah al Juhānīyah",
+    "city_zh": "Rawḑah al Juhānīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.34069,
+    "longitude": 51.35637
+  },
+  {
+    "city": "As Sīj",
+    "city_zh": "As Sīj",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.32074,
+    "longitude": 51.37656
+  },
+  {
+    "city": "Sharīyah",
+    "city_zh": "Sharīyah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.3774,
+    "longitude": 51.33171
+  },
+  {
+    "city": "Jaryān al Junayḩāt",
+    "city_zh": "Jaryān al Junayḩāt",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.43037,
+    "longitude": 51.42836
+  },
+  {
+    "city": "Umm Qarīn",
+    "city_zh": "Umm Qarīn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.60925,
+    "longitude": 51.39032
+  },
+  {
+    "city": "Al Maţār al ‘Atīq",
+    "city_zh": "Al Maţār al ‘Atīq",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.25138,
+    "longitude": 51.55569
+  },
+  {
+    "city": "Ath Thumāmah Sab‘ah wa Arba‘ūn",
+    "city_zh": "Ath Thumāmah Sab‘ah wa Arba‘ūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.23903,
+    "longitude": 51.56333
+  },
+  {
+    "city": "Ath Thumāmah Sittah wa Arba‘ūn",
+    "city_zh": "Ath Thumāmah Sittah wa Arba‘ūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.23404,
+    "longitude": 51.54053
+  },
+  {
+    "city": "Ath Thumāmah Khamsūn",
+    "city_zh": "Ath Thumāmah Khamsūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.21958,
+    "longitude": 51.55323
+  },
+  {
+    "city": "Umm Bashar",
+    "city_zh": "Umm Bashar",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.19644,
+    "longitude": 51.56868
+  },
+  {
+    "city": "Al Wukayr",
+    "city_zh": "Al Wukayr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.17349,
+    "longitude": 51.54572
+  },
+  {
+    "city": "Al Ma‘mūrah Sittah wa Khamsūn",
+    "city_zh": "Al Ma‘mūrah Sittah wa Khamsūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.24147,
+    "longitude": 51.50864
+  },
+  {
+    "city": "Mu‘aydhar al Wakīr",
+    "city_zh": "Mu‘aydhar al Wakīr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.1251,
+    "longitude": 51.54224
+  },
+  {
+    "city": "Nu‘ayjah Thalāthah wa Arba‘ūn",
+    "city_zh": "Nu‘ayjah Thalāthah wa Arba‘ūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.25044,
+    "longitude": 51.51949
+  },
+  {
+    "city": "Mu‘aydhir Khamsah wa Khamsūn",
+    "city_zh": "Mu‘aydhir Khamsah wa Khamsūn",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.2504,
+    "longitude": 51.4083
+  },
+  {
+    "city": "Muḩayrjah",
+    "city_zh": "Muḩayrjah",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.27084,
+    "longitude": 51.46049
+  },
+  {
+    "city": "Luw‘ayb",
+    "city_zh": "Luw‘ayb",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28084,
+    "longitude": 51.45834
+  },
+  {
+    "city": "Farīj al Amīr",
+    "city_zh": "Farīj al Amīr",
+    "country": "Qatar",
+    "country_zh": "卡達",
+    "country_iso_code": "QA",
+    "timezone": "Asia/Qatar",
+    "latitude": 25.28733,
+    "longitude": 51.47136
+  }
+]

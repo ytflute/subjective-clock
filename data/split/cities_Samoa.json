@@ -1,0 +1,4082 @@
+[
+  {
+    "city": "Toamua",
+    "city_zh": "Toamua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80781,
+    "longitude": -171.81205
+  },
+  {
+    "city": "Vavau",
+    "city_zh": "Vavau",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04268,
+    "longitude": -171.54855
+  },
+  {
+    "city": "Vaovai",
+    "city_zh": "Vaovai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03602,
+    "longitude": -171.67951
+  },
+  {
+    "city": "Vaivase",
+    "city_zh": "Vaivase",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84519,
+    "longitude": -171.74667
+  },
+  {
+    "city": "Vaiusu",
+    "city_zh": "Vaiusu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82678,
+    "longitude": -171.79333
+  },
+  {
+    "city": "Vai’ula",
+    "city_zh": "Vai’ula",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03983,
+    "longitude": -171.66112
+  },
+  {
+    "city": "Vaotupua",
+    "city_zh": "Vaotupua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.50309,
+    "longitude": -172.79079
+  },
+  {
+    "city": "Vaitele",
+    "city_zh": "Vaitele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82933,
+    "longitude": -171.80604
+  },
+  {
+    "city": "Vaisala",
+    "city_zh": "Vaisala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.51439,
+    "longitude": -172.67522
+  },
+  {
+    "city": "Vaipu’a",
+    "city_zh": "Vaipu’a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.67783,
+    "longitude": -172.63375
+  },
+  {
+    "city": "Vaipouli",
+    "city_zh": "Vaipouli",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.4657,
+    "longitude": -172.36897
+  },
+  {
+    "city": "Vaimoso",
+    "city_zh": "Vaimoso",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83655,
+    "longitude": -171.77713
+  },
+  {
+    "city": "Vaimoa",
+    "city_zh": "Vaimoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85,
+    "longitude": -172.03333
+  },
+  {
+    "city": "Vaimauga",
+    "city_zh": "Vaimauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85212,
+    "longitude": -171.74585
+  },
+  {
+    "city": "Vailu‘utai",
+    "city_zh": "Vailu‘utai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82916,
+    "longitude": -171.96912
+  },
+  {
+    "city": "Vailoa",
+    "city_zh": "Vailoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03888,
+    "longitude": -171.43534
+  },
+  {
+    "city": "Vailoa",
+    "city_zh": "Vailoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83123,
+    "longitude": -171.79126
+  },
+  {
+    "city": "Vailima",
+    "city_zh": "Vailima",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86417,
+    "longitude": -171.76126
+  },
+  {
+    "city": "Vaie’e",
+    "city_zh": "Vaie’e",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.98811,
+    "longitude": -171.83095
+  },
+  {
+    "city": "Vaigalu",
+    "city_zh": "Vaigalu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04015,
+    "longitude": -171.52306
+  },
+  {
+    "city": "Vaigaga",
+    "city_zh": "Vaigaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82369,
+    "longitude": -171.79484
+  },
+  {
+    "city": "Vaifoa",
+    "city_zh": "Vaifoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79837,
+    "longitude": -171.84213
+  },
+  {
+    "city": "Vaiālua",
+    "city_zh": "Vaiālua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.81849,
+    "longitude": -171.95565
+  },
+  {
+    "city": "Vailoa",
+    "city_zh": "Vailoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75551,
+    "longitude": -172.30698
+  },
+  {
+    "city": "Vaiala",
+    "city_zh": "Vaiala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82877,
+    "longitude": -171.75396
+  },
+  {
+    "city": "Utuloa",
+    "city_zh": "Utuloa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.50813,
+    "longitude": -172.63501
+  },
+  {
+    "city": "Utulaelae",
+    "city_zh": "Utulaelae",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03952,
+    "longitude": -171.60604
+  },
+  {
+    "city": "Utufa’alalafa",
+    "city_zh": "Utufa’alalafa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00372,
+    "longitude": -171.42589
+  },
+  {
+    "city": "Utuali‘i",
+    "city_zh": "Utuali‘i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79996,
+    "longitude": -171.90848
+  },
+  {
+    "city": "Ulutogia",
+    "city_zh": "Ulutogia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03341,
+    "longitude": -171.43345
+  },
+  {
+    "city": "Uliamoa",
+    "city_zh": "Uliamoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.68333,
+    "longitude": -172.31667
+  },
+  {
+    "city": "Uafato",
+    "city_zh": "Uafato",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.95202,
+    "longitude": -171.5154
+  },
+  {
+    "city": "Tulivae",
+    "city_zh": "Tulivae",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.89099,
+    "longitude": -172.06492
+  },
+  {
+    "city": "Tulaele",
+    "city_zh": "Tulaele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83782,
+    "longitude": -171.79007
+  },
+  {
+    "city": "Tufutafoe",
+    "city_zh": "Tufutafoe",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.53073,
+    "longitude": -172.78963
+  },
+  {
+    "city": "Tufulele",
+    "city_zh": "Tufulele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80496,
+    "longitude": -171.91602
+  },
+  {
+    "city": "Tufu",
+    "city_zh": "Tufu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.76667,
+    "longitude": -172.36667
+  },
+  {
+    "city": "Tuasivi",
+    "city_zh": "Tuasivi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.6676,
+    "longitude": -172.17559
+  },
+  {
+    "city": "Tuana‘i",
+    "city_zh": "Tuana‘i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79956,
+    "longitude": -171.86158
+  },
+  {
+    "city": "Tiavi",
+    "city_zh": "Tiavi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.92527,
+    "longitude": -171.7815
+  },
+  {
+    "city": "Tiapapata",
+    "city_zh": "Tiapapata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88932,
+    "longitude": -171.77158
+  },
+  {
+    "city": "Taumuafa",
+    "city_zh": "Taumuafa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83333,
+    "longitude": -171.78333
+  },
+  {
+    "city": "Tapueleele",
+    "city_zh": "Tapueleele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64675,
+    "longitude": -172.23622
+  },
+  {
+    "city": "Tanuoa",
+    "city_zh": "Tanuoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8,
+    "longitude": -171.9
+  },
+  {
+    "city": "Tanugamanono",
+    "city_zh": "Tanugamanono",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85099,
+    "longitude": -171.75921
+  },
+  {
+    "city": "Taga",
+    "city_zh": "Taga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.794,
+    "longitude": -172.5111
+  },
+  {
+    "city": "Tafua",
+    "city_zh": "Tafua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7927,
+    "longitude": -172.2538
+  },
+  {
+    "city": "Tafitoala",
+    "city_zh": "Tafitoala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00703,
+    "longitude": -171.81238
+  },
+  {
+    "city": "Tafatafa",
+    "city_zh": "Tafatafa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03147,
+    "longitude": -171.6544
+  },
+  {
+    "city": "Tafagamanu",
+    "city_zh": "Tafagamanu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94818,
+    "longitude": -171.96025
+  },
+  {
+    "city": "Taelefaga",
+    "city_zh": "Taelefaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94285,
+    "longitude": -171.56961
+  },
+  {
+    "city": "Suga",
+    "city_zh": "Suga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84907,
+    "longitude": -171.72196
+  },
+  {
+    "city": "Solosolo",
+    "city_zh": "Solosolo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87504,
+    "longitude": -171.64181
+  },
+  {
+    "city": "Solomea",
+    "city_zh": "Solomea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.51735,
+    "longitude": -172.26353
+  },
+  {
+    "city": "Solaua",
+    "city_zh": "Solaua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.93225,
+    "longitude": -171.62971
+  },
+  {
+    "city": "Sogi",
+    "city_zh": "Sogi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82837,
+    "longitude": -171.77373
+  },
+  {
+    "city": "Siuvao",
+    "city_zh": "Siuvao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.56667,
+    "longitude": -172.66667
+  },
+  {
+    "city": "Siutu",
+    "city_zh": "Siutu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.72099,
+    "longitude": -172.59541
+  },
+  {
+    "city": "Siusega",
+    "city_zh": "Siusega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84432,
+    "longitude": -171.81397
+  },
+  {
+    "city": "Si’upapa",
+    "city_zh": "Si’upapa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04127,
+    "longitude": -171.51245
+  },
+  {
+    "city": "Si’uniu",
+    "city_zh": "Si’uniu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.02065,
+    "longitude": -171.61735
+  },
+  {
+    "city": "Si’umu",
+    "city_zh": "Si’umu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00943,
+    "longitude": -171.77682
+  },
+  {
+    "city": "Siu’faga",
+    "city_zh": "Siu’faga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.90686,
+    "longitude": -172.03915
+  },
+  {
+    "city": "Sili",
+    "city_zh": "Sili",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75602,
+    "longitude": -172.37733
+  },
+  {
+    "city": "Savalalo",
+    "city_zh": "Savalalo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83011,
+    "longitude": -171.77247
+  },
+  {
+    "city": "Savaia",
+    "city_zh": "Savaia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.95514,
+    "longitude": -171.95711
+  },
+  {
+    "city": "Sauniatu",
+    "city_zh": "Sauniatu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.92492,
+    "longitude": -171.62163
+  },
+  {
+    "city": "Saumaga",
+    "city_zh": "Saumaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.45773,
+    "longitude": -172.41468
+  },
+  {
+    "city": "Sauago",
+    "city_zh": "Sauago",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91069,
+    "longitude": -171.56203
+  },
+  {
+    "city": "Satupa‘itea",
+    "city_zh": "Satupa‘itea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.76593,
+    "longitude": -172.32686
+  },
+  {
+    "city": "Satuimalufilufi",
+    "city_zh": "Satuimalufilufi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85621,
+    "longitude": -172.06014
+  },
+  {
+    "city": "Satuiatua",
+    "city_zh": "Satuiatua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.70805,
+    "longitude": -172.60058
+  },
+  {
+    "city": "Satui",
+    "city_zh": "Satui",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.81464,
+    "longitude": -171.94491
+  },
+  {
+    "city": "Satufia",
+    "city_zh": "Satufia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77345,
+    "longitude": -172.32769
+  },
+  {
+    "city": "Sato’alepai",
+    "city_zh": "Sato’alepai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44361,
+    "longitude": -172.34484
+  },
+  {
+    "city": "Satitoa",
+    "city_zh": "Satitoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.0276,
+    "longitude": -171.43022
+  },
+  {
+    "city": "Sataua",
+    "city_zh": "Sataua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.51742,
+    "longitude": -172.69436
+  },
+  {
+    "city": "Sataputu",
+    "city_zh": "Sataputu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.68333,
+    "longitude": -172.55
+  },
+  {
+    "city": "Satapuala",
+    "city_zh": "Satapuala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83535,
+    "longitude": -171.97963
+  },
+  {
+    "city": "Sataoa",
+    "city_zh": "Sataoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.98758,
+    "longitude": -171.86317
+  },
+  {
+    "city": "Satalo",
+    "city_zh": "Satalo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03819,
+    "longitude": -171.63201
+  },
+  {
+    "city": "Sasina",
+    "city_zh": "Sasina",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46995,
+    "longitude": -172.4492
+  },
+  {
+    "city": "Sapunaoa",
+    "city_zh": "Sapunaoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03728,
+    "longitude": -171.62703
+  },
+  {
+    "city": "Sapulu",
+    "city_zh": "Sapulu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80472,
+    "longitude": -171.92229
+  },
+  {
+    "city": "Sapo’e",
+    "city_zh": "Sapo’e",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04074,
+    "longitude": -171.60186
+  },
+  {
+    "city": "Sapapali’i",
+    "city_zh": "Sapapali’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.68726,
+    "longitude": -172.1918
+  },
+  {
+    "city": "Samusu",
+    "city_zh": "Samusu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00122,
+    "longitude": -171.42635
+  },
+  {
+    "city": "Samea",
+    "city_zh": "Samea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83758,
+    "longitude": -172.0411
+  },
+  {
+    "city": "Samauga",
+    "city_zh": "Samauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91667,
+    "longitude": -171.56667
+  },
+  {
+    "city": "Samatau",
+    "city_zh": "Samatau",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.89964,
+    "longitude": -172.05706
+  },
+  {
+    "city": "Samataitai",
+    "city_zh": "Samataitai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64614,
+    "longitude": -172.66578
+  },
+  {
+    "city": "Samamea",
+    "city_zh": "Samamea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.93375,
+    "longitude": -171.53122
+  },
+  {
+    "city": "Samalaeulu",
+    "city_zh": "Samalaeulu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.50098,
+    "longitude": -172.30015
+  },
+  {
+    "city": "Sama‘i",
+    "city_zh": "Sama‘i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91684,
+    "longitude": -172.00518
+  },
+  {
+    "city": "Saluafata",
+    "city_zh": "Saluafata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87551,
+    "longitude": -171.60244
+  },
+  {
+    "city": "Salimu",
+    "city_zh": "Salimu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.93215,
+    "longitude": -171.56136
+  },
+  {
+    "city": "Salimu",
+    "city_zh": "Salimu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.65,
+    "longitude": -172.11667
+  },
+  {
+    "city": "Salesatele",
+    "city_zh": "Salesatele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03478,
+    "longitude": -171.61951
+  },
+  {
+    "city": "Saletele",
+    "city_zh": "Saletele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91204,
+    "longitude": -171.55564
+  },
+  {
+    "city": "Salepou‘a‘e",
+    "city_zh": "Salepou‘a‘e",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80358,
+    "longitude": -171.89432
+  },
+  {
+    "city": "Salelologa",
+    "city_zh": "Salelologa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.72766,
+    "longitude": -172.21023
+  },
+  {
+    "city": "Salelesi",
+    "city_zh": "Salelesi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88367,
+    "longitude": -171.62592
+  },
+  {
+    "city": "Salelavalu-uta",
+    "city_zh": "Salelavalu-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7202,
+    "longitude": -172.20427
+  },
+  {
+    "city": "Sale’imoa",
+    "city_zh": "Sale’imoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80314,
+    "longitude": -171.89098
+  },
+  {
+    "city": "Saleilua",
+    "city_zh": "Saleilua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.02882,
+    "longitude": -171.6984
+  },
+  {
+    "city": "Salei’a",
+    "city_zh": "Salei’a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.4495,
+    "longitude": -172.36797
+  },
+  {
+    "city": "Sale’aula",
+    "city_zh": "Sale’aula",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44894,
+    "longitude": -172.33521
+  },
+  {
+    "city": "Saleapaga",
+    "city_zh": "Saleapaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04173,
+    "longitude": -171.50456
+  },
+  {
+    "city": "Sale’a’aumua",
+    "city_zh": "Sale’a’aumua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00873,
+    "longitude": -171.42559
+  },
+  {
+    "city": "Salani",
+    "city_zh": "Salani",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.0,
+    "longitude": -171.56667
+  },
+  {
+    "city": "Salani",
+    "city_zh": "Salani",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03425,
+    "longitude": -171.60832
+  },
+  {
+    "city": "Salamumu",
+    "city_zh": "Salamumu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.99813,
+    "longitude": -171.9219
+  },
+  {
+    "city": "Sala’ilua",
+    "city_zh": "Sala’ilua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.71626,
+    "longitude": -172.59517
+  },
+  {
+    "city": "Saipipi",
+    "city_zh": "Saipipi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.62921,
+    "longitude": -172.1979
+  },
+  {
+    "city": "Saina",
+    "city_zh": "Saina",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.81702,
+    "longitude": -171.80659
+  },
+  {
+    "city": "Sagone",
+    "city_zh": "Sagone",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.68733,
+    "longitude": -172.61864
+  },
+  {
+    "city": "Safune",
+    "city_zh": "Safune",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80502,
+    "longitude": -171.81271
+  },
+  {
+    "city": "Safotulafai",
+    "city_zh": "Safotulafai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.67147,
+    "longitude": -172.17768
+  },
+  {
+    "city": "Safotu",
+    "city_zh": "Safotu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.45132,
+    "longitude": -172.40177
+  },
+  {
+    "city": "Safa’atoa",
+    "city_zh": "Safa’atoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94202,
+    "longitude": -171.96578
+  },
+  {
+    "city": "Safa’i",
+    "city_zh": "Safa’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44654,
+    "longitude": -172.33971
+  },
+  {
+    "city": "Sa’asa’ai",
+    "city_zh": "Sa’asa’ai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.63714,
+    "longitude": -172.1942
+  },
+  {
+    "city": "Sa’anapu",
+    "city_zh": "Sa’anapu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9928,
+    "longitude": -171.87596
+  },
+  {
+    "city": "Sa’aga",
+    "city_zh": "Sa’aga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.02837,
+    "longitude": -171.77175
+  },
+  {
+    "city": "Puleia",
+    "city_zh": "Puleia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77614,
+    "longitude": -172.37761
+  },
+  {
+    "city": "Puipa’a",
+    "city_zh": "Puipa’a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80318,
+    "longitude": -171.81849
+  },
+  {
+    "city": "Pu’apu’a",
+    "city_zh": "Pu’apu’a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.58996,
+    "longitude": -172.20984
+  },
+  {
+    "city": "Poutasi",
+    "city_zh": "Poutasi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.0295,
+    "longitude": -171.69275
+  },
+  {
+    "city": "Piula",
+    "city_zh": "Piula",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87381,
+    "longitude": -171.59713
+  },
+  {
+    "city": "Piu",
+    "city_zh": "Piu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.02308,
+    "longitude": -171.63045
+  },
+  {
+    "city": "Patamea",
+    "city_zh": "Patamea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.52463,
+    "longitude": -172.30678
+  },
+  {
+    "city": "Pata",
+    "city_zh": "Pata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91107,
+    "longitude": -172.02181
+  },
+  {
+    "city": "Papase’ea",
+    "city_zh": "Papase’ea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8621,
+    "longitude": -171.80625
+  },
+  {
+    "city": "Papaloloa",
+    "city_zh": "Papaloloa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85675,
+    "longitude": -171.75458
+  },
+  {
+    "city": "Papa",
+    "city_zh": "Papa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77202,
+    "longitude": -172.36515
+  },
+  {
+    "city": "Papa",
+    "city_zh": "Papa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.53077,
+    "longitude": -172.71516
+  },
+  {
+    "city": "Palauli",
+    "city_zh": "Palauli",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75859,
+    "longitude": -172.29858
+  },
+  {
+    "city": "Paia",
+    "city_zh": "Paia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47243,
+    "longitude": -172.40592
+  },
+  {
+    "city": "Niusuatia",
+    "city_zh": "Niusuatia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.98432,
+    "longitude": -171.83856
+  },
+  {
+    "city": "Nuu",
+    "city_zh": "Nuu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.78465,
+    "longitude": -172.47351
+  },
+  {
+    "city": "Nofoali‘i",
+    "city_zh": "Nofoali‘i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8217,
+    "longitude": -171.95873
+  },
+  {
+    "city": "Neiafu",
+    "city_zh": "Neiafu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.56653,
+    "longitude": -172.75225
+  },
+  {
+    "city": "Nefunefu",
+    "city_zh": "Nefunefu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91199,
+    "longitude": -172.02044
+  },
+  {
+    "city": "Namoa",
+    "city_zh": "Namoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.01667,
+    "longitude": -171.8
+  },
+  {
+    "city": "Mutiatele",
+    "city_zh": "Mutiatele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.01507,
+    "longitude": -171.42506
+  },
+  {
+    "city": "Musumusu",
+    "city_zh": "Musumusu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9303,
+    "longitude": -171.55875
+  },
+  {
+    "city": "Mulivai",
+    "city_zh": "Mulivai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00385,
+    "longitude": -171.80234
+  },
+  {
+    "city": "Mulinu’u",
+    "city_zh": "Mulinu’u",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8175,
+    "longitude": -171.77793
+  },
+  {
+    "city": "Mulifanua",
+    "city_zh": "Mulifanua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83183,
+    "longitude": -172.03602
+  },
+  {
+    "city": "Moto‘otua",
+    "city_zh": "Moto‘otua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84562,
+    "longitude": -171.76286
+  },
+  {
+    "city": "Moata‘a",
+    "city_zh": "Moata‘a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83745,
+    "longitude": -171.74828
+  },
+  {
+    "city": "Moamoa",
+    "city_zh": "Moamoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86655,
+    "longitude": -171.78541
+  },
+  {
+    "city": "Matavai",
+    "city_zh": "Matavai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03208,
+    "longitude": -171.64768
+  },
+  {
+    "city": "Matautu",
+    "city_zh": "Matautu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03831,
+    "longitude": -171.67763
+  },
+  {
+    "city": "Matautu",
+    "city_zh": "Matautu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.96979,
+    "longitude": -171.95071
+  },
+  {
+    "city": "Matautu",
+    "city_zh": "Matautu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91322,
+    "longitude": -172.01269
+  },
+  {
+    "city": "Matāutu",
+    "city_zh": "Matāutu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82742,
+    "longitude": -171.75674
+  },
+  {
+    "city": "Matatufu",
+    "city_zh": "Matatufu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04355,
+    "longitude": -171.58376
+  },
+  {
+    "city": "Matapunga",
+    "city_zh": "Matapunga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85,
+    "longitude": -172.03333
+  },
+  {
+    "city": "Matanofo",
+    "city_zh": "Matanofo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91667,
+    "longitude": -171.98333
+  },
+  {
+    "city": "Matailiili",
+    "city_zh": "Matailiili",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.81053,
+    "longitude": -171.93513
+  },
+  {
+    "city": "Matafele",
+    "city_zh": "Matafele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82965,
+    "longitude": -171.76799
+  },
+  {
+    "city": "Matafagatele",
+    "city_zh": "Matafagatele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83909,
+    "longitude": -171.7438
+  },
+  {
+    "city": "Manunu",
+    "city_zh": "Manunu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9,
+    "longitude": -171.56667
+  },
+  {
+    "city": "Maninoa",
+    "city_zh": "Maninoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00861,
+    "longitude": -171.78833
+  },
+  {
+    "city": "Manase",
+    "city_zh": "Manase",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44796,
+    "longitude": -172.37647
+  },
+  {
+    "city": "Malua",
+    "city_zh": "Malua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79909,
+    "longitude": -171.9027
+  },
+  {
+    "city": "Malololelei",
+    "city_zh": "Malololelei",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.90564,
+    "longitude": -171.77836
+  },
+  {
+    "city": "Malie",
+    "city_zh": "Malie",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80044,
+    "longitude": -171.8469
+  },
+  {
+    "city": "Maalauli",
+    "city_zh": "Maalauli",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8425,
+    "longitude": -171.72913
+  },
+  {
+    "city": "Malaetele",
+    "city_zh": "Malaetele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.48333,
+    "longitude": -172.78333
+  },
+  {
+    "city": "Malaemalu",
+    "city_zh": "Malaemalu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03269,
+    "longitude": -171.64302
+  },
+  {
+    "city": "Magiagi",
+    "city_zh": "Magiagi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85118,
+    "longitude": -171.74923
+  },
+  {
+    "city": "Magia",
+    "city_zh": "Magia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82892,
+    "longitude": -171.98548
+  },
+  {
+    "city": "Maasina",
+    "city_zh": "Maasina",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94318,
+    "longitude": -171.5569
+  },
+  {
+    "city": "Lufilufi",
+    "city_zh": "Lufilufi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87449,
+    "longitude": -171.59857
+  },
+  {
+    "city": "Luatuanu‘u",
+    "city_zh": "Luatuanu‘u",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86296,
+    "longitude": -171.67828
+  },
+  {
+    "city": "Lotofaga",
+    "city_zh": "Lotofaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04288,
+    "longitude": -171.57036
+  },
+  {
+    "city": "Lotofagā",
+    "city_zh": "Lotofagā",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.97643,
+    "longitude": -171.85781
+  },
+  {
+    "city": "Lona",
+    "city_zh": "Lona",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94209,
+    "longitude": -171.54292
+  },
+  {
+    "city": "Levī",
+    "city_zh": "Levī",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91361,
+    "longitude": -172.01095
+  },
+  {
+    "city": "Levi",
+    "city_zh": "Levi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79766,
+    "longitude": -171.88277
+  },
+  {
+    "city": "Leusoali’i",
+    "city_zh": "Leusoali’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86396,
+    "longitude": -171.68991
+  },
+  {
+    "city": "Leulumoega",
+    "city_zh": "Leulumoega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82297,
+    "longitude": -171.96127
+  },
+  {
+    "city": "Letui",
+    "city_zh": "Letui",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.49527,
+    "longitude": -172.47079
+  },
+  {
+    "city": "Letogo",
+    "city_zh": "Letogo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85252,
+    "longitude": -171.72167
+  },
+  {
+    "city": "Leatupe",
+    "city_zh": "Leatupe",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03922,
+    "longitude": -171.58262
+  },
+  {
+    "city": "Lepea",
+    "city_zh": "Lepea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83575,
+    "longitude": -171.79
+  },
+  {
+    "city": "Lepā",
+    "city_zh": "Lepā",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04125,
+    "longitude": -171.51919
+  },
+  {
+    "city": "Lelepa",
+    "city_zh": "Lelepa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44544,
+    "longitude": -172.36047
+  },
+  {
+    "city": "Lefaga",
+    "city_zh": "Lefaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04554,
+    "longitude": -171.4488
+  },
+  {
+    "city": "Leauva‘a",
+    "city_zh": "Leauva‘a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79774,
+    "longitude": -171.87348
+  },
+  {
+    "city": "Lealaalii",
+    "city_zh": "Lealaalii",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80631,
+    "longitude": -171.92428
+  },
+  {
+    "city": "Leagiagi",
+    "city_zh": "Leagiagi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46147,
+    "longitude": -172.41793
+  },
+  {
+    "city": "Lauli’i",
+    "city_zh": "Lauli’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86392,
+    "longitude": -171.70438
+  },
+  {
+    "city": "Lata",
+    "city_zh": "Lata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04579,
+    "longitude": -171.44635
+  },
+  {
+    "city": "Lara Lafa",
+    "city_zh": "Lara Lafa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85,
+    "longitude": -171.73333
+  },
+  {
+    "city": "Lano",
+    "city_zh": "Lano",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.61749,
+    "longitude": -172.19919
+  },
+  {
+    "city": "Lanafala",
+    "city_zh": "Lanafala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9,
+    "longitude": -171.75
+  },
+  {
+    "city": "Lalovi",
+    "city_zh": "Lalovi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85171,
+    "longitude": -172.05722
+  },
+  {
+    "city": "Lalomauga",
+    "city_zh": "Lalomauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9,
+    "longitude": -171.56667
+  },
+  {
+    "city": "Lalomauga",
+    "city_zh": "Lalomauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86667,
+    "longitude": -171.95
+  },
+  {
+    "city": "Lalomauga",
+    "city_zh": "Lalomauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91563,
+    "longitude": -171.60067
+  },
+  {
+    "city": "Lalomanu",
+    "city_zh": "Lalomanu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04454,
+    "longitude": -171.43925
+  },
+  {
+    "city": "Lalomalava",
+    "city_zh": "Lalomalava",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.70178,
+    "longitude": -172.20038
+  },
+  {
+    "city": "Iva",
+    "city_zh": "Iva",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.71019,
+    "longitude": -172.20324
+  },
+  {
+    "city": "Ili’ili",
+    "city_zh": "Ili’ili",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03226,
+    "longitude": -171.7041
+  },
+  {
+    "city": "Gautavai",
+    "city_zh": "Gautavai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77618,
+    "longitude": -172.38392
+  },
+  {
+    "city": "Gataivai",
+    "city_zh": "Gataivai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7736,
+    "longitude": -172.38802
+  },
+  {
+    "city": "Gagaemalae",
+    "city_zh": "Gagaemalae",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.71027,
+    "longitude": -172.59833
+  },
+  {
+    "city": "Fusi",
+    "city_zh": "Fusi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.99591,
+    "longitude": -171.82943
+  },
+  {
+    "city": "Fusi",
+    "city_zh": "Fusi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88645,
+    "longitude": -171.6218
+  },
+  {
+    "city": "Fuailolo‘o",
+    "city_zh": "Fuailolo‘o",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84474,
+    "longitude": -172.04588
+  },
+  {
+    "city": "Fogatuli",
+    "city_zh": "Fogatuli",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.66146,
+    "longitude": -172.6465
+  },
+  {
+    "city": "Fogasavai’i",
+    "city_zh": "Fogasavai’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.68026,
+    "longitude": -172.62672
+  },
+  {
+    "city": "Foailuga",
+    "city_zh": "Foailuga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.69666,
+    "longitude": -172.60924
+  },
+  {
+    "city": "Foailalo",
+    "city_zh": "Foailalo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.70226,
+    "longitude": -172.60453
+  },
+  {
+    "city": "Fausaga",
+    "city_zh": "Fausaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.0006,
+    "longitude": -171.82444
+  },
+  {
+    "city": "Fatuvalu",
+    "city_zh": "Fatuvalu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46937,
+    "longitude": -172.43441
+  },
+  {
+    "city": "Fasito‘outa",
+    "city_zh": "Fasito‘outa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.81163,
+    "longitude": -171.94063
+  },
+  {
+    "city": "Fasito‘otai",
+    "city_zh": "Fasito‘otai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82568,
+    "longitude": -171.96309
+  },
+  {
+    "city": "Falevao",
+    "city_zh": "Falevao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.92067,
+    "longitude": -171.58658
+  },
+  {
+    "city": "Falevai",
+    "city_zh": "Falevai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91632,
+    "longitude": -172.0062
+  },
+  {
+    "city": "Fetaulaiga",
+    "city_zh": "Fetaulaiga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.99839,
+    "longitude": -171.58299
+  },
+  {
+    "city": "Faleula",
+    "city_zh": "Faleula",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79457,
+    "longitude": -171.83126
+  },
+  {
+    "city": "Faleu",
+    "city_zh": "Faleu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85893,
+    "longitude": -172.10618
+  },
+  {
+    "city": "Faleapuna",
+    "city_zh": "Faleapuna",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87761,
+    "longitude": -171.59235
+  },
+  {
+    "city": "Falepouma‘a",
+    "city_zh": "Falepouma‘a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91667,
+    "longitude": -171.7
+  },
+  {
+    "city": "Faleolo",
+    "city_zh": "Faleolo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82746,
+    "longitude": -172.01499
+  },
+  {
+    "city": "Faleolo",
+    "city_zh": "Faleolo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.48333,
+    "longitude": -172.78333
+  },
+  {
+    "city": "Falelima",
+    "city_zh": "Falelima",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.59572,
+    "longitude": -172.72204
+  },
+  {
+    "city": "Falelatai",
+    "city_zh": "Falelatai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91247,
+    "longitude": -172.016
+  },
+  {
+    "city": "Falefa",
+    "city_zh": "Falefa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88695,
+    "longitude": -171.58805
+  },
+  {
+    "city": "Faleatiu",
+    "city_zh": "Faleatiu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82885,
+    "longitude": -171.97895
+  },
+  {
+    "city": "Faleata",
+    "city_zh": "Faleata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84442,
+    "longitude": -171.78955
+  },
+  {
+    "city": "Faleasi‘u",
+    "city_zh": "Faleasi‘u",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.80742,
+    "longitude": -171.92864
+  },
+  {
+    "city": "Faleaseela",
+    "city_zh": "Faleaseela",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.93529,
+    "longitude": -171.97003
+  },
+  {
+    "city": "Faleālupo",
+    "city_zh": "Faleālupo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.50103,
+    "longitude": -172.78768
+  },
+  {
+    "city": "Fai’a’ai",
+    "city_zh": "Fai’a’ai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.6703,
+    "longitude": -172.64112
+  },
+  {
+    "city": "Fagamalo",
+    "city_zh": "Fagamalo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44219,
+    "longitude": -172.34901
+  },
+  {
+    "city": "Fagali‘i",
+    "city_zh": "Fagali‘i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84314,
+    "longitude": -171.73694
+  },
+  {
+    "city": "Fagafau",
+    "city_zh": "Fagafau",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64026,
+    "longitude": -172.67023
+  },
+  {
+    "city": "Faga",
+    "city_zh": "Faga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.65978,
+    "longitude": -172.18357
+  },
+  {
+    "city": "Eva",
+    "city_zh": "Eva",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87959,
+    "longitude": -171.62954
+  },
+  {
+    "city": "Etemuli",
+    "city_zh": "Etemuli",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04066,
+    "longitude": -171.55741
+  },
+  {
+    "city": "Avatā",
+    "city_zh": "Avatā",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.49474,
+    "longitude": -172.78317
+  },
+  {
+    "city": "Avao",
+    "city_zh": "Avao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.44883,
+    "longitude": -172.36249
+  },
+  {
+    "city": "A‘ufaga",
+    "city_zh": "A‘ufaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04058,
+    "longitude": -171.53356
+  },
+  {
+    "city": "Auala",
+    "city_zh": "Auala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.5167,
+    "longitude": -172.65245
+  },
+  {
+    "city": "Asaga",
+    "city_zh": "Asaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.60454,
+    "longitude": -172.20383
+  },
+  {
+    "city": "Apia",
+    "city_zh": "阿皮亚",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83333,
+    "longitude": -171.76666
+  },
+  {
+    "city": "A’opo",
+    "city_zh": "A’opo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.53975,
+    "longitude": -172.51931
+  },
+  {
+    "city": "Amaile",
+    "city_zh": "Amaile",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.99723,
+    "longitude": -171.42897
+  },
+  {
+    "city": "Ma’agao",
+    "city_zh": "Ma’agao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83093,
+    "longitude": -171.90543
+  },
+  {
+    "city": "Ahners",
+    "city_zh": "Ahners",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83354,
+    "longitude": -171.74704
+  },
+  {
+    "city": "Aganoa",
+    "city_zh": "Aganoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03068,
+    "longitude": -171.76635
+  },
+  {
+    "city": "Afiamalu",
+    "city_zh": "Afiamalu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91657,
+    "longitude": -171.71674
+  },
+  {
+    "city": "Afega",
+    "city_zh": "Afega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.79726,
+    "longitude": -171.85308
+  },
+  {
+    "city": "Manunu",
+    "city_zh": "Manunu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91604,
+    "longitude": -171.61792
+  },
+  {
+    "city": "Kosena",
+    "city_zh": "Kosena",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.99533,
+    "longitude": -171.59756
+  },
+  {
+    "city": "Mount Vaipu",
+    "city_zh": "Mount Vaipu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9777,
+    "longitude": -171.60881
+  },
+  {
+    "city": "Ti’avea",
+    "city_zh": "Ti’avea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.97621,
+    "longitude": -171.4678
+  },
+  {
+    "city": "Sasita",
+    "city_zh": "Sasita",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.0401,
+    "longitude": -171.56098
+  },
+  {
+    "city": "To-le-sua",
+    "city_zh": "To-le-sua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03899,
+    "longitude": -171.54888
+  },
+  {
+    "city": "To-sua",
+    "city_zh": "To-sua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04094,
+    "longitude": -171.54867
+  },
+  {
+    "city": "Toloavatu",
+    "city_zh": "Toloavatu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04178,
+    "longitude": -171.55114
+  },
+  {
+    "city": "Pinipini",
+    "city_zh": "Pinipini",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04362,
+    "longitude": -171.54414
+  },
+  {
+    "city": "Malaela",
+    "city_zh": "Malaela",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.02073,
+    "longitude": -171.4253
+  },
+  {
+    "city": "Vaipu",
+    "city_zh": "Vaipu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.96741,
+    "longitude": -171.5829
+  },
+  {
+    "city": "Vailoa",
+    "city_zh": "Vailoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.03424,
+    "longitude": -171.61135
+  },
+  {
+    "city": "Togitogiga",
+    "city_zh": "Togitogiga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.01684,
+    "longitude": -171.72095
+  },
+  {
+    "city": "Apolimafou",
+    "city_zh": "Apolimafou",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86181,
+    "longitude": -172.06447
+  },
+  {
+    "city": "Manono-uta",
+    "city_zh": "Manono-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.89091,
+    "longitude": -172.06409
+  },
+  {
+    "city": "Vailavea",
+    "city_zh": "Vailavea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.90256,
+    "longitude": -172.05373
+  },
+  {
+    "city": "Gagaifoolevao",
+    "city_zh": "Gagaifoolevao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.96451,
+    "longitude": -171.95532
+  },
+  {
+    "city": "Utumalama Point",
+    "city_zh": "Utumalama Point",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.00201,
+    "longitude": -171.88902
+  },
+  {
+    "city": "Sataoauta",
+    "city_zh": "Sataoauta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.97673,
+    "longitude": -171.86615
+  },
+  {
+    "city": "Lotofagauta",
+    "city_zh": "Lotofagauta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.97552,
+    "longitude": -171.85136
+  },
+  {
+    "city": "Sa’agafou",
+    "city_zh": "Sa’agafou",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.01045,
+    "longitude": -171.75931
+  },
+  {
+    "city": "Matāutu",
+    "city_zh": "Matāutu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -14.04694,
+    "longitude": -171.44047
+  },
+  {
+    "city": "Samusu-uta",
+    "city_zh": "Samusu-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.9941,
+    "longitude": -171.46205
+  },
+  {
+    "city": "Paepae‘alā",
+    "city_zh": "Paepae‘alā",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83611,
+    "longitude": -172.04032
+  },
+  {
+    "city": "Afia",
+    "city_zh": "Afia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84359,
+    "longitude": -172.02167
+  },
+  {
+    "city": "Sina",
+    "city_zh": "Sina",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83908,
+    "longitude": -171.99482
+  },
+  {
+    "city": "Tafue",
+    "city_zh": "Tafue",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84314,
+    "longitude": -171.92509
+  },
+  {
+    "city": "A’elefou",
+    "city_zh": "A’elefou",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.81715,
+    "longitude": -171.82853
+  },
+  {
+    "city": "A’ele",
+    "city_zh": "A’ele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82516,
+    "longitude": -171.82699
+  },
+  {
+    "city": "Nuu",
+    "city_zh": "Nuu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82493,
+    "longitude": -171.8332
+  },
+  {
+    "city": "Vaipoto",
+    "city_zh": "Vaipoto",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83935,
+    "longitude": -171.83366
+  },
+  {
+    "city": "Petesa-fou",
+    "city_zh": "Petesa-fou",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83325,
+    "longitude": -171.81827
+  },
+  {
+    "city": "Vaitele-uta",
+    "city_zh": "Vaitele-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83188,
+    "longitude": -171.8102
+  },
+  {
+    "city": "Olosega",
+    "city_zh": "Olosega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84185,
+    "longitude": -171.85363
+  },
+  {
+    "city": "Lafi",
+    "city_zh": "Lafi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84989,
+    "longitude": -171.8467
+  },
+  {
+    "city": "Tafa’igata",
+    "city_zh": "Tafa’igata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85089,
+    "longitude": -171.83001
+  },
+  {
+    "city": "Faleauniu",
+    "city_zh": "Faleauniu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84824,
+    "longitude": -171.8222
+  },
+  {
+    "city": "Tanumapua",
+    "city_zh": "Tanumapua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86272,
+    "longitude": -171.82049
+  },
+  {
+    "city": "Ululoloa",
+    "city_zh": "Ululoloa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85685,
+    "longitude": -171.81052
+  },
+  {
+    "city": "Se’ese’e",
+    "city_zh": "Se’ese’e",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85474,
+    "longitude": -171.8071
+  },
+  {
+    "city": "Tua‘efu",
+    "city_zh": "Tua‘efu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85719,
+    "longitude": -171.799
+  },
+  {
+    "city": "Tapatapao",
+    "city_zh": "Tapatapao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87596,
+    "longitude": -171.83083
+  },
+  {
+    "city": "Leaupuni",
+    "city_zh": "Leaupuni",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88403,
+    "longitude": -171.83166
+  },
+  {
+    "city": "Falemauga",
+    "city_zh": "Falemauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88096,
+    "longitude": -171.84027
+  },
+  {
+    "city": "Laloanea",
+    "city_zh": "Laloanea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.88163,
+    "longitude": -171.85138
+  },
+  {
+    "city": "Alafua",
+    "city_zh": "阿拉富阿",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85713,
+    "longitude": -171.78607
+  },
+  {
+    "city": "Lotopa",
+    "city_zh": "Lotopa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8467,
+    "longitude": -171.78704
+  },
+  {
+    "city": "Talimatau",
+    "city_zh": "Talimatau",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84248,
+    "longitude": -171.79621
+  },
+  {
+    "city": "Pesega",
+    "city_zh": "Pesega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83735,
+    "longitude": -171.78407
+  },
+  {
+    "city": "Vaitoloa",
+    "city_zh": "Vaitoloa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83342,
+    "longitude": -171.78909
+  },
+  {
+    "city": "Alamagoto",
+    "city_zh": "Alamagoto",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84642,
+    "longitude": -171.77586
+  },
+  {
+    "city": "Sinamoga",
+    "city_zh": "Sinamoga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8508,
+    "longitude": -171.77923
+  },
+  {
+    "city": "Leufisa",
+    "city_zh": "Leufisa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84703,
+    "longitude": -171.76414
+  },
+  {
+    "city": "Lalovaea",
+    "city_zh": "Lalovaea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83987,
+    "longitude": -171.76664
+  },
+  {
+    "city": "Leone",
+    "city_zh": "Leone",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83519,
+    "longitude": -171.75766
+  },
+  {
+    "city": "Faatoia",
+    "city_zh": "Faatoia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84182,
+    "longitude": -171.75311
+  },
+  {
+    "city": "Vaipuna",
+    "city_zh": "Vaipuna",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83124,
+    "longitude": -171.75372
+  },
+  {
+    "city": "Vaivase-uta",
+    "city_zh": "Vaivase-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85642,
+    "longitude": -171.74491
+  },
+  {
+    "city": "Avele",
+    "city_zh": "Avele",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86944,
+    "longitude": -171.76258
+  },
+  {
+    "city": "Vaoala",
+    "city_zh": "Vaoala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87406,
+    "longitude": -171.76339
+  },
+  {
+    "city": "Letava",
+    "city_zh": "Letava",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87812,
+    "longitude": -171.76566
+  },
+  {
+    "city": "Fasafasa",
+    "city_zh": "Fasafasa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91534,
+    "longitude": -171.80898
+  },
+  {
+    "city": "Papaoga",
+    "city_zh": "Papaoga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.92316,
+    "longitude": -171.80263
+  },
+  {
+    "city": "Papapapaitai",
+    "city_zh": "Papapapaitai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94233,
+    "longitude": -171.77416
+  },
+  {
+    "city": "Lepuia’i",
+    "city_zh": "Lepuia’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85659,
+    "longitude": -172.11317
+  },
+  {
+    "city": "Apai",
+    "city_zh": "Apai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84754,
+    "longitude": -172.11807
+  },
+  {
+    "city": "Falemoa",
+    "city_zh": "Falemoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84344,
+    "longitude": -172.11748
+  },
+  {
+    "city": "Satuilagi",
+    "city_zh": "Satuilagi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84123,
+    "longitude": -172.10772
+  },
+  {
+    "city": "Salua",
+    "city_zh": "萨卢阿",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84549,
+    "longitude": -172.10503
+  },
+  {
+    "city": "Pagai",
+    "city_zh": "Pagai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84743,
+    "longitude": -172.10368
+  },
+  {
+    "city": "Satoi",
+    "city_zh": "Satoi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85093,
+    "longitude": -172.10169
+  },
+  {
+    "city": "Faaala",
+    "city_zh": "Faaala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75792,
+    "longitude": -172.29289
+  },
+  {
+    "city": "Vaito‘omuli",
+    "city_zh": "Vaito‘omuli",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75804,
+    "longitude": -172.30267
+  },
+  {
+    "city": "Nu’ualofa",
+    "city_zh": "Nu’ualofa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75652,
+    "longitude": -172.30587
+  },
+  {
+    "city": "Mosula",
+    "city_zh": "Mosula",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75662,
+    "longitude": -172.3219
+  },
+  {
+    "city": "Pitonuu",
+    "city_zh": "Pitonuu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.76294,
+    "longitude": -172.32401
+  },
+  {
+    "city": "Vaega",
+    "city_zh": "Vaega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77007,
+    "longitude": -172.32666
+  },
+  {
+    "city": "Vaegauta",
+    "city_zh": "Vaegauta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75574,
+    "longitude": -172.33393
+  },
+  {
+    "city": "Satufiauta",
+    "city_zh": "Satufiauta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.75527,
+    "longitude": -172.35229
+  },
+  {
+    "city": "Vaiala",
+    "city_zh": "Vaiala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77306,
+    "longitude": -172.38102
+  },
+  {
+    "city": "Nofoa",
+    "city_zh": "Nofoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77486,
+    "longitude": -172.43191
+  },
+  {
+    "city": "Siuniu",
+    "city_zh": "Siuniu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77415,
+    "longitude": -172.43626
+  },
+  {
+    "city": "Masalaolao",
+    "city_zh": "Masalaolao",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77434,
+    "longitude": -172.44517
+  },
+  {
+    "city": "Tamasaga",
+    "city_zh": "Tamasaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77554,
+    "longitude": -172.4547
+  },
+  {
+    "city": "Falealia",
+    "city_zh": "Falealia",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77231,
+    "longitude": -172.45933
+  },
+  {
+    "city": "Maota",
+    "city_zh": "Maota",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7465,
+    "longitude": -172.26422
+  },
+  {
+    "city": "Sapulu",
+    "city_zh": "Sapulu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7328,
+    "longitude": -172.21649
+  },
+  {
+    "city": "Foua",
+    "city_zh": "Foua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7301,
+    "longitude": -172.21055
+  },
+  {
+    "city": "Salelavalu-tai",
+    "city_zh": "Salelavalu-tai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.72109,
+    "longitude": -172.19733
+  },
+  {
+    "city": "Vai’afai",
+    "city_zh": "Vai’afai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.70558,
+    "longitude": -172.2041
+  },
+  {
+    "city": "Safua",
+    "city_zh": "Safua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.69941,
+    "longitude": -172.19934
+  },
+  {
+    "city": "Fusi",
+    "city_zh": "Fusi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.68013,
+    "longitude": -172.18312
+  },
+  {
+    "city": "Fatausi",
+    "city_zh": "Fatausi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.67651,
+    "longitude": -172.17882
+  },
+  {
+    "city": "Fogapoā",
+    "city_zh": "Fogapoā",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.67264,
+    "longitude": -172.17716
+  },
+  {
+    "city": "Vai’a’ata",
+    "city_zh": "Vai’a’ata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.65804,
+    "longitude": -172.24547
+  },
+  {
+    "city": "Nuuuta",
+    "city_zh": "Nuuuta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77754,
+    "longitude": -172.46624
+  },
+  {
+    "city": "Le’eka",
+    "city_zh": "Le’eka",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.77348,
+    "longitude": -172.51282
+  },
+  {
+    "city": "Palapala",
+    "city_zh": "Palapala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.7274,
+    "longitude": -172.57481
+  },
+  {
+    "city": "Tanoaalea",
+    "city_zh": "Tanoaalea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.72245,
+    "longitude": -172.58577
+  },
+  {
+    "city": "Samataiuta",
+    "city_zh": "Samataiuta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64926,
+    "longitude": -172.65725
+  },
+  {
+    "city": "Falealupo-uta",
+    "city_zh": "Falealupo-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.53978,
+    "longitude": -172.73471
+  },
+  {
+    "city": "Fagasā",
+    "city_zh": "Fagasā",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.51615,
+    "longitude": -172.69007
+  },
+  {
+    "city": "Fagae’e",
+    "city_zh": "Fagae’e",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46888,
+    "longitude": -172.44141
+  },
+  {
+    "city": "Faletagaloa",
+    "city_zh": "Faletagaloa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46972,
+    "longitude": -172.42649
+  },
+  {
+    "city": "Lefagaoali’i",
+    "city_zh": "Lefagaoali’i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46752,
+    "longitude": -172.41869
+  },
+  {
+    "city": "Vailolo",
+    "city_zh": "Vailolo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47257,
+    "longitude": -172.39737
+  },
+  {
+    "city": "Le Piu Uta",
+    "city_zh": "Le Piu Uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.46363,
+    "longitude": -172.38144
+  },
+  {
+    "city": "Le Piu Tai",
+    "city_zh": "Le Piu Tai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.45547,
+    "longitude": -172.39307
+  },
+  {
+    "city": "Safe’e",
+    "city_zh": "Safe’e",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.45255,
+    "longitude": -172.40739
+  },
+  {
+    "city": "Mumea",
+    "city_zh": "Mumea",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47836,
+    "longitude": -172.37419
+  },
+  {
+    "city": "Sologa",
+    "city_zh": "Sologa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47124,
+    "longitude": -172.36725
+  },
+  {
+    "city": "Mauga",
+    "city_zh": "Mauga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47572,
+    "longitude": -172.31519
+  },
+  {
+    "city": "Papalaulelei",
+    "city_zh": "Papalaulelei",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.55316,
+    "longitude": -172.2388
+  },
+  {
+    "city": "Pugaoa",
+    "city_zh": "Pugaoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.61871,
+    "longitude": -172.23279
+  },
+  {
+    "city": "Salimu",
+    "city_zh": "Salimu",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64386,
+    "longitude": -172.18923
+  },
+  {
+    "city": "Malae",
+    "city_zh": "Malae",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64748,
+    "longitude": -172.18903
+  },
+  {
+    "city": "Lu’ua",
+    "city_zh": "Lu’ua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.65279,
+    "longitude": -172.18774
+  },
+  {
+    "city": "Sapini",
+    "city_zh": "Sapini",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.65597,
+    "longitude": -172.18605
+  },
+  {
+    "city": "Oloiti",
+    "city_zh": "Oloiti",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.64342,
+    "longitude": -172.21443
+  },
+  {
+    "city": "Punaiseesee",
+    "city_zh": "Punaiseesee",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.62841,
+    "longitude": -172.2752
+  },
+  {
+    "city": "Poutoga",
+    "city_zh": "Poutoga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85084,
+    "longitude": -171.86731
+  },
+  {
+    "city": "Leavaa-uta",
+    "city_zh": "Leavaa-uta",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85335,
+    "longitude": -171.88166
+  },
+  {
+    "city": "Aleisa",
+    "city_zh": "Aleisa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86154,
+    "longitude": -171.87473
+  },
+  {
+    "city": "Fiaga",
+    "city_zh": "Fiaga",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86022,
+    "longitude": -171.85419
+  },
+  {
+    "city": "Lepale",
+    "city_zh": "Lepale",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.87385,
+    "longitude": -171.91626
+  },
+  {
+    "city": "Matānofo",
+    "city_zh": "Matānofo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.91598,
+    "longitude": -172.00666
+  },
+  {
+    "city": "Vaipapa",
+    "city_zh": "Vaipapa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.86051,
+    "longitude": -171.99707
+  },
+  {
+    "city": "Matega",
+    "city_zh": "Matega",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.61333,
+    "longitude": -172.69796
+  },
+  {
+    "city": "Asau",
+    "city_zh": "Asau",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.51963,
+    "longitude": -172.63784
+  },
+  {
+    "city": "Matafa‘a",
+    "city_zh": "Matafa‘a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.94249,
+    "longitude": -171.97921
+  },
+  {
+    "city": "Leaoa",
+    "city_zh": "Leaoa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.89715,
+    "longitude": -171.77564
+  },
+  {
+    "city": "Vailele",
+    "city_zh": "韦莱勒",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84568,
+    "longitude": -171.72317
+  },
+  {
+    "city": "Matavai",
+    "city_zh": "Matavai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47374,
+    "longitude": -172.417
+  },
+  {
+    "city": "Vaiaumoe",
+    "city_zh": "Vaiaumoe",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.89846,
+    "longitude": -171.97578
+  },
+  {
+    "city": "Tanumalala",
+    "city_zh": "Tanumalala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.89451,
+    "longitude": -171.94075
+  },
+  {
+    "city": "Casala",
+    "city_zh": "Casala",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85625,
+    "longitude": -171.93213
+  },
+  {
+    "city": "Nafanua",
+    "city_zh": "Nafanua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85598,
+    "longitude": -171.76306
+  },
+  {
+    "city": "Olo",
+    "city_zh": "Olo",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.85408,
+    "longitude": -172.03136
+  },
+  {
+    "city": "Apolimatuai",
+    "city_zh": "Apolimatuai",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.82021,
+    "longitude": -172.15101
+  },
+  {
+    "city": "Salalologa New Township",
+    "city_zh": "Salalologa New Township",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.76891,
+    "longitude": -172.22223
+  },
+  {
+    "city": "Saletagaloa",
+    "city_zh": "Saletagaloa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.72817,
+    "longitude": -172.20833
+  },
+  {
+    "city": "Vaiola",
+    "city_zh": "Vaiola",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.65278,
+    "longitude": -172.24125
+  },
+  {
+    "city": "Le Aisa",
+    "city_zh": "Le Aisa",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.52123,
+    "longitude": -172.41649
+  },
+  {
+    "city": "Safune",
+    "city_zh": "Safune",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.47169,
+    "longitude": -172.42279
+  },
+  {
+    "city": "Togafuafua",
+    "city_zh": "Togafuafua",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83539,
+    "longitude": -171.76639
+  },
+  {
+    "city": "Le'auva'a",
+    "city_zh": "Le'auva'a",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8,
+    "longitude": -171.85
+  },
+  {
+    "city": "Fagali'i",
+    "city_zh": "Fagali'i",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84833,
+    "longitude": -171.74166
+  },
+  {
+    "city": "Lelata",
+    "city_zh": "Lelata",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.84316,
+    "longitude": -171.75729
+  },
+  {
+    "city": "Fugalei",
+    "city_zh": "Fugalei",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83604,
+    "longitude": -171.77811
+  },
+  {
+    "city": "Saleufi",
+    "city_zh": "Saleufi",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.83483,
+    "longitude": -171.77118
+  }
+]

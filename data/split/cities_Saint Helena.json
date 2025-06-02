@@ -1,0 +1,202 @@
+[
+  {
+    "city": "Thornton",
+    "city_zh": "Thornton",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -7.93333,
+    "longitude": -14.41667
+  },
+  {
+    "city": "Georgetown",
+    "city_zh": "乔治敦",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -7.92861,
+    "longitude": -14.41194
+  },
+  {
+    "city": "Two Boats Village",
+    "city_zh": "Two Boats Village",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -7.94466,
+    "longitude": -14.37081
+  },
+  {
+    "city": "Taglate",
+    "city_zh": "Taglate",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.96667,
+    "longitude": -5.68333
+  },
+  {
+    "city": "Edinburgh of the Seven Seas",
+    "city_zh": "七海爱丁堡",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -37.06757,
+    "longitude": -12.31155
+  },
+  {
+    "city": "New Ground",
+    "city_zh": "New Ground",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.94395,
+    "longitude": -5.7249
+  },
+  {
+    "city": "Longwood",
+    "city_zh": "Longwood",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.94916,
+    "longitude": -5.68571
+  },
+  {
+    "city": "Levelwood",
+    "city_zh": "Levelwood",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.96667,
+    "longitude": -5.68333
+  },
+  {
+    "city": "Jamestown",
+    "city_zh": "詹姆斯敦",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.92488,
+    "longitude": -5.71816
+  },
+  {
+    "city": "Hutts Gate",
+    "city_zh": "Hutts Gate",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.96667,
+    "longitude": -5.7
+  },
+  {
+    "city": "Half Tree Hollow",
+    "city_zh": "Half Tree Hollow",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.93723,
+    "longitude": -5.71996
+  },
+  {
+    "city": "Deadwood",
+    "city_zh": "Deadwood",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.93333,
+    "longitude": -5.68333
+  },
+  {
+    "city": "Barren Ground",
+    "city_zh": "Barren Ground",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.98028,
+    "longitude": -5.75
+  },
+  {
+    "city": "Alarm Forest",
+    "city_zh": "Alarm Forest",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.94371,
+    "longitude": -5.70523
+  },
+  {
+    "city": "Blue Hill",
+    "city_zh": "Blue Hill",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.97925,
+    "longitude": -5.74667
+  },
+  {
+    "city": "Cat Hill US Military Base",
+    "city_zh": "Cat Hill US Military Base",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -7.95117,
+    "longitude": -14.40739
+  },
+  {
+    "city": "Sandy Bay",
+    "city_zh": "Sandy Bay",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.97733,
+    "longitude": -5.71286
+  },
+  {
+    "city": "St. Paul's",
+    "city_zh": "St. Paul's",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -15.94453,
+    "longitude": -5.72467
+  },
+  {
+    "city": "The Residency",
+    "city_zh": "The Residency",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -7.94928,
+    "longitude": -14.35107
+  },
+  {
+    "city": "Traveller's Hill Royal Air Force Base",
+    "city_zh": "Traveller's Hill Royal Air Force Base",
+    "country": "Saint Helena",
+    "country_zh": "Saint Helena",
+    "country_iso_code": "SH",
+    "timezone": "Atlantic/St_Helena",
+    "latitude": -7.94431,
+    "longitude": -14.37251
+  }
+]
