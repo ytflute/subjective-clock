@@ -797,46 +797,48 @@ document.addEventListener('DOMContentLoaded', async () => {
                 })
             });
 
-            if (!imageResponse.ok) throw new Error(await imageResponse.text());
+            if (!imageResponse.ok) {
+                throw new Error(`HTTP error! status: ${imageResponse.status}`);
+            }
+
             const imageData = await imageResponse.json();
-
             if (imageData.imageUrl) {
-                breakfastContainer.innerHTML = `
-                    <div class="postcard-image-container">
-                        <img src="${imageData.imageUrl}" alt="${bestMatchCity.city_zh}的早餐" style="max-width: 100%; border-radius: 8px;">
-                        <p style="font-size: 0.9em; color: #555;"><em>${bestMatchCity.city_zh}的早餐</em></p>
-                    </div>
-                `;
-
-                const recordData = {
-                    dataIdentifier: currentDataIdentifier,
-                    userDisplayName: rawUserDisplayName,
-                    recordedAt: serverTimestamp(),
-                    localTime: userLocalDate.toLocaleTimeString(),
-                    city: bestMatchCity.city,
-                    country: bestMatchCity.country,
-                    city_zh: bestMatchCity.city_zh || "",
-                    country_zh: bestMatchCity.country_zh || "",
-                    country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
-                    latitude: bestMatchCity.latitude,
-                    longitude: bestMatchCity.longitude,
-                    targetUTCOffset: targetUTCOffsetHours,
-                    matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-                    recordedDateString: userLocalDate.toISOString().split('T')[0],
-                    greeting: greetingFromAPI,
-                    story: storyFromAPI,
-                    imageUrl: imageData.imageUrl,
-                    timezone: bestMatchCity.timezone || "Unknown"
-                };
-                await saveHistoryRecord(recordData);
-                await saveToGlobalDailyRecord(recordData);
+                breakfastContainer.innerHTML = `<img src="${imageData.imageUrl}" alt="當地早餐" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">`;
+            } else {
+                breakfastContainer.innerHTML = '<p style="color: #666;"><i>無法生成早餐圖片，請稍後再試。</i></p>';
             }
         } catch (error) {
-            console.error("生成早餐圖片失敗:", error);
-            breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
+            console.error('生成早餐圖片時發生錯誤:', error);
+            breakfastContainer.innerHTML = '<p style="color: #666;"><i>生成早餐圖片時發生錯誤，請稍後再試。</i></p>';
         }
 
-        console.log("--- 尋找匹配城市結束 (找到城市) ---");
+        // 保存記錄到歷史記錄
+        const recordData = {
+            dataIdentifier: currentDataIdentifier,
+            userDisplayName: rawUserDisplayName,
+            recordedAt: serverTimestamp(),
+            recordedDateString: userLocalDate.toISOString().split('T')[0],  // 使用本地日期
+            city: bestMatchCity.city,
+            country: bestMatchCity.country,
+            city_zh: bestMatchCity.city_zh,
+            country_zh: bestMatchCity.country_zh,
+            country_iso_code: bestMatchCity.country_iso_code,
+            latitude: bestMatchCity.latitude,
+            longitude: bestMatchCity.longitude,
+            timezone: bestMatchCity.timezone,
+            greeting: greetingFromAPI,
+            story: storyFromAPI
+        };
+
+        // 保存到個人歷史記錄
+        const historyDocId = await saveHistoryRecord(recordData);
+        if (historyDocId) {
+            console.log("個人歷史記錄已保存，文件 ID:", historyDocId);
+        }
+
+        // 保存到全域每日記錄
+        await saveToGlobalDailyRecord(recordData);
+
         findCityButton.disabled = false;
     }
 
@@ -874,10 +876,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        const userLocalDate = new Date();
-        const userLocalDateString = userLocalDate.toISOString().split('T')[0];
-
-        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}`);
         console.log(`[saveToGlobalDailyRecord] 原始記錄日期: ${recordData.recordedDateString}`);
 
         const globalRecord = {
@@ -885,7 +883,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             userDisplayName: recordData.userDisplayName,
             groupName: currentGroupName || "",  // 添加組別資訊
             recordedAt: recordData.recordedAt,
-            recordedDateString: userLocalDateString,
+            recordedDateString: recordData.recordedDateString,  // 使用原始記錄的日期字串
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
