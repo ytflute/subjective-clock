@@ -49,29 +49,66 @@ document.addEventListener('DOMContentLoaded', async () => {
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history';
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-    // 使用從 /api/config 獲取的配置
-    const firebaseConfig = window.firebaseConfig;
-
-    console.log("DOM 已載入。開始初始化 Firebase...");
-
-    if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
-        console.error("Firebase 設定不完整!");
-        alert("Firebase 設定不完整，應用程式無法初始化 Firebase。");
-        currentUserIdSpan.textContent = "Firebase 設定錯誤";
-        return;
+    // 等待 Firebase 配置載入
+    async function waitForFirebaseConfig() {
+        let attempts = 0;
+        const maxAttempts = 10;
+        
+        while (attempts < maxAttempts) {
+            if (window.firebaseConfig) {
+                return window.firebaseConfig;
+            }
+            await new Promise(resolve => setTimeout(resolve, 500));
+            attempts++;
+        }
+        throw new Error('無法載入 Firebase 配置');
     }
 
     try {
+        console.log("等待 Firebase 配置載入...");
+        const firebaseConfig = await waitForFirebaseConfig();
+        
+        if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+            throw new Error("Firebase 設定不完整!");
+        }
+
+        console.log("Firebase 配置已載入，開始初始化...");
         setLogLevel('debug');
         const app = initializeApp(firebaseConfig);
         auth = getAuth(app);
         db = getFirestore(app);
-        console.log("Firebase 初始化成功。App ID (用於路徑前綴):", appId, "Project ID (來自設定):", firebaseConfig.projectId);
+        console.log("Firebase 初始化成功。App ID:", appId, "Project ID:", firebaseConfig.projectId);
+
+        // 初始化成功後載入城市數據
+        await loadCitiesData();
+
     } catch (e) {
         console.error("Firebase 初始化失敗:", e);
         currentUserIdSpan.textContent = "Firebase 初始化失敗";
         alert("Firebase 初始化失敗，部分功能可能無法使用。");
         return;
+    }
+
+    // 將城市數據載入邏輯移到單獨的函數
+    async function loadCitiesData() {
+        try {
+            const response = await fetch('cities_data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            citiesData = await response.json();
+            console.log("城市數據已載入", citiesData.length, "筆");
+            if (citiesData.length === 0) {
+                resultTextDiv.innerHTML = "提示：載入的城市數據為空。";
+                findCityButton.disabled = true;
+            } else if (currentDataIdentifier && auth.currentUser) {
+                findCityButton.disabled = false;
+            }
+        } catch (e) {
+            console.error("無法載入城市數據:", e);
+            resultTextDiv.innerHTML = "錯誤：無法載入城市數據。";
+            findCityButton.disabled = true;
+        }
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
@@ -451,29 +488,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             resultTextDiv.innerHTML = "<p>讀取最後記錄失敗。</p>";
         }
     }
-
-    fetch('cities_data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            citiesData = data;
-            console.log("城市數據已載入", citiesData.length, "筆");
-            if (citiesData.length === 0) {
-                resultTextDiv.innerHTML = "提示：載入的城市數據為空。";
-                findCityButton.disabled = true;
-            } else if (currentDataIdentifier && auth.currentUser) {
-                findCityButton.disabled = false;
-            }
-        })
-        .catch(e => {
-            console.error("無法載入城市數據:", e);
-            resultTextDiv.innerHTML = "錯誤：無法載入城市數據。";
-            findCityButton.disabled = true;
-        });
 
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
