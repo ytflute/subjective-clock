@@ -1830,31 +1830,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 0);
     }
 
-    // 添加分頁按鈕的觸控事件處理
+    // 重寫分頁按鈕的事件處理
     document.addEventListener('DOMContentLoaded', function() {
         const tabButtons = document.getElementsByClassName('tab-button');
         Array.from(tabButtons).forEach(button => {
-            // 移除原有的 onclick 屬性
             const tabName = button.getAttribute('data-tab');
-            if (tabName) {
-                button.removeAttribute('onclick');
-                
-                // 添加點擊事件
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openTab(e, tabName);
-                });
+            if (!tabName) return;
 
-                // 修改觸控事件處理
-                button.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    openTab(e, tabName);
-                }, { passive: false });
+            // 移除所有現有的事件監聽器
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
 
-                // 移除可能干擾觸控的事件監聽器
-                button.removeEventListener('touchmove', () => {});
-                button.removeEventListener('touchend', () => {});
-            }
+            // 添加新的點擊事件處理
+            newButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openTab(e, tabName);
+            });
+
+            // 添加新的觸控事件處理
+            newButton.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openTab(e, tabName);
+            }, { passive: false });
         });
     });
 
@@ -1876,6 +1875,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             -webkit-user-select: none;
             position: relative;
             z-index: 1;
+            display: inline-block;
+            text-align: center;
         }
         .tab-button.active {
             border-bottom-color: #e8af10;
@@ -1897,8 +1898,29 @@ document.addEventListener('DOMContentLoaded', async () => {
                 margin: 0 2px;
                 font-size: 14px;
                 padding: 10px 8px;
-                min-width: 60px; /* 確保按鈕有最小寬度 */
-                touch-action: manipulation; /* 優化觸控行為 */
+                min-width: 60px;
+                touch-action: manipulation;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+            }
+            .tabs {
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .tabs::-webkit-scrollbar {
+                display: none;
             }
         }
     `;
