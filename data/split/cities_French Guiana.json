@@ -1,0 +1,7372 @@
+[
+  {
+    "city": "Zombi",
+    "city_zh": "Zombi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.604,
+    "longitude": -52.39292
+  },
+  {
+    "city": "Zidok",
+    "city_zh": "Zidok",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 2.25928,
+    "longitude": -52.87575
+  },
+  {
+    "city": "Village Yofé",
+    "city_zh": "Village Yofé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.43288,
+    "longitude": -53.67545
+  },
+  {
+    "city": "Winiwé",
+    "city_zh": "Winiwé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.67544,
+    "longitude": -53.96008
+  },
+  {
+    "city": "Wilfried",
+    "city_zh": "Wilfried",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.70994,
+    "longitude": -54.07612
+  },
+  {
+    "city": "Wéti-Chiton",
+    "city_zh": "Wéti-Chiton",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.75518,
+    "longitude": -54.46225
+  },
+  {
+    "city": "Wakapou",
+    "city_zh": "Wakapou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.67331,
+    "longitude": -54.07664
+  },
+  {
+    "city": "Village Saramaka",
+    "city_zh": "Village Saramaka",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15686,
+    "longitude": -52.63755
+  },
+  {
+    "city": "Acarouany",
+    "city_zh": "Acarouany",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.45179,
+    "longitude": -53.78588
+  },
+  {
+    "city": "Village Saramaca",
+    "city_zh": "Village Saramaca",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.4013,
+    "longitude": -52.39229
+  },
+  {
+    "city": "Village Inipi",
+    "city_zh": "Village Inipi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.25,
+    "longitude": -52.95
+  },
+  {
+    "city": "Village Galibis",
+    "city_zh": "Village Galibis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4,
+    "longitude": -54.11667
+  },
+  {
+    "city": "Village Créole",
+    "city_zh": "Village Créole",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.21999,
+    "longitude": -53.70628
+  },
+  {
+    "city": "Village Chinois",
+    "city_zh": "Village Chinois",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93332,
+    "longitude": -52.33348
+  },
+  {
+    "city": "Village Brésilien",
+    "city_zh": "Village Brésilien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15296,
+    "longitude": -52.64658
+  },
+  {
+    "city": "Vieux Grand-Santi",
+    "city_zh": "Vieux Grand-Santi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.31904,
+    "longitude": -54.38663
+  },
+  {
+    "city": "Victor",
+    "city_zh": "Victor",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92814,
+    "longitude": -52.31285
+  },
+  {
+    "city": "Vénus",
+    "city_zh": "Vénus",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.18935,
+    "longitude": -52.97523
+  },
+  {
+    "city": "Trou Poissons",
+    "city_zh": "Trou Poissons",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.42827,
+    "longitude": -53.08936
+  },
+  {
+    "city": "Trou Caïmans",
+    "city_zh": "Trou Caïmans",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4507,
+    "longitude": -53.13923
+  },
+  {
+    "city": "Trou Biran",
+    "city_zh": "Trou Biran",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92862,
+    "longitude": -52.29766
+  },
+  {
+    "city": "Trois Sauts",
+    "city_zh": "Trois Sauts",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 2.24504,
+    "longitude": -52.87724
+  },
+  {
+    "city": "Trois Rois",
+    "city_zh": "Trois Rois",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94818,
+    "longitude": -52.53102
+  },
+  {
+    "city": "Toussine",
+    "city_zh": "Toussine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.76917,
+    "longitude": -53.89366
+  },
+  {
+    "city": "Tonnégrande",
+    "city_zh": "Tonnégrande",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83085,
+    "longitude": -52.44321
+  },
+  {
+    "city": "Tonate",
+    "city_zh": "Tonate",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01171,
+    "longitude": -52.47241
+  },
+  {
+    "city": "Village Tintin",
+    "city_zh": "Village Tintin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.23796,
+    "longitude": -52.25693
+  },
+  {
+    "city": "Théophane",
+    "city_zh": "Théophane",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.71504,
+    "longitude": -54.0779
+  },
+  {
+    "city": "Terre Rouge",
+    "city_zh": "Terre Rouge",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.63781,
+    "longitude": -53.74539
+  },
+  {
+    "city": "Terre Rouge",
+    "city_zh": "Terre Rouge",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.45064,
+    "longitude": -54.04994
+  },
+  {
+    "city": "Taponté",
+    "city_zh": "Taponté",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.27043,
+    "longitude": -54.12262
+  },
+  {
+    "city": "Tampok",
+    "city_zh": "Tampok",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.32363,
+    "longitude": -53.83532
+  },
+  {
+    "city": "Tampak",
+    "city_zh": "Tampak",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.94548,
+    "longitude": -51.78594
+  },
+  {
+    "city": "Taconnet",
+    "city_zh": "Taconnet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.03333,
+    "longitude": -52.51667
+  },
+  {
+    "city": "Suzini",
+    "city_zh": "Suzini",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92854,
+    "longitude": -52.29017
+  },
+  {
+    "city": "Sursaut",
+    "city_zh": "Sursaut",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96083,
+    "longitude": -53.1508
+  },
+  {
+    "city": "Stoupan",
+    "city_zh": "Stoupan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.77908,
+    "longitude": -52.34352
+  },
+  {
+    "city": "Spes",
+    "city_zh": "Spes",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.51668,
+    "longitude": -52.40255
+  },
+  {
+    "city": "Sparouine",
+    "city_zh": "Sparouine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27136,
+    "longitude": -54.25945
+  },
+  {
+    "city": "Soula",
+    "city_zh": "Soula",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93057,
+    "longitude": -52.40791
+  },
+  {
+    "city": "Sophie",
+    "city_zh": "Sophie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.96216,
+    "longitude": -53.49222
+  },
+  {
+    "city": "Sonnelle",
+    "city_zh": "Sonnelle",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.66277,
+    "longitude": -53.96446
+  },
+  {
+    "city": "Sokoumou",
+    "city_zh": "Sokoumou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.05536,
+    "longitude": -52.68474
+  },
+  {
+    "city": "Sinnamary",
+    "city_zh": "Sinnamary",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.37676,
+    "longitude": -52.95679
+  },
+  {
+    "city": "Simon",
+    "city_zh": "Simon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.57089,
+    "longitude": -52.64353
+  },
+  {
+    "city": "Senkinen",
+    "city_zh": "Senkinen",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.1,
+    "longitude": -54.36667
+  },
+  {
+    "city": "Savane Manuel",
+    "city_zh": "Savane Manuel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.35,
+    "longitude": -52.95
+  },
+  {
+    "city": "Saut Tigre",
+    "city_zh": "Saut Tigre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01314,
+    "longitude": -53.02915
+  },
+  {
+    "city": "Saut Sabbat",
+    "city_zh": "Saut Sabbat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.39005,
+    "longitude": -53.67199
+  },
+  {
+    "city": "Saulnier",
+    "city_zh": "Saulnier",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.26976,
+    "longitude": -52.9644
+  },
+  {
+    "city": "Saül",
+    "city_zh": "Saül",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.62307,
+    "longitude": -53.20918
+  },
+  {
+    "city": "Dégrad Saramaka",
+    "city_zh": "Dégrad Saramaka",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01485,
+    "longitude": -52.69883
+  },
+  {
+    "city": "Santonia",
+    "city_zh": "Santonia",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.73676,
+    "longitude": -54.45943
+  },
+  {
+    "city": "Sania",
+    "city_zh": "Sania",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.19185,
+    "longitude": -54.31936
+  },
+  {
+    "city": "Saint-Pierre",
+    "city_zh": "Saint-Pierre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85492,
+    "longitude": -52.32478
+  },
+  {
+    "city": "Saint-Paul",
+    "city_zh": "Saint-Paul",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.82514,
+    "longitude": -53.3071
+  },
+  {
+    "city": "Saint-Paul",
+    "city_zh": "Saint-Paul",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.3955,
+    "longitude": -54.38276
+  },
+  {
+    "city": "Saint-Maurice",
+    "city_zh": "Saint-Maurice",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48481,
+    "longitude": -54.02909
+  },
+  {
+    "city": "Saint-Lucien",
+    "city_zh": "Saint-Lucien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.15088,
+    "longitude": -52.53584
+  },
+  {
+    "city": "Saint-Louis",
+    "city_zh": "Saint-Louis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4743,
+    "longitude": -54.04622
+  },
+  {
+    "city": "Saint-Louis",
+    "city_zh": "Saint-Louis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.03172,
+    "longitude": -51.68825
+  },
+  {
+    "city": "Saint-Laurent-du-Maroni",
+    "city_zh": "马罗尼河畔圣洛朗",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50153,
+    "longitude": -54.02916
+  },
+  {
+    "city": "Saint-Joseph",
+    "city_zh": "Saint-Joseph",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.80169,
+    "longitude": -53.15992
+  },
+  {
+    "city": "Saint-Jean",
+    "city_zh": "Saint-Jean",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.40538,
+    "longitude": -54.07896
+  },
+  {
+    "city": "Saint-Georges",
+    "city_zh": "Saint-Georges",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.88857,
+    "longitude": -51.80243
+  },
+  {
+    "city": "Saint-Eugène",
+    "city_zh": "Saint-Eugène",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84897,
+    "longitude": -53.07322
+  },
+  {
+    "city": "Sainte-Thérèse",
+    "city_zh": "Sainte-Thérèse",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.76301,
+    "longitude": -52.32702
+  },
+  {
+    "city": "Sainte-Marie-les-Mines",
+    "city_zh": "Sainte-Marie-les-Mines",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.50615,
+    "longitude": -52.4477
+  },
+  {
+    "city": "Saint-Élie",
+    "city_zh": "Saint-Élie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.82426,
+    "longitude": -53.28821
+  },
+  {
+    "city": "Sainte-Anne",
+    "city_zh": "Sainte-Anne",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.58361,
+    "longitude": -52.45552
+  },
+  {
+    "city": "Sainte-Anne",
+    "city_zh": "Sainte-Anne",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.80422,
+    "longitude": -53.11013
+  },
+  {
+    "city": "Saint-Bernard",
+    "city_zh": "Saint-Bernard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.17011,
+    "longitude": -52.94783
+  },
+  {
+    "city": "Saint-Auguste",
+    "city_zh": "Saint-Auguste",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83591,
+    "longitude": -53.30037
+  },
+  {
+    "city": "Saint-Antoine",
+    "city_zh": "Saint-Antoine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.59597,
+    "longitude": -53.88847
+  },
+  {
+    "city": "Ruben",
+    "city_zh": "Ruben",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.3603,
+    "longitude": -54.13281
+  },
+  {
+    "city": "Roura",
+    "city_zh": "Roura",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.72874,
+    "longitude": -52.32495
+  },
+  {
+    "city": "Rococoua",
+    "city_zh": "Rococoua",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.44242,
+    "longitude": -53.30556
+  },
+  {
+    "city": "Roche Tablon",
+    "city_zh": "Roche Tablon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.63333,
+    "longitude": -52.38333
+  },
+  {
+    "city": "Roches Blanches",
+    "city_zh": "Roches Blanches",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49445,
+    "longitude": -53.32102
+  },
+  {
+    "city": "Roche Brigandin",
+    "city_zh": "Roche Brigandin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.45,
+    "longitude": -53.0
+  },
+  {
+    "city": "Risquetout",
+    "city_zh": "Risquetout",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91639,
+    "longitude": -52.51246
+  },
+  {
+    "city": "Repentir",
+    "city_zh": "Repentir",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.83827,
+    "longitude": -53.39208
+  },
+  {
+    "city": "Rémire",
+    "city_zh": "Rémire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88585,
+    "longitude": -52.27857
+  },
+  {
+    "city": "Régina",
+    "city_zh": "Régina",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.313,
+    "longitude": -52.13083
+  },
+  {
+    "city": "Quesnel",
+    "city_zh": "Quesnel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9363,
+    "longitude": -52.49766
+  },
+  {
+    "city": "Quatre Carbets",
+    "city_zh": "Quatre Carbets",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.76667,
+    "longitude": -52.2
+  },
+  {
+    "city": "Providence",
+    "city_zh": "Providence",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.62003,
+    "longitude": -54.41479
+  },
+  {
+    "city": "Port Inini",
+    "city_zh": "Port Inini",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.81652,
+    "longitude": -52.48234
+  },
+  {
+    "city": "Portal",
+    "city_zh": "Portal",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41904,
+    "longitude": -54.09935
+  },
+  {
+    "city": "Populo",
+    "city_zh": "Populo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.6127,
+    "longitude": -53.81712
+  },
+  {
+    "city": "Ponta",
+    "city_zh": "Ponta",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.21648,
+    "longitude": -54.30527
+  },
+  {
+    "city": "Pointe Isère",
+    "city_zh": "Pointe Isère",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.73612,
+    "longitude": -53.8577
+  },
+  {
+    "city": "Pointe Combi",
+    "city_zh": "Pointe Combi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.31166,
+    "longitude": -52.95475
+  },
+  {
+    "city": "Pointe Caïman",
+    "city_zh": "Pointe Caïman",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.98993,
+    "longitude": -52.66608
+  },
+  {
+    "city": "Placer Trésor",
+    "city_zh": "Placer Trésor",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.58628,
+    "longitude": -52.26536
+  },
+  {
+    "city": "Chantal",
+    "city_zh": "Chantal",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.40353,
+    "longitude": -54.36742
+  },
+  {
+    "city": "Pina",
+    "city_zh": "Pina",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 2.28313,
+    "longitude": -52.85928
+  },
+  {
+    "city": "Piliwa",
+    "city_zh": "Piliwa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.73157,
+    "longitude": -53.89793
+  },
+  {
+    "city": "Pikinn Tabiki",
+    "city_zh": "Pikinn Tabiki",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.2399,
+    "longitude": -54.07697
+  },
+  {
+    "city": "Picard",
+    "city_zh": "Picard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.20508,
+    "longitude": -52.26066
+  },
+  {
+    "city": "Petit Saut",
+    "city_zh": "Petit Saut",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.36078,
+    "longitude": -53.6795
+  },
+  {
+    "city": "Petit Placer",
+    "city_zh": "Petit Placer",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.50996,
+    "longitude": -52.48616
+  },
+  {
+    "city": "Petit Laussat",
+    "city_zh": "Petit Laussat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.45,
+    "longitude": -53.88333
+  },
+  {
+    "city": "Petit Fouet",
+    "city_zh": "Petit Fouet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8998,
+    "longitude": -54.47364
+  },
+  {
+    "city": "Perdu Temps",
+    "city_zh": "Perdu Temps",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.99342,
+    "longitude": -53.37416
+  },
+  {
+    "city": "Péléa",
+    "city_zh": "Péléa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.27251,
+    "longitude": -54.11928
+  },
+  {
+    "city": "Pédima",
+    "city_zh": "Pédima",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.3096,
+    "longitude": -54.09386
+  },
+  {
+    "city": "Paul Isnard",
+    "city_zh": "Paul Isnard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.77613,
+    "longitude": -54.0085
+  },
+  {
+    "city": "Patience",
+    "city_zh": "Patience",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.22597,
+    "longitude": -54.29902
+  },
+  {
+    "city": "Patawa",
+    "city_zh": "Patawa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83851,
+    "longitude": -52.51127
+  },
+  {
+    "city": "Pascaud",
+    "city_zh": "Pascaud",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8651,
+    "longitude": -52.27346
+  },
+  {
+    "city": "Pascal",
+    "city_zh": "Pascal",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.25584,
+    "longitude": -54.38114
+  },
+  {
+    "city": "Parcours Noir",
+    "city_zh": "Parcours Noir",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.41121,
+    "longitude": -52.13394
+  },
+  {
+    "city": "Papaichton",
+    "city_zh": "Papaichton",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.80579,
+    "longitude": -54.14461
+  },
+  {
+    "city": "Palassissi",
+    "city_zh": "Palassissi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.28406,
+    "longitude": -54.08417
+  },
+  {
+    "city": "Ouaqui",
+    "city_zh": "Ouaqui",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.45358,
+    "longitude": -53.99197
+  },
+  {
+    "city": "Ouanary",
+    "city_zh": "Ouanary",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.20869,
+    "longitude": -51.67408
+  },
+  {
+    "city": "Organabo",
+    "city_zh": "Organabo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.54739,
+    "longitude": -53.45457
+  },
+  {
+    "city": "Opoya",
+    "city_zh": "Opoya",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.37217,
+    "longitude": -54.05261
+  },
+  {
+    "city": "Nouvelle Alliance",
+    "city_zh": "Nouvelle Alliance",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.01085,
+    "longitude": -51.74078
+  },
+  {
+    "city": "Nouveau Camp",
+    "city_zh": "Nouveau Camp",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.5637,
+    "longitude": -53.91829
+  },
+  {
+    "city": "Niewe Rust",
+    "city_zh": "Niewe Rust",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.58333,
+    "longitude": -55.03333
+  },
+  {
+    "city": "Nasson",
+    "city_zh": "Nasson",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.81221,
+    "longitude": -54.46447
+  },
+  {
+    "city": "Nancibo",
+    "city_zh": "Nancibo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.67279,
+    "longitude": -52.45584
+  },
+  {
+    "city": "Moyoco",
+    "city_zh": "Moyoco",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16891,
+    "longitude": -52.65463
+  },
+  {
+    "city": "Moussoué Santi Tabiki",
+    "city_zh": "Moussoué Santi Tabiki",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.58206,
+    "longitude": -54.41925
+  },
+  {
+    "city": "Moucaya",
+    "city_zh": "Moucaya",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.52418,
+    "longitude": -53.38161
+  },
+  {
+    "city": "Morpio",
+    "city_zh": "Morpio",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48769,
+    "longitude": -53.30643
+  },
+  {
+    "city": "Mont Valérien",
+    "city_zh": "Mont Valérien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9332,
+    "longitude": -53.04614
+  },
+  {
+    "city": "Montsinéry-Tonnegrande",
+    "city_zh": "Montsinéry-Tonnegrande",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9,
+    "longitude": -52.5
+  },
+  {
+    "city": "Rémire-Montjoly",
+    "city_zh": "Rémire-Montjoly",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91667,
+    "longitude": -52.26667
+  },
+  {
+    "city": "Montagne Sable",
+    "city_zh": "Montagne Sable",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.5782,
+    "longitude": -53.60028
+  },
+  {
+    "city": "Montabo",
+    "city_zh": "Montabo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94344,
+    "longitude": -52.30515
+  },
+  {
+    "city": "Mofina",
+    "city_zh": "Mofina",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.18273,
+    "longitude": -54.38283
+  },
+  {
+    "city": "Mompé Soula",
+    "city_zh": "Mompé Soula",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.55536,
+    "longitude": -54.41046
+  },
+  {
+    "city": "Mogès",
+    "city_zh": "Mogès",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.79318,
+    "longitude": -52.34146
+  },
+  {
+    "city": "Ménado",
+    "city_zh": "Ménado",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.60846,
+    "longitude": -52.41377
+  },
+  {
+    "city": "Medeyre",
+    "city_zh": "Medeyre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.60615,
+    "longitude": -53.65693
+  },
+  {
+    "city": "Mayman",
+    "city_zh": "Mayman",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.18183,
+    "longitude": -54.32462
+  },
+  {
+    "city": "Matoury",
+    "city_zh": "Matoury",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84921,
+    "longitude": -52.32355
+  },
+  {
+    "city": "Matiti",
+    "city_zh": "Matiti",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.03313,
+    "longitude": -52.57423
+  },
+  {
+    "city": "Mathurin",
+    "city_zh": "Mathurin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.52583,
+    "longitude": -52.53529
+  },
+  {
+    "city": "Maripa-Village",
+    "city_zh": "Maripa-Village",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.63333,
+    "longitude": -54.05
+  },
+  {
+    "city": "Maripasoula",
+    "city_zh": "Maripasoula",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.64155,
+    "longitude": -54.03167
+  },
+  {
+    "city": "Montagne Maripa",
+    "city_zh": "Montagne Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.41667,
+    "longitude": -52.33333
+  },
+  {
+    "city": "Maripa",
+    "city_zh": "Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Belem",
+    "latitude": 3.80332,
+    "longitude": -51.88604
+  },
+  {
+    "city": "Marignan",
+    "city_zh": "Marignan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.63333,
+    "longitude": -52.45
+  },
+  {
+    "city": "Mariani",
+    "city_zh": "Mariani",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15203,
+    "longitude": -53.6603
+  },
+  {
+    "city": "Mango",
+    "city_zh": "Mango",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9334,
+    "longitude": -52.3179
+  },
+  {
+    "city": "Mana",
+    "city_zh": "Mana",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.66906,
+    "longitude": -53.77897
+  },
+  {
+    "city": "Mamaribo",
+    "city_zh": "Mamaribo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.51091,
+    "longitude": -53.35203
+  },
+  {
+    "city": "Maman Valentin",
+    "city_zh": "Maman Valentin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.32681,
+    "longitude": -53.66106
+  },
+  {
+    "city": "Malterre",
+    "city_zh": "Malterre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92623,
+    "longitude": -52.32421
+  },
+  {
+    "city": "Malaïtawa Patatpe",
+    "city_zh": "Malaïtawa Patatpe",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.1419,
+    "longitude": -54.19821
+  },
+  {
+    "city": "Magasin Créole",
+    "city_zh": "Magasin Créole",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.20284,
+    "longitude": -54.39258
+  },
+  {
+    "city": "Mafi",
+    "city_zh": "Mafi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.29882,
+    "longitude": -52.11448
+  },
+  {
+    "city": "Macrabo",
+    "city_zh": "Macrabo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.7921,
+    "longitude": -52.3543
+  },
+  {
+    "city": "Macouria",
+    "city_zh": "Macouria",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91216,
+    "longitude": -52.37432
+  },
+  {
+    "city": "Macoua",
+    "city_zh": "Macoua",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.53071,
+    "longitude": -53.40586
+  },
+  {
+    "city": "Loulouïe",
+    "city_zh": "Loulouïe",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.86667,
+    "longitude": -53.03333
+  },
+  {
+    "city": "Loulette",
+    "city_zh": "Loulette",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.62437,
+    "longitude": -53.87911
+  },
+  {
+    "city": "Loka",
+    "city_zh": "Loka",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.82985,
+    "longitude": -54.19077
+  },
+  {
+    "city": "Lissa",
+    "city_zh": "Lissa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9789,
+    "longitude": -54.44005
+  },
+  {
+    "city": "Lipo Lipo",
+    "city_zh": "Lipo Lipo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.29802,
+    "longitude": -54.05469
+  },
+  {
+    "city": "Lioni",
+    "city_zh": "Lioni",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.09331,
+    "longitude": -54.33977
+  },
+  {
+    "city": "L'Horizon",
+    "city_zh": "L'Horizon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.13663,
+    "longitude": -53.64884
+  },
+  {
+    "city": "Les Roches",
+    "city_zh": "Les Roches",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16216,
+    "longitude": -52.63253
+  },
+  {
+    "city": "Les Roches",
+    "city_zh": "Les Roches",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15,
+    "longitude": -52.63333
+  },
+  {
+    "city": "Les Malgaches",
+    "city_zh": "Les Malgaches",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49373,
+    "longitude": -54.01179
+  },
+  {
+    "city": "Les Hattes",
+    "city_zh": "Les Hattes",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.74401,
+    "longitude": -53.94365
+  },
+  {
+    "city": "Le Rallye",
+    "city_zh": "Le Rallye",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.04371,
+    "longitude": -52.95712
+  },
+  {
+    "city": "Léonce",
+    "city_zh": "Léonce",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.53788,
+    "longitude": -52.65606
+  },
+  {
+    "city": "L'Enfant Perdu",
+    "city_zh": "L'Enfant Perdu",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.85797,
+    "longitude": -54.21564
+  },
+  {
+    "city": "Le Larivot",
+    "city_zh": "Le Larivot",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90255,
+    "longitude": -52.35913
+  },
+  {
+    "city": "Le Gallion",
+    "city_zh": "Le Gallion",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.78314,
+    "longitude": -52.429
+  },
+  {
+    "city": "Le Dix-Septième",
+    "city_zh": "Le Dix-Septième",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83333,
+    "longitude": -52.35
+  },
+  {
+    "city": "Le Califourchon",
+    "city_zh": "Le Califourchon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83922,
+    "longitude": -52.34085
+  },
+  {
+    "city": "Le Bourg",
+    "city_zh": "Le Bourg",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15293,
+    "longitude": -52.64429
+  },
+  {
+    "city": "La Villette",
+    "city_zh": "La Villette",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94559,
+    "longitude": -53.16157
+  },
+  {
+    "city": "Lavaud",
+    "city_zh": "Lavaud",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.00291,
+    "longitude": -54.16919
+  },
+  {
+    "city": "La Valère",
+    "city_zh": "La Valère",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83333,
+    "longitude": -55.33333
+  },
+  {
+    "city": "La Valère",
+    "city_zh": "La Valère",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83361,
+    "longitude": -52.32332
+  },
+  {
+    "city": "Laussat",
+    "city_zh": "Laussat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48835,
+    "longitude": -53.55876
+  },
+  {
+    "city": "Langa Tabiki",
+    "city_zh": "Langa Tabiki",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9864,
+    "longitude": -54.43583
+  },
+  {
+    "city": "Lamonet",
+    "city_zh": "Lamonet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.65,
+    "longitude": -54.01667
+  },
+  {
+    "city": "La Mirande",
+    "city_zh": "La Mirande",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.87499,
+    "longitude": -52.33772
+  },
+  {
+    "city": "Lamérique",
+    "city_zh": "Lamérique",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.33333,
+    "longitude": -53.0
+  },
+  {
+    "city": "La Madeleine",
+    "city_zh": "La Madeleine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92152,
+    "longitude": -52.32341
+  },
+  {
+    "city": "La Levée",
+    "city_zh": "La Levée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83195,
+    "longitude": -52.30826
+  },
+  {
+    "city": "La Désirée",
+    "city_zh": "La Désirée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84894,
+    "longitude": -52.33952
+  },
+  {
+    "city": "La Dame Blanche",
+    "city_zh": "La Dame Blanche",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91942,
+    "longitude": -52.36618
+  },
+  {
+    "city": "La Chaumière",
+    "city_zh": "La Chaumière",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88441,
+    "longitude": -52.3587
+  },
+  {
+    "city": "La Brande",
+    "city_zh": "La Brande",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85952,
+    "longitude": -52.31824
+  },
+  {
+    "city": "La Boue",
+    "city_zh": "La Boue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.14473,
+    "longitude": -52.46861
+  },
+  {
+    "city": "Kwassié",
+    "city_zh": "Kwassié",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.95098,
+    "longitude": -54.43633
+  },
+  {
+    "city": "Kourou",
+    "city_zh": "库鲁",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16281,
+    "longitude": -52.64265
+  },
+  {
+    "city": "Kouman-Kouman",
+    "city_zh": "Kouman-Kouman",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.035,
+    "longitude": -51.68774
+  },
+  {
+    "city": "Couachinana",
+    "city_zh": "Couachinana",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.62511,
+    "longitude": -53.69794
+  },
+  {
+    "city": "Couachi",
+    "city_zh": "Couachi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.61862,
+    "longitude": -53.69807
+  },
+  {
+    "city": "Kormontibo",
+    "city_zh": "Kormontibo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.80415,
+    "longitude": -54.14118
+  },
+  {
+    "city": "Kofi Kamiza",
+    "city_zh": "Kofi Kamiza",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.18333,
+    "longitude": -54.4
+  },
+  {
+    "city": "Kepioudou",
+    "city_zh": "Kepioudou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97869,
+    "longitude": -54.43867
+  },
+  {
+    "city": "Kaw",
+    "city_zh": "Kaw",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.4865,
+    "longitude": -52.03706
+  },
+  {
+    "city": "Cariacou",
+    "city_zh": "Cariacou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.81173,
+    "longitude": -53.17124
+  },
+  {
+    "city": "Kantali",
+    "city_zh": "Kantali",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41667,
+    "longitude": -54.31667
+  },
+  {
+    "city": "Kagnouma",
+    "city_zh": "Kagnouma",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 2.62636,
+    "longitude": -52.54696
+  },
+  {
+    "city": "Junique",
+    "city_zh": "Junique",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16667,
+    "longitude": -54.03333
+  },
+  {
+    "city": "John",
+    "city_zh": "John",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96857,
+    "longitude": -53.57707
+  },
+  {
+    "city": "Jojo",
+    "city_zh": "Jojo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.40638,
+    "longitude": -52.99943
+  },
+  {
+    "city": "Javouhey",
+    "city_zh": "Javouhey",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.60659,
+    "longitude": -53.81855
+  },
+  {
+    "city": "Janvier",
+    "city_zh": "Janvier",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16667,
+    "longitude": -54.15
+  },
+  {
+    "city": "Jalbot",
+    "city_zh": "Jalbot",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.19992,
+    "longitude": -52.62455
+  },
+  {
+    "city": "Itousanseng",
+    "city_zh": "Itousanseng",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 2.19635,
+    "longitude": -52.91891
+  },
+  {
+    "city": "Iracoubo",
+    "city_zh": "Iracoubo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47952,
+    "longitude": -53.20524
+  },
+  {
+    "city": "Îlet Tortue",
+    "city_zh": "Îlet Tortue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.2,
+    "longitude": -52.96667
+  },
+  {
+    "city": "Îlet Malouin",
+    "city_zh": "Îlet Malouin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9296,
+    "longitude": -52.3335
+  },
+  {
+    "city": "Îlet Lézard",
+    "city_zh": "Îlet Lézard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.04863,
+    "longitude": -53.79214
+  },
+  {
+    "city": "Guisan Bourg",
+    "city_zh": "Guisan Bourg",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.4085,
+    "longitude": -51.93097
+  },
+  {
+    "city": "Guatemala",
+    "city_zh": "Guatemala",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.14421,
+    "longitude": -52.62763
+  },
+  {
+    "city": "Grosse Roche",
+    "city_zh": "Grosse Roche",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.25053,
+    "longitude": -53.41158
+  },
+  {
+    "city": "Grand Village",
+    "city_zh": "Grand Village",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.58059,
+    "longitude": -53.72062
+  },
+  {
+    "city": "Grand-Santi",
+    "city_zh": "Grand-Santi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.27295,
+    "longitude": -54.38146
+  },
+  {
+    "city": "Grand Marquis",
+    "city_zh": "Grand Marquis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.72409,
+    "longitude": -53.57996
+  },
+  {
+    "city": "Grand Lac",
+    "city_zh": "Grand Lac",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.81724,
+    "longitude": -53.70511
+  },
+  {
+    "city": "Grand Siton",
+    "city_zh": "Grand Siton",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.28002,
+    "longitude": -54.38761
+  },
+  {
+    "city": "Grand Carbet",
+    "city_zh": "Grand Carbet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.65,
+    "longitude": -53.83333
+  },
+  {
+    "city": "Grand Bala",
+    "city_zh": "Grand Bala",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.393,
+    "longitude": -54.30337
+  },
+  {
+    "city": "Godebert",
+    "city_zh": "Godebert",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.52025,
+    "longitude": -53.96003
+  },
+  {
+    "city": "Gibelin",
+    "city_zh": "Gibelin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8527,
+    "longitude": -52.32436
+  },
+  {
+    "city": "Gaston",
+    "city_zh": "Gaston",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.28677,
+    "longitude": -52.12573
+  },
+  {
+    "city": "Gaa Kaba",
+    "city_zh": "Gaa Kaba",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.48869,
+    "longitude": -54.44221
+  },
+  {
+    "city": "Franconie",
+    "city_zh": "Franconie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9688,
+    "longitude": -53.12506
+  },
+  {
+    "city": "Fracas",
+    "city_zh": "Fracas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.75953,
+    "longitude": -53.6809
+  },
+  {
+    "city": "Fourgassié",
+    "city_zh": "Fourgassié",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.62509,
+    "longitude": -52.30961
+  },
+  {
+    "city": "Fortuné",
+    "city_zh": "Fortuné",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.55829,
+    "longitude": -52.29841
+  },
+  {
+    "city": "Florissante",
+    "city_zh": "Florissante",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.39059,
+    "longitude": -52.8991
+  },
+  {
+    "city": "Flèche",
+    "city_zh": "Flèche",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.52743,
+    "longitude": -53.38794
+  },
+  {
+    "city": "Filon Doyle",
+    "city_zh": "Filon Doyle",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.50871,
+    "longitude": -52.46167
+  },
+  {
+    "city": "Faubourg L'Abri",
+    "city_zh": "Faubourg L'Abri",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93604,
+    "longitude": -52.32177
+  },
+  {
+    "city": "Farnous",
+    "city_zh": "Farnous",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94813,
+    "longitude": -52.42267
+  },
+  {
+    "city": "Mine Espérance",
+    "city_zh": "Mine Espérance",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.65059,
+    "longitude": -54.31377
+  },
+  {
+    "city": "Entoucas",
+    "city_zh": "Entoucas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.48333,
+    "longitude": -54.01667
+  },
+  {
+    "city": "Enfin",
+    "city_zh": "Enfin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.72738,
+    "longitude": -53.94514
+  },
+  {
+    "city": "Elaé",
+    "city_zh": "Elaé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.46571,
+    "longitude": -54.00567
+  },
+  {
+    "city": "Edwin",
+    "city_zh": "Edwin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.68604,
+    "longitude": -53.88965
+  },
+  {
+    "city": "Édouard",
+    "city_zh": "Édouard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.39569,
+    "longitude": -53.8299
+  },
+  {
+    "city": "Edmond",
+    "city_zh": "Edmond",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.60174,
+    "longitude": -52.4443
+  },
+  {
+    "city": "Eau Coulie",
+    "city_zh": "Eau Coulie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93333,
+    "longitude": -52.31667
+  },
+  {
+    "city": "Eau Blanche",
+    "city_zh": "Eau Blanche",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.06667,
+    "longitude": -53.48333
+  },
+  {
+    "city": "Drague",
+    "city_zh": "Drague",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97161,
+    "longitude": -53.17605
+  },
+  {
+    "city": "Dorlin",
+    "city_zh": "Dorlin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.74925,
+    "longitude": -53.55786
+  },
+  {
+    "city": "Doglis",
+    "city_zh": "Doglis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.79428,
+    "longitude": -54.12548
+  },
+  {
+    "city": "Divalon",
+    "city_zh": "Divalon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.75,
+    "longitude": -53.88333
+  },
+  {
+    "city": "Dieu Merci",
+    "city_zh": "Dieu Merci",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.79201,
+    "longitude": -53.26658
+  },
+  {
+    "city": "Dieudonné",
+    "city_zh": "Dieudonné",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9235,
+    "longitude": -53.38793
+  },
+  {
+    "city": "Diamant",
+    "city_zh": "Diamant",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16378,
+    "longitude": -52.64095
+  },
+  {
+    "city": "Devez",
+    "city_zh": "Devez",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.51667,
+    "longitude": -52.43333
+  },
+  {
+    "city": "Deux Jours",
+    "city_zh": "Deux Jours",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01667,
+    "longitude": -53.15
+  },
+  {
+    "city": "Deux Branches",
+    "city_zh": "Deux Branches",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8781,
+    "longitude": -52.99238
+  },
+  {
+    "city": "Déta",
+    "city_zh": "Déta",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.66048,
+    "longitude": -53.58096
+  },
+  {
+    "city": "Désirade",
+    "city_zh": "Désirade",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.73089,
+    "longitude": -53.90752
+  },
+  {
+    "city": "Délices",
+    "city_zh": "Délices",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.73678,
+    "longitude": -53.76503
+  },
+  {
+    "city": "Dégrad Tamanoir",
+    "city_zh": "Dégrad Tamanoir",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41667,
+    "longitude": -53.4
+  },
+  {
+    "city": "Dégrad Savane",
+    "city_zh": "Dégrad Savane",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48707,
+    "longitude": -53.24059
+  },
+  {
+    "city": "Dégrad Saramaka",
+    "city_zh": "Dégrad Saramaka",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01667,
+    "longitude": -52.7
+  },
+  {
+    "city": "Dégrad Saint-Pierre",
+    "city_zh": "Dégrad Saint-Pierre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.11667,
+    "longitude": -52.65
+  },
+  {
+    "city": "Patou",
+    "city_zh": "Patou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.31044,
+    "longitude": -54.1836
+  },
+  {
+    "city": "Dégrad Pierre",
+    "city_zh": "Dégrad Pierre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.95,
+    "longitude": -53.18333
+  },
+  {
+    "city": "Dégrad Perdu Temps",
+    "city_zh": "Dégrad Perdu Temps",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.05,
+    "longitude": -53.4
+  },
+  {
+    "city": "Dégrad Pascal",
+    "city_zh": "Dégrad Pascal",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41667,
+    "longitude": -53.35
+  },
+  {
+    "city": "Dégrad Nicole",
+    "city_zh": "Dégrad Nicole",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.55,
+    "longitude": -53.75
+  },
+  {
+    "city": "Dégrad Ménado",
+    "city_zh": "Dégrad Ménado",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.6242,
+    "longitude": -52.4251
+  },
+  {
+    "city": "Dégrad Maman Piraye",
+    "city_zh": "Dégrad Maman Piraye",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4,
+    "longitude": -53.31667
+  },
+  {
+    "city": "Dégrad la Boue",
+    "city_zh": "Dégrad la Boue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.38333,
+    "longitude": -53.43333
+  },
+  {
+    "city": "Dégrad Jason",
+    "city_zh": "Dégrad Jason",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01667,
+    "longitude": -52.71667
+  },
+  {
+    "city": "Dégrad Janson",
+    "city_zh": "Dégrad Janson",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01667,
+    "longitude": -52.71667
+  },
+  {
+    "city": "Dégrad Jalbot",
+    "city_zh": "Dégrad Jalbot",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.2,
+    "longitude": -52.63333
+  },
+  {
+    "city": "Dégrad Henri",
+    "city_zh": "Dégrad Henri",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41667,
+    "longitude": -53.13333
+  },
+  {
+    "city": "Dégrad Génipa",
+    "city_zh": "Dégrad Génipa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.36667,
+    "longitude": -53.43333
+  },
+  {
+    "city": "Dégrad Fromager",
+    "city_zh": "Dégrad Fromager",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.23333,
+    "longitude": -52.98333
+  },
+  {
+    "city": "Dégrad Florian",
+    "city_zh": "Dégrad Florian",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41667,
+    "longitude": -53.43333
+  },
+  {
+    "city": "Dégrad des Cannes",
+    "city_zh": "Dégrad des Cannes",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85645,
+    "longitude": -52.27481
+  },
+  {
+    "city": "Dégrad Corrèze",
+    "city_zh": "Dégrad Corrèze",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.51893,
+    "longitude": -52.32188
+  },
+  {
+    "city": "Dégrad Canard",
+    "city_zh": "Dégrad Canard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.64127,
+    "longitude": -53.72712
+  },
+  {
+    "city": "Dégrad Brigette",
+    "city_zh": "Dégrad Brigette",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.28333,
+    "longitude": -52.61667
+  },
+  {
+    "city": "Dégrad Balata",
+    "city_zh": "Dégrad Balata",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.0,
+    "longitude": -52.68333
+  },
+  {
+    "city": "Dégourdi",
+    "city_zh": "Dégourdi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97124,
+    "longitude": -53.09125
+  },
+  {
+    "city": "Dadanki",
+    "city_zh": "Dadanki",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.37543,
+    "longitude": -54.36846
+  },
+  {
+    "city": "Dagou Edé",
+    "city_zh": "Dagou Edé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.16667,
+    "longitude": -52.26667
+  },
+  {
+    "city": "Crique Jacques",
+    "city_zh": "Crique Jacques",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.65221,
+    "longitude": -53.83224
+  },
+  {
+    "city": "Crique Anguille",
+    "city_zh": "Crique Anguille",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83265,
+    "longitude": -52.50966
+  },
+  {
+    "city": "Couriège",
+    "city_zh": "Couriège",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.80505,
+    "longitude": -53.29923
+  },
+  {
+    "city": "Counamama",
+    "city_zh": "Counamama",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.45004,
+    "longitude": -53.13625
+  },
+  {
+    "city": "Couasse",
+    "city_zh": "Couasse",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.77685,
+    "longitude": -53.28452
+  },
+  {
+    "city": "Coswine",
+    "city_zh": "Coswine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.64877,
+    "longitude": -53.86345
+  },
+  {
+    "city": "Corossony",
+    "city_zh": "Corossony",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41668,
+    "longitude": -53.03179
+  },
+  {
+    "city": "Coralie",
+    "city_zh": "Coralie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.51067,
+    "longitude": -52.35119
+  },
+  {
+    "city": "Combo",
+    "city_zh": "Combo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88336,
+    "longitude": -52.31765
+  },
+  {
+    "city": "Combi",
+    "city_zh": "Combi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.34328,
+    "longitude": -52.93952
+  },
+  {
+    "city": "Cogneau",
+    "city_zh": "Cogneau",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.86989,
+    "longitude": -52.3235
+  },
+  {
+    "city": "Coco",
+    "city_zh": "Coco",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.3049,
+    "longitude": -52.11705
+  },
+  {
+    "city": "Claude",
+    "city_zh": "Claude",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93482,
+    "longitude": -53.41339
+  },
+  {
+    "city": "Citron",
+    "city_zh": "Citron",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93617,
+    "longitude": -53.42123
+  },
+  {
+    "city": "Citron",
+    "city_zh": "Citron",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.7403,
+    "longitude": -53.96231
+  },
+  {
+    "city": "Cité Thémire",
+    "city_zh": "Cité Thémire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93446,
+    "longitude": -52.32082
+  },
+  {
+    "city": "Cité Rebard",
+    "city_zh": "Cité Rebard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94135,
+    "longitude": -52.31848
+  },
+  {
+    "city": "Cité Quintius",
+    "city_zh": "Cité Quintius",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93007,
+    "longitude": -52.31809
+  },
+  {
+    "city": "Cité Pasteur",
+    "city_zh": "Cité Pasteur",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93981,
+    "longitude": -52.31293
+  },
+  {
+    "city": "Cité Pascaline",
+    "city_zh": "Cité Pascaline",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92452,
+    "longitude": -52.31563
+  },
+  {
+    "city": "Cité Nzilla",
+    "city_zh": "Cité Nzilla",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93696,
+    "longitude": -52.32334
+  },
+  {
+    "city": "Cité Mirza",
+    "city_zh": "Cité Mirza",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93517,
+    "longitude": -52.32357
+  },
+  {
+    "city": "Cité Laurie",
+    "city_zh": "Cité Laurie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93157,
+    "longitude": -52.31547
+  },
+  {
+    "city": "Cité Lafaurie",
+    "city_zh": "Cité Lafaurie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93284,
+    "longitude": -52.32309
+  },
+  {
+    "city": "Cité Jean-François",
+    "city_zh": "Cité Jean-François",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91667,
+    "longitude": -52.31667
+  },
+  {
+    "city": "Cité Homat",
+    "city_zh": "Cité Homat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91667,
+    "longitude": -52.31667
+  },
+  {
+    "city": "Cité Eau Lisette",
+    "city_zh": "Cité Eau Lisette",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92779,
+    "longitude": -52.321
+  },
+  {
+    "city": "Cité des Palétuviers",
+    "city_zh": "Cité des Palétuviers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92875,
+    "longitude": -52.33197
+  },
+  {
+    "city": "Cité des Manguiers",
+    "city_zh": "Cité des Manguiers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93344,
+    "longitude": -52.32542
+  },
+  {
+    "city": "Cité Castor",
+    "city_zh": "Cité Castor",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9441,
+    "longitude": -52.3123
+  },
+  {
+    "city": "Cité Césaire",
+    "city_zh": "Cité Césaire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93146,
+    "longitude": -52.32308
+  },
+  {
+    "city": "Cité Brutus",
+    "city_zh": "Cité Brutus",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93333,
+    "longitude": -52.31667
+  },
+  {
+    "city": "Cité Anatole",
+    "city_zh": "Cité Anatole",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93514,
+    "longitude": -52.31565
+  },
+  {
+    "city": "Cité Ampigny",
+    "city_zh": "Cité Ampigny",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93333,
+    "longitude": -52.31667
+  },
+  {
+    "city": "Cité Alexandre",
+    "city_zh": "Cité Alexandre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93752,
+    "longitude": -52.31375
+  },
+  {
+    "city": "Chire",
+    "city_zh": "Chire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.51219,
+    "longitude": -53.53913
+  },
+  {
+    "city": "Chatonnet",
+    "city_zh": "Chatonnet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88189,
+    "longitude": -53.01889
+  },
+  {
+    "city": "Châton",
+    "city_zh": "Châton",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94433,
+    "longitude": -52.3217
+  },
+  {
+    "city": "Chatenay",
+    "city_zh": "Chatenay",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94251,
+    "longitude": -52.31175
+  },
+  {
+    "city": "Charvein",
+    "city_zh": "Charvein",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.57555,
+    "longitude": -53.89628
+  },
+  {
+    "city": "Changement",
+    "city_zh": "Changement",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.48333,
+    "longitude": -52.41667
+  },
+  {
+    "city": "Central Bief",
+    "city_zh": "Central Bief",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.51035,
+    "longitude": -52.46371
+  },
+  {
+    "city": "Cayenne",
+    "city_zh": "開雲",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9381,
+    "longitude": -52.33455
+  },
+  {
+    "city": "Caussade",
+    "city_zh": "Caussade",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.07001,
+    "longitude": -52.59142
+  },
+  {
+    "city": "Carrière",
+    "city_zh": "Carrière",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.27686,
+    "longitude": -52.67258
+  },
+  {
+    "city": "Carrefour de Mana",
+    "city_zh": "Carrefour de Mana",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.5,
+    "longitude": -53.98333
+  },
+  {
+    "city": "Carbet Toukan",
+    "city_zh": "Carbet Toukan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.2,
+    "longitude": -52.76667
+  },
+  {
+    "city": "Carbets",
+    "city_zh": "Carbets",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.4125,
+    "longitude": -53.88431
+  },
+  {
+    "city": "Carbet Mitan",
+    "city_zh": "Carbet Mitan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93047,
+    "longitude": -53.46251
+  },
+  {
+    "city": "Carbet Médard",
+    "city_zh": "Carbet Médard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.39895,
+    "longitude": -53.6735
+  },
+  {
+    "city": "Capon",
+    "city_zh": "Capon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.91539,
+    "longitude": -51.84308
+  },
+  {
+    "city": "Camp Voltaire",
+    "city_zh": "Camp Voltaire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.05326,
+    "longitude": -54.08979
+  },
+  {
+    "city": "Camp Rochambeau",
+    "city_zh": "Camp Rochambeau",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83333,
+    "longitude": -52.38333
+  },
+  {
+    "city": "Camp Maïpouri",
+    "city_zh": "Camp Maïpouri",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.14902,
+    "longitude": -53.98086
+  },
+  {
+    "city": "Camp de Rémire",
+    "city_zh": "Camp de Rémire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89699,
+    "longitude": -52.26302
+  },
+  {
+    "city": "Camp Caïman",
+    "city_zh": "Camp Caïman",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.56937,
+    "longitude": -52.21721
+  },
+  {
+    "city": "Camopi",
+    "city_zh": "Camopi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.21147,
+    "longitude": -52.46063
+  },
+  {
+    "city": "Camopi",
+    "city_zh": "Camopi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.16887,
+    "longitude": -52.33525
+  },
+  {
+    "city": "Camélie",
+    "city_zh": "Camélie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.05,
+    "longitude": -54.41667
+  },
+  {
+    "city": "Dégrad Cambrouze",
+    "city_zh": "Dégrad Cambrouze",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.76363,
+    "longitude": -53.99891
+  },
+  {
+    "city": "Cacao",
+    "city_zh": "Cacao",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.57123,
+    "longitude": -52.46827
+  },
+  {
+    "city": "Cabassou",
+    "city_zh": "Cabassou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88712,
+    "longitude": -52.30012
+  },
+  {
+    "city": "Brigandin",
+    "city_zh": "Brigandin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41912,
+    "longitude": -52.98381
+  },
+  {
+    "city": "Bourda",
+    "city_zh": "Bourda",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93354,
+    "longitude": -52.29044
+  },
+  {
+    "city": "Boulanger",
+    "city_zh": "Boulanger",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.5622,
+    "longitude": -52.41297
+  },
+  {
+    "city": "Bostok",
+    "city_zh": "Bostok",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.43333,
+    "longitude": -53.96667
+  },
+  {
+    "city": "Bossoé",
+    "city_zh": "Bossoé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.02706,
+    "longitude": -54.42972
+  },
+  {
+    "city": "Borie",
+    "city_zh": "Borie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93429,
+    "longitude": -53.44842
+  },
+  {
+    "city": "Agodé",
+    "city_zh": "Agodé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.83672,
+    "longitude": -54.18778
+  },
+  {
+    "city": "Bonidoro",
+    "city_zh": "Bonidoro",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91459,
+    "longitude": -54.45838
+  },
+  {
+    "city": "Bois Martin",
+    "city_zh": "Bois Martin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.98892,
+    "longitude": -54.43574
+  },
+  {
+    "city": "Bois Bandé",
+    "city_zh": "Bois Bandé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.25299,
+    "longitude": -52.58214
+  },
+  {
+    "city": "Boeuf Mort",
+    "city_zh": "Boeuf Mort",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93305,
+    "longitude": -53.419
+  },
+  {
+    "city": "Boeuf Bois",
+    "city_zh": "Boeuf Bois",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97108,
+    "longitude": -53.06031
+  },
+  {
+    "city": "Biguiston",
+    "city_zh": "Biguiston",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.35678,
+    "longitude": -54.13892
+  },
+  {
+    "city": "Bernard",
+    "city_zh": "Bernard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.73009,
+    "longitude": -53.8994
+  },
+  {
+    "city": "Bénéfice",
+    "city_zh": "Bénéfice",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88314,
+    "longitude": -53.31335
+  },
+  {
+    "city": "Bellevue",
+    "city_zh": "Bellevue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.84403,
+    "longitude": -53.34738
+  },
+  {
+    "city": "Bellevue",
+    "city_zh": "Bellevue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47693,
+    "longitude": -53.26062
+  },
+  {
+    "city": "Bellevue",
+    "city_zh": "Bellevue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.76816,
+    "longitude": -54.11033
+  },
+  {
+    "city": "Belle Étoile",
+    "city_zh": "Belle Étoile",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.98562,
+    "longitude": -52.97102
+  },
+  {
+    "city": "Bec de Sable",
+    "city_zh": "Bec de Sable",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9766,
+    "longitude": -52.75863
+  },
+  {
+    "city": "Beau Soleil",
+    "city_zh": "Beau Soleil",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.86663,
+    "longitude": -52.25218
+  },
+  {
+    "city": "Cité Beauregard",
+    "city_zh": "Cité Beauregard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88406,
+    "longitude": -52.28179
+  },
+  {
+    "city": "Baticane",
+    "city_zh": "Baticane",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48224,
+    "longitude": -53.66404
+  },
+  {
+    "city": "Barkarel",
+    "city_zh": "Barkarel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.56022,
+    "longitude": -54.00177
+  },
+  {
+    "city": "Banlieue-Sud de Cayenne",
+    "city_zh": "Banlieue-Sud de Cayenne",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93333,
+    "longitude": -52.33333
+  },
+  {
+    "city": "Banc de Sable",
+    "city_zh": "Banc de Sable",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.21496,
+    "longitude": -54.2534
+  },
+  {
+    "city": "Banane",
+    "city_zh": "Banane",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.87231,
+    "longitude": -52.53187
+  },
+  {
+    "city": "Balourou",
+    "city_zh": "Balourou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.50883,
+    "longitude": -53.09984
+  },
+  {
+    "city": "Balaté",
+    "city_zh": "Balaté",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48158,
+    "longitude": -54.04125
+  },
+  {
+    "city": "Baïno",
+    "city_zh": "Baïno",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93333,
+    "longitude": -54.45
+  },
+  {
+    "city": "Baduel",
+    "city_zh": "Baduel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93108,
+    "longitude": -52.31029
+  },
+  {
+    "city": "Badek",
+    "city_zh": "Badek",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.94533,
+    "longitude": -52.9949
+  },
+  {
+    "city": "Babel",
+    "city_zh": "Babel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01667,
+    "longitude": -54.43333
+  },
+  {
+    "city": "Austerlitz",
+    "city_zh": "Austerlitz",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.87469,
+    "longitude": -52.36759
+  },
+  {
+    "city": "Vieux Assissi",
+    "city_zh": "Vieux Assissi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.82173,
+    "longitude": -54.1988
+  },
+  {
+    "city": "Apatou",
+    "city_zh": "阿帕图",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15526,
+    "longitude": -54.34311
+  },
+  {
+    "city": "Awala-Yalimapo",
+    "city_zh": "Awala-Yalimapo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.73636,
+    "longitude": -53.90869
+  },
+  {
+    "city": "Anton",
+    "city_zh": "Anton",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.54177,
+    "longitude": -53.42642
+  },
+  {
+    "city": "Antécume Pata",
+    "city_zh": "Antécume Pata",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.28636,
+    "longitude": -54.06938
+  },
+  {
+    "city": "Ankel",
+    "city_zh": "Ankel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.29446,
+    "longitude": -54.20858
+  },
+  {
+    "city": "Angoulême",
+    "city_zh": "Angoulême",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.41106,
+    "longitude": -53.65527
+  },
+  {
+    "city": "Ancien Village Poteau Carré",
+    "city_zh": "Ancien Village Poteau Carré",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.56812,
+    "longitude": -52.40354
+  },
+  {
+    "city": "Ancien Village Hubert",
+    "city_zh": "Ancien Village Hubert",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.1,
+    "longitude": -53.25
+  },
+  {
+    "city": "Ana Kondé",
+    "city_zh": "Ana Kondé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.24637,
+    "longitude": -54.38417
+  },
+  {
+    "city": "Amékan Tabiki",
+    "city_zh": "Amékan Tabiki",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.81667,
+    "longitude": -54.46667
+  },
+  {
+    "city": "Aloïké",
+    "city_zh": "Aloïké",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.6276,
+    "longitude": -53.99136
+  },
+  {
+    "city": "Aloïké",
+    "city_zh": "Aloïké",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.32828,
+    "longitude": -54.05407
+  },
+  {
+    "city": "Alikoto",
+    "city_zh": "Alikoto",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.11523,
+    "longitude": -52.34445
+  },
+  {
+    "city": "Alicia",
+    "city_zh": "Alicia",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.38333,
+    "longitude": -52.91667
+  },
+  {
+    "city": "Akouménaï",
+    "city_zh": "Akouménaï",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.00102,
+    "longitude": -52.36764
+  },
+  {
+    "city": "Akodo",
+    "city_zh": "Akodo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16667,
+    "longitude": -54.33333
+  },
+  {
+    "city": "Akilengui",
+    "city_zh": "Akilengui",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.08333,
+    "longitude": -54.4
+  },
+  {
+    "city": "Aéroplane Kondé",
+    "city_zh": "Aéroplane Kondé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.42737,
+    "longitude": -54.43376
+  },
+  {
+    "city": "Adieu-Vat",
+    "city_zh": "Adieu-Vat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.87236,
+    "longitude": -53.00758
+  },
+  {
+    "city": "Acarouany",
+    "city_zh": "Acarouany",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.5925,
+    "longitude": -53.81448
+  },
+  {
+    "city": "Abouna Sounga",
+    "city_zh": "Abouna Sounga",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.05378,
+    "longitude": -54.35738
+  },
+  {
+    "city": "Twenké",
+    "city_zh": "Twenké",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.37975,
+    "longitude": -54.0575
+  },
+  {
+    "city": "Saint Georges",
+    "city_zh": "Saint Georges",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.88333,
+    "longitude": -51.83333
+  },
+  {
+    "city": "Cité Bonhomme",
+    "city_zh": "Cité Bonhomme",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92302,
+    "longitude": -52.31817
+  },
+  {
+    "city": "Balata-Ouest",
+    "city_zh": "Balata-Ouest",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88671,
+    "longitude": -52.34188
+  },
+  {
+    "city": "Buzaret",
+    "city_zh": "Buzaret",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9424,
+    "longitude": -52.32511
+  },
+  {
+    "city": "Hmong Village",
+    "city_zh": "Hmong Village",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.62827,
+    "longitude": -53.20643
+  },
+  {
+    "city": "Trois Roches",
+    "city_zh": "Trois Roches",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.62422,
+    "longitude": -53.2213
+  },
+  {
+    "city": "La Palmeraie",
+    "city_zh": "La Palmeraie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.5943,
+    "longitude": -53.20793
+  },
+  {
+    "city": "La Marguerite",
+    "city_zh": "La Marguerite",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.99591,
+    "longitude": -52.45106
+  },
+  {
+    "city": "Fazendinha",
+    "city_zh": "Fazendinha",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96915,
+    "longitude": -52.47591
+  },
+  {
+    "city": "La Bordelaise",
+    "city_zh": "La Bordelaise",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.95935,
+    "longitude": -52.47571
+  },
+  {
+    "city": "La Providence",
+    "city_zh": "La Providence",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94828,
+    "longitude": -52.49197
+  },
+  {
+    "city": "Louvrier",
+    "city_zh": "Louvrier",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92828,
+    "longitude": -52.46444
+  },
+  {
+    "city": "Marignan",
+    "city_zh": "Marignan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.79775,
+    "longitude": -52.46146
+  },
+  {
+    "city": "Le Solitaire",
+    "city_zh": "Le Solitaire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.79803,
+    "longitude": -52.43735
+  },
+  {
+    "city": "Lotissement Gay",
+    "city_zh": "Lotissement Gay",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88049,
+    "longitude": -52.36347
+  },
+  {
+    "city": "Les Loussaïs",
+    "city_zh": "Les Loussaïs",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88691,
+    "longitude": -52.3493
+  },
+  {
+    "city": "Village Indien Arawak",
+    "city_zh": "Village Indien Arawak",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89956,
+    "longitude": -52.34241
+  },
+  {
+    "city": "Samuel",
+    "city_zh": "Samuel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.87978,
+    "longitude": -52.33116
+  },
+  {
+    "city": "Cotonnière-Ouest",
+    "city_zh": "Cotonnière-Ouest",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88147,
+    "longitude": -52.3435
+  },
+  {
+    "city": "Cotonnière-Est",
+    "city_zh": "Cotonnière-Est",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88311,
+    "longitude": -52.33144
+  },
+  {
+    "city": "Jean-Marie",
+    "city_zh": "Jean-Marie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88528,
+    "longitude": -52.33405
+  },
+  {
+    "city": "Les Comous",
+    "city_zh": "Les Comous",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85307,
+    "longitude": -52.33377
+  },
+  {
+    "city": "Copaya",
+    "city_zh": "Copaya",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84545,
+    "longitude": -52.32266
+  },
+  {
+    "city": "Le Quartorzième",
+    "city_zh": "Le Quartorzième",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83799,
+    "longitude": -52.34443
+  },
+  {
+    "city": "Calimbe",
+    "city_zh": "Calimbe",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91799,
+    "longitude": -52.31049
+  },
+  {
+    "city": "Camp du Tigre",
+    "city_zh": "Camp du Tigre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91296,
+    "longitude": -52.30855
+  },
+  {
+    "city": "Les Âmes Claires",
+    "city_zh": "Les Âmes Claires",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91235,
+    "longitude": -52.28402
+  },
+  {
+    "city": "Patawa",
+    "city_zh": "Patawa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91382,
+    "longitude": -52.32503
+  },
+  {
+    "city": "La Roseraie",
+    "city_zh": "La Roseraie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91301,
+    "longitude": -52.31908
+  },
+  {
+    "city": "Jasmin",
+    "city_zh": "Jasmin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91601,
+    "longitude": -52.31658
+  },
+  {
+    "city": "CAB",
+    "city_zh": "CAB",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91828,
+    "longitude": -52.31684
+  },
+  {
+    "city": "Simarouba",
+    "city_zh": "Simarouba",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92621,
+    "longitude": -52.29469
+  },
+  {
+    "city": "Almaric",
+    "city_zh": "Almaric",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9279,
+    "longitude": -52.28259
+  },
+  {
+    "city": "Poupon",
+    "city_zh": "Poupon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9224,
+    "longitude": -52.27839
+  },
+  {
+    "city": "Le Grand Beauregard",
+    "city_zh": "Le Grand Beauregard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89169,
+    "longitude": -52.27956
+  },
+  {
+    "city": "Les Abricots",
+    "city_zh": "Les Abricots",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91123,
+    "longitude": -52.27565
+  },
+  {
+    "city": "Les Amaryllis",
+    "city_zh": "Les Amaryllis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91847,
+    "longitude": -52.27543
+  },
+  {
+    "city": "Sainte-Rita",
+    "city_zh": "Sainte-Rita",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91485,
+    "longitude": -52.27193
+  },
+  {
+    "city": "Le Moulin à Vent",
+    "city_zh": "Le Moulin à Vent",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90313,
+    "longitude": -52.2729
+  },
+  {
+    "city": "Cité Zéphyr",
+    "city_zh": "Cité Zéphyr",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93853,
+    "longitude": -52.29451
+  },
+  {
+    "city": "Cité Grant",
+    "city_zh": "Cité Grant",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94827,
+    "longitude": -52.3031
+  },
+  {
+    "city": "Collery",
+    "city_zh": "Collery",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90412,
+    "longitude": -52.32483
+  },
+  {
+    "city": "Raban",
+    "city_zh": "Raban",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90772,
+    "longitude": -52.29797
+  },
+  {
+    "city": "Beauregard",
+    "city_zh": "Beauregard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9089,
+    "longitude": -52.28941
+  },
+  {
+    "city": "Poncel",
+    "city_zh": "Poncel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90101,
+    "longitude": -52.29899
+  },
+  {
+    "city": "Ceïde",
+    "city_zh": "Ceïde",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89757,
+    "longitude": -52.26153
+  },
+  {
+    "city": "Montravel",
+    "city_zh": "Montravel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90914,
+    "longitude": -52.26681
+  },
+  {
+    "city": "Paramana",
+    "city_zh": "Paramana",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.81928,
+    "longitude": -52.34003
+  },
+  {
+    "city": "Belle Humeur",
+    "city_zh": "Belle Humeur",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91664,
+    "longitude": -52.37907
+  },
+  {
+    "city": "Sablance",
+    "city_zh": "Sablance",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94154,
+    "longitude": -52.40423
+  },
+  {
+    "city": "Préfontaine",
+    "city_zh": "Préfontaine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97702,
+    "longitude": -52.49869
+  },
+  {
+    "city": "Boudet",
+    "city_zh": "Boudet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9276,
+    "longitude": -52.4444
+  },
+  {
+    "city": "Cigogne",
+    "city_zh": "Cigogne",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.80209,
+    "longitude": -52.47289
+  },
+  {
+    "city": "Beauséjour",
+    "city_zh": "Beauséjour",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.78829,
+    "longitude": -52.43188
+  },
+  {
+    "city": "Basse Terre",
+    "city_zh": "Basse Terre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83647,
+    "longitude": -52.48286
+  },
+  {
+    "city": "Domaine de Soula",
+    "city_zh": "Domaine de Soula",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92606,
+    "longitude": -52.40137
+  },
+  {
+    "city": "Sainte-Rose de Lima",
+    "city_zh": "Sainte-Rose de Lima",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.82476,
+    "longitude": -52.33846
+  },
+  {
+    "city": "Village Indien Sainte-Rose de Lima",
+    "city_zh": "Village Indien Sainte-Rose de Lima",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83273,
+    "longitude": -52.33696
+  },
+  {
+    "city": "Cité Mont Lucas",
+    "city_zh": "Cité Mont Lucas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92584,
+    "longitude": -52.29997
+  },
+  {
+    "city": "Ploërmel",
+    "city_zh": "Ploërmel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92129,
+    "longitude": -52.31254
+  },
+  {
+    "city": "Sainte-Marie-les-Mines",
+    "city_zh": "Sainte-Marie-les-Mines",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.56027,
+    "longitude": -52.41793
+  },
+  {
+    "city": "Mont Diable",
+    "city_zh": "Mont Diable",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.6321,
+    "longitude": -52.39166
+  },
+  {
+    "city": "Mission Saint-Antoine",
+    "city_zh": "Mission Saint-Antoine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.66841,
+    "longitude": -52.33721
+  },
+  {
+    "city": "Eskol",
+    "city_zh": "Eskol",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.71742,
+    "longitude": -52.28226
+  },
+  {
+    "city": "Dégrad Saint-Antoine",
+    "city_zh": "Dégrad Saint-Antoine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.67054,
+    "longitude": -52.33283
+  },
+  {
+    "city": "Dacca",
+    "city_zh": "Dacca",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.73866,
+    "longitude": -52.32059
+  },
+  {
+    "city": "Auberge des Orpailleurs",
+    "city_zh": "Auberge des Orpailleurs",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.51162,
+    "longitude": -52.35125
+  },
+  {
+    "city": "Trois Palétuviers",
+    "city_zh": "Trois Palétuviers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.05653,
+    "longitude": -51.66208
+  },
+  {
+    "city": "Pays Indien",
+    "city_zh": "Pays Indien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.16533,
+    "longitude": -51.7782
+  },
+  {
+    "city": "Piedsaut",
+    "city_zh": "Piedsaut",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.80791,
+    "longitude": -51.87446
+  },
+  {
+    "city": "Habitation Rozé",
+    "city_zh": "Habitation Rozé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.81398,
+    "longitude": -51.87114
+  },
+  {
+    "city": "Labombe",
+    "city_zh": "Labombe",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.92875,
+    "longitude": -51.82033
+  },
+  {
+    "city": "Balata-Est",
+    "city_zh": "Balata-Est",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88613,
+    "longitude": -52.33324
+  },
+  {
+    "city": "Eldo",
+    "city_zh": "Eldo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16965,
+    "longitude": -52.6429
+  },
+  {
+    "city": "La Césarée",
+    "city_zh": "La Césarée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.02128,
+    "longitude": -52.52501
+  },
+  {
+    "city": "Sainte-Agathe",
+    "city_zh": "Sainte-Agathe",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.0087,
+    "longitude": -52.46938
+  },
+  {
+    "city": "Les Flamboyants",
+    "city_zh": "Les Flamboyants",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.00998,
+    "longitude": -52.47542
+  },
+  {
+    "city": "Zac de Cabalou",
+    "city_zh": "Zac de Cabalou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.1523,
+    "longitude": -52.64702
+  },
+  {
+    "city": "Cabalou",
+    "city_zh": "Cabalou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15419,
+    "longitude": -52.64696
+  },
+  {
+    "city": "Quartier du lac du Bois-Chaudat",
+    "city_zh": "Quartier du lac du Bois-Chaudat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15735,
+    "longitude": -52.65327
+  },
+  {
+    "city": "Cité du Stade",
+    "city_zh": "Cité du Stade",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.1566,
+    "longitude": -52.64016
+  },
+  {
+    "city": "Jacaranda",
+    "city_zh": "Jacaranda",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15907,
+    "longitude": -52.63591
+  },
+  {
+    "city": "Goupi",
+    "city_zh": "Goupi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15773,
+    "longitude": -52.64123
+  },
+  {
+    "city": "Patawas",
+    "city_zh": "Patawas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16072,
+    "longitude": -52.63257
+  },
+  {
+    "city": "Carapa",
+    "city_zh": "Carapa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15894,
+    "longitude": -52.63905
+  },
+  {
+    "city": "Angélique",
+    "city_zh": "Angélique",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15981,
+    "longitude": -52.63929
+  },
+  {
+    "city": "Maripa",
+    "city_zh": "Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16026,
+    "longitude": -52.63796
+  },
+  {
+    "city": "Koualis",
+    "city_zh": "Koualis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.1613,
+    "longitude": -52.63693
+  },
+  {
+    "city": "Wakapou",
+    "city_zh": "Wakapou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16026,
+    "longitude": -52.6429
+  },
+  {
+    "city": "Manil",
+    "city_zh": "Manil",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16147,
+    "longitude": -52.64279
+  },
+  {
+    "city": "Cariacou",
+    "city_zh": "Cariacou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.15975,
+    "longitude": -52.64789
+  },
+  {
+    "city": "Quartier des Deux Lacs",
+    "city_zh": "Quartier des Deux Lacs",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16193,
+    "longitude": -52.65065
+  },
+  {
+    "city": "Kikiwis",
+    "city_zh": "Kikiwis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16434,
+    "longitude": -52.64646
+  },
+  {
+    "city": "Amaryllis",
+    "city_zh": "Amaryllis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16428,
+    "longitude": -52.63992
+  },
+  {
+    "city": "Balata",
+    "city_zh": "Balata",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16566,
+    "longitude": -52.64267
+  },
+  {
+    "city": "Cité des Deux Cent Cinq",
+    "city_zh": "Cité des Deux Cent Cinq",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16905,
+    "longitude": -52.64279
+  },
+  {
+    "city": "Oulapa",
+    "city_zh": "Oulapa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.16359,
+    "longitude": -52.6513
+  },
+  {
+    "city": "Chemin Pascal",
+    "city_zh": "Chemin Pascal",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.37956,
+    "longitude": -52.97586
+  },
+  {
+    "city": "Village Indonésien",
+    "city_zh": "Village Indonésien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.37122,
+    "longitude": -52.96197
+  },
+  {
+    "city": "Savane Nango",
+    "city_zh": "Savane Nango",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.36914,
+    "longitude": -52.94937
+  },
+  {
+    "city": "Diane",
+    "city_zh": "Diane",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.25053,
+    "longitude": -52.80568
+  },
+  {
+    "city": "Sable Blanc",
+    "city_zh": "Sable Blanc",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48511,
+    "longitude": -53.21784
+  },
+  {
+    "city": "Cité Maripa",
+    "city_zh": "Cité Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47711,
+    "longitude": -53.20932
+  },
+  {
+    "city": "Yiyi",
+    "city_zh": "Yiyi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4234,
+    "longitude": -53.0745
+  },
+  {
+    "city": "Balalou",
+    "city_zh": "Balalou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.39605,
+    "longitude": -53.00427
+  },
+  {
+    "city": "Rabottin",
+    "city_zh": "Rabottin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.36071,
+    "longitude": -53.01001
+  },
+  {
+    "city": "Petit Saut",
+    "city_zh": "Petit Saut",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.0718,
+    "longitude": -53.05119
+  },
+  {
+    "city": "Embouchure",
+    "city_zh": "Embouchure",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.974,
+    "longitude": -53.03229
+  },
+  {
+    "city": "Pointe Pinot",
+    "city_zh": "Pointe Pinot",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93342,
+    "longitude": -53.02332
+  },
+  {
+    "city": "Coq",
+    "city_zh": "Coq",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.75481,
+    "longitude": -53.10507
+  },
+  {
+    "city": "Ancien Village Central",
+    "city_zh": "Ancien Village Central",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9867,
+    "longitude": -53.17394
+  },
+  {
+    "city": "Calumet",
+    "city_zh": "Calumet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96559,
+    "longitude": -52.5341
+  },
+  {
+    "city": "Tombe Got",
+    "city_zh": "Tombe Got",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93429,
+    "longitude": -52.50698
+  },
+  {
+    "city": "Coco",
+    "city_zh": "Coco",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.86311,
+    "longitude": -52.52155
+  },
+  {
+    "city": "Maripa",
+    "city_zh": "Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85265,
+    "longitude": -52.51914
+  },
+  {
+    "city": "Akati",
+    "city_zh": "Akati",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01445,
+    "longitude": -54.43754
+  },
+  {
+    "city": "Namiwawang",
+    "city_zh": "Namiwawang",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.01743,
+    "longitude": -54.43717
+  },
+  {
+    "city": "Lobimakani",
+    "city_zh": "Lobimakani",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.03176,
+    "longitude": -54.42607
+  },
+  {
+    "city": "Midénangalanti",
+    "city_zh": "Midénangalanti",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.04159,
+    "longitude": -54.42104
+  },
+  {
+    "city": "Rosa",
+    "city_zh": "Rosa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.053,
+    "longitude": -54.41667
+  },
+  {
+    "city": "Mainia Ondo",
+    "city_zh": "Mainia Ondo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.05639,
+    "longitude": -54.41699
+  },
+  {
+    "city": "Village Jérôme",
+    "city_zh": "Village Jérôme",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.05997,
+    "longitude": -54.41517
+  },
+  {
+    "city": "Tapoékoé",
+    "city_zh": "Tapoékoé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.06323,
+    "longitude": -54.41491
+  },
+  {
+    "city": "Lanti Wani",
+    "city_zh": "Lanti Wani",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.06904,
+    "longitude": -54.41054
+  },
+  {
+    "city": "Mofiéna",
+    "city_zh": "Mofiéna",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.07523,
+    "longitude": -54.40682
+  },
+  {
+    "city": "Papi Kondé",
+    "city_zh": "Papi Kondé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.09539,
+    "longitude": -54.38668
+  },
+  {
+    "city": "Wangéa",
+    "city_zh": "Wangéa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.09787,
+    "longitude": -54.38179
+  },
+  {
+    "city": "Foster",
+    "city_zh": "Foster",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.10133,
+    "longitude": -54.37742
+  },
+  {
+    "city": "Jé Vrédé",
+    "city_zh": "Jé Vrédé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.12164,
+    "longitude": -54.36612
+  },
+  {
+    "city": "Bigui Béligui",
+    "city_zh": "Bigui Béligui",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.18822,
+    "longitude": -54.32247
+  },
+  {
+    "city": "Doudou",
+    "city_zh": "Doudou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.19057,
+    "longitude": -54.32103
+  },
+  {
+    "city": "Ayamidé",
+    "city_zh": "Ayamidé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.19479,
+    "longitude": -54.31662
+  },
+  {
+    "city": "Mont Louis",
+    "city_zh": "Mont Louis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.1985,
+    "longitude": -54.31467
+  },
+  {
+    "city": "Kodio",
+    "city_zh": "Kodio",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.20064,
+    "longitude": -54.31225
+  },
+  {
+    "city": "Maliéti",
+    "city_zh": "Maliéti",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.20331,
+    "longitude": -54.31075
+  },
+  {
+    "city": "Ondiayé",
+    "city_zh": "Ondiayé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.20892,
+    "longitude": -54.30873
+  },
+  {
+    "city": "Petite Patience",
+    "city_zh": "Petite Patience",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.22046,
+    "longitude": -54.30351
+  },
+  {
+    "city": "Kialiondo",
+    "city_zh": "Kialiondo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.23073,
+    "longitude": -54.29452
+  },
+  {
+    "city": "Niou Kampou",
+    "city_zh": "Niou Kampou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.23236,
+    "longitude": -54.29198
+  },
+  {
+    "city": "Foukatiami",
+    "city_zh": "Foukatiami",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.23379,
+    "longitude": -54.291
+  },
+  {
+    "city": "Village Coco",
+    "city_zh": "Village Coco",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.25865,
+    "longitude": -54.27356
+  },
+  {
+    "city": "Mentillé",
+    "city_zh": "Mentillé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27452,
+    "longitude": -54.25512
+  },
+  {
+    "city": "Balisié",
+    "city_zh": "Balisié",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27347,
+    "longitude": -54.25588
+  },
+  {
+    "city": "Otily",
+    "city_zh": "Otily",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27414,
+    "longitude": -54.25613
+  },
+  {
+    "city": "Abompé",
+    "city_zh": "Abompé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27301,
+    "longitude": -54.25811
+  },
+  {
+    "city": "Assenté",
+    "city_zh": "Assenté",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27017,
+    "longitude": -54.26059
+  },
+  {
+    "city": "Baïno",
+    "city_zh": "Baïno",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27805,
+    "longitude": -54.24263
+  },
+  {
+    "city": "Bastien",
+    "city_zh": "Bastien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.29208,
+    "longitude": -54.22835
+  },
+  {
+    "city": "Wabouli Koulon",
+    "city_zh": "Wabouli Koulon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.28615,
+    "longitude": -54.22978
+  },
+  {
+    "city": "Kola Assakio",
+    "city_zh": "Kola Assakio",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.27806,
+    "longitude": -54.24504
+  },
+  {
+    "city": "Assouna",
+    "city_zh": "Assouna",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.28921,
+    "longitude": -54.21231
+  },
+  {
+    "city": "Sendilé",
+    "city_zh": "Sendilé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.28634,
+    "longitude": -54.21694
+  },
+  {
+    "city": "Soké",
+    "city_zh": "Soké",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.32578,
+    "longitude": -54.17698
+  },
+  {
+    "city": "Doling",
+    "city_zh": "Doling",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.32148,
+    "longitude": -54.17841
+  },
+  {
+    "city": "Maripa",
+    "city_zh": "Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.30245,
+    "longitude": -54.19608
+  },
+  {
+    "city": "Samapaï",
+    "city_zh": "Samapaï",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.31395,
+    "longitude": -54.18275
+  },
+  {
+    "city": "Abagaï",
+    "city_zh": "Abagaï",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.33247,
+    "longitude": -54.17304
+  },
+  {
+    "city": "Gode",
+    "city_zh": "Gode",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.33918,
+    "longitude": -54.16723
+  },
+  {
+    "city": "Apatou",
+    "city_zh": "Apatou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.04258,
+    "longitude": -54.04427
+  },
+  {
+    "city": "Nataniel",
+    "city_zh": "Nataniel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.0907,
+    "longitude": -54.39301
+  },
+  {
+    "city": "La Bastide",
+    "city_zh": "La Bastide",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.32136,
+    "longitude": -54.06912
+  },
+  {
+    "city": "Gusomani",
+    "city_zh": "Gusomani",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.32958,
+    "longitude": -54.07636
+  },
+  {
+    "city": "Mamaï",
+    "city_zh": "Mamaï",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.3899,
+    "longitude": -54.12188
+  },
+  {
+    "city": "Koyona",
+    "city_zh": "Koyona",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.39166,
+    "longitude": -54.11706
+  },
+  {
+    "city": "Quartier Némo",
+    "city_zh": "Quartier Némo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.40104,
+    "longitude": -54.07811
+  },
+  {
+    "city": "Tindali",
+    "city_zh": "Tindali",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.42446,
+    "longitude": -54.05765
+  },
+  {
+    "city": "Espérance",
+    "city_zh": "Espérance",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.43239,
+    "longitude": -54.05113
+  },
+  {
+    "city": "Village Chinois",
+    "city_zh": "Village Chinois",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50005,
+    "longitude": -54.03197
+  },
+  {
+    "city": "Village Pierre",
+    "city_zh": "Village Pierre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.46768,
+    "longitude": -54.0473
+  },
+  {
+    "city": "Les Hibiscus",
+    "city_zh": "Les Hibiscus",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49641,
+    "longitude": -54.03326
+  },
+  {
+    "city": "La Charbonnière",
+    "city_zh": "La Charbonnière",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49043,
+    "longitude": -54.03594
+  },
+  {
+    "city": "Paddock",
+    "city_zh": "Paddock",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50717,
+    "longitude": -54.02004
+  },
+  {
+    "city": "Paddock",
+    "city_zh": "Paddock",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50678,
+    "longitude": -54.01341
+  },
+  {
+    "city": "Les Cultures",
+    "city_zh": "Les Cultures",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50369,
+    "longitude": -54.02518
+  },
+  {
+    "city": "Fatima",
+    "city_zh": "Fatima",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49992,
+    "longitude": -54.01287
+  },
+  {
+    "city": "Village Toto",
+    "city_zh": "Village Toto",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50446,
+    "longitude": -54.03191
+  },
+  {
+    "city": "Les Sables Blancs",
+    "city_zh": "Les Sables Blancs",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48196,
+    "longitude": -54.01362
+  },
+  {
+    "city": "Camp Lorrain",
+    "city_zh": "Camp Lorrain",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49458,
+    "longitude": -54.02544
+  },
+  {
+    "city": "Le Lac Bleu",
+    "city_zh": "Le Lac Bleu",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47376,
+    "longitude": -54.03512
+  },
+  {
+    "city": "La Bouverie",
+    "city_zh": "La Bouverie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.72727,
+    "longitude": -53.89441
+  },
+  {
+    "city": "Romain",
+    "city_zh": "Romain",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.69281,
+    "longitude": -53.82955
+  },
+  {
+    "city": "Petit Laussat",
+    "city_zh": "Petit Laussat",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4482,
+    "longitude": -53.58265
+  },
+  {
+    "city": "Montagne Lagrue",
+    "city_zh": "Montagne Lagrue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.56395,
+    "longitude": -53.59874
+  },
+  {
+    "city": "Bassin Mine d'Or",
+    "city_zh": "Bassin Mine d'Or",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.59619,
+    "longitude": -53.63648
+  },
+  {
+    "city": "Patient",
+    "city_zh": "Patient",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.60494,
+    "longitude": -53.65731
+  },
+  {
+    "city": "La Pépinière",
+    "city_zh": "La Pépinière",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49706,
+    "longitude": -54.02871
+  },
+  {
+    "city": "Pilipi Wono",
+    "city_zh": "Pilipi Wono",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.10813,
+    "longitude": -54.17259
+  },
+  {
+    "city": "Palimino Pata",
+    "city_zh": "Palimino Pata",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.29458,
+    "longitude": -54.10043
+  },
+  {
+    "city": "Pilima Pata",
+    "city_zh": "Pilima Pata",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.28937,
+    "longitude": -54.10387
+  },
+  {
+    "city": "Boussoussa",
+    "city_zh": "Boussoussa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.6524,
+    "longitude": -54.01356
+  },
+  {
+    "city": "Adala",
+    "city_zh": "Adala",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.63552,
+    "longitude": -54.04846
+  },
+  {
+    "city": "Nouveau Wapakou",
+    "city_zh": "Nouveau Wapakou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.67396,
+    "longitude": -54.07735
+  },
+  {
+    "city": "Kouiakou",
+    "city_zh": "Kouiakou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.73218,
+    "longitude": -54.09083
+  },
+  {
+    "city": "Paa Chton",
+    "city_zh": "Paa Chton",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.72342,
+    "longitude": -54.08123
+  },
+  {
+    "city": "Nouveau Assissi",
+    "city_zh": "Nouveau Assissi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.82204,
+    "longitude": -54.19452
+  },
+  {
+    "city": "Tcha Tcha",
+    "city_zh": "Tcha Tcha",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.90568,
+    "longitude": -54.25064
+  },
+  {
+    "city": "Antonou Condé",
+    "city_zh": "Antonou Condé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.63229,
+    "longitude": -53.99431
+  },
+  {
+    "city": "Saleli Condé",
+    "city_zh": "Saleli Condé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.57189,
+    "longitude": -53.99514
+  },
+  {
+    "city": "Tolinga",
+    "city_zh": "Tolinga",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 3.66463,
+    "longitude": -53.9309
+  },
+  {
+    "city": "Adotian",
+    "city_zh": "Adotian",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.52926,
+    "longitude": -54.44312
+  },
+  {
+    "city": "Camp Béatrice",
+    "city_zh": "Camp Béatrice",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94817,
+    "longitude": -54.43711
+  },
+  {
+    "city": "Kader",
+    "city_zh": "Kader",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.95265,
+    "longitude": -54.4364
+  },
+  {
+    "city": "Emmanuel",
+    "city_zh": "Emmanuel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.95415,
+    "longitude": -54.4364
+  },
+  {
+    "city": "Lobo",
+    "city_zh": "Lobo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.95748,
+    "longitude": -54.4362
+  },
+  {
+    "city": "Kanaa",
+    "city_zh": "Kanaa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96126,
+    "longitude": -54.43666
+  },
+  {
+    "city": "Kamadé",
+    "city_zh": "Kamadé",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96445,
+    "longitude": -54.43633
+  },
+  {
+    "city": "Amékan Kampou",
+    "city_zh": "Amékan Kampou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.96791,
+    "longitude": -54.43601
+  },
+  {
+    "city": "Penki Avo",
+    "city_zh": "Penki Avo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97603,
+    "longitude": -54.43731
+  },
+  {
+    "city": "Yédi",
+    "city_zh": "Yédi",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.978,
+    "longitude": -54.43958
+  },
+  {
+    "city": "Sissilia",
+    "city_zh": "Sissilia",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.98102,
+    "longitude": -54.43903
+  },
+  {
+    "city": "Les Eucalyptus",
+    "city_zh": "Les Eucalyptus",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93166,
+    "longitude": -52.41656
+  },
+  {
+    "city": "Les Cerisiers",
+    "city_zh": "Les Cerisiers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92878,
+    "longitude": -52.41446
+  },
+  {
+    "city": "Les Buissons Ardents",
+    "city_zh": "Les Buissons Ardents",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92949,
+    "longitude": -52.41273
+  },
+  {
+    "city": "Le Palmier",
+    "city_zh": "Le Palmier",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92657,
+    "longitude": -52.41106
+  },
+  {
+    "city": "La Colline Verte",
+    "city_zh": "La Colline Verte",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91969,
+    "longitude": -52.53761
+  },
+  {
+    "city": "Lotissement Maillard",
+    "city_zh": "Lotissement Maillard",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97081,
+    "longitude": -52.44188
+  },
+  {
+    "city": "Nofrayan",
+    "city_zh": "Nofrayan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91652,
+    "longitude": -52.5217
+  },
+  {
+    "city": "Louis Ribal",
+    "city_zh": "Louis Ribal",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93038,
+    "longitude": -52.41385
+  },
+  {
+    "city": "Bananes",
+    "city_zh": "Bananes",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.97474,
+    "longitude": -52.44661
+  },
+  {
+    "city": "Relais du Galion",
+    "city_zh": "Relais du Galion",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.75782,
+    "longitude": -52.4273
+  },
+  {
+    "city": "Bois Diable",
+    "city_zh": "Bois Diable",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.58967,
+    "longitude": -53.83293
+  },
+  {
+    "city": "Papinabo",
+    "city_zh": "Papinabo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.09173,
+    "longitude": -52.69239
+  },
+  {
+    "city": "Les Jardins de Sainte-Agathe",
+    "city_zh": "Les Jardins de Sainte-Agathe",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.00108,
+    "longitude": -52.47156
+  },
+  {
+    "city": "Village Indien",
+    "city_zh": "Village Indien",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.17272,
+    "longitude": -52.64509
+  },
+  {
+    "city": "Carbet les Maripas",
+    "city_zh": "Carbet les Maripas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.04493,
+    "longitude": -52.69022
+  },
+  {
+    "city": "Bellevue",
+    "city_zh": "Bellevue",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.5791,
+    "longitude": -52.43446
+  },
+  {
+    "city": "La Chaumière",
+    "city_zh": "La Chaumière",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.59872,
+    "longitude": -52.40467
+  },
+  {
+    "city": "Aquavilla",
+    "city_zh": "Aquavilla",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.87693,
+    "longitude": -52.31652
+  },
+  {
+    "city": "Les Hauts de la Chaumière",
+    "city_zh": "Les Hauts de la Chaumière",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88921,
+    "longitude": -52.35243
+  },
+  {
+    "city": "Vert Pré",
+    "city_zh": "Vert Pré",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88277,
+    "longitude": -52.36356
+  },
+  {
+    "city": "Lotissement Bois de Rose",
+    "city_zh": "Lotissement Bois de Rose",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.73133,
+    "longitude": -52.32267
+  },
+  {
+    "city": "Matoupan",
+    "city_zh": "Matoupan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.7662,
+    "longitude": -52.33098
+  },
+  {
+    "city": "Domaine de Stoupan",
+    "city_zh": "Domaine de Stoupan",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.7755,
+    "longitude": -52.33501
+  },
+  {
+    "city": "Sabrina",
+    "city_zh": "Sabrina",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.78705,
+    "longitude": -52.35336
+  },
+  {
+    "city": "Les Îlets de Macrabo",
+    "city_zh": "Les Îlets de Macrabo",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.79944,
+    "longitude": -52.35227
+  },
+  {
+    "city": "Pinot",
+    "city_zh": "Pinot",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.78903,
+    "longitude": -52.33077
+  },
+  {
+    "city": "Lotissement Yarde",
+    "city_zh": "Lotissement Yarde",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8266,
+    "longitude": -52.31458
+  },
+  {
+    "city": "Concorde",
+    "city_zh": "Concorde",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.83642,
+    "longitude": -52.34913
+  },
+  {
+    "city": "Écarts de la Désriée",
+    "city_zh": "Écarts de la Désriée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85541,
+    "longitude": -52.3395
+  },
+  {
+    "city": "Lotissement les Toucas",
+    "city_zh": "Lotissement les Toucas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85645,
+    "longitude": -52.33768
+  },
+  {
+    "city": "Lotissement Sicama",
+    "city_zh": "Lotissement Sicama",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85712,
+    "longitude": -52.32844
+  },
+  {
+    "city": "Les Moucayas",
+    "city_zh": "Les Moucayas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.85179,
+    "longitude": -52.32656
+  },
+  {
+    "city": "Saint-Michel",
+    "city_zh": "Saint-Michel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84905,
+    "longitude": -52.32643
+  },
+  {
+    "city": "Elissée",
+    "city_zh": "Elissée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8476,
+    "longitude": -52.33414
+  },
+  {
+    "city": "Lotissement la Levée",
+    "city_zh": "Lotissement la Levée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84145,
+    "longitude": -52.32433
+  },
+  {
+    "city": "Guimanmin",
+    "city_zh": "Guimanmin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8463,
+    "longitude": -52.31876
+  },
+  {
+    "city": "Lotissement les Barbadines",
+    "city_zh": "Lotissement les Barbadines",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.84839,
+    "longitude": -52.31735
+  },
+  {
+    "city": "Réséda",
+    "city_zh": "Réséda",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8759,
+    "longitude": -52.27853
+  },
+  {
+    "city": "Les Frangipaniers",
+    "city_zh": "Les Frangipaniers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88157,
+    "longitude": -52.27808
+  },
+  {
+    "city": "Les Bougainvilliers",
+    "city_zh": "Les Bougainvilliers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88828,
+    "longitude": -52.27954
+  },
+  {
+    "city": "Les Alizés",
+    "city_zh": "Les Alizés",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88941,
+    "longitude": -52.28224
+  },
+  {
+    "city": "Les Olivettes",
+    "city_zh": "Les Olivettes",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8912,
+    "longitude": -52.27484
+  },
+  {
+    "city": "Les Camélias",
+    "city_zh": "Les Camélias",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89322,
+    "longitude": -52.27686
+  },
+  {
+    "city": "Les Maripas",
+    "city_zh": "Les Maripas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89619,
+    "longitude": -52.27618
+  },
+  {
+    "city": "Morne Coco",
+    "city_zh": "Morne Coco",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89828,
+    "longitude": -52.27721
+  },
+  {
+    "city": "Chennebras",
+    "city_zh": "Chennebras",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90674,
+    "longitude": -52.26814
+  },
+  {
+    "city": "La Fontaine",
+    "city_zh": "La Fontaine",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91223,
+    "longitude": -52.26346
+  },
+  {
+    "city": "Les Mouettes",
+    "city_zh": "Les Mouettes",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91415,
+    "longitude": -52.2643
+  },
+  {
+    "city": "La Palmeraie",
+    "city_zh": "La Palmeraie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91739,
+    "longitude": -52.27845
+  },
+  {
+    "city": "Résidence Arc-en-Ciel",
+    "city_zh": "Résidence Arc-en-Ciel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89308,
+    "longitude": -52.28659
+  },
+  {
+    "city": "Parc Lindor",
+    "city_zh": "Parc Lindor",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9075,
+    "longitude": -52.28603
+  },
+  {
+    "city": "Les Grenadilles",
+    "city_zh": "Les Grenadilles",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9141,
+    "longitude": -52.28674
+  },
+  {
+    "city": "Les Bambous",
+    "city_zh": "Les Bambous",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91646,
+    "longitude": -52.2833
+  },
+  {
+    "city": "Eutrope",
+    "city_zh": "Eutrope",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92254,
+    "longitude": -52.27597
+  },
+  {
+    "city": "Les Balisiers",
+    "city_zh": "Les Balisiers",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92363,
+    "longitude": -52.27928
+  },
+  {
+    "city": "Les Nénuphars",
+    "city_zh": "Les Nénuphars",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92543,
+    "longitude": -52.28142
+  },
+  {
+    "city": "Saint-Martin",
+    "city_zh": "Saint-Martin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92347,
+    "longitude": -52.28698
+  },
+  {
+    "city": "Rattier",
+    "city_zh": "Rattier",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92664,
+    "longitude": -52.29214
+  },
+  {
+    "city": "Zabulon",
+    "city_zh": "Zabulon",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93047,
+    "longitude": -52.29379
+  },
+  {
+    "city": "Les Cèdres",
+    "city_zh": "Les Cèdres",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93219,
+    "longitude": -52.29541
+  },
+  {
+    "city": "Les Colibris",
+    "city_zh": "Les Colibris",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93178,
+    "longitude": -52.28775
+  },
+  {
+    "city": "Les Cigales",
+    "city_zh": "Les Cigales",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9348,
+    "longitude": -52.29033
+  },
+  {
+    "city": "Pacheco",
+    "city_zh": "Pacheco",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93791,
+    "longitude": -52.29079
+  },
+  {
+    "city": "Lotissement Gippet",
+    "city_zh": "Lotissement Gippet",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94098,
+    "longitude": -52.29584
+  },
+  {
+    "city": "Abchée",
+    "city_zh": "Abchée",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93303,
+    "longitude": -52.29255
+  },
+  {
+    "city": "Vitala",
+    "city_zh": "Vitala",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93636,
+    "longitude": -52.29936
+  },
+  {
+    "city": "Cité Zunève",
+    "city_zh": "Cité Zunève",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94045,
+    "longitude": -52.29865
+  },
+  {
+    "city": "Encre",
+    "city_zh": "Encre",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94241,
+    "longitude": -52.3044
+  },
+  {
+    "city": "Bernetel",
+    "city_zh": "Bernetel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94015,
+    "longitude": -52.30305
+  },
+  {
+    "city": "Cité de la Coulée d'Or",
+    "city_zh": "Cité de la Coulée d'Or",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.94114,
+    "longitude": -52.30742
+  },
+  {
+    "city": "Cité Massel",
+    "city_zh": "Cité Massel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9449,
+    "longitude": -52.30438
+  },
+  {
+    "city": "Les Ibis",
+    "city_zh": "Les Ibis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9355,
+    "longitude": -52.30502
+  },
+  {
+    "city": "Les Héliconias",
+    "city_zh": "Les Héliconias",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93081,
+    "longitude": -52.30416
+  },
+  {
+    "city": "Le Mont Petit Lucas",
+    "city_zh": "Le Mont Petit Lucas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92107,
+    "longitude": -52.30187
+  },
+  {
+    "city": "Palika",
+    "city_zh": "Palika",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92023,
+    "longitude": -52.30016
+  },
+  {
+    "city": "Résidence Saint-Martin",
+    "city_zh": "Résidence Saint-Martin",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91708,
+    "longitude": -52.29856
+  },
+  {
+    "city": "Lotissement la Rhumerie",
+    "city_zh": "Lotissement la Rhumerie",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.86842,
+    "longitude": -52.32101
+  },
+  {
+    "city": "Maya",
+    "city_zh": "Maya",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88289,
+    "longitude": -52.32742
+  },
+  {
+    "city": "Abriba",
+    "city_zh": "Abriba",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89013,
+    "longitude": -52.33873
+  },
+  {
+    "city": "Résidence Cogneau-Larivot",
+    "city_zh": "Résidence Cogneau-Larivot",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89382,
+    "longitude": -52.34122
+  },
+  {
+    "city": "Cogneau-la Mirande",
+    "city_zh": "Cogneau-la Mirande",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88391,
+    "longitude": -52.3192
+  },
+  {
+    "city": "La Persévérance",
+    "city_zh": "La Persévérance",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.89942,
+    "longitude": -52.3483
+  },
+  {
+    "city": "Zénith",
+    "city_zh": "Zénith",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.90079,
+    "longitude": -52.3371
+  },
+  {
+    "city": "Les Orchidées",
+    "city_zh": "Les Orchidées",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.9119,
+    "longitude": -52.32334
+  },
+  {
+    "city": "Cité Mortins",
+    "city_zh": "Cité Mortins",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91542,
+    "longitude": -52.32621
+  },
+  {
+    "city": "Panel",
+    "city_zh": "Panel",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91742,
+    "longitude": -52.32207
+  },
+  {
+    "city": "Les Maringouins",
+    "city_zh": "Les Maringouins",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.91053,
+    "longitude": -52.32051
+  },
+  {
+    "city": "Mapaou",
+    "city_zh": "Mapaou",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92823,
+    "longitude": -52.30078
+  },
+  {
+    "city": "Les Maripas",
+    "city_zh": "Les Maripas",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92557,
+    "longitude": -52.30477
+  },
+  {
+    "city": "Louise Elmire",
+    "city_zh": "Louise Elmire",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92307,
+    "longitude": -52.30531
+  },
+  {
+    "city": "Bellony",
+    "city_zh": "Bellony",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.92759,
+    "longitude": -52.30875
+  },
+  {
+    "city": "Patient",
+    "city_zh": "Patient",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.93034,
+    "longitude": -52.30763
+  },
+  {
+    "city": "Lotissement Cogneau",
+    "city_zh": "Lotissement Cogneau",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.8762,
+    "longitude": -52.32969
+  },
+  {
+    "city": "Les Serres",
+    "city_zh": "Les Serres",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.88035,
+    "longitude": -52.36114
+  },
+  {
+    "city": "Patawa",
+    "city_zh": "Patawa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.54446,
+    "longitude": -52.15258
+  },
+  {
+    "city": "Méziac",
+    "city_zh": "Méziac",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.4864,
+    "longitude": -52.06314
+  },
+  {
+    "city": "Iuéry",
+    "city_zh": "Iuéry",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.30303,
+    "longitude": -52.14191
+  },
+  {
+    "city": "Auberge de l'Approuague",
+    "city_zh": "Auberge de l'Approuague",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.2812,
+    "longitude": -52.1701
+  },
+  {
+    "city": "Domaine Boulanger",
+    "city_zh": "Domaine Boulanger",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.60499,
+    "longitude": -52.36714
+  },
+  {
+    "city": "Crique Marguerite",
+    "city_zh": "Crique Marguerite",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.62747,
+    "longitude": -52.33163
+  },
+  {
+    "city": "Maripa",
+    "city_zh": "Maripa",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 4.67703,
+    "longitude": -52.34671
+  },
+  {
+    "city": "Prospérité",
+    "city_zh": "Prospérité",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47606,
+    "longitude": -53.93031
+  },
+  {
+    "city": "Paradis",
+    "city_zh": "Paradis",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50992,
+    "longitude": -54.01448
+  },
+  {
+    "city": "La Mescle",
+    "city_zh": "La Mescle",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.50684,
+    "longitude": -54.02415
+  },
+  {
+    "city": "Cité Aurore",
+    "city_zh": "Cité Aurore",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.49478,
+    "longitude": -54.02957
+  },
+  {
+    "city": "Maryflore",
+    "city_zh": "Maryflore",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48944,
+    "longitude": -54.02863
+  },
+  {
+    "city": "Flore",
+    "city_zh": "Flore",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48796,
+    "longitude": -54.02858
+  },
+  {
+    "city": "Naiman",
+    "city_zh": "Naiman",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48925,
+    "longitude": -54.03774
+  },
+  {
+    "city": "Moucaya",
+    "city_zh": "Moucaya",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48741,
+    "longitude": -54.03688
+  },
+  {
+    "city": "Les Écoles",
+    "city_zh": "Les Écoles",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4777,
+    "longitude": -54.03005
+  },
+  {
+    "city": "Siguy",
+    "city_zh": "Siguy",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47303,
+    "longitude": -54.03284
+  },
+  {
+    "city": "Les Rivages",
+    "city_zh": "Les Rivages",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.47002,
+    "longitude": -54.04669
+  },
+  {
+    "city": "Route de Saint-Jean",
+    "city_zh": "Route de Saint-Jean",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.43761,
+    "longitude": -54.03745
+  },
+  {
+    "city": "Village Boschs",
+    "city_zh": "Village Boschs",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.4093,
+    "longitude": -54.08194
+  },
+  {
+    "city": "La Cloche",
+    "city_zh": "La Cloche",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.40503,
+    "longitude": -54.07767
+  },
+  {
+    "city": "Amapa I",
+    "city_zh": "Amapa I",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48584,
+    "longitude": -54.0181
+  },
+  {
+    "city": "Amapa II",
+    "city_zh": "Amapa II",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.48374,
+    "longitude": -54.01575
+  },
+  {
+    "city": "Simili",
+    "city_zh": "Simili",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.74492,
+    "longitude": -53.93452
+  },
+  {
+    "city": "Ayawande",
+    "city_zh": "Ayawande",
+    "country": "French Guiana",
+    "country_zh": "French Guiana",
+    "country_iso_code": "GF",
+    "timezone": "America/Cayenne",
+    "latitude": 5.67278,
+    "longitude": -53.95031
+  }
+]
