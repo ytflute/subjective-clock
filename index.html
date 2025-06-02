@@ -21,7 +21,17 @@
                 </div>
                 <div class="input-field">
                     <label for="groupName">組別名稱：</label>
-                    <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
+                    <input type="text" id="groupName" placeholder="輸入組別名稱（選填）">
+                </div>
+                <div class="input-field">
+                    <label for="adventureSpectrum">今日的冒險指數：</label>
+                    <select id="adventureSpectrum">
+                        <option value="default">隨機</option>
+                        <option value="peaceful">寧靜</option>
+                        <option value="leisurely">悠閒</option>
+                        <option value="exploring">探索</option>
+                        <option value="challenging">挑戰</option>
+                    </select>
                 </div>
                 <button id="setUserNameButton">設定/更新名稱</button>
             </div>
@@ -131,12 +141,12 @@
 
         // 初始化 Firebase
         waitForConfig().then(firebaseConfig => {
-            window.firebaseSDK = {
-                initializeApp,
-                getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
-                getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
-                setLogLevel
-            };
+        window.firebaseSDK = {
+            initializeApp,
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
+            setLogLevel
+        };
             
             // 觸發自定義事件，通知 script.js Firebase 已準備就緒
             const event = new CustomEvent('firebaseReady', { detail: firebaseConfig });
