@@ -1766,10 +1766,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 等待 auth 狀態
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             unsubscribe(); // Unsubscribe after first call
-            if (user && currentDataIdentifier) {
-                 await displayLastRecordForCurrentUser();
+            if (user && currentDataIdentifier && !initialLoadHandled) {
+                console.log("[onAuthStateChanged] 初始載入，顯示最後記錄");
+                initialLoadHandled = true;
+                await displayLastRecordForCurrentUser();
             } else if (!currentDataIdentifier) {
-                 resultTextDiv.innerHTML = `<p>歡迎！請在上方設定您的顯示名稱以開始使用。</p>`;
+                resultTextDiv.innerHTML = `<p>歡迎！請在上方設定您的顯示名稱以開始使用。</p>`;
             }
         });
     }
