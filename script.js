@@ -406,19 +406,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             cursor: pointer;
-            min-height: 44px; /* 確保按鈕在手機上有足夠的點擊區域 */
+            min-height: 44px;
             padding: 8px 16px;
             border-radius: 4px;
             border: 1px solid #ccc;
-            background-color: #f8f9fa;
+            background-color: #a6a08f;
+            color: white;
             transition: background-color 0.2s;
         }
         #setUserNameButton:active {
-            background-color: #e9ecef;
+            background-color: #827d6f;
         }
         @media (hover: hover) {
             #setUserNameButton:hover {
-                background-color: #e9ecef;
+                background-color: #827d6f;
             }
         }
     `;
@@ -1874,22 +1875,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             padding: 8px 16px;
             margin: 0 4px;
             border: none;
-            background-color: #f8f9fa;
+            background-color: transparent;
             border-radius: 4px;
             transition: background-color 0.2s;
             user-select: none;
             -webkit-user-select: none;
         }
         .tab-button.active {
-            background-color: #007bff;
-            color: white;
+            border-bottom-color: #e8af10;
+            color: #d6a70b;
+            font-weight: bold;
         }
         .tab-button:active {
-            background-color: #e9ecef;
+            background-color: rgba(232, 175, 16, 0.1);
         }
         @media (hover: hover) {
             .tab-button:hover {
-                background-color: #e9ecef;
+                background-color: rgba(232, 175, 16, 0.1);
             }
         }
         @media (max-width: 768px) {
