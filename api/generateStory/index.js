@@ -34,11 +34,8 @@ export default async function handler(req, res) {
         // 生成問候語
         const greetingPrompt = `你是一位熱情友善的在地嚮導。請為一位剛在${city}, ${country}醒來的旅人，用一句溫暖的話歡迎他/她。
 要求：
-1. 使用繁體中文
-2. 語氣要親切自然
-3. 可以提到當地特色
-4. 長度限制在50個字以內
-5. 不要說"早安"或"早上好"這類的字眼`;
+1. 使用${city},${country}的當地語言，說「早安」
+4. 長度限制在10個字以內`;
 
         const greetingResponse = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
