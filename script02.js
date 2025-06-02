@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function generateBreakfastImage(city, country, countryCode) {
         try {
-            const response = await fetch('/api/generateBreakfastImage', {
+            const response = await fetch('/api/generateImage', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
