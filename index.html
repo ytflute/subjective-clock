@@ -1,354 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Subjective Clock</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 2rem;
-      background-color: #f9f9f9;
-    }
-    .clock-box {
-      background: white;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: inline-block;
-    }
-    .label {
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-    .time {
-      margin-top: 0.25rem;
-      line-height: 1.2;
-    }
-    .time-large {
-      font-size: 2.5rem;
-    }
-    .time-small {
-      font-size: 1.2rem;
-      opacity: 0.8;
-    }
-    .digital {
-      font-family: 'Share Tech Mono', monospace;
-      letter-spacing: 2px;
-    }
-    .blink-colon {
-      animation: blink 1s steps(1, start) infinite;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-    input {
-      margin-top: 1rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      width: 80%;
-    }
-    button {
-      margin-top: 1rem;
-      margin-right: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      background: #333;
-      color: white;
-      border-radius: 0.5rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #000;
-    }
-    canvas {
-      margin-bottom: 2rem;
-    }
-    #toast {
-      visibility: hidden;
-      min-width: 250px;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      position: fixed;
-      z-index: 1;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1rem;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-    #toast.show {
-      visibility: visible;
-      opacity: 1;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甦醒地圖 Wake Up World Map</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 </head>
 <body>
-  <div class="clock-box">
-    <canvas id="clockCanvas" width="200" height="200"></canvas>
-    <div class="label">Micro Time Zone</div>
-    <div class="time digital time-large" id="subjectiveTime">
-      <span id="hour">--</span><span id="colon" class="blink-colon">:</span><span id="minute">--</span>
+    <div class="container">
+        <h1>甦醒地圖 Wake Up World Map</h1>
+
+        <div class="user-info-section">
+            <div class="input-group-vertical">
+                <div class="input-field">
+                    <label for="userName">顯示名稱：</label>
+                    <input type="text" id="userName" placeholder="請輸入你的顯示名稱">
+                </div>
+                <div class="input-field">
+                    <label for="groupName">組別名稱：</label>
+                    <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
+                </div>
+                <button id="setUserNameButton">設定/更新名稱</button>
+            </div>
+            <div class="current-user-info">
+                <span>目前使用者：</span>
+                <span id="currentUserId">未設定</span>
+                <span id="currentUserDisplayName" style="display: none;"></span>
+                <span id="currentGroupName" style="margin-left: 10px; color: #666;"></span>
+            </div>
+        </div>
+
+        <div class="tab-container">
+            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">今日甦醒</button>
+            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">甦醒軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人地圖</button>
+        </div>
+
+        <div id="ClockTab" class="tab-content active">
+            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+            <button id="findCityButton" disabled>開始這一天</button>
+            
+            <div id="result">
+                <p id="resultText"></p>
+                <div id="flagContainer"> 
+                    <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
+                </div>
+                <div id="mapContainer"> </div>
+                <small id="debugInfo"></small>
+            </div>
+        </div>
+
+        <div id="HistoryTab" class="tab-content">
+            <p>記錄關於你每日於地球上的哪一個角落起床。</p>
+            <button id="refreshHistoryButton">刷新記錄</button>
+            <ul id="historyList"></ul>
+            <div id="historyMapContainer"> <p>地圖軌跡功能已移除。</p>
+            </div>
+            <small id="historyDebugInfo"></small>
+        </div>
+
+        <div id="historyLogModal" class="modal" style="display:none;"> <div class="modal-dialog">                                   <div class="modal-content-wrapper">                        <div class="modal-header">
+            <h2 id="modalTitle">甦醒日誌詳情</h2>               <span id="historyLogModalClose" class="modal-close-button">&times;</span> </div>
+            <div id="historyLogModalContent" class="modal-body">
+                </div>
+            <div class="modal-footer">
+                <button id="closeModalFooterButton" class="modal-button-secondary">關閉</button> </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div id="GlobalTodayMapTab" class="tab-content">
+            <p>看看今天大家都在地球的哪些角落開啟新的一天！</p>
+            <div class="filter-container">
+                <div class="date-picker-container">
+                    <label for="globalDate">選擇日期:</label>
+                    <input type="date" id="globalDate">
+                </div>
+                <div class="group-filter-container">
+                    <label for="groupFilter">選擇組別:</label>
+                    <select id="groupFilter">
+                        <option value="all">所有人</option>
+                    </select>
+                </div>
+                <button id="refreshGlobalMapButton">查詢地圖</button>
+            </div>
+            <div id="globalTodayMapContainer">
+            </div>
+            <small id="globalTodayDebugInfo"></small>
+        </div>
     </div>
-    <div class="label">Offset</div>
-    <div class="time time-small" id="offset">--h--m</div>
-    <div class="label">Days</div>
-    <div class="time time-small" id="dayCount">--</div>
-    <div class="label">Your Name</div>
-    <input type="text" id="username" placeholder="Enter your name">
-    
-    <button onclick="startDay()">👉 Start Today</button>
-    <button onclick="loadMyRecord()">📥 Load My Time</button>
-  </div>
 
-  <div id="toast">✅ Your subjective day has started!<br>Time reset to 08:00.</div>
+    <script src="/api/config"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; 
 
-  <div style="margin-top: 2rem;">
-    <button onclick="location.href='https://ytflute.github.io/subjective-clock/data-report'">
-      📈 View Subjective Time Wall
-    </button>
-  </div>
+        const firebaseConfig = window.firebaseConfig;
 
- <!-- 為節省篇幅，這段和你剛給的 HTML 完全一致，僅在 script 區域修正 -->
-<script>
-  let offsetMs = 0;
-  let dayCount = 1;
-
-  function pad(n) {
-    return n < 10 ? '0' + n : n;
-  }
-
-  function updateClocks() {
-    const now = new Date();
-    const subjective = new Date(now.getTime() + offsetMs);
-    document.getElementById("hour").textContent = pad(subjective.getHours());
-    document.getElementById("minute").textContent = pad(subjective.getMinutes());
-    drawClock(subjective);
-  }
-
-  
-function updateOffsetDisplay(ms) {
-  const totalMinutes = Math.round(ms / 60000); // 四捨五入為整數分鐘
-  const sign = totalMinutes < 0 ? '-' : '+';
-  const absMinutes = Math.abs(totalMinutes);
-
-  const offsetH = Math.floor(absMinutes / 60); // 整數小時
-  const offsetM = absMinutes % 60;             // 整數分鐘
-
-  document.getElementById("offset").textContent = `${sign}${offsetH}h${pad(offsetM)}m`;
-}
-
-function drawClock(time) {
-  const canvas = document.getElementById("clockCanvas");
-  const ctx = canvas.getContext("2d");
-  const radius = canvas.height / 2;
-
-  // ✅ 重設變形與清除畫布（避免黑底與堆疊）
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // ✅ 移動座標原點至中心
-  ctx.translate(radius, radius);
-
-  // 畫圓底
-  ctx.beginPath();
-  ctx.arc(0, 0, radius * 0.95, 0, 2 * Math.PI);
-  ctx.fillStyle = "#ffffff";
-  ctx.fill();
-
-  // 畫刻度線
-  ctx.strokeStyle = "#000";
-  ctx.lineWidth = 2;
-  for (let i = 0; i < 12; i++) {
-    const angle = (i * Math.PI) / 6;
-    const x1 = Math.cos(angle - Math.PI / 2) * radius * 0.9;
-    const y1 = Math.sin(angle - Math.PI / 2) * radius * 0.9;
-    const x2 = Math.cos(angle - Math.PI / 2) * radius * 0.8;
-    const y2 = Math.sin(angle - Math.PI / 2) * radius * 0.8;
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
-    ctx.stroke();
-  }
-
-  const hour = time.getHours() % 12;
-  const minute = time.getMinutes();
-  const second = time.getSeconds();
-
-  // 時針
-  ctx.strokeStyle = "#000";
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  const hourAngle = ((hour + minute / 60) * Math.PI) / 6;
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(hourAngle - Math.PI / 2) * radius * 0.5, Math.sin(hourAngle - Math.PI / 2) * radius * 0.5);
-  ctx.stroke();
-
-  // 分針
-  ctx.strokeStyle = "#333";
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  const minuteAngle = ((minute + second / 60) * Math.PI) / 30;
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(minuteAngle - Math.PI / 2) * radius * 0.75, Math.sin(minuteAngle - Math.PI / 2) * radius * 0.75);
-  ctx.stroke();
-
-  // 秒針
-  ctx.strokeStyle = "#f00";
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  const secondAngle = (second * Math.PI) / 30;
-  ctx.moveTo(0, 0);
-  ctx.lineTo(Math.cos(secondAngle - Math.PI / 2) * radius * 0.85, Math.sin(secondAngle - Math.PI / 2) * radius * 0.85);
-  ctx.stroke();
-}
-
-
-  function showToast() {
-    const toast = document.getElementById("toast");
-    toast.className = "show";
-    setTimeout(() => {
-      toast.className = toast.className.replace("show", "");
-    }, 3000);
-  }
-
-async function startDay() {
-  const username = document.getElementById("username").value.trim();
-  if (!username) {
-    alert("Please enter your name.");
-    return;
-  }
-
-  const now = new Date();
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const userKey = `subjective_${username}`;
-
-  // ✅ 在真正執行之前先載入遠端紀錄（確保 day_count 正確）
-  await loadLatestRecord(username);
-
-  const subjectiveNow = new Date(now.getTime() + offsetMs);
-  const lastStartMs = parseInt(localStorage.getItem(`${userKey}_lastSubjectiveStart`));
-  const lastSubjective = lastStartMs ? new Date(lastStartMs) : null;
-  let savedDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
-
-  const todayDate = subjectiveNow.toDateString();
-  const lastDate = lastSubjective ? lastSubjective.toDateString() : null;
-
-  if (!lastSubjective || todayDate !== lastDate) {
-    savedDayCount++;
-    localStorage.setItem(`${userKey}_dayCount`, savedDayCount);
-  }
-
-  document.getElementById("dayCount").textContent = savedDayCount;
-  dayCount = savedDayCount;
-  localStorage.setItem(`${userKey}_lastSubjectiveStart`, subjectiveNow.getTime());
-
-  const realH = now.getHours();
-  const realM = now.getMinutes();
-  offsetMs = Math.round(((8 * 60) - (realH * 60 + realM)) * 60000);
-  localStorage.setItem("offsetMs", offsetMs);
-
-  updateOffsetDisplay(offsetMs);
-  updateClocks();
-
-  const data = {
-    name: username,
-    real_time: now.toLocaleTimeString(),
-    offset_minutes: Math.round(offsetMs / 60000),
-    date: now.toISOString().split('T')[0],
-    day_count: savedDayCount,
-    timezone: timezone
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbzLu4JBepPb_EinvSjIHlyLXNDqA0QG_61P6NZs-QcVuUVoz7MgAVf4nRKBXQKIvMSfUg/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  });
-
-  showToast();
-}
-
- 
-
-async function loadLatestRecord(name) {
-  const url = "https://opensheet.vercel.app/1tF6HrbZRcSSq7KYtgkHA3UsxDbG004bkN04Ea1PzqCQ/Sheet1";
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    // 📌 過濾出使用者的所有紀錄
-    const records = data.filter(row => row.name?.trim() === name.trim());
-
-    if (records.length === 0) {
-      console.warn("⚠️ No previous data found for this user.");
-      return;
-    }
-
-    // 🧪 DEBUG: 印出使用者所有紀錄的 day_count 欄位
-    console.log("📊 History day_count list:", records.map(r => r.day_count));
-
-    // ✅ 找出目前歷史最大 day_count（保守處理 NaN）
-    const maxDayCount = Math.max(
-      ...records
-        .map(r => parseInt(r.day_count))
-        .filter(n => !isNaN(n))
-    );
-
-    // ✅ 找出最新一筆（最近日期）
-    const latest = records.reduce((a, b) =>
-      new Date(a.date) > new Date(b.date) ? a : b
-    );
-
-    // ✅ 比較本地與遠端紀錄
-    const userKey = `subjective_${name}`;
-    const localDayCount = parseInt(localStorage.getItem(`${userKey}_dayCount`)) || 0;
-    const finalDayCount = Math.max(localDayCount, maxDayCount);
-
-    offsetMs = Number(latest.offset_minutes) * 60000;
-    dayCount = finalDayCount;
-
-    const now = new Date();
-    document.getElementById("dayCount").textContent = dayCount;
-
-    // ✅ 更新本地儲存
-    localStorage.setItem("offsetMs", offsetMs);
-    localStorage.setItem(`${userKey}_dayCount`, dayCount);
-    localStorage.setItem(`${userKey}_lastSubjectiveStart`, now.getTime());
-
-    updateOffsetDisplay(offsetMs);
-
-    console.log(`✅ Loaded latest record for ${name}:`, latest);
-    console.log(`✅ Final dayCount = ${finalDayCount}`);
-
-  } catch (e) {
-    console.error("❌ Failed to load latest record", e);
-  }
-}
-
-
-
-  function loadMyRecord() {
-    const username = document.getElementById("username").value.trim();
-    if (!username) {
-      alert("Please enter your name first.");
-      return;
-    }
-    loadLatestRecord(username);
-  }
-
-  setInterval(updateClocks, 1000);
-  window.onload = () => updateClocks();
-</script>
-
+        window.firebaseSDK = {
+            initializeApp,
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
+            setLogLevel
+        };
+    </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+    <script src="script.js"></script>
 </body>
 </html>
