@@ -109,7 +109,11 @@ small { /* 通用 small 標籤樣式 */
     padding-top: 15px;
     border-top: 1px solid #ddd;
     color: #333;
-    text-align: left;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
 /* 分頁容器和按鈕 */
@@ -573,4 +577,57 @@ small { /* 通用 small 標籤樣式 */
 
 .input-field select option {
     padding: 8px;
+}
+
+/* 1. 調整 input-group-vertical 與 input-field 間距 */
+.input-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* 增加欄位間距 */
+    align-items: stretch;
+}
+.input-field {
+    margin-bottom: 0; /* 由 gap 控制間距 */
+}
+
+/* 2. 設定/更新名稱按鈕字體大小與 #findCityButton 一致 */
+#setUserNameButton {
+    font-size: 1em; /* 與 #findCityButton 相同 */
+    padding: 10px 22px;
+    color: white;
+    background-color: #a6a08f;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 44px;
+}
+#setUserNameButton:hover {
+    background-color: #827d6f;
+}
+
+/* 3. 目前使用者資訊置中顯示 */
+.current-user-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 顯示名稱、組別名稱間距 */
+#currentUserDisplayName {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+#currentGroupName {
+    margin-left: 8px;
+    color: #666;
 }
