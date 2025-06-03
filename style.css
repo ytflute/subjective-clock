@@ -114,6 +114,7 @@ small { /* 通用 small 標籤樣式 */
     flex-direction: column;
     align-items: center;
     gap: 6px;
+    width: 100%;
 }
 
 /* 分頁容器和按鈕 */
@@ -254,7 +255,8 @@ small { /* 通用 small 標籤樣式 */
     align-items: center;
     justify-content: center;
     margin: 20px 0;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .date-picker-container,
@@ -262,13 +264,35 @@ small { /* 通用 small 標籤樣式 */
     display: flex;
     align-items: center;
     gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.date-picker-container label {
+    white-space: nowrap;
+    margin-right: 8px;
+}
+
+.date-picker-container input[type="date"] {
+    flex: 1;
+    min-width: 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .group-filter-container select {
+    flex: 1;
+    min-width: 0;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    min-width: 150px;
+}
+
+#refreshGlobalMapButton {
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin: 0;
 }
 
 /* 主要操作按鈕 */
@@ -323,9 +347,34 @@ small { /* 通用 small 標籤樣式 */
         margin: 0 2px;
     }
 
+    .filter-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .date-picker-container,
+    .group-filter-container {
+        width: 100%;
+    }
+
+    .date-picker-container input[type="date"],
+    .group-filter-container select {
+        width: 100%;
+    }
+
+    #refreshGlobalMapButton {
+        width: 100%;
+    }
+
     #historyList li {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    #currentUserDisplayName,
+    #currentGroupName {
+        max-width: 100%;
+        font-size: 0.95em;
     }
 }
 
@@ -622,14 +671,26 @@ small { /* 通用 small 標籤樣式 */
     gap: 6px;
 }
 
-/* 顯示名稱、組別名稱間距 */
-#currentUserDisplayName {
-    margin-left: 8px;
-    margin-right: 8px;
-}
+/* 顯示名稱、組別名稱樣式 */
+#currentUserDisplayName,
 #currentGroupName {
-    margin-left: 8px;
+    font-size: 1em;
+    padding: 8px 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+    color: #333;
+    font-weight: 500;
+}
+
+#currentGroupName {
     color: #666;
+    font-style: italic;
 }
 
 .history-table {
@@ -694,4 +755,14 @@ small { /* 通用 small 標籤樣式 */
 }
 #refreshHistoryButton:hover, #refreshHistoryButton:active {
   background-color: #827d6f;
+}
+
+/* 路線箭頭樣式 */
+.route-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e8af10;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
