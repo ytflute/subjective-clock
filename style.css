@@ -713,24 +713,3 @@ button[id^="peekActivityButton"]:hover {
 .input-field select option {
     padding: 8px;
 }
-
-/* 為不同冒險指數選項添加顏色提示 */
-.input-field select option[value="peaceful"] {
-    color: #4a90e2; /* 寧靜的藍色 */
-}
-
-.input-field select option[value="leisurely"] {
-    color: #50c878; /* 悠閒的綠色 */
-}
-
-.input-field select option[value="exploring"] {
-    color: #ffa500; /* 探索的橙色 */
-}
-
-.input-field select option[value="challenging"] {
-    color: #ff4444; /* 挑戰的紅色 */
-}
-
-.input-field select option[value="default"] {
-    color: #666; /* 隨機的灰色 */
-}
