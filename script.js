@@ -1908,4 +1908,169 @@ window.addEventListener('firebaseReady', async (event) => {
         // ... rest of your existing code ...
     });
 
+    function drawRoute(points) {
+        if (routePolyline) {
+            map.removeLayer(routePolyline);
+        }
+        
+        routePolyline = L.polyline(points, {
+            color: '#ff0000',
+            weight: 3,
+            opacity: 0.6,
+            dashArray: '5, 10'
+        }).addTo(map);
+    }
+
+    // 修改 createMarker 函數
+    function createMarker(lat, lng, data, index) {
+        const marker = L.marker([lat, lng], {
+            icon: L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                iconSize: [16, 16],
+                iconAnchor: [8, 8]
+            })
+        }).addTo(map);
+        
+        const date = new Date(data.recordedAt.toDate());
+        const formattedDate = date.toLocaleDateString('zh-TW');
+        const formattedTime = date.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+        
+        marker.bindPopup(`#${index + 1} ${formattedDate} ${formattedTime}, ${data.city_zh || data.city}, ${data.country_zh || data.country}`);
+        markers.push(marker);
+        return marker;
+    }
+
+    // 修改 loadHistory 函數
+    function loadHistory() {
+        const historyListUl = document.getElementById('historyList');
+        const userId = localStorage.getItem('userId');
+        
+        if (!userId) {
+            console.error('未找到使用者 ID');
+            return;
+        }
+        
+        const userHistoryRef = db.collection('userHistory').doc(userId).collection('history');
+        
+        userHistoryRef.orderBy('recordedAt', 'desc').get().then((querySnapshot) => {
+            historyListUl.innerHTML = '';
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            
+            const points = [];
+            querySnapshot.forEach((doc, index) => {
+                const data = doc.data();
+                const date = new Date(data.recordedAt.toDate());
+                const formattedDate = date.toLocaleDateString('zh-TW');
+                const formattedTime = date.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+                
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div class="info-span">
+                        <span class="date">#${index + 1} ${formattedDate}</span>
+                        <span class="time">${formattedTime}</span>
+                        <span class="location">${data.city_zh || data.city}, ${data.country_zh || data.country}</span>
+                    </div>
+                    <a class="log-link" href="#" data-index="${index}">查看地圖</a>
+                `;
+                
+                // 添加 hover 效果（桌面版）
+                li.addEventListener('mouseover', () => {
+                    if (markers[index]) {
+                        markers[index].setIcon(L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #ff0000; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                            iconSize: [20, 20],
+                            iconAnchor: [10, 10]
+                        }));
+                    }
+                });
+                
+                li.addEventListener('mouseout', () => {
+                    if (markers[index]) {
+                        markers[index].setIcon(L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                            iconSize: [16, 16],
+                            iconAnchor: [8, 8]
+                        }));
+                    }
+                });
+
+                // 添加觸控事件（手機版）
+                li.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    // 先將所有標記恢復原始大小
+                    markers.forEach((marker, i) => {
+                        if (i !== index) {
+                            marker.setIcon(L.divIcon({
+                                className: 'custom-marker',
+                                html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                                iconSize: [16, 16],
+                                iconAnchor: [8, 8]
+                            }));
+                        }
+                    });
+                    // 將當前標記變大
+                    if (markers[index]) {
+                        markers[index].setIcon(L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #ff0000; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                            iconSize: [20, 20],
+                            iconAnchor: [10, 10]
+                        }));
+                    }
+                }, { passive: false });
+                
+                // 添加點擊事件
+                li.querySelector('.log-link').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (markers[index]) {
+                        markers[index].openPopup();
+                        map.setView(markers[index].getLatLng(), map.getZoom());
+                    }
+                });
+
+                // 添加觸控點擊事件
+                li.querySelector('.log-link').addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    if (markers[index]) {
+                        markers[index].openPopup();
+                        map.setView(markers[index].getLatLng(), map.getZoom());
+                    }
+                }, { passive: false });
+                
+                historyListUl.appendChild(li);
+                
+                if (data.latitude && data.longitude) {
+                    const marker = createMarker(data.latitude, data.longitude, data, index);
+                    points.push([data.latitude, data.longitude]);
+                }
+            });
+            
+            if (points.length > 0) {
+                drawRoute(points);
+                const bounds = L.latLngBounds(points);
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }).catch((error) => {
+            console.error('載入歷史記錄失敗:', error);
+        });
+    }
+
+    // 修改 drawRoute 函數
+    function drawRoute(points) {
+        if (routePolyline) {
+            map.removeLayer(routePolyline);
+        }
+        
+        routePolyline = L.polyline(points, {
+            color: '#ff0000',
+            weight: 3,
+            opacity: 0.6,
+            dashArray: '5, 10'
+        }).addTo(map);
+    }
+
 });
