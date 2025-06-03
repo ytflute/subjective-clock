@@ -839,11 +839,11 @@ window.addEventListener('firebaseReady', async (event) => {
         // 根據時間差計算緯度範圍
         let latitudeRange;
         if (minTimeDiff <= 0.1) { // 時間差小於 6 分鐘
-            latitudeRange = { min: 0, max: 20 }; // 低緯度地區
-        } else if (minTimeDiff <= 0.2) { // 時間差小於 12 分鐘
-            latitudeRange = { min: 20, max: 45 }; // 中緯度地區
+            latitudeRange = { min: 0, max: 25 }; // 低緯度地區
+        } else if (minTimeDiff <= 0.3) { // 時間差小於 12 分鐘
+            latitudeRange = { min: 15, max: 50 }; // 中緯度地區
         } else { // 時間差大於 12 分鐘
-            latitudeRange = { min: 45, max: 90 }; // 高緯度地區
+            latitudeRange = { min: 35, max: 90 }; // 高緯度地區
         }
         
         // 在時間差最小的城市中，根據緯度範圍篩選
