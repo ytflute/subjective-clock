@@ -1831,45 +1831,87 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 重寫分頁按鈕的事件處理
-    document.addEventListener('DOMContentLoaded', function() {
+    function initializeTabButtons() {
+        console.log("初始化分頁按鈕...");
         const tabButtons = document.getElementsByClassName('tab-button');
+        
+        // 先移除所有現有的事件監聽器
         Array.from(tabButtons).forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const tabName = this.getAttribute('data-tab');
-                openTab(e, tabName);
-            });
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
         });
-    });
+
+        // 重新添加事件監聽器
+        Array.from(document.getElementsByClassName('tab-button')).forEach(button => {
+            const tabName = button.getAttribute('data-tab');
+            if (!tabName) return;
+
+            // 使用一個統一的處理函數
+            const handleTabClick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log(`點擊分頁按鈕: ${tabName}`);
+                openTab(e, tabName);
+            };
+
+            // 只使用 click 事件
+            button.addEventListener('click', handleTabClick);
+        });
+    }
+
+    // 確保在 DOM 載入完成後初始化
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeTabButtons);
+    } else {
+        initializeTabButtons();
+    }
 
     // 修改分頁按鈕的樣式
     const tabButtonStyle = document.createElement('style');
     tabButtonStyle.textContent = `
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            padding: 0 4px;
+        }
         .tab-button {
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             cursor: pointer;
-            min-height: 44px;
-            padding: 8px 16px;
+            min-height: 48px;
+            padding: 12px 16px;
             margin: 0 4px;
             border: none;
             background-color: transparent;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
             user-select: none;
             -webkit-user-select: none;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             display: inline-block;
             text-align: center;
+            transform: translateZ(0);
+            will-change: transform;
+            -webkit-touch-callout: none;
+            -webkit-appearance: none;
+            appearance: none;
+            flex: 1;
+            max-width: 33.33%;
         }
         .tab-button.active {
-            border-bottom-color: #e8af10;
+            border-bottom: 2px solid #e8af10;
             color: #d6a70b;
             font-weight: bold;
         }
         .tab-button:active {
             background-color: rgba(232, 175, 16, 0.1);
+            transform: scale(0.98);
         }
         @media (hover: hover) {
             .tab-button:hover {
@@ -1877,23 +1919,39 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
         @media (max-width: 768px) {
-            .tab-button {
-                flex: 1;
-                text-align: center;
-                margin: 0 2px;
-                font-size: 14px;
-                padding: 10px 8px;
-                min-width: 60px;
-            }
             .tabs {
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
                 overflow-x: auto;
                 white-space: nowrap;
+                padding: 0 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: sticky;
+                top: 0;
+                background: #fff;
+                z-index: 1000;
+            }
+            .tab-button {
+                flex: 1;
+                text-align: center;
+                margin: 0 2px;
+                font-size: 14px;
+                padding: 12px 8px;
+                min-width: 60px;
+                min-height: 48px;
+                touch-action: manipulation;
+                position: relative;
+                z-index: 1001;
             }
             .tabs::-webkit-scrollbar {
                 display: none;
+            }
+            .tab-content {
+                position: relative;
+                z-index: 1;
             }
         }
     `;
