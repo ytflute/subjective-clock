@@ -50,7 +50,406 @@ small { /* 通用 small 標籤樣式 */
     color: #777;
 }
 
-/* 使用者名稱設定區塊 */
+/* 使用者資訊區塊 */
+.user-info-section {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.input-group input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-group button {
+    padding: 10px 20px;
+    background-color: #a6a08f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    width: 100%;
+    min-height: 44px;
+}
+
+.input-group button:hover {
+    background-color: #827d6f;
+}
+
+.input-group button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.current-user-info {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    color: #333;
+    text-align: left;
+}
+
+/* 分頁容器和按鈕 */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.tab-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-button {
+    padding: 12px 22px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    margin: 0 5px;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+    color: #555;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tab-button.active {
+    border-bottom-color: #e8af10;
+    font-weight: bold;
+    color: #d6a70b;
+}
+
+.tab-button:hover:not(.active) {
+    color: #b08b10;
+}
+
+/* 分頁內容 */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+    text-align: center;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 結果顯示區塊 */
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#resultText {
+    min-height: 60px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-align: center;
+    line-height: 1.7;
+}
+
+#flagContainer {
+    text-align: center;
+    min-height: 40px;
+    margin-bottom: 15px;
+}
+
+#flagContainer img {
+    max-width: 50px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 地圖容器 */
+#mapContainer,
+#historyMapContainer,
+#globalTodayMapContainer {
+    width: 100%;
+    height: 280px;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: #f7f7f7;
+}
+
+/* 歷史記錄列表 */
+#historyList {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+#historyList li {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+}
+
+#historyList li:hover {
+    background-color: #f7f7f7;
+}
+
+#historyList li:last-child {
+    border-bottom: none;
+}
+
+/* 過濾器容器 */
+.filter-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.date-picker-container,
+.group-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.group-filter-container select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+/* 主要操作按鈕 */
+#findCityButton,
+#refreshHistoryButton,
+#refreshGlobalMapButton {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 1em;
+    color: white;
+    background-color: #d4b208;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#findCityButton:hover,
+#refreshHistoryButton:hover,
+#refreshGlobalMapButton:hover {
+    background-color: #b89e1d;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .input-group input[type="text"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .input-group button {
+        font-size: 14px;
+        padding: 12px;
+        min-height: 48px;
+    }
+
+    .tab-button {
+        padding: 10px 12px;
+        font-size: 14px;
+        margin: 0 2px;
+    }
+
+    #historyList li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* 動畫 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 宇宙訊息樣式 */
+#mapContainer.universe-message {
+  background-color: black;
+  color: white;            
+  display: flex;            
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;      
+  padding: 20px;           
+  height: 280px; /* 與普通地圖容器高度一致 */
+  box-sizing: border-box;
+}
+#mapContainer.universe-message p {
+  margin: 0; 
+}
+
+/* 除錯資訊樣式 */
+#debugInfo, #historyDebugInfo, #globalTodayDebugInfo { 
+    font-size: 0.8em; /* 稍微調小 */
+    color: #666; /* 調整顏色 */
+    margin-top: 15px; 
+    word-wrap: break-word; 
+    background-color: #f0f0f0; /* 調整背景色 */
+    padding: 10px; /* 增加 padding */
+    border-radius: 4px;
+    text-align: left; 
+    line-height: 1.5; /* 增加行高 */
+}
+
+/* 歷史記錄中各部分的樣式 */
+#historyList .info-span { /* 用於包裹日期、時間、地點的 span */
+    flex-grow: 1; /* 讓它佔據多餘空間 */
+    margin-right: 10px; /* 與右側連結的間距 */
+    display: flex; /* 內部也可以用 flex 來對齊 */
+    flex-wrap: wrap; /* 允許內部元素換行 */
+}
+#historyList .date { 
+    font-weight: bold; 
+    color: #0069d9; /* 調整顏色 */
+    margin-right: 8px; 
+    white-space: nowrap;
+}
+#historyList .time { 
+    color: #1e7e34; /* 調整顏色 */
+    margin-right: 8px; 
+    white-space: nowrap;
+}
+#historyList .location { 
+    color: #444; /* 調整顏色 */
+    text-align: left; /* 保持靠左，因為 info-span 會推開連結 */
+    flex-shrink: 1; /* 允許在空間不足時被壓縮 */
+}
+/* 新增：甦醒日誌連結樣式 */
+#historyList a.log-link {
+    color: #a69108;
+    text-decoration: none; /* 移除預設底線 */
+    margin-left: 10px; /* 與左邊內容的間距 */
+    font-weight: bold;
+    white-space: nowrap; /* 避免連結文字換行 */
+    cursor: pointer;
+    padding: 3px 6px; /* 給連結一點點擊區域感 */
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+#historyList a.log-link:hover {
+    background-color: #e9ecef;
+    color: #0056b3;
+    text-decoration: underline; /* hover 時顯示底線 */
+}
+
+/* 日期選擇器容器 */
+.date-picker-container {
+    margin-bottom: 20px; /* 增加下方間距 */
+    display: flex; /* 讓 label 和 input 在一行 */
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+}
+.date-picker-container label {
+    margin-right: 8px;
+    font-weight: bold;
+}
+.date-picker-container input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+/* 日期選擇器旁邊的查詢按鈕，繼承主要按鈕樣式，但可能需要微調 */
+.date-picker-container button {
+    margin-top: 0; /* 移除主要按鈕的 margin-top */
+    margin-bottom: 0; /* 移除主要按鈕的 margin-bottom */
+    /* 可以按需調整 padding 或 font-size */
+}
+
+/* 針對冒險故事區塊的樣式 (如果您在 HTML 中保留了 #adventureStoryContainer) */
+#adventureStoryContainer {
+    margin-top: 25px; 
+    padding-top: 20px; 
+    border-top: 1px dashed #ccc; 
+    text-align: left;
+}
+#adventureStoryContainer h3 {
+    margin-bottom: 10px; 
+    color: #444; /* 調整標題顏色 */
+    font-size: 1.2em;
+}
+#adventureStoryText {
+    padding: 12px; 
+    background-color: #f0f5ff; /* 淡藍色背景 */
+    border: 1px solid #d6e3ff; 
+    border-radius: 6px; 
+    min-height: 100px; 
+    white-space: pre-wrap; /* 保留換行和空格 */
+    line-height: 1.7; 
+    color: #334; /* 深色文字 */
+    font-size: 0.95em; /* 調整字體大小 */
+}
+
+/* 新增從 index.html 移過來的樣式 */
 .user-section {
     background-color: #f9f9f9;
     padding: 15px 20px; /* 稍微增加 padding */
@@ -102,545 +501,7 @@ small { /* 通用 small 標籤樣式 */
     color: #e8af10; /* 從 HTML style 引用 */
 }
 
-/* 分頁按鈕樣式 */
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #e0e0e0;
-    flex-wrap: nowrap; /* 防止換行 */
-    overflow-x: auto; /* 如果內容過寬，允許水平滾動 */
-    -webkit-overflow-scrolling: touch; /* 在 iOS 上提供平滑滾動 */
-    scrollbar-width: none; /* Firefox 隱藏滾動條 */
-    -ms-overflow-style: none; /* IE 和 Edge 隱藏滾動條 */
-}
-
-.tabs::-webkit-scrollbar {
-    display: none; /* Chrome, Safari 和 Opera 隱藏滾動條 */
-}
-
-.tab-button {
-    padding: 12px 22px;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    font-size: 1em;
-    margin: 0 5px;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.3s, color 0.3s;
-    color: #555;
-    font-weight: 500;
-    white-space: nowrap; /* 防止按鈕文字換行 */
-    flex-shrink: 0; /* 防止按鈕被壓縮 */
-}
-
-.tab-button.active {
-    border-bottom-color: #e8af10;
-    font-weight: bold;
-    color: #d6a70b;
-}
-
-.tab-button:hover:not(.active) {
-    color: #b08b10;
-}
-
-/* 分頁內容樣式 */
-.tab-content {
-    display: none;
-    animation: fadeIn 0.5s;
-    text-align: center; 
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* 結果顯示區塊 (#result) */
-#result {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fdfdfd;
-    border-radius: 8px;
-    border: 1px solid #eee;
-    text-align: left; 
-    width: 100%; /* 讓它填滿容器寬度 */
-    box-sizing: border-box;
-}
-#resultText { 
-    min-height: 60px; /* 稍微增加最小高度 */
-    margin-bottom: 15px; 
-    font-size: 1.1em; 
-    text-align: center; 
-    line-height: 1.7; /* 增加行高使多行文字更易讀 */
-}
-#resultText p { /* resultText 內部段落的樣式 */
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-#resultText p:first-child {
-    margin-top: 0;
-}
-#resultText p:last-child {
-    margin-bottom: 0;
-}
-
-#flagContainer { 
-    text-align: center;
-    min-height:40px; 
-    margin-bottom: 15px; /* 與下方地圖的間距 */
-}
-#flagContainer img { 
-    max-width: 50px; 
-    height: auto; 
-    border: 1px solid #ddd; 
-    border-radius: 4px;
-    margin-top: 5px; /* 調整與上方文字的間距 */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* 地圖容器樣式 */
-#mapContainer, #historyMapContainer, #globalTodayMapContainer {
-    width: 100%;
-    height: 280px; /* 稍微調整高度 */
-    border: 1px solid #d0d0d0;
-    border-radius: 8px;
-    margin-top:15px;
-    background-color: #f7f7f7; 
-}
-/* 宇宙訊息樣式 */
-#mapContainer.universe-message {
-  background-color: black;
-  color: white;            
-  display: flex;            
-  justify-content: center; 
-  align-items: center;     
-  text-align: center;      
-  padding: 20px;           
-  height: 280px; /* 與普通地圖容器高度一致 */
-  box-sizing: border-box;
-}
-#mapContainer.universe-message p {
-  margin: 0; 
-}
-
-
-/* 除錯資訊樣式 */
-#debugInfo, #historyDebugInfo, #globalTodayDebugInfo { 
-    font-size: 0.8em; /* 稍微調小 */
-    color: #666; /* 調整顏色 */
-    margin-top: 15px; 
-    word-wrap: break-word; 
-    background-color: #f0f0f0; /* 調整背景色 */
-    padding: 10px; /* 增加 padding */
-    border-radius: 4px;
-    text-align: left; 
-    line-height: 1.5; /* 增加行高 */
-}
-
-/* 歷史記錄列表樣式 */
-#historyList {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-    max-height: 300px; /* 調整最大高度 */
-    overflow-y: auto;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-top: 15px; /* 調整與上方按鈕的間距 */
-    background-color: #fff;
-}
-#historyList li {
-    padding: 10px 12px; /* 調整 padding */
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.2s;
-    font-size: 0.9em; /* 調整字體大小 */
-}
-#historyList li:hover {
-    background-color: #f7f7f7; /* 調整 hover 背景色 */
-}
-#historyList li:last-child {
-    border-bottom: none;
-}
-/* 歷史記錄中各部分的樣式 */
-#historyList .info-span { /* 用於包裹日期、時間、地點的 span */
-    flex-grow: 1; /* 讓它佔據多餘空間 */
-    margin-right: 10px; /* 與右側連結的間距 */
-    display: flex; /* 內部也可以用 flex 來對齊 */
-    flex-wrap: wrap; /* 允許內部元素換行 */
-}
-#historyList .date { 
-    font-weight: bold; 
-    color: #0069d9; /* 調整顏色 */
-    margin-right: 8px; 
-    white-space: nowrap;
-}
-#historyList .time { 
-    color: #1e7e34; /* 調整顏色 */
-    margin-right: 8px; 
-    white-space: nowrap;
-}
-#historyList .location { 
-    color: #444; /* 調整顏色 */
-    text-align: left; /* 保持靠左，因為 info-span 會推開連結 */
-    flex-shrink: 1; /* 允許在空間不足時被壓縮 */
-}
-/* 新增：甦醒日誌連結樣式 */
-#historyList a.log-link {
-    color: #a69108;
-    text-decoration: none; /* 移除預設底線 */
-    margin-left: 10px; /* 與左邊內容的間距 */
-    font-weight: bold;
-    white-space: nowrap; /* 避免連結文字換行 */
-    cursor: pointer;
-    padding: 3px 6px; /* 給連結一點點擊區域感 */
-    border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
-}
-#historyList a.log-link:hover {
-    background-color: #e9ecef;
-    color: #0056b3;
-    text-decoration: underline; /* hover 時顯示底線 */
-}
-
-
-/* 主要操作按鈕 (例如 #findCityButton) */
-#findCityButton, 
-#refreshHistoryButton, 
-#refreshGlobalMapButton,
-button[id^="peekActivityButton"] /* 如果您之後加回偷看按鈕並可能有相似ID */
-{
-    display: inline-block;
-    padding: 10px 22px;
-    font-size: 1em;
-    color: white;
-    background-color: #d4b208; /* 恢復原有顏色 */
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    transition: background-color 0.2s, transform 0.1s;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-#findCityButton:hover, 
-#refreshHistoryButton:hover, 
-#refreshGlobalMapButton:hover,
-button[id^="peekActivityButton"]:hover {
-    background-color: #b89e1d; /* 恢復原有顏色 */
-}
-
-/* 日期選擇器容器 */
-.date-picker-container {
-    margin-bottom: 20px; /* 增加下方間距 */
-    display: flex; /* 讓 label 和 input 在一行 */
-    justify-content: center; /* 水平置中 */
-    align-items: center; /* 垂直置中 */
-}
-.date-picker-container label {
-    margin-right: 8px;
-    font-weight: bold;
-}
-.date-picker-container input[type="date"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 8px;
-}
-/* 日期選擇器旁邊的查詢按鈕，繼承主要按鈕樣式，但可能需要微調 */
-.date-picker-container button {
-    margin-top: 0; /* 移除主要按鈕的 margin-top */
-    margin-bottom: 0; /* 移除主要按鈕的 margin-bottom */
-    /* 可以按需調整 padding 或 font-size */
-}
-
-/* 針對冒險故事區塊的樣式 (如果您在 HTML 中保留了 #adventureStoryContainer) */
-#adventureStoryContainer {
-    margin-top: 25px; 
-    padding-top: 20px; 
-    border-top: 1px dashed #ccc; 
-    text-align: left;
-}
-#adventureStoryContainer h3 {
-    margin-bottom: 10px; 
-    color: #444; /* 調整標題顏色 */
-    font-size: 1.2em;
-}
-#adventureStoryText {
-    padding: 12px; 
-    background-color: #f0f5ff; /* 淡藍色背景 */
-    border: 1px solid #d6e3ff; 
-    border-radius: 6px; 
-    min-height: 100px; 
-    white-space: pre-wrap; /* 保留換行和空格 */
-    line-height: 1.7; 
-    color: #334; /* 深色文字 */
-    font-size: 0.95em; /* 調整字體大小 */
-}
-
-/* 響應式調整 (範例) */
-@media (max-width: 600px) {
-    .container {
-        margin-top: 10px;
-        padding: 15px;
-    }
-    h1 {
-        font-size: 1.8em;
-    }
-    .tab-button {
-        font-size: 0.9em;
-        padding: 10px 15px;
-    }
-    #historyList li, #historyList .info-span {
-        flex-direction: column; /* 在小螢幕上，讓歷史記錄項垂直排列 */
-        align-items: flex-start;
-    }
-    #historyList .info-span {
-        margin-right: 0;
-        margin-bottom: 5px;
-    }
-    #historyList a.log-link {
-        margin-left: 0;
-        margin-top: 5px;
-        align-self: flex-start; /* 讓連結也靠左 */
-    }
-}
-
-
-/* style.css 或 <style> 標籤內，新增模態框樣式 */
-
-/* 模態框背景 (半透明遮罩) */
-.modal {
-    display: none; /* 預設隱藏 */
-    position: fixed; /* 固定在視窗上 */
-    z-index: 1000; /* 確保在最上層 */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* 如果內容過長則允許滾動 */
-    background-color: rgba(0,0,0,0.5); /* 半透明黑色背景 */
-    animation: fadeInModal 0.3s ease-out; /* 淡入動畫 */
-}
-
-@keyframes fadeInModal {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* 模態框對話方塊的容器，用於垂直置中 */
-.modal-dialog {
-    display: flex;
-    align-items: center; /* 垂直置中 */
-    justify-content: center; /* 水平置中 */
-    min-height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* 模態框實際內容的包裝 */
-.modal-content-wrapper {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 25px;
-    border: 1px solid #888;
-    width: 90%; /* 在小螢幕上寬度為 90% */
-    max-width: 600px; /* 最大寬度 */
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative; /* 為了關閉按鈕的絕對定位 */
-    animation: slideInModal 0.3s ease-out; /* 滑入動畫 */
-    text-align: left; /* 讓模態框內容預設靠左 */
-}
-
-@keyframes slideInModal {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-
-/* 模態框頭部 */
-.modal-header {
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-header h2, .modal-header h3, .modal-header h4 {
-    margin: 0;
-    color: #333;
-    font-size: 1.6em;
-}
-
-/* 模態框內容主體 */
-.modal-body {
-    line-height: 1.7;
-    max-height: 60vh; /* 限制內容最大高度，超出則滾動 */
-    overflow-y: auto; /* 內容過多時顯示滾動條 */
-    padding-right: 10px; /* 給滾動條留出空間 */
-}
-.modal-body p {
-    margin-bottom: 12px;
-    color: #444;
-}
-.modal-body p strong {
-    color: #222;
-}
-
-/* 關閉按鈕 (右上角的 X) */
-.modal-close-button {
-    color: #aaa;
-    font-size: 32px;
-    font-weight: bold;
-    line-height: 1;
-    cursor: pointer;
-    padding: 0 5px;
-}
-.modal-close-button:hover,
-.modal-close-button:focus {
-    color: black;
-    text-decoration: none;
-}
-
-/* 模態框底部 (可選，用於放置操作按鈕) */
-.modal-footer {
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    margin-top: 20px;
-    text-align: right;
-}
-
-.modal-footer .modal-button-secondary {
-    padding: 10px 20px;
-    background-color: #6c757d; /* 次要按鈕顏色 */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-.modal-footer .modal-button-secondary:hover {
-    background-color: #5a6268;
-}
-
-/* 明信片生成按鈕 (如果放在模態框內) */
-#generatePostcardButton.postcard-button {
-    display: inline-block; /* 或 block 看您的佈局需求 */
-    padding: 8px 15px;
-    font-size: 0.9em;
-    color: white;
-    background-color: #007bff; /* 主題藍色 */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.2s;
-}
-#generatePostcardButton.postcard-button:hover {
-    background-color: #0056b3;
-}
-#generatePostcardButton.postcard-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
 /* 新增從 index.html 移過來的樣式 */
-.user-info-section {
-    background-color: #f9f9f9;
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    border: 1px solid #e0e0e0;
-}
-
-.input-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-group label {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 4px;
-}
-
-.input-group input[type="text"] {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.input-group button {
-    padding: 10px 20px;
-    background-color: #a6a08f;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.2s;
-    width: 100%;
-    min-height: 44px;
-}
-
-.input-group button:hover {
-    background-color: #827d6f;
-}
-
-.input-group button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-@media (max-width: 768px) {
-    .input-group {
-        margin-bottom: 12px;
-    }
-
-    .input-group input[type="text"] {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .input-group button {
-        font-size: 14px;
-        padding: 12px;
-        min-height: 48px;
-    }
-}
-
-.filter-container {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-    flex-wrap: wrap;
-}
-
-.date-picker-container,
-.group-filter-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 .group-filter-container select {
     padding: 8px;
     border: 1px solid #ddd;
