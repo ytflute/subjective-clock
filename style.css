@@ -264,7 +264,7 @@ small { /* 通用 small 標籤樣式 */
 .filter-container {
     display: flex;
     gap: 15px;
-    align-items: center;
+    align-items: flex-end;  /* 改為底部對齊 */
     justify-content: center;
     margin: 20px 0;
     flex-wrap: nowrap;
@@ -274,15 +274,20 @@ small { /* 通用 small 標籤樣式 */
 .date-picker-container,
 .group-filter-container {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;  /* 改為垂直排列 */
+    align-items: flex-start; /* 標籤左對齊 */
+    gap: 4px;  /* 標籤和輸入框之間的間距 */
     flex: 1;
     min-width: 0;
 }
 
-.date-picker-container label {
+.date-picker-container label,
+.group-filter-container label {
     white-space: nowrap;
-    margin-right: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    margin: 0;  /* 移除外邊距 */
 }
 
 .date-picker-container input[type="date"] {
@@ -291,14 +296,21 @@ small { /* 通用 small 標籤樣式 */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;  /* 確保寬度一致 */
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
 .group-filter-container select {
     flex: 1;
     min-width: 0;
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;  /* 統一邊框顏色 */
     border-radius: 4px;
+    width: 100%;  /* 確保寬度一致 */
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: white;
 }
 
 #refreshGlobalMapButton {
@@ -361,21 +373,34 @@ small { /* 通用 small 標籤樣式 */
 
     .filter-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+        align-items: stretch;  /* 讓所有元素拉伸到相同寬度 */
     }
 
     .date-picker-container,
     .group-filter-container {
         width: 100%;
+        align-items: stretch;  /* 讓內部元素拉伸 */
     }
 
     .date-picker-container input[type="date"],
     .group-filter-container select {
         width: 100%;
+        padding: 12px;  /* 手機版增加padding */
+        font-size: 16px;  /* 手機版字體稍大 */
+    }
+
+    .date-picker-container label,
+    .group-filter-container label {
+        font-size: 16px;  /* 手機版標籤字體稍大 */
+        margin-bottom: 6px;
     }
 
     #refreshGlobalMapButton {
         width: 100%;
+        padding: 14px;  /* 手機版增加padding */
+        font-size: 16px;
+        margin-top: 5px;
     }
 
     #historyList li {
@@ -464,30 +489,6 @@ small { /* 通用 small 標籤樣式 */
     background-color: #e9ecef;
     color: #0056b3;
     text-decoration: underline; /* hover 時顯示底線 */
-}
-
-/* 日期選擇器容器 */
-.date-picker-container {
-    margin-bottom: 20px; /* 增加下方間距 */
-    display: flex; /* 讓 label 和 input 在一行 */
-    justify-content: center; /* 水平置中 */
-    align-items: center; /* 垂直置中 */
-}
-.date-picker-container label {
-    margin-right: 8px;
-    font-weight: bold;
-}
-.date-picker-container input[type="date"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 8px;
-}
-/* 日期選擇器旁邊的查詢按鈕，繼承主要按鈕樣式，但可能需要微調 */
-.date-picker-container button {
-    margin-top: 0; /* 移除主要按鈕的 margin-top */
-    margin-bottom: 0; /* 移除主要按鈕的 margin-bottom */
-    /* 可以按需調整 padding 或 font-size */
 }
 
 /* 針對冒險故事區塊的樣式 (如果您在 HTML 中保留了 #adventureStoryContainer) */
@@ -773,8 +774,97 @@ small { /* 通用 small 標籤樣式 */
 @media (max-width: 600px) {
   #userName, #groupName {
     width: 100%;
-    max-width: 100%;
-    font-size: 1em;
-    margin-bottom: 8px;
   }
+}
+
+/* ======= 過濾器容器修正樣式 ======= */
+/* 確保眾人地圖分頁的控制元素對齊整齊 */
+.filter-container {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    margin: 20px 0 !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.date-picker-container,
+.group-filter-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    flex: 1 !important;
+    min-width: 140px !important;
+    max-width: 200px !important;
+}
+
+.date-picker-container label,
+.group-filter-container label {
+    font-weight: bold !important;
+    color: #333 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+}
+
+.date-picker-container input[type="date"],
+.group-filter-container select {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+    background-color: white !important;
+    height: 40px !important;
+}
+
+#refreshGlobalMapButton {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 10px 20px !important;
+    height: 40px !important;
+    align-self: flex-end !important;
+}
+
+/* 手機版修正 */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column !important;
+        gap: 16px !important;
+        align-items: stretch !important;
+    }
+
+    .date-picker-container,
+    .group-filter-container {
+        max-width: none !important;
+        min-width: auto !important;
+        width: 100% !important;
+    }
+
+    .date-picker-container input[type="date"],
+    .group-filter-container select {
+        padding: 12px !important;
+        font-size: 16px !important;
+        height: 48px !important;
+    }
+
+    .date-picker-container label,
+    .group-filter-container label {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+    }
+
+    #refreshGlobalMapButton {
+        width: 100% !important;
+        padding: 14px !important;
+        font-size: 16px !important;
+        height: 48px !important;
+        margin-top: 0 !important;
+    }
 }
