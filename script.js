@@ -1,5 +1,23 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    // 從 window 中獲取 Firebase SDK 函數
+// 只保留 DOMContentLoaded 監聽器用於 UI 前置作業（如必要）
+// 主要邏輯全部移到 firebaseReady 事件
+
+// 1. 先移除 DOMContentLoaded 裡一開始的 window.firebaseSDK 解構
+// 2. 將主程式碼全部搬到 firebaseReady 裡
+
+// 保留全域變數宣告（如 let clockLeafletMap = null; 等）
+let citiesData = [];
+let db, auth;
+let currentDataIdentifier = null;
+let rawUserDisplayName = "";
+let clockLeafletMap = null;
+let globalLeafletMap = null;
+let globalMarkerLayerGroup = null;
+let historyLeafletMap = null;
+let historyMarkerLayerGroup = null;
+let currentGroupName = "";
+let initialLoadHandled = false;
+
+window.addEventListener('firebaseReady', async (event) => {
     const {
         initializeApp,
         getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
@@ -7,29 +25,25 @@ document.addEventListener('DOMContentLoaded', async () => {
         setLogLevel
     } = window.firebaseSDK;
 
-    // DOM 元素獲取
+    // 將原本 DOMContentLoaded 裡的主程式碼（變數、事件、初始化等）全部搬進來
+    // 例如：
     const findCityButton = document.getElementById('findCityButton');
     const resultTextDiv = document.getElementById('resultText');
     const countryFlagImg = document.getElementById('countryFlag');
     const mapContainerDiv = document.getElementById('mapContainer');
     const debugInfoSmall = document.getElementById('debugInfo');
-
     const userNameInput = document.getElementById('userName');
     const setUserNameButton = document.getElementById('setUserNameButton');
     const currentUserIdSpan = document.getElementById('currentUserId');
     const currentUserDisplayNameSpan = document.getElementById('currentUserDisplayName');
-
     const historyListUl = document.getElementById('historyList');
     const historyMapContainerDiv = document.getElementById('historyMapContainer');
     const historyDebugInfoSmall = document.getElementById('historyDebugInfo');
     const refreshHistoryButton = document.getElementById('refreshHistoryButton');
-
     const globalDateInput = document.getElementById('globalDate');
     const refreshGlobalMapButton = document.getElementById('refreshGlobalMapButton');
     const globalTodayMapContainerDiv = document.getElementById('globalTodayMapContainer');
     const globalTodayDebugInfoSmall = document.getElementById('globalTodayDebugInfo');
-
-    let currentGroupName = "";
     const groupNameInput = document.getElementById('groupName');
     const currentGroupNameSpan = document.getElementById('currentGroupName');
     const groupFilterSelect = document.getElementById('groupFilter');
