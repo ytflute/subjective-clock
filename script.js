@@ -815,31 +815,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 根據時間差排序候選城市
         candidateCities.sort((a, b) => a.timeDiff - b.timeDiff);
 
-        // 獲取選擇的冒險指數
-        const adventureSpectrum = document.getElementById('adventureSpectrum').value;
-        
-        // 根據冒險指數設定緯度範圍
-        let latitudeRange;
-        switch(adventureSpectrum) {
-            case 'leisurely':
-                latitudeRange = { min: 45, max: 90 }; // 中高緯度地區
-                break;
-            case 'exploring':
-                latitudeRange = { min: 20, max: 45 }; // 中緯度地區
-                break;
-            case 'challenging':
-                latitudeRange = { min: 0, max: 20 }; // 低緯度地區
-                break;
-            default:
-                // 如果沒有選擇冒險指數，則不限制緯度範圍
-                latitudeRange = { min: 0, max: 90 };
-        }
-
         // 找出時間差最小的值
         const minTimeDiff = candidateCities[0].timeDiff;
         
         // 篩選出時間差最小的城市
         const bestTimeCities = candidateCities.filter(city => city.timeDiff === minTimeDiff);
+
+        // 根據時間差計算緯度範圍
+        let latitudeRange;
+        if (minTimeDiff <= 0.1) { // 時間差小於 6 分鐘
+            latitudeRange = { min: 0, max: 20 }; // 低緯度地區
+        } else if (minTimeDiff <= 0.2) { // 時間差小於 12 分鐘
+            latitudeRange = { min: 20, max: 45 }; // 中緯度地區
+        } else { // 時間差大於 12 分鐘
+            latitudeRange = { min: 45, max: 90 }; // 高緯度地區
+        }
         
         // 在時間差最小的城市中，根據緯度範圍篩選
         const matchingCities = bestTimeCities.filter(city => {
