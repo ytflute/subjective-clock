@@ -1473,21 +1473,71 @@ window.addEventListener('firebaseReady', async (event) => {
                 const querySnapshot = await getDocs(q);
                 
                 let recordIndex = 0;
-                querySnapshot.forEach((doc, index) => {
+                const recordsArray = [];
+                
+                // 將所有記錄放入陣列，並轉換時間戳以便比較
+                querySnapshot.forEach((doc) => {
                     const historyRecord = doc.data();
-                    // 比較記錄時間戳來確定是第幾次
-                    if (historyRecord.recordedAt && record.recordedAt && 
-                        historyRecord.recordedAt.toMillis() === record.recordedAt.toMillis()) {
-                        recordIndex = index + 1; // 加1因為索引從0開始
+                    if (historyRecord.recordedAt) {
+                        recordsArray.push({
+                            ...historyRecord,
+                            timestamp: historyRecord.recordedAt.toMillis ? historyRecord.recordedAt.toMillis() : historyRecord.recordedAt
+                        });
                     }
                 });
                 
+                // 按時間戳排序（從早到晚）
+                recordsArray.sort((a, b) => a.timestamp - b.timestamp);
+                
+                // 找到當前記錄的位置
+                const currentRecordTimestamp = record.recordedAt && record.recordedAt.toMillis ? 
+                    record.recordedAt.toMillis() : record.recordedAt;
+                
+                for (let i = 0; i < recordsArray.length; i++) {
+                    // 比較時間戳，允許小的誤差（1秒內）
+                    const timeDiff = Math.abs(recordsArray[i].timestamp - currentRecordTimestamp);
+                    if (timeDiff <= 1000) { // 1秒內的差異視為同一記錄
+                        recordIndex = i + 1;
+                        break;
+                    }
+                }
+                
+                // 如果找到了記錄位置，設定甦醒次數
                 if (recordIndex > 0) {
                     awakingNumber = `第 ${recordIndex} 次`;
+                } else {
+                    // 如果無法精確匹配，嘗試使用城市和國家來找到最接近的記錄
+                    for (let i = 0; i < recordsArray.length; i++) {
+                        if (recordsArray[i].city === record.city && 
+                            recordsArray[i].country === record.country) {
+                            // 檢查時間是否接近（1小時內）
+                            const timeDiff = Math.abs(recordsArray[i].timestamp - currentRecordTimestamp);
+                            if (timeDiff <= 3600000) { // 1小時內
+                                recordIndex = i + 1;
+                                awakingNumber = `第 ${recordIndex} 次`;
+                                break;
+                            }
+                        }
+                    }
                 }
+                
+                console.log(`[showHistoryLogModal] 計算甦醒次數: 總記錄數=${recordsArray.length}, 當前記錄位置=${recordIndex}, 甦醒次數=${awakingNumber}`);
             }
         } catch (error) {
             console.error("計算甦醒次數失敗:", error);
+            // 即使出錯，也提供一個基於數據庫記錄總數的估計
+            try {
+                if (currentDataIdentifier && auth.currentUser) {
+                    const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+                    const countQuery = query(historyCollectionRef, orderBy("recordedAt", "desc"));
+                    const countSnapshot = await getDocs(countQuery);
+                    if (!countSnapshot.empty) {
+                        awakingNumber = `約第 ${countSnapshot.size} 次`;
+                    }
+                }
+            } catch (fallbackError) {
+                console.error("備用計算甦醒次數也失敗:", fallbackError);
+            }
         }
 
         const recordDate = formatDate(record.recordedAt);
