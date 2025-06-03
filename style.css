@@ -695,7 +695,7 @@ small { /* 通用 small 標籤樣式 */
 }
 .history-table th {
   background: #f5f5f5;
-  color: #e9b819;
+  color: #4c4c4c;
   font-weight: bold;
 }
 .history-table tr:nth-child(even) {

@@ -1543,7 +1543,7 @@ window.addEventListener('firebaseReady', async (event) => {
             
             // 繪製虛線路線
             L.polyline(routePoints, {
-                color: '#FFD700', // 金色
+                color: '#e81010a0', // 紅
                 weight: 3,
                 opacity: 0.6,
                 dashArray: '10, 10'
@@ -1560,8 +1560,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 
                 // 添加箭頭標記
                 L.circleMarker([arrowLat, arrowLng], {
-                    color: '#FFD700',
-                    fillColor: '#FFD700',
+                    color: '#e81010a0',
+                    fillColor: '#e81010a0',
                     fillOpacity: 0.8,
                     radius: 6
                 }).addTo(currentMarkerLayerGroup);
