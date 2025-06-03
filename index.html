@@ -14,25 +14,14 @@
         <h1>甦醒地圖 Wake Up World Map</h1>
 
         <div class="user-info-section">
-            <div class="input-group-vertical">
-                <div class="input-field">
-                    <label for="userName">顯示名稱：</label>
-                    <input type="text" id="userName" placeholder="請輸入你的顯示名稱">
-                </div>
-                <div class="input-field">
-                    <label for="groupName">組別名稱：</label>
-                    <input type="text" id="groupName" placeholder="輸入組別名稱（選填）">
-                </div>
-                <div class="input-field">
-                    <label for="adventureSpectrum">今日的冒險指數：</label>
-                    <select id="adventureSpectrum">
-                        <option value="default">隨機穿越</option>
-                        <option value="leisurely">霧冷思索</option>
-                        <option value="exploring">漫步世界</option>
-                        <option value="challenging">熱情燃動</option>
-                    </select>
-                </div>
+            <div class="input-group">
+                <label for="userName">顯示名稱：</label>
+                <input type="text" id="userName" placeholder="請輸入您的顯示名稱">
                 <button id="setUserNameButton">設定/更新名稱</button>
+            </div>
+            <div class="input-group">
+                <label for="groupName">組別名稱：</label>
+                <input type="text" id="groupName" placeholder="請輸入組別名稱（選填）">
             </div>
             <div class="current-user-info">
                 <span>目前使用者：</span>
@@ -43,9 +32,9 @@
         </div>
 
         <div class="tab-container">
-            <button id="tabButton-ClockTab" class="tab-button active" onclick="openTab(event, 'ClockTab')">今日甦醒</button>
-            <button id="tabButton-HistoryTab" class="tab-button" onclick="openTab(event, 'HistoryTab')">甦醒軌跡</button>
-            <button id="tabButton-GlobalTodayMapTab" class="tab-button" onclick="openTab(event, 'GlobalTodayMapTab')">眾人地圖</button>
+            <button id="tabButton-ClockTab" class="tab-button active" data-tab="ClockTab">今日甦醒</button>
+            <button id="tabButton-HistoryTab" class="tab-button" data-tab="HistoryTab">甦醒軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" data-tab="GlobalTodayMapTab">眾人地圖</button>
         </div>
 
         <div id="ClockTab" class="tab-content active">
