@@ -1034,103 +1034,122 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     async function loadHistory() {
+        const historyListUl = document.getElementById('historyList');
+        const currentDataIdentifier = localStorage.getItem('currentDataIdentifier');
+        
         if (!currentDataIdentifier) {
-            historyListUl.innerHTML = '<li>請先設定你的顯示名稱以查看歷史記錄。</li>';
-            if (historyLeafletMap) {
-                historyLeafletMap.remove();
-                historyLeafletMap = null;
-            }
-            historyMapContainerDiv.innerHTML = '<p>設定名稱後，此處將顯示您的個人歷史地圖。</p>';
+            console.error('未找到使用者識別碼');
+            historyListUl.innerHTML = '<li>尚未設定使用者識別碼</li>';
             return;
         }
-
-        console.log("[loadHistory] 準備載入歷史記錄，使用識別碼:", currentDataIdentifier);
-        historyListUl.innerHTML = '<li>載入歷史記錄中...</li>';
-        if (!historyLeafletMap) {
-            historyMapContainerDiv.innerHTML = '<p>載入個人歷史地圖中...</p>';
-        } else if (historyMarkerLayerGroup) {
-            historyMarkerLayerGroup.clearLayers();
-        }
-        historyDebugInfoSmall.textContent = "";
-
-        const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
-        const q = query(historyCollectionRef, orderBy("recordedAt", "desc"));
-
+        
         try {
-            const querySnapshot = await getDocs(q);
-            console.log("[loadHistory] 查詢結果:", querySnapshot.size, "筆記錄");
+            const userHistoryRef = db.collection('userHistory').doc(currentDataIdentifier).collection('history');
+            const querySnapshot = await userHistoryRef.orderBy('recordedAt', 'desc').get();
+            
             historyListUl.innerHTML = '';
-            const historyPoints = [];
-
-            if (querySnapshot.empty) {
-                historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
-                renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
-                return;
-            }
-
-            // 新增：建立表格
-            const table = document.createElement('table');
-            table.className = 'history-table';
-            const thead = document.createElement('thead');
-            thead.innerHTML = `<tr><th>時間</th><th>甦醒於</th><th></th></tr>`;
-            table.appendChild(thead);
-            const tbody = document.createElement('tbody');
-
-            const markerMap = new Map();
-            querySnapshot.forEach((doc) => {
-                const record = doc.data();
-                const docId = doc.id;
-                const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
-                const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
-                const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
-
-                // 建立表格列
-                const tr = document.createElement('tr');
-                const tdTime = document.createElement('td');
-                tdTime.textContent = recordDate;
-                const tdLocation = document.createElement('td');
-                tdLocation.textContent = `${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}`;
-                const tdButton = document.createElement('td');
-                const detailsButton = document.createElement('button');
-                detailsButton.textContent = '查看日誌';
-                detailsButton.className = 'history-log-button';
-                detailsButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    showHistoryLogModal(record);
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            
+            const points = [];
+            querySnapshot.forEach((doc, index) => {
+                const data = doc.data();
+                const date = new Date(data.recordedAt.toDate());
+                const formattedDate = date.toLocaleDateString('zh-TW');
+                const formattedTime = date.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+                
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div class="info-span">
+                        <span class="date">#${index + 1} ${formattedDate}</span>
+                        <span class="time">${formattedTime}</span>
+                        <span class="location">${data.city_zh || data.city}, ${data.country_zh || data.country}</span>
+                    </div>
+                    <a class="log-link" href="#" data-index="${index}">查看地圖</a>
+                `;
+                
+                // 添加 hover 效果（桌面版）
+                li.addEventListener('mouseover', () => {
+                    if (markers[index]) {
+                        markers[index].setIcon(L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #ff0000; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                            iconSize: [20, 20],
+                            iconAnchor: [10, 10]
+                        }));
+                    }
                 });
-                detailsButton.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    showHistoryLogModal(record);
-                }, { passive: false });
-                tdButton.appendChild(detailsButton);
-                tr.appendChild(tdTime);
-                tr.appendChild(tdLocation);
-                tr.appendChild(tdButton);
-                tbody.appendChild(tr);
+                
+                li.addEventListener('mouseout', () => {
+                    if (markers[index]) {
+                        markers[index].setIcon(L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                            iconSize: [16, 16],
+                            iconAnchor: [8, 8]
+                        }));
+                    }
+                });
 
-                // 地圖點資料
-                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
-                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
-                    historyPoints.push({
-                        lat: record.latitude,
-                        lon: record.longitude,
-                        title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}`,
-                        timestamp: record.recordedAt.toMillis(),
-                        listItem: tr
+                // 添加觸控事件（手機版）
+                li.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    // 先將所有標記恢復原始大小
+                    markers.forEach((marker, i) => {
+                        if (i !== index) {
+                            marker.setIcon(L.divIcon({
+                                className: 'custom-marker',
+                                html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                                iconSize: [16, 16],
+                                iconAnchor: [8, 8]
+                            }));
+                        }
                     });
+                    // 將當前標記變大
+                    if (markers[index]) {
+                        markers[index].setIcon(L.divIcon({
+                            className: 'custom-marker',
+                            html: `<div style="background-color: #ff0000; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
+                            iconSize: [20, 20],
+                            iconAnchor: [10, 10]
+                        }));
+                    }
+                }, { passive: false });
+                
+                // 添加點擊事件
+                li.querySelector('.log-link').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (markers[index]) {
+                        markers[index].openPopup();
+                        map.setView(markers[index].getLatLng(), map.getZoom());
+                    }
+                });
+
+                // 添加觸控點擊事件
+                li.querySelector('.log-link').addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    if (markers[index]) {
+                        markers[index].openPopup();
+                        map.setView(markers[index].getLatLng(), map.getZoom());
+                    }
+                }, { passive: false });
+                
+                historyListUl.appendChild(li);
+                
+                if (data.latitude && data.longitude) {
+                    const marker = createMarker(data.latitude, data.longitude, data, index);
+                    points.push([data.latitude, data.longitude]);
                 }
             });
-            table.appendChild(tbody);
-            historyListUl.innerHTML = '';
-            historyListUl.appendChild(table);
-            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
-        } catch (e) {
-            console.error("[loadHistory] 讀取歷史記錄失敗:", e);
-            historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
-            historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>';
-            historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
+            
+            if (points.length > 0) {
+                drawRoute(points);
+                const bounds = L.latLngBounds(points);
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        } catch (error) {
+            console.error('載入歷史記錄失敗:', error);
+            historyListUl.innerHTML = '<li>載入歷史記錄失敗</li>';
         }
     }
 
@@ -1939,138 +1958,6 @@ window.addEventListener('firebaseReady', async (event) => {
         marker.bindPopup(`#${index + 1} ${formattedDate} ${formattedTime}, ${data.city_zh || data.city}, ${data.country_zh || data.country}`);
         markers.push(marker);
         return marker;
-    }
-
-    // 修改 loadHistory 函數
-    function loadHistory() {
-        const historyListUl = document.getElementById('historyList');
-        const userId = localStorage.getItem('userId');
-        
-        if (!userId) {
-            console.error('未找到使用者 ID');
-            return;
-        }
-        
-        const userHistoryRef = db.collection('userHistory').doc(userId).collection('history');
-        
-        userHistoryRef.orderBy('recordedAt', 'desc').get().then((querySnapshot) => {
-            historyListUl.innerHTML = '';
-            markers.forEach(marker => map.removeLayer(marker));
-            markers = [];
-            
-            const points = [];
-            querySnapshot.forEach((doc, index) => {
-                const data = doc.data();
-                const date = new Date(data.recordedAt.toDate());
-                const formattedDate = date.toLocaleDateString('zh-TW');
-                const formattedTime = date.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
-                
-                const li = document.createElement('li');
-                li.innerHTML = `
-                    <div class="info-span">
-                        <span class="date">#${index + 1} ${formattedDate}</span>
-                        <span class="time">${formattedTime}</span>
-                        <span class="location">${data.city_zh || data.city}, ${data.country_zh || data.country}</span>
-                    </div>
-                    <a class="log-link" href="#" data-index="${index}">查看地圖</a>
-                `;
-                
-                // 添加 hover 效果（桌面版）
-                li.addEventListener('mouseover', () => {
-                    if (markers[index]) {
-                        markers[index].setIcon(L.divIcon({
-                            className: 'custom-marker',
-                            html: `<div style="background-color: #ff0000; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
-                            iconSize: [20, 20],
-                            iconAnchor: [10, 10]
-                        }));
-                    }
-                });
-                
-                li.addEventListener('mouseout', () => {
-                    if (markers[index]) {
-                        markers[index].setIcon(L.divIcon({
-                            className: 'custom-marker',
-                            html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
-                            iconSize: [16, 16],
-                            iconAnchor: [8, 8]
-                        }));
-                    }
-                });
-
-                // 添加觸控事件（手機版）
-                li.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    // 先將所有標記恢復原始大小
-                    markers.forEach((marker, i) => {
-                        if (i !== index) {
-                            marker.setIcon(L.divIcon({
-                                className: 'custom-marker',
-                                html: `<div style="background-color: #ff0000; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
-                                iconSize: [16, 16],
-                                iconAnchor: [8, 8]
-                            }));
-                        }
-                    });
-                    // 將當前標記變大
-                    if (markers[index]) {
-                        markers[index].setIcon(L.divIcon({
-                            className: 'custom-marker',
-                            html: `<div style="background-color: #ff0000; width: 20px; height: 20px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3);"></div>`,
-                            iconSize: [20, 20],
-                            iconAnchor: [10, 10]
-                        }));
-                    }
-                }, { passive: false });
-                
-                // 添加點擊事件
-                li.querySelector('.log-link').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (markers[index]) {
-                        markers[index].openPopup();
-                        map.setView(markers[index].getLatLng(), map.getZoom());
-                    }
-                });
-
-                // 添加觸控點擊事件
-                li.querySelector('.log-link').addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    if (markers[index]) {
-                        markers[index].openPopup();
-                        map.setView(markers[index].getLatLng(), map.getZoom());
-                    }
-                }, { passive: false });
-                
-                historyListUl.appendChild(li);
-                
-                if (data.latitude && data.longitude) {
-                    const marker = createMarker(data.latitude, data.longitude, data, index);
-                    points.push([data.latitude, data.longitude]);
-                }
-            });
-            
-            if (points.length > 0) {
-                drawRoute(points);
-                const bounds = L.latLngBounds(points);
-                map.fitBounds(bounds, { padding: [50, 50] });
-            }
-        }).catch((error) => {
-            console.error('載入歷史記錄失敗:', error);
-        });
-    }
-
-    // 修改 drawRoute 函數
-    function drawRoute(points) {
-        if (routePolyline) {
-            map.removeLayer(routePolyline);
-        }
-        
-        routePolyline = L.polyline(points, {
-            color: '#ff0000',
-            weight: 3,
-            opacity: 0.6,
-            dashArray: '5, 10'
-        }).addTo(map);
     }
 
 });
