@@ -1190,10 +1190,10 @@ window.addEventListener('firebaseReady', async (event) => {
                 detailsButton.className = 'history-log-button';
                 
                 // 防止按鈕點擊事件冒泡
-                const handleButtonClick = (e) => {
+                const handleButtonClick = async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    showHistoryLogModal(record);
+                    await showHistoryLogModal(record);
                 };
                 
                 detailsButton.addEventListener('click', handleButtonClick);
@@ -1453,7 +1453,7 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     // **新增：顯示歷史日誌模態框的函數 (修正版)**
-    function showHistoryLogModal(record) {
+    async function showHistoryLogModal(record) {
         const modal = document.getElementById('historyLogModal');
         const modalContent = document.getElementById('historyLogModalContent');
         if (!modal || !modalContent) {
@@ -1464,9 +1464,38 @@ window.addEventListener('firebaseReady', async (event) => {
         const cityDisplay = formatCityName(record);
         document.getElementById('modalTitle').textContent = `${cityDisplay || '未知地點'} - 甦醒日誌`;
 
+        // 計算這是第幾次甦醒
+        let awakingNumber = "未知";
+        try {
+            if (currentDataIdentifier && auth.currentUser) {
+                const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+                const q = query(historyCollectionRef, orderBy("recordedAt", "asc"));
+                const querySnapshot = await getDocs(q);
+                
+                let recordIndex = 0;
+                querySnapshot.forEach((doc, index) => {
+                    const historyRecord = doc.data();
+                    // 比較記錄時間戳來確定是第幾次
+                    if (historyRecord.recordedAt && record.recordedAt && 
+                        historyRecord.recordedAt.toMillis() === record.recordedAt.toMillis()) {
+                        recordIndex = index + 1; // 加1因為索引從0開始
+                    }
+                });
+                
+                if (recordIndex > 0) {
+                    awakingNumber = `第 ${recordIndex} 次`;
+                }
+            }
+        } catch (error) {
+            console.error("計算甦醒次數失敗:", error);
+        }
+
         const recordDate = formatDate(record.recordedAt);
         modalContent.innerHTML = `
             <div id="logBasicInfo">
+                <p style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 12px; border-radius: 6px; text-align: center; font-weight: bold; margin-bottom: 15px;">
+                    ✨ ${awakingNumber}甦醒日誌 ✨
+                </p>
                 <p><strong>記錄時間:</strong> ${recordDate}</p>
                 <p><strong>使用者當地時間:</strong> ${record.localTime || '未知'}</p>
                 <p><strong>甦醒地點:</strong> ${cityDisplay}, ${formatCountryName(record)}</p>
