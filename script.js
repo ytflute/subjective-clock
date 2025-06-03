@@ -658,6 +658,68 @@ window.addEventListener('firebaseReady', async (event) => {
         existingBreakfastContainers.forEach(container => container.remove());
     }
 
+    // 新增：獲取用戶的城市訪問統計
+    async function getUserCityVisitStats() {
+        if (!currentDataIdentifier || !auth.currentUser) {
+            console.log("[getUserCityVisitStats] 用戶未設定或未認證，返回空統計");
+            return {};
+        }
+
+        try {
+            const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+            const querySnapshot = await getDocs(historyCollectionRef);
+            const cityVisitCount = {};
+
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                // 使用城市英文名作為唯一標識
+                const cityKey = record.city;
+                if (cityKey && cityKey !== "Unknown Planet") {
+                    cityVisitCount[cityKey] = (cityVisitCount[cityKey] || 0) + 1;
+                }
+            });
+
+            console.log("[getUserCityVisitStats] 城市訪問統計:", cityVisitCount);
+            return cityVisitCount;
+        } catch (error) {
+            console.error("[getUserCityVisitStats] 獲取城市訪問統計失敗:", error);
+            return {};
+        }
+    }
+
+    // 新增：根據訪問歷史智能選擇城市
+    function selectCityWithVisitHistory(matchingCities, cityVisitStats) {
+        if (matchingCities.length === 0) {
+            return null;
+        }
+
+        if (matchingCities.length === 1) {
+            return matchingCities[0];
+        }
+
+        // 為每個城市添加訪問次數信息
+        const citiesWithStats = matchingCities.map(city => ({
+            ...city,
+            visitCount: cityVisitStats[city.city] || 0
+        }));
+
+        // 找出訪問次數最少的次數
+        const minVisitCount = Math.min(...citiesWithStats.map(city => city.visitCount));
+        
+        // 篩選出訪問次數最少的城市
+        const leastVisitedCities = citiesWithStats.filter(city => city.visitCount === minVisitCount);
+
+        console.log(`[selectCityWithVisitHistory] 找到 ${matchingCities.length} 個符合條件的城市`);
+        console.log(`[selectCityWithVisitHistory] 最少訪問次數: ${minVisitCount}, 符合的城市數量: ${leastVisitedCities.length}`);
+
+        // 在訪問次數最少的城市中隨機選擇
+        const randomIndex = Math.floor(Math.random() * leastVisitedCities.length);
+        const selectedCity = leastVisitedCities[randomIndex];
+
+        console.log(`[selectCityWithVisitHistory] 選擇城市: ${selectedCity.city}, 訪問次數: ${selectedCity.visitCount}`);
+        return selectedCity;
+    }
+
     async function findMatchingCity() {
         clearPreviousResults();
         console.log("--- 開始尋找匹配城市 ---");
@@ -679,6 +741,9 @@ window.addEventListener('firebaseReady', async (event) => {
             findCityButton.disabled = false;
             return;
         }
+
+        // 獲取用戶的城市訪問統計
+        const cityVisitStats = await getUserCityVisitStats();
 
         // 獲取用戶當前的本地時間
         const userLocalDate = new Date();
@@ -852,13 +917,17 @@ window.addEventListener('firebaseReady', async (event) => {
             return latitude >= latitudeRange.min && latitude <= latitudeRange.max;
         });
 
-        // 如果找到符合緯度範圍的城市，隨機選擇一個
+        // 使用新的智能選擇邏輯（考慮訪問歷史）
         let bestMatchCity;
         if (matchingCities.length > 0) {
-            const randomIndex = Math.floor(Math.random() * matchingCities.length);
-            bestMatchCity = matchingCities[randomIndex];
+            bestMatchCity = selectCityWithVisitHistory(matchingCities, cityVisitStats);
         } else {
-            // 如果沒有符合緯度範圍的城市，返回時間差最小的第一個城市
+            // 如果沒有符合緯度範圍的城市，在所有時間差最小的城市中智能選擇
+            bestMatchCity = selectCityWithVisitHistory(bestTimeCities, cityVisitStats);
+        }
+
+        // 如果還是沒有選到城市，使用原來的邏輯
+        if (!bestMatchCity) {
             bestMatchCity = bestTimeCities[0];
         }
 
@@ -869,9 +938,19 @@ window.addEventListener('firebaseReady', async (event) => {
         const greetingFromAPI = apiResponse.greeting;
         const storyFromAPI = apiResponse.story;
 
+        // 計算此城市的訪問次數（包含本次）
+        const currentVisitCount = (cityVisitStats[bestMatchCity.city] || 0) + 1;
+        let explorationMessage = "";
+        if (currentVisitCount === 1) {
+            explorationMessage = "<p style='color: #28a745; font-size: 0.9em; margin-top: 8px;'>🎉 這是你第一次來到這個地方！</p>";
+        } else if (currentVisitCount <= 3) {
+            explorationMessage = `<p style='color: #17a2b8; font-size: 0.9em; margin-top: 8px;'>✨ 你已經來過${currentVisitCount-1}次，再次體驗這個地方的魅力！</p>`;
+        }
+
         resultTextDiv.innerHTML = `
             <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
             <p>今天的你是<strong>${bestMatchCity.city_zh} (${bestMatchCity.country_zh})</strong>人！</p>
+            ${explorationMessage}
             <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
         `;
 
@@ -911,7 +990,12 @@ window.addEventListener('firebaseReady', async (event) => {
         
         // 將早餐圖片容器插入到地圖和 debugInfo 之間
         debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-        debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`;
+        
+        // 計算此城市的訪問次數（包含本次）用於debugInfo顯示
+        const visitCountForDebug = (cityVisitStats[bestMatchCity.city] || 0) + 1;
+        const visitMessage = visitCountForDebug === 1 ? "首次造訪" : `第${visitCountForDebug}次造訪`;
+        
+        debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone}, ${visitMessage})`;
 
         // 生成早餐圖片
         try {
