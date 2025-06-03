@@ -1836,16 +1836,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             const tabName = button.getAttribute('data-tab');
             if (!tabName) return;
 
-            // 使用一個統一的處理函數
+            // 統一處理函數
             const handleTabClick = (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log(`點擊分頁按鈕: ${tabName}`);
                 openTab(e, tabName);
             };
 
-            // 只使用 click 事件
             button.addEventListener('click', handleTabClick);
+            button.addEventListener('touchstart', handleTabClick, { passive: false });
         });
     }
 
