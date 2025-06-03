@@ -1533,6 +1533,41 @@ window.addEventListener('firebaseReady', async (event) => {
             }
         });
 
+        // 如果是歷史軌跡地圖，添加路線
+        if (mapType === 'history' && points.length > 1) {
+            // 按時間戳排序點位
+            const sortedPoints = [...points].sort((a, b) => a.timestamp - b.timestamp);
+            
+            // 創建路線點陣列
+            const routePoints = sortedPoints.map(point => [point.lat, point.lon]);
+            
+            // 繪製虛線路線
+            L.polyline(routePoints, {
+                color: '#FFD700', // 金色
+                weight: 3,
+                opacity: 0.6,
+                dashArray: '10, 10'
+            }).addTo(currentMarkerLayerGroup);
+            
+            // 在路線中間添加箭頭標記
+            for (let i = 0; i < routePoints.length - 1; i++) {
+                const start = L.latLng(routePoints[i][0], routePoints[i][1]);
+                const end = L.latLng(routePoints[i + 1][0], routePoints[i + 1][1]);
+                
+                // 計算箭頭位置（在線段的70%處）
+                const arrowLat = start.lat + (end.lat - start.lat) * 0.7;
+                const arrowLng = start.lng + (end.lng - start.lng) * 0.7;
+                
+                // 添加箭頭標記
+                L.circleMarker([arrowLat, arrowLng], {
+                    color: '#FFD700',
+                    fillColor: '#FFD700',
+                    fillOpacity: 0.8,
+                    radius: 6
+                }).addTo(currentMarkerLayerGroup);
+            }
+        }
+
         if (validPointsForBboxCount > 0) {
             const latDiff = maxLat - minLat;
             const lonDiff = maxLon - minLon;
