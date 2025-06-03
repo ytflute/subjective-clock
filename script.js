@@ -1076,7 +1076,10 @@ window.addEventListener('firebaseReady', async (event) => {
             table.appendChild(thead);
             const tbody = document.createElement('tbody');
 
+            // 建立標記映射用於互動
             const markerMap = new Map();
+            let recordIndex = 0;
+            
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
                 const docId = doc.id;
@@ -1086,6 +1089,11 @@ window.addEventListener('firebaseReady', async (event) => {
 
                 // 建立表格列
                 const tr = document.createElement('tr');
+                tr.className = 'hoverable-history-item';
+                tr.dataset.timestamp = record.recordedAt ? record.recordedAt.toMillis() : Date.now();
+                tr.dataset.lat = record.latitude;
+                tr.dataset.lon = record.longitude;
+                
                 const tdTime = document.createElement('td');
                 tdTime.textContent = recordDate;
                 const tdLocation = document.createElement('td');
@@ -1094,16 +1102,17 @@ window.addEventListener('firebaseReady', async (event) => {
                 const detailsButton = document.createElement('button');
                 detailsButton.textContent = '查看日誌';
                 detailsButton.className = 'history-log-button';
-                detailsButton.addEventListener('click', (e) => {
+                
+                // 防止按鈕點擊事件冒泡
+                const handleButtonClick = (e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     showHistoryLogModal(record);
-                });
-                detailsButton.addEventListener('touchstart', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    showHistoryLogModal(record);
-                }, { passive: false });
+                };
+                
+                detailsButton.addEventListener('click', handleButtonClick);
+                detailsButton.addEventListener('touchstart', handleButtonClick, { passive: false });
+                
                 tdButton.appendChild(detailsButton);
                 tr.appendChild(tdTime);
                 tr.appendChild(tdLocation);
@@ -1118,20 +1127,236 @@ window.addEventListener('firebaseReady', async (event) => {
                         lon: record.longitude,
                         title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}`,
                         timestamp: record.recordedAt.toMillis(),
-                        listItem: tr
+                        listItem: tr,
+                        index: recordIndex,
+                        record: record
                     });
                 }
+                recordIndex++;
             });
+            
             table.appendChild(tbody);
             historyListUl.innerHTML = '';
             historyListUl.appendChild(table);
-            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
+            
+            // 按時間順序排序點位（從舊到新）
+            historyPoints.sort((a, b) => a.timestamp - b.timestamp);
+            
+            // 渲染地圖
+            renderHistoryMap(historyPoints, markerMap);
+            
         } catch (e) {
             console.error("[loadHistory] 讀取歷史記錄失敗:", e);
             historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
             historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>';
             historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
         }
+    }
+
+    // 新增：專門處理歷史軌跡地圖的函數
+    function renderHistoryMap(points, markerMap) {
+        if (historyLeafletMap) {
+            historyLeafletMap.remove();
+            historyLeafletMap = null;
+        }
+        historyMapContainerDiv.innerHTML = '';
+
+        if (points.length === 0) {
+            historyMapContainerDiv.innerHTML = '<p>無有效的歷史位置記錄可顯示。</p>';
+            historyDebugInfoSmall.textContent = "無有效座標點";
+            return;
+        }
+
+        // 初始化地圖
+        historyLeafletMap = L.map(historyMapContainerDiv);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(historyLeafletMap);
+
+        // 創建圖層組
+        historyMarkerLayerGroup = L.layerGroup().addTo(historyLeafletMap);
+
+        // 為每個點添加標記
+        points.forEach((point, index) => {
+            const isLast = index === points.length - 1;
+            
+            // 最後一筆為紅色，其他為黃色
+            const markerColor = isLast ? '#ff0000' : '#FFD700';
+            const markerFillColor = isLast ? '#ff0000' : '#FFD700';
+            const markerRadius = isLast ? 10 : 8;
+            
+            const marker = L.circleMarker([point.lat, point.lon], {
+                color: markerColor,
+                fillColor: markerFillColor,
+                fillOpacity: 0.8,
+                radius: markerRadius,
+                weight: 2
+            }).addTo(historyMarkerLayerGroup);
+
+            // 保存標記引用
+            markerMap.set(point.timestamp.toString(), {
+                marker: marker,
+                originalRadius: markerRadius,
+                originalColor: markerColor,
+                originalFillColor: markerFillColor
+            });
+            
+            // 點擊標記顯示詳細資訊
+            marker.on('click', function() {
+                const cityDisplay = point.record.city_zh && point.record.city_zh !== point.record.city ? 
+                    `${point.record.city_zh} (${point.record.city})` : point.record.city;
+                const countryDisplay = point.record.country_zh && point.record.country_zh !== point.record.country ? 
+                    `${point.record.country_zh} (${point.record.country})` : point.record.country;
+                const recordDate = point.record.recordedAt && point.record.recordedAt.toDate ? 
+                    point.record.recordedAt.toDate().toLocaleString('zh-TW', { 
+                        year: 'numeric', month: 'numeric', day: 'numeric', 
+                        hour: '2-digit', minute: '2-digit' 
+                    }) : '日期未知';
+                
+                const popupContent = `
+                    <div style="text-align: center;">
+                        <h4 style="margin: 5px 0; color: #2c3e50;">第 ${index + 1} 次甦醒</h4>
+                        <p style="margin: 5px 0; font-weight: bold;">${cityDisplay}</p>
+                        <p style="margin: 5px 0;">${countryDisplay}</p>
+                        <p style="margin: 5px 0; font-size: 0.9em; color: #666;">${recordDate}</p>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent).openPopup();
+            });
+
+            // 如果不是最後一個點，繪製到下一個點的線條
+            if (index < points.length - 1) {
+                const nextPoint = points[index + 1];
+                
+                // 線條顏色：黃色
+                L.polyline([[point.lat, point.lon], [nextPoint.lat, nextPoint.lon]], {
+                    color: '#FFD700',
+                    weight: 3,
+                    opacity: 0.8,
+                    dashArray: '10, 10'
+                }).addTo(historyMarkerLayerGroup);
+
+                // 在線段70%處添加箭頭
+                const startLatLng = L.latLng(point.lat, point.lon);
+                const endLatLng = L.latLng(nextPoint.lat, nextPoint.lon);
+                const arrowLatLng = interpolateLatLng(startLatLng, endLatLng, 0.7);
+                
+                L.circleMarker(arrowLatLng, {
+                    color: '#FFD700',
+                    fillColor: '#FFD700',
+                    fillOpacity: 0.8,
+                    radius: 4,
+                    weight: 1
+                }).addTo(historyMarkerLayerGroup);
+            }
+
+            // 為對應的列表項添加事件
+            if (point.listItem) {
+                const highlightMarker = () => {
+                    // 重置所有標記
+                    markerMap.forEach((markerInfo, timestamp) => {
+                        markerInfo.marker.setRadius(markerInfo.originalRadius);
+                        markerInfo.marker.setStyle({
+                            color: markerInfo.originalColor,
+                            fillColor: markerInfo.originalFillColor,
+                            weight: 2,
+                            fillOpacity: 0.8
+                        });
+                    });
+                    
+                    // 高亮當前標記
+                    const markerInfo = markerMap.get(point.timestamp.toString());
+                    if (markerInfo) {
+                        markerInfo.marker.setRadius(markerInfo.originalRadius * 1.5);
+                        markerInfo.marker.setStyle({
+                            weight: 4,
+                            fillOpacity: 1
+                        });
+                    }
+                    
+                    // 重置所有表格行樣式
+                    document.querySelectorAll('.hoverable-history-item').forEach(row => {
+                        row.classList.remove('active');
+                    });
+                    point.listItem.classList.add('active');
+                };
+
+                const resetMarker = () => {
+                    const markerInfo = markerMap.get(point.timestamp.toString());
+                    if (markerInfo) {
+                        markerInfo.marker.setRadius(markerInfo.originalRadius);
+                        markerInfo.marker.setStyle({
+                            color: markerInfo.originalColor,
+                            fillColor: markerInfo.originalFillColor,
+                            weight: 2,
+                            fillOpacity: 0.8
+                        });
+                    }
+                    point.listItem.classList.remove('active');
+                };
+
+                // 桌面版滑鼠事件
+                point.listItem.addEventListener('mouseenter', highlightMarker);
+                point.listItem.addEventListener('mouseleave', resetMarker);
+
+                // 手機版觸控事件
+                let touchTimeout;
+                let touchStartY;
+                let isTouchMoved = false;
+
+                point.listItem.addEventListener('touchstart', (e) => {
+                    touchStartY = e.touches[0].clientY;
+                    isTouchMoved = false;
+                }, { passive: true });
+
+                point.listItem.addEventListener('touchmove', (e) => {
+                    if (!touchStartY) return;
+                    const touchDeltaY = Math.abs(e.touches[0].clientY - touchStartY);
+                    if (touchDeltaY > 10) {
+                        isTouchMoved = true;
+                        resetMarker();
+                    }
+                }, { passive: true });
+
+                point.listItem.addEventListener('touchend', (e) => {
+                    if (!isTouchMoved) {
+                        e.preventDefault();
+                        highlightMarker();
+                        
+                        // 3秒後自動取消高亮
+                        clearTimeout(touchTimeout);
+                        touchTimeout = setTimeout(() => {
+                            resetMarker();
+                        }, 3000);
+                    }
+                    touchStartY = null;
+                    isTouchMoved = false;
+                });
+                
+                // 點擊表格行定位到地圖標記
+                point.listItem.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'BUTTON') {
+                        historyLeafletMap.setView([point.lat, point.lon], 10);
+                        
+                        // 顯示彈窗
+                        setTimeout(() => {
+                            marker.fire('click');
+                        }, 300);
+                    }
+                });
+            }
+        });
+
+        // 調整地圖視圖以顯示所有點
+        const bounds = L.latLngBounds(points.map(p => [p.lat, p.lon]));
+        historyLeafletMap.fitBounds(bounds, {
+            padding: [50, 50]
+        });
+
+        historyDebugInfoSmall.textContent = `已顯示 ${points.length} 個歷史位置點`;
     }
 
     // 輔助函數：在兩點之間進行插值
@@ -1850,17 +2075,101 @@ window.addEventListener('firebaseReady', async (event) => {
             position: relative;
             -webkit-tap-highlight-color: transparent;
             touch-action: pan-y pinch-zoom;  /* 明確允許垂直滾動和縮放 */
+            cursor: pointer;
         }
         .hoverable-history-item:hover,
         .hoverable-history-item.active {
-            background-color: rgba(51, 136, 255, 0.1);
+            background-color: rgba(255, 215, 0, 0.2);  /* 黃色高亮 */
+            border-left: 4px solid #FFD700;
+        }
+        .hoverable-history-item.active {
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .history-table th, .history-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .history-table th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .history-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+        .history-table tr.hoverable-history-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        .history-log-button {
+            padding: 6px 12px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            min-width: 80px;
+            min-height: 32px;
+            white-space: nowrap;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.2s;
+        }
+        .history-log-button:hover, .history-log-button:active {
+            background-color: #5a6268;
+        }
+        /* 地圖彈窗樣式 */
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .leaflet-popup-content {
+            margin: 12px 16px;
+            line-height: 1.4;
+        }
+        .leaflet-popup-content h4 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+        .leaflet-popup-content p {
+            margin: 4px 0;
+            font-size: 14px;
         }
         @media (hover: none) {
             .hoverable-history-item:hover {
                 background-color: transparent;
+                border-left: none;
             }
             .hoverable-history-item {
                 margin: 2px 0;  /* 增加項目間距，便於觸控 */
+            }
+            .history-log-button {
+                padding: 8px 16px;
+                font-size: 14px;
+                min-height: 44px;
+            }
+        }
+        @media (max-width: 768px) {
+            .history-table th, .history-table td {
+                padding: 8px 6px;
+                font-size: 12px;
+            }
+            .history-table td:last-child {
+                width: 100px;
             }
         }
     `;
