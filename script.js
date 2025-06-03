@@ -126,6 +126,7 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     async function fetchStoryFromAPI(city, country, countryCode) {
+    // 使用英文名稱進行API調用，避免中文字符導致的400錯誤
     console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
@@ -863,7 +864,8 @@ window.addEventListener('firebaseReady', async (event) => {
 
         const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
 
-        const apiResponse = await fetchStoryFromAPI(bestMatchCity.city_zh, bestMatchCity.country_zh, bestMatchCity.country_iso_code);
+        // 使用英文名稱調用API，避免中文字符導致的400錯誤
+        const apiResponse = await fetchStoryFromAPI(bestMatchCity.city, bestMatchCity.country, bestMatchCity.country_iso_code);
         const greetingFromAPI = apiResponse.greeting;
         const storyFromAPI = apiResponse.story;
 
