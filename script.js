@@ -1068,259 +1068,66 @@ window.addEventListener('firebaseReady', async (event) => {
                 return;
             }
 
-            // 收集所有有效的歷史記錄點
-            const markerMap = new Map(); // 用於存儲標記的引用
-            
+            // 新增：建立表格
+            const table = document.createElement('table');
+            table.className = 'history-table';
+            const thead = document.createElement('thead');
+            thead.innerHTML = `<tr><th>時間</th><th>甦醒於</th><th></th></tr>`;
+            table.appendChild(thead);
+            const tbody = document.createElement('tbody');
+
+            const markerMap = new Map();
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
-                console.log("[loadHistory] 處理記錄:", record);
                 const docId = doc.id;
                 const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
-
                 const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
                 const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
 
-                const li = document.createElement('li');
-                li.innerHTML = `<span class="date">${recordDate}</span> -  
-                                甦醒於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>`;
-                
+                // 建立表格列
+                const tr = document.createElement('tr');
+                const tdTime = document.createElement('td');
+                tdTime.textContent = recordDate;
+                const tdLocation = document.createElement('td');
+                tdLocation.textContent = `${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}`;
+                const tdButton = document.createElement('td');
                 const detailsButton = document.createElement('button');
                 detailsButton.textContent = '查看日誌';
                 detailsButton.className = 'history-log-button';
-
-                // 替換原本的 onclick 事件處理
-                const handleButtonClick = (e) => {
-                    e.preventDefault();  // 防止預設行為
-                    e.stopPropagation(); // 防止事件冒泡
-                    showHistoryLogModal(record);
-                };
-
-                // 添加多個事件監聽器
-                detailsButton.addEventListener('click', handleButtonClick);
-                detailsButton.addEventListener('touchstart', handleButtonClick, { passive: false });
-                detailsButton.addEventListener('touchend', (e) => {
-                    e.preventDefault();  // 防止觸控結束時的點擊事件
-                }, { passive: false });
-
-                // 防止觸控時的滾動
-                detailsButton.addEventListener('touchmove', (e) => {
+                detailsButton.addEventListener('click', (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
+                    showHistoryLogModal(record);
+                });
+                detailsButton.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showHistoryLogModal(record);
                 }, { passive: false });
+                tdButton.appendChild(detailsButton);
+                tr.appendChild(tdTime);
+                tr.appendChild(tdLocation);
+                tr.appendChild(tdButton);
+                tbody.appendChild(tr);
 
-                li.appendChild(detailsButton);
-
+                // 地圖點資料
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
-                    
-                    // 為列表項添加懸停效果的類
-                    li.classList.add('hoverable-history-item');
-                    
-                    // 存儲對應的座標信息，用於後續與地圖標記關聯
-                    li.dataset.lat = record.latitude;
-                    li.dataset.lon = record.longitude;
-                    li.dataset.timestamp = record.recordedAt.toMillis();
-
                     historyPoints.push({
                         lat: record.latitude,
                         lon: record.longitude,
                         title: `${recordDate} @ ${cityDisplay}, ${countryDisplay}`,
                         timestamp: record.recordedAt.toMillis(),
-                        listItem: li // 保存對列表項的引用
+                        listItem: tr
                     });
                 }
-
-                historyListUl.appendChild(li);
             });
-
-            // 按時間順序排序點位（從舊到新）
-            historyPoints.sort((a, b) => a.timestamp - b.timestamp);
-
-            // 渲染地圖
-            if (historyLeafletMap) {
-                historyLeafletMap.remove();
-                historyLeafletMap = null;
-            }
-            historyMapContainerDiv.innerHTML = '';
-
-            if (historyPoints.length > 0) {
-                // 初始化地圖
-                historyLeafletMap = L.map(historyMapContainerDiv);
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                    subdomains: 'abcd',
-                    maxZoom: 19
-                }).addTo(historyLeafletMap);
-
-                // 創建一個新的圖層組
-                historyMarkerLayerGroup = L.layerGroup().addTo(historyLeafletMap);
-
-                // 添加箭頭樣式的定義
-                const arrowHead = {
-                    color: '#3388ff',
-                    fillColor: '#3388ff',
-                    fillOpacity: 0.8,
-                    weight: 2,
-                    opacity: 0.8,
-                    radius: 6
-                };
-
-                // 為每個點添加標記
-                historyPoints.forEach((point, index) => {
-                    // 添加標記
-                    const marker = L.circleMarker([point.lat, point.lon], {
-                        color: '#3388ff',
-                        fillColor: index === historyPoints.length - 1 ? '#ff4444' : '#3388ff',
-                        fillOpacity: 0.8,
-                        radius: index === historyPoints.length - 1 ? 8 : 6
-                    }).addTo(historyMarkerLayerGroup);
-
-                    // 保存標記引用到 markerMap
-                    markerMap.set(point.timestamp.toString(), {
-                        marker: marker,
-                        originalRadius: index === historyPoints.length - 1 ? 8 : 6
-                    });
-                    
-                    // 添加序號和標題
-                    marker.bindTooltip(`#${index + 1}: ${point.title}`, {
-                        permanent: false,
-                        direction: 'top'
-                    });
-
-                    // 如果不是最後一個點，畫一條線到下一個點
-                    if (index < historyPoints.length - 1) {
-                        const nextPoint = historyPoints[index + 1];
-                        
-                        // 計算箭頭的位置（在線段的70%處）
-                        const startLatLng = L.latLng(point.lat, point.lon);
-                        const endLatLng = L.latLng(nextPoint.lat, nextPoint.lon);
-                        const arrowLatLng = interpolateLatLng(startLatLng, endLatLng, 0.7);
-
-                        // 畫主線
-                        L.polyline([[point.lat, point.lon], [nextPoint.lat, nextPoint.lon]], {
-                            color: '#3388ff',
-                            weight: 2,
-                            opacity: 0.6,
-                            dashArray: '5, 10'
-                        }).addTo(historyMarkerLayerGroup);
-
-                        // 在線段70%處添加箭頭
-                        L.circleMarker(arrowLatLng, arrowHead).addTo(historyMarkerLayerGroup);
-                    }
-
-                    // 為對應的列表項添加滑鼠事件
-                    if (point.listItem) {
-                        const highlightMarker = () => {
-                            const markerInfo = markerMap.get(point.timestamp.toString());
-                            if (markerInfo) {
-                                markerInfo.marker.setRadius(markerInfo.originalRadius * 1.5);
-                                markerInfo.marker.setStyle({
-                                    weight: 3,
-                                    fillOpacity: 1
-                                });
-                            }
-                            point.listItem.classList.add('active');
-                        };
-
-                        const resetMarker = () => {
-                            const markerInfo = markerMap.get(point.timestamp.toString());
-                            if (markerInfo) {
-                                markerInfo.marker.setRadius(markerInfo.originalRadius);
-                                markerInfo.marker.setStyle({
-                                    weight: 2,
-                                    fillOpacity: 0.8
-                                });
-                            }
-                            point.listItem.classList.remove('active');
-                        };
-
-                        // 滑鼠事件
-                        point.listItem.addEventListener('mouseenter', highlightMarker);
-                        point.listItem.addEventListener('mouseleave', resetMarker);
-
-                        // 觸控事件處理
-                        let touchTimeout;
-                        let touchStartY;
-                        let isTouchMoved = false;
-
-                        point.listItem.addEventListener('touchstart', (e) => {
-                            // 記錄起始觸控位置
-                            touchStartY = e.touches[0].clientY;
-                            isTouchMoved = false;
-                        }, { passive: true });
-
-                        point.listItem.addEventListener('touchmove', (e) => {
-                            if (!touchStartY) return;
-                            
-                            // 計算垂直移動距離
-                            const touchDeltaY = Math.abs(e.touches[0].clientY - touchStartY);
-                            
-                            // 如果移動超過 10px，標記為滾動意圖
-                            if (touchDeltaY > 10) {
-                                isTouchMoved = true;
-                                resetMarker();
-                            }
-                        }, { passive: true });
-
-                        point.listItem.addEventListener('touchend', (e) => {
-                            // 只有在沒有明顯滾動時才觸發高亮
-                            if (!isTouchMoved) {
-                                e.preventDefault();
-                                
-                                // 重置所有其他項目的狀態
-                                historyPoints.forEach(p => {
-                                    if (p.listItem && p !== point) {
-                                        const otherMarkerInfo = markerMap.get(p.timestamp.toString());
-                                        if (otherMarkerInfo) {
-                                            otherMarkerInfo.marker.setRadius(otherMarkerInfo.originalRadius);
-                                            otherMarkerInfo.marker.setStyle({
-                                                weight: 2,
-                                                fillOpacity: 0.8
-                                            });
-                                        }
-                                        p.listItem.classList.remove('active');
-                                    }
-                                });
-
-                                // 高亮當前項目
-                                highlightMarker();
-
-                                // 設置自動取消高亮的計時器
-                                clearTimeout(touchTimeout);
-                                touchTimeout = setTimeout(() => {
-                                    resetMarker();
-                                }, 3000);
-                            }
-                            
-                            // 重置觸控狀態
-                            touchStartY = null;
-                            isTouchMoved = false;
-                        });
-
-                        // 確保在滾動時取消高亮
-                        const scrollHandler = () => {
-                            clearTimeout(touchTimeout);
-                            resetMarker();
-                        };
-
-                        // 為容器添加滾動事件監聽
-                        historyListUl.addEventListener('scroll', scrollHandler, { passive: true });
-                        document.addEventListener('scroll', scrollHandler, { passive: true });
-                    }
-                });
-
-                // 調整地圖視圖以顯示所有點
-                const bounds = L.latLngBounds(historyPoints.map(p => [p.lat, p.lon]));
-                historyLeafletMap.fitBounds(bounds, {
-                    padding: [50, 50]
-                });
-
-                historyDebugInfoSmall.textContent = `已顯示 ${historyPoints.length} 個歷史位置點`;
-            } else {
-                historyMapContainerDiv.innerHTML = '<p>無有效的歷史位置記錄可顯示。</p>';
-                historyDebugInfoSmall.textContent = "無有效座標點";
-            }
+            table.appendChild(tbody);
+            historyListUl.innerHTML = '';
+            historyListUl.appendChild(table);
+            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
         } catch (e) {
-            console.error("讀取歷史記錄失敗:", e);
+            console.error("[loadHistory] 讀取歷史記錄失敗:", e);
             historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
             historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>';
             historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
@@ -1370,6 +1177,11 @@ window.addEventListener('firebaseReady', async (event) => {
         `;
 
         modal.style.display = 'block';
+        // 添加一個小延遲以確保 display: block 已經生效
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+        
         setupModalClose(modal, modalContent);
     }
 
@@ -1379,8 +1191,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 e.preventDefault();
                 e.stopPropagation();
             }
-            modal.style.display = 'none';
-            modalContent.innerHTML = '';
+            modal.classList.remove('show');
+            // 等待動畫完成後再隱藏模態框
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modalContent.innerHTML = '';
+            }, 300);
         };
 
         const closeButton = document.getElementById('historyLogModalClose');
@@ -1546,7 +1362,6 @@ window.addEventListener('firebaseReady', async (event) => {
         }
 
         const selectedGroup = groupFilterSelect.value;
-        console.log(`[loadGlobalTodayMap] 開始載入日期 ${selectedDateValue} 的全域地圖，組別: ${selectedGroup}`);
 
         if (!globalLeafletMap) globalTodayMapContainerDiv.innerHTML = '<p>載入今日眾人地圖中...</p>';
         else if (globalMarkerLayerGroup) globalMarkerLayerGroup.clearLayers();
@@ -1562,13 +1377,11 @@ window.addEventListener('firebaseReady', async (event) => {
 
         try {
             const querySnapshot = await getDocs(q);
-            console.log(`[loadGlobalTodayMap] 查詢完成，找到 ${querySnapshot.size} 筆記錄`);
             const globalPoints = [];
 
             if (!querySnapshot.empty) {
                 querySnapshot.forEach((doc) => {
                     const record = doc.data();
-                    console.log(`[loadGlobalTodayMap] 處理記錄:`, record);
 
                     if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                         typeof record.longitude === 'number' && isFinite(record.longitude)) {
@@ -1583,13 +1396,10 @@ window.addEventListener('firebaseReady', async (event) => {
                             lon: record.longitude,
                             title: `${userDisplay}${groupInfo} @ ${cityDisplay}, ${countryDisplay}`
                         });
-                    } else {
-                        console.log("[loadGlobalTodayMap] 跳過無效座標的記錄:", record);
                     }
                 });
             }
 
-            console.log(`[loadGlobalTodayMap] 準備渲染 ${globalPoints.length} 個點位`);
             renderPointsOnMap(globalPoints, globalTodayMapContainerDiv, globalTodayDebugInfoSmall, 
                 `日期 ${selectedDateValue} 的${selectedGroup !== 'all' ? `${selectedGroup}組別` : '眾人'}甦醒地圖`, 'global');
 
@@ -1714,12 +1524,12 @@ window.addEventListener('firebaseReady', async (event) => {
                     className: 'custom-tooltip'
                 });
 
-                // 為有多人的標記添加點擊事件
-                if (location.titles.length > 1) {
-                    marker.on('click', function() {
-                        this.openTooltip();
-                    });
+                // 只有在 history 分頁才允許 marker 點擊彈出日誌
+                if (mapType === 'history' && location.titles.length === 1) {
+                    // 這裡可以根據需要加 showHistoryLogModal 事件
+                    // 但 global 分頁完全不加任何點擊事件
                 }
+                // 如果有多人的標記，global/history 都只顯示 tooltip，不彈窗
             }
         });
 

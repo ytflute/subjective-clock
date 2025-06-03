@@ -631,3 +631,67 @@ small { /* 通用 small 標籤樣式 */
     margin-left: 8px;
     color: #666;
 }
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #fff;
+}
+.history-table th, .history-table td {
+  border: 1px solid #e0e0e0;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 15px;
+}
+.history-table th {
+  background: #f5f5f5;
+  color: #4d714f;
+  font-weight: bold;
+}
+.history-table tr:nth-child(even) {
+  background: #fafafa;
+}
+.history-table tr:hover {
+  background: #f0f7f0;
+}
+
+.history-log-button {
+  padding: 8px 16px;
+  background-color: #a6a08f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  min-width: 90px;
+  min-height: 36px;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s;
+  letter-spacing: 1px;
+}
+.history-log-button:hover, .history-log-button:active {
+  background-color: #827d6f;
+}
+
+#refreshHistoryButton {
+  padding: 8px 16px;
+  background-color: #a6a08f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  min-width: 90px;
+  min-height: 36px;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s;
+  letter-spacing: 1px;
+}
+#refreshHistoryButton:hover, #refreshHistoryButton:active {
+  background-color: #827d6f;
+}
