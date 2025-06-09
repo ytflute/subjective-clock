@@ -1384,7 +1384,7 @@ window.addEventListener('firebaseReady', async (event) => {
 
             if (querySnapshot.empty) {
                 historyListUl.innerHTML = '<li>尚無歷史記錄。</li>';
-                renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
+                renderHistoryMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`);
                 return;
             }
 
@@ -1460,14 +1460,181 @@ window.addEventListener('firebaseReady', async (event) => {
             // 按時間順序排序點位（從舊到新）
             historyPoints.sort((a, b) => a.timestamp - b.timestamp);
 
-            // 渲染地圖
-            renderPointsOnMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`, 'history');
+            // 渲染歷史軌跡地圖
+            renderHistoryMap(historyPoints, historyMapContainerDiv, historyDebugInfoSmall, `${rawUserDisplayName} 的歷史軌跡`);
 
         } catch (e) {
             console.error("讀取歷史記錄失敗:", e);
             historyListUl.innerHTML = '<li>讀取歷史記錄失敗。</li>';
             historyMapContainerDiv.innerHTML = '<p>讀取歷史記錄時發生錯誤。</p>';
             historyDebugInfoSmall.textContent = `錯誤: ${e.message}`;
+        }
+    }
+
+    // 專門為歷史軌跡設計的地圖渲染函數
+    function renderHistoryMap(points, mapDivElement, debugDivElement, mapTitle = "歷史軌跡") {
+        console.log(`[renderHistoryMap] 準備渲染歷史軌跡地圖: "${mapTitle}", 點數量: ${points ? points.length : 0}`);
+
+        let currentMapInstance = historyLeafletMap;
+        let currentMarkerLayerGroup = historyMarkerLayerGroup;
+
+        if (!currentMapInstance) {
+            console.log(`[renderHistoryMap] 初始化新的 Leaflet 地圖實例`);
+            mapDivElement.innerHTML = '';
+            currentMapInstance = L.map(mapDivElement).setView([20, 0], 2);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd', maxZoom: 18, minZoom: 2
+            }).addTo(currentMapInstance);
+            currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
+
+            historyLeafletMap = currentMapInstance;
+            historyMarkerLayerGroup = currentMarkerLayerGroup;
+        }
+
+        console.log(`[renderHistoryMap] 清除舊標記`);
+        if (currentMarkerLayerGroup) {
+            currentMarkerLayerGroup.clearLayers();
+        } else {
+            currentMarkerLayerGroup = L.layerGroup().addTo(currentMapInstance);
+            historyMarkerLayerGroup = currentMarkerLayerGroup;
+        }
+
+        currentMapInstance.invalidateSize();
+
+        if (!points || points.length === 0) {
+            if (currentMarkerLayerGroup) currentMarkerLayerGroup.clearLayers();
+            console.log("[renderHistoryMap] 沒有點可以渲染");
+            if(debugDivElement) debugDivElement.textContent = `${mapTitle}：尚無有效座標點可顯示。`;
+            if (currentMapInstance) {
+                currentMapInstance.setView([20, 0], 2);
+            }
+            return;
+        }
+
+        // 統計每個位置的訪問次數
+        const locationVisitCount = new Map();
+        points.forEach(point => {
+            const locationKey = `${point.lat.toFixed(4)},${point.lon.toFixed(4)}`;
+            locationVisitCount.set(locationKey, (locationVisitCount.get(locationKey) || 0) + 1);
+        });
+
+        // 創建標記
+        const markers = [];
+        points.forEach((point, index) => {
+            const isLatest = index === points.length - 1; // 最後一筆記錄
+            const wakeUpNumber = index + 1; // 甦醒次數（從1開始）
+            const locationKey = `${point.lat.toFixed(4)},${point.lon.toFixed(4)}`;
+            const visitCount = locationVisitCount.get(locationKey);
+            
+            // 根據是否為最新記錄設定顏色
+            const markerColor = isLatest ? '#e74c3c' : '#f1c40f'; // 紅色 : 黃色
+            const markerFillColor = isLatest ? '#e74c3c' : '#f1c40f';
+            
+            // 根據訪問次數調整大小
+            const baseRadius = 8;
+            const radius = visitCount > 1 ? baseRadius + 2 : baseRadius;
+            
+            const marker = L.circleMarker([point.lat, point.lon], {
+                color: markerColor,
+                fillColor: markerFillColor,
+                fillOpacity: 0.8,
+                radius: radius,
+                weight: 2
+            }).addTo(currentMarkerLayerGroup);
+
+            // 創建彈出內容，包含順序數字
+            const popupContent = `
+                <div style="text-align: center; min-width: 200px;">
+                    <h4 style="margin: 5px 0; color: ${markerColor};">第 ${wakeUpNumber} 次甦醒</h4>
+                    <p style="margin: 3px 0;"><strong>${point.title}</strong></p>
+                    ${visitCount > 1 ? `<p style="margin: 3px 0; font-size: 0.9em; color: #666;">此位置共訪問 ${visitCount} 次</p>` : ''}
+                    ${isLatest ? '<p style="margin: 3px 0; font-size: 0.9em; color: #e74c3c;"><strong>最新記錄</strong></p>' : ''}
+                </div>
+            `;
+
+            marker.bindPopup(popupContent);
+            
+            // 儲存標記引用，用於列表點擊
+            markers.push({
+                marker: marker,
+                listItem: point.listItem,
+                wakeUpNumber: wakeUpNumber
+            });
+
+            // 為列表項目添加點擊事件
+            if (point.listItem) {
+                point.listItem.style.cursor = 'pointer';
+                point.listItem.addEventListener('click', () => {
+                    // 飛到對應位置並開啟彈窗
+                    currentMapInstance.flyTo([point.lat, point.lon], 12, {
+                        animate: true,
+                        duration: 1
+                    });
+                    setTimeout(() => {
+                        marker.openPopup();
+                    }, 1000);
+                });
+
+                // 添加懸停效果
+                point.listItem.addEventListener('mouseenter', () => {
+                    point.listItem.style.backgroundColor = '#f0f8ff';
+                    marker.setStyle({
+                        radius: radius + 2,
+                        weight: 4
+                    });
+                });
+
+                point.listItem.addEventListener('mouseleave', () => {
+                    point.listItem.style.backgroundColor = '';
+                    marker.setStyle({
+                        radius: radius,
+                        weight: 2
+                    });
+                });
+            }
+        });
+
+        // 繪製路線（黃色虛線）
+        if (points.length > 1) {
+            const routePoints = points.map(point => [point.lat, point.lon]);
+            
+            L.polyline(routePoints, {
+                color: '#f1c40f', // 黃色
+                weight: 3,
+                opacity: 0.7,
+                dashArray: '10, 10'
+            }).addTo(currentMarkerLayerGroup);
+            
+            // 在路線中間添加方向箭頭
+            for (let i = 0; i < routePoints.length - 1; i++) {
+                const start = L.latLng(routePoints[i][0], routePoints[i][1]);
+                const end = L.latLng(routePoints[i + 1][0], routePoints[i + 1][1]);
+                
+                // 計算箭頭位置（在線段的70%處）
+                const arrowLat = start.lat + (end.lat - start.lat) * 0.7;
+                const arrowLng = start.lng + (end.lng - start.lng) * 0.7;
+                
+                // 添加小箭頭標記
+                L.circleMarker([arrowLat, arrowLng], {
+                    color: '#f39c12',
+                    fillColor: '#f39c12',
+                    fillOpacity: 0.8,
+                    radius: 4,
+                    weight: 1
+                }).addTo(currentMarkerLayerGroup);
+            }
+        }
+
+        // 調整地圖視野以包含所有點
+        if (points.length > 0) {
+            const latlngs = points.map(point => [point.lat, point.lon]);
+            const bounds = L.latLngBounds(latlngs);
+            currentMapInstance.fitBounds(bounds, {padding: [20, 20]});
+        }
+
+        if(debugDivElement) {
+            debugDivElement.textContent = `${mapTitle} - 顯示 ${points.length} 個甦醒位置，${locationVisitCount.size} 個不同地點。`;
         }
     }
 
@@ -1596,8 +1763,7 @@ window.addEventListener('firebaseReady', async (event) => {
             const wakeUpNumber = await calculateWakeUpNumber(record);
             
             // 設定彈窗標題
-            const recordDate = record.recordedAt.toDate().toLocaleDateString('zh-TW');
-            modalTitle.textContent = `${recordDate} 的甦醒日誌`;
+            modalTitle.textContent = `第 ${wakeUpNumber} 次的甦醒日誌`;
             
             // 準備城市和國家顯示名稱
             const cityDisplay = record.city_zh && record.city_zh !== record.city ? 
@@ -1611,9 +1777,8 @@ window.addEventListener('firebaseReady', async (event) => {
             
             // 創建詳細內容
             let contentHTML = `
-                <div class="log-detail">
+                <div class="log-detail" style="text-align: left;">
                     <h3>基本資訊</h3>
-                    <p><strong>甦醒次數：</strong>第 ${wakeUpNumber} 次甦醒</p>
                     <p><strong>記錄時間：</strong>${record.recordedAt.toDate().toLocaleString('zh-TW')}</p>
                     <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
                     ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
@@ -1622,22 +1787,24 @@ window.addEventListener('firebaseReady', async (event) => {
                 </div>
             `;
             
-            // 如果有故事內容，顯示故事
-            if (record.story) {
+            // 如果有早餐圖片，優先顯示
+            if (record.imageUrl) {
                 contentHTML += `
-                    <div class="log-detail">
-                        <h3>今日故事</h3>
-                        <div class="story-content">${record.story}</div>
+                    <div class="log-detail" style="text-align: left;">
+                        <h3>今日早餐</h3>
+                        <div style="text-align: center; margin: 10px 0;">
+                            <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        </div>
                     </div>
                 `;
             }
             
-            // 如果有圖片，顯示圖片
-            if (record.imageUrl) {
+            // 如果有故事內容，顯示故事
+            if (record.story) {
                 contentHTML += `
-                    <div class="log-detail">
-                        <h3>今日早餐</h3>
-                        <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    <div class="log-detail" style="text-align: left;">
+                        <h3>今日故事</h3>
+                        <div class="story-content">${record.story}</div>
                     </div>
                 `;
             }
@@ -1645,7 +1812,7 @@ window.addEventListener('firebaseReady', async (event) => {
             // 座標資訊
             if (record.latitude && record.longitude) {
                 contentHTML += `
-                    <div class="log-detail">
+                    <div class="log-detail" style="text-align: left;">
                         <h3>座標資訊</h3>
                         <p><strong>緯度：</strong>${record.latitude.toFixed(6)}</p>
                         <p><strong>經度：</strong>${record.longitude.toFixed(6)}</p>
