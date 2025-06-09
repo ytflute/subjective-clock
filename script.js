@@ -1139,18 +1139,17 @@ window.addEventListener('firebaseReady', async (event) => {
             return;
         }
 
-        const userLocalDate = new Date();
-        const userLocalDateString = userLocalDate.toISOString().split('T')[0];
+        // 使用傳入記錄中的原始日期，而不是重新創建
+        const originalDateString = recordData.recordedDateString;
 
-        console.log(`[saveToGlobalDailyRecord] 使用者本地日期: ${userLocalDateString}`);
-        console.log(`[saveToGlobalDailyRecord] 原始記錄日期: ${recordData.recordedDateString}`);
+        console.log(`[saveToGlobalDailyRecord] 使用原始記錄日期: ${originalDateString}`);
 
         const globalRecord = {
             dataIdentifier: recordData.dataIdentifier,
             userDisplayName: recordData.userDisplayName,
             groupName: currentGroupName || "",  // 添加組別資訊
             recordedAt: recordData.recordedAt,
-            recordedDateString: userLocalDateString,
+            recordedDateString: originalDateString,
             city: recordData.city,
             country: recordData.country,
             city_zh: recordData.city_zh,
