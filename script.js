@@ -748,7 +748,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 
                 // 將早餐圖片容器插入到地圖和 debugInfo 之間
                 debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-                debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)}, 按下時間: ${userLocalDate.getMinutes()}分, 緯度偏好: ${latitudeDescription})`;
+                debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
 
                 // 先保存宇宙記錄（不包含圖片）
                 const universeRecord = {
@@ -900,13 +900,11 @@ window.addEventListener('firebaseReady', async (event) => {
             const latitudeInfo = bestMatchCity.latitude ? 
                 `緯度 ${Math.abs(bestMatchCity.latitude).toFixed(1)}°${bestMatchCity.latitude >= 0 ? 'N' : 'S'}` : '';
             const latitudeCategory = bestMatchCity.latitudeCategory || '';
-            const timeInfo = `按下時間：${userLocalDate.getMinutes()}分，緯度偏好：${latitudeDescription}`;
             
             resultTextDiv.innerHTML = `
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
                 <p>今天的你在<strong>${finalCityName}, ${finalCountryName}</strong>甦醒！</p>
                 ${latitudeInfo ? `<p style="font-size: 0.9em; color: #666;">位於${latitudeInfo}${latitudeCategory ? ` (${latitudeCategory})` : ''}</p>` : ''}
-                <p style="font-size: 0.9em; color: #007bff; font-style: italic; border-left: 3px solid #007bff; padding-left: 10px; margin: 10px 0;">🕐 ${timeInfo}</p>
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
                 ${bestMatchCity.source === 'predefined' ? '<p style="font-size: 0.8em; color: #888;"><em>※ 使用預設城市資料</em></p>' : ''}
             `;
@@ -957,8 +955,7 @@ window.addEventListener('firebaseReady', async (event) => {
             const targetUTCOffsetStr = requiredUTCOffset >= 0 ? `+${requiredUTCOffset.toFixed(2)}` : requiredUTCOffset.toFixed(2);
             const cityActualUTCOffset = bestMatchCity.timezoneOffset;
 
-            const translationSourceText = bestMatchCity.translationSource ? `<br>(翻譯來源: ${getTranslationSourceText(bestMatchCity.translationSource)})` : '';
-            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${bestMatchCity.timezone || '未知'})<br>(按下時間: ${userLocalDate.getMinutes()}分, 緯度偏好: ${targetLatitude.toFixed(2)}° (${latitudeDescription})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'})${translationSourceText};`;
+            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'})`;
 
             // 先保存基本記錄（不包含圖片）
             const historyRecord = {
