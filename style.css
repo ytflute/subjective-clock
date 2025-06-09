@@ -868,3 +868,45 @@ small { /* 通用 small 標籤樣式 */
         margin-top: 0 !important;
     }
 }
+
+/* 心情選擇樣式 */
+#todayMood {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+#todayMood:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+#todayMood option {
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* 歷史記錄中的心情資訊樣式 */
+.mood-info {
+    font-style: italic;
+    margin-top: 2px;
+    display: block;
+}
+
+/* 改善輸入欄位的整體布局 */
+.input-field {
+    margin-bottom: 12px;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: #555;
+}

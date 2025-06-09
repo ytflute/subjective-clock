@@ -8,11 +8,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     } = window.firebaseSDK;
 
     // DOM 元素獲取
-    const findCityButton = document.getElementById('findCityButton');
-    const resultTextDiv = document.getElementById('resultText');
-    const countryFlagImg = document.getElementById('countryFlag');
-    const mapContainerDiv = document.getElementById('mapContainer');
-    const debugInfoSmall = document.getElementById('debugInfo');
+    const mainResultDiv = document.getElementById('main-result');
+    const resultTextDiv = document.getElementById('result-text');
+    const countryFlagImg = document.getElementById('country-flag');
+    const mapContainerDiv = document.getElementById('map-container');
+    const debugInfoSmall = document.getElementById('debug-info');
+    const findCityButton = document.getElementById('find-city-button');
+    const refreshHistoryButton = document.getElementById('refresh-history-button');
+    const refreshGlobalMapButton = document.getElementById('refresh-global-map-button');
+    
+    let clockLeafletMap = null;
+    // 移除不再需要的變數
+    // let citiesData = [];
+    // const timezoneOffsetCache = new Map();
 
     const userNameInput = document.getElementById('userName');
     const setUserNameButton = document.getElementById('setUserNameButton');
@@ -22,10 +30,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const historyListUl = document.getElementById('historyList');
     const historyMapContainerDiv = document.getElementById('historyMapContainer');
     const historyDebugInfoSmall = document.getElementById('historyDebugInfo');
-    const refreshHistoryButton = document.getElementById('refreshHistoryButton');
 
     const globalDateInput = document.getElementById('globalDate');
-    const refreshGlobalMapButton = document.getElementById('refreshGlobalMapButton');
     const globalTodayMapContainerDiv = document.getElementById('globalTodayMapContainer');
     const globalTodayDebugInfoSmall = document.getElementById('globalTodayDebugInfo');
 
@@ -35,11 +41,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     const groupFilterSelect = document.getElementById('groupFilter');
 
     // 全域變數
-    let citiesData = [];
     let db, auth;
     let currentDataIdentifier = null;
     let rawUserDisplayName = "";
-    let clockLeafletMap = null;
     let globalLeafletMap = null;
     let globalMarkerLayerGroup = null;
     let historyLeafletMap = null;
@@ -459,116 +463,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    fetch('cities_data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            citiesData = data;
-            console.log("城市數據已載入", citiesData.length, "筆");
-            if (citiesData.length === 0) {
-                resultTextDiv.innerHTML = "提示：載入的城市數據為空。";
-                findCityButton.disabled = true;
-            } else if (currentDataIdentifier && auth.currentUser) {
-                findCityButton.disabled = false;
-            }
-        })
-        .catch(e => {
-            console.error("無法載入城市數據:", e);
-            resultTextDiv.innerHTML = "錯誤：無法載入城市數據。";
-            findCityButton.disabled = true;
-        });
+    // 初始化時就啟用按鈕，因為我們不再依賴預載的城市數據
+    if (currentDataIdentifier && auth.currentUser) {
+        findCityButton.disabled = false;
+    }
 
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
     if (refreshGlobalMapButton) {
         refreshGlobalMapButton.addEventListener('click', loadGlobalTodayMap);
     }
-
-    function parseOffsetString(offsetStr) {
-        if (!offsetStr || typeof offsetStr !== 'string') return NaN;
-        const cleaned = offsetStr.replace('GMT', '').replace('UTC', '').trim();
-        const signMatch = cleaned.match(/^([+-])/);
-        const sign = signMatch ? (signMatch[1] === '+' ? 1 : -1) : 1;
-        const numericPart = signMatch ? cleaned.substring(1) : cleaned;
-        const parts = numericPart.split(':');
-        const hours = parseInt(parts[0], 10);
-        const minutes = parts[1] ? parseInt(parts[1], 10) : 0;
-        if (isNaN(hours) || isNaN(minutes)) return NaN;
-        return sign * (hours + minutes / 60);
-    }
-
-    function getCityUTCOffsetHours(ianaTimeZone) {
-        try {
-            const now = new Date();
-            
-            // 方法1：使用 Intl.DateTimeFormat 的 formatToParts
-            const formatter = new Intl.DateTimeFormat('en', {
-                timeZone: ianaTimeZone,
-                timeZoneName: 'longOffset'
-            });
-            
-            // 首先嘗試使用 formatToParts
-            const parts = formatter.formatToParts(now);
-            let offsetString = parts.find(part => 
-                (part.type === 'timeZoneName' || part.type === 'unknown') && 
-                (part.value.includes('GMT') || part.value.includes('UTC'))
-            )?.value;
-
-            // 如果 formatToParts 沒有找到偏移，嘗試其他方法
-            if (!offsetString) {
-                // 方法2：使用完整格式化字符串
-                const fullString = formatter.format(now);
-                const match = fullString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
-                if (match) {
-                    offsetString = match[0];
-                } else {
-                    // 方法3：使用另一種格式化選項
-                    const altFormatter = new Intl.DateTimeFormat('en', {
-                        timeZone: ianaTimeZone,
-                        hour: 'numeric',
-                        minute: 'numeric',
-                        timeZoneName: 'short'
-                    });
-                    const altString = altFormatter.format(now);
-                    const altMatch = altString.match(/(GMT|UTC)([+-]\d{1,2}(:\d{2})?)/);
-                    if (altMatch) {
-                        offsetString = altMatch[0];
-                    }
-                }
-            }
-
-            // 如果還是沒有找到偏移，使用計算方法
-            if (!offsetString) {
-                // 方法4：通過比較本地時間和UTC時間來計算偏移
-                const localDate = new Date(now.toLocaleString('en-US', { timeZone: ianaTimeZone }));
-                const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
-                const offsetInMinutes = (localDate - utcDate) / (60 * 1000);
-                return offsetInMinutes / 60;
-            }
-
-            return parseOffsetString(offsetString);
-        } catch (e) {
-            console.error("獲取時區偏移時發生錯誤:", ianaTimeZone, e);
-            
-            // 最後的備用方法：直接使用時間差異計算
-            try {
-                const now = new Date();
-                const localDate = new Date(now.toLocaleString('en-US', { timeZone: ianaTimeZone }));
-                const utcDate = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }));
-                const offsetInMinutes = (localDate - utcDate) / (60 * 1000);
-                return offsetInMinutes / 60;
-            } catch (fallbackError) {
-                console.error("備用方法也失敗:", fallbackError);
-                return NaN;
-            }
-        }
-    }
-
-    const timezoneOffsetCache = new Map();
 
     function clearPreviousResults() {
         resultTextDiv.innerHTML = "";
@@ -590,9 +494,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function findMatchingCity() {
         clearPreviousResults();
-        console.log("--- 開始尋找匹配城市 ---");
+        console.log("--- 開始使用 GeoNames API 尋找匹配城市 ---");
         findCityButton.disabled = true; // 防止重複點擊
-        resultTextDiv.innerHTML = "<p>尋找中，請稍候...</p>";
+        resultTextDiv.innerHTML = "<p>正在透過 GeoNames API 尋找中，請稍候...</p>";
 
         if (!currentDataIdentifier) {
             alert("請先設定你的顯示名稱。");
@@ -604,121 +508,218 @@ document.addEventListener('DOMContentLoaded', async () => {
             findCityButton.disabled = false;
             return;
         }
-        if (citiesData.length === 0) {
-            resultTextDiv.innerHTML = "錯誤：城市數據未載入或為空。";
-            findCityButton.disabled = false;
-            return;
-        }
 
-        // 獲取用戶當前的本地時間
-        const userLocalDate = new Date();
-        
-        // 計算用戶的 UTC 時間（考慮日期）
-        const userUTCHours = userLocalDate.getUTCHours();
-        const userUTCMinutes = userLocalDate.getUTCMinutes();
-        const userUTCTime = userUTCHours + userUTCMinutes / 60;
+        try {
+            // 獲取用戶當前的本地時間
+            const userLocalDate = new Date();
+            
+            // 計算用戶的 UTC 時間（考慮日期）
+            const userUTCHours = userLocalDate.getUTCHours();
+            const userUTCMinutes = userLocalDate.getUTCMinutes();
+            const userUTCTime = userUTCHours + userUTCMinutes / 60;
 
-        // 目標時間是早上 8:00（UTC）
-        const targetHour = 8;
-        
-        // 計算時差（考慮跨日的情況）
-        let hourDiff = targetHour - userUTCTime;
-        
-        // 調整時差到 -12 到 12 的範圍內
-        while (hourDiff > 12) {
-            hourDiff -= 24;
-        }
-        while (hourDiff < -12) {
-            hourDiff += 24;
-        }
-
-        // 目標 UTC 偏移就是這個時差
-        const targetUTCOffsetHours = hourDiff;
-
-        console.log(`用戶當前本地時間: ${userLocalDate.toLocaleTimeString()}`);
-        console.log(`用戶當前 UTC 時間: ${userUTCTime.toFixed(2)}`);
-        console.log(`目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)} (尋找當地時間接近 ${targetHour}:00 的地方)`);
-
-        let candidateCities = [];
-        for (const city of citiesData) {
-            if (!city || !city.timezone ||
-                typeof city.latitude !== 'number' || !isFinite(city.latitude) ||
-                typeof city.longitude !== 'number' || !isFinite(city.longitude) ||
-                !city.country_iso_code) {
-                continue;
+            // 目標時間是早上 8:00（UTC）
+            const targetHour = 8;
+            
+            // 計算時差（考慮跨日的情況）
+            let hourDiff = targetHour - userUTCTime;
+            
+            // 調整時差到 -12 到 12 的範圍內
+            while (hourDiff > 12) {
+                hourDiff -= 24;
             }
-            let cityUTCOffset;
-            if (timezoneOffsetCache.has(city.timezone)) {
-                cityUTCOffset = timezoneOffsetCache.get(city.timezone);
-            } else {
-                cityUTCOffset = getCityUTCOffsetHours(city.timezone);
-                if (isFinite(cityUTCOffset)) {
-                    timezoneOffsetCache.set(city.timezone, cityUTCOffset);
+            while (hourDiff < -12) {
+                hourDiff += 24;
+            }
+
+            // 目標 UTC 偏移就是這個時差
+            const targetUTCOffsetHours = hourDiff;
+
+            console.log(`用戶當前本地時間: ${userLocalDate.toLocaleTimeString()}`);
+            console.log(`用戶當前 UTC 時間: ${userUTCTime.toFixed(2)}`);
+            console.log(`目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)} (尋找當地時間接近 ${targetHour}:00 的地方)`);
+
+            // 調用我們的新 API 來尋找城市
+            const response = await fetch('/api/find-city-geonames', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    targetUTCOffset: targetUTCOffsetHours
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`API 調用失敗: ${response.status}`);
+            }
+
+            const apiResult = await response.json();
+            console.log("從 GeoNames API 收到的結果:", apiResult);
+
+            // 檢查是否是宇宙情況
+            if (apiResult.isUniverseCase) {
+                const apiResponse = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE");
+                const greetingFromAPI = apiResponse.greeting;
+                const storyFromAPI = apiResponse.story;
+
+                resultTextDiv.innerHTML = `
+                    <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
+                    <p>今天的你，在當地 <strong>${userLocalDate.toLocaleTimeString()}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
+                    <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
+                `;
+
+                if (clockLeafletMap) {
+                    clockLeafletMap.remove();
+                    clockLeafletMap = null;
                 }
+                mapContainerDiv.innerHTML = '';
+                mapContainerDiv.classList.add('universe-message');
+                mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
+                countryFlagImg.style.display = 'none';
+
+                // 創建早餐圖片容器
+                const breakfastContainer = document.createElement('div');
+                breakfastContainer.id = 'breakfastImageContainer';
+                breakfastContainer.style.marginTop = '20px';
+                breakfastContainer.style.textAlign = 'center';
+                breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
+                
+                // 將早餐圖片容器插入到地圖和 debugInfo 之間
+                debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+                debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
+
+                // 生成早餐圖片，使用特殊的宇宙主題提示
+                try {
+                    const imageResponse = await fetch('/api/generateImage02', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            city: "未知星球",
+                            country: "宇宙",
+                            isUniverseTheme: true
+                        })
+                    });
+
+                    if (!imageResponse.ok) throw new Error(await imageResponse.text());
+                    const imageData = await imageResponse.json();
+
+                    if (imageData.imageUrl) {
+                        breakfastContainer.innerHTML = `
+                            <div class="postcard-image-container">
+                                <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
+                                <p style="font-size: 0.9em; color: #555;"><em>今日的星際早餐</em></p>
+                            </div>
+                        `;
+
+                        const universeRecord = {
+                            dataIdentifier: currentDataIdentifier,
+                            userDisplayName: rawUserDisplayName,
+                            recordedAt: serverTimestamp(),
+                            localTime: userLocalDate.toLocaleTimeString(),
+                            city: "Unknown Planet",
+                            country: "Universe",
+                            city_zh: "未知星球",
+                            country_zh: "宇宙",
+                            country_iso_code: "universe_code",
+                            latitude: null,
+                            longitude: null,
+                            targetUTCOffset: targetUTCOffsetHours,
+                            matchedCityUTCOffset: null,
+                            recordedDateString: userLocalDate.toISOString().split('T')[0],
+                            greeting: greetingFromAPI,
+                            story: storyFromAPI,
+                            imageUrl: imageData.imageUrl,
+                            timezone: "Cosmic/Unknown",
+                            isUniverseTheme: true
+                        };
+                        await saveHistoryRecord(universeRecord);
+                        await saveToGlobalDailyRecord(universeRecord);
+                    }
+                } catch (error) {
+                    console.error("生成早餐圖片失敗:", error);
+                    breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成星際早餐圖片時發生錯誤：${error.message}</p>`;
+                }
+
+                console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
+                findCityButton.disabled = false;
+                return;
             }
-            if (!isFinite(cityUTCOffset)) continue;
 
-            // 計算該城市當前的當地時間（小時）
-            const cityLocalTime = (userUTCTime + cityUTCOffset + 24) % 24;
-            
-            // 檢查該城市的當地時間是否接近目標時間（早上 8:00）
-            // 允許 30 分鐘的誤差
-            const timeDiff = Math.abs(cityLocalTime - targetHour);
-            const adjustedTimeDiff = Math.min(timeDiff, 24 - timeDiff);
-            
-            if (adjustedTimeDiff <= 1.0) { // 1.0 小時 = 60 分鐘
-                candidateCities.push({
-                    ...city,
-                    timeDiff: adjustedTimeDiff,
-                    localTime: cityLocalTime
-                });
-                console.log(`找到候選城市: ${city.city}, 當地時間: ${cityLocalTime.toFixed(2)}, 時差: ${adjustedTimeDiff.toFixed(2)}`);
-            }
-        }
+            // 處理正常的城市結果
+            const bestMatchCity = apiResult;
+            const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? 
+                `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
+            const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? 
+                `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
 
-        // 根據時間差排序候選城市
-        candidateCities.sort((a, b) => a.timeDiff - b.timeDiff);
-
-        if (candidateCities.length === 0) {
-            const apiResponse = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE");
+            const apiResponse = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code);
             const greetingFromAPI = apiResponse.greeting;
             const storyFromAPI = apiResponse.story;
 
             resultTextDiv.innerHTML = `
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-                <p>今天的你，在當地 <strong>${userLocalDate.toLocaleTimeString()}</strong> 開啟了這一天，<br>但是很抱歉，你已經脫離地球了，與非地球生物共同開啟了新的一天。</p>
+                <p>今天的你是<strong>${finalCityName} (${finalCountryName})</strong>人！</p>
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
+                ${bestMatchCity.source === 'predefined' ? '<p style="font-size: 0.8em; color: #888;"><em>※ 使用預設城市資料</em></p>' : ''}
             `;
+
+            if (bestMatchCity.country_iso_code) {
+                countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
+                countryFlagImg.alt = `${finalCountryName} 國旗`;
+                countryFlagImg.style.display = 'inline-block';
+            }
 
             if (clockLeafletMap) {
                 clockLeafletMap.remove();
                 clockLeafletMap = null;
             }
             mapContainerDiv.innerHTML = '';
-            mapContainerDiv.classList.add('universe-message');
-            mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
-            countryFlagImg.style.display = 'none';
+            mapContainerDiv.classList.remove('universe-message');
+
+            if (typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) &&
+                typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) {
+                
+                clockLeafletMap = L.map(mapContainerDiv, {
+                    scrollWheelZoom: false,
+                    doubleClickZoom: false
+                }).setView([bestMatchCity.latitude, bestMatchCity.longitude], 10);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(clockLeafletMap);
+
+                L.marker([bestMatchCity.latitude, bestMatchCity.longitude])
+                    .addTo(clockLeafletMap)
+                    .bindPopup(finalCityName)
+                    .openPopup();
+            }
 
             // 創建早餐圖片容器
             const breakfastContainer = document.createElement('div');
             breakfastContainer.id = 'breakfastImageContainer';
             breakfastContainer.style.marginTop = '20px';
             breakfastContainer.style.textAlign = 'center';
-            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
+            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備當地特色早餐......</i></p>';
             
-            // 將早餐圖片容器插入到地圖和 debugInfo 之間
             debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-            debugInfoSmall.innerHTML = `(嘗試尋找的目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)})`;
 
-            // 生成早餐圖片，使用特殊的宇宙主題提示
+            const recordedAtDate = userLocalDate.toLocaleString();
+            const latitudeStr = bestMatchCity.latitude.toFixed(5);
+            const longitudeStr = bestMatchCity.longitude.toFixed(5);
+            const targetUTCOffsetStr = targetUTCOffsetHours >= 0 ? `+${targetUTCOffsetHours.toFixed(2)}` : targetUTCOffsetHours.toFixed(2);
+            const cityActualUTCOffset = bestMatchCity.timezoneOffset;
+
+            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${bestMatchCity.timezone || '未知'})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'});`;
+
+            // 生成早餐圖片
             try {
                 const imageResponse = await fetch('/api/generateImage02', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
-                        city: "未知星球",
-                        country: "宇宙",
-                        isUniverseTheme: true  // 只需要傳遞這個標記，讓後端決定使用哪個 prompt
+                        city: finalCityName,
+                        country: finalCountryName
                     })
                 });
 
@@ -728,151 +729,48 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (imageData.imageUrl) {
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
-                            <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
-                            <p style="font-size: 0.9em; color: #555;"><em>今日的星際早餐</em></p>
+                            <img src="${imageData.imageUrl}" alt="${finalCityName}早餐" style="max-width: 100%; border-radius: 8px;">
+                            <p style="font-size: 0.9em; color: #555;"><em>今日的${finalCityName}早餐</em></p>
                         </div>
                     `;
 
-                    const universeRecord = {
+                    const historyRecord = {
                         dataIdentifier: currentDataIdentifier,
                         userDisplayName: rawUserDisplayName,
                         recordedAt: serverTimestamp(),
                         localTime: userLocalDate.toLocaleTimeString(),
-                        city: "Unknown Planet",
-                        country: "Universe",
-                        city_zh: "未知星球",
-                        country_zh: "宇宙",
-                        country_iso_code: "universe_code",
-                        latitude: null,
-                        longitude: null,
+                        city: bestMatchCity.city || finalCityName,
+                        country: bestMatchCity.country || finalCountryName,
+                        city_zh: bestMatchCity.city_zh || "",
+                        country_zh: bestMatchCity.country_zh || "",
+                        country_iso_code: bestMatchCity.country_iso_code,
+                        latitude: bestMatchCity.latitude,
+                        longitude: bestMatchCity.longitude,
                         targetUTCOffset: targetUTCOffsetHours,
-                        matchedCityUTCOffset: null,
+                        matchedCityUTCOffset: cityActualUTCOffset,
                         recordedDateString: userLocalDate.toISOString().split('T')[0],
                         greeting: greetingFromAPI,
                         story: storyFromAPI,
                         imageUrl: imageData.imageUrl,
-                        timezone: "Cosmic/Unknown",
-                        isUniverseTheme: true
+                        timezone: bestMatchCity.timezone,
+                        source: bestMatchCity.source || 'geonames'
                     };
-                    await saveHistoryRecord(universeRecord);
-                    await saveToGlobalDailyRecord(universeRecord);
+                    await saveHistoryRecord(historyRecord);
+                    await saveToGlobalDailyRecord(historyRecord);
                 }
             } catch (error) {
                 console.error("生成早餐圖片失敗:", error);
-                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成星際早餐圖片時發生錯誤：${error.message}</p>`;
+                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
             }
 
-            console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
-            findCityButton.disabled = false;
-            return;
-        }
+            console.log("--- 使用 GeoNames API 尋找匹配城市結束 ---");
 
-        // 選擇時間差最小的城市
-        const bestMatchCity = candidateCities[0];
-        const cityActualUTCOffset = getCityUTCOffsetHours(bestMatchCity.timezone);
-        const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
-        const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
-
-        const apiResponse = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code);
-        const greetingFromAPI = apiResponse.greeting;
-        const storyFromAPI = apiResponse.story;
-
-        resultTextDiv.innerHTML = `
-            <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-            <p>今天的你是<strong>${finalCityName} (${finalCountryName})</strong>人！</p>
-            <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
-        `;
-
-        if (bestMatchCity.country_iso_code) {
-            countryFlagImg.src = `https://flagcdn.com/w40/${bestMatchCity.country_iso_code.toLowerCase()}.png`;
-            countryFlagImg.alt = `${finalCountryName} 國旗`;
-            countryFlagImg.style.display = 'inline-block';
-        }
-
-        if (clockLeafletMap) {
-            clockLeafletMap.remove();
-            clockLeafletMap = null;
-        }
-        mapContainerDiv.innerHTML = '';
-        mapContainerDiv.classList.remove('universe-message');
-
-        if (typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) &&
-            typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) {
-            clockLeafletMap = L.map(mapContainerDiv).setView([bestMatchCity.latitude, bestMatchCity.longitude], 7);
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                subdomains: 'abcd', maxZoom: 19
-            }).addTo(clockLeafletMap);
-            L.circleMarker([bestMatchCity.latitude, bestMatchCity.longitude], {
-                color: 'red', fillColor: '#f03', fillOpacity: 0.8, radius: 8
-            }).addTo(clockLeafletMap).bindPopup(`<b>${finalCityName}</b><br>${finalCountryName}`).openPopup();
-        } else {
-            mapContainerDiv.innerHTML = "<p>無法顯示地圖，城市座標資訊不完整或無效。</p>";
-        }
-
-        // 創建早餐圖片容器
-        const breakfastContainer = document.createElement('div');
-        breakfastContainer.id = 'breakfastImageContainer';
-        breakfastContainer.style.marginTop = '20px';
-        breakfastContainer.style.textAlign = 'center';
-        breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備當地早餐......</i></p>';
-        
-        // 將早餐圖片容器插入到地圖和 debugInfo 之間
-        debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-        debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${targetUTCOffsetHours.toFixed(2)}, 城市實際 UTC 偏移: ${cityActualUTCOffset.toFixed(2)}, 時區: ${bestMatchCity.timezone})`;
-
-        // 生成早餐圖片
-        try {
-            const imageResponse = await fetch('/api/generateImage02', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    city: bestMatchCity.city_zh || bestMatchCity.city,
-                    country: bestMatchCity.country_zh || bestMatchCity.country
-                })
-            });
-
-            if (!imageResponse.ok) throw new Error(await imageResponse.text());
-            const imageData = await imageResponse.json();
-
-            if (imageData.imageUrl) {
-                breakfastContainer.innerHTML = `
-                    <div class="postcard-image-container">
-                        <img src="${imageData.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;">
-                        <p style="font-size: 0.9em; color: #555;"><em>${finalCityName}的早餐</em></p>
-                    </div>
-                `;
-
-                const recordData = {
-                    dataIdentifier: currentDataIdentifier,
-                    userDisplayName: rawUserDisplayName,
-                    recordedAt: serverTimestamp(),
-                    localTime: userLocalDate.toLocaleTimeString(),
-                    city: bestMatchCity.city,
-                    country: bestMatchCity.country,
-                    city_zh: bestMatchCity.city_zh || "",
-                    country_zh: bestMatchCity.country_zh || "",
-                    country_iso_code: bestMatchCity.country_iso_code.toLowerCase(),
-                    latitude: bestMatchCity.latitude,
-                    longitude: bestMatchCity.longitude,
-                    targetUTCOffset: targetUTCOffsetHours,
-                    matchedCityUTCOffset: !isFinite(cityActualUTCOffset) ? null : cityActualUTCOffset,
-                    recordedDateString: userLocalDate.toISOString().split('T')[0],
-                    greeting: greetingFromAPI,
-                    story: storyFromAPI,
-                    imageUrl: imageData.imageUrl,
-                    timezone: bestMatchCity.timezone || "Unknown"
-                };
-                await saveHistoryRecord(recordData);
-                await saveToGlobalDailyRecord(recordData);
-            }
         } catch (error) {
-            console.error("生成早餐圖片失敗:", error);
-            breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
+            console.error("使用 GeoNames API 尋找城市時發生錯誤:", error);
+            resultTextDiv.innerHTML = `<p style="color: red;">抱歉，使用 GeoNames API 尋找城市時發生錯誤：${error.message}</p>`;
+        } finally {
+            findCityButton.disabled = false;
         }
-
-        console.log("--- 尋找匹配城市結束 (找到城市) ---");
-        findCityButton.disabled = false;
     }
 
     async function saveHistoryRecord(recordData) {
