@@ -146,8 +146,6 @@ export default async function handler(req, res) {
         res.status(200).json({
             greeting,
             trivia: story,
-            city_zh: cityZh,
-            country_zh: countryZh,
             mood: mood,
             moodName: moodName,
             moodDescription: moodDescription,
