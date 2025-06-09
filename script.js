@@ -426,7 +426,7 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log("[setOrLoadUserName] 顯示名稱設定為:", rawUserDisplayName);
         console.log("[setOrLoadUserName] 組別名稱設定為:", currentGroupName);
 
-        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"${currentGroupName ? `，組別為 "${currentGroupName}"` : ''}。城市將根據按下按鈕的時間分鐘數決定緯度偏好。`);
+        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"${currentGroupName ? `，組別為 "${currentGroupName}"` : ''}。開啟這一天或是看看最後你甦醒的城市在哪裡？`);
 
         // 更新組別選擇下拉選單
         await updateGroupFilter();
