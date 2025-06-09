@@ -230,11 +230,7 @@ window.addEventListener('firebaseReady', async (event) => {
             },
             body: JSON.stringify({
                 city: city,
-                country: country,
-                mood: 'peaceful', // 固定使用平靜心情
-                moodName: '平靜溫和',
-                moodDescription: '溫帶的舒適宜人',
-                moodEmoji: '😌🌱'
+                country: country
             }),
         });
 
@@ -245,24 +241,30 @@ window.addEventListener('firebaseReady', async (event) => {
             // 返回一個包含錯誤訊息的物件，讓調用者可以處理
             return {
                 greeting: `(系統提示：問候語獲取失敗 - ${response.status})`,
-                story: `系統提示：關於 ${city}, ${country} 的小知識獲取失敗，請稍後再試。錯誤: ${errorData.error || response.statusText}`
+                story: `系統提示：關於 ${city}, ${country} 的故事獲取失敗，請稍後再試。錯誤: ${errorData.error || response.statusText}`
             };
         }
 
         const data = await response.json(); // 解析來自後端 API 的 JSON 回應
         console.log("[fetchStoryFromAPI] Received data from backend:", data);
 
-        // 驗證後端回傳的資料結構是否符合預期 (greeting 和 trivia/story)
-        if (data && typeof data.greeting === 'string' && typeof data.trivia === 'string') {
+        // 驗證後端回傳的資料結構是否符合預期 (greeting 和 story)
+        if (data && typeof data.greeting === 'string' && typeof data.story === 'string') {
             return {
                 greeting: data.greeting,
-                story: data.trivia // 後端回傳的是 trivia，我們在前端當作 story 使用
+                story: data.story
+            };
+        } else if (data && typeof data.greeting === 'string' && typeof data.trivia === 'string') {
+            // 向後兼容：如果回傳 trivia 而不是 story
+            return {
+                greeting: data.greeting,
+                story: data.trivia
             };
         } else {
             console.warn("[fetchStoryFromAPI] Backend response format unexpected:", data);
             return {
                 greeting: "(系統提示：收到的問候語格式有誤)",
-                story: `關於 ${city}, ${country} 的小知識正在整理中，請稍後查看！(回應格式問題)`
+                story: `關於 ${city}, ${country} 的故事正在整理中，請稍後查看！(回應格式問題)`
             };
         }
 
@@ -271,7 +273,7 @@ window.addEventListener('firebaseReady', async (event) => {
         // 網路錯誤或其他前端 fetch 相關的錯誤
         return {
             greeting: "(系統提示：網路錯誤，無法獲取問候語)",
-            story: `獲取 ${city}, ${country} 的小知識時發生網路連線問題，請檢查您的網路並重試。`
+            story: `獲取 ${city}, ${country} 的故事時發生網路連線問題，請檢查您的網路並重試。`
         };
     }
 }
@@ -782,6 +784,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
 
                 // 先保存宇宙記錄（不包含圖片）
+                // 使用本地日期而不是UTC日期
+                const year = userLocalDate.getFullYear();
+                const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0');
+                const day = userLocalDate.getDate().toString().padStart(2, '0');
+                const userLocalDateString = `${year}-${month}-${day}`;
+
                 const universeRecord = {
                     dataIdentifier: currentDataIdentifier,
                     userDisplayName: rawUserDisplayName,
@@ -796,7 +804,7 @@ window.addEventListener('firebaseReady', async (event) => {
                     longitude: null,
                     targetUTCOffset: requiredUTCOffset,
                     matchedCityUTCOffset: null,
-                    recordedDateString: userLocalDate.toISOString().split('T')[0],
+                    recordedDateString: userLocalDateString,
                     greeting: greetingFromAPI,
                     story: storyFromAPI,
                     imageUrl: null, // 初始設為 null，生成成功後更新
@@ -989,6 +997,12 @@ window.addEventListener('firebaseReady', async (event) => {
             debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})`;
 
             // 先保存基本記錄（不包含圖片）
+            // 使用本地日期而不是UTC日期
+            const year = userLocalDate.getFullYear();
+            const month = (userLocalDate.getMonth() + 1).toString().padStart(2, '0');
+            const day = userLocalDate.getDate().toString().padStart(2, '0');
+            const userLocalDateString = `${year}-${month}-${day}`;
+
             const historyRecord = {
                 dataIdentifier: currentDataIdentifier,
                 userDisplayName: rawUserDisplayName,
@@ -1003,7 +1017,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 longitude: bestMatchCity.longitude,
                 targetUTCOffset: requiredUTCOffset,
                 matchedCityUTCOffset: cityActualUTCOffset,
-                recordedDateString: userLocalDate.toISOString().split('T')[0],
+                recordedDateString: userLocalDateString,
                 greeting: greetingFromAPI,
                 story: storyFromAPI,
                 imageUrl: null, // 初始設為 null，生成成功後更新
