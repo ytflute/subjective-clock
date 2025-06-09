@@ -694,11 +694,50 @@ window.addEventListener('firebaseReady', async (event) => {
                 debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
                 debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)}, 心情: ${selectedMood.name})`;
 
-                // 生成早餐圖片，使用特殊的宇宙主題提示
+                // 先保存宇宙記錄（不包含圖片）
+                const universeRecord = {
+                    dataIdentifier: currentDataIdentifier,
+                    userDisplayName: rawUserDisplayName,
+                    recordedAt: serverTimestamp(),
+                    localTime: userLocalDate.toLocaleTimeString(),
+                    city: "Unknown Planet",
+                    country: "Universe",
+                    city_zh: "未知星球",
+                    country_zh: "宇宙",
+                    country_iso_code: "universe_code",
+                    latitude: null,
+                    longitude: null,
+                    targetUTCOffset: requiredUTCOffset,
+                    matchedCityUTCOffset: null,
+                    recordedDateString: userLocalDate.toISOString().split('T')[0],
+                    greeting: greetingFromAPI,
+                    story: storyFromAPI,
+                    imageUrl: null, // 初始設為 null，生成成功後更新
+                    timezone: "Cosmic/Unknown",
+                    isUniverseTheme: true,
+                    mood: currentMood,
+                    moodName: selectedMood.name,
+                    moodDescription: selectedMood.description,
+                    moodEmoji: selectedMood.emoji,
+                    moodColor: selectedMood.color,
+                    latitudePreference: latitudePreference
+                };
+
+                // 先保存記錄
+                await saveHistoryRecord(universeRecord);
+                await saveToGlobalDailyRecord(universeRecord);
+
+                // 然後生成早餐圖片，使用特殊的宇宙主題提示
                 try {
+                    // 獲取 Firebase Auth token
+                    const idToken = await auth.currentUser.getIdToken();
+                    
                     const imageResponse = await fetch('/api/generateImage', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${idToken}`
+                        },
                         body: JSON.stringify({ 
                             city: "未知星球",
                             country: "宇宙",
@@ -716,40 +755,13 @@ window.addEventListener('firebaseReady', async (event) => {
                                 <p style="font-size: 0.9em; color: #555;"><em>今日的星際早餐</em></p>
                             </div>
                         `;
-
-                        const universeRecord = {
-                            dataIdentifier: currentDataIdentifier,
-                            userDisplayName: rawUserDisplayName,
-                            recordedAt: serverTimestamp(),
-                            localTime: userLocalDate.toLocaleTimeString(),
-                            city: "Unknown Planet",
-                            country: "Universe",
-                            city_zh: "未知星球",
-                            country_zh: "宇宙",
-                            country_iso_code: "universe_code",
-                            latitude: null,
-                            longitude: null,
-                            targetUTCOffset: requiredUTCOffset,
-                            matchedCityUTCOffset: null,
-                            recordedDateString: userLocalDate.toISOString().split('T')[0],
-                            greeting: greetingFromAPI,
-                            story: storyFromAPI,
-                            imageUrl: imageData.imageUrl,
-                            timezone: "Cosmic/Unknown",
-                            isUniverseTheme: true,
-                            mood: currentMood,
-                            moodName: selectedMood.name,
-                            moodDescription: selectedMood.description,
-                            moodEmoji: selectedMood.emoji,
-                            moodColor: selectedMood.color,
-                            latitudePreference: latitudePreference
-                        };
-                        await saveHistoryRecord(universeRecord);
-                        await saveToGlobalDailyRecord(universeRecord);
+                        console.log("宇宙早餐圖片生成成功，URL:", imageData.imageUrl);
+                    } else {
+                        breakfastContainer.innerHTML = `<p style="color: #888;">星際早餐圖片生成中，請稍後查看歷史記錄！</p>`;
                     }
                 } catch (error) {
                     console.error("生成早餐圖片失敗:", error);
-                    breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成星際早餐圖片時發生錯誤：${error.message}</p>`;
+                    breakfastContainer.innerHTML = `<p style="color: #888;">星際早餐圖片暫時無法顯示，但您的甦醒記錄已保存！</p>`;
                 }
 
                 console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
@@ -847,11 +859,52 @@ window.addEventListener('firebaseReady', async (event) => {
             const translationSourceText = bestMatchCity.translationSource ? `<br>(翻譯來源: ${getTranslationSourceText(bestMatchCity.translationSource)})` : '';
             debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${bestMatchCity.timezone || '未知'})<br>(心情: ${selectedMood.name}, 緯度偏好: ${latitudePreference})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'})${translationSourceText};`;
 
-            // 生成早餐圖片
+            // 先保存基本記錄（不包含圖片）
+            const historyRecord = {
+                dataIdentifier: currentDataIdentifier,
+                userDisplayName: rawUserDisplayName,
+                recordedAt: serverTimestamp(),
+                localTime: userLocalDate.toLocaleTimeString(),
+                city: bestMatchCity.city || finalCityName,
+                country: bestMatchCity.country || finalCountryName,
+                city_zh: bestMatchCity.city_zh || "",
+                country_zh: bestMatchCity.country_zh || "",
+                country_iso_code: bestMatchCity.country_iso_code,
+                latitude: bestMatchCity.latitude,
+                longitude: bestMatchCity.longitude,
+                targetUTCOffset: requiredUTCOffset,
+                matchedCityUTCOffset: cityActualUTCOffset,
+                recordedDateString: userLocalDate.toISOString().split('T')[0],
+                greeting: greetingFromAPI,
+                story: storyFromAPI,
+                imageUrl: null, // 初始設為 null，生成成功後更新
+                timezone: bestMatchCity.timezone,
+                source: bestMatchCity.source || 'geonames',
+                translationSource: bestMatchCity.translationSource || 'geonames',
+                mood: currentMood,
+                moodName: selectedMood.name,
+                moodDescription: selectedMood.description,
+                moodEmoji: selectedMood.emoji,
+                moodColor: selectedMood.color,
+                latitudePreference: latitudePreference,
+                latitudeCategory: bestMatchCity.latitudeCategory || ''
+            };
+
+            // 先保存記錄
+            await saveHistoryRecord(historyRecord);
+            await saveToGlobalDailyRecord(historyRecord);
+
+            // 然後嘗試生成早餐圖片
             try {
+                // 獲取 Firebase Auth token
+                const idToken = await auth.currentUser.getIdToken();
+                
                 const imageResponse = await fetch('/api/generateImage', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${idToken}`
+                    },
                     body: JSON.stringify({ 
                         city: finalCityName,
                         country: finalCountryName
@@ -869,41 +922,14 @@ window.addEventListener('firebaseReady', async (event) => {
                         </div>
                     `;
 
-                    const historyRecord = {
-                        dataIdentifier: currentDataIdentifier,
-                        userDisplayName: rawUserDisplayName,
-                        recordedAt: serverTimestamp(),
-                        localTime: userLocalDate.toLocaleTimeString(),
-                        city: bestMatchCity.city || finalCityName,
-                        country: bestMatchCity.country || finalCountryName,
-                        city_zh: bestMatchCity.city_zh || "",
-                        country_zh: bestMatchCity.country_zh || "",
-                        country_iso_code: bestMatchCity.country_iso_code,
-                        latitude: bestMatchCity.latitude,
-                        longitude: bestMatchCity.longitude,
-                        targetUTCOffset: requiredUTCOffset,
-                        matchedCityUTCOffset: cityActualUTCOffset,
-                        recordedDateString: userLocalDate.toISOString().split('T')[0],
-                        greeting: greetingFromAPI,
-                        story: storyFromAPI,
-                        imageUrl: imageData.imageUrl,
-                        timezone: bestMatchCity.timezone,
-                        source: bestMatchCity.source || 'geonames',
-                        translationSource: bestMatchCity.translationSource || 'geonames',
-                        mood: currentMood,
-                        moodName: selectedMood.name,
-                        moodDescription: selectedMood.description,
-                        moodEmoji: selectedMood.emoji,
-                        moodColor: selectedMood.color,
-                        latitudePreference: latitudePreference,
-                        latitudeCategory: bestMatchCity.latitudeCategory || ''
-                    };
-                    await saveHistoryRecord(historyRecord);
-                    await saveToGlobalDailyRecord(historyRecord);
+                    // 更新記錄中的圖片 URL（可以選擇是否要重新保存）
+                    console.log("早餐圖片生成成功，URL:", imageData.imageUrl);
+                } else {
+                    breakfastContainer.innerHTML = `<p style="color: #888;">今日早餐圖片生成中，請稍後查看歷史記錄！</p>`;
                 }
             } catch (error) {
                 console.error("生成早餐圖片失敗:", error);
-                breakfastContainer.innerHTML = `<p style="color: red;">抱歉，生成早餐圖片時發生錯誤：${error.message}</p>`;
+                breakfastContainer.innerHTML = `<p style="color: #888;">今日早餐圖片暫時無法顯示，但您的甦醒記錄已保存！</p>`;
             }
 
             console.log("--- 使用 GeoNames API 尋找匹配城市結束 ---");
@@ -1548,7 +1574,7 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     // 實現查看日誌彈窗功能
-    function showHistoryLogModal(record) {
+    async function showHistoryLogModal(record) {
         const modal = document.getElementById('historyLogModal');
         const modalContent = document.getElementById('historyLogModalContent');
         const modalTitle = document.getElementById('modalTitle');
@@ -1560,68 +1586,78 @@ window.addEventListener('firebaseReady', async (event) => {
             return;
         }
         
-        // 設定彈窗標題
-        const recordDate = record.recordedAt.toDate().toLocaleDateString('zh-TW');
-        modalTitle.textContent = `${recordDate} 的甦醒日誌`;
-        
-        // 準備城市和國家顯示名稱
-        const cityDisplay = record.city_zh && record.city_zh !== record.city ? 
-            `${record.city_zh} (${record.city})` : record.city;
-        const countryDisplay = record.country_zh && record.country_zh !== record.country ? 
-            `${record.country_zh} (${record.country})` : record.country;
-        
-        // 準備心情顯示
-        const moodDisplay = record.moodEmoji && record.moodName ? 
-            `${record.moodEmoji} ${record.moodName}` : '';
-        
-        // 創建詳細內容
-        let contentHTML = `
-            <div class="log-detail">
-                <h3>基本資訊</h3>
-                <p><strong>記錄時間：</strong>${record.recordedAt.toDate().toLocaleString('zh-TW')}</p>
-                <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
-                ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
-                ${moodDisplay ? `<p><strong>當日心情：</strong><span style="color: ${record.moodColor || '#666'}">${moodDisplay}</span></p>` : ''}
-                ${record.groupName ? `<p><strong>組別：</strong>${record.groupName}</p>` : ''}
-            </div>
-        `;
-        
-        // 如果有故事內容，顯示故事
-        if (record.story) {
-            contentHTML += `
-                <div class="log-detail">
-                    <h3>今日故事</h3>
-                    <div class="story-content">${record.story}</div>
-                </div>
-            `;
-        }
-        
-        // 如果有圖片，顯示圖片
-        if (record.imageUrl) {
-            contentHTML += `
-                <div class="log-detail">
-                    <h3>今日早餐</h3>
-                    <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px;">
-                </div>
-            `;
-        }
-        
-        // 座標資訊
-        if (record.latitude && record.longitude) {
-            contentHTML += `
-                <div class="log-detail">
-                    <h3>座標資訊</h3>
-                    <p><strong>緯度：</strong>${record.latitude.toFixed(6)}</p>
-                    <p><strong>經度：</strong>${record.longitude.toFixed(6)}</p>
-                </div>
-            `;
-        }
-        
-        modalContent.innerHTML = contentHTML;
-        
-        // 顯示彈窗
+        // 先顯示載入中的狀態
+        modalContent.innerHTML = '<div style="text-align: center; padding: 20px;">載入中...</div>';
         modal.style.display = 'block';
         modal.classList.add('show');
+        
+        try {
+            // 計算甦醒次數
+            const wakeUpNumber = await calculateWakeUpNumber(record);
+            
+            // 設定彈窗標題
+            const recordDate = record.recordedAt.toDate().toLocaleDateString('zh-TW');
+            modalTitle.textContent = `${recordDate} 的甦醒日誌`;
+            
+            // 準備城市和國家顯示名稱
+            const cityDisplay = record.city_zh && record.city_zh !== record.city ? 
+                `${record.city_zh} (${record.city})` : record.city;
+            const countryDisplay = record.country_zh && record.country_zh !== record.country ? 
+                `${record.country_zh} (${record.country})` : record.country;
+            
+            // 準備心情顯示
+            const moodDisplay = record.moodEmoji && record.moodName ? 
+                `${record.moodEmoji} ${record.moodName}` : '';
+            
+            // 創建詳細內容
+            let contentHTML = `
+                <div class="log-detail">
+                    <h3>基本資訊</h3>
+                    <p><strong>甦醒次數：</strong>第 ${wakeUpNumber} 次甦醒</p>
+                    <p><strong>記錄時間：</strong>${record.recordedAt.toDate().toLocaleString('zh-TW')}</p>
+                    <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
+                    ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
+                    ${moodDisplay ? `<p><strong>當日心情：</strong><span style="color: ${record.moodColor || '#666'}">${moodDisplay}</span></p>` : ''}
+                    ${record.groupName ? `<p><strong>組別：</strong>${record.groupName}</p>` : ''}
+                </div>
+            `;
+            
+            // 如果有故事內容，顯示故事
+            if (record.story) {
+                contentHTML += `
+                    <div class="log-detail">
+                        <h3>今日故事</h3>
+                        <div class="story-content">${record.story}</div>
+                    </div>
+                `;
+            }
+            
+            // 如果有圖片，顯示圖片
+            if (record.imageUrl) {
+                contentHTML += `
+                    <div class="log-detail">
+                        <h3>今日早餐</h3>
+                        <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                `;
+            }
+            
+            // 座標資訊
+            if (record.latitude && record.longitude) {
+                contentHTML += `
+                    <div class="log-detail">
+                        <h3>座標資訊</h3>
+                        <p><strong>緯度：</strong>${record.latitude.toFixed(6)}</p>
+                        <p><strong>經度：</strong>${record.longitude.toFixed(6)}</p>
+                    </div>
+                `;
+            }
+            
+            modalContent.innerHTML = contentHTML;
+        } catch (error) {
+            console.error('計算甦醒次數失敗:', error);
+            modalContent.innerHTML = '<div style="text-align: center; padding: 20px; color: red;">載入日誌資訊失敗</div>';
+        }
         
         // 設定關閉事件
         const closeModal = () => {
@@ -1657,6 +1693,37 @@ window.addEventListener('firebaseReady', async (event) => {
             }
         };
         document.addEventListener('keydown', handleEsc);
+    }
+
+    // 計算甦醒次數的函數
+    async function calculateWakeUpNumber(targetRecord) {
+        if (!currentDataIdentifier) {
+            return 1; // 如果沒有用戶識別碼，返回 1
+        }
+
+        try {
+            const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+            const q = query(historyCollectionRef, orderBy("recordedAt", "asc"));
+            const querySnapshot = await getDocs(q);
+
+            let wakeUpCount = 0;
+            const targetTimestamp = targetRecord.recordedAt.toMillis();
+            
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                const recordTimestamp = record.recordedAt.toMillis();
+                
+                // 如果記錄時間早於或等於目標記錄，計數加一
+                if (recordTimestamp <= targetTimestamp) {
+                    wakeUpCount++;
+                }
+            });
+
+            return wakeUpCount;
+        } catch (error) {
+            console.error('計算甦醒次數時發生錯誤:', error);
+            return 1; // 出錯時返回 1
+        }
     }
 
     // 初始化組別過濾器監聽器
