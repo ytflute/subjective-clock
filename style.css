@@ -912,7 +912,7 @@ small { /* 通用 small 標籤樣式 */
 
 /* 說明文字樣式 */
 .action-description {
-    margin: 10px 0 10px 0;
+    margin: 10px 0 5px 0;
     padding: 15px;
     background-color: #f8f9fa;
     border-left: 4px solid #7a776d;
