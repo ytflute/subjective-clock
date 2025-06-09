@@ -759,15 +759,14 @@ small { /* 通用 small 標籤樣式 */
 /* 顯示名稱與組別名稱欄位樣式調整 */
 #userName, #groupName {
     font-size: 1em;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 10px 22px; /* 與按鈕的 padding 一致 */
+    border-radius: 6px; /* 與按鈕的 border-radius 一致 */
     border: 1px solid #ccc;
-    max-width: 300px;
-    min-width: 120px;
-    width: 180px;
+    width: 100%; /* 與按鈕一樣使用 100% 寬度 */
     background: #fff;
     box-sizing: border-box;
-    margin-right: 8px;
+    margin-bottom: 8px; /* 與按鈕的間距一致 */
+    min-height: 44px; /* 與按鈕的最小高度一致 */
     vertical-align: middle;
 }
 
