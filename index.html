@@ -24,7 +24,13 @@
                     <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
                 </div>
                 <!-- 心情選擇已移除，改用按下按鈕的時間分鐘數決定緯度偏好 -->
-                <button id="setUserNameButton">載入資料</button>
+                
+                <p class="action-description">按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+                
+                <div class="button-row">
+                    <button id="setUserNameButton" class="half-width-button">載入資料</button>
+                    <button id="findCityButton" class="half-width-button" disabled>開始這一天</button>
+                </div>
             </div>
             <div class="current-user-info">
                 <span>目前使用者：</span>
@@ -41,8 +47,6 @@
         </div>
 
         <div id="ClockTab" class="tab-content active">
-            <p>按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
-            <button id="findCityButton" disabled>開始這一天</button>
             
             <div id="result">
                 <p id="resultText"></p>
