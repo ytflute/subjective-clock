@@ -18,7 +18,7 @@ let historyLeafletMap = null;
 let historyMarkerLayerGroup = null;
 let currentGroupName = "";
 let initialLoadHandled = false;
-let currentMood = "peaceful";
+// currentMood 變數已移除，改用時間分鐘數決定緯度偏好
 
 window.addEventListener('firebaseReady', async (event) => {
     const {
@@ -64,13 +64,83 @@ window.addEventListener('firebaseReady', async (event) => {
     let historyLeafletMap = null;
     let historyMarkerLayerGroup = null;
 
-    // 定義四種心情對應的緯度偏好
-    const moodOptions = {
-        'happy': { name: '快樂熱情', latitudePreference: 'low', description: '熱帶陽光般的溫暖', emoji: '😊🌞', color: '#FF6B35' },
-        'peaceful': { name: '平靜溫和', latitudePreference: 'mid', description: '溫帶的舒適宜人', emoji: '😌🌱', color: '#4ECDC4' },
-        'melancholy': { name: '憂鬱思考', latitudePreference: 'mid-high', description: '亞寒帶的沉靜思辨', emoji: '🤔🍂', color: '#45B7D1' },
-        'lonely': { name: '寂寞冷淡', latitudePreference: 'high', description: '寒帶的孤寂純淨', emoji: '😔❄️', color: '#A8A8A8' }
-    };
+    // 基於時間分鐘數計算目標緯度的函數
+    function calculateTargetLatitudeFromTime() {
+        const now = new Date();
+        const minutes = now.getMinutes(); // 0-59
+        
+        // 線性映射：0分=北緯90度，30分≈赤道0度，59分=南緯90度
+        // 公式：targetLatitude = 90 - (minutes * 180 / 59)
+        const targetLatitude = 90 - (minutes * 180 / 59);
+        
+        console.log(`時間: ${minutes}分 -> 目標緯度: ${targetLatitude.toFixed(2)}度`);
+        
+        return targetLatitude;
+    }
+    
+    // 緯度偏好描述
+    function getLatitudePreferenceDescription(targetLatitude) {
+        // 如果是數值，顯示具體緯度
+        if (typeof targetLatitude === 'number') {
+            let direction, region;
+            
+            if (targetLatitude > 0) {
+                direction = '北緯';
+            } else if (targetLatitude < 0) {
+                direction = '南緯';
+            } else {
+                direction = '赤道';
+            }
+            
+            // 地理區域描述
+            const absLat = Math.abs(targetLatitude);
+            if (absLat >= 66.5) {
+                region = '極地';
+            } else if (absLat >= 50) {
+                region = '高緯度';
+            } else if (absLat >= 30) {
+                region = '中緯度';
+            } else if (absLat >= 10) {
+                region = '低緯度';
+            } else {
+                region = '熱帶';
+            }
+            
+            if (targetLatitude === 0) {
+                return '赤道地區 (0°)';
+            } else {
+                return `目標${direction}${Math.abs(targetLatitude).toFixed(1)}° (${region}地區)`;
+            }
+        }
+        
+        // 舊格式兼容性（如果還有的話）
+        if (typeof targetLatitude === 'string') {
+            if (targetLatitude.includes('-')) {
+                const [category, hemisphere] = targetLatitude.split('-');
+                const hemisphereText = hemisphere === 'north' ? '北半球' : '南半球';
+                
+                const categoryDescriptions = {
+                    'high': '高緯度地區',
+                    'mid-high': '中高緯度地區',
+                    'mid': '中緯度地區',
+                    'low': '低緯度地區'
+                };
+                
+                const categoryText = categoryDescriptions[category] || '中緯度地區';
+                return `${hemisphereText}${categoryText}`;
+            }
+            
+            const descriptions = {
+                'high': '高緯度地區 (最北)',
+                'mid-high': '中高緯度地區',
+                'mid': '中緯度地區',
+                'low': '低緯度地區 (較南)'
+            };
+            return descriptions[targetLatitude] || '中緯度地區';
+        }
+        
+        return '中緯度地區';
+    }
 
     // 翻譯來源文字轉換函數
     function getTranslationSourceText(source) {
@@ -149,11 +219,8 @@ window.addEventListener('firebaseReady', async (event) => {
     //     }
     // }
 
-    async function fetchStoryFromAPI(city, country, countryCode, mood = 'peaceful') {
-    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}, Mood: ${mood}`);
-
-    // 獲取心情相關資訊
-    const selectedMood = moodOptions[mood] || moodOptions['peaceful'];
+    async function fetchStoryFromAPI(city, country, countryCode) {
+    console.log(`[fetchStoryFromAPI] Calling backend /api/generateStory for City: ${city}, Country: ${country}, Country Code: ${countryCode}`);
 
     try {
         const response = await fetch('/api/generateStory', { // 呼叫您 Vercel 部署的 API 路徑
@@ -164,10 +231,10 @@ window.addEventListener('firebaseReady', async (event) => {
             body: JSON.stringify({
                 city: city,
                 country: country,
-                mood: mood,
-                moodName: selectedMood.name,
-                moodDescription: selectedMood.description,
-                moodEmoji: selectedMood.emoji
+                mood: 'peaceful', // 固定使用平靜心情
+                moodName: '平靜溫和',
+                moodDescription: '溫帶的舒適宜人',
+                moodEmoji: '😌🌱'
             }),
         });
 
@@ -318,17 +385,16 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log("[setOrLoadUserName] 接收到名稱:", name, "showAlert:", showAlert);
         const newDisplayNameRaw = name.trim();
         const newGroupName = groupNameInput.value.trim();
-        const newMood = todayMoodSelect.value;
         
         if (!newDisplayNameRaw) {
             if (showAlert) alert("顯示名稱不能為空。");
             return false;
         }
 
-        // 檢查是否是相同的名稱、組別和心情
-        if (newDisplayNameRaw === rawUserDisplayName && newGroupName === currentGroupName && newMood === currentMood) {
-            console.log("[setOrLoadUserName] 名稱、組別和心情都相同，保持現有識別碼:", currentDataIdentifier);
-            if (showAlert) alert(`名稱、組別和心情未變更，仍然是 "${rawUserDisplayName}"`);
+        // 檢查是否是相同的名稱和組別
+        if (newDisplayNameRaw === rawUserDisplayName && newGroupName === currentGroupName) {
+            console.log("[setOrLoadUserName] 名稱和組別都相同，保持現有識別碼:", currentDataIdentifier);
+            if (showAlert) alert(`名稱和組別未變更，仍然是 "${rawUserDisplayName}"`);
             return true;
         }
 
@@ -342,31 +408,25 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log("[setOrLoadUserName] 原始名稱:", newDisplayNameRaw);
         console.log("[setOrLoadUserName] 生成的安全識別碼:", sanitizedName);
         console.log("[setOrLoadUserName] 組別名稱:", newGroupName);
-        console.log("[setOrLoadUserName] 今日心情:", newMood, moodOptions[newMood]?.name);
 
         // 設置全域變數
         currentDataIdentifier = sanitizedName;
         rawUserDisplayName = newDisplayNameRaw;  // 保存原始名稱，包含中文
         currentGroupName = newGroupName;  // 保存組別名稱
-        currentMood = newMood;  // 保存當前心情
 
         // 更新 UI
         currentUserIdSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
         currentUserDisplayNameSpan.textContent = rawUserDisplayName;  // 顯示原始名稱
         userNameInput.value = rawUserDisplayName;  // 保持輸入框顯示原始名稱
-        todayMoodSelect.value = currentMood;  // 保持心情選擇
         currentGroupNameSpan.textContent = currentGroupName ? `(${currentGroupName})` : '';
         localStorage.setItem('worldClockUserName', rawUserDisplayName);
         localStorage.setItem('worldClockGroupName', currentGroupName);
-        localStorage.setItem('worldClockMood', currentMood);
 
         console.log("[setOrLoadUserName] 使用者資料識別碼已設定為:", currentDataIdentifier);
         console.log("[setOrLoadUserName] 顯示名稱設定為:", rawUserDisplayName);
         console.log("[setOrLoadUserName] 組別名稱設定為:", currentGroupName);
-        console.log("[setOrLoadUserName] 今日心情設定為:", currentMood);
 
-        const moodInfo = moodOptions[currentMood];
-        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"${currentGroupName ? `，組別為 "${currentGroupName}"` : ''}${moodInfo ? `，今日心情為 "${moodInfo.emoji} ${moodInfo.name}"` : ''}。你的歷史記錄將以此資訊關聯。`);
+        if (showAlert) alert(`名稱已設定為 "${rawUserDisplayName}"${currentGroupName ? `，組別為 "${currentGroupName}"` : ''}。城市將根據按下按鈕的時間分鐘數決定緯度偏好。`);
 
         // 更新組別選擇下拉選單
         await updateGroupFilter();
@@ -590,7 +650,7 @@ window.addEventListener('firebaseReady', async (event) => {
         clearPreviousResults();
         console.log("--- 開始使用 GeoNames API 尋找匹配城市 ---");
         findCityButton.disabled = true; // 防止重複點擊
-        resultTextDiv.innerHTML = "<p>正在透過 GeoNames API 尋找中，請稍候...</p>";
+        resultTextDiv.innerHTML = "<p>正在網路尋找與你同步甦醒的城市與國家，請稍候...</p>";
 
         if (!currentDataIdentifier) {
             alert("請先設定你的顯示名稱。");
@@ -604,14 +664,6 @@ window.addEventListener('firebaseReady', async (event) => {
         }
 
         try {
-            // 即時更新當前心情選擇
-            const selectedMoodValue = todayMoodSelect.value;
-            if (selectedMoodValue !== currentMood) {
-                console.log(`[findMatchingCity] 偵測到心情變更：${currentMood} -> ${selectedMoodValue}`);
-                currentMood = selectedMoodValue;
-                localStorage.setItem('worldClockMood', currentMood);
-            }
-
             // 首先獲取用戶的城市訪問統計
             console.log("獲取用戶城市訪問統計...");
             const cityVisitStats = await getUserCityVisitStats();
@@ -639,14 +691,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 requiredUTCOffset += 24;
             }
 
-            // 使用用戶選擇的心情
-            const selectedMood = moodOptions[currentMood] || moodOptions['peaceful'];
-            const latitudePreference = selectedMood.latitudePreference;
+            // 基於當前時間的分鐘數計算緯度偏好
+            const targetLatitude = calculateTargetLatitudeFromTime();
+            const latitudeDescription = getLatitudePreferenceDescription(targetLatitude);
 
-            console.log(`用戶當前本地時間: ${userLocalDate.toLocaleTimeString()}`);
-            console.log(`用戶當前 UTC 時間: ${userUTCTime.toFixed(2)}`);
             console.log(`尋找 UTC${requiredUTCOffset >= 0 ? '+' : ''}${requiredUTCOffset.toFixed(2)} 的地方 (當地時間 ${targetLocalHour}:00)`);
-            console.log(`用戶選擇心情: ${selectedMood.name} (${selectedMood.description}), 緯度偏好: ${latitudePreference}`);
+            console.log(`按下時間分鐘數: ${userLocalDate.getMinutes()}, 目標緯度: ${targetLatitude.toFixed(2)}° (${latitudeDescription})`);
 
             // 調用我們的新 API 來尋找城市
             const response = await fetch('/api/find-city-geonames', {
@@ -656,10 +706,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 },
                 body: JSON.stringify({
                     targetUTCOffset: requiredUTCOffset,
-                    latitudePreference: latitudePreference,
-                    mood: selectedMood.mood || currentMood,
-                    moodName: selectedMood.name,
-                    moodDescription: selectedMood.description
+                    targetLatitude: targetLatitude, // 傳遞目標緯度
+                    timeMinutes: userLocalDate.getMinutes() // 傳遞分鐘數用於記錄
                 })
             });
 
@@ -672,7 +720,7 @@ window.addEventListener('firebaseReady', async (event) => {
 
             // 檢查是否是宇宙情況
             if (apiResult.isUniverseCase) {
-                const apiResponse = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE", currentMood);
+                const apiResponse = await fetchStoryFromAPI("未知星球", "宇宙", "UNIVERSE_CODE");
                 const greetingFromAPI = apiResponse.greeting;
                 const storyFromAPI = apiResponse.story;
 
@@ -700,7 +748,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 
                 // 將早餐圖片容器插入到地圖和 debugInfo 之間
                 debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-                debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)}, 心情: ${selectedMood.name})`;
+                debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)}, 按下時間: ${userLocalDate.getMinutes()}分, 緯度偏好: ${latitudeDescription})`;
 
                 // 先保存宇宙記錄（不包含圖片）
                 const universeRecord = {
@@ -723,12 +771,9 @@ window.addEventListener('firebaseReady', async (event) => {
                     imageUrl: null, // 初始設為 null，生成成功後更新
                     timezone: "Cosmic/Unknown",
                     isUniverseTheme: true,
-                    mood: currentMood,
-                    moodName: selectedMood.name,
-                    moodDescription: selectedMood.description,
-                    moodEmoji: selectedMood.emoji,
-                    moodColor: selectedMood.color,
-                    latitudePreference: latitudePreference
+                    timeMinutes: userLocalDate.getMinutes(),
+                    latitudePreference: targetLatitude,
+                    latitudeDescription: latitudeDescription
                 };
 
                 // 先保存記錄
@@ -847,21 +892,21 @@ window.addEventListener('firebaseReady', async (event) => {
             finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== englishCountryName ? 
                 `${englishCountryName} (${bestMatchCity.country_zh})` : englishCountryName;
 
-            const apiResponse = await fetchStoryFromAPI(englishCityName, englishCountryName, bestMatchCity.country_iso_code, currentMood);
+            const apiResponse = await fetchStoryFromAPI(englishCityName, englishCountryName, bestMatchCity.country_iso_code);
             const greetingFromAPI = apiResponse.greeting;
             const storyFromAPI = apiResponse.story;
 
-            // 顯示緯度和心情資訊
+            // 顯示緯度資訊
             const latitudeInfo = bestMatchCity.latitude ? 
                 `緯度 ${Math.abs(bestMatchCity.latitude).toFixed(1)}°${bestMatchCity.latitude >= 0 ? 'N' : 'S'}` : '';
             const latitudeCategory = bestMatchCity.latitudeCategory || '';
-            const moodInfo = selectedMood ? `今日心情：${selectedMood.emoji} ${selectedMood.name}` : '';
+            const timeInfo = `按下時間：${userLocalDate.getMinutes()}分，緯度偏好：${latitudeDescription}`;
             
             resultTextDiv.innerHTML = `
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
                 <p>今天的你在<strong>${finalCityName}, ${finalCountryName}</strong>甦醒！</p>
                 ${latitudeInfo ? `<p style="font-size: 0.9em; color: #666;">位於${latitudeInfo}${latitudeCategory ? ` (${latitudeCategory})` : ''}</p>` : ''}
-                ${moodInfo ? `<p style="font-size: 1em; color: ${selectedMood.color}; font-style: italic; border-left: 3px solid ${selectedMood.color}; padding-left: 10px; margin: 10px 0;">💭 ${moodInfo}<br><span style="font-size: 0.8em; opacity: 0.8;">${selectedMood.description}</span></p>` : ''}
+                <p style="font-size: 0.9em; color: #007bff; font-style: italic; border-left: 3px solid #007bff; padding-left: 10px; margin: 10px 0;">🕐 ${timeInfo}</p>
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
                 ${bestMatchCity.source === 'predefined' ? '<p style="font-size: 0.8em; color: #888;"><em>※ 使用預設城市資料</em></p>' : ''}
             `;
@@ -913,7 +958,7 @@ window.addEventListener('firebaseReady', async (event) => {
             const cityActualUTCOffset = bestMatchCity.timezoneOffset;
 
             const translationSourceText = bestMatchCity.translationSource ? `<br>(翻譯來源: ${getTranslationSourceText(bestMatchCity.translationSource)})` : '';
-            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${bestMatchCity.timezone || '未知'})<br>(心情: ${selectedMood.name}, 緯度偏好: ${latitudePreference})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'})${translationSourceText};`;
+            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${bestMatchCity.timezone || '未知'})<br>(按下時間: ${userLocalDate.getMinutes()}分, 緯度偏好: ${targetLatitude.toFixed(2)}° (${latitudeDescription})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'})${translationSourceText};`;
 
             // 先保存基本記錄（不包含圖片）
             const historyRecord = {
@@ -937,12 +982,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 timezone: bestMatchCity.timezone,
                 source: bestMatchCity.source || 'geonames',
                 translationSource: bestMatchCity.translationSource || 'geonames',
-                mood: currentMood,
-                moodName: selectedMood.name,
-                moodDescription: selectedMood.description,
-                moodEmoji: selectedMood.emoji,
-                moodColor: selectedMood.color,
-                latitudePreference: latitudePreference,
+                timeMinutes: userLocalDate.getMinutes(),
+                latitudePreference: targetLatitude,
+                latitudeDescription: latitudeDescription,
                 latitudeCategory: bestMatchCity.latitudeCategory || ''
             };
 
@@ -2188,7 +2230,6 @@ window.addEventListener('firebaseReady', async (event) => {
     // 或者，直接觸發 ClockTab 的顯示 (如果已經有用戶名)
     const initialUserName = localStorage.getItem('worldClockUserName');
     const initialGroupName = localStorage.getItem('worldClockGroupName');
-    const initialMood = localStorage.getItem('worldClockMood');
 
     if (initialUserName) {
         userNameInput.value = initialUserName;
@@ -2202,12 +2243,6 @@ window.addEventListener('firebaseReady', async (event) => {
         groupNameInput.value = initialGroupName;
         currentGroupName = initialGroupName;
         currentGroupNameSpan.textContent = `(${initialGroupName})`;
-    }
-
-    // 恢復心情設定
-    if (initialMood && moodOptions[initialMood]) {
-        todayMoodSelect.value = initialMood;
-        currentMood = initialMood;
     }
     
     // 確保在首次載入時，如果 ClockTab 是預設活動的，則嘗試顯示最後記錄

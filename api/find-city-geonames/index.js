@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        let { targetUTCOffset, latitudePreference, mood, moodName, moodDescription } = req.method === 'GET' ? req.query : req.body;
+        let { targetUTCOffset, targetLatitude, latitudePreference, mood, moodName, moodDescription } = req.method === 'GET' ? req.query : req.body;
 
         // 驗證參數
         const targetOffset = parseFloat(targetUTCOffset);
@@ -27,6 +27,17 @@ export default async function handler(req, res) {
             return res.status(400).json({ 
                 error: 'Invalid parameter. targetUTCOffset is required and must be a number.' 
             });
+        }
+
+        // 新參數：目標緯度
+        let parsedTargetLatitude = null;
+        if (targetLatitude !== undefined) {
+            parsedTargetLatitude = parseFloat(targetLatitude);
+            if (isNaN(parsedTargetLatitude) || parsedTargetLatitude < -90 || parsedTargetLatitude > 90) {
+                return res.status(400).json({ 
+                    error: 'Invalid targetLatitude. Must be between -90 and 90.' 
+                });
+            }
         }
 
         // 預設值
@@ -45,67 +56,70 @@ export default async function handler(req, res) {
 
         const moodStyle = moodStyles[mood] || moodStyles['peaceful'];
 
-        console.log(`收到請求 - 目標偏移: ${targetOffset}, 緯度偏好: ${latitudePreference}, 心情: ${moodName} (${moodDescription})`);
+        console.log(`收到請求 - 目標偏移: ${targetOffset}, 目標緯度: ${parsedTargetLatitude}, 緯度偏好: ${latitudePreference}, 心情: ${moodName} (${moodDescription})`);
 
         // GeoNames 用戶名 - 您需要註冊一個免費帳戶
         const GEONAMES_USERNAME = process.env.GEONAMES_USERNAME || 'demo';
 
         // 預定義一些主要城市的經緯度，這些城市代表不同的時區和緯度
+        // 新的分類系統：考慮南北半球差異
+        // 北半球：high(60+), mid-high(45-60), mid(30-45), low(0-30)
+        // 南半球：high(<-45), mid-high(-30到-45), mid(-15到-30), low(0到-15)
         const majorCitiesByTimezone = [
             // UTC-12 to UTC-8 (太平洋時區)
-            { name: 'Honolulu', lat: 21.3099, lng: -157.8581, expectedOffset: -10, category: 'low' },
-            { name: 'Anchorage', lat: 61.2181, lng: -149.9003, expectedOffset: -9, category: 'high' },
-            { name: 'Los Angeles', lat: 34.0522, lng: -118.2437, expectedOffset: -8, category: 'mid' },
-            { name: 'Vancouver', lat: 49.2827, lng: -123.1207, expectedOffset: -8, category: 'mid-high' },
+            { name: 'Honolulu', lat: 21.3099, lng: -157.8581, expectedOffset: -10, category: 'low', hemisphere: 'north' },
+            { name: 'Anchorage', lat: 61.2181, lng: -149.9003, expectedOffset: -9, category: 'high', hemisphere: 'north' },
+            { name: 'Los Angeles', lat: 34.0522, lng: -118.2437, expectedOffset: -8, category: 'mid', hemisphere: 'north' },
+            { name: 'Vancouver', lat: 49.2827, lng: -123.1207, expectedOffset: -8, category: 'mid-high', hemisphere: 'north' },
             
             // UTC-7 to UTC-5 (北美時區)
-            { name: 'Denver', lat: 39.7392, lng: -104.9903, expectedOffset: -7, category: 'mid' },
-            { name: 'Phoenix', lat: 33.4484, lng: -112.0740, expectedOffset: -7, category: 'mid' },
-            { name: 'Chicago', lat: 41.8781, lng: -87.6298, expectedOffset: -6, category: 'mid' },
-            { name: 'Mexico City', lat: 19.4326, lng: -99.1332, expectedOffset: -6, category: 'low' },
-            { name: 'New York', lat: 40.7128, lng: -74.0060, expectedOffset: -5, category: 'mid' },
-            { name: 'Toronto', lat: 43.6532, lng: -79.3832, expectedOffset: -5, category: 'mid' },
+            { name: 'Denver', lat: 39.7392, lng: -104.9903, expectedOffset: -7, category: 'mid', hemisphere: 'north' },
+            { name: 'Phoenix', lat: 33.4484, lng: -112.0740, expectedOffset: -7, category: 'mid', hemisphere: 'north' },
+            { name: 'Chicago', lat: 41.8781, lng: -87.6298, expectedOffset: -6, category: 'mid', hemisphere: 'north' },
+            { name: 'Mexico City', lat: 19.4326, lng: -99.1332, expectedOffset: -6, category: 'low', hemisphere: 'north' },
+            { name: 'New York', lat: 40.7128, lng: -74.0060, expectedOffset: -5, category: 'mid', hemisphere: 'north' },
+            { name: 'Toronto', lat: 43.6532, lng: -79.3832, expectedOffset: -5, category: 'mid', hemisphere: 'north' },
             
             // UTC-4 to UTC-1 (大西洋和南美時區)
-            { name: 'Caracas', lat: 10.4806, lng: -66.9036, expectedOffset: -4, category: 'low' },
-            { name: 'Santiago', lat: -33.4489, lng: -70.6693, expectedOffset: -4, category: 'mid' },
-            { name: 'São Paulo', lat: -23.5558, lng: -46.6396, expectedOffset: -3, category: 'mid' },
-            { name: 'Buenos Aires', lat: -34.6118, lng: -58.3960, expectedOffset: -3, category: 'mid' },
+            { name: 'Caracas', lat: 10.4806, lng: -66.9036, expectedOffset: -4, category: 'low', hemisphere: 'north' },
+            { name: 'Santiago', lat: -33.4489, lng: -70.6693, expectedOffset: -4, category: 'mid-high', hemisphere: 'south' },
+            { name: 'São Paulo', lat: -23.5558, lng: -46.6396, expectedOffset: -3, category: 'mid', hemisphere: 'south' },
+            { name: 'Buenos Aires', lat: -34.6118, lng: -58.3960, expectedOffset: -3, category: 'mid-high', hemisphere: 'south' },
             
             // UTC+0 to UTC+3 (歐洲和非洲時區)
-            { name: 'London', lat: 51.5074, lng: -0.1278, expectedOffset: 0, category: 'mid-high' },
-            { name: 'Reykjavik', lat: 64.1466, lng: -21.9426, expectedOffset: 0, category: 'high' },
-            { name: 'Paris', lat: 48.8566, lng: 2.3522, expectedOffset: 1, category: 'mid-high' },
-            { name: 'Berlin', lat: 52.5200, lng: 13.4050, expectedOffset: 1, category: 'mid-high' },
-            { name: 'Rome', lat: 41.9028, lng: 12.4964, expectedOffset: 1, category: 'mid' },
-            { name: 'Cairo', lat: 30.0444, lng: 31.2357, expectedOffset: 2, category: 'mid' },
-            { name: 'Athens', lat: 37.9838, lng: 23.7275, expectedOffset: 2, category: 'mid' },
-            { name: 'Moscow', lat: 55.7558, lng: 37.6176, expectedOffset: 3, category: 'mid-high' },
-            { name: 'Istanbul', lat: 41.0082, lng: 28.9784, expectedOffset: 3, category: 'mid' },
+            { name: 'London', lat: 51.5074, lng: -0.1278, expectedOffset: 0, category: 'mid-high', hemisphere: 'north' },
+            { name: 'Reykjavik', lat: 64.1466, lng: -21.9426, expectedOffset: 0, category: 'high', hemisphere: 'north' },
+            { name: 'Paris', lat: 48.8566, lng: 2.3522, expectedOffset: 1, category: 'mid-high', hemisphere: 'north' },
+            { name: 'Berlin', lat: 52.5200, lng: 13.4050, expectedOffset: 1, category: 'mid-high', hemisphere: 'north' },
+            { name: 'Rome', lat: 41.9028, lng: 12.4964, expectedOffset: 1, category: 'mid', hemisphere: 'north' },
+            { name: 'Cairo', lat: 30.0444, lng: 31.2357, expectedOffset: 2, category: 'mid', hemisphere: 'north' },
+            { name: 'Athens', lat: 37.9838, lng: 23.7275, expectedOffset: 2, category: 'mid', hemisphere: 'north' },
+            { name: 'Moscow', lat: 55.7558, lng: 37.6176, expectedOffset: 3, category: 'mid-high', hemisphere: 'north' },
+            { name: 'Istanbul', lat: 41.0082, lng: 28.9784, expectedOffset: 3, category: 'mid', hemisphere: 'north' },
             
             // UTC+4 to UTC+6 (中東和中亞時區)
-            { name: 'Dubai', lat: 25.2048, lng: 55.2708, expectedOffset: 4, category: 'low' },
-            { name: 'Tehran', lat: 35.6892, lng: 51.3890, expectedOffset: 3.5, category: 'mid' },
-            { name: 'Mumbai', lat: 19.0760, lng: 72.8777, expectedOffset: 5.5, category: 'low' },
-            { name: 'New Delhi', lat: 28.6139, lng: 77.2090, expectedOffset: 5.5, category: 'mid' },
-            { name: 'Almaty', lat: 43.2220, lng: 76.8512, expectedOffset: 6, category: 'mid' },
+            { name: 'Dubai', lat: 25.2048, lng: 55.2708, expectedOffset: 4, category: 'low', hemisphere: 'north' },
+            { name: 'Tehran', lat: 35.6892, lng: 51.3890, expectedOffset: 3.5, category: 'mid', hemisphere: 'north' },
+            { name: 'Mumbai', lat: 19.0760, lng: 72.8777, expectedOffset: 5.5, category: 'low', hemisphere: 'north' },
+            { name: 'New Delhi', lat: 28.6139, lng: 77.2090, expectedOffset: 5.5, category: 'low', hemisphere: 'north' },
+            { name: 'Almaty', lat: 43.2220, lng: 76.8512, expectedOffset: 6, category: 'mid', hemisphere: 'north' },
             
             // UTC+7 to UTC+9 (亞洲時區)
-            { name: 'Bangkok', lat: 13.7563, lng: 100.5018, expectedOffset: 7, category: 'low' },
-            { name: 'Jakarta', lat: -6.2088, lng: 106.8456, expectedOffset: 7, category: 'low' },
-            { name: 'Singapore', lat: 1.3521, lng: 103.8198, expectedOffset: 8, category: 'low' },
-            { name: 'Hong Kong', lat: 22.3193, lng: 114.1694, expectedOffset: 8, category: 'low' },
-            { name: 'Beijing', lat: 39.9042, lng: 116.4074, expectedOffset: 8, category: 'mid' },
-            { name: 'Manila', lat: 14.5995, lng: 120.9842, expectedOffset: 8, category: 'low' },
-            { name: 'Seoul', lat: 37.5665, lng: 126.9780, expectedOffset: 9, category: 'mid' },
-            { name: 'Tokyo', lat: 35.6762, lng: 139.6503, expectedOffset: 9, category: 'mid' },
+            { name: 'Bangkok', lat: 13.7563, lng: 100.5018, expectedOffset: 7, category: 'low', hemisphere: 'north' },
+            { name: 'Jakarta', lat: -6.2088, lng: 106.8456, expectedOffset: 7, category: 'low', hemisphere: 'south' },
+            { name: 'Singapore', lat: 1.3521, lng: 103.8198, expectedOffset: 8, category: 'low', hemisphere: 'north' },
+            { name: 'Hong Kong', lat: 22.3193, lng: 114.1694, expectedOffset: 8, category: 'low', hemisphere: 'north' },
+            { name: 'Beijing', lat: 39.9042, lng: 116.4074, expectedOffset: 8, category: 'mid', hemisphere: 'north' },
+            { name: 'Manila', lat: 14.5995, lng: 120.9842, expectedOffset: 8, category: 'low', hemisphere: 'north' },
+            { name: 'Seoul', lat: 37.5665, lng: 126.9780, expectedOffset: 9, category: 'mid', hemisphere: 'north' },
+            { name: 'Tokyo', lat: 35.6762, lng: 139.6503, expectedOffset: 9, category: 'mid', hemisphere: 'north' },
             
             // UTC+10 to UTC+12 (太平洋時區)
-            { name: 'Sydney', lat: -33.8688, lng: 151.2093, expectedOffset: 10, category: 'mid' },
-            { name: 'Melbourne', lat: -37.8136, lng: 144.9631, expectedOffset: 10, category: 'mid' },
-            { name: 'Brisbane', lat: -27.4698, lng: 153.0251, expectedOffset: 10, category: 'mid' },
-            { name: 'Auckland', lat: -36.8485, lng: 174.7633, expectedOffset: 12, category: 'mid' },
-            { name: 'Suva', lat: -18.1248, lng: 178.4501, expectedOffset: 12, category: 'low' }
+            { name: 'Sydney', lat: -33.8688, lng: 151.2093, expectedOffset: 10, category: 'mid-high', hemisphere: 'south' },
+            { name: 'Melbourne', lat: -37.8136, lng: 144.9631, expectedOffset: 10, category: 'mid-high', hemisphere: 'south' },
+            { name: 'Brisbane', lat: -27.4698, lng: 153.0251, expectedOffset: 10, category: 'mid', hemisphere: 'south' },
+            { name: 'Auckland', lat: -36.8485, lng: 174.7633, expectedOffset: 12, category: 'mid-high', hemisphere: 'south' },
+            { name: 'Suva', lat: -18.1248, lng: 178.4501, expectedOffset: 12, category: 'mid', hemisphere: 'south' }
         ];
 
         // 找到最接近目標偏移的城市
@@ -126,22 +140,77 @@ export default async function handler(req, res) {
             });
         }
 
-        // 根據緯度偏好過濾城市
-        if (latitudePreference !== 'any') {
-            const filteredByLatitude = candidateCities.filter(city => city.category === latitudePreference);
+        // 根據緯度偏好或目標緯度過濾城市
+        if (parsedTargetLatitude !== null) {
+            // 新邏輯：基於目標緯度選擇最接近的城市
+            console.log(`使用目標緯度 ${parsedTargetLatitude} 選擇城市`);
+            
+            // 計算每個城市與目標緯度的距離
+            candidateCities = candidateCities.map(city => ({
+                ...city,
+                latitudeDistance: Math.abs(city.lat - parsedTargetLatitude)
+            }));
+            
+            // 按緯度距離排序，選擇最接近的
+            candidateCities.sort((a, b) => a.latitudeDistance - b.latitudeDistance);
+            
+            console.log(`緯度距離排序後的前3個城市:`, 
+                candidateCities.slice(0, 3).map(city => 
+                    `${city.name} (${city.lat}°, 距離${city.latitudeDistance.toFixed(1)}°)`
+                )
+            );
+            
+        } else if (latitudePreference !== 'any') {
+            // 舊邏輯：基於緯度偏好分類過濾
+            let filteredByLatitude = [];
+            
+            // 檢查是否為新的南北半球組合格式
+            if (latitudePreference.includes('-')) {
+                const [category, hemisphere] = latitudePreference.split('-');
+                console.log(`解析緯度偏好: 類別=${category}, 半球=${hemisphere}`);
+                
+                // 根據類別和半球偏好過濾
+                filteredByLatitude = candidateCities.filter(city => {
+                    return city.category === category && city.hemisphere === hemisphere;
+                });
+                
+                console.log(`根據組合偏好 '${latitudePreference}' 過濾，找到 ${filteredByLatitude.length} 個符合的城市`);
+                
+                // 如果沒有找到符合的城市，嘗試只按類別過濾（忽略半球偏好）
+                if (filteredByLatitude.length === 0) {
+                    filteredByLatitude = candidateCities.filter(city => city.category === category);
+                    console.log(`沒有符合半球偏好的城市，改為只按類別 '${category}' 過濾，找到 ${filteredByLatitude.length} 個城市`);
+                }
+            } else {
+                // 舊格式：只按類別過濾，不考慮半球
+                filteredByLatitude = candidateCities.filter(city => city.category === latitudePreference);
+                console.log(`使用舊格式緯度偏好 '${latitudePreference}' 過濾，找到 ${filteredByLatitude.length} 個城市`);
+            }
+            
             if (filteredByLatitude.length > 0) {
                 candidateCities = filteredByLatitude;
-                console.log(`根據緯度偏好 '${latitudePreference}' 過濾後，剩餘 ${candidateCities.length} 個候選城市`);
+                console.log(`緯度偏好過濾後，剩餘 ${candidateCities.length} 個候選城市`);
             } else {
                 console.log(`沒有符合緯度偏好 '${latitudePreference}' 的城市，保留所有候選城市`);
             }
         }
 
-        // 選擇最接近的城市（如果有多個候選）
+        // 最終選擇最接近的城市（時區優先，然後是緯度距離）
         candidateCities.sort((a, b) => {
             const diffA = Math.abs(a.expectedOffset - targetOffset);
             const diffB = Math.abs(b.expectedOffset - targetOffset);
-            return diffA - diffB;
+            
+            // 時區差異優先
+            if (diffA !== diffB) {
+                return diffA - diffB;
+            }
+            
+            // 如果時區差異相同，按緯度距離排序（如果有的話）
+            if (a.latitudeDistance !== undefined && b.latitudeDistance !== undefined) {
+                return a.latitudeDistance - b.latitudeDistance;
+            }
+            
+            return 0;
         });
 
         const selectedCity = candidateCities[0];
@@ -165,12 +234,22 @@ export default async function handler(req, res) {
 
         const cityData = await geonamesResponse.json();
 
-        // 緯度分類對照表
+        // 緯度分類對照表 - 支持南北半球組合格式
         const latitudeCategoryNames = {
+            // 舊格式兼容
             'high': '高緯度',
             'mid-high': '中高緯度', 
             'mid': '中緯度',
-            'low': '低緯度'
+            'low': '低緯度',
+            // 新格式：南北半球組合
+            'high-north': '北半球高緯度',
+            'mid-high-north': '北半球中高緯度',
+            'mid-north': '北半球中緯度', 
+            'low-north': '北半球低緯度',
+            'high-south': '南半球高緯度',
+            'mid-high-south': '南半球中高緯度',
+            'mid-south': '南半球中緯度',
+            'low-south': '南半球低緯度'
         };
 
         // 如果 GeoNames API 也失敗了，使用備用資料
