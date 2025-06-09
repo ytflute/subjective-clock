@@ -24,7 +24,7 @@ window.addEventListener('firebaseReady', async (event) => {
     const {
         initializeApp,
         getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
-        getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
+        getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit, updateDoc,
         setLogLevel
     } = window.firebaseSDK;
 
@@ -732,7 +732,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 };
 
                 // 先保存記錄
-                await saveHistoryRecord(universeRecord);
+                const savedUniverseDocId = await saveHistoryRecord(universeRecord);
                 await saveToGlobalDailyRecord(universeRecord);
 
                 // 然後生成早餐圖片，使用特殊的宇宙主題提示
@@ -764,6 +764,19 @@ window.addEventListener('firebaseReady', async (event) => {
                             </div>
                         `;
                         console.log("宇宙早餐圖片生成成功，URL:", imageData.imageUrl);
+                        
+                        // 將圖片 URL 更新到已保存的宇宙記錄中
+                        if (savedUniverseDocId) {
+                            try {
+                                const historyDocRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, savedUniverseDocId);
+                                await updateDoc(historyDocRef, {
+                                    imageUrl: imageData.imageUrl
+                                });
+                                console.log("宇宙早餐圖片 URL 已更新到記錄中");
+                            } catch (updateError) {
+                                console.error("更新宇宙記錄中的圖片 URL 失敗:", updateError);
+                            }
+                        }
                     } else {
                         breakfastContainer.innerHTML = `<p style="color: #888;">星際早餐圖片生成中，請稍後查看歷史記錄！</p>`;
                     }
@@ -899,7 +912,7 @@ window.addEventListener('firebaseReady', async (event) => {
             };
 
             // 先保存記錄
-            await saveHistoryRecord(historyRecord);
+            const savedDocId = await saveHistoryRecord(historyRecord);
             await saveToGlobalDailyRecord(historyRecord);
 
             // 然後嘗試生成早餐圖片
@@ -930,8 +943,21 @@ window.addEventListener('firebaseReady', async (event) => {
                         </div>
                     `;
 
-                    // 更新記錄中的圖片 URL（可以選擇是否要重新保存）
+                    // 更新記錄中的圖片 URL
                     console.log("早餐圖片生成成功，URL:", imageData.imageUrl);
+                    
+                    // 將圖片 URL 更新到已保存的記錄中
+                    if (savedDocId) {
+                        try {
+                            const historyDocRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, savedDocId);
+                            await updateDoc(historyDocRef, {
+                                imageUrl: imageData.imageUrl
+                            });
+                            console.log("早餐圖片 URL 已更新到記錄中");
+                        } catch (updateError) {
+                            console.error("更新記錄中的圖片 URL 失敗:", updateError);
+                        }
+                    }
                 } else {
                     breakfastContainer.innerHTML = `<p style="color: #888;">今日早餐圖片生成中，請稍後查看歷史記錄！</p>`;
                 }
