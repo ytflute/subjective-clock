@@ -604,6 +604,14 @@ window.addEventListener('firebaseReady', async (event) => {
         }
 
         try {
+            // 即時更新當前心情選擇
+            const selectedMoodValue = todayMoodSelect.value;
+            if (selectedMoodValue !== currentMood) {
+                console.log(`[findMatchingCity] 偵測到心情變更：${currentMood} -> ${selectedMoodValue}`);
+                currentMood = selectedMoodValue;
+                localStorage.setItem('worldClockMood', currentMood);
+            }
+
             // 首先獲取用戶的城市訪問統計
             console.log("獲取用戶城市訪問統計...");
             const cityVisitStats = await getUserCityVisitStats();
