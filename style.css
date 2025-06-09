@@ -912,7 +912,7 @@ small { /* 通用 small 標籤樣式 */
 
 /* 說明文字樣式 */
 .action-description {
-    margin: 20px 0 15px 0;
+    margin: 10px 0 10px 0;
     padding: 15px;
     background-color: #f8f9fa;
     border-left: 4px solid #7a776d;
@@ -967,6 +967,15 @@ small { /* 通用 small 標籤樣式 */
 
 .half-width-button:active {
     transform: translateY(0) !important;
+}
+
+/* 開始這一天按鈕的特定顏色覆蓋 */
+#findCityButton.half-width-button {
+    background-color: #d4b208 !important;  /* 金黃色 */
+}
+
+#findCityButton.half-width-button:hover {
+    background-color: #b89e1d !important;  /* hover時的深金黃色 */
 }
 
 /* 響應式設計：手機版本 */
