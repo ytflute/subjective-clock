@@ -807,12 +807,47 @@ window.addEventListener('firebaseReady', async (event) => {
                 throw new Error("無法從 API 結果中選擇合適的城市");
             }
 
-            const finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== bestMatchCity.city ? 
-                `${bestMatchCity.city_zh} (${bestMatchCity.city})` : bestMatchCity.city;
-            const finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== bestMatchCity.country ? 
-                `${bestMatchCity.country_zh} (${bestMatchCity.country})` : bestMatchCity.country;
+            // 保留英文城市和國家名稱
+            const englishCityName = bestMatchCity.city;
+            const englishCountryName = bestMatchCity.country;
+            
+            // 檢查是否需要 ChatGPT 翻譯
+            let finalCityName = englishCityName;
+            let finalCountryName = englishCountryName;
+            
+            // 如果沒有中文翻譯，使用 ChatGPT 翻譯
+            if (!bestMatchCity.city_zh || bestMatchCity.city_zh === englishCityName || 
+                !bestMatchCity.country_zh || bestMatchCity.country_zh === englishCountryName) {
+                
+                try {
+                    console.log("缺少中文翻譯，調用 ChatGPT 翻譯...");
+                    const translationResponse = await fetch('/api/translate-location', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            city: englishCityName,
+                            country: englishCountryName
+                        })
+                    });
+                    
+                    if (translationResponse.ok) {
+                        const translationData = await translationResponse.json();
+                        if (translationData.city_zh) bestMatchCity.city_zh = translationData.city_zh;
+                        if (translationData.country_zh) bestMatchCity.country_zh = translationData.country_zh;
+                        console.log("ChatGPT 翻譯成功:", translationData);
+                    }
+                } catch (error) {
+                    console.error("ChatGPT 翻譯失敗:", error);
+                }
+            }
+            
+            // 格式化顯示名稱：English (中文)
+            finalCityName = bestMatchCity.city_zh && bestMatchCity.city_zh !== englishCityName ? 
+                `${englishCityName} (${bestMatchCity.city_zh})` : englishCityName;
+            finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== englishCountryName ? 
+                `${englishCountryName} (${bestMatchCity.country_zh})` : englishCountryName;
 
-            const apiResponse = await fetchStoryFromAPI(finalCityName, finalCountryName, bestMatchCity.country_iso_code, currentMood);
+            const apiResponse = await fetchStoryFromAPI(englishCityName, englishCountryName, bestMatchCity.country_iso_code, currentMood);
             const greetingFromAPI = apiResponse.greeting;
             const storyFromAPI = apiResponse.story;
 
@@ -824,7 +859,7 @@ window.addEventListener('firebaseReady', async (event) => {
             
             resultTextDiv.innerHTML = `
                 <p style="font-weight: bold; font-size: 1.1em;">${greetingFromAPI}</p>
-                <p>今天的你是<strong>${finalCityName} (${finalCountryName})</strong>人！</p>
+                <p>今天的你在<strong>${finalCityName}, ${finalCountryName}</strong>甦醒！</p>
                 ${latitudeInfo ? `<p style="font-size: 0.9em; color: #666;">位於${latitudeInfo}${latitudeCategory ? ` (${latitudeCategory})` : ''}</p>` : ''}
                 ${moodInfo ? `<p style="font-size: 1em; color: ${selectedMood.color}; font-style: italic; border-left: 3px solid ${selectedMood.color}; padding-left: 10px; margin: 10px 0;">💭 ${moodInfo}<br><span style="font-size: 0.8em; opacity: 0.8;">${selectedMood.description}</span></p>` : ''}
                 <p style="font-style: italic; margin-top: 10px; font-size: 0.9em; color: #555;">${storyFromAPI}</p>
@@ -886,8 +921,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 userDisplayName: rawUserDisplayName,
                 recordedAt: serverTimestamp(),
                 localTime: userLocalDate.toLocaleTimeString(),
-                city: bestMatchCity.city || finalCityName,
-                country: bestMatchCity.country || finalCountryName,
+                city: englishCityName,
+                country: englishCountryName,
                 city_zh: bestMatchCity.city_zh || "",
                 country_zh: bestMatchCity.country_zh || "",
                 country_iso_code: bestMatchCity.country_iso_code,
@@ -927,8 +962,8 @@ window.addEventListener('firebaseReady', async (event) => {
                         'Authorization': `Bearer ${idToken}`
                     },
                     body: JSON.stringify({ 
-                        city: finalCityName,
-                        country: finalCountryName
+                        city: englishCityName,
+                        country: englishCountryName
                     })
                 });
 
@@ -938,8 +973,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 if (imageData.imageUrl) {
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
-                            <img src="${imageData.imageUrl}" alt="${finalCityName}早餐" style="max-width: 100%; border-radius: 8px;">
-                            <p style="font-size: 0.9em; color: #555;"><em>今日的${finalCityName}早餐</em></p>
+                            <img src="${imageData.imageUrl}" alt="${englishCityName}早餐" style="max-width: 100%; border-radius: 8px;">
+                            <p style="font-size: 0.9em; color: #555;"><em>今日的${englishCityName}早餐</em></p>
                         </div>
                     `;
 
