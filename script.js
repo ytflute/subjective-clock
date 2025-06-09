@@ -653,13 +653,40 @@ window.addEventListener('firebaseReady', async (event) => {
         clearPreviousResults();
         console.log("--- 開始使用 GeoNames API 尋找匹配城市 ---");
         findCityButton.disabled = true; // 防止重複點擊
-        resultTextDiv.innerHTML = "<p>正在網路尋找與你同步甦醒的城市與國家，請稍候...</p>";
+        resultTextDiv.innerHTML = "<p>正在定位你的甦醒座標，請稍候...</p>";
 
-        if (!currentDataIdentifier) {
-            alert("請先設定你的顯示名稱。");
+        // 檢查並更新最新的用戶名稱和組名
+        const currentUserName = userNameInput.value.trim();
+        const currentGroupNameValue = groupNameInput.value.trim();
+        
+        if (!currentUserName) {
+            alert("請先輸入你的顯示名稱。");
             findCityButton.disabled = false;
             return;
         }
+
+        // 更新全域變數為最新值
+        rawUserDisplayName = currentUserName;
+        currentGroupName = currentGroupNameValue;
+        
+        // 更新顯示
+        currentUserIdSpan.textContent = rawUserDisplayName;
+        currentUserDisplayNameSpan.textContent = rawUserDisplayName;
+        if (currentGroupName) {
+            currentGroupNameSpan.textContent = `[${currentGroupName}]`;
+        } else {
+            currentGroupNameSpan.textContent = '';
+        }
+        
+        console.log(`[findMatchingCity] 使用最新資料 - 名稱: ${rawUserDisplayName}, 組名: ${currentGroupName || '無'}`)
+        
+        // 如果用戶名稱改變了，需要重新設定currentDataIdentifier
+        const newDataIdentifier = sanitizeNameToFirestoreId(rawUserDisplayName);
+        if (currentDataIdentifier !== newDataIdentifier) {
+            currentDataIdentifier = newDataIdentifier;
+            console.log("[findMatchingCity] 用戶名稱已變更，更新識別碼為:", currentDataIdentifier);
+        }
+
         if (!auth.currentUser) {
             alert("Firebase 會話未就緒，請稍候或刷新頁面。");
             findCityButton.disabled = false;
@@ -1500,24 +1527,63 @@ window.addEventListener('firebaseReady', async (event) => {
                 return;
             }
 
+            // 獲取用戶城市訪問統計
+            const cityVisitStats = await getUserCityVisitStats();
+            console.log("[loadHistory] 城市訪問統計:", cityVisitStats);
+
+            // 收集所有記錄並按時間排序（用於計算訪問順序）
+            const allRecords = [];
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                record.docId = doc.id;
+                allRecords.push(record);
+            });
+            
+            // 按時間順序排序（從舊到新）
+            allRecords.sort((a, b) => {
+                const timeA = a.recordedAt && a.recordedAt.toMillis ? a.recordedAt.toMillis() : 0;
+                const timeB = b.recordedAt && b.recordedAt.toMillis ? b.recordedAt.toMillis() : 0;
+                return timeA - timeB;
+            });
+
+            // 重新按時間倒序排列用於顯示（最新的在上面）
+            allRecords.reverse();
+
             // 收集所有有效的歷史記錄點
             const markerMap = new Map(); // 用於存儲標記的引用
             
-            querySnapshot.forEach((doc) => {
-                const record = doc.data();
+            allRecords.forEach((record, index) => {
                 console.log("[loadHistory] 處理記錄:", record);
-                const docId = doc.id;
                 const recordDate = record.recordedAt && record.recordedAt.toDate ? record.recordedAt.toDate().toLocaleString('zh-TW', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '日期未知';
 
                 const cityDisplay = record.city_zh && record.city_zh !== record.city ? `${record.city_zh} (${record.city})` : record.city;
                 const countryDisplay = record.country_zh && record.country_zh !== record.country ? `${record.country_zh} (${record.country})` : record.country;
 
+                // 計算城市訪問次數（當前記錄在該城市的第幾次訪問）
+                const cityName = record.city;
+                let cityVisitNumber = 1;
+                if (cityName && cityName !== "Unknown Planet") {
+                    // 找到按時間順序排列的所有記錄中，當前記錄是該城市的第幾次訪問
+                    const allRecordsByTime = [...allRecords].reverse(); // 恢復時間順序（從舊到新）
+                    const currentRecordTime = record.recordedAt && record.recordedAt.toMillis ? record.recordedAt.toMillis() : 0;
+                    
+                    cityVisitNumber = allRecordsByTime.filter(r => 
+                        r.city === cityName && 
+                        r.recordedAt && r.recordedAt.toMillis && 
+                        r.recordedAt.toMillis() <= currentRecordTime
+                    ).length;
+                }
+
                 // 心情資訊顯示
                 const moodDisplay = record.moodEmoji && record.moodName ? `${record.moodEmoji} ${record.moodName}` : (record.moodName || '');
+
+                // 城市訪問次數顯示（只有重複訪問才顯示）
+                const visitInfo = cityVisitNumber > 1 ? `<br><span class="visit-info" style="color: #007bff; font-size: 0.8em;">第 ${cityVisitNumber} 次拜訪這座城市</span>` : '';
 
                 const li = document.createElement('li');
                 li.innerHTML = `<span class="date">${recordDate}</span> -  
                                 甦醒於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>
+                                ${visitInfo}
                                 ${moodDisplay ? `<br><span class="mood-info" style="color: ${record.moodColor || '#666'}; font-size: 0.8em;">心情: ${moodDisplay}</span>` : ''}`;
                 
                 const detailsButton = document.createElement('button');
