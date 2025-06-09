@@ -24,12 +24,12 @@
                     <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
                 </div>
                 <div class="input-field">
-                    <label for="todayMood">今日心情：</label>
+                    <label for="todayMood">今日起床心情：</label>
                     <select id="todayMood">
-                        <option value="happy">😊🌞 快樂熱情 - 熱帶陽光般的溫暖</option>
-                        <option value="peaceful" selected>😌🌱 平靜溫和 - 溫帶的舒適宜人</option>
-                        <option value="melancholy">🤔🍂 憂鬱思考 - 亞寒帶的沉靜思辨</option>
-                        <option value="lonely">😔❄️ 寂寞冷淡 - 寒帶的孤寂純淨</option>
+                        <option value="happy">😊🌞 快樂熱情</option>
+                        <option value="peaceful" selected>😌🌱 平靜溫和</option>
+                        <option value="melancholy">🤔🍂 憂鬱思考</option>
+                        <option value="lonely">😔❄️ 寂寞冷淡</option>
                     </select>
                 </div>
                 <button id="setUserNameButton">設定/更新名稱</button>
@@ -110,7 +110,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"; 
 
         // 等待配置載入完成
@@ -143,7 +143,7 @@
         window.firebaseSDK = {
             initializeApp,
             getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
-            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit, updateDoc,
             setLogLevel
         };
             
