@@ -610,6 +610,10 @@ window.addEventListener('firebaseReady', async (event) => {
                 }
 
                 // 添加早餐圖片顯示區域
+                // 先清除已存在的早餐圖片容器，防止重複顯示
+                const existingBreakfastContainers = document.querySelectorAll('#breakfastImageContainer');
+                existingBreakfastContainers.forEach(container => container.remove());
+                
                 const breakfastContainer = document.createElement('div');
                 breakfastContainer.id = 'breakfastImageContainer';
                 breakfastContainer.style.marginTop = '20px';
@@ -634,8 +638,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 const latitudeStr = (typeof lastRecord.latitude === 'number' && isFinite(lastRecord.latitude)) ? lastRecord.latitude.toFixed(2) : 'N/A';
                 const longitudeStr = (typeof lastRecord.longitude === 'number' && isFinite(lastRecord.longitude)) ? lastRecord.longitude.toFixed(2) : 'N/A';
 
-                const translationInfo = lastRecord.translationSource ? `<br>(翻譯來源: ${getTranslationSourceText(lastRecord.translationSource)})` : '';
-                debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時区: ${lastRecord.timezone || '未知'})${translationInfo};`;
+                debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${lastRecord.timezone || '未知'})`;
             } else {
                 resultTextDiv.innerHTML = `<p>歡迎，${rawUserDisplayName}！此名稱尚無歷史記錄。</p><p>按下「我在哪裡甦醒？」按鈕，開始您的主觀時間之旅吧！</p>`;
                 console.log("[displayLastRecordForCurrentUser] 此識別碼尚無歷史記錄。");
