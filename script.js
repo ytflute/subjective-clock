@@ -1390,7 +1390,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 const handleButtonClick = (e) => {
                     e.preventDefault();  // 防止預設行為
                     e.stopPropagation(); // 防止事件冒泡
-                    // showHistoryLogModal(record); // 暫時註解，因為該函數可能需要另外實現
+                    showHistoryLogModal(record); // 開啟日誌彈窗
                     console.log("查看日誌按鈕被點擊，記錄:", record);
                 };
 
@@ -1547,11 +1547,137 @@ window.addEventListener('firebaseReady', async (event) => {
         });
     }
 
+    // 實現查看日誌彈窗功能
+    function showHistoryLogModal(record) {
+        const modal = document.getElementById('historyLogModal');
+        const modalContent = document.getElementById('historyLogModalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        const closeButton = document.getElementById('historyLogModalClose');
+        const footerButton = document.getElementById('closeModalFooterButton');
+        
+        if (!modal || !modalContent || !modalTitle) {
+            console.error('找不到彈窗元素，無法顯示日誌');
+            return;
+        }
+        
+        // 設定彈窗標題
+        const recordDate = record.recordedAt.toDate().toLocaleDateString('zh-TW');
+        modalTitle.textContent = `${recordDate} 的甦醒日誌`;
+        
+        // 準備城市和國家顯示名稱
+        const cityDisplay = record.city_zh && record.city_zh !== record.city ? 
+            `${record.city_zh} (${record.city})` : record.city;
+        const countryDisplay = record.country_zh && record.country_zh !== record.country ? 
+            `${record.country_zh} (${record.country})` : record.country;
+        
+        // 準備心情顯示
+        const moodDisplay = record.moodEmoji && record.moodName ? 
+            `${record.moodEmoji} ${record.moodName}` : '';
+        
+        // 創建詳細內容
+        let contentHTML = `
+            <div class="log-detail">
+                <h3>基本資訊</h3>
+                <p><strong>記錄時間：</strong>${record.recordedAt.toDate().toLocaleString('zh-TW')}</p>
+                <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
+                ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
+                ${moodDisplay ? `<p><strong>當日心情：</strong><span style="color: ${record.moodColor || '#666'}">${moodDisplay}</span></p>` : ''}
+                ${record.groupName ? `<p><strong>組別：</strong>${record.groupName}</p>` : ''}
+            </div>
+        `;
+        
+        // 如果有故事內容，顯示故事
+        if (record.story) {
+            contentHTML += `
+                <div class="log-detail">
+                    <h3>今日故事</h3>
+                    <div class="story-content">${record.story}</div>
+                </div>
+            `;
+        }
+        
+        // 如果有圖片，顯示圖片
+        if (record.imageUrl) {
+            contentHTML += `
+                <div class="log-detail">
+                    <h3>今日早餐</h3>
+                    <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            `;
+        }
+        
+        // 座標資訊
+        if (record.latitude && record.longitude) {
+            contentHTML += `
+                <div class="log-detail">
+                    <h3>座標資訊</h3>
+                    <p><strong>緯度：</strong>${record.latitude.toFixed(6)}</p>
+                    <p><strong>經度：</strong>${record.longitude.toFixed(6)}</p>
+                </div>
+            `;
+        }
+        
+        modalContent.innerHTML = contentHTML;
+        
+        // 顯示彈窗
+        modal.style.display = 'block';
+        modal.classList.add('show');
+        
+        // 設定關閉事件
+        const closeModal = () => {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        };
+        
+        // 移除舊的事件監聽器並添加新的
+        if (closeButton) {
+            closeButton.replaceWith(closeButton.cloneNode(true));
+            document.getElementById('historyLogModalClose').addEventListener('click', closeModal);
+        }
+        
+        if (footerButton) {
+            footerButton.replaceWith(footerButton.cloneNode(true));
+            document.getElementById('closeModalFooterButton').addEventListener('click', closeModal);
+        }
+        
+        // 點擊背景關閉彈窗
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // ESC 鍵關閉彈窗
+        const handleEsc = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleEsc);
+            }
+        };
+        document.addEventListener('keydown', handleEsc);
+    }
+
+    // 初始化組別過濾器監聽器
+    function initializeGroupFilter() {
+        if (groupFilterSelect) {
+            groupFilterSelect.addEventListener('change', () => {
+                console.log('組別過濾器變更，重新載入眾人地圖');
+                loadGlobalTodayMap();
+            });
+        }
+    }
+
     // 確保在 DOM 載入完成後初始化
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeTabButtons);
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTabButtons();
+            initializeGroupFilter();
+        });
     } else {
         initializeTabButtons();
+        initializeGroupFilter();
     }
 
     // 修改分頁按鈕的樣式

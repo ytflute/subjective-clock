@@ -78,6 +78,8 @@ export default async function handler(req, res) {
             apiKey: process.env.OPENAI_API_KEY
         });
 
+        console.log('OpenAI API 初始化成功，開始生成圖片...');
+
         // 根據是否為宇宙主題選擇不同的提示
         let prompt;
         if (isUniverseTheme) {
@@ -100,6 +102,7 @@ Styled like a professional food photography shot showcasing genuine regional bre
 
         let imageUrl;
         try {
+            console.log('正在呼叫 OpenAI DALL-E API...');
             const response = await openai.images.generate({
                 model: "dall-e-3",
                 prompt: prompt,
@@ -109,9 +112,19 @@ Styled like a professional food photography shot showcasing genuine regional bre
                 style: "natural"
             });
             imageUrl = response.data[0].url;
+            console.log('OpenAI 圖片生成成功，URL:', imageUrl);
         } catch (openaiError) {
             console.error('OpenAI 圖片生成失敗:', openaiError);
-            throw new Error('圖片生成失敗：' + openaiError.message);
+            // 提供更詳細的錯誤資訊
+            if (openaiError.status === 429) {
+                throw new Error('OpenAI API 配額已用完，請稍後再試');
+            } else if (openaiError.status === 401) {
+                throw new Error('OpenAI API 金鑰無效');
+            } else if (openaiError.status === 400) {
+                throw new Error('圖片生成請求格式錯誤：' + openaiError.message);
+            } else {
+                throw new Error('圖片生成失敗：' + openaiError.message);
+            }
         }
 
         // 下載圖片並上傳到 Firebase Storage
