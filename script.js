@@ -710,7 +710,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 body: JSON.stringify({
                     targetUTCOffset: requiredUTCOffset,
                     targetLatitude: targetLatitude, // 傳遞目標緯度
-                    timeMinutes: userLocalDate.getMinutes() // 傳遞分鐘數用於記錄
+                    timeMinutes: userLocalDate.getMinutes(), // 傳遞分鐘數用於記錄
+                    userCityVisitStats: cityVisitStats // 傳遞用戶城市訪問統計
                 })
             });
 
@@ -958,7 +959,7 @@ window.addEventListener('firebaseReady', async (event) => {
             const targetUTCOffsetStr = requiredUTCOffset >= 0 ? `+${requiredUTCOffset.toFixed(2)}` : requiredUTCOffset.toFixed(2);
             const cityActualUTCOffset = bestMatchCity.timezoneOffset;
 
-            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})<br>(資料來源: ${bestMatchCity.source === 'geonames' ? 'GeoNames API' : '預設資料'})`;
+            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})`;
 
             // 先保存基本記錄（不包含圖片）
             const historyRecord = {
@@ -1873,6 +1874,9 @@ window.addEventListener('firebaseReady', async (event) => {
             // 計算甦醒次數
             const wakeUpNumber = await calculateWakeUpNumber(record);
             
+            // 計算城市訪問次數
+            const cityVisitNumber = await calculateCityVisitNumber(record);
+            
             // 設定彈窗標題
             modalTitle.textContent = `第 ${wakeUpNumber} 次的甦醒日誌`;
             
@@ -1892,6 +1896,7 @@ window.addEventListener('firebaseReady', async (event) => {
                     <h3>基本資訊</h3>
                     <p><strong>記錄時間：</strong>${record.recordedAt.toDate().toLocaleString('zh-TW')}</p>
                     <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
+                    ${cityVisitNumber > 1 ? `<p><strong>城市訪問：</strong>這是你第 ${cityVisitNumber} 次拜訪這座城市</p>` : ''}
                     ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
                     ${moodDisplay ? `<p><strong>當日心情：</strong><span style="color: ${record.moodColor || '#666'}">${moodDisplay}</span></p>` : ''}
                     ${record.groupName ? `<p><strong>組別：</strong>${record.groupName}</p>` : ''}
@@ -2000,6 +2005,38 @@ window.addEventListener('firebaseReady', async (event) => {
             return wakeUpCount;
         } catch (error) {
             console.error('計算甦醒次數時發生錯誤:', error);
+            return 1; // 出錯時返回 1
+        }
+    }
+
+    // 計算特定城市訪問次數的函數
+    async function calculateCityVisitNumber(targetRecord) {
+        if (!currentDataIdentifier) {
+            return 1; // 如果沒有用戶識別碼，返回 1
+        }
+
+        try {
+            const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
+            const q = query(historyCollectionRef, orderBy("recordedAt", "asc"));
+            const querySnapshot = await getDocs(q);
+
+            let cityVisitCount = 0;
+            const targetTimestamp = targetRecord.recordedAt.toMillis();
+            const targetCity = targetRecord.city;
+            
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                const recordTimestamp = record.recordedAt.toMillis();
+                
+                // 如果是同一個城市且記錄時間早於或等於目標記錄，計數加一
+                if (record.city === targetCity && recordTimestamp <= targetTimestamp) {
+                    cityVisitCount++;
+                }
+            });
+
+            return cityVisitCount;
+        } catch (error) {
+            console.error('計算城市訪問次數時發生錯誤:', error);
             return 1; // 出錯時返回 1
         }
     }

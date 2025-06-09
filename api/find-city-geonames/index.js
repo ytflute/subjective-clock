@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        let { targetUTCOffset, targetLatitude, latitudePreference, mood, moodName, moodDescription } = req.method === 'GET' ? req.query : req.body;
+        let { targetUTCOffset, targetLatitude, latitudePreference, mood, moodName, moodDescription, userCityVisitStats } = req.method === 'GET' ? req.query : req.body;
 
         // 驗證參數
         const targetOffset = parseFloat(targetUTCOffset);
@@ -40,6 +40,18 @@ export default async function handler(req, res) {
             }
         }
 
+        // 解析用戶城市訪問統計
+        let cityVisitStats = {};
+        if (userCityVisitStats) {
+            try {
+                cityVisitStats = typeof userCityVisitStats === 'string' ? 
+                    JSON.parse(userCityVisitStats) : userCityVisitStats;
+            } catch (e) {
+                console.warn('解析用戶城市訪問統計失敗:', e);
+                cityVisitStats = {};
+            }
+        }
+
         // 預設值
         latitudePreference = latitudePreference || 'any';
         mood = mood || 'peaceful';
@@ -57,6 +69,7 @@ export default async function handler(req, res) {
         const moodStyle = moodStyles[mood] || moodStyles['peaceful'];
 
         console.log(`收到請求 - 目標偏移: ${targetOffset}, 目標緯度: ${parsedTargetLatitude}, 緯度偏好: ${latitudePreference}, 心情: ${moodName} (${moodDescription})`);
+        console.log(`用戶城市訪問統計:`, cityVisitStats);
 
         // GeoNames 用戶名 - 您需要註冊一個免費帳戶
         const GEONAMES_USERNAME = process.env.GEONAMES_USERNAME || 'demo';
@@ -195,7 +208,7 @@ export default async function handler(req, res) {
             }
         }
 
-        // 最終選擇最接近的城市（時區優先，然後是緯度距離）
+        // 最終選擇最接近的城市（時區優先，然後是緯度距離，最後考慮訪問歷史）
         candidateCities.sort((a, b) => {
             const diffA = Math.abs(a.expectedOffset - targetOffset);
             const diffB = Math.abs(b.expectedOffset - targetOffset);
@@ -207,13 +220,39 @@ export default async function handler(req, res) {
             
             // 如果時區差異相同，按緯度距離排序（如果有的話）
             if (a.latitudeDistance !== undefined && b.latitudeDistance !== undefined) {
-                return a.latitudeDistance - b.latitudeDistance;
+                if (a.latitudeDistance !== b.latitudeDistance) {
+                    return a.latitudeDistance - b.latitudeDistance;
+                }
             }
             
             return 0;
         });
 
-        const selectedCity = candidateCities[0];
+        // 基於訪問歷史智能選擇城市
+        let selectedCity;
+        if (Object.keys(cityVisitStats).length > 0) {
+            // 為每個城市添加訪問次數信息
+            const citiesWithStats = candidateCities.map(city => ({
+                ...city,
+                visitCount: cityVisitStats[city.name] || 0
+            }));
+
+            // 找出訪問次數最少的次數
+            const minVisitCount = Math.min(...citiesWithStats.map(city => city.visitCount));
+            
+            // 篩選出訪問次數最少的城市
+            const leastVisitedCities = citiesWithStats.filter(city => city.visitCount === minVisitCount);
+
+            console.log(`找到 ${candidateCities.length} 個符合條件的城市`);
+            console.log(`最少訪問次數: ${minVisitCount}, 符合的城市數量: ${leastVisitedCities.length}`);
+
+            // 在訪問次數最少的城市中選擇第一個（已按時區和緯度排序）
+            selectedCity = leastVisitedCities[0];
+            console.log(`基於訪問歷史選擇城市: ${selectedCity.name}, 訪問次數: ${selectedCity.visitCount}`);
+        } else {
+            // 如果沒有訪問歷史，選擇第一個
+            selectedCity = candidateCities[0];
+        }
         console.log(`選擇城市: ${selectedCity.name} (${selectedCity.lat}, ${selectedCity.lng}) [${selectedCity.category}緯度] - 心情: ${moodName}`);
 
         // 使用我們自己的 GeoNames 端點來獲取詳細資訊
