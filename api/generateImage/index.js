@@ -88,10 +88,14 @@ featuring floating elements, glowing ingredients, and advanced utensils. \
 The scene includes subtle space elements like stars or nebulae in the background. \
 No people, only food. Styled like a professional food photography shot with a sci-fi twist.`;
         } else {
-            prompt = `Top view of a traditional local breakfast commonly eaten in ${city}, ${country}. \
-The food is presented on a table setting, with realistic textures and lighting, \
-showcasing the variety of dishes, ingredients, and beverages typical of the region. \
-No people, only food. Styled like a professional food photography shot.`;
+            prompt = `Top view of an authentic traditional breakfast meal served as a single person portion in ${city}, ${country}. \
+The meal includes the actual local breakfast dishes that people commonly eat in this specific region, \
+with proper portion sizes suitable for one person. The food is arranged on traditional local tableware and plates, \
+showing the authentic ingredients, cooking methods, and presentation style typical of ${city}, ${country}. \
+Include traditional beverages commonly served with breakfast in this location. \
+The lighting is natural and appetizing, capturing the realistic textures and colors of the local cuisine. \
+No people visible, focus entirely on the authentic local breakfast food. \
+Styled like a professional food photography shot showcasing genuine regional breakfast culture.`;
         }
 
         let imageUrl;

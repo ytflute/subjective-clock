@@ -7,10 +7,14 @@ const openai = new OpenAI({
 
 // 生成一般早餐圖片的 prompt
 function generateBreakfastPrompt(city, country) {
-  return `Top view of a traditional local breakfast commonly eaten in ${city}, ${country}. 
-          The food is presented on a clean table setting, with realistic textures and lighting, 
-          showcasing the variety of dishes, ingredients, and beverages typical of the region. 
-          No people, only food. Styled like a professional food photography shot.`.trim().replace(/\s+/g, ' ');
+  return `Top view of an authentic traditional breakfast meal served as a single person portion in ${city}, ${country}. 
+          The meal includes the actual local breakfast dishes that people commonly eat in this specific region, 
+          with proper portion sizes suitable for one person. The food is arranged on traditional local tableware and plates, 
+          showing the authentic ingredients, cooking methods, and presentation style typical of ${city}, ${country}. 
+          Include traditional beverages commonly served with breakfast in this location. 
+          The lighting is natural and appetizing, capturing the realistic textures and colors of the local cuisine. 
+          No people visible, focus entirely on the authentic local breakfast food. 
+          Styled like a professional food photography shot showcasing genuine regional breakfast culture.`.trim().replace(/\s+/g, ' ');
 }
 
 // 生成宇宙主題早餐圖片的 prompt

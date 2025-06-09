@@ -54,91 +54,84 @@ export default async function handler(req, res) {
 
         const greeting = greetingResponse.choices[0].message.content.trim();
 
-        // 根據冒險指數生成不同的故事提示
-        const adventureSpectrum = req.body.adventureSpectrum || 'default';
+        // 根據心情生成不同的故事提示
+        const mood = req.body.mood || 'peaceful';
+        const moodName = req.body.moodName || '平靜溫和';
+        const moodDescription = req.body.moodDescription || '溫帶的舒適宜人';
+        const moodEmoji = req.body.moodEmoji || '😌🌱';
+        
         let storyPrompt;
 
-        // 先翻譯城市和國家名稱
-        const translationPrompt = `請將以下地點名稱翻譯成繁體中文：
-城市：${city}
-國家：${country}
+        // 使用英文的城市和國家名稱，讓 ChatGPT 在故事中自動翻譯
 
+        switch (mood) {
+            case 'happy':
+                storyPrompt = `請生成一個關於 ${city}, ${country} 的簡短且充滿熱情活力的小知識或故事，要反映出快樂熱情的心境。
 要求：
-1. 只回傳翻譯結果，格式為：
-城市中文名（原文）
-國家中文名（原文）
-2. 如果已經是中文，則保持原樣
-3. 不要加入任何說明文字`;
+1. 使用繁體中文回答
+2. 請將 ${city} 和 ${country} 自動翻譯成適當的繁體中文名稱
+3. 開頭必須是：「今天的你在[國家中文名]的[城市中文名]醒來」
+4. 內容要真實且具體
+5. 重點描述陽光、活力、熱情的場景，符合「${moodDescription}」的氛圍
+6. 根據這個城市的特色，描述一個充滿陽光和活力的早晨
+7. 語氣要活潑開朗，充滿正能量
+8. 可以包含當地的節慶、音樂、舞蹈或熱鬧的市集等元素
+9. 控制在50字以內，讓人感受到熱帶般的溫暖和快樂`;
+                break;
 
-        const translationResponse = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: translationPrompt }],
-            temperature: 0.3,
-            max_tokens: 100
-        });
-
-        const translation = translationResponse.choices[0].message.content.trim().split('\n');
-        const cityZh = translation[0].trim();
-        const countryZh = translation[1].trim();
-
-        switch (adventureSpectrum) {
             case 'peaceful':
-                storyPrompt = `請生成一個關於${cityZh}, ${countryZh}的簡短（一句話或兩句話）、寧靜且正面的小知識或冷知識，同時結合描述甦醒後的情境故事。
+                storyPrompt = `請生成一個關於 ${city}, ${country} 的簡短且平靜溫和的小知識或故事，要反映出平靜溫和的心境。
 要求：
-1. 使用繁體中文
-2. 開頭必須是：「今天的你在${countryZh}的${cityZh}醒來」
-3. 內容要真實且具體
-4. 重點描述寧靜、平和、舒適的場景
-5. 根據這個城市的特色，自由發揮描述一個寧靜的早晨場景
-6. 語氣要平和舒緩
-7. 格式範例：今天的你在${countryZh}的${cityZh}醒來，你漫步在晨霧籠罩的古老街道上，感受著這座城市獨特的寧靜氛圍。相傳這座城市是${countryZh}最古老的城鎮有著豐富的古老城堡與建物。`;
+1. 使用繁體中文回答
+2. 請將 ${city} 和 ${country} 自動翻譯成適當的繁體中文名稱
+3. 開頭必須是：「今天的你在[國家中文名]的[城市中文名]醒來」
+4. 內容要真實且具體
+5. 重點描述寧靜、和諧、舒適的場景，符合「${moodDescription}」的氛圍
+6. 根據這個城市的特色，描述一個平和安詳的早晨
+7. 語氣要溫和舒緩，給人安全感
+8. 可以包含自然風景、安靜的咖啡館、溫柔的陽光等元素
+9. 控制在50字以內，讓人感受到溫帶的舒適宜人`;
                 break;
 
-            case 'leisurely':
-                storyPrompt = `請生成一個關於${cityZh}, ${countryZh}的簡短（一句話或兩句話）、悠閒且正面的小知識或冷知識，同時結合描述甦醒後的情境故事。
+            case 'melancholy':
+                storyPrompt = `請生成一個關於 ${city}, ${country} 的簡短且帶有深度思考的小知識或故事，要反映出憂鬱思考的心境。
 要求：
-1. 使用繁體中文
-2. 開頭必須是：「今天的你在${countryZh}的${cityZh}醒來」
-3. 內容要真實且具體
-4. 重點描述悠閒、愜意、輕鬆的場景
-5. 根據這個城市的特色，自由發揮描述一個悠閒的早晨活動
-6. 語氣要輕鬆愉快
-7. 格式範例：今天的你在${countryZh}的${cityZh}醒來，你走進一家當地人最愛的咖啡館，品嚐著香濃的咖啡，看著窗外悠閒散步的人們，聽說這座城市是${countryZh}最著名的咖啡產地。`;
+1. 使用繁體中文回答
+2. 請將 ${city} 和 ${country} 自動翻譯成適當的繁體中文名稱
+3. 開頭必須是：「今天的你在[國家中文名]的[城市中文名]醒來」
+4. 內容要真實且具體
+5. 重點描述思辨、沉靜、詩意的場景，符合「${moodDescription}」的氛圍
+6. 根據這個城市的特色，描述一個充滿思考氛圍的早晨
+7. 語氣要深沉內斂，帶有哲思色彩
+8. 可以包含歷史故事、文學色彩、秋日風景等元素
+9. 控制在50字以內，讓人感受到亞寒帶的沉靜思辨`;
                 break;
 
-            case 'exploring':
-                storyPrompt = `請生成一個關於${cityZh}, ${countryZh}的簡短（一句話或兩句話）、探索且正面的小知識或冷知識，同時結合描述甦醒後的情境故事。
+            case 'lonely':
+                storyPrompt = `請生成一個關於 ${city}, ${country} 的簡短且帶有孤寂美感的小知識或故事，要反映出寂寞冷淡的心境。
 要求：
-1. 使用繁體中文
-2. 開頭必須是：「今天的你在${countryZh}的${cityZh}醒來」
-3. 內容要真實且具體
-4. 重點描述探索、發現、冒險的場景
-5. 根據這個城市的特色，自由發揮描述一個探索的早晨活動
-6. 語氣要活潑好奇
-7. 格式範例：今天的你在${countryZh}的${cityZh}醒來，你迫不及待地走進當地的歷史博物館，探索這座城市豐富的文化遺產，聽說這座城市是${countryZh}最著名的歷史城鎮。`;
-                break;
-
-            case 'challenging':
-                storyPrompt = `請生成一個關於${cityZh}, ${countryZh}的簡短（一句話或兩句話）、挑戰且正面的小知識或冷知識，同時結合描述甦醒後的情境故事。
-要求：
-1. 使用繁體中文
-2. 開頭必須是：「今天的你在${countryZh}的${cityZh}醒來」
-3. 內容要真實且具體
-4. 重點描述挑戰、刺激、冒險的場景
-5. 根據這個城市的特色，自由發揮描述一個充滿挑戰的早晨活動
-6. 語氣要充滿活力
-7. 格式範例：今天的你在${countryZh}的${cityZh}醒來，你決定挑戰當地地獄級的辣美食，因為聽說住在這座城市的人們都喜歡吃辣，你決定挑戰他們看誰最辣！`;
+1. 使用繁體中文回答
+2. 請將 ${city} 和 ${country} 自動翻譯成適當的繁體中文名稱
+3. 開頭必須是：「今天的你在[國家中文名]的[城市中文名]醒來」
+4. 內容要真實且具體
+5. 重點描述孤寂、純淨、空曠的場景，符合「${moodDescription}」的氛圍
+6. 根據這個城市的特色，描述一個安靜而孤獨的早晨
+7. 語氣要淡漠而詩意，帶有一種美麗的孤獨感
+8. 可以包含雪景、空曠的街道、寧靜的湖泊等元素
+9. 控制在50字以內，讓人感受到寒帶的孤寂純淨
+10. 即使孤寂也要保持正面，不要太悲傷`;
                 break;
 
             default:
-                storyPrompt = `請生成一個關於${cityZh}, ${countryZh}的簡短（一句話或兩句話）、有趣且正面的小知識或冷知識，同時結合描述甦醒後的情境故事。
+                storyPrompt = `請生成一個關於 ${city}, ${country} 的簡短且有趣的小知識或故事。
 要求：
-1. 使用繁體中文
-2. 開頭必須是：「今天的你在${countryZh}的${cityZh}醒來」
-3. 內容要真實且具體
-4. 根據這個城市的特色，自由發揮描述一個有趣的早晨活動
-5. 語氣要生動活潑
-6. 格式範例：今天的你在${countryZh}的${cityZh}醒來，你聽見窗外傳來陣陣小提琴聲，聽說這座城市是莫札特的出生地。`;
+1. 使用繁體中文回答
+2. 請將 ${city} 和 ${country} 自動翻譯成適當的繁體中文名稱
+3. 開頭必須是：「今天的你在[國家中文名]的[城市中文名]醒來」
+4. 內容要真實且具體
+5. 根據這個城市的特色，描述一個有趣的早晨活動
+6. 語氣要生動活潑
+7. 控制在50字以內`;
         }
 
         const storyResponse = await openai.chat.completions.create({
@@ -154,7 +147,11 @@ export default async function handler(req, res) {
             greeting,
             trivia: story,
             city_zh: cityZh,
-            country_zh: countryZh
+            country_zh: countryZh,
+            mood: mood,
+            moodName: moodName,
+            moodDescription: moodDescription,
+            moodEmoji: moodEmoji
         });
 
     } catch (error) {
