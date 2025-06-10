@@ -83,21 +83,9 @@ export default async function handler(req, res) {
         // 根據是否為宇宙主題選擇不同的提示
         let prompt;
         if (isUniverseTheme) {
-            prompt = `Top view of a futuristic cosmic breakfast in deep space. \
-The food is presented on a high-tech floating table or platform, with ethereal lighting and cosmic atmosphere. \
-Various otherworldly dishes and space-inspired beverages are artfully arranged, \
-featuring floating elements, glowing ingredients, and advanced utensils. \
-The scene includes subtle space elements like stars or nebulae in the background. \
-No people, only food. Styled like a professional food photography shot with a sci-fi twist.`;
+            prompt = `A beautiful top-down view of a futuristic single-serving breakfast spread in space. The scene shows various creative space-themed food items arranged on a sleek metallic table, portioned for one person. The dishes have a cosmic aesthetic with subtle glowing elements and are presented in an artistic way. The background features gentle starfield lighting. Professional food photography style with sci-fi elements.`;
         } else {
-            prompt = `Top view of an authentic traditional breakfast meal served as a single person portion in ${city}, ${country}. \
-The meal includes the actual local breakfast dishes that people commonly eat in this specific region, \
-with proper portion sizes suitable for one person. The food is arranged on traditional local tableware and plates, \
-showing the authentic ingredients, cooking methods, and presentation style typical of ${city}, ${country}. \
-Include traditional beverages commonly served with breakfast in this location. \
-The lighting is natural and appetizing, capturing the realistic textures and colors of the local cuisine. \
-No people visible, focus entirely on the authentic local breakfast food. \
-Styled like a professional food photography shot showcasing genuine regional breakfast culture.`;
+            prompt = `A beautiful top-down view of a traditional single-serving breakfast from ${city}, ${country}. The meal is authentically prepared and beautifully presented on local tableware, with proper portion sizes suitable for one person. The food showcases the regional breakfast culture with authentic ingredients and traditional presentation. Natural lighting highlights the textures and colors of the local cuisine. Professional food photography style.`;
         }
 
         let imageUrl;
@@ -115,16 +103,29 @@ Styled like a professional food photography shot showcasing genuine regional bre
             console.log('OpenAI 圖片生成成功，URL:', imageUrl);
         } catch (openaiError) {
             console.error('OpenAI 圖片生成失敗:', openaiError);
+            console.error('OpenAI 錯誤詳情:', JSON.stringify(openaiError, null, 2));
+            
             // 提供更詳細的錯誤資訊
+            let errorMessage = 'OpenAI API 錯誤';
+            
             if (openaiError.status === 429) {
-                throw new Error('OpenAI API 配額已用完，請稍後再試');
+                errorMessage = 'OpenAI API 配額已用完，請稍後再試';
             } else if (openaiError.status === 401) {
-                throw new Error('OpenAI API 金鑰無效');
+                errorMessage = 'OpenAI API 金鑰無效';
             } else if (openaiError.status === 400) {
-                throw new Error('圖片生成請求格式錯誤：' + openaiError.message);
+                // 處理400錯誤的詳細信息
+                if (openaiError.error && openaiError.error.message) {
+                    errorMessage = '圖片生成請求被拒絕：' + openaiError.error.message;
+                } else if (openaiError.message) {
+                    errorMessage = '圖片生成請求格式錯誤：' + openaiError.message;
+                } else {
+                    errorMessage = '圖片生成請求被拒絕，可能內容不符合OpenAI政策';
+                }
             } else {
-                throw new Error('圖片生成失敗：' + openaiError.message);
+                errorMessage = '圖片生成失敗：' + (openaiError.message || '未知錯誤');
             }
+            
+            throw new Error(errorMessage);
         }
 
         // 下載圖片並上傳到 Firebase Storage
