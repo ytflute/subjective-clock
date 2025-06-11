@@ -1,6 +1,6 @@
 {
-  "name": "甦醒地圖 Wake Up World Travel",
-  "short_name": "甦醒地圖",
+  "name": "Wake Up Map: Where Time Begins",
+  "short_name": "WakeUpMap",
   "description": "按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天",
   "start_url": "/",
   "display": "standalone",
