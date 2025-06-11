@@ -640,7 +640,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 const latitudeStr = (typeof lastRecord.latitude === 'number' && isFinite(lastRecord.latitude)) ? lastRecord.latitude.toFixed(2) : 'N/A';
                 const longitudeStr = (typeof lastRecord.longitude === 'number' && isFinite(lastRecord.longitude)) ? lastRecord.longitude.toFixed(2) : 'N/A';
 
-                debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${lastRecord.timezone || '未知'})`;
+                //debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標城市緯度: ${latitudeStr}°, 經度: ${longitudeStr}°)<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${lastRecord.timezone || '未知'})`;
             } else {
                 resultTextDiv.innerHTML = `<p>歡迎，${rawUserDisplayName}！此名稱尚無歷史記錄。</p><p>按下「我在哪裡甦醒？」按鈕，開始您的主觀時間之旅吧！</p>`;
                 console.log("[displayLastRecordForCurrentUser] 此識別碼尚無歷史記錄。");
@@ -780,8 +780,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
                 
                 // 將早餐圖片容器插入到地圖和 debugInfo 之間
-                debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-                debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
+                //debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+                //debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
 
                 // 先保存宇宙記錄（不包含圖片）
                 // 使用本地日期而不是UTC日期
@@ -994,7 +994,7 @@ window.addEventListener('firebaseReady', async (event) => {
             const targetUTCOffsetStr = requiredUTCOffset >= 0 ? `+${requiredUTCOffset.toFixed(2)}` : requiredUTCOffset.toFixed(2);
             const cityActualUTCOffset = bestMatchCity.timezoneOffset;
 
-            debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})`;
+            //debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})`;
 
             // 先保存基本記錄（不包含圖片）
             // 使用本地日期而不是UTC日期
