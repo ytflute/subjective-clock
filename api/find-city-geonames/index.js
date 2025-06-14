@@ -20,6 +20,56 @@ export default async function handler(req, res) {
     try {
         let { targetUTCOffset, targetLatitude, latitudePreference, mood, moodName, moodDescription, userCityVisitStats, userLocalTime } = req.method === 'GET' ? req.query : req.body;
 
+        // 驗證參數
+        const targetOffset = parseFloat(targetUTCOffset);
+        if (isNaN(targetOffset)) {
+            return res.status(400).json({ 
+                error: 'Invalid parameter. targetUTCOffset is required and must be a number.' 
+            });
+        }
+
+        // 新參數：目標緯度
+        let parsedTargetLatitude = null;
+        if (targetLatitude !== undefined) {
+            parsedTargetLatitude = parseFloat(targetLatitude);
+            if (isNaN(parsedTargetLatitude) || parsedTargetLatitude < -90 || parsedTargetLatitude > 90) {
+                return res.status(400).json({ 
+                    error: 'Invalid targetLatitude. Must be between -90 and 90.' 
+                });
+            }
+        }
+
+        // 解析用戶城市訪問統計
+        let cityVisitStats = {};
+        if (userCityVisitStats) {
+            try {
+                cityVisitStats = typeof userCityVisitStats === 'string' ? 
+                    JSON.parse(userCityVisitStats) : userCityVisitStats;
+            } catch (e) {
+                console.warn('解析用戶城市訪問統計失敗:', e);
+                cityVisitStats = {};
+            }
+        }
+
+        // 預設值
+        latitudePreference = latitudePreference || 'any';
+        mood = mood || 'peaceful';
+        moodName = moodName || '平靜溫和';
+        moodDescription = moodDescription || '溫帶的舒適宜人';
+
+        // 心情對應的顏色和表情符號（如果前端沒有傳遞）
+        const moodStyles = {
+            'happy': { emoji: '😊🌞', color: '#FF6B35' },
+            'peaceful': { emoji: '😌🌱', color: '#4ECDC4' },
+            'melancholy': { emoji: '🤔🍂', color: '#45B7D1' },
+            'lonely': { emoji: '😔❄️', color: '#A8A8A8' }
+        };
+
+        const moodStyle = moodStyles[mood] || moodStyles['peaceful'];
+
+        console.log(`收到請求 - 目標偏移: ${targetOffset}, 目標緯度: ${parsedTargetLatitude}, 緯度偏好: ${latitudePreference}, 心情: ${moodName} (${moodDescription})`);
+        console.log(`用戶城市訪問統計:`, cityVisitStats);
+
         // 檢查用戶當地時間是否在7:55-8:05區間
         let isLocalTimeWindow = false;
         if (userLocalTime) {
@@ -30,16 +80,6 @@ export default async function handler(req, res) {
 
         // 如果不是在指定時間區間，使用原有的邏輯
         if (!isLocalTimeWindow) {
-            // 驗證參數
-            const parsedTargetLatitude = targetLatitude ? parseFloat(targetLatitude) : null;
-            const targetOffset = parseFloat(targetUTCOffset);
-
-            if (isNaN(targetOffset)) {
-                return res.status(400).json({ 
-                    error: 'Invalid parameters. targetUTCOffset is required and must be a number.' 
-                });
-            }
-
             // 預定義一些主要城市的經緯度，這些城市代表不同的時區和緯度
             // 新的分類系統：考慮南北半球差異
             // 北半球：high(60+), mid-high(45-60), mid(30-45), low(0-30)
@@ -196,11 +236,11 @@ export default async function handler(req, res) {
 
             // 基於訪問歷史智能選擇城市
             let selectedCity;
-            if (Object.keys(userCityVisitStats).length > 0) {
+            if (Object.keys(cityVisitStats).length > 0) {
                 // 為每個城市添加訪問次數信息
                 const citiesWithStats = candidateCities.map(city => ({
                     ...city,
-                    visitCount: userCityVisitStats[city.name] || 0
+                    visitCount: cityVisitStats[city.name] || 0
                 }));
 
                 // 找出訪問次數最少的次數
