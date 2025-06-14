@@ -90,8 +90,8 @@ function searchCities(targetOffset, targetLatitude, latitudePreference) {
 
         console.log(`初步過濾後找到 ${candidateCities.length} 個城市`);
 
-        // 按人口排序
-        candidateCities.sort((a, b) => b.population - a.population);
+        // 移除人口排序，保持原始順序或隨機排序
+        // candidateCities.sort((a, b) => b.population - a.population);
 
         // 只返回前 20 個城市
         const result = candidateCities.slice(0, 20);
@@ -214,14 +214,16 @@ export default async function handler(req, res) {
                     // 篩選出訪問次數最少的城市
                     const leastVisitedCities = citiesWithStats.filter(city => city.visitCount === minVisitCount);
 
-                    // 在訪問次數最少的城市中選擇人口最多的
-                    selectedCity = leastVisitedCities.reduce((a, b) => a.population > b.population ? a : b);
+                    // 在訪問次數最少的城市中隨機選擇
+                    const randomIndex = Math.floor(Math.random() * leastVisitedCities.length);
+                    selectedCity = leastVisitedCities[randomIndex];
                 } else {
-                    // 如果沒有訪問歷史，選擇人口最多的城市
-                    selectedCity = candidateCities[0];
+                    // 如果沒有訪問歷史，隨機選擇城市
+                    const randomIndex = Math.floor(Math.random() * candidateCities.length);
+                    selectedCity = candidateCities[randomIndex];
                 }
 
-                console.log(`選擇城市: ${selectedCity.city} (${selectedCity.latitude}, ${selectedCity.longitude}) [${getLatitudeCategory(selectedCity.latitude)}緯度] - 人口: ${selectedCity.population}`);
+                console.log(`選擇城市: ${selectedCity.city} (${selectedCity.latitude}, ${selectedCity.longitude}) [${getLatitudeCategory(selectedCity.latitude)}緯度]`);
 
                 // 直接返回城市資料
                 const cityData = {
