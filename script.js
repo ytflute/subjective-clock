@@ -899,6 +899,16 @@ window.addEventListener('firebaseReady', async (event) => {
             const englishCountryName = bestMatchCity.country || 'Unknown';
             const countryCode = bestMatchCity.country_iso_code || bestMatchCity.countryCode || '';
             
+            // 確保經緯度是有效的數字
+            const latitude = parseFloat(bestMatchCity.latitude || bestMatchCity.lat);
+            const longitude = parseFloat(bestMatchCity.longitude || bestMatchCity.lng);
+            
+            if (isNaN(latitude) || isNaN(longitude) || 
+                latitude < -90 || latitude > 90 || 
+                longitude < -180 || longitude > 180) {
+                throw new Error("經緯度資料無效");
+            }
+
             // 檢查是否需要 ChatGPT 翻譯
             let finalCityName = englishCityName;
             let finalCountryName = englishCountryName;
@@ -966,28 +976,24 @@ window.addEventListener('firebaseReady', async (event) => {
             mapContainerDiv.innerHTML = '';
             mapContainerDiv.classList.remove('universe-message');
 
-            // 檢查經緯度是否為有效數字
-            const latitude = parseFloat(bestMatchCity.latitude);
-            const longitude = parseFloat(bestMatchCity.longitude);
-            
-            if (!isNaN(latitude) && !isNaN(longitude) && 
-                latitude >= -90 && latitude <= 90 && 
-                longitude >= -180 && longitude <= 180) {
-                
-                clockLeafletMap = L.map(mapContainerDiv, {
-                    scrollWheelZoom: false,
-                    doubleClickZoom: false
-                }).setView([bestMatchCity.latitude, bestMatchCity.longitude], 10);
-
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; OpenStreetMap contributors'
-                }).addTo(clockLeafletMap);
-
-                L.marker([bestMatchCity.latitude, bestMatchCity.longitude])
-                    .addTo(clockLeafletMap)
-                    .bindPopup(finalCityName)
-                    .openPopup();
+            // 顯示地圖
+            if (clockLeafletMap) {
+                clockLeafletMap.remove();
             }
+
+            clockLeafletMap = L.map(mapContainerDiv, {
+                scrollWheelZoom: false,
+                doubleClickZoom: false
+            }).setView([latitude, longitude], 10);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(clockLeafletMap);
+
+            L.marker([latitude, longitude])
+                .addTo(clockLeafletMap)
+                .bindPopup(finalCityName)
+                .openPopup();
 
             // 創建早餐圖片容器
             const breakfastContainer = document.createElement('div');
@@ -1030,20 +1036,20 @@ window.addEventListener('firebaseReady', async (event) => {
                 localTime: userLocalDate.toLocaleTimeString(),
                 city: englishCityName,
                 country: englishCountryName,
-                city_zh: bestMatchCity.city_zh || "",
-                country_zh: bestMatchCity.country_zh || "",
+                city_zh: bestMatchCity.city_zh || englishCityName,
+                country_zh: bestMatchCity.country_zh || englishCountryName,
                 country_iso_code: countryCode,
-                latitude: bestMatchCity.latitude || null,
-                longitude: bestMatchCity.longitude || null,
+                latitude: latitude,
+                longitude: longitude,
                 targetUTCOffset: requiredUTCOffset,
                 matchedCityUTCOffset: cityActualUTCOffset,
                 recordedDateString: userLocalDateString,
                 greeting: greetingFromAPI,
                 story: storyFromAPI,
                 imageUrl: null, // 初始設為 null，生成成功後更新
-                timezone: bestMatchCity.timezone,
-                source: bestMatchCity.source || 'geonames',
-                translationSource: bestMatchCity.translationSource || 'geonames',
+                timezone: bestMatchCity.timezone || 'UTC',
+                source: bestMatchCity.source || 'local_database',
+                translationSource: bestMatchCity.translationSource || 'local_database',
                 timeMinutes: userLocalDate.getMinutes(),
                 latitudePreference: targetLatitude,
                 latitudeDescription: latitudeDescription,
@@ -1189,34 +1195,38 @@ window.addEventListener('firebaseReady', async (event) => {
             return;
         }
 
-        // 使用傳入記錄中的原始日期，而不是重新創建
-        const originalDateString = recordData.recordedDateString;
-
-        console.log(`[saveToGlobalDailyRecord] 使用原始記錄日期: ${originalDateString}`);
-
-        const globalRecord = {
-            dataIdentifier: recordData.dataIdentifier,
-            userDisplayName: recordData.userDisplayName,
-            groupName: currentGroupName || "",  // 添加組別資訊
-            recordedAt: recordData.recordedAt,
-            recordedDateString: originalDateString,
-            city: recordData.city,
-            country: recordData.country,
-            city_zh: recordData.city_zh,
-            country_zh: recordData.country_zh,
-            country_iso_code: recordData.country_iso_code,
-            latitude: recordData.latitude,
-            longitude: recordData.longitude,
-            timezone: recordData.timezone || "Unknown"
-        };
-
-        const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
         try {
-            const docRef = await addDoc(globalCollectionRef, globalRecord);
+            // 確保所有必要欄位都有值
+            const sanitizedData = {
+                dataIdentifier: recordData.dataIdentifier,
+                userDisplayName: recordData.userDisplayName,
+                groupName: currentGroupName || "",
+                recordedAt: recordData.recordedAt,
+                recordedDateString: recordData.recordedDateString,
+                city: recordData.city,
+                country: recordData.country,
+                city_zh: recordData.city_zh || recordData.city,
+                country_zh: recordData.country_zh || recordData.country,
+                country_iso_code: recordData.country_iso_code || '',
+                latitude: recordData.latitude || 0,
+                longitude: recordData.longitude || 0,
+                timezone: recordData.timezone || "Unknown",
+                greeting: recordData.greeting || "",
+                story: recordData.story || "",
+                imageUrl: recordData.imageUrl || null,
+                source: recordData.source || 'local_database',
+                translationSource: recordData.translationSource || 'local_database'
+            };
+
+            console.log(`[saveToGlobalDailyRecord] 準備儲存全域記錄:`, sanitizedData);
+
+            const globalCollectionRef = collection(db, `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`);
+            const docRef = await addDoc(globalCollectionRef, sanitizedData);
             console.log(`[saveToGlobalDailyRecord] 全域每日記錄已儲存，文件 ID: ${docRef.id}`);
             await updateGroupFilter();  // 更新組別選擇下拉選單
         } catch (e) {
             console.error("[saveToGlobalDailyRecord] 儲存全域每日記錄到 Firestore 失敗:", e);
+            throw e;  // 重新拋出錯誤以便上層處理
         }
     }
 
