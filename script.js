@@ -740,7 +740,10 @@ window.addEventListener('firebaseReady', async (event) => {
                     targetUTCOffset: requiredUTCOffset,
                     targetLatitude: targetLatitude, // 傳遞目標緯度
                     timeMinutes: userLocalDate.getMinutes(), // 傳遞分鐘數用於記錄
-                    userCityVisitStats: cityVisitStats // 傳遞用戶城市訪問統計
+                    userCityVisitStats: cityVisitStats, // 傳遞用戶城市訪問統計
+                    userLocalTime: userLocalDate.toLocaleTimeString('en-US', { hour12: false }), // 傳遞用戶當地時間
+                    latitude: userLocalDate.getTimezoneOffset() ? -userLocalDate.getTimezoneOffset() / 60 : 0, // 傳遞用戶當地緯度
+                    longitude: 0 // 傳遞用戶當地經度
                 })
             });
 
