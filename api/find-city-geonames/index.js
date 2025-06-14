@@ -40,46 +40,67 @@ function getLatitudeCategoryName(category) {
     return categories[category] || category;
 }
 
+// 輔助函數：計算時區偏移
+function calculateTimezoneOffset(longitude) {
+    return Math.round(longitude / 15);
+}
+
 // 輔助函數：搜尋城市
 function searchCities(targetOffset, targetLatitude, latitudePreference) {
-    // 計算目標時區的經度範圍（粗略估算）
-    const targetLongitude = targetOffset * 15;
-    const longitudeRange = 5; // 經度範圍
+    try {
+        // 計算目標時區的經度範圍（粗略估算）
+        const targetLongitude = targetOffset * 15;
+        const longitudeRange = 5; // 經度範圍
 
-    // 過濾符合時區和緯度的城市
-    let candidateCities = citiesData.filter(city => {
-        // 檢查經度範圍
-        const longitudeDiff = Math.abs(city.lng - targetLongitude);
-        if (longitudeDiff > longitudeRange) return false;
+        console.log(`搜尋條件: 目標經度=${targetLongitude}, 目標緯度=${targetLatitude}, 緯度偏好=${latitudePreference}`);
 
-        // 如果有目標緯度，檢查緯度範圍
-        if (targetLatitude !== null) {
-            const latitudeRange = 3; // 緯度範圍
-            const latitudeDiff = Math.abs(city.lat - targetLatitude);
-            if (latitudeDiff > latitudeRange) return false;
-        }
+        // 過濾符合時區和緯度的城市
+        let candidateCities = citiesData.filter(city => {
+            try {
+                // 檢查經度範圍
+                const longitudeDiff = Math.abs(city.lng - targetLongitude);
+                if (longitudeDiff > longitudeRange) return false;
 
-        // 檢查緯度偏好
-        if (latitudePreference !== 'any') {
-            const category = getLatitudeCategory(city.lat);
-            const hemisphere = city.lat >= 0 ? 'north' : 'south';
-            
-            if (latitudePreference.includes('-')) {
-                const [prefCategory, prefHemisphere] = latitudePreference.split('-');
-                if (category !== prefCategory || hemisphere !== prefHemisphere) return false;
-            } else if (category !== latitudePreference) {
+                // 如果有目標緯度，檢查緯度範圍
+                if (targetLatitude !== null) {
+                    const latitudeRange = 3; // 緯度範圍
+                    const latitudeDiff = Math.abs(city.lat - targetLatitude);
+                    if (latitudeDiff > latitudeRange) return false;
+                }
+
+                // 檢查緯度偏好
+                if (latitudePreference !== 'any') {
+                    const category = getLatitudeCategory(city.lat);
+                    const hemisphere = city.lat >= 0 ? 'north' : 'south';
+                    
+                    if (latitudePreference.includes('-')) {
+                        const [prefCategory, prefHemisphere] = latitudePreference.split('-');
+                        if (category !== prefCategory || hemisphere !== prefHemisphere) return false;
+                    } else if (category !== latitudePreference) {
+                        return false;
+                    }
+                }
+
+                return true;
+            } catch (error) {
+                console.error('處理城市資料時發生錯誤:', error, '城市資料:', city);
                 return false;
             }
-        }
+        });
 
-        return true;
-    });
+        console.log(`初步過濾後找到 ${candidateCities.length} 個城市`);
 
-    // 按人口排序
-    candidateCities.sort((a, b) => b.population - a.population);
+        // 按人口排序
+        candidateCities.sort((a, b) => b.population - a.population);
 
-    // 只返回前 20 個城市
-    return candidateCities.slice(0, 20);
+        // 只返回前 20 個城市
+        const result = candidateCities.slice(0, 20);
+        console.log(`最終返回 ${result.length} 個城市`);
+        return result;
+    } catch (error) {
+        console.error('搜尋城市時發生錯誤:', error);
+        throw error;
+    }
 }
 
 export default async function handler(req, res) {
@@ -108,6 +129,14 @@ export default async function handler(req, res) {
         }
 
         let { targetUTCOffset, targetLatitude, latitudePreference, userCityVisitStats, userLocalTime } = req.method === 'GET' ? req.query : req.body;
+
+        console.log('收到請求參數:', {
+            targetUTCOffset,
+            targetLatitude,
+            latitudePreference,
+            userLocalTime,
+            method: req.method
+        });
 
         // 驗證參數
         const targetOffset = parseFloat(targetUTCOffset);
@@ -194,33 +223,27 @@ export default async function handler(req, res) {
 
                 console.log(`選擇城市: ${selectedCity.city} (${selectedCity.lat}, ${selectedCity.lng}) [${getLatitudeCategory(selectedCity.lat)}緯度] - 人口: ${selectedCity.population}`);
 
-                // 使用我們自己的 GeoNames 端點來獲取詳細資訊
-                const geonamesUrl = `${req.headers.origin || 'http://localhost:3000'}/api/geonames-timezone`;
-                const geonamesResponse = await fetch(geonamesUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        latitude: selectedCity.lat,
-                        longitude: selectedCity.lng,
-                        targetUTCOffset: targetOffset
-                    })
-                });
-
-                if (!geonamesResponse.ok) {
-                    throw new Error(`GeoNames API 調用失敗: ${geonamesResponse.status}`);
-                }
-
-                const cityData = await geonamesResponse.json();
-
-                // 添加額外資訊
-                cityData.name = selectedCity.city;
-                cityData.name_zh = selectedCity.city_zh;
-                cityData.country = selectedCity.country;
-                cityData.country_zh = selectedCity.country_zh;
-                cityData.population = selectedCity.population;
-                cityData.source = 'local_database';
-                cityData.latitudeCategory = getLatitudeCategoryName(getLatitudeCategory(selectedCity.lat));
-                cityData.latitudePreference = latitudePreference;
+                // 直接返回城市資料
+                const cityData = {
+                    name: selectedCity.city,
+                    name_zh: selectedCity.city_zh,
+                    country: selectedCity.country,
+                    country_zh: selectedCity.country_zh,
+                    lat: selectedCity.lat,
+                    lng: selectedCity.lng,
+                    population: selectedCity.population,
+                    timezone: {
+                        timeZoneId: selectedCity.timezone || 'UTC',
+                        dstOffset: 0,
+                        gmtOffset: calculateTimezoneOffset(selectedCity.lng) * 3600,
+                        countryCode: selectedCity.country_code || '',
+                        countryName: selectedCity.country,
+                        countryName_zh: selectedCity.country_zh
+                    },
+                    source: 'local_database',
+                    latitudeCategory: getLatitudeCategoryName(getLatitudeCategory(selectedCity.lat)),
+                    latitudePreference: latitudePreference
+                };
 
                 return res.status(200).json(cityData);
 
@@ -228,7 +251,8 @@ export default async function handler(req, res) {
                 console.error('搜尋城市失敗:', error);
                 res.status(500).json({ 
                     error: 'Internal server error',
-                    message: error.message || '搜尋城市時發生錯誤'
+                    message: error.message || '搜尋城市時發生錯誤',
+                    details: error.stack
                 });
             }
         }
@@ -236,7 +260,8 @@ export default async function handler(req, res) {
         console.error('處理請求時發生錯誤:', error);
         res.status(500).json({ 
             error: 'Internal server error',
-            message: error.message || '處理請求時發生錯誤'
+            message: error.message || '處理請求時發生錯誤',
+            details: error.stack
         });
     }
 } 
