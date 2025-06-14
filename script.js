@@ -989,8 +989,8 @@ window.addEventListener('firebaseReady', async (event) => {
             debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
 
             const recordedAtDate = userLocalDate.toLocaleString();
-            const latitudeStr = bestMatchCity.latitude.toFixed(5);
-            const longitudeStr = bestMatchCity.longitude.toFixed(5);
+            const latitudeStr = bestMatchCity.latitude ? bestMatchCity.latitude.toFixed(5) : 'N/A';
+            const longitudeStr = bestMatchCity.longitude ? bestMatchCity.longitude.toFixed(5) : 'N/A';
             const targetUTCOffsetStr = requiredUTCOffset >= 0 ? `+${requiredUTCOffset.toFixed(2)}` : requiredUTCOffset.toFixed(2);
             const cityActualUTCOffset = bestMatchCity.timezoneOffset;
 
@@ -1012,9 +1012,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 country: englishCountryName,
                 city_zh: bestMatchCity.city_zh || "",
                 country_zh: bestMatchCity.country_zh || "",
-                country_iso_code: bestMatchCity.country_iso_code,
-                latitude: bestMatchCity.latitude,
-                longitude: bestMatchCity.longitude,
+                country_iso_code: countryCode,
+                latitude: bestMatchCity.latitude || null,
+                longitude: bestMatchCity.longitude || null,
                 targetUTCOffset: requiredUTCOffset,
                 matchedCityUTCOffset: cityActualUTCOffset,
                 recordedDateString: userLocalDateString,
