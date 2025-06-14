@@ -105875,5 +105875,115 @@
     "latitude": 47.1410,
     "longitude": 9.5209,
     "population": 5696
+  },
+  {
+    "city": "Alert",
+    "city_zh": "阿勒特",
+    "country": "Canada",
+    "country_zh": "加拿大",
+    "country_iso_code": "CA",
+    "timezone": "America/Toronto",
+    "latitude": 82.5018,
+    "longitude": -62.3481,
+    "population": 5
+  },
+  {
+    "city": "Ny-Alesund",
+    "city_zh": "新奧勒松",
+    "country": "Norway",
+    "country_zh": "挪威",
+    "country_iso_code": "NO",
+    "timezone": "Arctic/Longyearbyen",
+    "latitude": 78.9249,
+    "longitude": 11.9456,
+    "population": 35
+  },
+  {
+    "city": "Qaanaaq",
+    "city_zh": "卡納克",
+    "country": "Greenland",
+    "country_zh": "格陵蘭",
+    "country_iso_code": "GL",
+    "timezone": "America/Thule",
+    "latitude": 77.4840,
+    "longitude": -69.3632,
+    "population": 656
+  },
+  {
+    "city": "Resolute",
+    "city_zh": "堅毅灣",
+    "country": "Canada",
+    "country_zh": "加拿大",
+    "country_iso_code": "CA",
+    "timezone": "America/Resolute",
+    "latitude": 74.6956,
+    "longitude": -94.8295,
+    "population": 198
+  },
+  {
+    "city": "Grise Fiord",
+    "city_zh": "格賴斯峽灣",
+    "country": "Canada",
+    "country_zh": "加拿大",
+    "country_iso_code": "CA",
+    "timezone": "America/Toronto",
+    "latitude": 76.4199,
+    "longitude": -82.9026,
+    "population": 129
+  },
+  {
+    "city": "Eureka",
+    "city_zh": "尤里卡",
+    "country": "Canada",
+    "country_zh": "加拿大",
+    "country_iso_code": "CA",
+    "timezone": "America/Toronto",
+    "latitude": 79.9833,
+    "longitude": -85.9333,
+    "population": 8
+  },
+  {
+    "city": "Hammerfest",
+    "city_zh": "哈默菲斯特",
+    "country": "Norway",
+    "country_zh": "挪威",
+    "country_iso_code": "NO",
+    "timezone": "Europe/Oslo",
+    "latitude": 70.6634,
+    "longitude": 23.6821,
+    "population": 10637
+  },
+  {
+    "city": "Honningsvag",
+    "city_zh": "洪寧斯沃格",
+    "country": "Norway",
+    "country_zh": "挪威",
+    "country_iso_code": "NO",
+    "timezone": "Europe/Oslo",
+    "latitude": 70.9821,
+    "longitude": 25.9704,
+    "population": 2484
+  },
+  {
+    "city": "Vardo",
+    "city_zh": "瓦爾德",
+    "country": "Norway",
+    "country_zh": "挪威",
+    "country_iso_code": "NO",
+    "timezone": "Europe/Oslo",
+    "latitude": 70.3704,
+    "longitude": 31.1107,
+    "population": 2109
+  },
+  {
+    "city": "Tiksi",
+    "city_zh": "季克西",
+    "country": "Russia",
+    "country_zh": "俄羅斯",
+    "country_iso_code": "RU",
+    "timezone": "Asia/Yakutsk",
+    "latitude": 71.6872,
+    "longitude": 128.8694,
+    "population": 5063
   }
 ]
