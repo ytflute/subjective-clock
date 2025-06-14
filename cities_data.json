@@ -105765,5 +105765,115 @@
     "longitude": 31.07555,
     "country_iso_code": "zw",
     "country_zh": "津巴布韋"
+  },
+  {
+    "city": "Nuku'alofa",
+    "city_zh": "努庫阿洛法",
+    "country": "Tonga",
+    "country_zh": "東加",
+    "country_iso_code": "TO",
+    "timezone": "Pacific/Tongatapu",
+    "latitude": -21.1789,
+    "longitude": -175.1982,
+    "population": 24500
+  },
+  {
+    "city": "Apia",
+    "city_zh": "阿皮亞",
+    "country": "Samoa",
+    "country_zh": "薩摩亞",
+    "country_iso_code": "WS",
+    "timezone": "Pacific/Apia",
+    "latitude": -13.8506,
+    "longitude": -171.7513,
+    "population": 37708
+  },
+  {
+    "city": "Port Vila",
+    "city_zh": "維拉港",
+    "country": "Vanuatu",
+    "country_zh": "萬那杜",
+    "country_iso_code": "VU",
+    "timezone": "Pacific/Efate",
+    "latitude": -17.7334,
+    "longitude": 168.3273,
+    "population": 51437
+  },
+  {
+    "city": "Tarawa",
+    "city_zh": "塔拉瓦",
+    "country": "Kiribati",
+    "country_zh": "吉里巴斯",
+    "country_iso_code": "KI",
+    "timezone": "Pacific/Tarawa",
+    "latitude": 1.3278,
+    "longitude": 172.9779,
+    "population": 56284
+  },
+  {
+    "city": "Majuro",
+    "city_zh": "馬朱羅",
+    "country": "Marshall Islands",
+    "country_zh": "馬紹爾群島",
+    "country_iso_code": "MH",
+    "timezone": "Pacific/Majuro",
+    "latitude": 7.1315,
+    "longitude": 171.1845,
+    "population": 27797
+  },
+  {
+    "city": "Palikir",
+    "city_zh": "帕利基爾",
+    "country": "Micronesia",
+    "country_zh": "密克羅尼西亞",
+    "country_iso_code": "FM",
+    "timezone": "Pacific/Pohnpei",
+    "latitude": 6.9248,
+    "longitude": 158.1611,
+    "population": 4645
+  },
+  {
+    "city": "Ngerulmud",
+    "city_zh": "恩吉魯穆德",
+    "country": "Palau",
+    "country_zh": "帛琉",
+    "country_iso_code": "PW",
+    "timezone": "Pacific/Palau",
+    "latitude": 7.5006,
+    "longitude": 134.6242,
+    "population": 271
+  },
+  {
+    "city": "Funafuti",
+    "city_zh": "富納富提",
+    "country": "Tuvalu",
+    "country_zh": "吐瓦魯",
+    "country_iso_code": "TV",
+    "timezone": "Pacific/Funafuti",
+    "latitude": -8.5243,
+    "longitude": 179.1942,
+    "population": 6320
+  },
+  {
+    "city": "Yaren",
+    "city_zh": "雅倫",
+    "country": "Nauru",
+    "country_zh": "諾魯",
+    "country_iso_code": "NR",
+    "timezone": "Pacific/Nauru",
+    "latitude": -0.5477,
+    "longitude": 166.9209,
+    "population": 1100
+  },
+  {
+    "city": "Vaduz",
+    "city_zh": "瓦杜茲",
+    "country": "Liechtenstein",
+    "country_zh": "列支敦斯登",
+    "country_iso_code": "LI",
+    "timezone": "Europe/Vaduz",
+    "latitude": 47.1410,
+    "longitude": 9.5209,
+    "population": 5696
   }
 ]
