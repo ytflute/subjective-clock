@@ -889,10 +889,15 @@ window.addEventListener('firebaseReady', async (event) => {
                 throw new Error("無法從 API 結果中選擇合適的城市");
             }
 
+            // 確保所有必要的屬性都存在
+            if (!bestMatchCity.city && !bestMatchCity.name) {
+                throw new Error("城市資料缺少名稱");
+            }
+
             // 保留英文城市和國家名稱
             const englishCityName = bestMatchCity.name || bestMatchCity.city;
-            const englishCountryName = bestMatchCity.country;
-            const countryCode = bestMatchCity.country_iso_code || bestMatchCity.countryCode;
+            const englishCountryName = bestMatchCity.country || 'Unknown';
+            const countryCode = bestMatchCity.country_iso_code || bestMatchCity.countryCode || '';
             
             // 檢查是否需要 ChatGPT 翻譯
             let finalCityName = englishCityName;
@@ -961,8 +966,13 @@ window.addEventListener('firebaseReady', async (event) => {
             mapContainerDiv.innerHTML = '';
             mapContainerDiv.classList.remove('universe-message');
 
-            if (typeof bestMatchCity.latitude === 'number' && isFinite(bestMatchCity.latitude) &&
-                typeof bestMatchCity.longitude === 'number' && isFinite(bestMatchCity.longitude)) {
+            // 檢查經緯度是否為有效數字
+            const latitude = parseFloat(bestMatchCity.latitude);
+            const longitude = parseFloat(bestMatchCity.longitude);
+            
+            if (!isNaN(latitude) && !isNaN(longitude) && 
+                latitude >= -90 && latitude <= 90 && 
+                longitude >= -180 && longitude <= 180) {
                 
                 clockLeafletMap = L.map(mapContainerDiv, {
                     scrollWheelZoom: false,
@@ -992,7 +1002,17 @@ window.addEventListener('firebaseReady', async (event) => {
             const latitudeStr = bestMatchCity.latitude ? bestMatchCity.latitude.toFixed(5) : 'N/A';
             const longitudeStr = bestMatchCity.longitude ? bestMatchCity.longitude.toFixed(5) : 'N/A';
             const targetUTCOffsetStr = requiredUTCOffset >= 0 ? `+${requiredUTCOffset.toFixed(2)}` : requiredUTCOffset.toFixed(2);
-            const cityActualUTCOffset = bestMatchCity.timezoneOffset;
+            
+            // 確保時區偏移是有效的數字
+            const cityActualUTCOffset = parseFloat(bestMatchCity.timezoneOffset);
+            const timezoneOffsetStr = !isNaN(cityActualUTCOffset) ? 
+                (cityActualUTCOffset >= 0 ? `+${cityActualUTCOffset.toFixed(2)}` : cityActualUTCOffset.toFixed(2)) : 
+                'N/A';
+            
+            // 計算時差
+            const timeDifference = !isNaN(cityActualUTCOffset) ? 
+                Math.abs(cityActualUTCOffset - requiredUTCOffset).toFixed(2) : 
+                'N/A';
 
             //debugInfoSmall.innerHTML = `(記錄於: ${recordedAtDate})<br>(目標 UTC 偏移: ${targetUTCOffsetStr}, 城市實際 UTC 偏移: ${cityActualUTCOffset !== null ? cityActualUTCOffset.toFixed(2) : 'N/A'}, 時區: ${bestMatchCity.timezone || '未知'})`;
 
