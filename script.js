@@ -1144,18 +1144,34 @@ window.addEventListener('firebaseReady', async (event) => {
             console.warn("無法儲存歷史記錄：使用者名稱未設定。");
             return;
         }
+
         // 確保記錄數據包含所有必要欄位
         recordData.greeting = recordData.greeting || "";
         recordData.story = recordData.story || "";
         recordData.imageUrl = recordData.imageUrl || null;
         recordData.groupName = currentGroupName || "";  // 添加組別資訊
 
-        if (recordData.city !== "Unknown Planet" && recordData.city_zh !== "未知星球" &&
-            (typeof recordData.latitude !== 'number' || !isFinite(recordData.latitude) ||
-             typeof recordData.longitude !== 'number' || !isFinite(recordData.longitude))) {
-            console.error("無法儲存地球歷史記錄：經緯度無效。", recordData);
-            return;
+        // 檢查是否為特殊情況（未知星球）
+        const isSpecialCase = recordData.city === "Unknown Planet" || recordData.city_zh === "未知星球";
+        
+        // 如果是特殊情況，允許沒有經緯度
+        if (isSpecialCase) {
+            recordData.latitude = recordData.latitude || 0;
+            recordData.longitude = recordData.longitude || 0;
+        } else {
+            // 對於一般情況，檢查經緯度
+            if (recordData.latitude === null || recordData.longitude === null) {
+                console.error("無法儲存地球歷史記錄：經緯度無效。", recordData);
+                return;
+            }
         }
+
+        // 確保時區資訊有效
+        if (recordData.timezone && typeof recordData.timezone === 'object') {
+            recordData.timezone.gmtOffset = recordData.timezone.gmtOffset || 0;
+            recordData.timezone.countryCode = recordData.timezone.countryCode || '';
+        }
+
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
         try {
             const docRef = await addDoc(historyCollectionRef, recordData);
