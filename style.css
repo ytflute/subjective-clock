@@ -443,7 +443,7 @@ small { /* 通用 small 標籤樣式 */
     color: #666; /* 調整顏色 */
     margin-top: 15px; 
     word-wrap: break-word; 
-    background-color: #f0f0f0; /* 調整背景色 */
+    /* background-color: #f0f0f0; 移除灰色背景 */
     padding: 10px; /* 增加 padding */
     border-radius: 4px;
     text-align: left; 
