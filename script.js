@@ -50,7 +50,6 @@ window.addEventListener('firebaseReady', async (event) => {
     const groupNameInput = document.getElementById('groupName');
     const currentGroupNameSpan = document.getElementById('currentGroupName');
     const groupFilterSelect = document.getElementById('groupFilter');
-    const todayMoodSelect = document.getElementById('todayMood');
 
     // 全域變數
     // 移除不再需要的變數
@@ -1590,17 +1589,13 @@ window.addEventListener('firebaseReady', async (event) => {
                     ).length;
                 }
 
-                // 心情資訊顯示
-                const moodDisplay = record.moodEmoji && record.moodName ? `${record.moodEmoji} ${record.moodName}` : (record.moodName || '');
-
                 // 城市訪問次數顯示（只有重複訪問才顯示）
                 const visitInfo = cityVisitNumber > 1 ? `<br><span class="visit-info" style="color: #007bff; font-size: 0.8em;">第 ${cityVisitNumber} 次拜訪這座城市</span>` : '';
 
                 const li = document.createElement('li');
                 li.innerHTML = `<span class="date">${recordDate}</span> -  
                                 甦醒於: <span class="location">${cityDisplay || '未知城市'}, ${countryDisplay || '未知國家'}</span>
-                                ${visitInfo}
-                                ${moodDisplay ? `<br><span class="mood-info" style="color: ${record.moodColor || '#666'}; font-size: 0.8em;">心情: ${moodDisplay}</span>` : ''}`;
+                                ${visitInfo}`;
                 
                 const detailsButton = document.createElement('button');
                 detailsButton.textContent = '查看日誌';
@@ -1968,10 +1963,6 @@ window.addEventListener('firebaseReady', async (event) => {
             const countryDisplay = record.country_zh && record.country_zh !== record.country ? 
                 `${record.country_zh} (${record.country})` : record.country;
             
-            // 準備心情顯示
-            const moodDisplay = record.moodEmoji && record.moodName ? 
-                `${record.moodEmoji} ${record.moodName}` : '';
-            
             // 創建詳細內容
             let contentHTML = `
                 <div class="log-detail" style="text-align: left;">
@@ -1980,7 +1971,6 @@ window.addEventListener('firebaseReady', async (event) => {
                     <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
                     ${cityVisitNumber > 1 ? `<p><strong>城市訪問：</strong>這是你第 ${cityVisitNumber} 次拜訪這座城市</p>` : ''}
                     ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
-                    ${moodDisplay ? `<p><strong>當日心情：</strong><span style="color: ${record.moodColor || '#666'}">${moodDisplay}</span></p>` : ''}
                     ${record.groupName ? `<p><strong>組別：</strong>${record.groupName}</p>` : ''}
                 </div>
             `;
