@@ -2,7 +2,23 @@ import fs from 'fs';
 import path from 'path';
 
 // 讀取本地城市資料
-const citiesData = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'cities_data.json'), 'utf8'));
+let citiesData = [];
+try {
+    const filePath = path.join(process.cwd(), 'cities_data.json');
+    console.log('嘗試讀取檔案:', filePath);
+    
+    if (!fs.existsSync(filePath)) {
+        console.error('找不到 cities_data.json 檔案');
+        throw new Error('找不到 cities_data.json 檔案');
+    }
+    
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    citiesData = JSON.parse(fileContent);
+    console.log(`成功讀取 ${citiesData.length} 個城市資料`);
+} catch (error) {
+    console.error('讀取 cities_data.json 失敗:', error);
+    throw error;
+}
 
 // 輔助函數：根據緯度分類
 function getLatitudeCategory(latitude) {
@@ -86,6 +102,11 @@ export default async function handler(req, res) {
     }
 
     try {
+        // 檢查城市資料是否已載入
+        if (!citiesData || citiesData.length === 0) {
+            throw new Error('城市資料未正確載入');
+        }
+
         let { targetUTCOffset, targetLatitude, latitudePreference, userCityVisitStats, userLocalTime } = req.method === 'GET' ? req.query : req.body;
 
         // 驗證參數
@@ -201,11 +222,17 @@ export default async function handler(req, res) {
 
             } catch (error) {
                 console.error('搜尋城市失敗:', error);
-                res.status(500).json({ error: 'Internal server error' });
+                res.status(500).json({ 
+                    error: 'Internal server error',
+                    message: error.message || '搜尋城市時發生錯誤'
+                });
             }
         }
     } catch (error) {
         console.error('處理請求時發生錯誤:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(500).json({ 
+            error: 'Internal server error',
+            message: error.message || '處理請求時發生錯誤'
+        });
     }
 } 
