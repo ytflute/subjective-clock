@@ -890,8 +890,9 @@ window.addEventListener('firebaseReady', async (event) => {
             }
 
             // 保留英文城市和國家名稱
-            const englishCityName = bestMatchCity.city;
+            const englishCityName = bestMatchCity.name || bestMatchCity.city;
             const englishCountryName = bestMatchCity.country;
+            const countryCode = bestMatchCity.country_iso_code || bestMatchCity.countryCode;
             
             // 檢查是否需要 ChatGPT 翻譯
             let finalCityName = englishCityName;
@@ -908,7 +909,8 @@ window.addEventListener('firebaseReady', async (event) => {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ 
                             city: englishCityName,
-                            country: englishCountryName
+                            country: englishCountryName,
+                            countryCode: countryCode
                         })
                     });
                     
@@ -929,7 +931,7 @@ window.addEventListener('firebaseReady', async (event) => {
             finalCountryName = bestMatchCity.country_zh && bestMatchCity.country_zh !== englishCountryName ? 
                 `${englishCountryName} (${bestMatchCity.country_zh})` : englishCountryName;
 
-            const apiResponse = await fetchStoryFromAPI(englishCityName, englishCountryName, bestMatchCity.country_iso_code);
+            const apiResponse = await fetchStoryFromAPI(englishCityName, englishCountryName, countryCode);
             const greetingFromAPI = apiResponse.greeting;
             const storyFromAPI = apiResponse.story;
 
