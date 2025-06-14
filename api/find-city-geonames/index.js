@@ -227,11 +227,17 @@ export default async function handler(req, res) {
                 const cityData = {
                     name: selectedCity.city,
                     name_zh: selectedCity.city_zh,
+                    city: selectedCity.city,
+                    city_zh: selectedCity.city_zh,
                     country: selectedCity.country,
                     country_zh: selectedCity.country_zh,
+                    country_iso_code: selectedCity.country_code,
                     lat: selectedCity.lat,
                     lng: selectedCity.lng,
+                    latitude: selectedCity.lat,
+                    longitude: selectedCity.lng,
                     population: selectedCity.population,
+                    timezoneOffset: calculateTimezoneOffset(selectedCity.lng),
                     timezone: {
                         timeZoneId: selectedCity.timezone || 'UTC',
                         dstOffset: 0,
@@ -245,6 +251,7 @@ export default async function handler(req, res) {
                     latitudePreference: latitudePreference
                 };
 
+                console.log('返回的城市資料:', cityData);
                 return res.status(200).json(cityData);
 
             } catch (error) {
