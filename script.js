@@ -900,6 +900,7 @@ window.addEventListener('firebaseReady', async (event) => {
             const countryCode = bestMatchCity.country_iso_code || bestMatchCity.countryCode || '';
             
             // 檢查並記錄原始經緯度資料
+            console.log('完整的 bestMatchCity 資料:', bestMatchCity);
             console.log('原始經緯度資料:', {
                 latitude: bestMatchCity.latitude,
                 longitude: bestMatchCity.longitude,
@@ -946,7 +947,8 @@ window.addEventListener('firebaseReady', async (event) => {
                     originalLatitude: bestMatchCity.lat || bestMatchCity.latitude,
                     originalLongitude: bestMatchCity.lng || bestMatchCity.longitude,
                     parsedLatitude: latitude,
-                    parsedLongitude: longitude
+                    parsedLongitude: longitude,
+                    fullCityData: bestMatchCity
                 });
                 throw new Error("經緯度資料無效：無法解析為有效數字");
             }
