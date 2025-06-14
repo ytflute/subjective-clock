@@ -191,20 +191,22 @@ function getLatitudeCategoryName(category) {
 }
 
 // 輔助函數：搜尋 GeoNames 城市
-async function searchGeoNamesCities(targetOffset, targetLatitude, GEONAMES_USERNAME) {
+async function searchGeoNamesCities(targetOffset, targetLatitude, username) {
     // 計算目標時區的經度範圍（粗略估算）
+    // 每個時區約15度經度
     const targetLongitude = targetOffset * 15;
     const longitudeRange = 7.5; // 半個時區的範圍
 
     // 構建 GeoNames 搜尋 URL
-    let searchUrl = `http://api.geonames.org/searchJSON?` +
-        `username=${GEONAMES_USERNAME}` +
+    const searchUrl = `http://api.geonames.org/searchJSON?` +
+        `username=${username}` +
         `&featureClass=P` + // 只搜尋城市、村莊等人口聚集地
         `&style=full` +
-        `&maxRows=100` + // 增加返回結果數量
+        `&maxRows=50` + // 減少返回結果數量
         `&orderby=population` + // 按人口排序
         `&isNameRequired=true` + // 必須有名字
-        `&cities=cities1000`; // 只搜尋人口超過1000的城市
+        `&cities=cities5000` + // 只搜尋人口超過5000的城市
+        `&style=full`;
 
     // 如果有目標緯度，添加緯度範圍
     if (targetLatitude !== null) {
@@ -228,7 +230,13 @@ async function searchGeoNamesCities(targetOffset, targetLatitude, GEONAMES_USERN
         throw new Error(`GeoNames Search API error: ${searchData.status.message}`);
     }
 
-    return searchData.geonames.map(city => ({
+    // 過濾掉人口太少的城市
+    const minPopulation = 10000; // 設定最小人口數
+    const filteredCities = searchData.geonames.filter(city => 
+        parseInt(city.population) >= minPopulation
+    );
+
+    return filteredCities.map(city => ({
         name: city.name,
         lat: parseFloat(city.lat),
         lng: parseFloat(city.lng),
