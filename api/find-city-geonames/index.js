@@ -45,58 +45,92 @@ function calculateTimezoneOffset(longitude) {
     return Math.round(longitude / 15);
 }
 
-// 輔助函數：搜尋城市
+// 輔助函數：計算經度差異（處理跨越180度經線的情況）
+function calculateLongitudeDifference(lng1, lng2) {
+    let diff = Math.abs(lng1 - lng2);
+    if (diff > 180) {
+        diff = 360 - diff;
+    }
+    return diff;
+}
+
+// 輔助函數：搜尋城市（漸進式搜尋）
 function searchCities(targetOffset, targetLatitude, latitudePreference) {
     try {
         // 計算目標時區的經度範圍（粗略估算）
-        const targetLongitude = targetOffset * 15;
-        const longitudeRange = 5; // 經度範圍
+        let targetLongitude = targetOffset * 15;
+        
+        // 處理超出範圍的經度
+        while (targetLongitude > 180) targetLongitude -= 360;
+        while (targetLongitude < -180) targetLongitude += 360;
 
         console.log(`搜尋條件: 目標經度=${targetLongitude}, 目標緯度=${targetLatitude}, 緯度偏好=${latitudePreference}`);
 
-        // 過濾符合時區和緯度的城市
-        let candidateCities = citiesData.filter(city => {
-            try {
-                // 檢查經度範圍 - 使用 longitude 而不是 lng
-                const longitudeDiff = Math.abs(city.longitude - targetLongitude);
-                if (longitudeDiff > longitudeRange) return false;
+        // 漸進式搜尋：從小範圍開始，逐步擴大
+        const longitudeRanges = [7, 15, 30, 45]; // 經度範圍：±7°, ±15°, ±30°, ±45°
+        const latitudeRanges = [5, 10, 20, 30]; // 緯度範圍：±5°, ±10°, ±20°, ±30°
+        
+        for (let i = 0; i < longitudeRanges.length; i++) {
+            const longitudeRange = longitudeRanges[i];
+            const latitudeRange = latitudeRanges[i];
+            
+            console.log(`嘗試搜尋範圍: 經度±${longitudeRange}°, 緯度±${latitudeRange}°`);
+            
+            // 過濾符合時區和緯度的城市
+            let candidateCities = citiesData.filter(city => {
+                try {
+                    // 檢查經度範圍 - 使用改進的經度差異計算
+                    const longitudeDiff = calculateLongitudeDifference(city.longitude, targetLongitude);
+                    if (longitudeDiff > longitudeRange) return false;
 
-                // 如果有目標緯度，檢查緯度範圍 - 使用 latitude 而不是 lat
-                if (targetLatitude !== null) {
-                    const latitudeRange = 3; // 緯度範圍
-                    const latitudeDiff = Math.abs(city.latitude - targetLatitude);
-                    if (latitudeDiff > latitudeRange) return false;
-                }
-
-                // 檢查緯度偏好 - 使用 latitude 而不是 lat
-                if (latitudePreference !== 'any') {
-                    const category = getLatitudeCategory(city.latitude);
-                    const hemisphere = city.latitude >= 0 ? 'north' : 'south';
-                    
-                    if (latitudePreference.includes('-')) {
-                        const [prefCategory, prefHemisphere] = latitudePreference.split('-');
-                        if (category !== prefCategory || hemisphere !== prefHemisphere) return false;
-                    } else if (category !== latitudePreference) {
-                        return false;
+                    // 如果有目標緯度，檢查緯度範圍
+                    if (targetLatitude !== null) {
+                        const latitudeDiff = Math.abs(city.latitude - targetLatitude);
+                        if (latitudeDiff > latitudeRange) return false;
                     }
+
+                    // 檢查緯度偏好
+                    if (latitudePreference !== 'any') {
+                        const category = getLatitudeCategory(city.latitude);
+                        const hemisphere = city.latitude >= 0 ? 'north' : 'south';
+                        
+                        if (latitudePreference.includes('-')) {
+                            const [prefCategory, prefHemisphere] = latitudePreference.split('-');
+                            if (category !== prefCategory || hemisphere !== prefHemisphere) return false;
+                        } else if (category !== latitudePreference) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                } catch (error) {
+                    console.error('處理城市資料時發生錯誤:', error, '城市資料:', city);
+                    return false;
                 }
+            });
 
-                return true;
-            } catch (error) {
-                console.error('處理城市資料時發生錯誤:', error, '城市資料:', city);
-                return false;
+            console.log(`範圍 ±${longitudeRange}°/±${latitudeRange}° 找到 ${candidateCities.length} 個城市`);
+            
+            // 如果找到足夠的城市，就停止搜尋
+            if (candidateCities.length > 0) {
+                // 如果有目標緯度，按緯度距離排序（最接近的在前面）
+                if (targetLatitude !== null) {
+                    candidateCities.sort((a, b) => {
+                        const diffA = Math.abs(a.latitude - targetLatitude);
+                        const diffB = Math.abs(b.latitude - targetLatitude);
+                        return diffA - diffB;
+                    });
+                }
+                
+                // 只返回前 20 個城市
+                const result = candidateCities.slice(0, 20);
+                console.log(`最終返回 ${result.length} 個城市 (使用範圍: ±${longitudeRange}°/±${latitudeRange}°)`);
+                return result;
             }
-        });
+        }
 
-        console.log(`初步過濾後找到 ${candidateCities.length} 個城市`);
-
-        // 移除人口排序，保持原始順序或隨機排序
-        // candidateCities.sort((a, b) => b.population - a.population);
-
-        // 只返回前 20 個城市
-        const result = candidateCities.slice(0, 20);
-        console.log(`最終返回 ${result.length} 個城市`);
-        return result;
+        console.log('所有搜尋範圍都沒有找到城市');
+        return [];
     } catch (error) {
         console.error('搜尋城市時發生錯誤:', error);
         throw error;
