@@ -912,29 +912,43 @@ window.addEventListener('firebaseReady', async (event) => {
             let longitude = null;
             
             // 嘗試從不同屬性獲取經緯度 - 優先使用 lat/lng
-            if (bestMatchCity.lat !== undefined && bestMatchCity.lat !== null) {
-                latitude = parseFloat(bestMatchCity.lat);
-            } else if (bestMatchCity.latitude !== undefined && bestMatchCity.latitude !== null) {
-                latitude = parseFloat(bestMatchCity.latitude);
+            if (bestMatchCity.lat !== undefined && bestMatchCity.lat !== null && bestMatchCity.lat !== '') {
+                const parsedLat = parseFloat(bestMatchCity.lat);
+                if (!isNaN(parsedLat) && isFinite(parsedLat)) {
+                    latitude = parsedLat;
+                }
+            } else if (bestMatchCity.latitude !== undefined && bestMatchCity.latitude !== null && bestMatchCity.latitude !== '') {
+                const parsedLat = parseFloat(bestMatchCity.latitude);
+                if (!isNaN(parsedLat) && isFinite(parsedLat)) {
+                    latitude = parsedLat;
+                }
             }
             
-            if (bestMatchCity.lng !== undefined && bestMatchCity.lng !== null) {
-                longitude = parseFloat(bestMatchCity.lng);
-            } else if (bestMatchCity.longitude !== undefined && bestMatchCity.longitude !== null) {
-                longitude = parseFloat(bestMatchCity.longitude);
+            if (bestMatchCity.lng !== undefined && bestMatchCity.lng !== null && bestMatchCity.lng !== '') {
+                const parsedLng = parseFloat(bestMatchCity.lng);
+                if (!isNaN(parsedLng) && isFinite(parsedLng)) {
+                    longitude = parsedLng;
+                }
+            } else if (bestMatchCity.longitude !== undefined && bestMatchCity.longitude !== null && bestMatchCity.longitude !== '') {
+                const parsedLng = parseFloat(bestMatchCity.longitude);
+                if (!isNaN(parsedLng) && isFinite(parsedLng)) {
+                    longitude = parsedLng;
+                }
             }
             
             console.log('解析後的經緯度:', { latitude, longitude });
             
             // 檢查經緯度是否有效
-            if (isNaN(latitude) || isNaN(longitude)) {
+            if (latitude === null || longitude === null || 
+                isNaN(latitude) || isNaN(longitude) || 
+                !isFinite(latitude) || !isFinite(longitude)) {
                 console.error('經緯度解析失敗:', {
                     originalLatitude: bestMatchCity.lat || bestMatchCity.latitude,
                     originalLongitude: bestMatchCity.lng || bestMatchCity.longitude,
                     parsedLatitude: latitude,
                     parsedLongitude: longitude
                 });
-                throw new Error("經緯度資料無效：無法解析為數字");
+                throw new Error("經緯度資料無效：無法解析為有效數字");
             }
             
             if (latitude < -90 || latitude > 90) {
@@ -1019,19 +1033,33 @@ window.addEventListener('firebaseReady', async (event) => {
                 clockLeafletMap.remove();
             }
 
-            clockLeafletMap = L.map(mapContainerDiv, {
-                scrollWheelZoom: false,
-                doubleClickZoom: false
-            }).setView([latitude, longitude], 10);
+            // 再次確認經緯度有效性，防止傳入 null 值給 Leaflet
+            if (latitude === null || longitude === null || 
+                isNaN(latitude) || isNaN(longitude) || 
+                latitude < -90 || latitude > 90 || 
+                longitude < -180 || longitude > 180) {
+                console.error('地圖初始化失敗：經緯度無效', { latitude, longitude });
+                mapContainerDiv.innerHTML = '<p style="color: red;">無法顯示地圖：經緯度資料無效</p>';
+            } else {
+                try {
+                    clockLeafletMap = L.map(mapContainerDiv, {
+                        scrollWheelZoom: false,
+                        doubleClickZoom: false
+                    }).setView([latitude, longitude], 10);
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(clockLeafletMap);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; OpenStreetMap contributors'
+                    }).addTo(clockLeafletMap);
 
-            L.marker([latitude, longitude])
-                .addTo(clockLeafletMap)
-                .bindPopup(finalCityName)
-                .openPopup();
+                    L.marker([latitude, longitude])
+                        .addTo(clockLeafletMap)
+                        .bindPopup(finalCityName)
+                        .openPopup();
+                } catch (mapError) {
+                    console.error('地圖初始化錯誤:', mapError);
+                    mapContainerDiv.innerHTML = '<p style="color: red;">地圖載入失敗</p>';
+                }
+            }
 
             // 創建早餐圖片容器
             const breakfastContainer = document.createElement('div');
