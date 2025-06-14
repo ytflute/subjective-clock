@@ -899,14 +899,52 @@ window.addEventListener('firebaseReady', async (event) => {
             const englishCountryName = bestMatchCity.country || 'Unknown';
             const countryCode = bestMatchCity.country_iso_code || bestMatchCity.countryCode || '';
             
-            // 確保經緯度是有效的數字
-            const latitude = parseFloat(bestMatchCity.latitude || bestMatchCity.lat);
-            const longitude = parseFloat(bestMatchCity.longitude || bestMatchCity.lng);
+            // 檢查並記錄原始經緯度資料
+            console.log('原始經緯度資料:', {
+                latitude: bestMatchCity.latitude,
+                longitude: bestMatchCity.longitude,
+                lat: bestMatchCity.lat,
+                lng: bestMatchCity.lng
+            });
             
-            if (isNaN(latitude) || isNaN(longitude) || 
-                latitude < -90 || latitude > 90 || 
-                longitude < -180 || longitude > 180) {
-                throw new Error("經緯度資料無效");
+            // 確保經緯度是有效的數字
+            let latitude = null;
+            let longitude = null;
+            
+            // 嘗試從不同屬性獲取經緯度 - 優先使用 lat/lng
+            if (bestMatchCity.lat !== undefined && bestMatchCity.lat !== null) {
+                latitude = parseFloat(bestMatchCity.lat);
+            } else if (bestMatchCity.latitude !== undefined && bestMatchCity.latitude !== null) {
+                latitude = parseFloat(bestMatchCity.latitude);
+            }
+            
+            if (bestMatchCity.lng !== undefined && bestMatchCity.lng !== null) {
+                longitude = parseFloat(bestMatchCity.lng);
+            } else if (bestMatchCity.longitude !== undefined && bestMatchCity.longitude !== null) {
+                longitude = parseFloat(bestMatchCity.longitude);
+            }
+            
+            console.log('解析後的經緯度:', { latitude, longitude });
+            
+            // 檢查經緯度是否有效
+            if (isNaN(latitude) || isNaN(longitude)) {
+                console.error('經緯度解析失敗:', {
+                    originalLatitude: bestMatchCity.lat || bestMatchCity.latitude,
+                    originalLongitude: bestMatchCity.lng || bestMatchCity.longitude,
+                    parsedLatitude: latitude,
+                    parsedLongitude: longitude
+                });
+                throw new Error("經緯度資料無效：無法解析為數字");
+            }
+            
+            if (latitude < -90 || latitude > 90) {
+                console.error('緯度超出範圍:', latitude);
+                throw new Error(`緯度超出有效範圍：${latitude}`);
+            }
+            
+            if (longitude < -180 || longitude > 180) {
+                console.error('經度超出範圍:', longitude);
+                throw new Error(`經度超出有效範圍：${longitude}`);
             }
 
             // 檢查是否需要 ChatGPT 翻譯
@@ -951,8 +989,8 @@ window.addEventListener('firebaseReady', async (event) => {
             const storyFromAPI = apiResponse.story;
 
             // 顯示緯度資訊
-            const latitudeInfo = bestMatchCity.latitude ? 
-                `緯度 ${Math.abs(bestMatchCity.latitude).toFixed(1)}°${bestMatchCity.latitude >= 0 ? 'N' : 'S'}` : '';
+            const latitudeInfo = latitude ? 
+                `緯度 ${Math.abs(latitude).toFixed(1)}°${latitude >= 0 ? 'N' : 'S'}` : '';
             const latitudeCategory = bestMatchCity.latitudeCategory || '';
             
             resultTextDiv.innerHTML = `
@@ -1005,8 +1043,8 @@ window.addEventListener('firebaseReady', async (event) => {
             debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
 
             const recordedAtDate = userLocalDate.toLocaleString();
-            const latitudeStr = bestMatchCity.latitude ? bestMatchCity.latitude.toFixed(5) : 'N/A';
-            const longitudeStr = bestMatchCity.longitude ? bestMatchCity.longitude.toFixed(5) : 'N/A';
+            const latitudeStr = latitude ? latitude.toFixed(5) : 'N/A';
+            const longitudeStr = longitude ? longitude.toFixed(5) : 'N/A';
             const targetUTCOffsetStr = requiredUTCOffset >= 0 ? `+${requiredUTCOffset.toFixed(2)}` : requiredUTCOffset.toFixed(2);
             
             // 確保時區偏移是有效的數字
