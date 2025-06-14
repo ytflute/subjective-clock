@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { city, country } = req.body;
+        const { city, country, countryCode } = req.body;
 
         if (!city || !country) {
             res.status(400).json({ error: '缺少必要參數' });
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
         });
 
         // 生成問候語
-        const greetingPrompt = `你是一位語言專家。請根據以下地點：${city}, ${country}，
+        const greetingPrompt = `你是一位語言專家。請根據以下地點：${city}, ${country}${countryCode ? ` (${countryCode})` : ''}，
 提供一句當地最常用的語言說的「早安」問候語。
 
 要求：
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
         const greeting = greetingResponse.choices[0].message.content.trim();
 
         // 生成跟城市和國家相關的創意故事
-        const storyPrompt = `請生成一個關於 ${city}, ${country} 的有趣且富有創意的故事。
+        const storyPrompt = `請生成一個關於 ${city}, ${country}${countryCode ? ` (${countryCode})` : ''} 的有趣且富有創意的故事。
 
 要求：
 1. 使用繁體中文回答
