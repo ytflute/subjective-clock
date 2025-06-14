@@ -176,7 +176,7 @@ export default async function handler(req, res) {
                     // 為每個城市添加訪問次數信息
                     const citiesWithStats = candidateCities.map(city => ({
                         ...city,
-                        visitCount: cityVisitStats[city.name] || 0
+                        visitCount: cityVisitStats[city.city] || 0
                     }));
 
                     // 找出訪問次數最少的次數
@@ -192,7 +192,7 @@ export default async function handler(req, res) {
                     selectedCity = candidateCities[0];
                 }
 
-                console.log(`選擇城市: ${selectedCity.name} (${selectedCity.lat}, ${selectedCity.lng}) [${getLatitudeCategory(selectedCity.lat)}緯度] - 人口: ${selectedCity.population}`);
+                console.log(`選擇城市: ${selectedCity.city} (${selectedCity.lat}, ${selectedCity.lng}) [${getLatitudeCategory(selectedCity.lat)}緯度] - 人口: ${selectedCity.population}`);
 
                 // 使用我們自己的 GeoNames 端點來獲取詳細資訊
                 const geonamesUrl = `${req.headers.origin || 'http://localhost:3000'}/api/geonames-timezone`;
@@ -213,6 +213,10 @@ export default async function handler(req, res) {
                 const cityData = await geonamesResponse.json();
 
                 // 添加額外資訊
+                cityData.name = selectedCity.city;
+                cityData.name_zh = selectedCity.city_zh;
+                cityData.country = selectedCity.country;
+                cityData.country_zh = selectedCity.country_zh;
                 cityData.population = selectedCity.population;
                 cityData.source = 'local_database';
                 cityData.latitudeCategory = getLatitudeCategoryName(getLatitudeCategory(selectedCity.lat));
