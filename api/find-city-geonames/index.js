@@ -57,21 +57,21 @@ function searchCities(targetOffset, targetLatitude, latitudePreference) {
         // 過濾符合時區和緯度的城市
         let candidateCities = citiesData.filter(city => {
             try {
-                // 檢查經度範圍
-                const longitudeDiff = Math.abs(city.lng - targetLongitude);
+                // 檢查經度範圍 - 使用 longitude 而不是 lng
+                const longitudeDiff = Math.abs(city.longitude - targetLongitude);
                 if (longitudeDiff > longitudeRange) return false;
 
-                // 如果有目標緯度，檢查緯度範圍
+                // 如果有目標緯度，檢查緯度範圍 - 使用 latitude 而不是 lat
                 if (targetLatitude !== null) {
                     const latitudeRange = 3; // 緯度範圍
-                    const latitudeDiff = Math.abs(city.lat - targetLatitude);
+                    const latitudeDiff = Math.abs(city.latitude - targetLatitude);
                     if (latitudeDiff > latitudeRange) return false;
                 }
 
-                // 檢查緯度偏好
+                // 檢查緯度偏好 - 使用 latitude 而不是 lat
                 if (latitudePreference !== 'any') {
-                    const category = getLatitudeCategory(city.lat);
-                    const hemisphere = city.lat >= 0 ? 'north' : 'south';
+                    const category = getLatitudeCategory(city.latitude);
+                    const hemisphere = city.latitude >= 0 ? 'north' : 'south';
                     
                     if (latitudePreference.includes('-')) {
                         const [prefCategory, prefHemisphere] = latitudePreference.split('-');
@@ -221,7 +221,7 @@ export default async function handler(req, res) {
                     selectedCity = candidateCities[0];
                 }
 
-                console.log(`選擇城市: ${selectedCity.city} (${selectedCity.lat}, ${selectedCity.lng}) [${getLatitudeCategory(selectedCity.lat)}緯度] - 人口: ${selectedCity.population}`);
+                console.log(`選擇城市: ${selectedCity.city} (${selectedCity.latitude}, ${selectedCity.longitude}) [${getLatitudeCategory(selectedCity.latitude)}緯度] - 人口: ${selectedCity.population}`);
 
                 // 直接返回城市資料
                 const cityData = {
@@ -231,23 +231,23 @@ export default async function handler(req, res) {
                     city_zh: selectedCity.city_zh,
                     country: selectedCity.country,
                     country_zh: selectedCity.country_zh,
-                    country_iso_code: selectedCity.country_code,
-                    lat: selectedCity.lat,
-                    lng: selectedCity.lng,
-                    latitude: selectedCity.lat,
-                    longitude: selectedCity.lng,
+                    country_iso_code: selectedCity.country_iso_code,
+                    lat: selectedCity.latitude,
+                    lng: selectedCity.longitude,
+                    latitude: selectedCity.latitude,
+                    longitude: selectedCity.longitude,
                     population: selectedCity.population,
-                    timezoneOffset: calculateTimezoneOffset(selectedCity.lng),
+                    timezoneOffset: calculateTimezoneOffset(selectedCity.longitude),
                     timezone: {
                         timeZoneId: selectedCity.timezone || 'UTC',
                         dstOffset: 0,
-                        gmtOffset: calculateTimezoneOffset(selectedCity.lng) * 3600,
-                        countryCode: selectedCity.country_code || '',
+                        gmtOffset: calculateTimezoneOffset(selectedCity.longitude) * 3600,
+                        countryCode: selectedCity.country_iso_code || '',
                         countryName: selectedCity.country,
                         countryName_zh: selectedCity.country_zh
                     },
                     source: 'local_database',
-                    latitudeCategory: getLatitudeCategoryName(getLatitudeCategory(selectedCity.lat)),
+                    latitudeCategory: getLatitudeCategoryName(getLatitudeCategory(selectedCity.latitude)),
                     latitudePreference: latitudePreference
                 };
 
