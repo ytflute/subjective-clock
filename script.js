@@ -778,8 +778,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
                 
                 // 將早餐圖片容器插入到地圖和 debugInfo 之間
-                //debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
-                //debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
+                debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+                debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
 
                 // 先保存宇宙記錄（不包含圖片）
                 // 使用本地日期而不是UTC日期
