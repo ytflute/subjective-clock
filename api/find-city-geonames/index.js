@@ -84,50 +84,8 @@ export default async function handler(req, res) {
                     });
                 }
 
-                // 根據緯度偏好過濾城市
-                if (latitudePreference !== 'any') {
-                    let filteredByLatitude = [];
-                    
-                    if (latitudePreference.includes('-')) {
-                        const [category, hemisphere] = latitudePreference.split('-');
-                        filteredByLatitude = candidateCities.filter(city => 
-                            city.category === category && city.hemisphere === hemisphere
-                        );
-                    } else {
-                        filteredByLatitude = candidateCities.filter(city => 
-                            city.category === latitudePreference
-                        );
-                    }
-
-                    if (filteredByLatitude.length > 0) {
-                        candidateCities = filteredByLatitude;
-                    }
-                }
-
-                // 按人口排序
-                candidateCities.sort((a, b) => b.population - a.population);
-
-                // 選擇城市
-                let selectedCity;
-                if (Object.keys(cityVisitStats).length > 0) {
-                    // 為每個城市添加訪問次數信息
-                    const citiesWithStats = candidateCities.map(city => ({
-                        ...city,
-                        visitCount: cityVisitStats[city.name] || 0
-                    }));
-
-                    // 找出訪問次數最少的次數
-                    const minVisitCount = Math.min(...citiesWithStats.map(city => city.visitCount));
-                    
-                    // 篩選出訪問次數最少的城市
-                    const leastVisitedCities = citiesWithStats.filter(city => city.visitCount === minVisitCount);
-
-                    // 在訪問次數最少的城市中選擇人口最多的
-                    selectedCity = leastVisitedCities.reduce((a, b) => a.population > b.population ? a : b);
-                } else {
-                    // 如果沒有訪問歷史，選擇人口最多的城市
-                    selectedCity = candidateCities[0];
-                }
+                // 直接選擇人口最多的城市
+                const selectedCity = candidateCities[0];
 
                 console.log(`選擇城市: ${selectedCity.name} (${selectedCity.lat}, ${selectedCity.lng}) [${selectedCity.category}緯度] - 人口: ${selectedCity.population}`);
 
@@ -193,24 +151,23 @@ function getLatitudeCategoryName(category) {
 // 輔助函數：搜尋 GeoNames 城市
 async function searchGeoNamesCities(targetOffset, targetLatitude, username) {
     // 計算目標時區的經度範圍（粗略估算）
-    // 每個時區約15度經度
     const targetLongitude = targetOffset * 15;
-    const longitudeRange = 7.5; // 半個時區的範圍
+    const longitudeRange = 5; // 減少經度範圍
 
     // 構建 GeoNames 搜尋 URL
     const searchUrl = `http://api.geonames.org/searchJSON?` +
         `username=${username}` +
         `&featureClass=P` + // 只搜尋城市、村莊等人口聚集地
         `&style=full` +
-        `&maxRows=50` + // 減少返回結果數量
+        `&maxRows=20` + // 大幅減少返回結果數量
         `&orderby=population` + // 按人口排序
         `&isNameRequired=true` + // 必須有名字
-        `&cities=cities5000` + // 只搜尋人口超過5000的城市
+        `&cities=cities10000` + // 只搜尋人口超過10000的城市
         `&style=full`;
 
     // 如果有目標緯度，添加緯度範圍
     if (targetLatitude !== null) {
-        const latitudeRange = 5; // 緯度範圍
+        const latitudeRange = 3; // 減少緯度範圍
         searchUrl += `&north=${targetLatitude + latitudeRange}` +
             `&south=${targetLatitude - latitudeRange}` +
             `&east=${targetLongitude + longitudeRange}` +
@@ -219,33 +176,48 @@ async function searchGeoNamesCities(targetOffset, targetLatitude, username) {
 
     console.log(`呼叫 GeoNames Search API: ${searchUrl}`);
     
-    const searchResponse = await fetch(searchUrl);
-    if (!searchResponse.ok) {
-        throw new Error(`GeoNames Search API failed: ${searchResponse.status}`);
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8秒超時
+
+        const searchResponse = await fetch(searchUrl, {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!searchResponse.ok) {
+            throw new Error(`GeoNames Search API failed: ${searchResponse.status}`);
+        }
+
+        const searchData = await searchResponse.json();
+        
+        if (searchData.status) {
+            throw new Error(`GeoNames Search API error: ${searchData.status.message}`);
+        }
+
+        // 過濾掉人口太少的城市
+        const minPopulation = 50000; // 提高最小人口數
+        const filteredCities = searchData.geonames.filter(city => 
+            parseInt(city.population) >= minPopulation
+        );
+
+        return filteredCities.map(city => ({
+            name: city.name,
+            lat: parseFloat(city.lat),
+            lng: parseFloat(city.lng),
+            population: parseInt(city.population),
+            countryCode: city.countryCode,
+            countryName: city.countryName,
+            timezone: city.timezone,
+            expectedOffset: targetOffset,
+            category: getLatitudeCategory(parseFloat(city.lat)),
+            hemisphere: parseFloat(city.lat) >= 0 ? 'north' : 'south'
+        }));
+    } catch (error) {
+        if (error.name === 'AbortError') {
+            console.error('GeoNames API 呼叫超時');
+            throw new Error('API 呼叫超時，請稍後再試');
+        }
+        throw error;
     }
-
-    const searchData = await searchResponse.json();
-    
-    if (searchData.status) {
-        throw new Error(`GeoNames Search API error: ${searchData.status.message}`);
-    }
-
-    // 過濾掉人口太少的城市
-    const minPopulation = 10000; // 設定最小人口數
-    const filteredCities = searchData.geonames.filter(city => 
-        parseInt(city.population) >= minPopulation
-    );
-
-    return filteredCities.map(city => ({
-        name: city.name,
-        lat: parseFloat(city.lat),
-        lng: parseFloat(city.lng),
-        population: parseInt(city.population),
-        countryCode: city.countryCode,
-        countryName: city.countryName,
-        timezone: city.timezone,
-        expectedOffset: targetOffset,
-        category: getLatitudeCategory(parseFloat(city.lat)),
-        hemisphere: parseFloat(city.lat) >= 0 ? 'north' : 'south'
-    }));
 } 
