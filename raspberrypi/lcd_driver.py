@@ -63,23 +63,33 @@ class LCD_ST7920:
         self.write_8_bits(data)
         
     def write_8_bits(self, value):
-        """寫入8位元資料 (完整8位並行模式)"""
-        # 設定所有8位資料線
-        GPIO.output(LCD_PINS['D7'], (value >> 7) & 0x01)
+        """寫入8位元資料 (使用4位並行模式，分兩次傳輸)"""
+        
+        # 第一次傳輸：高4位元 (bits 7-4)
+        GPIO.output(LCD_PINS['D7'], (value >> 7) & 0x01)  # 最高位
         GPIO.output(LCD_PINS['D6'], (value >> 6) & 0x01)
         GPIO.output(LCD_PINS['D5'], (value >> 5) & 0x01)
         GPIO.output(LCD_PINS['D4'], (value >> 4) & 0x01)
         
-        # 確保資料穩定
-        time.sleep(0.0001)
-        
-        # 啟用脈衝 (Enable High)
+        # 第一次Enable脈衝
+        time.sleep(0.0001)  # 資料穩定時間
         GPIO.output(LCD_PINS['E'], GPIO.HIGH)
-        time.sleep(0.0005)  # 增加脈衝寬度確保資料讀取
-        
-        # 結束脈衝 (Enable Low)
+        time.sleep(0.0005)
         GPIO.output(LCD_PINS['E'], GPIO.LOW)
-        time.sleep(0.0005)  # 增加設定時間
+        time.sleep(0.0005)
+        
+        # 第二次傳輸：低4位元 (bits 3-0)
+        GPIO.output(LCD_PINS['D7'], (value >> 3) & 0x01)
+        GPIO.output(LCD_PINS['D6'], (value >> 2) & 0x01)
+        GPIO.output(LCD_PINS['D5'], (value >> 1) & 0x01)
+        GPIO.output(LCD_PINS['D4'], (value >> 0) & 0x01)  # 最低位
+        
+        # 第二次Enable脈衝
+        time.sleep(0.0001)  # 資料穩定時間
+        GPIO.output(LCD_PINS['E'], GPIO.HIGH)
+        time.sleep(0.0005)
+        GPIO.output(LCD_PINS['E'], GPIO.LOW)
+        time.sleep(0.0005)
         
     def clear(self):
         """清除顯示"""
