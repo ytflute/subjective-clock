@@ -9,8 +9,9 @@
 - ✅ GND → GND (Pin 6)
 - ✅ 確認電源穩定，建議使用品質良好的5V 3A電源
 
-#### 控制信號連接
-- ✅ RS → GPIO 26 (Pin 37)
+#### 控制信號連接 (12864B-V2.3)
+- ✅ RS (A0) → GPIO 26 (Pin 37)
+- ✅ R/W → GND (Pin 14) **重要：必須接GND設定為寫入模式**
 - ✅ E → GPIO 19 (Pin 35)  
 - ✅ RST → GPIO 20 (Pin 38)
 - ✅ PSB → GPIO 21 (Pin 40) **重要：必須接HIGH選擇並行模式**
@@ -20,6 +21,10 @@
 - ✅ D5 → GPIO 6 (Pin 31)
 - ✅ D6 → GPIO 5 (Pin 29)
 - ✅ D7 → GPIO 11 (Pin 23)
+
+#### 背光連接 (可選)
+- ✅ BLA → 5V (通過220Ω限流電阻)
+- ✅ BLK → GND
 
 ### 軟體需求
 

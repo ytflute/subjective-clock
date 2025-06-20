@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 # 載入環境變數
 load_dotenv()
 
-# LCD ST7920 連接設定 (並行模式)
+# LCD ST7920 (12864B-V2.3) 連接設定 (並行模式)
 LCD_PINS = {
-    'RS': 26,     # Register Select
+    'RS': 26,     # Register Select (A0)
     'E': 19,      # Enable
     'D4': 13,     # Data 4
     'D5': 6,      # Data 5
@@ -16,6 +16,11 @@ LCD_PINS = {
     'PSB': 21,    # Parallel/Serial Bus select (設為 HIGH 使用並行模式)
     'RST': 20     # Reset
 }
+
+# 12864B-V2.3 特殊連接說明：
+# R/W 針腳 → GND (設定為寫入模式，我們不需要讀取LCD)
+# BLA (背光正極) → 5V 或 3.3V (通過限流電阻，可選)
+# BLK (背光負極) → GND (可選)
 
 # 按鈕連接設定
 BUTTON_PIN = 18

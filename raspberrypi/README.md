@@ -26,19 +26,24 @@
 
 ## 接線圖
 
-### LCD ST7920 連接
+### LCD 12864B-V2.3 (ST7920) 連接
 ```
 LCD Pin  -> Raspberry Pi GPIO
 VCC      -> 5V (Pin 2)
 GND      -> GND (Pin 6)
-RS       -> GPIO 26 (Pin 37)
+RS (A0)  -> GPIO 26 (Pin 37)
+R/W      -> GND (Pin 14) ← 重要！設定為寫入模式
 E        -> GPIO 19 (Pin 35)
 D4       -> GPIO 13 (Pin 33)
 D5       -> GPIO 6 (Pin 31)
 D6       -> GPIO 5 (Pin 29)
 D7       -> GPIO 11 (Pin 23)
-PSB      -> GPIO 21 (Pin 40) - 設為HIGH使用並行模式
+PSB      -> GPIO 21 (Pin 40) ← 重要！設為HIGH使用並行模式
 RST      -> GPIO 20 (Pin 38)
+
+可選背光連接：
+BLA      -> 5V (通過220Ω電阻)
+BLK      -> GND
 ```
 
 ### 按鈕連接
