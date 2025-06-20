@@ -18,11 +18,14 @@ sudo apt install -y \
     python3-pip \
     python3-venv \
     python3-dev \
+    python3-rpi.gpio \
     git \
     alsa-utils \
     sox \
     ffmpeg \
-    portaudio19-dev
+    portaudio19-dev \
+    i2c-tools \
+    build-essential
 
 echo "正在建立虛擬環境..."
 
@@ -69,6 +72,18 @@ EOF
 
 # 重新載入systemd
 sudo systemctl daemon-reload
+
+echo "正在設定GPIO和硬體介面..."
+
+# 啟用GPIO (通常預設已啟用，但確保啟用)
+echo "確保GPIO介面已啟用..."
+
+# 檢查並設定GPIO權限
+sudo usermod -a -G gpio pi 2>/dev/null || echo "GPIO群組已存在"
+
+# 確保使用者有GPIO權限
+echo 'SUBSYSTEM=="gpio", GROUP="gpio", MODE="0664"' | sudo tee /etc/udev/rules.d/99-gpio.rules > /dev/null
+echo 'SUBSYSTEM=="gpio*", PROGRAM="/bin/sh -c '\''chown -R root:gpio /sys/class/gpio && chmod -R 775 /sys/class/gpio; chown -R root:gpio /sys/devices/virtual/gpio && chmod -R 775 /sys/devices/virtual/gpio || true'\''"' | sudo tee -a /etc/udev/rules.d/99-gpio.rules > /dev/null
 
 echo "正在設定音頻..."
 

@@ -63,18 +63,23 @@ class LCD_ST7920:
         self.write_8_bits(data)
         
     def write_8_bits(self, value):
-        """寫入8位元資料"""
-        # 設定高4位元
+        """寫入8位元資料 (完整8位並行模式)"""
+        # 設定所有8位資料線
         GPIO.output(LCD_PINS['D7'], (value >> 7) & 0x01)
         GPIO.output(LCD_PINS['D6'], (value >> 6) & 0x01)
         GPIO.output(LCD_PINS['D5'], (value >> 5) & 0x01)
         GPIO.output(LCD_PINS['D4'], (value >> 4) & 0x01)
         
-        # 啟用脈衝
+        # 確保資料穩定
+        time.sleep(0.0001)
+        
+        # 啟用脈衝 (Enable High)
         GPIO.output(LCD_PINS['E'], GPIO.HIGH)
-        time.sleep(0.0001)
+        time.sleep(0.0005)  # 增加脈衝寬度確保資料讀取
+        
+        # 結束脈衝 (Enable Low)
         GPIO.output(LCD_PINS['E'], GPIO.LOW)
-        time.sleep(0.0001)
+        time.sleep(0.0005)  # 增加設定時間
         
     def clear(self):
         """清除顯示"""
