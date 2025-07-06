@@ -89,33 +89,51 @@ class HardwareTest:
             return False
     
     def test_audio(self):
-        """測試音頻系統"""
-        print("正在測試音頻系統...")
+        """測試 PAM8403 數位功率放大模組音頻系統"""
+        print("正在測試 PAM8403 數位功率放大模組...")
         
         try:
             from audio_manager import AudioManager
             
             audio = AudioManager()
             
-            # 測試文字轉語音
-            print("正在測試文字轉語音...")
-            audio_file = audio.text_to_speech("測試音頻系統", "zh-tw")
+            # 顯示音頻配置資訊
+            audio_info = audio.get_audio_info()
+            print(f"音頻放大器：{audio_info['amplifier']}")
+            print(f"輸出功率：{audio_info['power']}")
+            print(f"取樣率：{audio_info['sample_rate']}Hz")
+            print(f"聲道數：{audio_info['channels']}")
             
-            if audio_file:
-                print("語音生成成功，正在播放...")
-                success = audio.play_audio_file(audio_file)
-                if success:
-                    print("音頻測試成功！")
-                    return True
-                else:
-                    print("音頻播放失敗")
-                    return False
+            # 執行 PAM8403 專用測試
+            print("正在播放 PAM8403 測試音頻...")
+            success = audio.test_audio()
+            
+            if success:
+                print("✓ PAM8403 基本測試成功")
+                
+                # 測試多語言問候語
+                print("正在測試多語言問候語功能...")
+                test_cases = [
+                    ("台北", "台灣", "TW"),
+                    ("Tokyo", "Japan", "JP"),
+                    ("New York", "United States", "US")
+                ]
+                
+                for city, country, code in test_cases:
+                    print(f"  播放 {city}, {country} 問候語...")
+                    greeting_success = audio.speak_greeting(city, country, code)
+                    if not greeting_success:
+                        print(f"  ✗ {city} 問候語播放失敗")
+                    time.sleep(1)  # 短暫暫停
+                
+                print("✓ PAM8403 完整測試完成")
+                return True
             else:
-                print("語音生成失敗")
+                print("✗ PAM8403 測試失敗")
                 return False
                 
         except Exception as e:
-            print(f"音頻測試失敗: {e}")
+            print(f"✗ PAM8403 音頻測試錯誤: {e}")
             return False
     
     def test_api(self):

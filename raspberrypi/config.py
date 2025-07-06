@@ -26,8 +26,31 @@ LCD_PINS = {
 BUTTON_PIN = 18
 BUTTON_DEBOUNCE_TIME = 300  # 防彈跳時間 (毫秒)
 
-# 聲音模組設定
-AUDIO_OUTPUT = 'analog'  # 'analog' 或 'hdmi'
+# PAM8403 數位功率放大模組設定
+# PAM8403 連接說明：
+# - 電源：5V (可從 Raspberry Pi 5V 針腳供電)
+# - 音頻輸入：連接到 Raspberry Pi 3.5mm 音頻輸出
+# - 揚聲器輸出：3W+3W 雙聲道
+# - 音量控制：使用板載電位器調節
+AUDIO_CONFIG = {
+    'output_type': 'analog',     # 使用類比輸出到 PAM8403
+    'device': 'hw:0,0',          # ALSA 設備
+    'sample_rate': 44100,        # 44.1kHz 取樣率（高品質）
+    'channels': 2,               # 雙聲道立體聲
+    'buffer_size': 512,          # 緩衝區大小
+    'volume_control': 'hardware' # 使用 PAM8403 硬體音量控制
+}
+
+# 語音合成設定（針對 PAM8403 優化）
+TTS_CONFIG = {
+    'quality': 'high',           # 高品質語音合成
+    'slow': False,               # 正常語速
+    'format': 'mp3',             # MP3 格式（適合 PAM8403）
+    'bitrate': '128k'            # 128kbps 位元率
+}
+
+# 相容性設定（保持舊的設定名稱）
+AUDIO_OUTPUT = AUDIO_CONFIG['output_type']
 
 # API 端點設定
 BASE_URL = os.getenv('BASE_URL', 'https://subjective-clock02.vercel.app')

@@ -7,6 +7,7 @@
 - **LCD顯示器**：使用ST7920 LCD顯示匹配的城市和國家
 - **按鈕控制**：按下按鈕觸發「開始這一天」功能
 - **語音問候**：播放當地語言的「早安」問候語
+- **高品質音頻**：PAM8403 數位功率放大模組提供 3W+3W 立體聲輸出
 - **即時連接**：與甦醒地圖Web API即時通信
 
 ## 硬體需求
@@ -15,10 +16,12 @@
 - Raspberry Pi 4 (推薦) 或 Raspberry Pi 3B+
 - MicroSD卡 (32GB以上，Class 10)
 - ST7920 128x64 LCD顯示器
+- PAM8403 數位功率放大模組 (3W+3W)
+- 揚聲器 (4-8Ω, 3W以上) x2
 - 按鈕開關
 - 麵包板和杜邦線
 - 電源供應器 (5V 3A)
-- 喇叭或耳機 (用於音頻輸出)
+- 3.5mm 音頻線
 
 ### 可選組件
 - 外殼 (保護Raspberry Pi)
@@ -47,14 +50,26 @@ BLK      -> GND
 ```
 
 ### 按鈕連接
-```
+```－
 按鈕一端 -> GPIO 18 (Pin 12)
 按鈕另一端 -> GND (Pin 14)
 ```
 
-### 音頻輸出
-- 使用3.5mm音頻輸出接口連接喇叭或耳機
-- 或通過HDMI輸出音頻
+### PAM8403 數位功率放大模組連接
+```
+電源連接：
+PAM8403 VCC   -> Raspberry Pi 5V (Pin 2)
+PAM8403 GND   -> Raspberry Pi GND (Pin 6)
+
+音頻連接：
+Raspberry Pi 3.5mm 音頻輸出 -> PAM8403 Audio Input (使用3.5mm音頻線)
+
+揚聲器連接：
+PAM8403 L+/L- -> 左聲道揚聲器 (4-8Ω, 3W+)
+PAM8403 R+/R- -> 右聲道揚聲器 (4-8Ω, 3W+)
+```
+
+詳細連接說明請參考：[PAM8403_AUDIO_SETUP.md](PAM8403_AUDIO_SETUP.md)
 
 ## 軟體安裝
 
@@ -158,10 +173,13 @@ sudo systemctl start subjective-clock.service
 - 確認接線正確
 - 檢查對比度設定
 
-**音頻沒有聲音**
-- 確認音量設定：`alsamixer`
-- 檢查音頻輸出設定：`sudo raspi-config`
-- 確認喇叭連接
+**PAM8403 沒有聲音輸出**
+- 檢查 PAM8403 電源 LED 是否亮起
+- 確認 3.5mm 音頻線連接正確
+- 檢查 PAM8403 電位器設定（順時針增加音量）
+- 確認音頻輸出設定：`amixer cget numid=3` (應顯示 values=1)
+- 測試音頻：`python3 -c "from audio_manager import AudioManager; AudioManager().test_audio()"`
+- 檢查揚聲器阻抗和功率匹配 (4-8Ω, 3W+)
 
 **網路連接問題**
 - 檢查網路連接：`ping google.com`
@@ -197,6 +215,28 @@ python3 main.py
 
 ### 新增語言支援
 在 `audio_manager.py` 的 `get_greeting_by_country()` 函數中新增更多國家和語言。
+
+## PAM8403 音頻優化
+
+### 音質設定
+系統已針對 PAM8403 數位功率放大模組進行優化：
+
+- **取樣率**：44.1kHz (CD 品質)
+- **位元深度**：16-bit
+- **聲道**：立體聲
+- **輸出功率**：3W + 3W
+- **音頻格式**：MP3 (適合數位處理)
+
+### 音量控制
+PAM8403 提供兩種音量控制方式：
+
+1. **硬體控制**（推薦）：使用 PAM8403 上的電位器
+2. **軟體控制**：使用系統音量設定
+
+### 疑難排解
+如遇到音頻問題，請參考：
+- [PAM8403 設定指南](PAM8403_AUDIO_SETUP.md)
+- [硬體測試腳本](test_hardware.py) - 執行音頻測試
 
 ## 技術架構
 

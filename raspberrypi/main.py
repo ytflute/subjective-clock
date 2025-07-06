@@ -58,8 +58,9 @@ class SubjectiveClockDevice:
                 ""
             ])
             
-            # 初始化音頻管理器
+            # 初始化 PAM8403 音頻管理器
             self.audio = AudioManager()
+            logger.info("PAM8403 數位功率放大模組已就緒")
             
             # 初始化API客戶端
             self.api = APIClient()
