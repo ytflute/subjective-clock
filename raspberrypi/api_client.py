@@ -29,12 +29,19 @@ class APIClient:
     def calculate_target_latitude_from_time(self):
         """基於時間分鐘數計算目標緯度"""
         now = datetime.now()
-        minutes = now.minute  # 0-59
+        hours = now.hour
+        minutes = now.minute
         
-        # 線性映射：0分=北緯90度，30分≈赤道0度，59分=南緯90度
-        target_latitude = 90 - (minutes * 180 / 59)
+        # 檢查是否在7:50-8:10特例時間段
+        if (hours == 7 and minutes >= 50) or (hours == 8 and minutes <= 10):
+            logger.info(f"時間: {hours}:{minutes:02d} -> 特例時間段，將使用用戶當地位置")
+            return 'local'  # 返回特殊標記，表示使用用戶當地位置
         
-        logger.debug(f"時間: {minutes}分 -> 目標緯度: {target_latitude:.2f}度")
+        # 修正後的線性映射：避免極地問題
+        # 0分=北緯70度，30分≈赤道0度，59分=南緯70度
+        target_latitude = 70 - (minutes * 140 / 59)
+        
+        logger.debug(f"時間: {hours}:{minutes:02d} -> 目標緯度: {target_latitude:.2f}度 (避免極地)")
         return target_latitude
     
     def get_current_utc_offset(self):
@@ -47,6 +54,36 @@ class APIClient:
         logger.debug(f"當前UTC偏移量: {utc_offset}小時")
         return utc_offset
     
+    def get_user_location_by_ip(self):
+        """通過IP地理定位獲取用戶位置"""
+        try:
+            # 使用免費的IP地理定位服務
+            response = self.session.get(
+                'http://ip-api.com/json/?fields=lat,lon,city,country,countryCode,timezone',
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data.get('lat') and data.get('lon'):
+                    location = {
+                        'latitude': data['lat'],
+                        'longitude': data['lon'],
+                        'city': data.get('city', ''),
+                        'country': data.get('country', ''),
+                        'country_code': data.get('countryCode', ''),
+                        'timezone': data.get('timezone', '')
+                    }
+                    logger.info(f"通過IP獲取到位置: {location['city']}, {location['country']} ({location['latitude']:.4f}, {location['longitude']:.4f})")
+                    return location
+            
+            logger.warning("IP地理定位服務無法獲取位置")
+            return None
+            
+        except Exception as e:
+            logger.error(f"IP地理定位失敗: {e}")
+            return None
+    
     def find_matching_city(self):
         """呼叫城市匹配API"""
         try:
@@ -57,10 +94,29 @@ class APIClient:
             # 準備API請求參數
             params = {
                 'targetUTCOffset': utc_offset,
-                'targetLatitude': target_latitude,
                 'latitudePreference': 'any',
                 'userLocalTime': datetime.now().isoformat()
             }
+            
+            # 檢查是否為特例時間段
+            if target_latitude == 'local':
+                logger.info("特例時間段 (7:50-8:10)，正在獲取用戶地理位置...")
+                
+                # 獲取用戶位置
+                user_location = self.get_user_location_by_ip()
+                if user_location:
+                    params['useLocalPosition'] = True
+                    params['userLatitude'] = user_location['latitude']
+                    params['userLongitude'] = user_location['longitude']
+                    logger.info(f"使用用戶位置: {user_location['latitude']:.4f}, {user_location['longitude']:.4f}")
+                else:
+                    logger.warning("無法獲取用戶位置，使用備用方案")
+                    params['targetLatitude'] = 0  # 赤道附近
+                    params['useLocalPosition'] = False
+            else:
+                # 正常時間段：使用計算的緯度
+                params['targetLatitude'] = target_latitude
+                params['useLocalPosition'] = False
             
             logger.info(f"正在尋找匹配城市，參數: {params}")
             

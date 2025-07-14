@@ -66,13 +66,21 @@ window.addEventListener('firebaseReady', async (event) => {
     // 基於時間分鐘數計算目標緯度的函數
     function calculateTargetLatitudeFromTime() {
         const now = new Date();
-        const minutes = now.getMinutes(); // 0-59
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
         
-        // 線性映射：0分=北緯90度，30分≈赤道0度，59分=南緯90度
-        // 公式：targetLatitude = 90 - (minutes * 180 / 59)
-        const targetLatitude = 90 - (minutes * 180 / 59);
+        // 檢查是否在7:50-8:10特例時間段
+        if ((hours === 7 && minutes >= 50) || (hours === 8 && minutes <= 10)) {
+            console.log(`時間: ${hours}:${minutes.toString().padStart(2, '0')} -> 特例時間段，將使用用戶當地位置`);
+            return 'local'; // 返回特殊標記，表示使用用戶當地位置
+        }
         
-        console.log(`時間: ${minutes}分 -> 目標緯度: ${targetLatitude.toFixed(2)}度`);
+        // 修正後的線性映射：避免極地問題
+        // 0分=北緯70度，30分≈赤道0度，59分=南緯70度
+        // 公式：targetLatitude = 70 - (minutes * 140 / 59)
+        const targetLatitude = 70 - (minutes * 140 / 59);
+        
+        console.log(`時間: ${hours}:${minutes.toString().padStart(2, '0')} -> 目標緯度: ${targetLatitude.toFixed(2)}度 (避免極地)`);
         
         return targetLatitude;
     }
@@ -720,10 +728,69 @@ window.addEventListener('firebaseReady', async (event) => {
 
             // 基於當前時間的分鐘數計算緯度偏好
             const targetLatitude = calculateTargetLatitudeFromTime();
-            const latitudeDescription = getLatitudePreferenceDescription(targetLatitude);
-
-            console.log(`尋找 UTC${requiredUTCOffset >= 0 ? '+' : ''}${requiredUTCOffset.toFixed(2)} 的地方 (當地時間 ${targetLocalHour}:00)`);
-            console.log(`按下時間分鐘數: ${userLocalDate.getMinutes()}, 目標緯度: ${targetLatitude.toFixed(2)}° (${latitudeDescription})`);
+            
+            let requestBody = {
+                targetUTCOffset: requiredUTCOffset,
+                timeMinutes: userLocalDate.getMinutes(),
+                userCityVisitStats: cityVisitStats,
+                userLocalTime: userLocalDate.toLocaleTimeString('en-US', { hour12: false })
+            };
+            
+            // 檢查是否為特例時間段
+            if (targetLatitude === 'local') {
+                console.log("特例時間段 (7:50-8:10)，正在獲取用戶地理位置...");
+                resultTextDiv.innerHTML = "<p>特例時間段，正在獲取您的地理位置...</p>";
+                
+                try {
+                    const position = await new Promise((resolve, reject) => {
+                        if (!navigator.geolocation) {
+                            reject(new Error('瀏覽器不支持地理定位'));
+                            return;
+                        }
+                        
+                        navigator.geolocation.getCurrentPosition(
+                            resolve,
+                            reject,
+                            {
+                                enableHighAccuracy: true,
+                                timeout: 10000,
+                                maximumAge: 60000
+                            }
+                        );
+                    });
+                    
+                    const userLatitude = position.coords.latitude;
+                    const userLongitude = position.coords.longitude;
+                    
+                    console.log(`用戶位置：緯度 ${userLatitude.toFixed(4)}°, 經度 ${userLongitude.toFixed(4)}°`);
+                    
+                    // 設定為使用用戶當地位置
+                    requestBody.useLocalPosition = true;
+                    requestBody.userLatitude = userLatitude;
+                    requestBody.userLongitude = userLongitude;
+                    
+                    resultTextDiv.innerHTML = "<p>已獲取地理位置，正在尋找當地城市...</p>";
+                    
+                } catch (error) {
+                    console.error('獲取地理位置失敗:', error);
+                    alert('無法獲取地理位置，請檢查瀏覽器設定或網絡連接。將使用備用方案。');
+                    
+                    // 備用方案：使用UTC偏移推測位置
+                    requestBody.targetLatitude = 0; // 赤道附近
+                    requestBody.useLocalPosition = false;
+                    
+                    findCityButton.disabled = false;
+                    return;
+                }
+            } else {
+                // 正常時間段：使用計算的緯度
+                const latitudeDescription = getLatitudePreferenceDescription(targetLatitude);
+                console.log(`尋找 UTC${requiredUTCOffset >= 0 ? '+' : ''}${requiredUTCOffset.toFixed(2)} 的地方 (當地時間 ${targetLocalHour}:00)`);
+                console.log(`按下時間分鐘數: ${userLocalDate.getMinutes()}, 目標緯度: ${targetLatitude.toFixed(2)}° (${latitudeDescription})`);
+                
+                requestBody.targetLatitude = targetLatitude;
+                requestBody.useLocalPosition = false;
+            }
 
             // 調用我們的新 API 來尋找城市
             const response = await fetch('/api/find-city-geonames', {
@@ -731,15 +798,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    targetUTCOffset: requiredUTCOffset,
-                    targetLatitude: targetLatitude, // 傳遞目標緯度
-                    timeMinutes: userLocalDate.getMinutes(), // 傳遞分鐘數用於記錄
-                    userCityVisitStats: cityVisitStats, // 傳遞用戶城市訪問統計
-                    userLocalTime: userLocalDate.toLocaleTimeString('en-US', { hour12: false }), // 傳遞用戶當地時間
-                    latitude: userLocalDate.getTimezoneOffset() ? -userLocalDate.getTimezoneOffset() / 60 : 0, // 傳遞用戶當地緯度
-                    longitude: 0 // 傳遞用戶當地經度
-                })
+                body: JSON.stringify(requestBody)
             });
 
             if (!response.ok) {
