@@ -363,6 +363,71 @@ class APIClient:
         except Exception as e:
             logger.error(f"網路連線測試失敗: {e}")
             return False
+    
+    def save_user_record(self, city_data):
+        """儲存使用者記錄到網站資料庫"""
+        try:
+            from config import USER_CONFIG
+            
+            # 計算目標緯度和 UTC 偏移（簡化版）
+            now = datetime.now()
+            minutes = now.minute
+            
+            # 基於時間分鐘數計算目標緯度
+            if (now.hour == 7 and minutes >= 50) or (now.hour == 8 and minutes <= 10):
+                latitude_description = "當地位置 (7:50-8:10特例時間段)"
+                target_latitude = city_data.get('latitude', 0)
+            else:
+                target_latitude = 70 - (minutes * 140 / 59)
+                latitude_description = f"基於時間 {minutes} 分鐘計算的緯度偏好"
+            
+            # 準備記錄資料
+            record_data = {
+                'userDisplayName': USER_CONFIG['display_name'],
+                'dataIdentifier': USER_CONFIG['identifier'],
+                'city': city_data['city'],
+                'country': city_data['country'],
+                'city_zh': city_data.get('city_zh', city_data['city']),
+                'country_zh': city_data.get('country_zh', city_data['country']),
+                'country_iso_code': city_data.get('country_code', ''),
+                'latitude': city_data.get('latitude', 0),
+                'longitude': city_data.get('longitude', 0),
+                'timezone': city_data.get('timezone', 'UTC'),
+                'localTime': now.isoformat(),
+                'targetUTCOffset': 8,  # 台灣時區
+                'matchedCityUTCOffset': 8,
+                'source': 'raspberry_pi_dsi_api',
+                'translationSource': 'api',
+                'timeMinutes': minutes,
+                'latitudePreference': target_latitude,
+                'latitudeDescription': latitude_description,
+                'deviceType': USER_CONFIG['device_type']
+            }
+            
+            print(f"🔄 正在同步使用者 '{USER_CONFIG['display_name']}' 的記錄...")
+            
+            # 發送到 API
+            response = self.session.post(
+                API_ENDPOINTS['save_record'],
+                json=record_data,
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                if result.get('success'):
+                    print(f"✅ 記錄已成功同步到網站，歷史 ID: {result.get('historyId')}")
+                    return True
+                else:
+                    print(f"❌ 記錄同步失敗: {result.get('error')}")
+                    return False
+            else:
+                print(f"❌ API 回應錯誤: {response.status_code}")
+                return False
+                
+        except Exception as e:
+            print(f"❌ 儲存使用者記錄失敗: {e}")
+            return False
 
 # 測試程式
 if __name__ == "__main__":

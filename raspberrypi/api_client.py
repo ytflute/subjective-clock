@@ -5,7 +5,7 @@ import requests
 import json
 import logging
 from datetime import datetime, timezone
-from config import API_ENDPOINTS, DEBUG_MODE
+from config import API_ENDPOINTS, USER_CONFIG, DEBUG_MODE
 
 # 設定日誌
 if DEBUG_MODE:
@@ -212,6 +212,68 @@ class APIClient:
         except Exception as e:
             logger.error(f"獲取完整城市資訊失敗: {e}")
             return None
+    
+    def save_user_record(self, city_info):
+        """儲存使用者記錄到網站資料庫"""
+        try:
+            # 計算目標緯度和 UTC 偏移
+            target_latitude = self.calculate_target_latitude_from_time()
+            utc_offset = self.get_current_utc_offset()
+            
+            # 如果是特例時間段，設定適當的描述
+            if target_latitude == 'local':
+                latitude_description = "當地位置 (7:50-8:10特例時間段)"
+                target_latitude = city_info.get('latitude', 0)
+            else:
+                from datetime import datetime
+                minutes = datetime.now().minute
+                latitude_description = f"基於時間 {minutes} 分鐘計算的緯度偏好"
+            
+            # 準備記錄資料
+            record_data = {
+                'userDisplayName': USER_CONFIG['display_name'],
+                'dataIdentifier': USER_CONFIG['identifier'],
+                'city': city_info['city'],
+                'country': city_info['country'],
+                'city_zh': city_info.get('city_zh', city_info['city']),
+                'country_zh': city_info.get('country_zh', city_info['country']),
+                'country_iso_code': city_info.get('country_code', ''),
+                'latitude': city_info.get('latitude', 0),
+                'longitude': city_info.get('longitude', 0),
+                'timezone': city_info.get('timezone', 'UTC'),
+                'localTime': city_info.get('local_time', datetime.now().isoformat()),
+                'targetUTCOffset': utc_offset,
+                'matchedCityUTCOffset': utc_offset,  # 使用相同值
+                'source': 'raspberry_pi_api',
+                'translationSource': city_info.get('translationSource', 'api'),
+                'timeMinutes': datetime.now().minute,
+                'latitudePreference': target_latitude if target_latitude != 'local' else city_info.get('latitude', 0),
+                'latitudeDescription': latitude_description,
+                'deviceType': USER_CONFIG['device_type']
+            }
+            
+            logger.info(f"正在儲存使用者 '{USER_CONFIG['display_name']}' 的記錄...")
+            
+            # 發送到 API
+            response = self.session.post(
+                API_ENDPOINTS['save_record'],
+                json=record_data,
+                timeout=10
+            )
+            
+            response.raise_for_status()
+            result = response.json()
+            
+            if result.get('success'):
+                logger.info(f"記錄已成功同步到網站，歷史 ID: {result.get('historyId')}")
+                return True
+            else:
+                logger.error(f"記錄同步失敗: {result.get('error')}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"儲存使用者記錄失敗: {e}")
+            return False
     
     def cleanup(self):
         """清理資源"""

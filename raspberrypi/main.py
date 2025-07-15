@@ -138,6 +138,9 @@ class SubjectiveClockDevice:
             # 播放問候語
             self.play_greeting(city_info)
             
+            # 同步記錄到網站（背景執行）
+            self._sync_user_record(city_info)
+            
             # 設定顯示計時器
             self.set_display_timer()
             
@@ -183,6 +186,28 @@ class SubjectiveClockDevice:
                 
         except Exception as e:
             logger.error(f"播放問候語失敗: {e}")
+    
+    def _sync_user_record(self, city_info):
+        """同步使用者記錄到網站（背景執行）"""
+        try:
+            import threading
+            
+            def sync_record():
+                try:
+                    success = self.api.save_user_record(city_info)
+                    if success:
+                        logger.info("✅ 記錄已成功同步到甦醒地圖網站")
+                    else:
+                        logger.warning("⚠️ 記錄同步失敗，但裝置繼續正常運作")
+                except Exception as e:
+                    logger.error(f"同步記錄時發生錯誤: {e}")
+            
+            # 在背景執行緒中同步記錄
+            sync_thread = threading.Thread(target=sync_record, daemon=True)
+            sync_thread.start()
+            
+        except Exception as e:
+            logger.error(f"無法啟動記錄同步: {e}")
     
     def show_error(self, error_msg):
         """顯示錯誤訊息"""

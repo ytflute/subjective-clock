@@ -741,6 +741,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 console.log("特例時間段 (7:50-8:10)，正在獲取用戶地理位置...");
                 resultTextDiv.innerHTML = "<p>正在獲取您的地理位置...</p>";
                 
+                // 為特例時間段定義 latitudeDescription
+                const latitudeDescription = "當地位置 (7:50-8:10特例時間段)";
+                
                 try {
                     const position = await new Promise((resolve, reject) => {
                         if (!navigator.geolocation) {

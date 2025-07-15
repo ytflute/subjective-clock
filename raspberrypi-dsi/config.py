@@ -103,7 +103,15 @@ ANIMATION_CONFIG = {
 API_ENDPOINTS = {
     'find_city': 'https://subjective-clock.vercel.app/api/find-city-geonames',
     'translate': 'https://subjective-clock.vercel.app/api/translate-location',
-    'generate_story': 'https://subjective-clock.vercel.app/api/generateStory'
+    'generate_story': 'https://subjective-clock.vercel.app/api/generateStory',
+    'save_record': 'https://subjective-clock.vercel.app/api/save-record'
+}
+
+# 使用者設定
+USER_CONFIG = {
+    'display_name': 'future',
+    'identifier': 'future',
+    'device_type': 'raspberry_pi_dsi'
 }
 
 # API請求配置

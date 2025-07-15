@@ -284,14 +284,24 @@ class WakeUpMapApp:
         processing_thread.start()
     
     def _sync_with_web(self, city_data):
-        """與網頁同步資料 (可選功能)"""
+        """與網頁同步資料 - 儲存使用者記錄到甦醒地圖網站"""
         try:
-            # 這裡可以實現與網頁系統的同步
-            # 例如：發送資料到Firebase、調用webhook等
-            self.logger.info("與網頁同步資料")
+            import threading
             
-            # 暫時只記錄到日誌
-            self.logger.info(f"同步資料: {city_data}")
+            def sync_record():
+                try:
+                    success = self.api_client.save_user_record(city_data)
+                    if success:
+                        self.logger.info("✅ 記錄已成功同步到甦醒地圖網站")
+                    else:
+                        self.logger.warning("⚠️ 記錄同步失敗，但裝置繼續正常運作")
+                except Exception as e:
+                    self.logger.error(f"同步記錄時發生錯誤: {e}")
+            
+            # 在背景執行緒中同步記錄
+            sync_thread = threading.Thread(target=sync_record, daemon=True)
+            sync_thread.start()
+            self.logger.info("🔄 已啟動背景同步程序")
             
         except Exception as e:
             self.logger.error(f"與網頁同步失敗: {e}")
