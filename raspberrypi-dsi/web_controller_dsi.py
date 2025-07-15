@@ -119,7 +119,26 @@ class WebControllerDSI:
             options = self._setup_chrome_options()
             
             # 設定 ChromeDriver Service (Selenium 4.x 方式)
-            service = Service()
+            # 自動尋找 ChromeDriver 路徑
+            chromedriver_paths = [
+                '/usr/local/bin/chromedriver',
+                '/usr/bin/chromedriver',
+                'chromedriver'  # 如果在 PATH 中
+            ]
+            
+            chromedriver_path = None
+            for path in chromedriver_paths:
+                if os.path.exists(path) and os.access(path, os.X_OK):
+                    chromedriver_path = path
+                    break
+            
+            if chromedriver_path:
+                service = Service(executable_path=chromedriver_path)
+                logger.info(f"使用 ChromeDriver: {chromedriver_path}")
+            else:
+                service = Service()
+                logger.warning("未找到 ChromeDriver，使用預設路徑")
+            
             service.log_path = "/tmp/chromedriver-dsi.log"
             
             self.driver = webdriver.Chrome(service=service, options=options)
