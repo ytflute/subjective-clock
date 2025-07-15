@@ -192,8 +192,8 @@ class APIClient:
                 logger.error(f"尋找城市失敗: {e}")
                 return None
         
-        logger.error("API請求重試次數已用盡")
-        return None
+        logger.error("API請求重試次數已用盡，使用備用城市資料")
+        return self._get_fallback_city()
     
     def _format_local_time(self, data: Dict[str, Any]) -> str:
         """格式化當地時間"""
@@ -210,6 +210,124 @@ class APIClient:
         except Exception as e:
             logger.warning(f"格式化當地時間失敗: {e}")
             return datetime.now().strftime('%H:%M:%S')
+    
+    def _get_fallback_city(self):
+        """獲取備用城市資料（當API不可用時）"""
+        import random
+        
+        # 備用城市資料庫
+        fallback_cities = [
+            {
+                'city': '台北',
+                'city_zh': '台北',
+                'country': '台灣',
+                'country_zh': '台灣',
+                'country_code': 'TW',
+                'latitude': 25.0330,
+                'longitude': 121.5654,
+                'timezone': 'Asia/Taipei',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 2646204,
+                'source': 'fallback'
+            },
+            {
+                'city': '東京',
+                'city_zh': '東京',
+                'country': '日本',
+                'country_zh': '日本',
+                'country_code': 'JP',
+                'latitude': 35.6762,
+                'longitude': 139.6503,
+                'timezone': 'Asia/Tokyo',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 13929286,
+                'source': 'fallback'
+            },
+            {
+                'city': '首爾',
+                'city_zh': '首爾',
+                'country': '韓國',
+                'country_zh': '韓國',
+                'country_code': 'KR',
+                'latitude': 37.5665,
+                'longitude': 126.9780,
+                'timezone': 'Asia/Seoul',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 9776000,
+                'source': 'fallback'
+            },
+            {
+                'city': '紐約',
+                'city_zh': '紐約',
+                'country': '美國',
+                'country_zh': '美國',
+                'country_code': 'US',
+                'latitude': 40.7128,
+                'longitude': -74.0060,
+                'timezone': 'America/New_York',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 8336817,
+                'source': 'fallback'
+            },
+            {
+                'city': '巴黎',
+                'city_zh': '巴黎',
+                'country': '法國',
+                'country_zh': '法國',
+                'country_code': 'FR',
+                'latitude': 48.8566,
+                'longitude': 2.3522,
+                'timezone': 'Europe/Paris',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 2165423,
+                'source': 'fallback'
+            },
+            {
+                'city': '倫敦',
+                'city_zh': '倫敦',
+                'country': '英國',
+                'country_zh': '英國',
+                'country_code': 'GB',
+                'latitude': 51.5074,
+                'longitude': -0.1278,
+                'timezone': 'Europe/London',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 8982000,
+                'source': 'fallback'
+            },
+            {
+                'city': '香港',
+                'city_zh': '香港',
+                'country': '香港',
+                'country_zh': '香港',
+                'country_code': 'HK',
+                'latitude': 22.3193,
+                'longitude': 114.1694,
+                'timezone': 'Asia/Hong_Kong',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 7496981,
+                'source': 'fallback'
+            },
+            {
+                'city': '新加坡',
+                'city_zh': '新加坡',
+                'country': '新加坡',
+                'country_zh': '新加坡',
+                'country_code': 'SG',
+                'latitude': 1.3521,
+                'longitude': 103.8198,
+                'timezone': 'Asia/Singapore',
+                'local_time': datetime.now().strftime('%H:%M:%S'),
+                'population': 5850342,
+                'source': 'fallback'
+            }
+        ]
+        
+        # 隨機選擇一個城市
+        selected_city = random.choice(fallback_cities)
+        
+        logger.info(f"使用備用城市資料: {selected_city['city']}, {selected_city['country']}")
+        return selected_city
     
     def get_weather_info(self, latitude: float, longitude: float):
         """獲取天氣資訊 (可選功能)"""
