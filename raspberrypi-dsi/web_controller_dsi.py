@@ -14,6 +14,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.common.exceptions import TimeoutException, WebDriverException
 
 # 導入配置
@@ -117,10 +118,11 @@ class WebControllerDSI:
             
             options = self._setup_chrome_options()
             
-            # 設定 ChromeDriver
-            service_args = ['--verbose', '--log-path=/tmp/chromedriver-dsi.log']
+            # 設定 ChromeDriver Service (Selenium 4.x 方式)
+            service = Service()
+            service.log_path = "/tmp/chromedriver-dsi.log"
             
-            self.driver = webdriver.Chrome(options=options, service_args=service_args)
+            self.driver = webdriver.Chrome(service=service, options=options)
             self.driver.set_page_load_timeout(30)
             
             logger.info("瀏覽器啟動成功")
