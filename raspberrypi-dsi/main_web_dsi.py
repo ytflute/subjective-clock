@@ -129,11 +129,7 @@ class WakeUpMapWebApp:
             # 4. 初始化按鈕處理器
             if ButtonHandler and button_handler_type:
                 self.logger.info(f"初始化按鈕處理器 ({button_handler_type})...")
-                self.button_handler = ButtonHandler(
-                    pin=BUTTON_CONFIG['pin'],
-                    pull_up=BUTTON_CONFIG['pull_up'],
-                    bounce_time=BUTTON_CONFIG['bounce_time']
-                )
+                self.button_handler = ButtonHandler()
                 
                 # 設定按鈕事件回調
                 self.button_handler.on_short_press = self.on_short_press
