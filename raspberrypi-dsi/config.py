@@ -33,6 +33,37 @@ LED_CONFIG = {
 }
 
 # =============================================================================
+# 音頻配置
+# =============================================================================
+
+# 音頻硬體配置
+AUDIO_CONFIG = {
+    'enabled': True,
+    'output_device': 'default',  # ALSA音頻輸出設備
+    'volume': 80,  # 預設音量 (0-100)
+    'sample_rate': 44100,  # 採樣率
+    'channels': 2,  # 聲道數 (1=單聲道, 2=立體聲)
+}
+
+# GF1002 喇叭配置
+SPEAKER_CONFIG = {
+    'connection': '3.5mm',  # 連接方式：'3.5mm' 或 'gpio'
+    'output_pin': 'headphone',  # 樹莓派3.5mm音頻輸出
+    'impedance': '8ohm',  # 喇叭阻抗
+    'power': '2w',  # 喇叭功率
+    'notes': '連接到樹莓派3.5mm音頻插孔或GPIO音頻針腳'
+}
+
+# TTS (文字轉語音) 配置
+TTS_CONFIG = {
+    'engine': 'pyttsx3',  # TTS引擎：'pyttsx3', 'espeak', 'festival'
+    'speed': 150,  # 語速 (words per minute)
+    'voice_id': None,  # 聲音ID (None=預設)
+    'cache_enabled': True,  # 啟用音頻快取
+    'cache_dir': '/tmp/wakeupmap_audio_cache'
+}
+
+# =============================================================================
 # 顯示配置
 # =============================================================================
 
@@ -132,6 +163,33 @@ MORNING_GREETINGS = {
     'vi': 'Chào buổi sáng! Một ngày mới bắt đầu!',
     'hi': 'सुप्रभात! एक नया दिन शुरू होता है!',
     'default': 'Good morning! A new day begins!'
+}
+
+# TTS語音語言代碼對應
+TTS_LANGUAGE_MAP = {
+    'zh-TW': 'zh',     # 中文（繁體）
+    'zh-CN': 'zh',     # 中文（簡體）
+    'en': 'en',        # 英語
+    'ja': 'ja',        # 日語
+    'ko': 'ko',        # 韓語
+    'es': 'es',        # 西班牙語
+    'fr': 'fr',        # 法語
+    'de': 'de',        # 德語
+    'it': 'it',        # 義大利語
+    'pt': 'pt',        # 葡萄牙語
+    'ru': 'ru',        # 俄語
+    'ar': 'ar',        # 阿拉伯語
+    'th': 'th',        # 泰語
+    'vi': 'vi',        # 越南語
+    'hi': 'hi',        # 印地語
+    'default': 'en'    # 預設英語
+}
+
+# 音頻文件管理
+AUDIO_FILES = {
+    'greeting_format': 'greeting_{language}_{timestamp}.wav',  # 問候語音頻文件格式
+    'max_cache_size': 50,  # 最大快取文件數量
+    'cache_timeout': 86400,  # 快取過期時間（秒，24小時）
 }
 
 # =============================================================================

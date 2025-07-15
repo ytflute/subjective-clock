@@ -9,6 +9,10 @@ requests>=2.25.1
 # 系統監控
 psutil>=5.8.0
 
+# 音頻處理
+pyttsx3>=2.90        # TTS文字轉語音引擎
+pygame>=2.0.0        # 音頻播放和混音
+
 # GUI框架 (已內建在Python中，但列出來記錄)
 # tkinter (built-in)
 
@@ -28,5 +32,4 @@ psutil>=5.8.0
 # 可選依賴 (用於擴展功能)
 # opencv-python>=4.5.0  # 如果需要攝像頭功能
 # numpy>=1.21.0         # 如果需要數值計算
-# pillow>=8.0.0         # 如果需要圖像處理
-# pygame>=2.0.0         # 如果改用pygame做圖形界面 
+# pillow>=8.0.0         # 如果需要圖像處理 

@@ -77,6 +77,18 @@ install_python_deps() {
     # 安裝GPIO庫
     apt install -y python3-rpi.gpio
     
+    # 安裝音頻系統依賴
+    apt install -y alsa-utils alsa-base pulseaudio
+    
+    # 安裝TTS引擎
+    apt install -y espeak espeak-data
+    
+    # 安裝音頻編解碼器
+    apt install -y sox libsox-fmt-all
+    
+    # 安裝pygame依賴
+    apt install -y libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+    
     # 安裝其他依賴
     pip3 install -r requirements.txt
     
@@ -131,6 +143,53 @@ install_fonts() {
     fc-cache -fv
     
     log_info "字體安裝完成"
+}
+
+# 配置音頻系統
+configure_audio() {
+    log_step "配置音頻系統..."
+    
+    # 確保pi用戶在audio群組中
+    usermod -a -G audio pi
+    
+    # 設定ALSA配置
+    cat > /home/pi/.asoundrc << 'EOF'
+# ALSA配置 - WakeUpMap
+pcm.!default {
+    type pulse
+}
+ctl.!default {
+    type pulse
+}
+EOF
+    
+    # 設定正確的音頻輸出
+    if [ -f /boot/config.txt ]; then
+        # 確保音頻已啟用
+        if ! grep -q "^dtparam=audio=on" /boot/config.txt; then
+            echo "dtparam=audio=on" >> /boot/config.txt
+        fi
+    fi
+    
+    # 設定amixer音量
+    amixer sset PCM,0 80% || log_warning "無法設定音量，可能需要重啟後再試"
+    
+    # 創建音頻快取目錄
+    mkdir -p /tmp/wakeupmap_audio_cache
+    chown pi:pi /tmp/wakeupmap_audio_cache
+    chmod 755 /tmp/wakeupmap_audio_cache
+    
+    # 設定PulseAudio自動啟動
+    mkdir -p /home/pi/.config/pulse
+    cat > /home/pi/.config/pulse/client.conf << 'EOF'
+# PulseAudio客戶端配置
+autospawn = yes
+EOF
+    
+    chown -R pi:pi /home/pi/.config
+    chown pi:pi /home/pi/.asoundrc
+    
+    log_info "音頻系統配置完成"
 }
 
 # 創建服務檔案
@@ -286,6 +345,7 @@ show_post_install_info() {
     echo "   - 按鈕：GPIO 18 → 按鈕 → GND (使用內建上拉電阻)"
     echo "   - LED：GPIO 16 → 限流電阻 → LED → GND"
     echo "   - DSI螢幕：連接到DSI接口"
+    echo "   - GF1002喇叭：連接到樹莓派3.5mm音頻插孔"
     echo
     echo "2. 重新啟動系統："
     echo "   sudo reboot"
@@ -308,6 +368,8 @@ show_post_install_info() {
     echo "- 測試按鈕：python3 button_handler.py"
     echo "- 測試顯示：python3 display_manager.py"
     echo "- 測試API：python3 api_client.py"
+    echo "- 測試音頻：speaker-test -t wav -c 2"
+    echo "- 測試TTS：espeak 'Hello World'"
     echo
     echo "==============================================="
 }
@@ -322,6 +384,7 @@ main() {
     install_python_deps
     configure_dsi_display
     install_fonts
+    configure_audio
     setup_permissions
     create_service
     configure_auto_login

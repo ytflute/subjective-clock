@@ -25,6 +25,7 @@ try:
     from button_handler import ButtonHandler
     from display_manager import DisplayManager
     from api_client import APIClient
+    from audio_manager import get_audio_manager, cleanup_audio_manager
 except ImportError as e:
     print(f"模組導入失敗: {e}")
     print("請確保所有必要的檔案都在正確的位置")
@@ -95,6 +96,7 @@ class WakeUpMapApp:
         self.button_handler: Optional[ButtonHandler] = None
         self.display_manager: Optional[DisplayManager] = None
         self.api_client: Optional[APIClient] = None
+        self.audio_manager = None
         
         # 狀態管理
         self.is_processing = False
@@ -131,6 +133,15 @@ class WakeUpMapApp:
                 short_press_callback=self.on_button_press,
                 long_press_callback=self.on_long_press
             )
+            
+            # 初始化音頻管理器
+            self.logger.info("初始化音頻管理器...")
+            try:
+                self.audio_manager = get_audio_manager()
+                self.logger.info("音頻管理器初始化成功")
+            except Exception as e:
+                self.logger.warning(f"音頻管理器初始化失敗: {e}")
+                self.audio_manager = None
             
             # 啟動螢幕保護執行緒
             if SCREENSAVER_CONFIG['enabled']:
@@ -196,6 +207,9 @@ class WakeUpMapApp:
                     self.display_manager.show_result_screen(city_data)
                     self.logger.info(f"成功找到甦醒城市: {city_data['city']}, {city_data['country']}")
                     
+                    # 播放早安問候語
+                    self._play_morning_greeting(city_data)
+                    
                     # 這裡可以添加與網頁的同步功能
                     self._sync_with_web(city_data)
                     
@@ -227,6 +241,37 @@ class WakeUpMapApp:
             
         except Exception as e:
             self.logger.error(f"與網頁同步失敗: {e}")
+    
+    def _play_morning_greeting(self, city_data):
+        """播放早安問候語"""
+        try:
+            if not self.audio_manager:
+                self.logger.warning("音頻管理器未初始化，跳過音頻播放")
+                return
+            
+            # 獲取國家代碼和城市名稱
+            country_code = city_data.get('countryCode', 'US')
+            city_name = city_data.get('city', '')
+            
+            self.logger.info(f"播放早安問候語: {country_code}, {city_name}")
+            
+            # 在背景執行音頻播放，避免阻塞UI
+            def play_audio():
+                try:
+                    success = self.audio_manager.play_greeting(country_code, city_name)
+                    if success:
+                        self.logger.info("早安問候語播放成功")
+                    else:
+                        self.logger.warning("早安問候語播放失敗")
+                except Exception as e:
+                    self.logger.error(f"播放音頻時發生錯誤: {e}")
+            
+            # 創建音頻播放執行緒
+            audio_thread = threading.Thread(target=play_audio, daemon=True)
+            audio_thread.start()
+            
+        except Exception as e:
+            self.logger.error(f"播放早安問候語失敗: {e}")
     
     def _show_system_info(self):
         """顯示系統資訊"""
@@ -336,6 +381,11 @@ class WakeUpMapApp:
             # 關閉顯示管理器
             if self.display_manager:
                 self.display_manager.stop()
+            
+            # 清理音頻管理器
+            if self.audio_manager:
+                cleanup_audio_manager()
+                self.audio_manager = None
             
             self.logger.info("WakeUpMap 應用程式已關閉")
             
