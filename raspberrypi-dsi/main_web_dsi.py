@@ -140,8 +140,31 @@ class WakeUpMapWebApp:
                 self.logger.warning("無法初始化按鈕處理器")
                 self.button_handler = None
             
-            # 5. 顯示就緒畫面
-            self.display_manager.show_idle_screen()
+            # 5. 啟動瀏覽器並載入網頁（背景運行）
+            self.logger.info("啟動瀏覽器並載入甦醒地圖網頁...")
+            self.display_manager.show_loading_screen("正在載入甦醒地圖...")
+            
+            # 啟動瀏覽器
+            if self.web_controller.start_browser():
+                # 載入網站
+                if self.web_controller.open_website():
+                    # 填入使用者名稱
+                    if self.web_controller.fill_username():
+                        self.logger.info("甦醒地圖網頁已就緒，等待按鈕觸發")
+                        self.display_manager.show_idle_screen()
+                        print("甦醒地圖已載入！按下按鈕開啟今天...")
+                    else:
+                        self.logger.error("使用者名稱設定失敗")
+                        self.display_manager.show_error_screen('api_error')
+                        return False
+                else:
+                    self.logger.error("網站載入失敗")
+                    self.display_manager.show_error_screen('network_error')
+                    return False
+            else:
+                self.logger.error("瀏覽器啟動失敗")
+                self.display_manager.show_error_screen('display_error')
+                return False
             
             # 6. 設定螢幕保護器
             self._setup_screensaver()
@@ -209,35 +232,50 @@ class WakeUpMapWebApp:
         self.logger.info("收到按鈕長按事件")
         self._update_activity()
         
-        # 長按功能：顯示系統資訊或關閉瀏覽器
+        # 長按功能：重新載入網頁
         self._show_system_info()
     
     def _start_web_mode(self):
-        """開始網頁模式處理流程"""
+        """觸發甦醒地圖開始（按鈕同步功能）"""
         self.is_processing = True
         
         def process():
             try:
-                self.logger.info("開始甦醒地圖網頁模式...")
+                self.logger.info("觸發甦醒地圖開始...")
                 
-                # 執行完整的網頁自動化序列
-                success = self.web_controller.run_full_sequence()
+                # 顯示觸發狀態
+                if self.display_manager:
+                    self.display_manager.show_loading_screen("正在開啟今天...")
+                
+                # 只點擊開始按鈕（網頁已經載入並填好使用者名稱）
+                success = self.web_controller.click_start_button()
                 
                 if success:
-                    self.logger.info("✅ 甦醒地圖網頁模式啟動成功")
+                    self.logger.info("✅ 甦醒地圖已開始")
+                    
+                    # 顯示成功狀態
+                    if self.display_manager:
+                        self.display_manager.show_loading_screen("甦醒地圖啟動中...")
                     
                     # 播放成功音效（如果有音頻）
                     if self.audio_manager:
                         try:
-                            # 播放簡單的成功音效
                             threading.Thread(
                                 target=self.audio_manager.play_notification_sound,
                                 daemon=True
                             ).start()
                         except Exception as e:
                             self.logger.warning(f"播放音效失敗: {e}")
+                    
+                    # 3秒後回到待機畫面
+                    time.sleep(3)
+                    if self.display_manager:
+                        self.display_manager.show_idle_screen()
+                        
                 else:
-                    self.logger.error("甦醒地圖網頁模式啟動失敗")
+                    self.logger.error("觸發甦醒地圖失敗")
+                    if self.display_manager:
+                        self.display_manager.show_error_screen('api_error')
                 
             except Exception as e:
                 self.logger.error(f"網頁模式處理錯誤: {e}")
@@ -252,39 +290,49 @@ class WakeUpMapWebApp:
         process_thread.start()
     
     def _show_system_info(self):
-        """顯示系統資訊"""
+        """重新載入網頁（長按功能）"""
         try:
-            self.logger.info("顯示系統資訊")
+            self.logger.info("重新載入甦醒地圖網頁...")
             
-            # 創建系統資訊資料
-            system_data = {
-                'city': '系統資訊',
-                'country': f'用戶: {USER_CONFIG["display_name"]}',
-                'country_iso_code': 'sys',
-                'latitude': 0,
-                'longitude': 0,
-                'local_time': time.strftime("%Y-%m-%d %H:%M:%S")
-            }
+            if self.display_manager:
+                self.display_manager.show_loading_screen("正在重新載入...")
             
-            self.display_manager.show_result_screen(system_data)
+            # 重新載入網站並填入使用者名稱
+            def reload_process():
+                try:
+                    # 重新開啟網站
+                    if self.web_controller.open_website():
+                        # 重新填入使用者名稱
+                        if self.web_controller.fill_username():
+                            self.logger.info("網頁重新載入成功")
+                            if self.display_manager:
+                                self.display_manager.show_loading_screen("重載完成")
+                            time.sleep(2)
+                            if self.display_manager:
+                                self.display_manager.show_idle_screen()
+                        else:
+                            self.logger.error("重新填入使用者名稱失敗")
+                            if self.display_manager:
+                                self.display_manager.show_error_screen('api_error')
+                    else:
+                        self.logger.error("重新載入網站失敗")
+                        if self.display_manager:
+                            self.display_manager.show_error_screen('network_error')
+                            
+                except Exception as e:
+                    self.logger.error(f"重新載入錯誤: {e}")
+                    if self.display_manager:
+                        self.display_manager.show_error_screen('unknown_error')
             
-            # 3秒後關閉瀏覽器（如果有的話）
-            def close_browser_later():
-                time.sleep(3)
-                if self.web_controller:
-                    self.web_controller.close_browser()
-                    self.logger.info("瀏覽器已關閉")
-                self.display_manager.show_idle_screen()
-            
-            threading.Thread(target=close_browser_later, daemon=True).start()
+            threading.Thread(target=reload_process, daemon=True).start()
             
         except Exception as e:
-            self.logger.error(f"顯示系統資訊錯誤: {e}")
+            self.logger.error(f"重新載入處理錯誤: {e}")
     
     def run(self):
         """主運行迴圈"""
         self.logger.info("甦醒地圖網頁模式開始運行")
-        self.logger.info("按下按鈕開始甦醒地圖，長按顯示系統資訊")
+        self.logger.info("短按按鈕：開啟今天，長按按鈕：重新載入網頁")
         self.logger.info("按 Ctrl+C 停止...")
         
         self.is_running = True
