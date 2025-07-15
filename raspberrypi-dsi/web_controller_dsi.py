@@ -223,36 +223,46 @@ class WebControllerDSI:
                 self.display.show_error_screen('unknown_error')
             return False
     
-    def click_start_button(self):
-        """點擊開始按鈕（完整流程：載入資料 → 開始這一天）"""
+    def click_load_data_button(self):
+        """點擊載入資料按鈕（初始化時使用）"""
         try:
-            # 步驟1：點擊「載入資料」按鈕
             if self.display:
-                self.display.show_loading_screen("正在載入資料...")
+                self.display.show_loading_screen("正在載入用戶資料...")
             
-            logger.info("尋找載入資料按鈕...")
+            logger.info("點擊載入資料按鈕...")
             load_data_button = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.ID, "setUserNameButton"))
             )
             
             load_data_button.click()
-            logger.info("✅ 已點擊載入資料按鈕")
+            logger.info("✅ 載入資料完成")
             
-            # 等待處理
-            time.sleep(2)
+            # 等待處理完成
+            time.sleep(3)
             
-            # 步驟2：等待並點擊「開始這一天」按鈕
+            return True
+            
+        except TimeoutException:
+            logger.error("找不到載入資料按鈕")
+            return False
+        except Exception as e:
+            logger.error(f"載入資料錯誤：{str(e)}")
+            return False
+    
+    def click_start_button(self):
+        """點擊開始這一天按鈕"""
+        try:
             if self.display:
-                self.display.show_loading_screen("正在啟動甦醒地圖...")
+                self.display.show_loading_screen("正在開始這一天...")
             
-            logger.info("等待開始這一天按鈕啟用...")
-            start_button = WebDriverWait(self.driver, 15).until(
+            logger.info("點擊開始這一天按鈕...")
+            start_button = WebDriverWait(self.driver, 10).until(
                 EC.element_to_be_clickable((By.ID, "findCityButton"))
             )
             
             # 點擊開始這一天按鈕
             start_button.click()
-            logger.info("✅ 已點擊開始這一天按鈕")
+            logger.info("✅ 開始這一天！")
             
             # 等待一下讓頁面反應
             time.sleep(2)
@@ -272,15 +282,13 @@ class WebControllerDSI:
             
             return True
             
-        except TimeoutException as e:
-            error_msg = "無法找到載入資料按鈕或開始這一天按鈕"
-            logger.error(error_msg)
+        except TimeoutException:
+            logger.error("找不到開始這一天按鈕")
             if self.display:
                 self.display.show_error_screen('api_error')
             return False
         except Exception as e:
-            error_msg = f"執行開始流程錯誤：{str(e)}"
-            logger.error(error_msg)
+            logger.error(f"開始這一天錯誤：{str(e)}")
             if self.display:
                 self.display.show_error_screen('unknown_error')
             return False

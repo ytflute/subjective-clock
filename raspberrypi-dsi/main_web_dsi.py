@@ -150,9 +150,15 @@ class WakeUpMapWebApp:
                 if self.web_controller.open_website():
                     # 填入使用者名稱
                     if self.web_controller.fill_username():
-                        self.logger.info("甦醒地圖網頁已就緒，等待按鈕觸發")
-                        self.display_manager.show_idle_screen()
-                        print("甦醒地圖已載入！按下按鈕開啟今天...")
+                        # 自動點擊載入資料按鈕，完成初始化
+                        if self.web_controller.click_load_data_button():
+                            self.logger.info("甦醒地圖網頁已就緒，等待按鈕觸發")
+                            self.display_manager.show_idle_screen()
+                            print("甦醒地圖已就緒！按下按鈕開始這一天...")
+                        else:
+                            self.logger.error("載入資料失敗")
+                            self.display_manager.show_error_screen('api_error')
+                            return False
                     else:
                         self.logger.error("使用者名稱設定失敗")
                         self.display_manager.show_error_screen('api_error')
@@ -236,26 +242,26 @@ class WakeUpMapWebApp:
         self._show_system_info()
     
     def _start_web_mode(self):
-        """觸發甦醒地圖開始（按鈕同步功能）"""
+        """開始這一天（按鈕功能）"""
         self.is_processing = True
         
         def process():
             try:
-                self.logger.info("觸發甦醒地圖開始...")
+                self.logger.info("開始這一天...")
                 
-                # 顯示觸發狀態
+                # 顯示處理狀態
                 if self.display_manager:
-                    self.display_manager.show_loading_screen("正在開啟今天...")
+                    self.display_manager.show_loading_screen("正在開始這一天...")
                 
-                # 只點擊開始按鈕（網頁已經載入並填好使用者名稱）
+                # 點擊開始這一天按鈕（資料已在初始化時載入）
                 success = self.web_controller.click_start_button()
                 
                 if success:
-                    self.logger.info("✅ 甦醒地圖已開始")
+                    self.logger.info("✅ 這一天已開始！")
                     
                     # 顯示成功狀態
                     if self.display_manager:
-                        self.display_manager.show_loading_screen("甦醒地圖啟動中...")
+                        self.display_manager.show_loading_screen("這一天已開始！")
                     
                     # 播放成功音效（如果有音頻）
                     if self.audio_manager:
@@ -273,12 +279,12 @@ class WakeUpMapWebApp:
                         self.display_manager.show_idle_screen()
                         
                 else:
-                    self.logger.error("觸發甦醒地圖失敗")
+                    self.logger.error("開始這一天失敗")
                     if self.display_manager:
                         self.display_manager.show_error_screen('api_error')
                 
             except Exception as e:
-                self.logger.error(f"網頁模式處理錯誤: {e}")
+                self.logger.error(f"開始這一天處理錯誤: {e}")
                 if self.display_manager:
                     self.display_manager.show_error_screen('unknown_error')
                 
@@ -332,7 +338,7 @@ class WakeUpMapWebApp:
     def run(self):
         """主運行迴圈"""
         self.logger.info("甦醒地圖網頁模式開始運行")
-        self.logger.info("短按按鈕：開啟今天，長按按鈕：重新載入網頁")
+        self.logger.info("短按按鈕：開始這一天，長按按鈕：重新載入網頁")
         self.logger.info("按 Ctrl+C 停止...")
         
         self.is_running = True
