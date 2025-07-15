@@ -1,0 +1,32 @@
+# WakeUpMap DSI版本 - Python依賴
+
+# GPIO控制
+RPi.GPIO>=0.7.1
+
+# HTTP請求
+requests>=2.25.1
+
+# 系統監控
+psutil>=5.8.0
+
+# GUI框架 (已內建在Python中，但列出來記錄)
+# tkinter (built-in)
+
+# 日誌處理 (已內建在Python中)
+# logging (built-in)
+
+# 其他標準庫依賴 (已內建，記錄用途)
+# threading - 多執行緒支援
+# time - 時間處理
+# datetime - 日期時間處理
+# signal - 信號處理
+# json - JSON處理
+# os - 作業系統接口
+# sys - 系統相關功能
+# typing - 型別提示
+
+# 可選依賴 (用於擴展功能)
+# opencv-python>=4.5.0  # 如果需要攝像頭功能
+# numpy>=1.21.0         # 如果需要數值計算
+# pillow>=8.0.0         # 如果需要圖像處理
+# pygame>=2.0.0         # 如果改用pygame做圖形界面 

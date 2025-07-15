@@ -739,7 +739,7 @@ window.addEventListener('firebaseReady', async (event) => {
             // 檢查是否為特例時間段
             if (targetLatitude === 'local') {
                 console.log("特例時間段 (7:50-8:10)，正在獲取用戶地理位置...");
-                resultTextDiv.innerHTML = "<p>特例時間段，正在獲取您的地理位置...</p>";
+                resultTextDiv.innerHTML = "<p>正在獲取您的地理位置...</p>";
                 
                 try {
                     const position = await new Promise((resolve, reject) => {
