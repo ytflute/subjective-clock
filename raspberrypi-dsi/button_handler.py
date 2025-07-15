@@ -58,41 +58,36 @@ class ButtonHandler:
                 GPIO.setup(self.led_pin, GPIO.OUT)
                 GPIO.output(self.led_pin, GPIO.LOW)
             
-            # 設定按鈕事件檢測
-            if BUTTON_CONFIG['pull_up']:
-                # 上拉電阻：按下時為LOW
-                GPIO.add_event_detect(
-                    self.button_pin, 
-                    GPIO.FALLING, 
-                    callback=self._button_pressed_callback,
-                    bouncetime=self.bounce_time
-                )
-                GPIO.add_event_detect(
-                    self.button_pin, 
-                    GPIO.RISING, 
-                    callback=self._button_released_callback,
-                    bouncetime=self.bounce_time
-                )
-            else:
-                # 下拉電阻：按下時為HIGH
-                GPIO.add_event_detect(
-                    self.button_pin, 
-                    GPIO.RISING, 
-                    callback=self._button_pressed_callback,
-                    bouncetime=self.bounce_time
-                )
-                GPIO.add_event_detect(
-                    self.button_pin, 
-                    GPIO.FALLING, 
-                    callback=self._button_released_callback,
-                    bouncetime=self.bounce_time
-                )
+            # 設定按鈕事件檢測 - 使用 GPIO.BOTH 來檢測兩種邊緣
+            GPIO.add_event_detect(
+                self.button_pin, 
+                GPIO.BOTH,  # 檢測上升和下降邊緣
+                callback=self._button_edge_callback,
+                bouncetime=self.bounce_time
+            )
             
             logger.info(f"GPIO初始化成功 - 按鈕針腳: {self.button_pin}, LED針腳: {self.led_pin}")
             
         except Exception as e:
             logger.error(f"GPIO初始化失敗: {e}")
             raise
+    
+    def _button_edge_callback(self, channel):
+        """統一的邊緣檢測回調 - 處理按下和釋放事件"""
+        current_state = GPIO.input(channel)
+        
+        if BUTTON_CONFIG['pull_up']:
+            # 上拉電阻：LOW = 按下，HIGH = 釋放
+            if current_state == GPIO.LOW:
+                self._button_pressed_callback(channel)
+            else:
+                self._button_released_callback(channel)
+        else:
+            # 下拉電阻：HIGH = 按下，LOW = 釋放
+            if current_state == GPIO.HIGH:
+                self._button_pressed_callback(channel)
+            else:
+                self._button_released_callback(channel)
     
     def _button_pressed_callback(self, channel):
         """按鈕按下回調"""
