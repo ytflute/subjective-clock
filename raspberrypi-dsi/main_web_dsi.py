@@ -28,15 +28,15 @@ except ImportError as e:
     print("請確保所有必要的檔案都在正確的位置")
     sys.exit(1)
 
-# 按鈕處理器導入（支援多種實現）
+# 按鈕處理器導入（優先使用 pigpio，更穩定）
 ButtonHandler = None
 try:
-    from button_handler import ButtonHandler
-    button_handler_type = "RPi.GPIO"
+    from button_handler_pigpio import ButtonHandlerPigpio as ButtonHandler
+    button_handler_type = "pigpiod"
 except ImportError:
     try:
-        from button_handler_pigpio import ButtonHandlerPigpio as ButtonHandler
-        button_handler_type = "pigpiod"
+        from button_handler import ButtonHandler
+        button_handler_type = "RPi.GPIO"
     except ImportError:
         print("警告：無法導入任何按鈕處理器模組")
         button_handler_type = None
