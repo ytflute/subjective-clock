@@ -196,15 +196,52 @@ install_fonts() {
 install_audio() {
     log_step "安裝音頻依賴..."
     
-    sudo apt install -y \
-        alsa-utils \
-        alsa-base \
-        pulseaudio \
-        espeak \
-        espeak-data \
-        sox \
-        libsox-fmt-all \
-        portaudio19-dev
+    # 基本音頻套件（必需）
+    local BASIC_AUDIO_PACKAGES=(
+        "alsa-utils"
+        "pulseaudio"
+        "espeak"
+        "espeak-data"
+        "sox"
+        "libsox-fmt-all"
+        "portaudio19-dev"
+    )
+    
+    # 可選音頻套件（可能在某些版本中不存在）
+    local OPTIONAL_AUDIO_PACKAGES=(
+        "alsa-base"
+        "libasound2-dev"
+    )
+    
+    # 安裝基本套件
+    log_info "安裝基本音頻套件..."
+    for package in "${BASIC_AUDIO_PACKAGES[@]}"; do
+        if sudo apt install -y "$package"; then
+            log_info "✓ $package 安裝成功"
+        else
+            log_error "✗ $package 安裝失敗"
+            exit 1
+        fi
+    done
+    
+    # 嘗試安裝可選套件
+    log_info "嘗試安裝可選音頻套件..."
+    for package in "${OPTIONAL_AUDIO_PACKAGES[@]}"; do
+        if sudo apt install -y "$package" 2>/dev/null; then
+            log_info "✓ $package 安裝成功"
+        else
+            log_warning "⚠ $package 安裝失敗或不存在，跳過"
+        fi
+    done
+    
+    # 確保音頻服務運行
+    log_info "配置音頻服務..."
+    
+    # 啟動並啟用音頻服務
+    sudo systemctl --global enable pulseaudio.service pulseaudio.socket 2>/dev/null || log_warning "PulseAudio 服務配置略過"
+    
+    # 添加用戶到音頻群組
+    sudo usermod -a -G audio $USER
     
     log_info "音頻依賴安裝完成"
 }
