@@ -224,20 +224,35 @@ class WebControllerDSI:
             return False
     
     def click_start_button(self):
-        """點擊開始按鈕"""
+        """點擊開始按鈕（完整流程：載入資料 → 開始這一天）"""
         try:
+            # 步驟1：點擊「載入資料」按鈕
+            if self.display:
+                self.display.show_loading_screen("正在載入資料...")
+            
+            logger.info("尋找載入資料按鈕...")
+            load_data_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.ID, "setUserNameButton"))
+            )
+            
+            load_data_button.click()
+            logger.info("✅ 已點擊載入資料按鈕")
+            
+            # 等待處理
+            time.sleep(2)
+            
+            # 步驟2：等待並點擊「開始這一天」按鈕
             if self.display:
                 self.display.show_loading_screen("正在啟動甦醒地圖...")
             
-            # 等待開始按鈕出現並可點擊
-            start_button = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.ID, "startButton"))
+            logger.info("等待開始這一天按鈕啟用...")
+            start_button = WebDriverWait(self.driver, 15).until(
+                EC.element_to_be_clickable((By.ID, "findCityButton"))
             )
             
-            # 點擊開始按鈕
+            # 點擊開始這一天按鈕
             start_button.click()
-            
-            logger.info("已點擊開始按鈕")
+            logger.info("✅ 已點擊開始這一天按鈕")
             
             # 等待一下讓頁面反應
             time.sleep(2)
@@ -257,13 +272,15 @@ class WebControllerDSI:
             
             return True
             
-        except TimeoutException:
-            logger.error("找不到開始按鈕")
+        except TimeoutException as e:
+            error_msg = "無法找到載入資料按鈕或開始這一天按鈕"
+            logger.error(error_msg)
             if self.display:
                 self.display.show_error_screen('api_error')
             return False
         except Exception as e:
-            logger.error(f"點擊開始按鈕錯誤：{str(e)}")
+            error_msg = f"執行開始流程錯誤：{str(e)}"
+            logger.error(error_msg)
             if self.display:
                 self.display.show_error_screen('unknown_error')
             return False
