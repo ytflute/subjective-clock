@@ -106,6 +106,7 @@ class WakeUpMapApp:
         # 執行緒
         self.screensaver_thread = None
         self.display_thread = None
+        self.demo_thread = None
         
         self.logger.info("WakeUpMap 應用程式初始化")
     
@@ -128,11 +129,17 @@ class WakeUpMapApp:
             
             # 初始化按鈕處理器
             self.logger.info("初始化按鈕處理器...")
-            self.button_handler = ButtonHandler()
-            self.button_handler.register_callbacks(
-                short_press_callback=self.on_button_press,
-                long_press_callback=self.on_long_press
-            )
+            try:
+                self.button_handler = ButtonHandler()
+                self.button_handler.register_callbacks(
+                    short_press_callback=self.on_button_press,
+                    long_press_callback=self.on_long_press
+                )
+                self.logger.info("按鈕處理器初始化成功")
+            except Exception as e:
+                self.logger.warning(f"按鈕處理器初始化失敗: {e}")
+                self.logger.warning("程式將在沒有按鈕功能的情況下繼續運行")
+                self.button_handler = None
             
             # 初始化音頻管理器
             self.logger.info("初始化音頻管理器...")
@@ -150,6 +157,15 @@ class WakeUpMapApp:
                     daemon=True
                 )
                 self.screensaver_thread.start()
+            
+            # 如果按鈕處理器初始化失敗，啟動演示模式
+            if self.button_handler is None:
+                self.logger.info("啟動演示模式 - 每30秒自動觸發甦醒地圖")
+                self.demo_thread = threading.Thread(
+                    target=self._demo_loop,
+                    daemon=True
+                )
+                self.demo_thread.start()
             
             self.logger.info("所有元件初始化完成")
             return True
@@ -348,6 +364,27 @@ class WakeUpMapApp:
             except Exception as e:
                 self.logger.error(f"螢幕保護執行緒錯誤: {e}")
                 time.sleep(10)
+    
+    def _demo_loop(self):
+        """演示模式執行緒循環 - 自動觸發甦醒地圖功能"""
+        demo_count = 0
+        while self.running:
+            try:
+                # 等待30秒
+                time.sleep(30)
+                
+                if not self.running:
+                    break
+                
+                demo_count += 1
+                self.logger.info(f"演示模式觸發 #{demo_count}")
+                
+                # 模擬按鈕按下事件
+                self.on_button_press()
+                
+            except Exception as e:
+                self.logger.error(f"演示模式執行緒錯誤: {e}")
+                time.sleep(30)
     
     def run(self):
         """運行主程式"""
