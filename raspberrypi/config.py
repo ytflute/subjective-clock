@@ -53,7 +53,7 @@ TTS_CONFIG = {
 AUDIO_OUTPUT = AUDIO_CONFIG['output_type']
 
 # API 端點設定
-BASE_URL = os.getenv('BASE_URL', 'https://subjective-clock02.vercel.app')
+BASE_URL = os.getenv('BASE_URL', 'https://subjective-clock.vercel.app')
 API_ENDPOINTS = {
     'find_city': f'{BASE_URL}/api/find-city-geonames',
     'translate': f'{BASE_URL}/api/translate-location'

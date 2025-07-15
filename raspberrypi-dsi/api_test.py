@@ -89,7 +89,7 @@ def test_vercel_connection():
     try:
         # 測試主網站
         print("測試主網站...")
-        response = requests.get('https://subjective-clock02.vercel.app', timeout=15)
+        response = requests.get('https://subjective-clock.vercel.app', timeout=15)
         print(f"主網站狀態: {response.status_code}")
         
         if response.status_code == 200:
