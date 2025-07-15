@@ -736,13 +736,16 @@ window.addEventListener('firebaseReady', async (event) => {
                 userLocalTime: userLocalDate.toLocaleTimeString('en-US', { hour12: false })
             };
             
+            // 初始化 latitudeDescription 變數
+            let latitudeDescription;
+            
             // 檢查是否為特例時間段
             if (targetLatitude === 'local') {
                 console.log("特例時間段 (7:50-8:10)，正在獲取用戶地理位置...");
                 resultTextDiv.innerHTML = "<p>正在獲取您的地理位置...</p>";
                 
-                // 為特例時間段定義 latitudeDescription
-                const latitudeDescription = "當地位置 (7:50-8:10特例時間段)";
+                // 為特例時間段設定 latitudeDescription
+                latitudeDescription = "當地位置 (7:50-8:10特例時間段)";
                 
                 try {
                     const position = await new Promise((resolve, reject) => {
@@ -787,7 +790,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 }
             } else {
                 // 正常時間段：使用計算的緯度
-                const latitudeDescription = getLatitudePreferenceDescription(targetLatitude);
+                latitudeDescription = getLatitudePreferenceDescription(targetLatitude);
                 console.log(`尋找 UTC${requiredUTCOffset >= 0 ? '+' : ''}${requiredUTCOffset.toFixed(2)} 的地方 (當地時間 ${targetLocalHour}:00)`);
                 console.log(`按下時間分鐘數: ${userLocalDate.getMinutes()}, 目標緯度: ${targetLatitude.toFixed(2)}° (${latitudeDescription})`);
                 
