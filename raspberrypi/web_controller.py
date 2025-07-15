@@ -1,60 +1,150 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+"""
+甦醒地圖 - 網頁控制器
+透過 Selenium 控制瀏覽器開啟甦醒地圖網站
+"""
 
 import os
+import sys
 import time
-import logging
-import subprocess
+import threading
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from config import USER_CONFIG, DEBUG_MODE
+from selenium.common.exceptions import TimeoutException, WebDriverException
 
-# 設定日誌
-if DEBUG_MODE:
-    logging.basicConfig(level=logging.DEBUG)
-else:
-    logging.basicConfig(level=logging.INFO)
-
-logger = logging.getLogger(__name__)
+# 載入環境變數
+def load_env():
+    """載入 .env 檔案中的環境變數"""
+    env_vars = {}
+    try:
+        with open('.env', 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    key, value = line.split('=', 1)
+                    env_vars[key.strip()] = value.strip()
+    except FileNotFoundError:
+        print("警告：找不到 .env 檔案，使用預設設定")
+    return env_vars
 
 class WebController:
-    """網頁控制器：讓樹莓派控制甦醒地圖網頁"""
-    
-    def __init__(self, website_url="https://subjective-clock.vercel.app"):
-        self.website_url = website_url
-        self.driver = None
-        self.setup_browser()
+    def __init__(self, lcd_display=None):
+        """
+        初始化網頁控制器
         
-    def setup_browser(self):
-        """設定瀏覽器"""
+        Args:
+            lcd_display: LCD 顯示器物件，用於顯示狀態訊息
+        """
+        self.lcd = lcd_display
+        self.driver = None
+        self.env_vars = load_env()
+        
+        # 從環境變數或使用預設值
+        self.website_url = self.env_vars.get('WEBSITE_URL', 'https://subjective-clock.vercel.app/')
+        self.user_name = self.env_vars.get('USER_NAME', 'future')
+        self.browser_command = self.env_vars.get('BROWSER_COMMAND', 'chromium-browser')
+        
+        print(f"使用瀏覽器：{self.browser_command}")
+        print(f"目標網站：{self.website_url}")
+        print(f"使用者名稱：{self.user_name}")
+    
+    def _setup_chrome_options(self):
+        """設定 Chrome/Chromium 選項"""
+        options = Options()
+        
+        # 基本選項
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-web-security')
+        options.add_argument('--allow-running-insecure-content')
+        options.add_argument('--disable-extensions')
+        options.add_argument('--disable-plugins')
+        options.add_argument('--disable-images')  # 加快載入速度
+        options.add_argument('--disable-javascript-harmony-shipping')
+        options.add_argument('--disable-background-timer-throttling')
+        options.add_argument('--disable-backgrounding-occluded-windows')
+        options.add_argument('--disable-renderer-backgrounding')
+        
+        # 全螢幕模式
+        options.add_argument('--start-maximized')
+        options.add_argument('--kiosk')  # 無邊框全螢幕
+        
+        # 自動播放音頻
+        options.add_argument('--autoplay-policy=no-user-gesture-required')
+        
+        # 設定使用者資料目錄
+        options.add_argument('--user-data-dir=/tmp/chrome-data')
+        
+        # 根據瀏覽器類型設定二進位檔案路徑
+        if 'chromium' in self.browser_command.lower():
+            # Chromium 可能的路徑
+            chromium_paths = [
+                '/usr/bin/chromium-browser',
+                '/usr/bin/chromium',
+                '/snap/bin/chromium'
+            ]
+            for path in chromium_paths:
+                if os.path.exists(path):
+                    options.binary_location = path
+                    break
+        else:
+            # Google Chrome 可能的路徑
+            chrome_paths = [
+                '/usr/bin/google-chrome',
+                '/usr/bin/google-chrome-stable',
+                '/opt/google/chrome/chrome'
+            ]
+            for path in chrome_paths:
+                if os.path.exists(path):
+                    options.binary_location = path
+                    break
+        
+        return options
+    
+    def start_browser(self):
+        """啟動瀏覽器"""
         try:
-            # Chrome 瀏覽器選項
-            chrome_options = Options()
-            chrome_options.add_argument('--no-sandbox')
-            chrome_options.add_argument('--disable-dev-shm-usage')
-            chrome_options.add_argument('--disable-web-security')
-            chrome_options.add_argument('--allow-running-insecure-content')
-            chrome_options.add_argument('--autoplay-policy=no-user-gesture-required')
+            if self.lcd:
+                self.lcd.display_message("正在啟動瀏覽器...", "請稍候")
             
-            # 全螢幕模式（適合樹莓派）
-            chrome_options.add_argument('--start-fullscreen')
-            chrome_options.add_argument('--kiosk')
+            options = self._setup_chrome_options()
             
-            # 啟動瀏覽器
-            self.driver = webdriver.Chrome(options=chrome_options)
-            logger.info("瀏覽器初始化成功")
+            # 設定 ChromeDriver
+            service_args = ['--verbose', '--log-path=/tmp/chromedriver.log']
             
+            self.driver = webdriver.Chrome(options=options, service_args=service_args)
+            self.driver.set_page_load_timeout(30)
+            
+            print("瀏覽器啟動成功")
+            return True
+            
+        except WebDriverException as e:
+            error_msg = f"瀏覽器啟動失敗：{str(e)}"
+            print(error_msg)
+            if self.lcd:
+                self.lcd.display_message("瀏覽器啟動失敗", "請檢查設定")
+            return False
         except Exception as e:
-            logger.error(f"瀏覽器初始化失敗: {e}")
-            raise
+            error_msg = f"未預期的錯誤：{str(e)}"
+            print(error_msg)
+            if self.lcd:
+                self.lcd.display_message("啟動錯誤", "請重試")
+            return False
     
     def open_website(self):
-        """打開甦醒地圖網站"""
+        """開啟甦醒地圖網站"""
         try:
-            logger.info(f"正在打開網站: {self.website_url}")
+            if not self.driver:
+                print("瀏覽器尚未啟動")
+                return False
+            
+            if self.lcd:
+                self.lcd.display_message("正在載入網站...", self.website_url.split('//')[1][:16])
+            
+            print(f"正在開啟網站：{self.website_url}")
             self.driver.get(self.website_url)
             
             # 等待頁面載入
@@ -62,141 +152,163 @@ class WebController:
                 EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
             
-            logger.info("網站載入完成")
+            print("網站載入成功")
             return True
             
+        except TimeoutException:
+            error_msg = "網站載入逾時"
+            print(error_msg)
+            if self.lcd:
+                self.lcd.display_message("載入逾時", "請檢查網路")
+            return False
         except Exception as e:
-            logger.error(f"打開網站失敗: {e}")
+            error_msg = f"載入網站錯誤：{str(e)}"
+            print(error_msg)
+            if self.lcd:
+                self.lcd.display_message("載入失敗", "請重試")
             return False
     
-    def setup_user_info(self):
-        """設定使用者資訊"""
+    def fill_username(self):
+        """填入使用者名稱"""
         try:
-            logger.info("正在設定使用者資訊...")
+            if self.lcd:
+                self.lcd.display_message("正在填入名稱...", f"使用者：{self.user_name}")
             
-            # 等待並填入顯示名稱
-            display_name_input = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.ID, "displayName"))
+            # 等待使用者名稱輸入框出現
+            username_input = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.ID, "userName"))
             )
             
             # 清除並輸入使用者名稱
-            display_name_input.clear()
-            display_name_input.send_keys(USER_CONFIG['display_name'])
+            username_input.clear()
+            username_input.send_keys(self.user_name)
             
-            # 如果有組別選擇，也可以設定
-            try:
-                group_input = self.driver.find_element(By.ID, "groupName")
-                group_input.clear()
-                group_input.send_keys("樹莓派裝置")
-            except:
-                logger.debug("未找到組別輸入框")
-            
-            logger.info(f"使用者設定完成: {USER_CONFIG['display_name']}")
+            print(f"已填入使用者名稱：{self.user_name}")
             return True
             
+        except TimeoutException:
+            print("找不到使用者名稱輸入框")
+            if self.lcd:
+                self.lcd.display_message("找不到輸入框", "請檢查網頁")
+            return False
         except Exception as e:
-            logger.error(f"設定使用者資訊失敗: {e}")
+            print(f"填入使用者名稱錯誤：{str(e)}")
+            if self.lcd:
+                self.lcd.display_message("填入失敗", "請重試")
             return False
     
-    def trigger_wake_up(self):
-        """觸發「開始這一天」按鈕"""
+    def click_start_button(self):
+        """點擊開始按鈕"""
         try:
-            logger.info("正在觸發「開始這一天」...")
+            if self.lcd:
+                self.lcd.display_message("正在啟動...", "開始這一天")
             
-            # 等待並點擊「開始這一天」按鈕
-            wake_up_button = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.ID, "findCityButton"))
+            # 等待開始按鈕出現並可點擊
+            start_button = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.ID, "startButton"))
             )
             
-            # 點擊按鈕
-            wake_up_button.click()
-            logger.info("✅ 「開始這一天」已觸發")
+            # 點擊開始按鈕
+            start_button.click()
             
-            # 等待結果顯示
-            self.wait_for_result()
+            print("已點擊開始按鈕")
+            
+            # 等待一下讓頁面反應
+            time.sleep(2)
+            
+            if self.lcd:
+                self.lcd.display_message("甦醒地圖已啟動", "請查看瀏覽器")
+            
             return True
             
+        except TimeoutException:
+            print("找不到開始按鈕")
+            if self.lcd:
+                self.lcd.display_message("找不到按鈕", "請檢查網頁")
+            return False
         except Exception as e:
-            logger.error(f"觸發甦醒失敗: {e}")
+            print(f"點擊開始按鈕錯誤：{str(e)}")
+            if self.lcd:
+                self.lcd.display_message("點擊失敗", "請重試")
             return False
     
-    def wait_for_result(self):
-        """等待並監控結果顯示"""
+    def run_full_sequence(self):
+        """執行完整的自動化序列"""
         try:
-            logger.info("等待甦醒結果...")
+            # 1. 啟動瀏覽器
+            if not self.start_browser():
+                return False
             
-            # 等待結果區域出現內容
-            WebDriverWait(self.driver, 30).until(
-                lambda driver: len(driver.find_element(By.ID, "resultText").text) > 10
-            )
+            time.sleep(2)
             
-            # 獲取結果文字
-            result_text = self.driver.find_element(By.ID, "resultText").text
-            logger.info(f"甦醒結果: {result_text[:100]}...")
-            
-            # 等待語音播放完成（估計時間）
-            time.sleep(5)
-            
-        except Exception as e:
-            logger.warning(f"等待結果時發生錯誤: {e}")
-    
-    def perform_wake_up_sequence(self):
-        """執行完整的甦醒序列"""
-        try:
-            # 1. 打開網站
+            # 2. 開啟網站
             if not self.open_website():
                 return False
-                
-            # 2. 設定使用者資訊
-            if not self.setup_user_info():
+            
+            time.sleep(3)
+            
+            # 3. 填入使用者名稱
+            if not self.fill_username():
                 return False
-                
-            # 短暫等待確保設定生效
+            
             time.sleep(1)
             
-            # 3. 觸發甦醒
-            if not self.trigger_wake_up():
+            # 4. 點擊開始按鈕
+            if not self.click_start_button():
                 return False
-                
-            logger.info("🎉 完整甦醒序列執行成功！")
+            
+            print("自動化序列完成！")
             return True
             
         except Exception as e:
-            logger.error(f"甦醒序列執行失敗: {e}")
+            print(f"自動化序列錯誤：{str(e)}")
+            if self.lcd:
+                self.lcd.display_message("執行失敗", "請重試")
             return False
     
-    def cleanup(self):
-        """清理資源"""
+    def close_browser(self):
+        """關閉瀏覽器"""
         try:
             if self.driver:
                 self.driver.quit()
-                logger.info("瀏覽器已關閉")
+                self.driver = None
+                print("瀏覽器已關閉")
         except Exception as e:
-            logger.error(f"清理瀏覽器失敗: {e}")
+            print(f"關閉瀏覽器錯誤：{str(e)}")
     
-    def is_browser_alive(self):
-        """檢查瀏覽器是否仍在運行"""
+    def keep_alive(self):
+        """保持程式運行"""
         try:
-            if self.driver:
-                self.driver.current_url
-                return True
-            return False
-        except:
-            return False
+            while self.driver:
+                time.sleep(10)
+                # 檢查瀏覽器是否還在運行
+                try:
+                    self.driver.current_url
+                except:
+                    print("瀏覽器已關閉")
+                    break
+        except KeyboardInterrupt:
+            print("收到中斷訊號，正在關閉...")
+        finally:
+            self.close_browser()
 
-# 測試程式
-if __name__ == "__main__":
-    web_controller = WebController()
+def main():
+    """主程式 - 測試用"""
+    print("甦醒地圖網頁控制器測試")
+    
+    controller = WebController()
     
     try:
-        success = web_controller.perform_wake_up_sequence()
+        success = controller.run_full_sequence()
         if success:
-            print("✅ 甦醒序列測試成功")
+            print("測試成功！按 Ctrl+C 結束程式")
+            controller.keep_alive()
         else:
-            print("❌ 甦醒序列測試失敗")
-            
-        # 保持瀏覽器開啟一段時間查看結果
-        input("按 Enter 鍵關閉瀏覽器...")
-        
+            print("測試失敗")
+    except KeyboardInterrupt:
+        print("程式被中斷")
     finally:
-        web_controller.cleanup() 
+        controller.close_browser()
+
+if __name__ == "__main__":
+    main() 
