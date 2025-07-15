@@ -22,7 +22,6 @@ from config import (
 
 # 確保模組可以被導入
 try:
-    from button_handler import ButtonHandler
     from display_manager import DisplayManager
     from api_client import APIClient
     from audio_manager import get_audio_manager, cleanup_audio_manager
@@ -30,6 +29,19 @@ except ImportError as e:
     print(f"模組導入失敗: {e}")
     print("請確保所有必要的檔案都在正確的位置")
     sys.exit(1)
+
+# 按鈕處理器導入（支援多種實現）
+ButtonHandler = None
+try:
+    from button_handler import ButtonHandler
+    button_handler_type = "RPi.GPIO"
+except ImportError:
+    try:
+        from button_handler_pigpio import ButtonHandlerPigpio as ButtonHandler
+        button_handler_type = "pigpiod"
+    except ImportError:
+        print("警告：無法導入任何按鈕處理器模組")
+        button_handler_type = None
 
 # 設定日誌
 def setup_logging():
@@ -129,17 +141,43 @@ class WakeUpMapApp:
             
             # 初始化按鈕處理器
             self.logger.info("初始化按鈕處理器...")
-            try:
-                self.button_handler = ButtonHandler()
-                self.button_handler.register_callbacks(
-                    short_press_callback=self.on_button_press,
-                    long_press_callback=self.on_long_press
-                )
-                self.logger.info("按鈕處理器初始化成功")
-            except Exception as e:
-                self.logger.warning(f"按鈕處理器初始化失敗: {e}")
-                self.logger.warning("程式將在沒有按鈕功能的情況下繼續運行")
-                self.button_handler = None
+            self.button_handler = None
+            
+            if ButtonHandler is None:
+                self.logger.warning("沒有可用的按鈕處理器模組")
+            else:
+                # 首先嘗試使用預設的按鈕處理器
+                try:
+                    self.logger.info(f"嘗試使用 {button_handler_type} 按鈕處理器...")
+                    self.button_handler = ButtonHandler()
+                    self.button_handler.register_callbacks(
+                        short_press_callback=self.on_button_press,
+                        long_press_callback=self.on_long_press
+                    )
+                    self.logger.info(f"{button_handler_type} 按鈕處理器初始化成功")
+                    
+                except Exception as e:
+                    self.logger.warning(f"{button_handler_type} 按鈕處理器初始化失敗: {e}")
+                    
+                    # 如果是 RPi.GPIO 失敗，嘗試 pigpiod
+                    if button_handler_type == "RPi.GPIO":
+                        try:
+                            self.logger.info("嘗試使用 pigpiod 按鈕處理器作為備用方案...")
+                            from button_handler_pigpio import ButtonHandlerPigpio
+                            self.button_handler = ButtonHandlerPigpio()
+                            self.button_handler.register_callbacks(
+                                short_press_callback=self.on_button_press,
+                                long_press_callback=self.on_long_press
+                            )
+                            self.logger.info("pigpiod 按鈕處理器初始化成功")
+                        except Exception as e2:
+                            self.logger.warning(f"pigpiod 按鈕處理器也失敗: {e2}")
+                            self.button_handler = None
+                    else:
+                        self.button_handler = None
+            
+            if self.button_handler is None:
+                self.logger.warning("所有按鈕處理器都失敗，程式將在沒有按鈕功能的情況下繼續運行")
             
             # 初始化音頻管理器
             self.logger.info("初始化音頻管理器...")
