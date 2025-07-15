@@ -73,10 +73,10 @@ class WebControllerDSI:
         options.add_argument('--disable-backgrounding-occluded-windows')
         options.add_argument('--disable-renderer-backgrounding')
         
-        # DSI 螢幕優化設定
-        options.add_argument('--window-size=800,480')  # DSI 螢幕解析度
-        options.add_argument('--start-maximized')
-        options.add_argument('--kiosk')  # 無邊框全螢幕
+        # 瀏覽器視窗設定（非全螢幕模式）
+        options.add_argument('--window-size=1200,700')  # 合適的視窗大小
+        options.add_argument('--window-position=100,50')  # 視窗位置
+        # 移除 --kiosk 和 --start-maximized 以避免占據整個螢幕
         
         # 自動播放音頻
         options.add_argument('--autoplay-policy=no-user-gesture-required')
