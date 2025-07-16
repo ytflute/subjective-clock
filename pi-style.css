@@ -1,0 +1,532 @@
+/* Raspberry Pi 800x480 螢幕專用樣式 */
+
+/* === 基本重置和變數 === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #4d714f;
+    --secondary-color: #7a776d;
+    --background-color: #f0f2f5;
+    --surface-color: #ffffff;
+    --text-color: #333;
+    --text-secondary: #666;
+    --border-color: #ddd;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --border-radius: 8px;
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* === 基礎佈局 === */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+    width: 800px;
+    height: 480px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--surface-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* === 標題區域 === */
+.pi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: var(--shadow);
+    min-height: 50px;
+}
+
+.pi-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    animation: pulse 2s infinite;
+}
+
+.status-dot.offline {
+    background-color: var(--error-color);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* === 分頁導航 === */
+.tab-nav {
+    display: flex;
+    background-color: var(--surface-color);
+    border-bottom: 2px solid var(--border-color);
+    padding: 0 16px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background-color: transparent;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tab-button:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+}
+
+.tab-button.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background-color: #f8f9fa;
+}
+
+/* === 分頁內容 === */
+.tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* === 今日甦醒分頁 === */
+.clock-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 12px;
+}
+
+.action-area {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.load-button, .start-button {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.load-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.load-button:hover {
+    background-color: #6b6a62;
+}
+
+.start-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.start-button:hover:not(:disabled) {
+    background-color: #3e5a40;
+}
+
+.start-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.action-description {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+}
+
+.result-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.result-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    min-height: 20px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+}
+
+.flag-container {
+    text-align: center;
+}
+
+.flag-container img {
+    max-width: 60px;
+    max-height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.map-container {
+    flex: 1;
+    min-height: 200px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #f8f9fa;
+}
+
+/* === 甦醒軌跡分頁 === */
+.history-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 12px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.history-header p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.refresh-button {
+    padding: 6px 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.refresh-button:hover {
+    background-color: #3e5a40;
+}
+
+.history-content {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+}
+
+.history-list {
+    flex: 1;
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+}
+
+.history-list li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.history-list li:hover {
+    background-color: #f8f9fa;
+}
+
+.history-list li:last-child {
+    border-bottom: none;
+}
+
+.history-map {
+    flex: 1;
+    min-height: 250px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #f8f9fa;
+}
+
+/* === 眾人地圖分頁 === */
+.global-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 12px;
+}
+
+.global-header {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.global-header p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.global-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.date-control, .group-control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.date-control label, .group-control label {
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.date-input, .group-select {
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 12px;
+    background-color: white;
+}
+
+.global-map {
+    flex: 1;
+    min-height: 280px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #f8f9fa;
+}
+
+/* === 偵錯資訊 === */
+.debug-info {
+    font-size: 10px;
+    color: var(--text-secondary);
+    background-color: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+    max-height: 60px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+}
+
+/* === 彈出式視窗 === */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-dialog {
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+}
+
+.modal-content-wrapper {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body {
+    padding: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 13px;
+}
+
+.modal-footer {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    text-align: right;
+}
+
+.modal-button-secondary {
+    padding: 6px 16px;
+    background-color: var(--text-secondary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.modal-button-secondary:hover {
+    background-color: #555;
+}
+
+/* === 地圖樣式 === */
+.leaflet-container {
+    font-size: 12px;
+}
+
+.leaflet-popup-content {
+    font-size: 11px;
+    margin: 8px;
+}
+
+.leaflet-control {
+    font-size: 11px;
+}
+
+/* === 響應式調整 === */
+@media (max-width: 800px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        position: static;
+    }
+    
+    .global-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .history-content {
+        flex-direction: column;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+/* === 隱藏元素 === */
+.hidden {
+    display: none !important;
+}
+
+/* === 載入動畫 === */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+} 

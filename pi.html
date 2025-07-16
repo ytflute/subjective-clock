@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, initial-scale=1.0">
+    <title>甦醒地圖 Raspberry Pi</title>
+    
+    <!-- 網頁圖標設定 -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#4d714f">
+    
+    <link rel="stylesheet" href="pi-style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+<body>
+    <div class="container">
+        <header class="pi-header">
+            <h1>甦醒地圖</h1>
+            <div class="status-indicator">
+                <div id="connectionStatus" class="status-dot"></div>
+                <span id="currentUser">使用者：future</span>
+            </div>
+        </header>
+
+        <!-- 分頁導航 -->
+        <nav class="tab-nav">
+            <button id="tabButton-ClockTab" class="tab-button active" data-tab="ClockTab">今日甦醒</button>
+            <button id="tabButton-HistoryTab" class="tab-button" data-tab="HistoryTab">甦醒軌跡</button>
+            <button id="tabButton-GlobalTodayMapTab" class="tab-button" data-tab="GlobalTodayMapTab">眾人地圖</button>
+        </nav>
+
+        <!-- 今日甦醒分頁 -->
+        <div id="ClockTab" class="tab-content active">
+            <div class="clock-section">
+                <div class="action-area">
+                    <div class="action-buttons">
+                        <button id="setUserNameButton" class="load-button">載入資料</button>
+                        <button id="findCityButton" class="start-button" disabled>開始這一天</button>
+                    </div>
+                    <p class="action-description">按下按鈕，看看今天的你在地球上的哪個角落甦醒！</p>
+                </div>
+                
+                <div id="result" class="result-area">
+                    <div id="resultText" class="result-text"></div>
+                    <div id="flagContainer" class="flag-container"> 
+                        <img id="countryFlag" src="" alt="國家國旗" style="display:none;"/>
+                    </div>
+                    <div id="mapContainer" class="map-container"></div>
+                    <div id="debugInfo" class="debug-info"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 甦醒軌跡分頁 -->
+        <div id="HistoryTab" class="tab-content">
+            <div class="history-section">
+                <div class="history-header">
+                    <p>你的甦醒軌跡紀錄</p>
+                    <button id="refreshHistoryButton" class="refresh-button">刷新記錄</button>
+                </div>
+                <div class="history-content">
+                    <ul id="historyList" class="history-list"></ul>
+                    <div id="historyMapContainer" class="history-map"></div>
+                </div>
+                <div id="historyDebugInfo" class="debug-info"></div>
+            </div>
+        </div>
+
+        <!-- 眾人地圖分頁 -->
+        <div id="GlobalTodayMapTab" class="tab-content">
+            <div class="global-section">
+                <div class="global-header">
+                    <p>今天大家都在哪些角落甦醒？</p>
+                    <div class="global-controls">
+                        <div class="date-control">
+                            <label for="globalDate">日期:</label>
+                            <input type="date" id="globalDate" class="date-input">
+                        </div>
+                        <div class="group-control">
+                            <label for="groupFilter">組別:</label>
+                            <select id="groupFilter" class="group-select">
+                                <option value="all">所有人</option>
+                            </select>
+                        </div>
+                        <button id="refreshGlobalMapButton" class="refresh-button">查詢</button>
+                    </div>
+                </div>
+                <div id="globalTodayMapContainer" class="global-map"></div>
+                <div id="globalTodayDebugInfo" class="debug-info"></div>
+            </div>
+        </div>
+
+        <!-- 組別名稱隱藏輸入 (用於保持相容性) -->
+        <input type="hidden" id="groupName" value="">
+        <input type="hidden" id="userName" value="future">
+        
+        <!-- 隱藏的使用者資訊區域 (用於保持相容性) -->
+        <div style="display: none;">
+            <div class="current-user-info">
+                <span>目前使用者：</span>
+                <span id="currentUserId">future</span> |
+                <span id="currentUserDisplayName">future</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入彈跳式日誌視窗 -->
+    <div id="historyLogModal" class="modal" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content-wrapper">
+                <div class="modal-header">
+                    <h2 id="modalTitle">甦醒日誌詳情</h2>
+                    <span id="historyLogModalClose" class="modal-close-button">&times;</span>
+                </div>
+                <div id="historyLogModalContent" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button id="closeModalFooterButton" class="modal-button-secondary">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. 首先載入 Firebase 配置 -->
+    <script src="/api/config"></script>
+
+    <!-- 2. 載入 Firebase SDK 並初始化 -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js';
+        import { 
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken
+        } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js';
+        import { 
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, 
+            serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
+        } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
+
+        // Firebase 配置將由 /api/config 端點提供
+        if (window.firebaseConfig) {
+            const app = initializeApp(window.firebaseConfig);
+            
+            // 打包所有 Firebase 功能供主腳本使用
+            window.firebaseSDK = {
+                initializeApp,
+                getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+                getFirestore, collection, addDoc, query, where, getDocs, orderBy, 
+                serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
+            };
+            
+            // 發送 Firebase 就緒事件
+            window.dispatchEvent(new CustomEvent('firebaseReady'));
+        } else {
+            console.error('Firebase 配置未載入');
+        }
+    </script>
+
+    <!-- 3. 載入 Leaflet 地圖庫 -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <!-- 4. 載入主要應用程式腳本 -->
+    <script src="pi-script.js"></script>
+</body>
+</html> 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-甦醒地圖實體裝置主程式 (DSI版本 - 網頁模式)
-透過按鈕觸發 Selenium 自動化控制瀏覽器開啟甦醒地圖，並在 DSI 螢幕顯示狀態
+甦醒地圖實體裝置主程式 (網頁模式)
+透過按鈕觸發 Selenium 自動化控制瀏覽器開啟甦醒地圖
 """
 
 import os
@@ -20,7 +20,6 @@ from config import (
 
 # 確保模組可以被導入
 try:
-    from display_manager import DisplayManager
     from web_controller_dsi import WebControllerDSI
     from audio_manager import get_audio_manager, cleanup_audio_manager
 except ImportError as e:
@@ -83,114 +82,88 @@ def setup_logging():
             logger.warning(f"無法設定檔案日誌: {e}")
 
 class WakeUpMapWebApp:
-    """甦醒地圖網頁模式應用程式 (DSI版本)"""
+    """甦醒地圖網頁模式應用程式"""
     
     def __init__(self):
-        self.display_manager = None
-        self.button_handler = None
+        # 基本屬性
+        self.logger = logging.getLogger(self.__class__.__name__)
         self.web_controller = None
+        self.button_handler = None
+        
+        # 音訊管理
         self.audio_manager = None
         
-        self.is_running = False
-        self.is_processing = False
-        self.last_activity = time.time()
+        # 按鈕狀態
+        self.button_pressed_time = None
+        self.button_long_press_handled = False
         
-        # 螢幕保護器
+        # 螢幕保護程式
         self.screensaver_active = False
         self.screensaver_timer = None
         
-        self.logger = logging.getLogger(__name__)
+        # 運行狀態
+        self.running = False
+        self._stop_event = threading.Event()
+        
+        # 初始化
+        self._initialize()
     
-    def initialize(self):
-        """初始化所有組件"""
+    def _initialize(self):
+        """初始化應用程式組件"""
         try:
-            self.logger.info("=" * 50)
-            self.logger.info("甦醒地圖 DSI版本 - 網頁模式 初始化")
-            self.logger.info("=" * 50)
+            self.logger.info("甦醒地圖網頁模式初始化")
             
-            # 1. 初始化顯示管理器
-            self.logger.info("初始化 DSI 顯示管理器...")
-            self.display_manager = DisplayManager()
-            self.display_manager.show_loading_screen("正在初始化系統...")
-            
-            # 2. 初始化網頁控制器
+            # 初始化網頁控制器
             self.logger.info("初始化網頁控制器...")
-            self.web_controller = WebControllerDSI(display_manager=self.display_manager)
+            self.web_controller = WebControllerDSI()
             
-            # 3. 初始化音頻管理器（可選）
+            # 初始化音訊管理器
+            self.logger.info("初始化音訊管理器...")
             try:
-                self.logger.info("初始化音頻管理器...")
                 self.audio_manager = get_audio_manager()
-                self.logger.info("音頻管理器已就緒")
             except Exception as e:
-                self.logger.warning(f"音頻初始化失敗: {e}")
+                self.logger.warning(f"音訊管理器初始化失敗：{e}")
                 self.audio_manager = None
             
-            # 4. 初始化按鈕處理器
-            if ButtonHandler and button_handler_type:
-                self.logger.info(f"初始化按鈕處理器 ({button_handler_type})...")
-                self.button_handler = ButtonHandler()
-                
-                # 設定按鈕事件回調
-                self.button_handler.on_short_press = self.on_short_press
-                self.button_handler.on_long_press = self.on_long_press
-                
-                self.logger.info("按鈕處理器已就緒")
-            else:
-                self.logger.warning("無法初始化按鈕處理器")
-                self.button_handler = None
+            # 初始化按鈕處理器
+            self._initialize_button_handler()
             
-            # 5. 啟動瀏覽器並載入網頁（背景運行）
-            self.logger.info("啟動瀏覽器並載入甦醒地圖網頁...")
-            self.display_manager.show_loading_screen("正在載入甦醒地圖...")
+            # 初始化網頁
+            self._initialize_web()
             
-            # 啟動瀏覽器
-            if self.web_controller.start_browser():
-                # 載入網站
-                if self.web_controller.open_website():
-                    # 填入使用者名稱
-                    if self.web_controller.fill_username():
-                        # 自動點擊載入資料按鈕，完成初始化
-                        if self.web_controller.click_load_data_button():
-                            self.logger.info("甦醒地圖網頁已就緒，等待按鈕觸發")
-                            self.display_manager.show_idle_screen()
-                            print("甦醒地圖已就緒！按下按鈕開始這一天...")
-                        else:
-                            self.logger.error("載入資料失敗")
-                            self.display_manager.show_error_screen('api_error')
-                            return False
-                    else:
-                        self.logger.error("使用者名稱設定失敗")
-                        self.display_manager.show_error_screen('api_error')
-                        return False
-                else:
-                    self.logger.error("網站載入失敗")
-                    self.display_manager.show_error_screen('network_error')
-                    return False
-            else:
-                self.logger.error("瀏覽器啟動失敗")
-                self.display_manager.show_error_screen('display_error')
-                return False
-            
-            # 6. 設定螢幕保護器
-            self._setup_screensaver()
-            
-            self.logger.info("系統初始化完成！")
-            return True
+            self.logger.info("應用程式初始化完成")
             
         except Exception as e:
-            self.logger.error(f"初始化失敗: {e}", exc_info=True)
-            if self.display_manager:
-                self.display_manager.show_error_screen('unknown_error')
-            return False
+            self.logger.error(f"初始化失敗：{e}")
+            raise
+    
+    def _initialize_web(self):
+        """初始化網頁"""
+        try:
+            self.logger.info("正在初始化網頁...")
+            
+            # 啟動瀏覽器並自動設定
+            self.web_controller.start_browser()
+            
+            # 等待頁面載入完成
+            time.sleep(3)
+            
+            # 自動填入使用者名稱並載入資料
+            self.web_controller.load_website()
+            
+            self.logger.info("網頁初始化完成，系統就緒")
+            
+        except Exception as e:
+            self.logger.error(f"網頁初始化失敗：{e}")
+            raise
     
     def _setup_screensaver(self):
-        """設定螢幕保護器"""
+        """設定螢幕保護程式"""
         if SCREENSAVER_CONFIG['enabled']:
             self._reset_screensaver_timer()
     
     def _reset_screensaver_timer(self):
-        """重設螢幕保護器計時器"""
+        """重設螢幕保護計時器"""
         if self.screensaver_timer:
             self.screensaver_timer.cancel()
         
@@ -202,247 +175,192 @@ class WakeUpMapWebApp:
             self.screensaver_timer.start()
     
     def _activate_screensaver(self):
-        """啟動螢幕保護器"""
-        if not self.is_processing:
-            self.screensaver_active = True
-            self.display_manager.show_idle_screen()  # 或創建專門的螢幕保護畫面
-            self.logger.info("螢幕保護器已啟動")
+        """啟動螢幕保護程式"""
+        self.logger.info("啟動螢幕保護程式")
+        self.screensaver_active = True
     
     def _deactivate_screensaver(self):
-        """停用螢幕保護器"""
+        """關閉螢幕保護程式"""
         if self.screensaver_active:
             self.screensaver_active = False
-            self.display_manager.show_idle_screen()
-            self.logger.info("螢幕保護器已停用")
+            self.logger.info("關閉螢幕保護程式")
     
-    def _update_activity(self):
-        """更新活動時間"""
-        self.last_activity = time.time()
+    def _on_button_press(self):
+        """按鈕按下事件處理"""
+        self.logger.info("按鈕被按下")
         self._deactivate_screensaver()
         self._reset_screensaver_timer()
-    
-    def on_short_press(self):
-        """按鈕短按事件處理"""
-        self.logger.info("收到按鈕短按事件")
-        self._update_activity()
         
-        if self.is_processing:
-            self.logger.info("正在處理中，忽略按鈕...")
+        # 記錄按下時間
+        self.button_pressed_time = time.time()
+        self.button_long_press_handled = False
+    
+    def _on_button_release(self):
+        """按鈕釋放事件處理"""
+        self.logger.info("按鈕被釋放")
+        
+        # 計算按下時間長度
+        if self.button_pressed_time is None:
             return
         
-        # 開始甦醒地圖網頁模式
-        self._start_web_mode()
-    
-    def on_long_press(self):
-        """按鈕長按事件處理"""
-        self.logger.info("收到按鈕長按事件")
-        self._update_activity()
+        press_duration = time.time() - self.button_pressed_time
+        self.logger.info(f"按鈕按下時間：{press_duration:.2f} 秒")
         
-        # 長按功能：重新載入網頁
-        self._show_system_info()
-    
-    def _start_web_mode(self):
-        """開始這一天（按鈕功能）"""
-        self.is_processing = True
+        # 避免重複處理長按事件
+        if self.button_long_press_handled:
+            self.logger.info("長按事件已處理，跳過釋放事件")
+            return
         
-        def process():
-            try:
-                self.logger.info("開始這一天...")
-                
-                # 顯示處理狀態
-                if self.display_manager:
-                    self.display_manager.show_loading_screen("正在開始這一天...")
-                
-                # 點擊開始這一天按鈕（資料已在初始化時載入）
-                success = self.web_controller.click_start_button()
-                
-                if success:
-                    self.logger.info("✅ 這一天已開始！")
-                    
-                    # 顯示成功狀態
-                    if self.display_manager:
-                        self.display_manager.show_loading_screen("這一天已開始！")
-                    
-                    # 播放成功音效（如果有音頻）
-                    if self.audio_manager:
-                        try:
-                            threading.Thread(
-                                target=self.audio_manager.play_notification_sound,
-                                daemon=True
-                            ).start()
-                        except Exception as e:
-                            self.logger.warning(f"播放音效失敗: {e}")
-                    
-                    # 3秒後回到待機畫面
-                    time.sleep(3)
-                    if self.display_manager:
-                        self.display_manager.show_idle_screen()
-                        
-                else:
-                    self.logger.error("開始這一天失敗")
-                    if self.display_manager:
-                        self.display_manager.show_error_screen('api_error')
-                
-            except Exception as e:
-                self.logger.error(f"開始這一天處理錯誤: {e}")
-                if self.display_manager:
-                    self.display_manager.show_error_screen('unknown_error')
-                
-            finally:
-                self.is_processing = False
+        # 根據按下時間長度執行不同動作
+        if press_duration >= BUTTON_CONFIG.get('long_press_duration', 2.0):
+            self._handle_long_press()
+        else:
+            self._handle_short_press()
         
-        # 在背景執行處理流程
-        process_thread = threading.Thread(target=process, daemon=True)
-        process_thread.start()
+        # 重設按下時間
+        self.button_pressed_time = None
     
-    def _show_system_info(self):
-        """重新載入網頁（長按功能）"""
+    def _handle_short_press(self):
+        """處理短按事件 - 點擊開始按鈕"""
+        self.logger.info("處理短按事件：點擊開始按鈕")
+        
         try:
-            self.logger.info("重新載入甦醒地圖網頁...")
+            result = self.web_controller.click_start_button()
             
-            if self.display_manager:
-                self.display_manager.show_loading_screen("正在重新載入...")
+            if result and result.get('success'):
+                self.logger.info("開始按鈕點擊成功")
+                
+                if self.audio_manager:
+                    threading.Thread(
+                        target=self.audio_manager.play_notification_sound,
+                        args=('success',),
+                        daemon=True
+                    ).start()
+            else:
+                self.logger.error("開始按鈕點擊失敗")
+                
+        except Exception as e:
+            self.logger.error(f"短按事件處理失敗：{e}")
+    
+    def _handle_long_press(self):
+        """處理長按事件 - 重新載入網頁"""
+        self.logger.info("處理長按事件：重新載入網頁")
+        self.button_long_press_handled = True
+        
+        try:
+            result = self.web_controller.reload_website()
             
-            # 重新載入網站並填入使用者名稱
-            def reload_process():
-                try:
-                    # 重新開啟網站
-                    if self.web_controller.open_website():
-                        # 重新填入使用者名稱
-                        if self.web_controller.fill_username():
-                            self.logger.info("網頁重新載入成功")
-                            if self.display_manager:
-                                self.display_manager.show_loading_screen("重載完成")
-                            time.sleep(2)
-                            if self.display_manager:
-                                self.display_manager.show_idle_screen()
-                        else:
-                            self.logger.error("重新填入使用者名稱失敗")
-                            if self.display_manager:
-                                self.display_manager.show_error_screen('api_error')
-                    else:
-                        self.logger.error("重新載入網站失敗")
-                        if self.display_manager:
-                            self.display_manager.show_error_screen('network_error')
-                            
-                except Exception as e:
-                    self.logger.error(f"重新載入錯誤: {e}")
-                    if self.display_manager:
-                        self.display_manager.show_error_screen('unknown_error')
+            if result and result.get('success'):
+                self.logger.info("網頁重新載入成功")
+                
+            else:
+                self.logger.error("網頁重新載入失敗")
+                
+        except Exception as e:
+            self.logger.error(f"長按事件處理失敗：{e}")
+    
+    def _initialize_button_handler(self):
+        """初始化按鈕處理器"""
+        if ButtonHandler is None:
+            self.logger.warning("按鈕處理器模組未可用，跳過按鈕初始化")
+            return
+        
+        try:
+            self.logger.info(f"初始化按鈕處理器 ({button_handler_type})...")
             
-            threading.Thread(target=reload_process, daemon=True).start()
+            self.button_handler = ButtonHandler(
+                button_pin=BUTTON_CONFIG['pin'],
+                button_press_callback=self._on_button_press,
+                button_release_callback=self._on_button_release,
+                pull_up=BUTTON_CONFIG.get('pull_up', True),
+                bounce_time=BUTTON_CONFIG.get('bounce_time', 200)
+            )
+            
+            self.logger.info("按鈕處理器初始化完成")
             
         except Exception as e:
-            self.logger.error(f"重新載入處理錯誤: {e}")
+            self.logger.error(f"按鈕處理器初始化失敗：{e}")
+            self.button_handler = None
     
     def run(self):
-        """主運行迴圈"""
-        self.logger.info("甦醒地圖網頁模式開始運行")
-        self.logger.info("短按按鈕：開始這一天，長按按鈕：重新載入網頁")
-        self.logger.info("按 Ctrl+C 停止...")
+        """運行應用程式主循環"""
+        if self.running:
+            return
         
-        self.is_running = True
+        self.running = True
+        self.logger.info("甦醒地圖網頁模式開始運行")
         
         try:
-            # 啟動顯示管理器主迴圈
-            if self.display_manager:
-                # 在背景監控應用程式狀態
-                def monitor():
-                    while self.is_running:
-                        time.sleep(1)
-                        # 可以在這裡添加其他監控邏輯
+            # 啟動按鈕處理器
+            if self.button_handler:
+                self.button_handler.start()
+            
+            # 等待停止信號
+            while self.running and not self._stop_event.is_set():
+                time.sleep(0.1)
                 
-                monitor_thread = threading.Thread(target=monitor, daemon=True)
-                monitor_thread.start()
-                
-                # 運行 Tkinter 主迴圈
-                self.display_manager.run()
-            else:
-                # 如果沒有顯示管理器，簡單的等待迴圈
-                while self.is_running:
-                    time.sleep(1)
-                    
         except KeyboardInterrupt:
-            self.logger.info("收到鍵盤中斷")
+            self.logger.info("收到中斷信號")
+        except Exception as e:
+            self.logger.error(f"運行時錯誤：{e}")
         finally:
-            self.is_running = False
             self.shutdown()
     
     def shutdown(self):
         """關閉應用程式"""
-        self.logger.info("正在關閉甦醒地圖網頁模式...")
+        if not self.running:
+            return
         
-        self.is_running = False
+        self.logger.info("正在關閉應用程式...")
+        self.running = False
+        self._stop_event.set()
         
-        try:
-            # 停用螢幕保護器計時器
-            if self.screensaver_timer:
-                self.screensaver_timer.cancel()
-            
-            # 關閉網頁控制器
-            if self.web_controller:
-                self.web_controller.close_browser()
-            
-            # 清理按鈕處理器
-            if self.button_handler and hasattr(self.button_handler, 'cleanup'):
-                self.button_handler.cleanup()
-            
-            # 清理音頻管理器
-            if self.audio_manager:
-                cleanup_audio_manager()
-            
-            # 關閉顯示管理器
-            if self.display_manager and hasattr(self.display_manager, 'stop'):
-                self.display_manager.stop()
-            
-            self.logger.info("應用程式關閉完成")
-            
-        except Exception as e:
-            self.logger.error(f"關閉過程中發生錯誤: {e}")
+        # 取消螢幕保護計時器
+        if self.screensaver_timer:
+            self.screensaver_timer.cancel()
+        
+        # 關閉按鈕處理器
+        if self.button_handler and hasattr(self.button_handler, 'stop'):
+            try:
+                self.button_handler.stop()
+            except Exception as e:
+                self.logger.error(f"關閉按鈕處理器失敗：{e}")
+        
+        # 關閉網頁控制器
+        if self.web_controller:
+            try:
+                self.web_controller.stop()
+            except Exception as e:
+                self.logger.error(f"關閉網頁控制器失敗：{e}")
+        
+        # 清理音訊管理器
+        cleanup_audio_manager()
+        
+        self.logger.info("應用程式已關閉")
 
 def main():
     """主函數"""
+    global app
+    
+    # 設定信號處理器
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
     # 設定日誌
     setup_logging()
-    logger = logging.getLogger(__name__)
+    
+    logger.info("甦醒地圖網頁模式啟動中...")
+    print("甦醒地圖網頁模式")
+    print("請確保按鈕已連接到 GPIO 18")
     
     try:
-        logger.info("甦醒地圖 DSI版本 - 網頁模式 啟動中...")
-        print("甦醒地圖 DSI版本 - 網頁模式")
-        print("請確保已連接 DSI 螢幕和按鈕到 GPIO 18")
-        print("網站: https://subjective-clock.vercel.app/")
-        
-        # 註冊信號處理器
-        signal.signal(signal.SIGINT, signal_handler)
-        signal.signal(signal.SIGTERM, signal_handler)
-        
-        # 創建應用程式實例
-        global app
+        # 創建並運行應用程式
         app = WakeUpMapWebApp()
-        
-        # 初始化
-        if not app.initialize():
-            logger.error("應用程式初始化失敗")
-            return 1
-        
-        print("裝置已就緒！按下按鈕開始甦醒地圖...")
-        
-        # 運行應用程式
         app.run()
         
-        return 0
-        
-    except KeyboardInterrupt:
-        logger.info("收到鍵盤中斷")
-        return 0
-        
     except Exception as e:
-        logger.error(f"應用程式運行失敗: {e}", exc_info=True)
-        return 1
-        
-    finally:
-        if 'app' in globals() and app:
-            app.shutdown()
+        logger.error(f"應用程式啟動失敗：{e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
-    sys.exit(main()) 
+    main() 
