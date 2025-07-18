@@ -557,11 +557,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 console.log('🏁 國旗載入:', flagUrl);
             }
             
-            // 設定問候語
-            if (greetingTextEl) {
-                const greeting = getLocalizedGreeting(cityData.country_iso_code);
-                greetingTextEl.textContent = greeting;
-            }
+            // 獲取並設定當地語言問候語
+            await generateAndDisplayMorningGreeting(cityData);
             
             // 設定座標資訊
             if (coordinateInfoEl) {
@@ -594,6 +591,109 @@ window.addEventListener('firebaseReady', async (event) => {
         } catch (error) {
             console.error('❌ 顯示結果失敗:', error);
             setState('error', '顯示結果時發生錯誤');
+        }
+    }
+
+    // 新增：生成並顯示早安問候語
+    async function generateAndDisplayMorningGreeting(cityData) {
+        console.log('🗣️ 正在生成當地語言早安問候...');
+        
+        try {
+            // 調用新的問候語 API
+            const greetingResponse = await fetch('/api/generateMorningGreeting', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: cityData.name,
+                    country: cityData.country,
+                    countryCode: cityData.country_iso_code
+                })
+            });
+
+            const greetingResult = await greetingResponse.json();
+            console.log('🗣️ 問候語 API 回應:', greetingResult);
+
+            if (greetingResult.success && greetingResult.data) {
+                const greeting = greetingResult.data;
+                
+                // 顯示問候語
+                if (greetingTextEl) {
+                    greetingTextEl.innerHTML = `
+                        <div class="greeting-main">${greeting.greeting}</div>
+                        <div class="greeting-info">
+                            ${greeting.language} - ${greeting.meaning}
+                            ${greeting.pronunciation ? `<br><small>發音: ${greeting.pronunciation}</small>` : ''}
+                        </div>
+                    `;
+                }
+
+                // 語音播放問候語
+                await speakGreeting(greeting);
+
+                console.log(`✅ ${greeting.language}問候語顯示成功: ${greeting.greeting}`);
+            } else {
+                // 使用備用問候語
+                console.warn('問候語 API 失敗，使用備用問候語');
+                const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
+                if (greetingTextEl) {
+                    greetingTextEl.textContent = fallbackGreeting;
+                }
+                await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+            }
+
+        } catch (error) {
+            console.error('❌ 生成問候語失敗:', error);
+            // 使用備用問候語
+            const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
+            if (greetingTextEl) {
+                greetingTextEl.textContent = fallbackGreeting;
+            }
+            await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+        }
+    }
+
+    // 新增：語音播放問候語
+    async function speakGreeting(greetingData) {
+        console.log('🔊 正在播放語音問候:', greetingData);
+        
+        try {
+            // 檢查瀏覽器是否支援語音合成
+            if (!('speechSynthesis' in window)) {
+                console.warn('🔇 此瀏覽器不支援語音合成');
+                return;
+            }
+
+            // 停止任何正在播放的語音
+            window.speechSynthesis.cancel();
+
+            // 創建語音合成實例
+            const utterance = new SpeechSynthesisUtterance(greetingData.greeting);
+            
+            // 設定語言（如果有提供語言代碼）
+            if (greetingData.languageCode) {
+                utterance.lang = greetingData.languageCode;
+            }
+            
+            // 設定語音參數
+            utterance.rate = 0.8;  // 稍微慢一點
+            utterance.pitch = 1.0; // 正常音調
+            utterance.volume = 1.0; // 最大音量
+
+            // 播放完成的回調
+            utterance.onend = () => {
+                console.log('🔊 語音播放完成');
+            };
+
+            utterance.onerror = (error) => {
+                console.error('🔇 語音播放錯誤:', error);
+            };
+
+            // 開始播放
+            window.speechSynthesis.speak(utterance);
+            console.log(`🔊 開始播放 ${greetingData.language || '未知語言'} 問候語`);
+
+        } catch (error) {
+            console.error('🔇 語音播放失敗:', error);
         }
     }
 

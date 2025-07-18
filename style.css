@@ -50,6 +50,42 @@ small { /* 通用 small 標籤樣式 */
     color: #777;
 }
 
+/* 問候語樣式 */
+.greeting-text {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greeting-main {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.greeting-info {
+    font-size: 0.9em;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.greeting-info small {
+    font-size: 0.8em;
+    opacity: 0.8;
+    display: block;
+    margin-top: 4px;
+}
+
 /* 使用者資訊區塊 */
 .user-info-section {
     background-color: #f9f9f9;

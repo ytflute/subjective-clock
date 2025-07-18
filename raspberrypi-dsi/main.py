@@ -307,35 +307,44 @@ class WakeUpMapApp:
             self.logger.error(f"與網頁同步失敗: {e}")
     
     def _play_morning_greeting(self, city_data):
-        """播放早安問候語"""
+        """播放早安問候語（使用 ChatGPT API）"""
         try:
             if not self.audio_manager:
                 self.logger.warning("音頻管理器未初始化，跳過音頻播放")
                 return
             
-            # 獲取國家代碼和城市名稱
-            country_code = city_data.get('countryCode', 'US')
-            city_name = city_data.get('city', '')
+            # 獲取城市和國家資訊
+            country_code = city_data.get('country_iso_code', city_data.get('countryCode', 'US'))
+            city_name = city_data.get('name', city_data.get('city', ''))
+            country_name = city_data.get('country', '')
             
-            self.logger.info(f"播放早安問候語: {country_code}, {city_name}")
+            self.logger.info(f"準備播放早安問候語 - 城市: {city_name}, 國家: {country_name} ({country_code})")
             
             # 在背景執行音頻播放，避免阻塞UI
             def play_audio():
                 try:
-                    success = self.audio_manager.play_greeting(country_code, city_name)
+                    # 調用新的 play_greeting 方法，支援 ChatGPT API
+                    success = self.audio_manager.play_greeting(
+                        country_code=country_code,
+                        city_name=city_name,
+                        country_name=country_name
+                    )
                     if success:
-                        self.logger.info("早安問候語播放成功")
+                        self.logger.info("✅ 早安問候語播放成功")
                     else:
-                        self.logger.warning("早安問候語播放失敗")
+                        self.logger.warning("⚠️ 早安問候語播放失敗")
                 except Exception as e:
-                    self.logger.error(f"播放音頻時發生錯誤: {e}")
+                    self.logger.error(f"❌ 播放音頻時發生錯誤: {e}")
             
             # 創建音頻播放執行緒
             audio_thread = threading.Thread(target=play_audio, daemon=True)
             audio_thread.start()
             
+            # 短暫延遲確保音頻開始播放
+            time.sleep(0.5)
+            
         except Exception as e:
-            self.logger.error(f"播放早安問候語失敗: {e}")
+            self.logger.error(f"❌ 播放早安問候語失敗: {e}")
     
     def _show_system_info(self):
         """顯示系統資訊"""

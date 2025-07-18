@@ -127,13 +127,14 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"TTS 引擎初始化失敗: {e}")
     
-    def play_greeting(self, country_code: str, city_name: str = "") -> bool:
+    def play_greeting(self, country_code: str, city_name: str = "", country_name: str = "") -> bool:
         """
-        播放早安問候語
+        播放早安問候語（新版本：使用 ChatGPT API）
         
         Args:
             country_code: 國家代碼
             city_name: 城市名稱
+            country_name: 國家名稱
         
         Returns:
             bool: 播放是否成功
@@ -143,18 +144,26 @@ class AudioManager:
                 self.logger.info("音頻功能已禁用，跳過音頻播放")
                 return True
             
-            # 獲取問候語文本
-            greeting_text = self._get_greeting_text(country_code, city_name)
+            # 首先嘗試從 ChatGPT API 獲取問候語
+            greeting_data = self._fetch_greeting_from_api(city_name, country_name, country_code)
             
-            # 獲取語言代碼
-            language = self._get_language_code(country_code)
+            if greeting_data:
+                # 使用 API 返回的問候語
+                greeting_text = greeting_data['greeting']
+                language_code = greeting_data['languageCode']
+                self.logger.info(f"使用 ChatGPT API 問候語: {greeting_text} ({greeting_data['language']})")
+            else:
+                # 備用方案：使用內建問候語
+                self.logger.warning("ChatGPT API 失敗，使用備用問候語")
+                greeting_text = self._get_greeting_text(country_code, city_name)
+                language_code = self._get_language_code(country_code)
             
             # 檢查快取
-            audio_file = self._get_cached_audio(greeting_text, language)
+            audio_file = self._get_cached_audio(greeting_text, language_code)
             
             if not audio_file:
                 # 生成新的音頻文件
-                audio_file = self._generate_audio(greeting_text, language)
+                audio_file = self._generate_audio(greeting_text, language_code)
             
             if audio_file and audio_file.exists():
                 # 播放音頻
@@ -166,6 +175,60 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"播放問候語失敗: {e}")
             return False
+
+    def _fetch_greeting_from_api(self, city: str, country: str, country_code: str) -> Optional[Dict[str, Any]]:
+        """
+        從 ChatGPT API 獲取當地語言問候語
+        
+        Args:
+            city: 城市名稱
+            country: 國家名稱
+            country_code: 國家代碼
+        
+        Returns:
+            Dict: 問候語資料，包含 greeting, language, languageCode 等
+        """
+        try:
+            import requests
+            import json
+            
+            # API 端點
+            api_url = "https://subjective-clock02.vercel.app/api/generateMorningGreeting"
+            
+            # 請求資料
+            request_data = {
+                "city": city,
+                "country": country,
+                "countryCode": country_code
+            }
+            
+            self.logger.info(f"調用問候語 API: {api_url}")
+            self.logger.debug(f"請求資料: {request_data}")
+            
+            # 發送請求
+            response = requests.post(
+                api_url,
+                json=request_data,
+                headers={'Content-Type': 'application/json'},
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                if result.get('success') and result.get('data'):
+                    greeting_data = result['data']
+                    self.logger.info(f"API 返回問候語: {greeting_data['greeting']} ({greeting_data['language']})")
+                    return greeting_data
+                else:
+                    self.logger.warning(f"API 返回格式錯誤: {result}")
+                    return None
+            else:
+                self.logger.error(f"API 請求失敗: {response.status_code} - {response.text}")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"調用問候語 API 時發生錯誤: {e}")
+            return None
     
     def _get_greeting_text(self, country_code: str, city_name: str = "") -> str:
         """獲取問候語文本"""

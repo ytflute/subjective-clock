@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>早安問候語功能測試</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-form {
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+            display: none;
+        }
+        .greeting-display {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .greeting-info {
+            font-size: 1em;
+            opacity: 0.9;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .pronunciation {
+            font-size: 0.9em;
+            opacity: 0.8;
+            text-align: center;
+            font-style: italic;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .speak-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            margin: 0 10px;
+        }
+        .error {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            display: none;
+        }
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .country-btn {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .country-btn:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+        .api-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌅 早安問候語功能測試</h1>
+        
+        <div class="api-info">
+            <strong>測試說明：</strong>此頁面測試新的 ChatGPT 早安問候語 API，可以生成不同國家的當地語言問候語並支援語音播放。
+        </div>
+
+        <div class="test-form">
+            <div class="form-group">
+                <label for="city">城市名稱（英文）：</label>
+                <input type="text" id="city" placeholder="例如：Tokyo, Paris, New York" value="Tokyo">
+            </div>
+            
+            <div class="form-group">
+                <label for="country">國家名稱（英文）：</label>
+                <input type="text" id="country" placeholder="例如：Japan, France, United States" value="Japan">
+            </div>
+            
+            <div class="form-group">
+                <label for="countryCode">國家代碼：</label>
+                <input type="text" id="countryCode" placeholder="例如：JP, FR, US" value="JP" maxlength="2">
+            </div>
+            
+            <button onclick="testGreeting()" id="testBtn">🎯 生成早安問候語</button>
+        </div>
+
+        <div class="loading" id="loading">
+            ⏳ 正在生成當地語言問候語...
+        </div>
+
+        <div class="result" id="result">
+            <div class="greeting-display" id="greetingText"></div>
+            <div class="greeting-info" id="greetingInfo"></div>
+            <div class="pronunciation" id="pronunciation"></div>
+            <div class="controls">
+                <button class="speak-btn" onclick="speakGreeting()">🔊 播放語音</button>
+                <button class="speak-btn" onclick="speakGreetingSlow()">🐌 慢速播放</button>
+                <button class="speak-btn" onclick="stopSpeech()">⏹️ 停止</button>
+            </div>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <h3>🌍 快速測試國家</h3>
+        <div class="countries-grid">
+            <div class="country-btn" onclick="setCountry('Tokyo', 'Japan', 'JP')">🇯🇵 日本</div>
+            <div class="country-btn" onclick="setCountry('Seoul', 'South Korea', 'KR')">🇰🇷 韓國</div>
+            <div class="country-btn" onclick="setCountry('Paris', 'France', 'FR')">🇫🇷 法國</div>
+            <div class="country-btn" onclick="setCountry('Berlin', 'Germany', 'DE')">🇩🇪 德國</div>
+            <div class="country-btn" onclick="setCountry('Madrid', 'Spain', 'ES')">🇪🇸 西班牙</div>
+            <div class="country-btn" onclick="setCountry('Rome', 'Italy', 'IT')">🇮🇹 義大利</div>
+            <div class="country-btn" onclick="setCountry('Moscow', 'Russia', 'RU')">🇷🇺 俄羅斯</div>
+            <div class="country-btn" onclick="setCountry('Beijing', 'China', 'CN')">🇨🇳 中國</div>
+            <div class="country-btn" onclick="setCountry('New York', 'United States', 'US')">🇺🇸 美國</div>
+            <div class="country-btn" onclick="setCountry('London', 'United Kingdom', 'GB')">🇬🇧 英國</div>
+            <div class="country-btn" onclick="setCountry('Mumbai', 'India', 'IN')">🇮🇳 印度</div>
+            <div class="country-btn" onclick="setCountry('Bangkok', 'Thailand', 'TH')">🇹🇭 泰國</div>
+        </div>
+    </div>
+
+    <script>
+        let currentGreeting = null;
+
+        async function testGreeting() {
+            const city = document.getElementById('city').value.trim();
+            const country = document.getElementById('country').value.trim();
+            const countryCode = document.getElementById('countryCode').value.trim().toUpperCase();
+
+            if (!country) {
+                showError('請輸入國家名稱');
+                return;
+            }
+
+            hideElements();
+            showLoading();
+
+            try {
+                const response = await fetch('/api/generateMorningGreeting', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        city: city,
+                        country: country,
+                        countryCode: countryCode
+                    })
+                });
+
+                const result = await response.json();
+                console.log('API 回應:', result);
+
+                if (result.success && result.data) {
+                    showGreeting(result.data);
+                } else {
+                    showError('無法生成問候語：' + (result.error || '未知錯誤'));
+                }
+
+            } catch (error) {
+                console.error('測試失敗:', error);
+                showError('請求失敗：' + error.message);
+            }
+        }
+
+        function showGreeting(greetingData) {
+            hideElements();
+            
+            currentGreeting = greetingData;
+            
+            document.getElementById('greetingText').textContent = greetingData.greeting;
+            document.getElementById('greetingInfo').textContent = 
+                `${greetingData.language} - ${greetingData.meaning}`;
+            
+            if (greetingData.pronunciation) {
+                document.getElementById('pronunciation').textContent = 
+                    `發音：${greetingData.pronunciation}`;
+                document.getElementById('pronunciation').style.display = 'block';
+            } else {
+                document.getElementById('pronunciation').style.display = 'none';
+            }
+            
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('testBtn').disabled = false;
+        }
+
+        function showError(message) {
+            hideElements();
+            document.getElementById('error').textContent = message;
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('testBtn').disabled = false;
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('testBtn').disabled = true;
+        }
+
+        function hideElements() {
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function speakGreeting() {
+            if (!currentGreeting) return;
+            
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(currentGreeting.greeting);
+                if (currentGreeting.languageCode) {
+                    utterance.lang = currentGreeting.languageCode;
+                }
+                utterance.rate = 0.8;
+                utterance.pitch = 1.0;
+                utterance.volume = 1.0;
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('您的瀏覽器不支援語音合成功能');
+            }
+        }
+
+        function speakGreetingSlow() {
+            if (!currentGreeting) return;
+            
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(currentGreeting.greeting);
+                if (currentGreeting.languageCode) {
+                    utterance.lang = currentGreeting.languageCode;
+                }
+                utterance.rate = 0.5;  // 更慢的語速
+                utterance.pitch = 1.0;
+                utterance.volume = 1.0;
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('您的瀏覽器不支援語音合成功能');
+            }
+        }
+
+        function stopSpeech() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        function setCountry(city, country, countryCode) {
+            document.getElementById('city').value = city;
+            document.getElementById('country').value = country;
+            document.getElementById('countryCode').value = countryCode;
+        }
+
+        // 頁面載入時的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('早安問候語測試頁面已載入');
+        });
+    </script>
+</body>
+</html> 
