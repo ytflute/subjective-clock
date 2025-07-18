@@ -364,7 +364,10 @@ export default async function handler(req, res) {
                 };
 
             console.log('返回的城市資料:', cityData);
-            return res.status(200).json(cityData);
+            return res.status(200).json({
+                success: true,
+                city: cityData
+            });
 
         } catch (error) {
             console.error('搜尋城市失敗:', error);

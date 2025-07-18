@@ -84,8 +84,10 @@ class WebControllerDSI:
         options.add_argument('--window-size=800,480')
         options.add_argument('--window-position=0,0')
         
-        # 移除 kiosk 模式，改用一般視窗
-        options.add_argument('--start-maximized')
+        # 全螢幕 kiosk 模式，隱藏瀏覽器分頁和工具列
+        options.add_argument('--kiosk')
+        options.add_argument('--disable-infobars')
+        options.add_argument('--hide-scrollbars')
         
         # 用戶資料目錄
         options.add_argument('--user-data-dir=/tmp/chrome-data')
@@ -147,18 +149,12 @@ class WebControllerDSI:
             return False
 
     def _fill_username(self):
-        """填入使用者名稱"""
+        """填入使用者名稱（pi.html 版本：使用 JavaScript 設定隱藏輸入框）"""
         try:
             self.logger.info(f"正在設定使用者：{self.user_name}")
             
-            # 等待使用者名稱輸入框出現
-            username_input = self.wait.until(
-                EC.presence_of_element_located((By.ID, "userName"))
-            )
-            
-            # 清空並填入使用者名稱
-            username_input.clear()
-            username_input.send_keys(self.user_name)
+            # 對於 pi.html，使用者名稱是隱藏輸入框，我們直接用 JavaScript 設定
+            self.driver.execute_script(f"document.getElementById('userName').value = '{self.user_name}';")
             
             self.logger.info("使用者名稱設定成功")
             return True
@@ -180,8 +176,19 @@ class WebControllerDSI:
             # 點擊載入資料按鈕
             load_button.click()
             
-            # 等待按鈕處理完成
+            # 等待按鈕處理完成，並確保開始按鈕被啟用
             time.sleep(3)
+            
+            # 確認開始按鈕已被啟用
+            try:
+                start_button = self.driver.find_element(By.ID, "findCityButton")
+                if start_button.is_enabled():
+                    self.logger.info("開始這一天按鈕已啟用")
+                else:
+                    self.logger.warning("開始這一天按鈕仍為禁用狀態，等待更長時間...")
+                    time.sleep(2)
+            except Exception:
+                self.logger.warning("無法檢查開始按鈕狀態")
             
             self.logger.info("用戶資料載入成功")
             return True
@@ -195,6 +202,17 @@ class WebControllerDSI:
         try:
             self.logger.info("正在開始這一天...")
             
+            # 首先檢查按鈕是否可用
+            start_button = self.driver.find_element(By.ID, "findCityButton")
+            if not start_button.is_enabled():
+                self.logger.warning("開始按鈕被禁用，嘗試重新載入資料...")
+                # 重新載入資料以啟用按鈕
+                if not self._click_load_data_button():
+                    return {'success': False, 'error': '無法啟用開始按鈕'}
+                
+                # 重新獲取按鈕元素
+                start_button = self.driver.find_element(By.ID, "findCityButton")
+            
             # 等待開始按鈕可點擊
             start_button = self.wait.until(
                 EC.element_to_be_clickable((By.ID, "findCityButton"))
@@ -202,6 +220,7 @@ class WebControllerDSI:
             
             # 點擊開始按鈕
             start_button.click()
+            self.logger.info("開始按鈕已點擊")
             
             # 等待結果處理
             time.sleep(5)

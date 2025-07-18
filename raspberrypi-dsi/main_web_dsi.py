@@ -93,10 +93,6 @@ class WakeUpMapWebApp:
         # 音訊管理
         self.audio_manager = None
         
-        # 按鈕狀態
-        self.button_pressed_time = None
-        self.button_long_press_handled = False
-        
         # 螢幕保護程式
         self.screensaver_active = False
         self.screensaver_timer = None
@@ -185,44 +181,13 @@ class WakeUpMapWebApp:
             self.screensaver_active = False
             self.logger.info("關閉螢幕保護程式")
     
-    def _on_button_press(self):
-        """按鈕按下事件處理"""
-        self.logger.info("按鈕被按下")
-        self._deactivate_screensaver()
-        self._reset_screensaver_timer()
-        
-        # 記錄按下時間
-        self.button_pressed_time = time.time()
-        self.button_long_press_handled = False
-    
-    def _on_button_release(self):
-        """按鈕釋放事件處理"""
-        self.logger.info("按鈕被釋放")
-        
-        # 計算按下時間長度
-        if self.button_pressed_time is None:
-            return
-        
-        press_duration = time.time() - self.button_pressed_time
-        self.logger.info(f"按鈕按下時間：{press_duration:.2f} 秒")
-        
-        # 避免重複處理長按事件
-        if self.button_long_press_handled:
-            self.logger.info("長按事件已處理，跳過釋放事件")
-            return
-        
-        # 根據按下時間長度執行不同動作
-        if press_duration >= BUTTON_CONFIG.get('long_press_duration', 2.0):
-            self._handle_long_press()
-        else:
-            self._handle_short_press()
-        
-        # 重設按下時間
-        self.button_pressed_time = None
-    
     def _handle_short_press(self):
         """處理短按事件 - 點擊開始按鈕"""
         self.logger.info("處理短按事件：點擊開始按鈕")
+        
+        # 處理螢幕保護器
+        self._deactivate_screensaver()
+        self._reset_screensaver_timer()
         
         try:
             result = self.web_controller.click_start_button()
@@ -245,7 +210,10 @@ class WakeUpMapWebApp:
     def _handle_long_press(self):
         """處理長按事件 - 重新載入網頁"""
         self.logger.info("處理長按事件：重新載入網頁")
-        self.button_long_press_handled = True
+        
+        # 處理螢幕保護器
+        self._deactivate_screensaver()
+        self._reset_screensaver_timer()
         
         try:
             result = self.web_controller.reload_website()
@@ -268,12 +236,13 @@ class WakeUpMapWebApp:
         try:
             self.logger.info(f"初始化按鈕處理器 ({button_handler_type})...")
             
-            self.button_handler = ButtonHandler(
-                button_pin=BUTTON_CONFIG['pin'],
-                button_press_callback=self._on_button_press,
-                button_release_callback=self._on_button_release,
-                pull_up=BUTTON_CONFIG.get('pull_up', True),
-                bounce_time=BUTTON_CONFIG.get('bounce_time', 200)
+            # 創建按鈕處理器（不需要參數，從配置檔案讀取）
+            self.button_handler = ButtonHandler()
+            
+            # 註冊回調函數
+            self.button_handler.register_callbacks(
+                short_press_callback=self._handle_short_press,
+                long_press_callback=self._handle_long_press
             )
             
             self.logger.info("按鈕處理器初始化完成")
@@ -291,9 +260,9 @@ class WakeUpMapWebApp:
         self.logger.info("甦醒地圖網頁模式開始運行")
         
         try:
-            # 啟動按鈕處理器
+            # 按鈕處理器已在初始化時啟動
             if self.button_handler:
-                self.button_handler.start()
+                self.logger.info("按鈕處理器已就緒")
             
             # 等待停止信號
             while self.running and not self._stop_event.is_set():
@@ -320,9 +289,9 @@ class WakeUpMapWebApp:
             self.screensaver_timer.cancel()
         
         # 關閉按鈕處理器
-        if self.button_handler and hasattr(self.button_handler, 'stop'):
+        if self.button_handler and hasattr(self.button_handler, 'cleanup'):
             try:
-                self.button_handler.stop()
+                self.button_handler.cleanup()
             except Exception as e:
                 self.logger.error(f"關閉按鈕處理器失敗：{e}")
         
