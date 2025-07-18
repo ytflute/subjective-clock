@@ -202,51 +202,85 @@ class WebControllerDSI:
         try:
             self.logger.info("正在開始這一天...")
             
-            # 首先檢查按鈕是否可用
-            start_button = self.driver.find_element(By.ID, "findCityButton")
-            if not start_button.is_enabled():
-                self.logger.warning("開始按鈕被禁用，嘗試重新載入資料...")
-                # 重新載入資料以啟用按鈕
-                if not self._click_load_data_button():
-                    return {'success': False, 'error': '無法啟用開始按鈕'}
-                
-                # 重新獲取按鈕元素
-                start_button = self.driver.find_element(By.ID, "findCityButton")
-            
-            # 等待開始按鈕可點擊
-            start_button = self.wait.until(
-                EC.element_to_be_clickable((By.ID, "findCityButton"))
-            )
-            
-            # 點擊開始按鈕
-            start_button.click()
-            self.logger.info("開始按鈕已點擊")
-            
-            # 等待結果處理
-            time.sleep(5)
-            
-            # 檢查是否有錯誤訊息或成功結果
+            # 檢查是否為新的狀態管理介面
             try:
-                # 檢查是否有結果顯示
-                result_element = self.driver.find_element(By.ID, "resultText")
-                if result_element.is_displayed():
-                    result_text = result_element.text
-                    self.logger.info(f"甦醒結果：{result_text}")
-                    
-                    success_data = {
-                        'success': True,
-                        'message': '開始這一天成功',
-                        'result': result_text
+                # 直接調用 JavaScript 函數來觸發甦醒流程
+                self.logger.info("使用 JavaScript 直接觸發甦醒流程...")
+                result = self.driver.execute_script("""
+                    try {
+                        if (typeof startTheDay === 'function') {
+                            startTheDay();
+                            return 'JavaScript 函數已執行';
+                        } else {
+                            return 'startTheDay 函數未找到';
+                        }
+                    } catch (error) {
+                        return 'JavaScript 錯誤: ' + error.message;
                     }
-                    
-                    return success_data
+                """)
+                self.logger.info(f"JavaScript 執行結果：{result}")
                 
-            except NoSuchElementException:
-                pass
-            
-            # 如果沒有明確的結果，返回基本成功狀態
-            self.logger.info("開始按鈕點擊完成")
-            return {'success': True, 'message': '開始按鈕已點擊'}
+                # 等待處理完成
+                time.sleep(8)
+                
+                # 檢查最終狀態
+                final_state = self.driver.execute_script("return window.currentState || 'unknown';")
+                self.logger.info(f"最終狀態：{final_state}")
+                
+                # 檢查是否有結果顯示
+                try:
+                    city_name = self.driver.execute_script("return document.getElementById('cityName') ? document.getElementById('cityName').textContent : '';")
+                    if city_name:
+                        self.logger.info(f"甦醒城市：{city_name}")
+                        return {'success': True, 'message': '甦醒成功', 'result': f'甦醒城市: {city_name}'}
+                except Exception:
+                    pass
+                
+                # 檢查是否有錯誤
+                try:
+                    error_msg = self.driver.execute_script("return document.getElementById('errorMessage') ? document.getElementById('errorMessage').textContent : '';")
+                    if error_msg:
+                        self.logger.warning(f"檢測到錯誤：{error_msg}")
+                        return {'success': False, 'error': error_msg}
+                except Exception:
+                    pass
+                
+                return {'success': True, 'message': 'JavaScript 觸發完成'}
+                
+            except Exception as js_error:
+                self.logger.warning(f"JavaScript 觸發失敗，回退到按鈕點擊：{js_error}")
+                
+                # 回退到傳統按鈕點擊方式
+                start_button = self.driver.find_element(By.ID, "findCityButton")
+                if not start_button.is_enabled():
+                    self.logger.warning("開始按鈕被禁用，嘗試重新載入資料...")
+                    if not self._click_load_data_button():
+                        return {'success': False, 'error': '無法啟用開始按鈕'}
+                    start_button = self.driver.find_element(By.ID, "findCityButton")
+                
+                # 等待開始按鈕可點擊
+                start_button = self.wait.until(
+                    EC.element_to_be_clickable((By.ID, "findCityButton"))
+                )
+                
+                # 點擊開始按鈕
+                start_button.click()
+                self.logger.info("開始按鈕已點擊")
+                
+                # 等待結果處理
+                time.sleep(5)
+                
+                # 檢查是否有結果顯示
+                try:
+                    result_element = self.driver.find_element(By.ID, "resultText")
+                    if result_element.is_displayed():
+                        result_text = result_element.text
+                        self.logger.info(f"甦醒結果：{result_text}")
+                        return {'success': True, 'message': '開始這一天成功', 'result': result_text}
+                except NoSuchElementException:
+                    pass
+                
+                return {'success': True, 'message': '開始按鈕已點擊'}
             
         except Exception as e:
             self.logger.error(f"點擊開始按鈕失敗：{e}")
