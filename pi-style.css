@@ -529,4 +529,259 @@ body {
 @keyframes loading {
     0% { left: -100%; }
     100% { left: 100%; }
+}
+
+/* === 新增：Pi 顯示專用樣式 === */
+
+/* 主要顯示區域 */
+.main-display {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 狀態管理 */
+.waiting-state,
+.result-state,
+.loading-state,
+.error-state {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.waiting-state.active,
+.result-state.active,
+.loading-state.active,
+.error-state.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 等待狀態 */
+.waiting-state {
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.waiting-content {
+    text-align: center;
+}
+
+.waiting-animation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.pulse-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    animation: pulseWave 1.5s infinite;
+}
+
+.pulse-circle.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.pulse-circle.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.waiting-text {
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.waiting-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 載入狀態 */
+.loading-state {
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.loading-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 結果顯示狀態 */
+.result-state {
+    flex-direction: column;
+    padding: 15px;
+    color: white;
+}
+
+.city-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.city-main {
+    flex: 1;
+}
+
+.city-name {
+    font-size: 36px;
+    font-weight: 200;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+.country-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.country-flag {
+    width: 50px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.country-name {
+    font-size: 22px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.greeting-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: right;
+    font-style: italic;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+/* 地圖區域 */
+.map-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.map-container {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    min-height: 200px;
+}
+
+.coordinate-info {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    align-self: center;
+}
+
+/* 錯誤狀態 */
+.error-state {
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.error-content {
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.error-text {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    color: #ff6b6b;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.error-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 動畫效果 */
+@keyframes pulseWave {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Leaflet 地圖樣式調整 */
+.leaflet-container {
+    background: transparent;
+}
+
+.leaflet-control-container {
+    display: none !important; /* 隱藏地圖控制項 */
 } 

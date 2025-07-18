@@ -13,12 +13,19 @@ let historyMarkerLayerGroup = null;
 let currentGroupName = "";
 let initialLoadHandled = false;
 
+// 新增：狀態管理
+let currentState = 'waiting'; // waiting, loading, result, error
+
 // DOM 元素（全域聲明，確保可訪問）
 let findCityButton, resultTextDiv, countryFlagImg, mapContainerDiv, debugInfoSmall;
 let userNameInput, setUserNameButton, currentUserIdSpan, currentUserDisplayNameSpan;
 let historyListUl, historyMapContainerDiv, historyDebugInfoSmall, refreshHistoryButton;
 let globalDateInput, refreshGlobalMapButton, globalTodayMapContainerDiv, globalTodayDebugInfoSmall;
 let groupNameInput, groupFilterSelect, connectionStatus;
+
+// 新增：顯示狀態元素
+let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
+let cityNameEl, countryNameEl, greetingTextEl, coordinateInfoEl, errorMessageEl;
 
 // 當 Firebase 準備就緒時執行
 window.addEventListener('firebaseReady', async (event) => {
@@ -55,10 +62,27 @@ window.addEventListener('firebaseReady', async (event) => {
         groupFilterSelect = document.getElementById('groupFilter');
         connectionStatus = document.getElementById('connectionStatus');
 
+        // 新增：獲取狀態顯示元素
+        waitingStateEl = document.getElementById('waitingState');
+        resultStateEl = document.getElementById('resultState');
+        loadingStateEl = document.getElementById('loadingState');
+        errorStateEl = document.getElementById('errorState');
+        cityNameEl = document.getElementById('cityName');
+        countryNameEl = document.getElementById('countryName');
+        greetingTextEl = document.getElementById('greetingText');
+        coordinateInfoEl = document.getElementById('coordinateInfo');
+        errorMessageEl = document.getElementById('errorMessage');
+
         console.log('✅ DOM 元素取得完成');
         console.log('🔘 findCityButton:', findCityButton ? '找到' : '未找到');
         console.log('🔘 setUserNameButton:', setUserNameButton ? '找到' : '未找到');
         console.log('🔘 findCityButton.disabled:', findCityButton ? findCityButton.disabled : 'N/A');
+        console.log('🎨 顯示狀態元素:', {
+            waiting: waitingStateEl ? '找到' : '未找到',
+            result: resultStateEl ? '找到' : '未找到',
+            loading: loadingStateEl ? '找到' : '未找到',
+            error: errorStateEl ? '找到' : '未找到'
+        });
 
     } catch (error) {
         console.error('❌ DOM 元素取得失敗:', error);
@@ -117,6 +141,38 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log('🔗 更新連線狀態:', connected ? '已連線' : '離線');
         if (connectionStatus) {
             connectionStatus.className = connected ? 'status-dot' : 'status-dot offline';
+        }
+    }
+
+    // 新增：狀態管理函數
+    function setState(newState, message = '') {
+        console.log(`🔄 狀態切換: ${currentState} → ${newState}`);
+        
+        // 移除所有 active 類別
+        if (waitingStateEl) waitingStateEl.classList.remove('active');
+        if (resultStateEl) resultStateEl.classList.remove('active');
+        if (loadingStateEl) loadingStateEl.classList.remove('active');
+        if (errorStateEl) errorStateEl.classList.remove('active');
+        
+        // 設定新狀態
+        currentState = newState;
+        
+        switch (newState) {
+            case 'waiting':
+                if (waitingStateEl) waitingStateEl.classList.add('active');
+                break;
+            case 'loading':
+                if (loadingStateEl) loadingStateEl.classList.add('active');
+                break;
+            case 'result':
+                if (resultStateEl) resultStateEl.classList.add('active');
+                break;
+            case 'error':
+                if (errorStateEl) errorStateEl.classList.add('active');
+                if (message && errorMessageEl) {
+                    errorMessageEl.textContent = message;
+                }
+                break;
         }
     }
 
@@ -323,13 +379,13 @@ window.addEventListener('firebaseReady', async (event) => {
     async function startTheDay() {
         console.log('🌅 開始這一天被呼叫');
         try {
-            if (!findCityButton) {
-                console.error('❌ findCityButton 元素未找到');
-                return;
-            }
+            // 設定載入狀態
+            setState('loading');
 
-            findCityButton.disabled = true;
-            findCityButton.textContent = '尋找中...';
+            if (findCityButton) {
+                findCityButton.disabled = true;
+                findCityButton.textContent = '尋找中...';
+            }
             if (resultTextDiv) resultTextDiv.textContent = '正在尋找你的甦醒城市...';
             console.log('🔄 開始尋找甦醒城市');
 
@@ -407,34 +463,11 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📡 API 回應資料:', data);
 
             if (data.success && data.city) {
-                // 顯示結果
-                const resultText = `今天你在 ${data.city.name}, ${data.city.country} 甦醒！`;
-                if (resultTextDiv) resultTextDiv.textContent = resultText;
-                console.log('✅ 甦醒城市:', resultText);
-
-                // 顯示國旗
-                if (data.city.country_iso_code && countryFlagImg) {
-                    const flagUrl = `https://flagcdn.com/96x72/${data.city.country_iso_code.toLowerCase()}.png`;
-                    countryFlagImg.src = flagUrl;
-                    countryFlagImg.style.display = 'block';
-                    console.log('🏁 國旗載入:', flagUrl);
-                }
-
-                // 初始化地圖
-                initClockMap(
-                    data.city.latitude,
-                    data.city.longitude,
-                    data.city.name,
-                    data.city.country
-                );
+                // 顯示結果 - 使用新的顯示元素
+                await displayAwakeningResult(data.city);
 
                 // 儲存到 Firebase
                 await saveToFirebase(data.city);
-
-                // 更新除錯資訊
-                if (debugInfoSmall) {
-                    debugInfoSmall.textContent = `緯度: ${data.city.latitude.toFixed(4)}, 經度: ${data.city.longitude.toFixed(4)}`;
-                }
 
                 console.log('✅ 甦醒城市尋找成功:', data.city);
 
@@ -444,8 +477,14 @@ window.addEventListener('firebaseReady', async (event) => {
 
         } catch (error) {
             console.error('❌ 開始這一天失敗:', error);
-            if (resultTextDiv) resultTextDiv.textContent = '發生錯誤，請重試: ' + error.message;
+            setState('error', error.message || '發生未知錯誤');
             updateConnectionStatus(false);
+            
+            // 5秒後自動回到等待狀態
+            setTimeout(() => {
+                setState('waiting');
+                updateConnectionStatus(true);
+            }, 5000);
         } finally {
             if (findCityButton) {
                 findCityButton.disabled = false;
@@ -453,6 +492,101 @@ window.addEventListener('firebaseReady', async (event) => {
             }
             console.log('🔄 重設按鈕狀態');
         }
+    }
+
+    // 新增：顯示甦醒結果
+    async function displayAwakeningResult(cityData) {
+        console.log('🎨 顯示甦醒結果:', cityData);
+        
+        try {
+            // 設定城市名稱
+            if (cityNameEl) {
+                cityNameEl.textContent = cityData.name || cityData.city;
+            }
+            
+            // 設定國家名稱
+            if (countryNameEl) {
+                countryNameEl.textContent = cityData.country;
+            }
+            
+            // 設定國旗
+            if (countryFlagImg && cityData.country_iso_code) {
+                const flagUrl = `https://flagcdn.com/96x72/${cityData.country_iso_code.toLowerCase()}.png`;
+                countryFlagImg.src = flagUrl;
+                countryFlagImg.style.display = 'block';
+                console.log('🏁 國旗載入:', flagUrl);
+            }
+            
+            // 設定問候語
+            if (greetingTextEl) {
+                const greeting = getLocalizedGreeting(cityData.country_iso_code);
+                greetingTextEl.textContent = greeting;
+            }
+            
+            // 設定座標資訊
+            if (coordinateInfoEl) {
+                coordinateInfoEl.textContent = 
+                    `${cityData.latitude.toFixed(4)}°, ${cityData.longitude.toFixed(4)}°`;
+            }
+            
+            // 初始化地圖
+            initClockMap(
+                cityData.latitude,
+                cityData.longitude,
+                cityData.name,
+                cityData.country
+            );
+            
+            // 設定結果文字（保持相容性）
+            const resultText = `今天你在 ${cityData.name}, ${cityData.country} 甦醒！`;
+            if (resultTextDiv) resultTextDiv.textContent = resultText;
+            
+            // 更新除錯資訊（保持相容性）
+            if (debugInfoSmall) {
+                debugInfoSmall.textContent = `緯度: ${cityData.latitude.toFixed(4)}, 經度: ${cityData.longitude.toFixed(4)}`;
+            }
+            
+            // 切換到結果狀態
+            setState('result');
+            
+            console.log('✅ 結果顯示完成');
+            
+        } catch (error) {
+            console.error('❌ 顯示結果失敗:', error);
+            setState('error', '顯示結果時發生錯誤');
+        }
+    }
+
+    // 新增：獲取本地化問候語
+    function getLocalizedGreeting(countryCode) {
+        const GREETINGS = {
+            'zh-TW': '早安！新的一天開始了！',
+            'zh-CN': '早上好！新的一天开始了！',
+            'en': 'Good morning! A new day begins!',
+            'ja': 'おはようございます！',
+            'ko': '좋은 아침입니다！',
+            'es': '¡Buenos días!',
+            'fr': 'Bonjour !',
+            'de': 'Guten Morgen!',
+            'it': 'Buongiorno!',
+            'pt': 'Bom dia!',
+            'ru': 'Доброе утро!',
+            'ar': 'صباح الخير!',
+            'th': 'สวัสดีตอนเช้า!',
+            'vi': 'Chào buổi sáng!',
+            'hi': 'सुप्रभात!',
+            'default': 'Good morning!'
+        };
+        
+        const languageMap = {
+            'TW': 'zh-TW', 'CN': 'zh-CN', 'HK': 'zh-TW', 'MO': 'zh-TW',
+            'JP': 'ja', 'KR': 'ko', 'ES': 'es', 'MX': 'es', 'AR': 'es',
+            'FR': 'fr', 'DE': 'de', 'IT': 'it', 'PT': 'pt', 'BR': 'pt',
+            'RU': 'ru', 'SA': 'ar', 'TH': 'th', 'VN': 'vi', 'IN': 'hi'
+        };
+        
+        const language = languageMap[countryCode] || 'en';
+        return GREETINGS[language] || GREETINGS['default'];
     }
 
     // 儲存到 Firebase
@@ -661,6 +795,9 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log('✅ Firebase 匿名登入成功');
         updateConnectionStatus(true);
         
+        // 設定初始狀態
+        setState('waiting');
+        
         // 自動載入使用者資料
         console.log('🤖 自動載入使用者資料...');
         await loadUserData();
@@ -668,6 +805,7 @@ window.addEventListener('firebaseReady', async (event) => {
     } catch (error) {
         console.error('❌ Firebase 認證失敗:', error);
         updateConnectionStatus(false);
+        setState('error', 'Firebase 初始化失敗');
     }
 
     console.log('🎉 Raspberry Pi 甦醒地圖初始化完成');
