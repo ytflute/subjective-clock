@@ -15,6 +15,38 @@ let initialLoadHandled = false;
 
 // 新增：狀態管理
 let currentState = 'waiting'; // waiting, loading, result, error
+window.currentState = currentState;
+
+// 設定基本的全域函數（確保始終可用）
+window.startTheDay = function() {
+    console.log('⚠️ 使用基本版本的 startTheDay 函數');
+    console.log('🔍 檢查初始化狀態:', {
+        firebaseSDK: !!window.firebaseSDK,
+        firebaseConfig: !!window.firebaseConfig,
+        currentState: window.currentState || 'unknown'
+    });
+    
+    // 嘗試顯示錯誤狀態
+    try {
+        const errorStateEl = document.getElementById('errorState');
+        const errorMessageEl = document.getElementById('errorMessage');
+        if (errorStateEl && errorMessageEl) {
+            // 隱藏其他狀態
+            ['waitingState', 'loadingState', 'resultState'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('active');
+            });
+            // 顯示錯誤狀態
+            errorStateEl.classList.add('active');
+            errorMessageEl.textContent = 'JavaScript 初始化未完成，請稍候';
+            console.log('✅ 顯示錯誤狀態');
+        }
+    } catch (e) {
+        console.error('❌ 顯示錯誤狀態失敗:', e);
+    }
+    
+    return false;
+};
 
 // DOM 元素（全域聲明，確保可訪問）
 let findCityButton, resultTextDiv, countryFlagImg, mapContainerDiv, debugInfoSmall;
@@ -156,6 +188,7 @@ window.addEventListener('firebaseReady', async (event) => {
         
         // 設定新狀態
         currentState = newState;
+        window.currentState = newState;
         
         switch (newState) {
             case 'waiting':
@@ -377,7 +410,14 @@ window.addEventListener('firebaseReady', async (event) => {
 
     // 開始這一天
     async function startTheDay() {
-        console.log('🌅 開始這一天被呼叫');
+        console.log('🌅 開始這一天被呼叫 (完整版本)');
+        console.log('🔍 當前狀態檢查:', {
+            db: !!db,
+            auth: !!auth,
+            currentState: currentState,
+            firebase: !!window.firebaseSDK
+        });
+        
         try {
             // 設定載入狀態
             setState('loading');
@@ -801,6 +841,11 @@ window.addEventListener('firebaseReady', async (event) => {
         // 自動載入使用者資料
         console.log('🤖 自動載入使用者資料...');
         await loadUserData();
+        
+        // 設定全域函數供實體按鈕調用
+        window.startTheDay = startTheDay;
+        window.setState = setState;
+        console.log('✅ 全域函數已設定');
         
     } catch (error) {
         console.error('❌ Firebase 認證失敗:', error);
