@@ -365,21 +365,101 @@ class AudioManager:
         try:
             volume = max(0, min(100, volume))  # 限制範圍
             
-            # 使用 amixer 設置系統音量
-            result = subprocess.run([
-                'amixer', 'sset', 'PCM', f'{volume}%'
-            ], capture_output=True, timeout=5)
+            # 嘗試不同的音量控制名稱
+            volume_controls = ['PCM', 'Master', 'Speaker', 'Headphone', 'HDMI']
             
-            if result.returncode == 0:
-                self.current_volume = volume
-                self.logger.info(f"音量設置為: {volume}%")
-                return True
-            else:
-                self.logger.error(f"音量設置失敗: {result.stderr}")
-                return False
+            for control in volume_controls:
+                try:
+                    # 使用 amixer 設置系統音量
+                    result = subprocess.run([
+                        'amixer', 'sset', control, f'{volume}%'
+                    ], capture_output=True, timeout=5)
+                    
+                    if result.returncode == 0:
+                        self.current_volume = volume
+                        self.logger.info(f"音量設置為: {volume}% (使用 {control} 控制)")
+                        return True
+                    else:
+                        self.logger.debug(f"嘗試 {control} 控制失敗: {result.stderr.decode().strip()}")
+                        
+                except Exception as e:
+                    self.logger.debug(f"嘗試 {control} 控制時發生錯誤: {e}")
+                    continue
+            
+            # 如果所有控制都失敗，記錄警告但不阻止程序運行
+            self.logger.warning("無法設置音量，但音頻播放可能仍然正常")
+            self.current_volume = volume
+            return True
                 
         except Exception as e:
             self.logger.error(f"音量設置失敗: {e}")
+            return False
+
+    def play_notification_sound(self, sound_type: str = 'success') -> bool:
+        """
+        播放通知音效
+        
+        Args:
+            sound_type: 音效類型 ('success', 'error', 'click')
+        
+        Returns:
+            bool: 播放是否成功
+        """
+        try:
+            if not AUDIO_CONFIG['enabled']:
+                self.logger.debug("音頻功能已禁用，跳過通知音效")
+                return True
+            
+            # 根據音效類型選擇不同的問候語
+            if sound_type == 'success':
+                # 播放簡短的成功音效（使用英語 "Great!"）
+                return self.play_greeting('US', '', 'United States')
+            elif sound_type == 'error':
+                # 播放錯誤提示音
+                self.logger.info("播放錯誤提示音")
+                return self._play_simple_beep()
+            elif sound_type == 'click':
+                # 播放點擊音效
+                self.logger.info("播放點擊音效")
+                return self._play_simple_beep(frequency=800, duration=0.1)
+            else:
+                self.logger.warning(f"未知的音效類型: {sound_type}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"播放通知音效失敗: {e}")
+            return False
+
+    def _play_simple_beep(self, frequency: int = 440, duration: float = 0.2) -> bool:
+        """
+        播放簡單的嗶聲
+        
+        Args:
+            frequency: 頻率 (Hz)
+            duration: 持續時間 (秒)
+        
+        Returns:
+            bool: 播放是否成功
+        """
+        try:
+            # 使用 speaker-test 生成簡單的測試音
+            result = subprocess.run([
+                'speaker-test', '-t', 'sine', '-f', str(frequency), 
+                '-l', '1', '-s', '1'
+            ], capture_output=True, timeout=5)
+            
+            if result.returncode == 0:
+                self.logger.debug(f"播放嗶聲成功 ({frequency}Hz, {duration}s)")
+                return True
+            else:
+                # 如果 speaker-test 失敗，嘗試使用 espeak 生成音效
+                result = subprocess.run([
+                    'espeak', '-s', '200', 'beep'
+                ], capture_output=True, timeout=5)
+                return result.returncode == 0
+                
+        except Exception as e:
+            self.logger.error(f"播放嗶聲失敗: {e}")
             return False
     
     def get_volume(self) -> int:
