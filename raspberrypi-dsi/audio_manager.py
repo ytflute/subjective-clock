@@ -245,9 +245,15 @@ class AudioManager:
                 return True
             
             # 🎵 快速模式：先播放通用問候，並行生成完整內容
-            if enable_fast_mode:
+            # 檢查配置中的快速模式設定
+            config_fast_mode = TTS_CONFIG.get('enable_fast_mode', True)
+            actual_fast_mode = enable_fast_mode and config_fast_mode
+            
+            if actual_fast_mode:
                 self.logger.info("🚀 啟用快速模式：先播放通用問候")
                 self._play_quick_greeting(country_code)
+            else:
+                self.logger.info("🐌 傳統模式：等待完整音頻生成")
             
             # 📡 並行獲取完整問候語和故事
             self.logger.info("📡 並行獲取完整問候語和故事...")
