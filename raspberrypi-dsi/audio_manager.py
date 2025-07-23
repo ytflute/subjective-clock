@@ -129,7 +129,7 @@ class AudioManager:
     
     def play_greeting(self, country_code: str, city_name: str = "", country_name: str = "") -> bool:
         """
-        播放早安問候語（新版本：使用 ChatGPT API）
+        播放早安問候語和城市故事（新版本：使用 ChatGPT API）
         
         Args:
             country_code: 國家代碼
@@ -144,41 +144,80 @@ class AudioManager:
                 self.logger.info("音頻功能已禁用，跳過音頻播放")
                 return True
             
-            # 首先嘗試從 ChatGPT API 獲取問候語
-            greeting_data = self._fetch_greeting_from_api(city_name, country_name, country_code)
+            # 從 ChatGPT API 獲取問候語和故事
+            greeting_data = self._fetch_greeting_and_story_from_api(city_name, country_name, country_code)
             
             if greeting_data:
-                # 使用 API 返回的問候語
+                success = True
+                
+                # 1. 播放當地語言問候語
                 greeting_text = greeting_data['greeting']
                 language_code = greeting_data['languageCode']
-                self.logger.info(f"使用 ChatGPT API 問候語: {greeting_text} ({greeting_data['language']})")
+                self.logger.info(f"播放當地語言問候語: {greeting_text} ({greeting_data['language']})")
+                
+                greeting_success = self._play_text_with_language(greeting_text, language_code)
+                if not greeting_success:
+                    self.logger.warning("當地語言問候語播放失敗")
+                    success = False
+                
+                # 2. 播放中文故事（如果有的話）
+                if greeting_data.get('chineseStory'):
+                    import time
+                    time.sleep(1)  # 短暫停頓
+                    
+                    story_text = greeting_data['chineseStory']
+                    self.logger.info(f"播放中文故事: {story_text}")
+                    
+                    story_success = self._play_text_with_language(story_text, 'zh')
+                    if not story_success:
+                        self.logger.warning("中文故事播放失敗")
+                        success = False
+                
+                return success
             else:
                 # 備用方案：使用內建問候語
                 self.logger.warning("ChatGPT API 失敗，使用備用問候語")
                 greeting_text = self._get_greeting_text(country_code, city_name)
                 language_code = self._get_language_code(country_code)
-            
-            # 檢查快取
-            audio_file = self._get_cached_audio(greeting_text, language_code)
-            
-            if not audio_file:
-                # 生成新的音頻文件
-                audio_file = self._generate_audio(greeting_text, language_code)
-            
-            if audio_file and audio_file.exists():
-                # 播放音頻
-                return self._play_audio_file(audio_file)
-            else:
-                self.logger.error("無法生成或找到音頻文件")
-                return False
+                return self._play_text_with_language(greeting_text, language_code)
                 
         except Exception as e:
             self.logger.error(f"播放問候語失敗: {e}")
             return False
 
-    def _fetch_greeting_from_api(self, city: str, country: str, country_code: str) -> Optional[Dict[str, Any]]:
+    def _play_text_with_language(self, text: str, language_code: str) -> bool:
         """
-        從 ChatGPT API 獲取當地語言問候語
+        播放指定語言的文字
+        
+        Args:
+            text: 要播放的文字
+            language_code: 語言代碼
+        
+        Returns:
+            bool: 播放是否成功
+        """
+        try:
+            # 檢查快取
+            audio_file = self._get_cached_audio(text, language_code)
+            
+            if not audio_file:
+                # 生成新的音頻文件
+                audio_file = self._generate_audio(text, language_code)
+            
+            if audio_file and audio_file.exists():
+                # 播放音頻
+                return self._play_audio_file(audio_file)
+            else:
+                self.logger.error(f"無法生成或找到音頻文件: {text}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"播放文字失敗: {e}")
+            return False
+
+    def _fetch_greeting_and_story_from_api(self, city: str, country: str, country_code: str) -> Optional[Dict[str, Any]]:
+        """
+        從 ChatGPT API 獲取當地語言問候語和中文故事
         
         Args:
             city: 城市名稱
@@ -186,7 +225,7 @@ class AudioManager:
             country_code: 國家代碼
         
         Returns:
-            Dict: 問候語資料，包含 greeting, language, languageCode 等
+            Dict: 問候語和故事資料，包含 greeting, language, languageCode, chineseStory 等
         """
         try:
             import requests
@@ -196,14 +235,15 @@ class AudioManager:
             from config import API_ENDPOINTS
             api_url = API_ENDPOINTS['generate_morning_greeting']
             
-            # 請求資料
+            # 請求資料（添加故事生成請求）
             request_data = {
                 "city": city,
                 "country": country,
-                "countryCode": country_code
+                "countryCode": country_code,
+                "includeStory": True  # 請求生成中文故事
             }
             
-            self.logger.info(f"調用問候語 API: {api_url}")
+            self.logger.info(f"調用問候語和故事 API: {api_url}")
             self.logger.debug(f"請求資料: {request_data}")
             
             # 發送請求
@@ -218,7 +258,8 @@ class AudioManager:
                 result = response.json()
                 if result.get('success') and result.get('data'):
                     greeting_data = result['data']
-                    self.logger.info(f"API 返回問候語: {greeting_data['greeting']} ({greeting_data['language']})")
+                    story_info = " + 故事" if greeting_data.get('chineseStory') else ""
+                    self.logger.info(f"API 返回問候語{story_info}: {greeting_data['greeting']} ({greeting_data['language']})")
                     return greeting_data
                 else:
                     self.logger.warning(f"API 返回格式錯誤: {result}")

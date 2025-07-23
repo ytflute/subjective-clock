@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { city, country, countryCode } = req.body;
+        const { city, country, countryCode, includeStory = false } = req.body;
 
         if (!country) {
             res.status(400).json({ error: '缺少國家參數' });
@@ -99,6 +99,51 @@ export default async function handler(req, res) {
         }
 
         console.log(`為 ${country} 生成問候語:`, greetingData);
+
+        // 如果需要生成故事，添加中文故事
+        if (includeStory && city) {
+            try {
+                const storyPrompt = `請為甦醒在 ${city}, ${country} 的人生成一個簡短的中文故事。
+
+要求：
+1. 以「今天的你在${city}甦醒」開頭
+2. 描述在這個城市可能遇到的有趣事件或當地特色
+3. 內容積極正面，富有想像力
+4. 長度控制在2-3句話以內
+5. 使用繁體中文
+6. 回應格式為純文字，不需要JSON格式
+
+範例：
+今天的你在巴黎甦醒，走出窗外就聞到了新鮮出爐的可頌香氣。你決定到塞納河畔散步，偶然遇見一位街頭藝術家正在畫你從未見過的美麗風景。`;
+
+                const storyResponse = await openai.chat.completions.create({
+                    model: "gpt-3.5-turbo",
+                    messages: [
+                        {
+                            role: "system",
+                            content: "你是一位擅長創作溫馨小故事的作家。請創作簡短而富有想像力的城市甦醒故事。"
+                        },
+                        { 
+                            role: "user", 
+                            content: storyPrompt 
+                        }
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 200
+                });
+
+                const chineseStory = storyResponse.choices[0].message.content.trim();
+                console.log(`為 ${city} 生成中文故事:`, chineseStory);
+
+                // 添加故事到回應數據
+                greetingData.chineseStory = chineseStory;
+
+            } catch (storyError) {
+                console.error('生成中文故事失敗:', storyError);
+                // 如果故事生成失敗，提供備用故事
+                greetingData.chineseStory = `今天的你在${city}甦醒，這裡的陽光格外溫暖。新的一天充滿了無限可能，準備好迎接美好的冒險吧！`;
+            }
+        }
 
         res.status(200).json({
             success: true,
