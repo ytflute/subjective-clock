@@ -231,13 +231,17 @@ class WakeUpMapWebApp:
             threading.Thread(target=reset_processing_state, daemon=True).start()
 
     def _extract_city_data_and_play_greeting(self):
-        """從網頁提取城市資料並播放問候語和故事"""
+        """從網頁提取城市資料並播放問候語和故事（優化版：視聽同步）"""
         if not self.audio_manager:
             self.logger.warning("音頻管理器未初始化，跳過音頻播放")
             return
         
         def extract_and_play():
             try:
+                # 🎵 立即播放按鈕確認音效（無延遲回饋）
+                self.logger.info("🎵 播放按鈕確認音效")
+                self.audio_manager.play_notification_sound('success')
+                
                 # 等待網頁處理完成
                 import time
                 time.sleep(2)
@@ -246,9 +250,9 @@ class WakeUpMapWebApp:
                 city_data = self._extract_city_data_from_web()
                 
                 if city_data:
-                    self.logger.info(f"從網頁提取到城市資料: {city_data}")
+                    self.logger.info(f"📍 從網頁提取到城市資料: {city_data}")
                     
-                    # 播放問候語和故事
+                    # 🚀 並行處理：立即開始音頻生成（不等待其他處理）
                     country_code = city_data.get('countryCode') or city_data.get('country_code', 'US')
                     city_name = city_data.get('city', '')
                     country_name = city_data.get('country', '')
@@ -257,33 +261,56 @@ class WakeUpMapWebApp:
                     if not country_code and country_name:
                         country_code = self._guess_country_code(country_name)
                     
-                    self.logger.info(f"準備播放問候語 - 城市: {city_name}, 國家: {country_name} ({country_code})")
+                    self.logger.info(f"🎤 立即開始音頻生成 - 城市: {city_name}, 國家: {country_name} ({country_code})")
                     
-                    success = self.audio_manager.play_greeting(
-                        country_code=country_code,
-                        city_name=city_name,
-                        country_name=country_name
-                    )
-                    
-                    if success:
-                        self.logger.info("✅ 問候語和故事播放成功")
-                    else:
-                        self.logger.warning("⚠️ 問候語和故事播放失敗")
+                    # 📡 並行啟動音頻生成和播放
+                    self._start_parallel_audio_generation(country_code, city_name, country_name)
                         
                 else:
-                    self.logger.warning("無法從網頁提取城市資料，播放通知音")
-                    self.audio_manager.play_notification_sound('success')
+                    self.logger.warning("⚠️ 無法從網頁提取城市資料")
                     
             except Exception as e:
-                self.logger.error(f"提取城市資料和播放音頻失敗: {e}")
-                # 備用：播放通知音
-                try:
-                    self.audio_manager.play_notification_sound('success')
-                except:
-                    pass
+                self.logger.error(f"提取城市資料失敗: {e}")
         
         # 在背景執行緒中執行
         threading.Thread(target=extract_and_play, daemon=True).start()
+    
+    def _start_parallel_audio_generation(self, country_code: str, city_name: str, country_name: str):
+        """並行啟動音頻生成，減少等待時間"""
+        def generate_and_play_audio():
+            try:
+                start_time = time.time()
+                self.logger.info("🚀 開始並行音頻生成...")
+                
+                # 立即開始音頻生成
+                success = self.audio_manager.play_greeting(
+                    country_code=country_code,
+                    city_name=city_name,
+                    country_name=country_name
+                )
+                
+                end_time = time.time()
+                duration = end_time - start_time
+                
+                if success:
+                    self.logger.info(f"✅ 音頻生成並播放成功 (耗時: {duration:.1f}秒)")
+                else:
+                    self.logger.warning(f"⚠️ 音頻生成失敗 (耗時: {duration:.1f}秒)")
+                    # 備用音效
+                    self.audio_manager.play_notification_sound('error')
+                    
+            except Exception as e:
+                self.logger.error(f"並行音頻生成失敗: {e}")
+                # 備用音效
+                try:
+                    self.audio_manager.play_notification_sound('error')
+                except:
+                    pass
+        
+        # 在獨立執行緒中進行音頻生成，避免阻塞主流程
+        import threading
+        import time
+        threading.Thread(target=generate_and_play_audio, daemon=True).start()
 
     def _extract_city_data_from_web(self):
         """從網頁提取城市資料"""
