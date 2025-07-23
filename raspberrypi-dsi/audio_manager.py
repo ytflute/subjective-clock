@@ -108,17 +108,30 @@ class AudioManager:
     def _initialize_tts(self):
         """初始化 TTS 引擎"""
         try:
-            if TTS_CONFIG['engine'] == 'pyttsx3' and PYTTSX3_AVAILABLE:
+            if TTS_CONFIG['engine'] == 'festival':
+                # 檢查 Festival 是否可用
+                try:
+                    result = subprocess.run(['festival', '--version'], 
+                                          capture_output=True, timeout=5)
+                    if result.returncode == 0:
+                        self.logger.info("Festival TTS 引擎初始化成功")
+                        # 檢查可用的女性聲音
+                        self._check_festival_voices()
+                    else:
+                        self.logger.warning("Festival 不可用，回退到 espeak")
+                        TTS_CONFIG['engine'] = 'espeak'
+                except Exception as e:
+                    self.logger.warning(f"Festival 檢查失敗: {e}，回退到 espeak")
+                    TTS_CONFIG['engine'] = 'espeak'
+                    
+            elif TTS_CONFIG['engine'] == 'pyttsx3' and PYTTSX3_AVAILABLE:
                 self.tts_engine = pyttsx3.init()
                 
                 # 設置語速
                 self.tts_engine.setProperty('rate', TTS_CONFIG['speed'])
                 
-                # 設置聲音
-                if TTS_CONFIG['voice_id']:
-                    voices = self.tts_engine.getProperty('voices')
-                    if voices and len(voices) > TTS_CONFIG['voice_id']:
-                        self.tts_engine.setProperty('voice', voices[TTS_CONFIG['voice_id']].id)
+                # 設置女性聲音
+                self._set_female_voice_pyttsx3()
                 
                 self.logger.info("pyttsx3 TTS 引擎初始化成功")
             else:
@@ -126,6 +139,63 @@ class AudioManager:
                 
         except Exception as e:
             self.logger.error(f"TTS 引擎初始化失敗: {e}")
+
+    def _check_festival_voices(self):
+        """檢查 Festival 可用的聲音"""
+        try:
+            # 檢查可用聲音
+            available_voices = []
+            for voice in TTS_CONFIG['festival_female_voices']:
+                # 測試聲音是否可用
+                test_cmd = f'echo "test" | festival --tts --voice {voice}'
+                try:
+                    result = subprocess.run(test_cmd, shell=True, 
+                                          capture_output=True, timeout=10)
+                    if result.returncode == 0:
+                        available_voices.append(voice)
+                        self.logger.info(f"✅ Festival 聲音可用: {voice}")
+                    else:
+                        self.logger.debug(f"❌ Festival 聲音不可用: {voice}")
+                except:
+                    pass
+            
+            if available_voices:
+                TTS_CONFIG['festival_voice'] = available_voices[0]
+                self.logger.info(f"選擇 Festival 女性聲音: {TTS_CONFIG['festival_voice']}")
+            else:
+                # 使用預設聲音
+                self.logger.warning("未找到女性聲音，使用預設聲音")
+                
+        except Exception as e:
+            self.logger.warning(f"檢查 Festival 聲音失敗: {e}")
+
+    def _set_female_voice_pyttsx3(self):
+        """設置 pyttsx3 的女性聲音"""
+        try:
+            voices = self.tts_engine.getProperty('voices')
+            if voices:
+                # 尋找女性聲音
+                female_voice = None
+                for voice in voices:
+                    voice_name = voice.name.lower()
+                    voice_id = voice.id.lower()
+                    
+                    # 檢查是否為女性聲音
+                    if any(keyword in voice_name or keyword in voice_id 
+                           for keyword in ['female', 'woman', 'girl', 'zira', 'hazel', 'anna']):
+                        female_voice = voice
+                        break
+                
+                if female_voice:
+                    self.tts_engine.setProperty('voice', female_voice.id)
+                    self.logger.info(f"設置女性聲音: {female_voice.name}")
+                else:
+                    self.logger.warning("未找到女性聲音，使用預設聲音")
+                    if voices:
+                        self.tts_engine.setProperty('voice', voices[0].id)
+            
+        except Exception as e:
+            self.logger.warning(f"設置女性聲音失敗: {e}")
     
     def play_greeting(self, country_code: str, city_name: str = "", country_name: str = "") -> bool:
         """
@@ -335,23 +405,18 @@ class AudioManager:
             text_hash = hashlib.md5(f"{text}_{language}".encode()).hexdigest()
             audio_file = self.cache_dir / f"greeting_{language}_{text_hash}.wav"
             
-            if TTS_CONFIG['engine'] == 'pyttsx3' and self.tts_engine:
+            if TTS_CONFIG['engine'] == 'festival':
+                # 使用 Festival（更自然的聲音）
+                return self._generate_audio_festival(text, audio_file)
+                
+            elif TTS_CONFIG['engine'] == 'pyttsx3' and self.tts_engine:
                 # 使用 pyttsx3
                 self.tts_engine.save_to_file(text, str(audio_file))
                 self.tts_engine.runAndWait()
+                
             else:
-                # 使用 espeak
-                cmd = [
-                    'espeak',
-                    '-s', str(TTS_CONFIG['speed']),
-                    '-v', language,
-                    '-w', str(audio_file),
-                    text
-                ]
-                result = subprocess.run(cmd, capture_output=True, timeout=30)
-                if result.returncode != 0:
-                    self.logger.error(f"espeak 失敗: {result.stderr}")
-                    return None
+                # 使用 espeak（備用方案，優化參數）
+                return self._generate_audio_espeak(text, language, audio_file)
             
             if audio_file.exists():
                 self.logger.info(f"音頻文件生成成功: {audio_file}")
@@ -363,6 +428,106 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"生成音頻失敗: {e}")
             return None
+
+    def _generate_audio_festival(self, text: str, audio_file: Path) -> Optional[Path]:
+        """使用 Festival 生成音頻"""
+        try:
+            # 創建 Festival 腳本
+            festival_script = f"""
+(voice_{TTS_CONFIG['festival_voice']})
+(Parameter.set 'Audio_Method 'Audio_Command)
+(Parameter.set 'Audio_Command "sox -t raw -r 16000 -s -w -c 1 - -t wav {audio_file}")
+(Parameter.set 'Duration_Stretch {1.0 if TTS_CONFIG['speed'] >= 150 else 1.2})
+(SayText "{text}")
+"""
+            
+            # 執行 Festival
+            process = subprocess.Popen(['festival'], 
+                                     stdin=subprocess.PIPE,
+                                     stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE,
+                                     text=True)
+            
+            stdout, stderr = process.communicate(input=festival_script, timeout=30)
+            
+            if process.returncode == 0 and audio_file.exists():
+                # 後處理：提高音質
+                self._enhance_audio_quality(audio_file)
+                self.logger.info(f"Festival 音頻生成成功: {audio_file}")
+                return audio_file
+            else:
+                self.logger.error(f"Festival 失敗: {stderr}")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"Festival 音頻生成失敗: {e}")
+            return None
+
+    def _generate_audio_espeak(self, text: str, language: str, audio_file: Path) -> Optional[Path]:
+        """使用優化的 espeak 生成音頻"""
+        try:
+            # 優化的 espeak 參數
+            cmd = [
+                'espeak',
+                '-s', str(max(120, TTS_CONFIG['speed'] - 20)),  # 稍微放慢語速
+                '-a', '100',  # 音量
+                '-g', '5',    # 詞間停頓
+                '-p', '40',   # 音調（較低，更女性化）
+                '-v', f"{language}+f3",  # 語言 + 女性聲音變體
+                '-w', str(audio_file),
+                text
+            ]
+            
+            result = subprocess.run(cmd, capture_output=True, timeout=30)
+            if result.returncode == 0 and audio_file.exists():
+                # 後處理：提高音質
+                self._enhance_audio_quality(audio_file)
+                self.logger.info(f"espeak 音頻生成成功: {audio_file}")
+                return audio_file
+            else:
+                self.logger.error(f"espeak 失敗: {result.stderr}")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"espeak 音頻生成失敗: {e}")
+            return None
+
+    def _enhance_audio_quality(self, audio_file: Path):
+        """使用 sox 提高音頻質量"""
+        try:
+            # 檢查 sox 是否可用
+            result = subprocess.run(['sox', '--version'], 
+                                  capture_output=True, timeout=5)
+            if result.returncode != 0:
+                return
+            
+            # 創建臨時文件用於處理
+            temp_file = audio_file.with_suffix('.temp.wav')
+            
+            # sox 音質增強處理
+            enhancement_cmd = [
+                'sox', str(audio_file), str(temp_file),
+                'rate', str(TTS_CONFIG.get('sample_rate_override', 22050)),  # 提高採樣率
+                'reverb', '20', '0.5',  # 輕微混響
+                'equalizer', '1000', '0.5', '2',  # 增強中頻
+                'compand', '0.3,1', '6:-70,-60,-20', '-5',  # 壓縮和標準化
+                'norm', '-1'  # 標準化音量
+            ]
+            
+            result = subprocess.run(enhancement_cmd, 
+                                  capture_output=True, timeout=30)
+            
+            if result.returncode == 0 and temp_file.exists():
+                # 替換原文件
+                temp_file.replace(audio_file)
+                self.logger.debug("音質增強完成")
+            else:
+                # 如果增強失敗，刪除臨時文件
+                if temp_file.exists():
+                    temp_file.unlink()
+                    
+        except Exception as e:
+            self.logger.debug(f"音質增強失敗（非致命錯誤）: {e}")
     
     def _play_audio_file(self, audio_file: Path) -> bool:
         """播放音頻文件"""

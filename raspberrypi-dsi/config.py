@@ -57,11 +57,22 @@ SPEAKER_CONFIG = {
 
 # TTS (文字轉語音) 配置
 TTS_CONFIG = {
-    'engine': 'pyttsx3',  # TTS引擎：'pyttsx3', 'espeak', 'festival'
-    'speed': 150,  # 語速 (words per minute)
-    'voice_id': None,  # 聲音ID (None=預設)
+    'engine': 'festival',  # 改為 festival（更自然的聲音）
+    'speed': 140,  # 語速稍微放慢（words per minute）
+    'voice_id': 'female',  # 女性聲音
+    'voice_name': 'kal_diphone',  # Festival 聲音名稱
     'cache_enabled': True,  # 啟用音頻快取
-    'cache_dir': '/tmp/wakeupmap_audio_cache'
+    'cache_dir': '/tmp/wakeupmap_audio_cache',
+    # Festival 特定配置
+    'festival_voice': 'voice_kal_diphone',  # 預設聲音
+    'festival_female_voices': [
+        'voice_kal_diphone',     # 預設女性聲音
+        'voice_cmu_us_slt_arctic_hts',  # 高質量女性聲音（如果可用）
+        'voice_nitech_us_slt_arctic_hts'  # 備用女性聲音
+    ],
+    # 音質增強設定
+    'audio_quality': 'high',
+    'sample_rate_override': 22050,  # 提高採樣率
 }
 
 # =============================================================================
