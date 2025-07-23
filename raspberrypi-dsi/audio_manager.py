@@ -250,6 +250,12 @@ class AudioManager:
                 language_code = greeting_data['languageCode']
                 story_text = greeting_data.get('chineseStory', '')
                 
+                # 🔍 調試資訊
+                self.logger.info(f"🔍 調試 - 問候語資料: {greeting_data}")
+                self.logger.info(f"🔍 調試 - story_text: '{story_text}'")
+                self.logger.info(f"🔍 調試 - TTS引擎: {TTS_CONFIG['engine']}")
+                self.logger.info(f"🔍 調試 - nova_integrated_mode: {TTS_CONFIG.get('nova_integrated_mode', True)}")
+                
                 # 🌟 Nova 整合模式：當地語言問候 + 中文故事一起播放
                 if (story_text and 
                     TTS_CONFIG['engine'] == 'openai' and 
@@ -266,25 +272,33 @@ class AudioManager:
                     return self._play_integrated_nova_content(integrated_content)
                     
                 else:
-                    # 🔄 傳統分離模式：分別播放問候語和故事
+                    # 🔄 分離模式：但強制使用 Nova 處理所有語音
                     success = True
                     
-                    # 1. 播放當地語言問候語
-                    self.logger.info(f"播放當地語言問候語: {greeting_text} ({greeting_data['language']})")
+                    # 1. 🤖 強制使用 Nova 播放當地語言問候語
+                    if TTS_CONFIG['engine'] == 'openai':
+                        self.logger.info(f"🤖 Nova 播放當地語言問候語: {greeting_text} ({greeting_data['language']})")
+                        greeting_success = self._play_text_with_nova(greeting_text, language_code)
+                    else:
+                        self.logger.info(f"播放當地語言問候語: {greeting_text} ({greeting_data['language']})")
+                        greeting_success = self._play_text_with_language(greeting_text, language_code)
                     
-                    greeting_success = self._play_text_with_language(greeting_text, language_code)
                     if not greeting_success:
                         self.logger.warning("當地語言問候語播放失敗")
                         success = False
                     
-                    # 2. 播放中文故事（如果有的話）
+                    # 2. 🤖 使用 Nova 播放中文故事（如果有的話）
                     if story_text:
                         import time
                         time.sleep(1)  # 短暫停頓
                         
-                        self.logger.info(f"播放中文故事: {story_text}")
+                        if TTS_CONFIG['engine'] == 'openai':
+                            self.logger.info(f"🤖 Nova 播放中文故事: {story_text}")
+                            story_success = self._play_text_with_nova(story_text, 'zh')
+                        else:
+                            self.logger.info(f"播放中文故事: {story_text}")
+                            story_success = self._play_text_with_language(story_text, 'zh')
                         
-                        story_success = self._play_text_with_language(story_text, 'zh')
                         if not story_success:
                             self.logger.warning("中文故事播放失敗")
                             success = False
@@ -333,6 +347,41 @@ class AudioManager:
                 
         except Exception as e:
             self.logger.error(f"Nova 整合播放失敗: {e}")
+            return False
+    
+    def _play_text_with_nova(self, text: str, language_code: str) -> bool:
+        """
+        強制使用 OpenAI TTS Nova 播放文字
+        
+        Args:
+            text: 要播放的文字
+            language_code: 語言代碼
+        
+        Returns:
+            bool: 播放是否成功
+        """
+        try:
+            self.logger.info(f"🤖 Nova 強制播放 {language_code} 語音: {text}")
+            
+            # 強制使用 OpenAI TTS 生成音頻
+            audio_file = self._generate_audio_openai_direct(text, language_code)
+            
+            if audio_file and audio_file.exists():
+                # 播放音頻
+                success = self._play_audio_file(audio_file)
+                
+                if success:
+                    self.logger.info(f"✨ Nova 播放成功: {language_code}")
+                    return True
+                else:
+                    self.logger.error(f"Nova 音頻播放失敗: {language_code}")
+                    return False
+            else:
+                self.logger.error(f"Nova 音頻生成失敗: {language_code}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"Nova 播放失敗: {e}")
             return False
     
     def _play_text_with_language(self, text: str, language_code: str) -> bool:
@@ -583,6 +632,37 @@ class AudioManager:
             self.logger.error(f"生成音頻失敗: {e}")
             return None
 
+    def _generate_audio_openai_direct(self, text: str, language_code: str) -> Optional[Path]:
+        """
+        直接使用 OpenAI TTS 生成音頻（繞過其他引擎選擇）
+        
+        Args:
+            text: 要轉換的文字
+            language_code: 語言代碼
+        
+        Returns:
+            Path: 生成的音頻文件路徑，如果失敗則返回 None
+        """
+        try:
+            # 創建音頻文件路徑
+            import hashlib
+            text_hash = hashlib.md5(f"{text}_{language_code}".encode()).hexdigest()
+            audio_file = self.cache_dir / f"nova_direct_{language_code}_{text_hash}.wav"
+            
+            # 調用 OpenAI TTS
+            result = self._generate_audio_openai(text, audio_file)
+            
+            if result and result.exists():
+                self.logger.info(f"✨ Nova 直接生成音頻成功: {language_code}")
+                return result
+            else:
+                self.logger.error(f"Nova 直接生成音頻失敗: {language_code}")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"Nova 直接生成失敗: {e}")
+            return None
+    
     def _generate_audio_openai(self, text: str, audio_file: Path) -> Optional[Path]:
         """使用 OpenAI TTS 生成音頻"""
         try:
