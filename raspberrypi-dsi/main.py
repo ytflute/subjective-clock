@@ -426,6 +426,7 @@ class WakeUpMapApp:
             'ghana': 'GH',
             'ethiopia': 'ET',
             'french southern territories': 'TF',  # 法國南方領土
+            'russia': 'RU',  # 俄羅斯
         }
         
         # 檢查完整匹配

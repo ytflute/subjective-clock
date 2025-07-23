@@ -11,6 +11,7 @@ import threading
 import logging
 import hashlib
 import subprocess
+import struct
 from pathlib import Path
 from typing import Optional, Dict, Any
 
@@ -415,7 +416,11 @@ class AudioManager:
             # 主要引擎嘗試
             result_file = None
             
-            if TTS_CONFIG['engine'] == 'festival':
+            # 中文、俄語等特定語言直接使用 espeak（Festival 支援有問題）
+            if language in ['zh', 'zh-CN', 'zh-TW', 'ru']:
+                self.logger.info(f"語言 {language} 直接使用 espeak 引擎（Festival 支援有限）")
+                result_file = self._generate_audio_espeak(text, language, audio_file)
+            elif TTS_CONFIG['engine'] == 'festival':
                 # 使用 Festival（更自然的聲音）
                 result_file = self._generate_audio_festival(text, audio_file)
                 
@@ -513,15 +518,18 @@ class AudioManager:
                     temp_raw_file.unlink()
                 
                 if result.returncode == 0 and audio_file.exists():
-                    # 驗證 WAV 文件
-                    if self._validate_wav_file(audio_file):
+                    # 嚴格驗證 WAV 文件
+                    if self._validate_wav_file(audio_file) and self._test_wav_playback(audio_file):
                         # 後處理：提高音質（可選）
                         if TTS_CONFIG.get('enable_audio_enhancement', True):
                             self._enhance_audio_quality(audio_file)
                         self.logger.info(f"Festival 音頻生成成功: {audio_file}")
                         return audio_file
                     else:
-                        self.logger.error("生成的 WAV 文件格式無效")
+                        self.logger.error("生成的 WAV 文件格式無效或無法播放")
+                        # 刪除無效文件
+                        if audio_file.exists():
+                            audio_file.unlink()
                         return None
                 else:
                     self.logger.error(f"sox 轉換失敗: {result.stderr}")
@@ -566,8 +574,8 @@ class AudioManager:
     def _validate_wav_file(self, audio_file: Path) -> bool:
         """驗證 WAV 文件格式是否正確"""
         try:
-            # 檢查文件大小
-            if not audio_file.exists() or audio_file.stat().st_size < 44:
+            # 檢查文件大小（至少需要 44 字節的 WAV 頭 + 一些音頻數據）
+            if not audio_file.exists() or audio_file.stat().st_size < 100:
                 return False
             
             # 讀取 WAV 文件頭
@@ -577,36 +585,70 @@ class AudioManager:
                 if riff_header != b'RIFF':
                     return False
                 
-                # 跳過文件大小
-                f.seek(8)
+                # 讀取文件大小
+                file_size = int.from_bytes(f.read(4), byteorder='little')
                 
                 # 檢查 WAVE 標識
                 wave_header = f.read(4)
                 if wave_header != b'WAVE':
                     return False
                 
-                # 尋找 data chunk
-                while True:
-                    chunk_header = f.read(4)
-                    if len(chunk_header) < 4:
-                        break
-                    
-                    chunk_size = f.read(4)
-                    if len(chunk_size) < 4:
-                        break
-                    
-                    if chunk_header == b'data':
-                        # 找到 data chunk，文件格式正確
-                        return True
-                    
-                    # 跳過這個 chunk 的內容
-                    size = int.from_bytes(chunk_size, byteorder='little')
-                    f.seek(size, 1)
+                # 尋找必要的 chunks
+                found_fmt = False
+                found_data = False
+                data_size = 0
                 
-            return False
+                while f.tell() < len(riff_header) + 4 + file_size:
+                    try:
+                        chunk_header = f.read(4)
+                        if len(chunk_header) < 4:
+                            break
+                        
+                        chunk_size_bytes = f.read(4)
+                        if len(chunk_size_bytes) < 4:
+                            break
+                            
+                        chunk_size = int.from_bytes(chunk_size_bytes, byteorder='little')
+                        
+                        if chunk_header == b'fmt ':
+                            found_fmt = True
+                            # 跳過 fmt chunk 內容
+                            f.seek(chunk_size, 1)
+                        elif chunk_header == b'data':
+                            found_data = True
+                            data_size = chunk_size
+                            # 不需要讀取 data chunk 內容
+                            f.seek(chunk_size, 1)
+                        else:
+                            # 跳過其他 chunk
+                            f.seek(chunk_size, 1)
+                        
+                        # 對齊到偶數字節邊界
+                        if chunk_size % 2 == 1:
+                            f.seek(1, 1)
+                            
+                    except (struct.error, OSError):
+                        break
+                
+                # 檢查是否找到必要的 chunks 且有實際音頻數據
+                return found_fmt and found_data and data_size > 0
                 
         except Exception as e:
             self.logger.debug(f"WAV 文件驗證失敗: {e}")
+            return False
+
+    def _test_wav_playback(self, audio_file: Path) -> bool:
+        """測試 WAV 文件是否能被 pygame 正確載入"""
+        try:
+            if not PYGAME_AVAILABLE:
+                return True  # 如果沒有 pygame，跳過測試
+            
+            # 嘗試用 pygame 載入文件
+            pygame.mixer.music.load(str(audio_file))
+            return True
+            
+        except Exception as e:
+            self.logger.debug(f"WAV 文件播放測試失敗: {e}")
             return False
 
     def _enhance_audio_quality(self, audio_file: Path):
