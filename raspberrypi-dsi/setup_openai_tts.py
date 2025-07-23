@@ -12,13 +12,68 @@ from pathlib import Path
 def install_openai_library():
     """安裝 OpenAI 庫"""
     print("📦 安裝 OpenAI 庫...")
-    try:
-        subprocess.run([sys.executable, '-m', 'pip', 'install', 'openai'], check=True)
-        print("✅ OpenAI 庫安裝成功！")
-        return True
-    except subprocess.CalledProcessError:
-        print("❌ OpenAI 庫安裝失敗")
-        return False
+    
+    # 嘗試多種安裝方式
+    install_methods = [
+        # 方法 1：嘗試 --break-system-packages（簡單但有風險）
+        {
+            'cmd': [sys.executable, '-m', 'pip', 'install', 'openai', '--break-system-packages'],
+            'name': '系統級安裝（--break-system-packages）',
+            'risk': '⚠️  有潛在風險但通常安全'
+        },
+        # 方法 2：嘗試 --user 安裝
+        {
+            'cmd': [sys.executable, '-m', 'pip', 'install', 'openai', '--user'],
+            'name': '用戶級安裝（--user）',
+            'risk': '✅ 安全選項'
+        }
+    ]
+    
+    print("\n🔧 檢測到受管理的 Python 環境，嘗試替代安裝方式...")
+    
+    for i, method in enumerate(install_methods, 1):
+        print(f"\n🔄 方法 {i}: {method['name']} {method['risk']}")
+        
+        try:
+            result = subprocess.run(method['cmd'], 
+                                  capture_output=True, 
+                                  text=True, 
+                                  timeout=120)
+            
+            if result.returncode == 0:
+                print("✅ OpenAI 庫安裝成功！")
+                return True
+            else:
+                print(f"❌ 方法 {i} 失敗: {result.stderr[:100]}...")
+                
+        except subprocess.TimeoutExpired:
+            print(f"⏱️  方法 {i} 超時")
+        except Exception as e:
+            print(f"❌ 方法 {i} 錯誤: {e}")
+    
+    # 所有方法都失敗，提供手動安裝指導
+    print("\n❌ 自動安裝失敗，請手動安裝：")
+    print("\n📋 手動安裝選項：")
+    print("1️⃣  推薦方式（安全）：")
+    print("   pip3 install openai --user")
+    print("\n2️⃣  系統方式（需要時）：")
+    print("   pip3 install openai --break-system-packages")
+    print("\n3️⃣  虛擬環境方式（最安全）：")
+    print("   python3 -m venv venv")
+    print("   source venv/bin/activate")
+    print("   pip install openai")
+    
+    choice = input("\n是否要我幫您執行推薦方式？(y/n): ").lower().strip()
+    if choice == 'y':
+        try:
+            subprocess.run(['pip3', 'install', 'openai', '--user'], check=True)
+            print("✅ 手動安裝成功！")
+            return True
+        except:
+            print("❌ 手動安裝也失敗，請查看上述指導")
+            return False
+    
+    return False
 
 def setup_api_key():
     """設定 OpenAI API 金鑰"""
