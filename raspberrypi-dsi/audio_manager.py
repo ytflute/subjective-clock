@@ -193,7 +193,8 @@ class AudioManager:
             import json
             
             # API 端點
-            api_url = "https://subjective-clock02.vercel.app/api/generateMorningGreeting"
+            from config import API_ENDPOINTS
+            api_url = API_ENDPOINTS['generate_morning_greeting']
             
             # 請求資料
             request_data = {
