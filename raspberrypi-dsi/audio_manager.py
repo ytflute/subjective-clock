@@ -443,7 +443,7 @@ class AudioManager:
             # 主要引擎嘗試
             result_file = None
             
-            # OpenAI TTS 優先（最高品質）
+            # OpenAI TTS 優先（最高品質，支援所有語言）
             if TTS_CONFIG['engine'] == 'openai' and self.openai_client:
                 self.logger.info(f"🤖 使用 OpenAI TTS 生成 {language} 語音")
                 result_file = self._generate_audio_openai(text, audio_file)
@@ -459,9 +459,9 @@ class AudioManager:
                         if result_file is None:
                             result_file = self._generate_audio_espeak(text, language, audio_file)
             
-            # 中文、俄語等特定語言直接使用 espeak（Festival 支援有問題）
+            # 如果不是 OpenAI 引擎，中文、俄語等特定語言使用 espeak
             elif language in ['zh', 'zh-CN', 'zh-TW', 'ru']:
-                self.logger.info(f"語言 {language} 直接使用 espeak 引擎（Festival 支援有限）")
+                self.logger.info(f"語言 {language} 使用 espeak 引擎（非 OpenAI 模式）")
                 result_file = self._generate_audio_espeak(text, language, audio_file)
             elif TTS_CONFIG['engine'] == 'festival':
                 # 使用 Festival（更自然的聲音）
