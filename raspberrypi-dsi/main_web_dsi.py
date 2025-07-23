@@ -195,17 +195,153 @@ class WakeUpMapWebApp:
             if result and result.get('success'):
                 self.logger.info("開始按鈕點擊成功")
                 
-                if self.audio_manager:
-                    threading.Thread(
-                        target=self.audio_manager.play_notification_sound,
-                        args=('success',),
-                        daemon=True
-                    ).start()
+                # 從網頁提取城市資料並播放問候語
+                self._extract_city_data_and_play_greeting()
+                
             else:
                 self.logger.error("開始按鈕點擊失敗")
                 
         except Exception as e:
             self.logger.error(f"短按事件處理失敗：{e}")
+
+    def _extract_city_data_and_play_greeting(self):
+        """從網頁提取城市資料並播放問候語和故事"""
+        if not self.audio_manager:
+            self.logger.warning("音頻管理器未初始化，跳過音頻播放")
+            return
+        
+        def extract_and_play():
+            try:
+                # 等待網頁處理完成
+                import time
+                time.sleep(2)
+                
+                # 從網頁提取城市資料
+                city_data = self._extract_city_data_from_web()
+                
+                if city_data:
+                    self.logger.info(f"從網頁提取到城市資料: {city_data}")
+                    
+                    # 播放問候語和故事
+                    country_code = city_data.get('countryCode') or city_data.get('country_code', 'US')
+                    city_name = city_data.get('city', '')
+                    country_name = city_data.get('country', '')
+                    
+                    # 如果沒有國家代碼，嘗試根據國家名稱推測
+                    if not country_code and country_name:
+                        country_code = self._guess_country_code(country_name)
+                    
+                    self.logger.info(f"準備播放問候語 - 城市: {city_name}, 國家: {country_name} ({country_code})")
+                    
+                    success = self.audio_manager.play_greeting(
+                        country_code=country_code,
+                        city_name=city_name,
+                        country_name=country_name
+                    )
+                    
+                    if success:
+                        self.logger.info("✅ 問候語和故事播放成功")
+                    else:
+                        self.logger.warning("⚠️ 問候語和故事播放失敗")
+                        
+                else:
+                    self.logger.warning("無法從網頁提取城市資料，播放通知音")
+                    self.audio_manager.play_notification_sound('success')
+                    
+            except Exception as e:
+                self.logger.error(f"提取城市資料和播放音頻失敗: {e}")
+                # 備用：播放通知音
+                try:
+                    self.audio_manager.play_notification_sound('success')
+                except:
+                    pass
+        
+        # 在背景執行緒中執行
+        threading.Thread(target=extract_and_play, daemon=True).start()
+
+    def _extract_city_data_from_web(self):
+        """從網頁提取城市資料"""
+        try:
+            if not self.web_controller or not self.web_controller.driver:
+                self.logger.error("網頁控制器或瀏覽器未初始化")
+                return None
+            
+            # 提取城市資料的 JavaScript
+            city_data_js = """
+            return {
+                city: document.getElementById('cityName') ? document.getElementById('cityName').textContent : '',
+                country: document.getElementById('countryName') ? document.getElementById('countryName').textContent : '',
+                countryCode: window.currentCityData ? window.currentCityData.country_iso_code : '',
+                latitude: window.currentCityData ? window.currentCityData.latitude : null,
+                longitude: window.currentCityData ? window.currentCityData.longitude : null,
+                timezone: window.currentCityData ? window.currentCityData.timezone : ''
+            };
+            """
+            
+            city_data = self.web_controller.driver.execute_script(city_data_js)
+            
+            if city_data and city_data.get('city'):
+                return city_data
+            else:
+                self.logger.warning(f"未能提取到有效的城市資料: {city_data}")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"從網頁提取城市資料失敗: {e}")
+            return None
+
+    def _guess_country_code(self, country_name: str) -> str:
+        """根據國家名稱推測國家代碼"""
+        country_name = country_name.lower().strip()
+        
+        # 常見國家名稱對應表
+        country_map = {
+            'yemen': 'YE',
+            'kenya': 'KE',
+            'saudi arabia': 'SA',
+            'united arab emirates': 'AE',
+            'egypt': 'EG',
+            'iraq': 'IQ',
+            'jordan': 'JO',
+            'kuwait': 'KW',
+            'lebanon': 'LB',
+            'oman': 'OM',
+            'qatar': 'QA',
+            'syria': 'SY',
+            'china': 'CN',
+            'japan': 'JP',
+            'korea': 'KR',
+            'south korea': 'KR',
+            'france': 'FR',
+            'germany': 'DE',
+            'spain': 'ES',
+            'italy': 'IT',
+            'russia': 'RU',
+            'india': 'IN',
+            'thailand': 'TH',
+            'vietnam': 'VN',
+            'united states': 'US',
+            'united kingdom': 'GB',
+            'australia': 'AU',
+            'canada': 'CA',
+            'brazil': 'BR',
+            'mexico': 'MX',
+            'argentina': 'AR',
+        }
+        
+        # 檢查完整匹配
+        if country_name in country_map:
+            self.logger.info(f"根據國家名稱 '{country_name}' 推測國家代碼: {country_map[country_name]}")
+            return country_map[country_name]
+        
+        # 檢查部分匹配
+        for country_key, code in country_map.items():
+            if country_key in country_name or country_name in country_key:
+                self.logger.info(f"根據國家名稱 '{country_name}' (部分匹配 '{country_key}') 推測國家代碼: {code}")
+                return code
+        
+        self.logger.warning(f"無法根據國家名稱 '{country_name}' 推測國家代碼")
+        return 'US'
     
     def _handle_long_press(self):
         """處理長按事件 - 重新載入網頁"""
