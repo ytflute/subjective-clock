@@ -60,13 +60,23 @@ def test_button_handler():
         print(f"📦 使用按鈕處理器: {handler_type}")
         
         # 創建按鈕處理器
-        button_handler = ButtonHandler(
-            button_pin=BUTTON_CONFIG['pin'],
-            button_press_callback=lambda: print("🔘 按鈕按下回調觸發"),
-            button_release_callback=lambda: print("🔴 按鈕釋放回調觸發"),
-            pull_up=BUTTON_CONFIG.get('pull_up', True),
-            bounce_time=BUTTON_CONFIG.get('bounce_time', 200)
-        )
+        if handler_type == "pigpiod":
+            # pigpiod 版本不需要參數，從 config 讀取
+            button_handler = ButtonHandler()
+            # 設置回調函數
+            button_handler.register_callbacks(
+                short_press_callback=lambda: print("🔘 短按回調觸發"),
+                long_press_callback=lambda: print("🔴 長按回調觸發")
+            )
+        else:
+            # RPi.GPIO 版本使用舊的參數格式
+            button_handler = ButtonHandler(
+                button_pin=BUTTON_CONFIG['pin'],
+                button_press_callback=lambda: print("🔘 按鈕按下回調觸發"),
+                button_release_callback=lambda: print("🔴 按鈕釋放回調觸發"),
+                pull_up=BUTTON_CONFIG.get('pull_up', True),
+                bounce_time=BUTTON_CONFIG.get('bounce_time', 200)
+            )
         
         print(f"✅ 按鈕處理器創建成功")
         return button_handler

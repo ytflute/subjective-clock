@@ -11,6 +11,7 @@ import logging
 import threading
 import time
 from typing import Optional
+from pathlib import Path
 
 # 導入自定義模組
 from config import (
