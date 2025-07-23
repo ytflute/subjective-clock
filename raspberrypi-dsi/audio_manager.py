@@ -244,7 +244,7 @@ class AudioManager:
             }
             
             self.logger.info(f"調用問候語和故事 API: {api_url}")
-            self.logger.debug(f"請求資料: {request_data}")
+            self.logger.info(f"請求資料: {request_data}")  # 改為 INFO 級別以便在日誌中看到
             
             # 發送請求
             response = requests.post(

@@ -314,11 +314,21 @@ class WakeUpMapApp:
                 return
             
             # 獲取城市和國家資訊
-            country_code = city_data.get('country_iso_code', city_data.get('countryCode', 'US'))
-            city_name = city_data.get('name', city_data.get('city', ''))
+            country_code = city_data.get('country_iso_code') or city_data.get('countryCode') or city_data.get('country_code')
+            city_name = city_data.get('name') or city_data.get('city', '')
             country_name = city_data.get('country', '')
             
+            # 如果沒有國家代碼，嘗試根據國家名稱推測
+            if not country_code and country_name:
+                country_code = self._guess_country_code(country_name)
+            
+            # 最後預設為美國
+            if not country_code:
+                country_code = 'US'
+                self.logger.warning(f"無法獲取國家代碼，使用預設值 US")
+            
             self.logger.info(f"準備播放早安問候語 - 城市: {city_name}, 國家: {country_name} ({country_code})")
+            self.logger.info(f"完整城市資料: {city_data}")  # 添加完整資料日誌
             
             # 在背景執行音頻播放，避免阻塞UI
             def play_audio():
@@ -345,7 +355,59 @@ class WakeUpMapApp:
             
         except Exception as e:
             self.logger.error(f"❌ 播放早安問候語失敗: {e}")
-    
+
+    def _guess_country_code(self, country_name: str) -> str:
+        """根據國家名稱推測國家代碼"""
+        country_name = country_name.lower().strip()
+        
+        # 常見國家名稱對應表
+        country_map = {
+            'yemen': 'YE',
+            'saudi arabia': 'SA',
+            'united arab emirates': 'AE',
+            'egypt': 'EG',
+            'iraq': 'IQ',
+            'jordan': 'JO',
+            'kuwait': 'KW',
+            'lebanon': 'LB',
+            'oman': 'OM',
+            'qatar': 'QA',
+            'syria': 'SY',
+            'china': 'CN',
+            'japan': 'JP',
+            'korea': 'KR',
+            'south korea': 'KR',
+            'france': 'FR',
+            'germany': 'DE',
+            'spain': 'ES',
+            'italy': 'IT',
+            'russia': 'RU',
+            'india': 'IN',
+            'thailand': 'TH',
+            'vietnam': 'VN',
+            'united states': 'US',
+            'united kingdom': 'GB',
+            'australia': 'AU',
+            'canada': 'CA',
+            'brazil': 'BR',
+            'mexico': 'MX',
+            'argentina': 'AR',
+        }
+        
+        # 檢查完整匹配
+        if country_name in country_map:
+            self.logger.info(f"根據國家名稱 '{country_name}' 推測國家代碼: {country_map[country_name]}")
+            return country_map[country_name]
+        
+        # 檢查部分匹配
+        for country_key, code in country_map.items():
+            if country_key in country_name or country_name in country_key:
+                self.logger.info(f"根據國家名稱 '{country_name}' (部分匹配 '{country_key}') 推測國家代碼: {code}")
+                return code
+        
+        self.logger.warning(f"無法根據國家名稱 '{country_name}' 推測國家代碼")
+        return ''
+
     def _show_system_info(self):
         """顯示系統資訊"""
         try:
