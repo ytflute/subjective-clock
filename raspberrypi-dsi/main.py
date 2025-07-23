@@ -115,6 +115,10 @@ class WakeUpMapApp:
         self.last_activity_time = time.time()
         self.screensaver_active = False
         
+        # 防止重複觸發
+        self.last_button_action_time = 0
+        self.is_processing_button = False
+        
         # 執行緒
         self.screensaver_thread = None
         self.display_thread = None
@@ -214,21 +218,44 @@ class WakeUpMapApp:
     
     def on_button_press(self):
         """按鈕短按事件處理"""
-        self.logger.info("收到按鈕短按事件")
-        self._update_activity()
+        current_time = time.time()
         
-        # 如果螢幕保護啟動，先退出螢幕保護
-        if self.screensaver_active:
-            self._exit_screensaver()
+        # 防止重複觸發檢查
+        if self.is_processing_button:
+            self.logger.warning("按鈕事件正在處理中，忽略重複觸發")
             return
         
-        # 如果正在處理中，忽略按鈕事件
-        if self.is_processing:
-            self.logger.info("正在處理中，忽略按鈕事件")
+        if current_time - self.last_button_action_time < 2.0:  # 2秒內不允許重複操作
+            self.logger.warning(f"按鈕操作間隔過短 ({current_time - self.last_button_action_time:.2f}s)，忽略此次操作")
             return
         
-        # 開始處理「開始這一天」
-        self._start_new_day()
+        self.is_processing_button = True
+        self.last_button_action_time = current_time
+        
+        try:
+            self.logger.info("收到按鈕短按事件")
+            self._update_activity()
+            
+            # 如果螢幕保護啟動，先退出螢幕保護
+            if self.screensaver_active:
+                self._exit_screensaver()
+                return
+            
+            # 如果正在處理中，忽略按鈕事件
+            if self.is_processing:
+                self.logger.info("正在處理中，忽略按鈕事件")
+                return
+            
+            # 開始處理「開始這一天」
+            self._start_new_day()
+            
+        finally:
+            # 延遲重置處理狀態
+            def reset_processing_state():
+                time.sleep(1)
+                self.is_processing_button = False
+            
+            threading.Thread(target=reset_processing_state, daemon=True).start()
     
     def on_long_press(self):
         """按鈕長按事件處理"""

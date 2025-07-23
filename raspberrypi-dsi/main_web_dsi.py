@@ -101,6 +101,10 @@ class WakeUpMapWebApp:
         self.running = False
         self._stop_event = threading.Event()
         
+        # 防止重複觸發
+        self.last_button_action_time = 0
+        self.is_processing_button = False
+        
         # 初始化
         self._initialize()
     
@@ -183,13 +187,28 @@ class WakeUpMapWebApp:
     
     def _handle_short_press(self):
         """處理短按事件 - 點擊開始按鈕"""
-        self.logger.info("處理短按事件：點擊開始按鈕")
+        import time
+        current_time = time.time()
         
-        # 處理螢幕保護器
-        self._deactivate_screensaver()
-        self._reset_screensaver_timer()
+        # 防止重複觸發檢查
+        if self.is_processing_button:
+            self.logger.warning("按鈕事件正在處理中，忽略重複觸發")
+            return
+        
+        if current_time - self.last_button_action_time < 2.0:  # 2秒內不允許重複操作
+            self.logger.warning(f"按鈕操作間隔過短 ({current_time - self.last_button_action_time:.2f}s)，忽略此次操作")
+            return
+        
+        self.is_processing_button = True
+        self.last_button_action_time = current_time
         
         try:
+            self.logger.info("處理短按事件：點擊開始按鈕")
+            
+            # 處理螢幕保護器
+            self._deactivate_screensaver()
+            self._reset_screensaver_timer()
+            
             result = self.web_controller.click_start_button()
             
             if result and result.get('success'):
@@ -203,6 +222,13 @@ class WakeUpMapWebApp:
                 
         except Exception as e:
             self.logger.error(f"短按事件處理失敗：{e}")
+        finally:
+            # 延遲重置處理狀態，避免太快重複觸發
+            def reset_processing_state():
+                time.sleep(1)
+                self.is_processing_button = False
+            
+            threading.Thread(target=reset_processing_state, daemon=True).start()
 
     def _extract_city_data_and_play_greeting(self):
         """從網頁提取城市資料並播放問候語和故事"""

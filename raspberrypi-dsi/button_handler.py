@@ -116,12 +116,19 @@ class ButtonHandler:
         press_duration = current_time - self.press_start_time
         
         self.is_pressed = False
-        self.last_press_time = current_time
         
         # 停止LED閃爍
         self._stop_led_blink()
         
         logger.debug(f"按鈕釋放，按壓時長: {press_duration:.2f}秒")
+        
+        # 檢查最小按壓間隔，防止重複觸發
+        min_interval = BUTTON_CONFIG.get('min_press_interval', 1.0)
+        if current_time - self.last_press_time < min_interval:
+            logger.debug(f"按壓間隔過短 ({current_time - self.last_press_time:.2f}s < {min_interval}s)，忽略此次按壓")
+            return
+        
+        self.last_press_time = current_time
         
         # 判斷是短按還是長按
         if press_duration >= self.long_press_time:

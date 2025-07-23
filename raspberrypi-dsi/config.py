@@ -21,8 +21,9 @@ SCREEN_CONFIG = {
 BUTTON_CONFIG = {
     'pin': 18,  # GPIO 18 (實體針腳12)
     'pull_up': True,  # 使用內建上拉電阻
-    'bounce_time': 300,  # 按鈕防彈跳時間（毫秒）
+    'bounce_time': 500,  # 按鈕防彈跳時間（毫秒）- 增加到 500ms
     'long_press_time': 2.0,  # 長按時間（秒）
+    'min_press_interval': 1.0,  # 最小按壓間隔（秒）- 防止快速重複觸發
 }
 
 # LED指示燈配置（可選）
