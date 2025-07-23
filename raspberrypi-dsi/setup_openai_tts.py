@@ -134,7 +134,11 @@ def test_openai_tts():
     try:
         from audio_manager import AudioManager
         from config import TTS_CONFIG
+    except ImportError as e:
+        print(f"❌ 導入失敗: {e}")
+        return False
         
+    try:
         # 確保使用 OpenAI 引擎
         original_engine = TTS_CONFIG['engine']
         TTS_CONFIG['engine'] = 'openai'
@@ -182,12 +186,24 @@ def test_openai_tts():
             
     except Exception as e:
         print(f"❌ 測試過程錯誤: {e}")
+        # 確保恢復引擎設定
+        try:
+            TTS_CONFIG['engine'] = original_engine
+        except:
+            pass
         return False
 
 def show_voice_options():
     """顯示可用的語音選項"""
     print("\n🎵 OpenAI TTS 語音選項：")
     print("=" * 40)
+    
+    # 安全導入配置
+    try:
+        from config import TTS_CONFIG
+    except ImportError:
+        print("❌ 無法導入配置，跳過語音設定")
+        return
     
     voices = {
         'alloy': '💫 Alloy - 平衡、通用的聲音',
@@ -198,7 +214,8 @@ def show_voice_options():
         'shimmer': '✨ Shimmer - 輕柔、優雅的聲音'
     }
     
-    print("當前設定:", f"🎤 {TTS_CONFIG.get('openai_voice', 'nova')}")
+    current_voice = TTS_CONFIG.get('openai_voice', 'nova')
+    print("當前設定:", f"🎤 {current_voice}")
     print("\n可選語音:")
     for voice, desc in voices.items():
         print(f"  • {voice}: {desc}")
@@ -213,7 +230,6 @@ def show_voice_options():
                 with open(config_file, 'r', encoding='utf-8') as f:
                     content = f.read()
                 
-                current_voice = TTS_CONFIG.get('openai_voice', 'nova')
                 content = content.replace(
                     f"'openai_voice': '{current_voice}',",
                     f"'openai_voice': '{new_voice}',"
@@ -225,6 +241,8 @@ def show_voice_options():
                 print(f"✅ 語音已更改為: {new_voice}")
             except Exception as e:
                 print(f"❌ 更改語音失敗: {e}")
+        else:
+            print(f"❌ 無效的語音選擇: {new_voice}")
 
 def main():
     """主程序"""
@@ -246,7 +264,11 @@ def main():
             return False
     
     # 2. 設定 API 金鑰
-    from config import TTS_CONFIG
+    try:
+        from config import TTS_CONFIG
+    except ImportError:
+        print("❌ 無法導入配置文件，請檢查 config.py")
+        return False
     
     if not TTS_CONFIG['openai_api_key']:
         print("\n🔑 需要設定 OpenAI API 金鑰")
