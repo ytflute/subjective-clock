@@ -72,6 +72,7 @@ TTS_CONFIG = {
     ],
     # 音質增強設定
     'audio_quality': 'high',
+    'enable_audio_enhancement': False,  # 暫時關閉音質增強以避免格式問題
     'sample_rate_override': 22050,  # 提高採樣率
 }
 

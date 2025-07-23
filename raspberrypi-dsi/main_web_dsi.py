@@ -358,6 +358,7 @@ class WakeUpMapWebApp:
             'nigeria': 'NG',
             'ghana': 'GH',
             'ethiopia': 'ET',
+            'french southern territories': 'TF',  # 法國南方領土
         }
         
         # 檢查完整匹配

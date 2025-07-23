@@ -379,6 +379,7 @@ class AudioManager:
             'MA': 'ar',  # 摩洛哥 -> 阿拉伯語
             'ET': 'en',  # 衣索比亞 -> 英語（備用）
             'GH': 'en',  # 迦納 -> 英語
+            'TF': 'fr',  # 法國南方領土 -> 法語
         }
         
         language = language_map.get(country_code.upper(), 'default')
@@ -406,29 +407,61 @@ class AudioManager:
         return None
     
     def _generate_audio(self, text: str, language: str) -> Optional[Path]:
-        """生成音頻文件"""
+        """生成音頻文件，提供多重備用方案"""
         try:
             text_hash = hashlib.md5(f"{text}_{language}".encode()).hexdigest()
             audio_file = self.cache_dir / f"greeting_{language}_{text_hash}.wav"
             
+            # 主要引擎嘗試
+            result_file = None
+            
             if TTS_CONFIG['engine'] == 'festival':
                 # 使用 Festival（更自然的聲音）
-                return self._generate_audio_festival(text, audio_file)
+                result_file = self._generate_audio_festival(text, audio_file)
                 
+                # Festival 失敗時，自動回退到 espeak
+                if result_file is None:
+                    self.logger.warning("Festival 失敗，回退到 espeak")
+                    result_file = self._generate_audio_espeak(text, language, audio_file)
+                    
             elif TTS_CONFIG['engine'] == 'pyttsx3' and self.tts_engine:
                 # 使用 pyttsx3
-                self.tts_engine.save_to_file(text, str(audio_file))
-                self.tts_engine.runAndWait()
-                
+                try:
+                    self.tts_engine.save_to_file(text, str(audio_file))
+                    self.tts_engine.runAndWait()
+                    
+                    if audio_file.exists() and self._validate_wav_file(audio_file):
+                        result_file = audio_file
+                    else:
+                        self.logger.warning("pyttsx3 失敗，回退到 espeak")
+                        result_file = self._generate_audio_espeak(text, language, audio_file)
+                except Exception as e:
+                    self.logger.warning(f"pyttsx3 失敗: {e}，回退到 espeak")
+                    result_file = self._generate_audio_espeak(text, language, audio_file)
+                    
             else:
                 # 使用 espeak（備用方案，優化參數）
-                return self._generate_audio_espeak(text, language, audio_file)
+                result_file = self._generate_audio_espeak(text, language, audio_file)
             
-            if audio_file.exists():
-                self.logger.info(f"音頻文件生成成功: {audio_file}")
-                return audio_file
+            # 最終驗證和備用
+            if result_file and result_file.exists() and self._validate_wav_file(result_file):
+                self.logger.info(f"音頻文件生成成功: {result_file}")
+                return result_file
             else:
-                self.logger.error("音頻文件生成失敗")
+                # 最終備用：如果所有方法都失敗，嘗試簡單的 espeak
+                if TTS_CONFIG['engine'] != 'espeak':
+                    self.logger.warning("所有 TTS 引擎失敗，使用簡單 espeak 作為最終備用")
+                    simple_audio_file = audio_file.with_suffix('.simple.wav')
+                    try:
+                        cmd = ['espeak', '-w', str(simple_audio_file), text]
+                        result = subprocess.run(cmd, capture_output=True, timeout=30)
+                        if result.returncode == 0 and simple_audio_file.exists():
+                            simple_audio_file.rename(audio_file)
+                            return audio_file
+                    except:
+                        pass
+                        
+                self.logger.error("所有音頻生成方法都失敗")
                 return None
                 
         except Exception as e:
@@ -444,10 +477,14 @@ class AudioManager:
             if voice_name.startswith('voice_'):
                 voice_name = voice_name[6:]  # 移除 'voice_' 前綴
             
+            # 使用臨時 raw 文件，然後轉換為正確的 WAV
+            temp_raw_file = audio_file.with_suffix('.raw')
+            
             festival_script = f"""
 (voice_{voice_name})
 (Parameter.set 'Audio_Method 'Audio_Command)
-(Parameter.set 'Audio_Command "sox -t raw -r 16000 -e signed-integer -b 16 -c 1 - -t wav {audio_file}")
+(Parameter.set 'Audio_Command "cat > {temp_raw_file}")
+(Parameter.set 'Audio_Required_Rate 16000)
 (Parameter.set 'Duration_Stretch {1.0 if TTS_CONFIG['speed'] >= 150 else 1.2})
 (SayText "{text}")
 """
@@ -461,11 +498,34 @@ class AudioManager:
             
             stdout, stderr = process.communicate(input=festival_script, timeout=30)
             
-            if process.returncode == 0 and audio_file.exists():
-                # 後處理：提高音質
-                self._enhance_audio_quality(audio_file)
-                self.logger.info(f"Festival 音頻生成成功: {audio_file}")
-                return audio_file
+            if process.returncode == 0 and temp_raw_file.exists():
+                # 使用 sox 將 raw 文件轉換為正確的 WAV 格式
+                convert_cmd = [
+                    'sox', '-t', 'raw', '-r', '16000', '-e', 'signed-integer', 
+                    '-b', '16', '-c', '1', str(temp_raw_file), 
+                    '-t', 'wav', str(audio_file)
+                ]
+                
+                result = subprocess.run(convert_cmd, capture_output=True, timeout=15)
+                
+                # 清理臨時文件
+                if temp_raw_file.exists():
+                    temp_raw_file.unlink()
+                
+                if result.returncode == 0 and audio_file.exists():
+                    # 驗證 WAV 文件
+                    if self._validate_wav_file(audio_file):
+                        # 後處理：提高音質（可選）
+                        if TTS_CONFIG.get('enable_audio_enhancement', True):
+                            self._enhance_audio_quality(audio_file)
+                        self.logger.info(f"Festival 音頻生成成功: {audio_file}")
+                        return audio_file
+                    else:
+                        self.logger.error("生成的 WAV 文件格式無效")
+                        return None
+                else:
+                    self.logger.error(f"sox 轉換失敗: {result.stderr}")
+                    return None
             else:
                 self.logger.error(f"Festival 失敗: {stderr}")
                 return None
@@ -502,6 +562,52 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"espeak 音頻生成失敗: {e}")
             return None
+
+    def _validate_wav_file(self, audio_file: Path) -> bool:
+        """驗證 WAV 文件格式是否正確"""
+        try:
+            # 檢查文件大小
+            if not audio_file.exists() or audio_file.stat().st_size < 44:
+                return False
+            
+            # 讀取 WAV 文件頭
+            with open(audio_file, 'rb') as f:
+                # 檢查 RIFF 標識
+                riff_header = f.read(4)
+                if riff_header != b'RIFF':
+                    return False
+                
+                # 跳過文件大小
+                f.seek(8)
+                
+                # 檢查 WAVE 標識
+                wave_header = f.read(4)
+                if wave_header != b'WAVE':
+                    return False
+                
+                # 尋找 data chunk
+                while True:
+                    chunk_header = f.read(4)
+                    if len(chunk_header) < 4:
+                        break
+                    
+                    chunk_size = f.read(4)
+                    if len(chunk_size) < 4:
+                        break
+                    
+                    if chunk_header == b'data':
+                        # 找到 data chunk，文件格式正確
+                        return True
+                    
+                    # 跳過這個 chunk 的內容
+                    size = int.from_bytes(chunk_size, byteorder='little')
+                    f.seek(size, 1)
+                
+            return False
+                
+        except Exception as e:
+            self.logger.debug(f"WAV 文件驗證失敗: {e}")
+            return False
 
     def _enhance_audio_quality(self, audio_file: Path):
         """使用 sox 提高音頻質量"""
