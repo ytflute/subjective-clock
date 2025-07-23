@@ -236,11 +236,15 @@ class WakeUpMapWebApp:
             self.logger.warning("音頻管理器未初始化，跳過音頻播放")
             return
         
-        def extract_and_play():
+        def synchronized_loading_and_play():
             try:
-                # 🎵 立即播放按鈕確認音效（無延遲回饋）
+                # 🎵 立即播放按鈕確認音效
                 self.logger.info("🎵 播放按鈕確認音效")
                 self.audio_manager.play_notification_sound('success')
+                
+                # 🔄 顯示 Loading 狀態
+                self.logger.info("📺 設定 Loading 狀態...")
+                self._set_loading_state(True)
                 
                 # 等待網頁處理完成
                 import time
@@ -252,7 +256,7 @@ class WakeUpMapWebApp:
                 if city_data:
                     self.logger.info(f"📍 從網頁提取到城市資料: {city_data}")
                     
-                    # 🚀 並行處理：立即開始音頻生成（不等待其他處理）
+                    # 🎧 在背景準備完整音頻（不播放）
                     country_code = city_data.get('countryCode') or city_data.get('country_code', 'US')
                     city_name = city_data.get('city', '')
                     country_name = city_data.get('country', '')
@@ -261,19 +265,33 @@ class WakeUpMapWebApp:
                     if not country_code and country_name:
                         country_code = self._guess_country_code(country_name)
                     
-                    self.logger.info(f"🎤 立即開始音頻生成 - 城市: {city_name}, 國家: {country_name} ({country_code})")
+                    self.logger.info(f"🎧 Loading 模式：準備完整音頻 - 城市: {city_name}, 國家: {country_name} ({country_code})")
                     
-                    # 📡 並行啟動音頻生成和播放
-                    self._start_parallel_audio_generation(country_code, city_name, country_name)
+                    # 🚀 準備完整音頻但不立即播放
+                    audio_file = self._prepare_complete_audio(country_code, city_name, country_name)
+                    
+                    if audio_file:
+                        # ✨ 音頻準備完成，同步顯示畫面和播放聲音
+                        self.logger.info("✨ 音頻準備完成，啟動同步播放...")
+                        self._synchronized_reveal_and_play(audio_file)
+                    else:
+                        # 音頻準備失敗，顯示畫面並播放備用音效
+                        self.logger.warning("⚠️ 音頻準備失敗，顯示畫面")
+                        self._set_loading_state(False)
+                        self.audio_manager.play_notification_sound('error')
                         
                 else:
                     self.logger.warning("⚠️ 無法從網頁提取城市資料")
+                    self._set_loading_state(False)
+                    self.audio_manager.play_notification_sound('error')
                     
             except Exception as e:
-                self.logger.error(f"提取城市資料失敗: {e}")
+                self.logger.error(f"同步loading處理失敗: {e}")
+                self._set_loading_state(False)
+                self.audio_manager.play_notification_sound('error')
         
         # 在背景執行緒中執行
-        threading.Thread(target=extract_and_play, daemon=True).start()
+        threading.Thread(target=synchronized_loading_and_play, daemon=True).start()
     
     def _start_parallel_audio_generation(self, country_code: str, city_name: str, country_name: str):
         """並行啟動音頻生成，減少等待時間"""
@@ -311,6 +329,116 @@ class WakeUpMapWebApp:
         import threading
         import time
         threading.Thread(target=generate_and_play_audio, daemon=True).start()
+    
+    def _set_loading_state(self, loading: bool):
+        """設定網頁 Loading 狀態"""
+        try:
+            if not self.web_controller or not self.web_controller.driver:
+                self.logger.warning("網頁控制器未初始化，無法設定Loading狀態")
+                return
+            
+            # 使用 JavaScript 控制 loading 狀態
+            if loading:
+                loading_js = """
+                // 顯示 Loading 遮罩
+                var loadingOverlay = document.createElement('div');
+                loadingOverlay.id = 'wakeup-loading-overlay';
+                loadingOverlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                    color: white;
+                    font-size: 24px;
+                    font-family: Arial, sans-serif;
+                `;
+                loadingOverlay.innerHTML = `
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">🌍</div>
+                        <div>準備您的甦醒體驗...</div>
+                        <div style="font-size: 16px; margin-top: 10px; opacity: 0.7;">Nova 正在為您準備完美的語音</div>
+                    </div>
+                `;
+                document.body.appendChild(loadingOverlay);
+                """
+            else:
+                loading_js = """
+                // 移除 Loading 遮罩
+                var loadingOverlay = document.getElementById('wakeup-loading-overlay');
+                if (loadingOverlay) {
+                    loadingOverlay.remove();
+                }
+                """
+            
+            self.web_controller.driver.execute_script(loading_js)
+            self.logger.info(f"📺 Loading 狀態設定: {'顯示' if loading else '隱藏'}")
+            
+        except Exception as e:
+            self.logger.error(f"設定Loading狀態失敗: {e}")
+    
+    def _prepare_complete_audio(self, country_code: str, city_name: str, country_name: str) -> Optional[Path]:
+        """準備完整音頻但不播放"""
+        try:
+            import time
+            from pathlib import Path
+            start_time = time.time()
+            
+            self.logger.info("🎧 開始準備完整音頻...")
+            
+            # 禁用快速模式，準備完整音頻
+            audio_file = self.audio_manager.prepare_greeting_audio(
+                country_code=country_code,
+                city_name=city_name,
+                country_name=country_name
+            )
+            
+            end_time = time.time()
+            duration = end_time - start_time
+            
+            if audio_file and audio_file.exists():
+                self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
+                return audio_file
+            else:
+                self.logger.error(f"❌ 完整音頻準備失敗 (耗時: {duration:.1f}秒)")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"準備完整音頻時發生錯誤: {e}")
+            return None
+    
+    def _synchronized_reveal_and_play(self, audio_file: Path):
+        """同步顯示畫面和播放音頻"""
+        try:
+            self.logger.info("🎬 啟動同步視聽體驗...")
+            
+            # 1. 移除 Loading 狀態
+            self._set_loading_state(False)
+            
+            # 2. 立即播放音頻
+            import threading
+            def play_audio():
+                success = self.audio_manager.play_audio_file_direct(audio_file)
+                if success:
+                    self.logger.info("🎵 同步音頻播放成功")
+                else:
+                    self.logger.warning("⚠️ 同步音頻播放失敗")
+            
+            # 在獨立執行緒中播放音頻，避免阻塞
+            threading.Thread(target=play_audio, daemon=True).start()
+            
+            self.logger.info("✨ 同步視聽體驗啟動完成")
+            
+        except Exception as e:
+            self.logger.error(f"同步視聽啟動失敗: {e}")
+            # 備用：移除loading並播放錯誤音效
+            self._set_loading_state(False)
+            self.audio_manager.play_notification_sound('error')
 
     def _extract_city_data_from_web(self):
         """從網頁提取城市資料"""
