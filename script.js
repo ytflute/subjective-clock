@@ -938,16 +938,26 @@ window.addEventListener('firebaseReady', async (event) => {
             }
 
             // 處理正常的城市結果
+            // 檢查 API 返回格式，如果有 success 和 city 欄位，取出 city 資料
+            let cityData;
+            if (apiResult.success && apiResult.city) {
+                cityData = apiResult.city;
+            } else if (apiResult.city) {
+                cityData = apiResult.city;
+            } else {
+                cityData = apiResult;
+            }
+
             // 如果 API 返回的是一個陣列（多個匹配城市），使用智能選擇
             let bestMatchCity;
-            if (Array.isArray(apiResult) && apiResult.length > 1) {
-                console.log(`發現 ${apiResult.length} 個匹配的城市，使用訪問統計進行智能選擇...`);
-                bestMatchCity = selectCityWithVisitHistory(apiResult, cityVisitStats);
-            } else if (Array.isArray(apiResult) && apiResult.length === 1) {
-                bestMatchCity = apiResult[0];
+            if (Array.isArray(cityData) && cityData.length > 1) {
+                console.log(`發現 ${cityData.length} 個匹配的城市，使用訪問統計進行智能選擇...`);
+                bestMatchCity = selectCityWithVisitHistory(cityData, cityVisitStats);
+            } else if (Array.isArray(cityData) && cityData.length === 1) {
+                bestMatchCity = cityData[0];
             } else {
                 // 如果不是陣列，假設是單一城市結果
-                bestMatchCity = apiResult;
+                bestMatchCity = cityData;
             }
 
             if (!bestMatchCity) {
