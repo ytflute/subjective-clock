@@ -246,32 +246,50 @@ class AudioManager:
             greeting_data = self._fetch_greeting_and_story_from_api(city_name, country_name, country_code)
             
             if greeting_data:
-                success = True
-                
-                # 1. 播放當地語言問候語
                 greeting_text = greeting_data['greeting']
                 language_code = greeting_data['languageCode']
-                self.logger.info(f"播放當地語言問候語: {greeting_text} ({greeting_data['language']})")
+                story_text = greeting_data.get('chineseStory', '')
                 
-                greeting_success = self._play_text_with_language(greeting_text, language_code)
-                if not greeting_success:
-                    self.logger.warning("當地語言問候語播放失敗")
-                    success = False
-                
-                # 2. 播放中文故事（如果有的話）
-                if greeting_data.get('chineseStory'):
-                    import time
-                    time.sleep(1)  # 短暫停頓
+                # 🌟 Nova 整合模式：當地語言問候 + 中文故事一起播放
+                if (story_text and 
+                    TTS_CONFIG['engine'] == 'openai' and 
+                    TTS_CONFIG.get('nova_integrated_mode', True)):
                     
-                    story_text = greeting_data['chineseStory']
-                    self.logger.info(f"播放中文故事: {story_text}")
+                    self.logger.info(f"🌟 Nova 整合模式：當地問候語 + 中文故事")
+                    self.logger.info(f"當地問候: {greeting_text} ({greeting_data['language']})")
+                    self.logger.info(f"中文故事: {story_text}")
                     
-                    story_success = self._play_text_with_language(story_text, 'zh')
-                    if not story_success:
-                        self.logger.warning("中文故事播放失敗")
+                    # 組合當地語言問候和中文故事，讓 Nova 一次性朗讀
+                    integrated_content = f"{greeting_text} {story_text}"
+                    
+                    # 使用 Nova 播放整合內容（會自動處理多語言）
+                    return self._play_integrated_nova_content(integrated_content)
+                    
+                else:
+                    # 🔄 傳統分離模式：分別播放問候語和故事
+                    success = True
+                    
+                    # 1. 播放當地語言問候語
+                    self.logger.info(f"播放當地語言問候語: {greeting_text} ({greeting_data['language']})")
+                    
+                    greeting_success = self._play_text_with_language(greeting_text, language_code)
+                    if not greeting_success:
+                        self.logger.warning("當地語言問候語播放失敗")
                         success = False
-                
-                return success
+                    
+                    # 2. 播放中文故事（如果有的話）
+                    if story_text:
+                        import time
+                        time.sleep(1)  # 短暫停頓
+                        
+                        self.logger.info(f"播放中文故事: {story_text}")
+                        
+                        story_success = self._play_text_with_language(story_text, 'zh')
+                        if not story_success:
+                            self.logger.warning("中文故事播放失敗")
+                            success = False
+                    
+                    return success
             else:
                 # 備用方案：使用內建問候語
                 self.logger.warning("ChatGPT API 失敗，使用備用問候語")
@@ -283,6 +301,40 @@ class AudioManager:
             self.logger.error(f"播放問候語失敗: {e}")
             return False
 
+    def _play_integrated_nova_content(self, content: str) -> bool:
+        """
+        使用 Nova 播放整合內容（當地語言問候 + 中文故事）
+        
+        Args:
+            content: 整合的文本內容
+        
+        Returns:
+            bool: 播放是否成功
+        """
+        try:
+            self.logger.info("🤖 Nova 多語言整合朗讀開始...")
+            
+            # 使用 OpenAI TTS 生成音頻（Nova 會自動處理多語言）
+            audio_file = self._generate_audio(content, 'auto')  # 使用 auto 讓 Nova 自動檢測語言
+            
+            if audio_file and audio_file.exists():
+                # 播放整合音頻
+                success = self._play_audio_file(audio_file)
+                
+                if success:
+                    self.logger.info("✨ Nova 整合朗讀完成：當地問候 + 中文故事")
+                    return True
+                else:
+                    self.logger.error("Nova 整合音頻播放失敗")
+                    return False
+            else:
+                self.logger.error("Nova 整合音頻生成失敗")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"Nova 整合播放失敗: {e}")
+            return False
+    
     def _play_text_with_language(self, text: str, language_code: str) -> bool:
         """
         播放指定語言的文字

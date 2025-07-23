@@ -76,6 +76,9 @@ TTS_CONFIG = {
     'openai_voice': 'nova',  # 'alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'
     'openai_speed': 1.0,  # 0.25 到 4.0
     
+    # Nova 整合模式
+    'nova_integrated_mode': True,  # 使用 Nova 整合播放當地問候+中文故事
+    
     # 音質增強設定
     'audio_quality': 'high',
     'enable_audio_enhancement': False,  # 暫時關閉音質增強以避免格式問題
