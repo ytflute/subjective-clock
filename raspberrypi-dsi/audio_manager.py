@@ -492,10 +492,25 @@ class AudioManager:
                 result_file = self._generate_audio_espeak(text, language, audio_file)
             
             # 最終驗證和備用
-            if result_file and result_file.exists() and self._validate_wav_file(result_file):
-                self.logger.info(f"音頻文件生成成功: {result_file}")
-                return result_file
-            else:
+            if result_file and result_file.exists():
+                # 根據文件格式進行驗證
+                if result_file.suffix.lower() == '.wav':
+                    is_valid = self._validate_wav_file(result_file)
+                else:
+                    # MP3 或其他格式，檢查文件大小
+                    is_valid = result_file.stat().st_size > 1000  # 至少 1KB
+                
+                # 測試播放能力
+                can_play = self._test_audio_playback(result_file)
+                
+                if is_valid and can_play:
+                    self.logger.info(f"音頻文件生成成功: {result_file}")
+                    return result_file
+                else:
+                    self.logger.warning(f"音頻文件驗證失敗 - 格式: {is_valid}, 播放: {can_play}")
+            
+            # 如果主要方法失敗，嘗試備用方案
+            if result_file is None or not result_file.exists():
                 # 最終備用：如果所有方法都失敗，嘗試簡單的 espeak
                 if TTS_CONFIG['engine'] != 'espeak':
                     self.logger.warning("所有 TTS 引擎失敗，使用簡單 espeak 作為最終備用")
@@ -533,41 +548,57 @@ class AudioManager:
                 speed=TTS_CONFIG['openai_speed']
             )
             
-            # 將音頻數據寫入文件
-            with open(audio_file, 'wb') as f:
+            # OpenAI 返回 MP3，直接保存為 MP3 然後轉換
+            temp_mp3_file = audio_file.with_suffix('.mp3')
+            
+            # 將音頻數據寫入 MP3 文件
+            with open(temp_mp3_file, 'wb') as f:
                 for chunk in response.iter_bytes(1024):
                     f.write(chunk)
             
-            # 驗證生成的文件
-            if audio_file.exists() and audio_file.stat().st_size > 0:
-                # OpenAI 直接生成 MP3，需要轉換為 WAV
-                if audio_file.suffix.lower() != '.wav':
-                    wav_file = audio_file.with_suffix('.wav')
-                    try:
-                        # 使用 ffmpeg 轉換（如果可用）
-                        convert_cmd = ['ffmpeg', '-i', str(audio_file), '-y', str(wav_file)]
+            # 驗證 MP3 文件
+            if temp_mp3_file.exists() and temp_mp3_file.stat().st_size > 0:
+                self.logger.info(f"OpenAI MP3 文件生成成功: {temp_mp3_file.stat().st_size} bytes")
+                
+                # 轉換 MP3 到 WAV
+                try:
+                    # 嘗試 ffmpeg
+                    convert_cmd = ['ffmpeg', '-i', str(temp_mp3_file), '-y', str(audio_file)]
+                    result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
+                    
+                    if result.returncode == 0 and audio_file.exists():
+                        self.logger.info("ffmpeg 轉換成功")
+                        temp_mp3_file.unlink()  # 刪除臨時 MP3
+                    else:
+                        # ffmpeg 失敗，嘗試 sox
+                        self.logger.warning("ffmpeg 失敗，嘗試 sox")
+                        convert_cmd = ['sox', str(temp_mp3_file), str(audio_file)]
                         result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
                         
-                        if result.returncode == 0 and wav_file.exists():
-                            audio_file.unlink()  # 刪除原 MP3
-                            audio_file = wav_file
+                        if result.returncode == 0 and audio_file.exists():
+                            self.logger.info("sox 轉換成功")
+                            temp_mp3_file.unlink()  # 刪除臨時 MP3
                         else:
-                            # ffmpeg 失敗，嘗試 sox
-                            convert_cmd = ['sox', str(audio_file), str(wav_file)]
-                            result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
+                            # 兩個都失敗，直接用 MP3
+                            self.logger.warning("格式轉換失敗，直接使用 MP3")
+                            temp_mp3_file.rename(audio_file.with_suffix('.mp3'))
+                            audio_file = audio_file.with_suffix('.mp3')
                             
-                            if result.returncode == 0 and wav_file.exists():
-                                audio_file.unlink()  # 刪除原 MP3
-                                audio_file = wav_file
-                            else:
-                                self.logger.warning("無法轉換為 WAV，使用原始格式")
-                    except Exception as e:
-                        self.logger.warning(f"音頻格式轉換失敗: {e}")
+                except Exception as e:
+                    self.logger.warning(f"音頻格式轉換失敗: {e}")
+                    # 如果轉換失敗，使用原始 MP3
+                    temp_mp3_file.rename(audio_file.with_suffix('.mp3'))
+                    audio_file = audio_file.with_suffix('.mp3')
                 
-                self.logger.info(f"✨ OpenAI TTS 音頻生成成功: {audio_file}")
-                return audio_file
+                # 最終驗證文件
+                if audio_file.exists() and audio_file.stat().st_size > 0:
+                    self.logger.info(f"✨ OpenAI TTS 音頻生成成功: {audio_file}")
+                    return audio_file
+                else:
+                    self.logger.error("音頻文件轉換後無效")
+                    return None
             else:
-                self.logger.error("OpenAI TTS 生成的文件無效")
+                self.logger.error("OpenAI TTS 生成的 MP3 文件無效")
                 return None
                 
         except Exception as e:
@@ -620,7 +651,7 @@ class AudioManager:
                 
                 if result.returncode == 0 and audio_file.exists():
                     # 嚴格驗證 WAV 文件
-                    if self._validate_wav_file(audio_file) and self._test_wav_playback(audio_file):
+                    if self._validate_wav_file(audio_file) and self._test_audio_playback(audio_file):
                         # 後處理：提高音質（可選）
                         if TTS_CONFIG.get('enable_audio_enhancement', True):
                             self._enhance_audio_quality(audio_file)
@@ -738,18 +769,40 @@ class AudioManager:
             self.logger.debug(f"WAV 文件驗證失敗: {e}")
             return False
 
-    def _test_wav_playback(self, audio_file: Path) -> bool:
-        """測試 WAV 文件是否能被 pygame 正確載入"""
+    def _test_audio_playback(self, audio_file: Path) -> bool:
+        """測試音頻文件是否能正確播放（支援 WAV 和 MP3）"""
         try:
             if not PYGAME_AVAILABLE:
-                return True  # 如果沒有 pygame，跳過測試
+                return True  # 如果沒有 pygame，假設可以播放
             
             # 嘗試用 pygame 載入文件
-            pygame.mixer.music.load(str(audio_file))
-            return True
+            try:
+                pygame.mixer.music.load(str(audio_file))
+                return True
+            except pygame.error:
+                # pygame 失敗，檢查是否有其他播放器
+                if audio_file.suffix.lower() == '.mp3':
+                    # 檢查是否有 MP3 播放器
+                    try:
+                        result = subprocess.run(['which', 'mpg123'], 
+                                              capture_output=True, timeout=5)
+                        if result.returncode == 0:
+                            return True
+                    except:
+                        pass
+                    
+                    try:
+                        result = subprocess.run(['which', 'ffplay'], 
+                                              capture_output=True, timeout=5)
+                        if result.returncode == 0:
+                            return True
+                    except:
+                        pass
+                
+                return False
             
         except Exception as e:
-            self.logger.debug(f"WAV 文件播放測試失敗: {e}")
+            self.logger.debug(f"音頻文件播放測試失敗: {e}")
             return False
 
     def _enhance_audio_quality(self, audio_file: Path):
@@ -790,33 +843,71 @@ class AudioManager:
             self.logger.debug(f"音質增強失敗（非致命錯誤）: {e}")
     
     def _play_audio_file(self, audio_file: Path) -> bool:
-        """播放音頻文件"""
+        """播放音頻文件（支援 WAV 和 MP3）"""
         try:
             if PYGAME_AVAILABLE and self.audio_initialized:
                 # 使用 pygame 播放
-                pygame.mixer.music.load(str(audio_file))
-                pygame.mixer.music.play()
-                
-                # 等待播放完成
-                while pygame.mixer.music.get_busy():
-                    time.sleep(0.1)
-                
-                self.logger.info("音頻播放完成（pygame）")
-                return True
-            else:
-                # 使用 aplay 播放
-                result = subprocess.run(['aplay', str(audio_file)], 
-                                      capture_output=True, 
-                                      timeout=30)
-                if result.returncode == 0:
-                    self.logger.info("音頻播放完成（aplay）")
+                try:
+                    pygame.mixer.music.load(str(audio_file))
+                    pygame.mixer.music.play()
+                    
+                    # 等待播放完成
+                    while pygame.mixer.music.get_busy():
+                        time.sleep(0.1)
+                    
+                    self.logger.info(f"音頻播放完成（pygame）: {audio_file.suffix}")
                     return True
-                else:
-                    self.logger.error(f"aplay 播放失敗: {result.stderr}")
+                except pygame.error as e:
+                    self.logger.warning(f"pygame 播放失敗: {e}")
+                    # 如果是 MP3 播放失敗，嘗試其他播放器
+                    if audio_file.suffix.lower() == '.mp3':
+                        return self._play_with_alternative_player(audio_file)
                     return False
+            else:
+                # 使用替代播放器
+                return self._play_with_alternative_player(audio_file)
                     
         except Exception as e:
             self.logger.error(f"音頻播放失敗: {e}")
+            return False
+    
+    def _play_with_alternative_player(self, audio_file: Path) -> bool:
+        """使用替代播放器播放音頻"""
+        try:
+            # 根據文件格式選擇播放器
+            if audio_file.suffix.lower() == '.mp3':
+                # 嘗試 mpg123 播放 MP3
+                try:
+                    result = subprocess.run(['mpg123', str(audio_file)], 
+                                          capture_output=True, timeout=30)
+                    if result.returncode == 0:
+                        self.logger.info("音頻播放完成（mpg123）")
+                        return True
+                except FileNotFoundError:
+                    pass
+                
+                # 嘗試 ffplay 播放 MP3
+                try:
+                    result = subprocess.run(['ffplay', '-nodisp', '-autoexit', str(audio_file)], 
+                                          capture_output=True, timeout=30)
+                    if result.returncode == 0:
+                        self.logger.info("音頻播放完成（ffplay）")
+                        return True
+                except FileNotFoundError:
+                    pass
+            
+            # 使用 aplay 播放 WAV（或作為最後嘗試）
+            result = subprocess.run(['aplay', str(audio_file)], 
+                                  capture_output=True, timeout=30)
+            if result.returncode == 0:
+                self.logger.info("音頻播放完成（aplay）")
+                return True
+            else:
+                self.logger.error(f"aplay 播放失敗: {result.stderr}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"替代播放器失敗: {e}")
             return False
     
     def set_volume(self, volume: int) -> bool:
