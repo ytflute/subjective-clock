@@ -64,11 +64,11 @@ TTS_CONFIG = {
     'cache_enabled': True,  # 啟用音頻快取
     'cache_dir': '/tmp/wakeupmap_audio_cache',
     # Festival 特定配置
-    'festival_voice': 'voice_kal_diphone',  # 預設聲音
+    'festival_voice': 'kal_diphone',  # 修復：移除 voice_ 前綴
     'festival_female_voices': [
-        'voice_kal_diphone',     # 預設女性聲音
-        'voice_cmu_us_slt_arctic_hts',  # 高質量女性聲音（如果可用）
-        'voice_nitech_us_slt_arctic_hts'  # 備用女性聲音
+        'kal_diphone',     # 預設女性聲音
+        'cmu_us_slt_arctic_hts',  # 高質量女性聲音（如果可用）
+        'nitech_us_slt_arctic_hts'  # 備用女性聲音
     ],
     # 音質增強設定
     'audio_quality': 'high',
@@ -203,6 +203,10 @@ TTS_LANGUAGE_MAP = {
     'th': 'th',        # 泰語
     'vi': 'vi',        # 越南語
     'hi': 'hi',        # 印地語
+    'af': 'af',        # 南非語
+    'sw': 'sw',        # 斯瓦希里語
+    'yo': 'yo',        # 約魯巴語
+    'ig': 'ig',        # 伊格博語
     'default': 'en'    # 預設英語
 }
 

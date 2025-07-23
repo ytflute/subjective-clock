@@ -372,7 +372,13 @@ class AudioManager:
             'TW': 'zh-TW', 'CN': 'zh-CN', 'HK': 'zh-TW', 'MO': 'zh-TW',
             'JP': 'ja', 'KR': 'ko', 'US': 'en', 'GB': 'en', 'AU': 'en',
             'ES': 'es', 'FR': 'fr', 'DE': 'de', 'IT': 'it', 'PT': 'pt',
-            'RU': 'ru', 'TH': 'th', 'VN': 'vi', 'IN': 'hi'
+            'RU': 'ru', 'TH': 'th', 'VN': 'vi', 'IN': 'hi',
+            'ZA': 'af',  # 南非 -> 南非語
+            'KE': 'sw',  # 肯雅 -> 斯瓦希里語
+            'NG': 'en',  # 奈及利亞 -> 英語
+            'MA': 'ar',  # 摩洛哥 -> 阿拉伯語
+            'ET': 'en',  # 衣索比亞 -> 英語（備用）
+            'GH': 'en',  # 迦納 -> 英語
         }
         
         language = language_map.get(country_code.upper(), 'default')
@@ -433,10 +439,15 @@ class AudioManager:
         """使用 Festival 生成音頻"""
         try:
             # 創建 Festival 腳本
+            # 修復聲音名稱 - 移除重複的 voice_ 前綴
+            voice_name = TTS_CONFIG['festival_voice']
+            if voice_name.startswith('voice_'):
+                voice_name = voice_name[6:]  # 移除 'voice_' 前綴
+            
             festival_script = f"""
-(voice_{TTS_CONFIG['festival_voice']})
+(voice_{voice_name})
 (Parameter.set 'Audio_Method 'Audio_Command)
-(Parameter.set 'Audio_Command "sox -t raw -r 16000 -s -w -c 1 - -t wav {audio_file}")
+(Parameter.set 'Audio_Command "sox -t raw -r 16000 -e signed-integer -b 16 -c 1 - -t wav {audio_file}")
 (Parameter.set 'Duration_Stretch {1.0 if TTS_CONFIG['speed'] >= 150 else 1.2})
 (SayText "{text}")
 """
@@ -504,13 +515,13 @@ class AudioManager:
             # 創建臨時文件用於處理
             temp_file = audio_file.with_suffix('.temp.wav')
             
-            # sox 音質增強處理
+            # sox 音質增強處理（修復參數格式）
             enhancement_cmd = [
                 'sox', str(audio_file), str(temp_file),
                 'rate', str(TTS_CONFIG.get('sample_rate_override', 22050)),  # 提高採樣率
-                'reverb', '20', '0.5',  # 輕微混響
-                'equalizer', '1000', '0.5', '2',  # 增強中頻
-                'compand', '0.3,1', '6:-70,-60,-20', '-5',  # 壓縮和標準化
+                'reverb', '20', '0.5', '50',  # 輕微混響
+                'equalizer', '1000', '0.5q', '2',  # 增強中頻
+                'compand', '0.3,1', '6:-70,-60,-20', '-5', '-90', '0.2',  # 壓縮和標準化
                 'norm', '-1'  # 標準化音量
             ]
             

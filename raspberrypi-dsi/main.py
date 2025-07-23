@@ -390,6 +390,8 @@ class WakeUpMapApp:
         # 常見國家名稱對應表
         country_map = {
             'yemen': 'YE',
+            'kenya': 'KE',
+            'south africa': 'ZA',  # 添加南非
             'saudi arabia': 'SA',
             'united arab emirates': 'AE',
             'egypt': 'EG',
@@ -419,6 +421,10 @@ class WakeUpMapApp:
             'brazil': 'BR',
             'mexico': 'MX',
             'argentina': 'AR',
+            'morocco': 'MA',
+            'nigeria': 'NG',
+            'ghana': 'GH',
+            'ethiopia': 'ET',
         }
         
         # 檢查完整匹配
