@@ -27,6 +27,12 @@ try:
 except ImportError:
     PYGAME_AVAILABLE = False
 
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+
 from config import (
     AUDIO_CONFIG, 
     TTS_CONFIG, 
@@ -109,6 +115,27 @@ class AudioManager:
     def _initialize_tts(self):
         """初始化 TTS 引擎"""
         try:
+            # 初始化 OpenAI 客戶端
+            self.openai_client = None
+            
+            if TTS_CONFIG['engine'] == 'openai':
+                # 初始化 OpenAI TTS
+                if OPENAI_AVAILABLE and TTS_CONFIG['openai_api_key']:
+                    try:
+                        self.openai_client = openai.OpenAI(
+                            api_key=TTS_CONFIG['openai_api_key']
+                        )
+                        self.logger.info("✨ OpenAI TTS 引擎初始化成功！")
+                    except Exception as e:
+                        self.logger.warning(f"OpenAI TTS 初始化失敗: {e}，切換到 Festival")
+                        TTS_CONFIG['engine'] = 'festival'
+                else:
+                    if not OPENAI_AVAILABLE:
+                        self.logger.warning("OpenAI 庫未安裝，切換到 Festival")
+                    else:
+                        self.logger.warning("OpenAI API 金鑰未設定，切換到 Festival")
+                    TTS_CONFIG['engine'] = 'festival'
+            
             if TTS_CONFIG['engine'] == 'festival':
                 # 檢查 Festival 是否可用
                 try:
@@ -416,8 +443,24 @@ class AudioManager:
             # 主要引擎嘗試
             result_file = None
             
+            # OpenAI TTS 優先（最高品質）
+            if TTS_CONFIG['engine'] == 'openai' and self.openai_client:
+                self.logger.info(f"🤖 使用 OpenAI TTS 生成 {language} 語音")
+                result_file = self._generate_audio_openai(text, audio_file)
+                
+                # OpenAI 失敗時，根據語言選擇備用
+                if result_file is None:
+                    self.logger.warning("OpenAI TTS 失敗，使用備用引擎")
+                    if language in ['zh', 'zh-CN', 'zh-TW', 'ru']:
+                        result_file = self._generate_audio_espeak(text, language, audio_file)
+                    else:
+                        # 嘗試 Festival
+                        result_file = self._generate_audio_festival(text, audio_file)
+                        if result_file is None:
+                            result_file = self._generate_audio_espeak(text, language, audio_file)
+            
             # 中文、俄語等特定語言直接使用 espeak（Festival 支援有問題）
-            if language in ['zh', 'zh-CN', 'zh-TW', 'ru']:
+            elif language in ['zh', 'zh-CN', 'zh-TW', 'ru']:
                 self.logger.info(f"語言 {language} 直接使用 espeak 引擎（Festival 支援有限）")
                 result_file = self._generate_audio_espeak(text, language, audio_file)
             elif TTS_CONFIG['engine'] == 'festival':
@@ -471,6 +514,64 @@ class AudioManager:
                 
         except Exception as e:
             self.logger.error(f"生成音頻失敗: {e}")
+            return None
+
+    def _generate_audio_openai(self, text: str, audio_file: Path) -> Optional[Path]:
+        """使用 OpenAI TTS 生成音頻"""
+        try:
+            if not self.openai_client:
+                self.logger.error("OpenAI 客戶端未初始化")
+                return None
+                
+            self.logger.info(f"🤖 使用 OpenAI TTS 生成音頻: {TTS_CONFIG['openai_voice']}")
+            
+            # 調用 OpenAI TTS API
+            response = self.openai_client.audio.speech.create(
+                model=TTS_CONFIG['openai_model'],
+                voice=TTS_CONFIG['openai_voice'],
+                input=text,
+                speed=TTS_CONFIG['openai_speed']
+            )
+            
+            # 將音頻數據寫入文件
+            with open(audio_file, 'wb') as f:
+                for chunk in response.iter_bytes(1024):
+                    f.write(chunk)
+            
+            # 驗證生成的文件
+            if audio_file.exists() and audio_file.stat().st_size > 0:
+                # OpenAI 直接生成 MP3，需要轉換為 WAV
+                if audio_file.suffix.lower() != '.wav':
+                    wav_file = audio_file.with_suffix('.wav')
+                    try:
+                        # 使用 ffmpeg 轉換（如果可用）
+                        convert_cmd = ['ffmpeg', '-i', str(audio_file), '-y', str(wav_file)]
+                        result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
+                        
+                        if result.returncode == 0 and wav_file.exists():
+                            audio_file.unlink()  # 刪除原 MP3
+                            audio_file = wav_file
+                        else:
+                            # ffmpeg 失敗，嘗試 sox
+                            convert_cmd = ['sox', str(audio_file), str(wav_file)]
+                            result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
+                            
+                            if result.returncode == 0 and wav_file.exists():
+                                audio_file.unlink()  # 刪除原 MP3
+                                audio_file = wav_file
+                            else:
+                                self.logger.warning("無法轉換為 WAV，使用原始格式")
+                    except Exception as e:
+                        self.logger.warning(f"音頻格式轉換失敗: {e}")
+                
+                self.logger.info(f"✨ OpenAI TTS 音頻生成成功: {audio_file}")
+                return audio_file
+            else:
+                self.logger.error("OpenAI TTS 生成的文件無效")
+                return None
+                
+        except Exception as e:
+            self.logger.error(f"OpenAI TTS 音頻生成失敗: {e}")
             return None
 
     def _generate_audio_festival(self, text: str, audio_file: Path) -> Optional[Path]:
