@@ -167,7 +167,7 @@ class AudioManager:
                 
         except Exception as e:
             self.logger.error(f"TTS 引擎初始化失敗: {e}")
-
+    
     def _check_festival_voices(self):
         """檢查 Festival 可用的聲音"""
         try:
@@ -225,16 +225,14 @@ class AudioManager:
         except Exception as e:
             self.logger.warning(f"設置女性聲音失敗: {e}")
     
-    def play_greeting(self, country_code: str, city_name: str = "", country_name: str = "", 
-                     enable_fast_mode: bool = True) -> bool:
+    def play_greeting(self, country_code: str, city_name: str = "", country_name: str = "") -> bool:
         """
-        播放早安問候語和城市故事（優化版：快速回饋 + 並行處理）
+        播放早安問候語和城市故事（使用 Nova 整合模式）
         
         Args:
             country_code: 國家代碼
             city_name: 城市名稱
             country_name: 國家名稱
-            enable_fast_mode: 是否啟用快速模式（先播放短音頻，再播放完整內容）
         
         Returns:
             bool: 播放是否成功
@@ -244,13 +242,9 @@ class AudioManager:
                 self.logger.info("音頻功能已禁用，跳過音頻播放")
                 return True
             
-            # 🎵 快速模式：先播放通用問候，並行生成完整內容
-            if enable_fast_mode:
-                self.logger.info("🚀 啟用快速模式：先播放通用問候")
-                self._play_quick_greeting(country_code)
+            self.logger.info("🎧 開始準備完整問候語和故事...")
             
-            # 📡 並行獲取完整問候語和故事
-            self.logger.info("📡 並行獲取完整問候語和故事...")
+            # 📡 獲取完整問候語和故事
             greeting_data = self._fetch_greeting_and_story_from_api(city_name, country_name, country_code)
             
             if greeting_data:
@@ -331,148 +325,132 @@ class AudioManager:
             self.logger.error(f"播放問候語失敗: {e}")
             return False
     
-    def _play_quick_greeting(self, country_code: str) -> bool:
+    def prepare_greeting_audio(self, country_code: str, city_name: str = "", country_name: str = "") -> Optional[Path]:
         """
-        播放快速問候語（立即回饋，減少等待感）
+        準備完整問候語音頻但不播放（同步loading模式專用）
         
         Args:
             country_code: 國家代碼
+            city_name: 城市名稱
+            country_name: 國家名稱
         
         Returns:
-            bool: 播放是否成功
+            Path: 準備好的音頻文件路徑，失敗時返回 None
         """
         try:
-            # 簡短的通用問候語對應表
-            quick_greetings = {
-                'CN': '早安',
-                'TW': '早安',
-                'HK': '早安',
-                'MO': '早安',
-                'JP': 'おはよう',
-                'KR': '안녕하세요',
-                'US': 'Good morning',
-                'GB': 'Good morning', 
-                'AU': 'Good morning',
-                'CA': 'Good morning',
-                'ES': '¡Buenos días!',
-                'MX': '¡Buenos días!',
-                'AR': '¡Buenos días!',
-                'FR': 'Bonjour',
-                'DE': 'Guten Morgen',
-                'IT': 'Buongiorno',
-                'PT': 'Bom dia',
-                'BR': 'Bom dia',
-                'RU': 'Доброе утро',
-                'TH': 'สวัสดีตอนเช้า',
-                'VN': 'Chào buổi sáng',
-                'IN': 'सुप्रभात',
-                'NL': 'Goedemorgen',
-                'SE': 'God morgon',
-                'NO': 'God morgen',
-                'DK': 'God morgen',
-                'FI': 'Hyvää huomenta'
-            }
+            if not AUDIO_CONFIG['enabled']:
+                self.logger.info("音頻功能已禁用，跳過音頻準備")
+                return None
             
-            # 獲取對應的快速問候語
-            greeting_text = quick_greetings.get(country_code, 'Good morning')
-            self.logger.info(f"🎵 快速問候: {greeting_text} ({country_code})")
+            self.logger.info("🎧 準備完整問候語音頻（同步模式）...")
             
-            # 使用當前最佳可用的 TTS 引擎
-            if TTS_CONFIG['engine'] == 'openai' and self.openai_client:
-                # 優先使用 Nova 播放快速問候
-                audio_file = self._generate_quick_audio_openai(greeting_text)
-                if audio_file and audio_file.exists():
-                    return self._play_audio_file(audio_file)
-            
-            # 備用：使用系統 TTS（更快但音質較低）
-            return self._play_quick_greeting_system(greeting_text, country_code)
-            
+            # 📡 獲取完整問候語和故事（與播放模式相同的 API）
+            greeting_data = self._fetch_greeting_and_story_from_api(city_name, country_name, country_code)
+
+            if greeting_data:
+                greeting_text = greeting_data['greeting']
+                language_code = greeting_data['languageCode']
+                story_text = greeting_data.get('chineseStory', '')
+                
+                # 🔍 調試資訊
+                self.logger.info(f"🔍 準備音頻 - 問候語資料: {greeting_data}")
+                self.logger.info(f"🔍 準備音頻 - story_text: '{story_text}'")
+                
+                # 🌟 Nova 整合模式：當地語言問候 + 中文故事一起生成
+                if (story_text and 
+                    TTS_CONFIG['engine'] == 'openai' and 
+                    TTS_CONFIG.get('nova_integrated_mode', True)):
+                    
+                    self.logger.info(f"🌟 準備 Nova 整合音頻：當地問候語 + 中文故事")
+                    self.logger.info(f"當地問候: {greeting_text} ({greeting_data['language']})")
+                    self.logger.info(f"中文故事: {story_text}")
+                    
+                    # 組合當地語言問候和中文故事
+                    integrated_content = f"{greeting_text} {story_text}"
+                    
+                    # 使用 Nova 生成整合音頻
+                    return self._generate_integrated_audio(integrated_content)
+                    
+                else:
+                    # 🔄 分離模式：僅準備當地語言問候
+                    self.logger.info(f"🔄 準備分離音頻：當地語言問候")
+                    self.logger.info(f"當地問候: {greeting_text} ({greeting_data['language']})")
+                    
+                    if TTS_CONFIG['engine'] == 'openai':
+                        return self._generate_audio_openai_direct(greeting_text, language_code)
+                    else:
+                        return self._generate_audio(greeting_text, language_code)
+            else:
+                # 備用方案：使用內建問候語
+                self.logger.warning("ChatGPT API 失敗，使用備用問候語")
+                greeting_text = self._get_greeting_text(country_code, city_name)
+                language_code = self._get_language_code(country_code)
+                return self._generate_audio(greeting_text, language_code)
+                
         except Exception as e:
-            self.logger.error(f"快速問候播放失敗: {e}")
-            return False
+            self.logger.error(f"準備問候語音頻失敗: {e}")
+            return None
     
-    def _generate_quick_audio_openai(self, text: str) -> Optional[Path]:
+    # 快速模式已移除 - 只使用完整 Nova 語音播放
+    
+    def _generate_integrated_audio(self, content: str) -> Optional[Path]:
         """
-        快速生成 OpenAI 音頻（簡短文本，優化速度）
+        生成整合音頻但不播放
         
         Args:
-            text: 簡短的問候語文本
+            content: 整合的文本內容
         
         Returns:
             Path: 生成的音頻文件路徑
         """
         try:
-            import hashlib
-            text_hash = hashlib.md5(f"quick_{text}".encode()).hexdigest()
-            audio_file = self.cache_dir / f"quick_greeting_{text_hash}.wav"
+            self.logger.info("🤖 Nova 整合音頻生成中...")
             
-            # 檢查快取
-            if audio_file.exists():
-                self.logger.info(f"🚀 使用快速問候快取: {text}")
+            # 使用 OpenAI TTS 生成音頻（Nova 會自動處理多語言）
+            audio_file = self._generate_audio(content, 'auto')  # 使用 auto 讓 Nova 自動檢測語言
+            
+            if audio_file and audio_file.exists():
+                self.logger.info(f"✨ Nova 整合音頻生成成功: {audio_file.name}")
                 return audio_file
-            
-            # 生成新的快速音頻
-            self.logger.info(f"🤖 Nova 快速生成: {text}")
-            result = self._generate_audio_openai(text, audio_file)
-            
-            if result and result.exists():
-                self.logger.info(f"✨ 快速音頻生成成功: {text}")
-                return result
             else:
-                self.logger.warning(f"快速音頻生成失敗: {text}")
+                self.logger.error("Nova 整合音頻生成失敗")
                 return None
                 
         except Exception as e:
-            self.logger.error(f"OpenAI 快速音頻生成失敗: {e}")
+            self.logger.error(f"Nova 整合音頻生成失敗: {e}")
             return None
     
-    def _play_quick_greeting_system(self, text: str, language_code: str) -> bool:
+    def play_audio_file_direct(self, audio_file: Path) -> bool:
         """
-        使用系統 TTS 播放快速問候（備用方案）
+        直接播放音頻文件（同步模式專用）
         
         Args:
-            text: 問候語文本
-            language_code: 語言代碼
+            audio_file: 音頻文件路徑
         
         Returns:
             bool: 播放是否成功
         """
         try:
-            self.logger.info(f"📢 系統TTS快速播放: {text}")
+            if not audio_file or not audio_file.exists():
+                self.logger.error("音頻文件不存在")
+                return False
             
-            # 使用 espeak 快速播放（速度優先）
-            import subprocess
-            import tempfile
-            import os
+            self.logger.info(f"🎵 直接播放音頻: {audio_file.name}")
             
-            with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
-                temp_path = temp_file.name
+            # 使用現有的播放方法
+            success = self._play_audio_file(audio_file)
             
-            # espeak 快速生成音頻
-            cmd = [
-                'espeak', '-v', language_code.lower(), '-s', '150', 
-                '-w', temp_path, text
-            ]
-            
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
-            
-            if result.returncode == 0 and os.path.exists(temp_path):
-                # 快速播放
-                success = self._play_audio_file(Path(temp_path))
-                # 清理臨時文件
-                try:
-                    os.unlink(temp_path)
-                except:
-                    pass
-                return success
+            if success:
+                self.logger.info("✅ 直接音頻播放成功")
+                return True
             else:
-                self.logger.warning("espeak 快速生成失敗")
+                self.logger.error("❌ 直接音頻播放失敗")
                 return False
                 
         except Exception as e:
-            self.logger.error(f"系統TTS快速播放失敗: {e}")
+            self.logger.error(f"直接播放音頻失敗: {e}")
             return False
-    
+
     def _play_integrated_nova_content(self, content: str) -> bool:
         """
         使用 Nova 播放整合內容（當地語言問候 + 中文故事）
@@ -1144,7 +1122,7 @@ class AudioManager:
                     # 等待播放完成
                     while pygame.mixer.music.get_busy():
                         time.sleep(0.1)
-                    
+                        
                     self.logger.info(f"音頻播放完成（pygame）: {audio_file.suffix}")
                     return True
                 except pygame.error as e:
@@ -1195,7 +1173,7 @@ class AudioManager:
             else:
                 self.logger.error(f"aplay 播放失敗: {result.stderr}")
                 return False
-                
+                    
         except Exception as e:
             self.logger.error(f"替代播放器失敗: {e}")
             return False

@@ -78,7 +78,6 @@ TTS_CONFIG = {
     
     # Nova 整合模式
     'nova_integrated_mode': True,  # 使用 Nova 整合播放當地問候+中文故事
-    'enable_fast_mode': False,  # 關閉快速模式，避免重複播放問候語
     
     # 音質增強設定
     'audio_quality': 'high',
