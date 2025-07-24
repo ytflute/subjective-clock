@@ -810,6 +810,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    overflow-y: auto;
 }
 
 /* 右側地圖按鈕區 */
@@ -862,12 +863,15 @@ body {
 /* 國家信息區 - 經典風格 */
 .country-section {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .country-info-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 15px;
+    margin-bottom: 15px;
 }
 
 .flag-container {
@@ -913,23 +917,45 @@ body {
 
 /* 故事內容區 - 經典報紙風格 */
 .story-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .story-content {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.4;
     color: #000000;
     background: #f8f8f8;
     padding: 15px;
     border: 2px solid #000000;
     font-family: 'VT323', monospace;
-    max-height: 180px;
-    overflow-y: auto;
     letter-spacing: 1px;
     text-shadow: 0 0 1px #00000020;
+}
+
+/* 問候語區域樣式 */
+.greeting-section {
+    margin-bottom: 10px;
+}
+
+.greeting-main {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* 故事文字樣式 */
+.story-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.5px;
+    text-align: justify;
 }
 
 /* 自定義滾動條 - 黑白風格 */
@@ -1013,6 +1039,22 @@ body {
     margin-top: 20px;
     border: 3px solid #000000;
     box-shadow: 0 0 15px #00000030;
+    transition: all 0.3s ease;
+}
+
+.map-container:not(.hidden) {
+    animation: map-show 0.3s ease-out;
+}
+
+@keyframes map-show {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 響應式調整 */
@@ -1028,7 +1070,16 @@ body {
     }
     
     .story-content {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .greeting-main {
         font-size: 16px;
+    }
+    
+    .story-text {
+        font-size: 14px;
     }
     
     .map-button {
@@ -1036,6 +1087,25 @@ body {
         height: 100px;
         font-size: 16px;
         letter-spacing: 1px;
+    }
+    
+    .result-layout {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .left-content {
+        border-right: none;
+        border-bottom: 3px solid #000000;
+    }
+    
+    .right-content {
+        padding: 15px;
+        justify-content: center;
+    }
+    
+    .map-container {
+        height: 250px;
     }
 }
 

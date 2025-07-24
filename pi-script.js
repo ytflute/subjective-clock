@@ -557,8 +557,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 console.log('🏁 國旗載入:', flagUrl);
             }
             
-            // 獲取並設定當地語言問候語
-            await generateAndDisplayMorningGreeting(cityData);
+            // 獲取並設定故事和問候語
+            await generateAndDisplayStoryAndGreeting(cityData);
             
             // 設定座標資訊
             if (coordinateInfoEl) {
@@ -594,13 +594,13 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 新增：生成並顯示早安問候語
-    async function generateAndDisplayMorningGreeting(cityData) {
-        console.log('🗣️ 正在生成當地語言早安問候...');
+    // 新增：生成並顯示故事和問候語
+    async function generateAndDisplayStoryAndGreeting(cityData) {
+        console.log('📖 正在生成甦醒故事和問候語...');
         
         try {
-            // 調用新的問候語 API
-            const greetingResponse = await fetch('/api/generateMorningGreeting', {
+            // 調用故事生成 API
+            const storyResponse = await fetch('/api/generateStory', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -610,47 +610,92 @@ window.addEventListener('firebaseReady', async (event) => {
                 })
             });
 
-            const greetingResult = await greetingResponse.json();
-            console.log('🗣️ 問候語 API 回應:', greetingResult);
+            const storyResult = await storyResponse.json();
+            console.log('📖 故事 API 回應:', storyResult);
 
-            if (greetingResult.success && greetingResult.data) {
-                const greeting = greetingResult.data;
-                
-                // 顯示問候語
+            if (storyResult.greeting && storyResult.story) {
+                // 顯示問候語和故事
                 if (greetingTextEl) {
                     greetingTextEl.innerHTML = `
-                        <div class="greeting-main">${greeting.greeting}</div>
-                        <div class="greeting-info">
-                            ${greeting.language} - ${greeting.meaning}
-                            ${greeting.pronunciation ? `<br><small>發音: ${greeting.pronunciation}</small>` : ''}
+                        <div class="greeting-section">
+                            <div class="greeting-main">${storyResult.greeting}</div>
+                        </div>
+                        <div class="story-section">
+                            <div class="story-text">${storyResult.story}</div>
                         </div>
                     `;
                 }
 
                 // 語音播放問候語
-                await speakGreeting(greeting);
+                await speakGreeting({ 
+                    greeting: storyResult.greeting, 
+                    languageCode: 'auto' 
+                });
 
-                console.log(`✅ ${greeting.language}問候語顯示成功: ${greeting.greeting}`);
+                console.log(`✅ 故事和問候語顯示成功`);
             } else {
-                // 使用備用問候語
-                console.warn('問候語 API 失敗，使用備用問候語');
-                const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
-                if (greetingTextEl) {
-                    greetingTextEl.textContent = fallbackGreeting;
-                }
-                await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+                // 使用備用方案
+                console.warn('故事 API 失敗，使用備用問候語');
+                await generateFallbackGreeting(cityData);
             }
 
         } catch (error) {
-            console.error('❌ 生成問候語失敗:', error);
-            // 使用備用問候語
-            const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
-            if (greetingTextEl) {
-                greetingTextEl.textContent = fallbackGreeting;
-            }
-            await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+            console.error('❌ 生成故事失敗:', error);
+            // 使用備用方案
+            await generateFallbackGreeting(cityData);
         }
     }
+
+    // 新增：備用問候語生成
+    async function generateFallbackGreeting(cityData) {
+        const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
+        const fallbackStory = `今天的你在${cityData.country}的${cityData.name}醒來，準備開始美好的一天！`;
+        
+        if (greetingTextEl) {
+            greetingTextEl.innerHTML = `
+                <div class="greeting-section">
+                    <div class="greeting-main">${fallbackGreeting}</div>
+                </div>
+                <div class="story-section">
+                    <div class="story-text">${fallbackStory}</div>
+                </div>
+            `;
+        }
+        
+        await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+    }
+
+    // 新增：地圖切換功能
+    function toggleMap() {
+        console.log('🗺️ 切換地圖顯示狀態');
+        const mapContainer = document.getElementById('mapContainer');
+        const mapButton = document.getElementById('mapButton');
+        
+        if (mapContainer && mapButton) {
+            if (mapContainer.classList.contains('hidden')) {
+                // 顯示地圖
+                mapContainer.classList.remove('hidden');
+                mapButton.textContent = '隱藏';
+                console.log('🗺️ 顯示地圖');
+                
+                // 重新調整地圖大小
+                setTimeout(() => {
+                    if (clockLeafletMap) {
+                        clockLeafletMap.invalidateSize();
+                        console.log('🗺️ 地圖大小已調整');
+                    }
+                }, 100);
+            } else {
+                // 隱藏地圖
+                mapContainer.classList.add('hidden');
+                mapButton.textContent = '地圖';
+                console.log('🗺️ 隱藏地圖');
+            }
+        }
+    }
+
+    // 將 toggleMap 設為全域函數，供 HTML onclick 使用
+    window.toggleMap = toggleMap;
 
     // 新增：顯示清喉嚨彈出對話框
     function showThroatClearingPopup() {
@@ -959,6 +1004,16 @@ window.addEventListener('firebaseReady', async (event) => {
                 hideThroatClearingPopup();
                         });
             console.log('✅ 清喉嚨對話框點擊事件已設定');
+        }
+        
+        // 設定地圖按鈕事件
+        const mapButton = document.getElementById('mapButton');
+        if (mapButton) {
+            mapButton.addEventListener('click', () => {
+                console.log('🔘 地圖按鈕被點擊');
+                toggleMap();
+            });
+            console.log('✅ 地圖按鈕事件已設定');
         }
     }
 

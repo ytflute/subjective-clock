@@ -71,22 +71,22 @@
                             <div class="country-info-row">
                                 <div class="flag-container">
                                     <img id="countryFlag" class="country-flag" src="" alt="國旗" style="display:none;"/>
-                                    <span class="flag-label">國旗<br/>icon</span>
+                                    
                                 </div>
                                 <h2 id="countryName" class="country-title"></h2>
                             </div>
-                        </div>
-                        
-                        <!-- 故事內容區 -->
-                        <div class="story-section">
-                            <div id="greetingText" class="story-content"></div>
+                            
+                            <!-- 故事內容區移到國家信息區內，在圖片下方 -->
+                            <div class="story-section">
+                                <div id="greetingText" class="story-content"></div>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- 右側地圖按鈕區 -->
                     <div class="right-content">
                         <div class="map-button-container">
-                            <button id="mapButton" class="map-button" onclick="toggleMap()">
+                            <button id="mapButton" class="map-button">
                                 地圖
                             </button>
                         </div>
