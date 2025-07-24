@@ -26,7 +26,83 @@ window.startTheDay = function() {
         currentState: window.currentState || 'unknown'
     });
     
-    // 嘗試顯示錯誤狀態
+    // 如果 Firebase 還沒準備好，嘗試等待和重試
+    if (!window.firebaseSDK || !window.firebaseConfig) {
+        console.log('🔄 Firebase 未就緒，嘗試等待...');
+        
+        // 顯示載入狀態
+        try {
+            const waitingStateEl = document.getElementById('waitingState');
+            const loadingStateEl = document.getElementById('loadingState');
+            const errorStateEl = document.getElementById('errorState');
+            
+            // 隱藏其他狀態
+            [waitingStateEl, loadingStateEl, errorStateEl].forEach(el => {
+                if (el) el.classList.remove('active');
+            });
+            
+            // 顯示載入狀態
+            if (loadingStateEl) {
+                loadingStateEl.classList.add('active');
+                const loadingText = loadingStateEl.querySelector('.loading-text');
+                if (loadingText) {
+                    loadingText.textContent = '正在初始化系統...';
+                }
+            }
+        } catch (e) {
+            console.error('❌ 狀態切換失敗:', e);
+        }
+        
+        // 設置重試機制
+        let retryCount = 0;
+        const maxRetries = 10;
+        const retryInterval = 1000; // 1秒
+        
+        const retryTimer = setInterval(() => {
+            retryCount++;
+            console.log(`🔄 重試 ${retryCount}/${maxRetries} - 檢查 Firebase 狀態`);
+            
+            if (window.firebaseSDK && window.firebaseConfig) {
+                console.log('✅ Firebase 已就緒，重新觸發甦醒流程');
+                clearInterval(retryTimer);
+                
+                // 檢查是否有完整版本的 startTheDay 函數
+                if (typeof window.startTheDay === 'function' && window.startTheDay.isFullVersion) {
+                    window.startTheDay();
+                } else {
+                    // 手動觸發 firebaseReady 事件
+                    window.dispatchEvent(new CustomEvent('firebaseReady'));
+                    setTimeout(() => {
+                        if (typeof window.startTheDay === 'function') {
+                            window.startTheDay();
+                        }
+                    }, 1000);
+                }
+            } else if (retryCount >= maxRetries) {
+                console.error('❌ Firebase 初始化失敗，已達最大重試次數');
+                clearInterval(retryTimer);
+                
+                // 顯示錯誤狀態
+                try {
+                    const errorStateEl = document.getElementById('errorState');
+                    const errorMessageEl = document.getElementById('errorMessage');
+                    const loadingStateEl = document.getElementById('loadingState');
+                    
+                    if (loadingStateEl) loadingStateEl.classList.remove('active');
+                    if (errorStateEl) errorStateEl.classList.add('active');
+                    if (errorMessageEl) {
+                        errorMessageEl.textContent = 'Firebase 初始化失敗，請重新載入頁面';
+                    }
+                } catch (e) {
+                    console.error('❌ 顯示錯誤狀態失敗:', e);
+                }
+            }
+        }, retryInterval);
+        
+        return false;
+    }
+    
+    // 如果 Firebase 已就緒但沒有完整版本的函數，顯示錯誤
     try {
         const errorStateEl = document.getElementById('errorState');
         const errorMessageEl = document.getElementById('errorMessage');
@@ -62,6 +138,11 @@ let cityNameEl, countryNameEl, greetingTextEl, coordinateInfoEl, errorMessageEl;
 // 當 Firebase 準備就緒時執行
 window.addEventListener('firebaseReady', async (event) => {
     console.log('🔥 Firebase Ready 事件觸發');
+    console.log('🔍 Firebase 狀態檢查:', {
+        firebaseSDK: !!window.firebaseSDK,
+        firebaseConfig: !!window.firebaseConfig,
+        currentTime: new Date().toISOString()
+    });
     
     const {
         initializeApp,
@@ -417,6 +498,9 @@ window.addEventListener('firebaseReady', async (event) => {
             currentState: currentState,
             firebase: !!window.firebaseSDK
         });
+        
+        // 標記這是完整版本
+        startTheDay.isFullVersion = true;
         
         try {
             // 設定載入狀態
@@ -1062,6 +1146,12 @@ window.addEventListener('error', (event) => {
 // 載入狀態指示
 document.addEventListener('DOMContentLoaded', () => {
     console.log('📄 DOM 載入完成，等待 Firebase...');
+    console.log('🔍 初始狀態檢查:', {
+        firebaseConfig: !!window.firebaseConfig,
+        firebaseSDK: !!window.firebaseSDK,
+        startTheDayFunction: typeof window.startTheDay,
+        currentState: window.currentState
+    });
     
     // 添加點擊測試功能
     setTimeout(() => {
@@ -1073,5 +1163,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.log('🧪 測試：findCityButton 未找到');
         }
+        
+        // 檢查 Firebase 載入狀態
+        console.log('🧪 Firebase 載入狀態檢查:', {
+            firebaseConfig: !!window.firebaseConfig,
+            firebaseSDK: !!window.firebaseSDK,
+            configScript: document.querySelector('script[src="/api/config"]') ? '已載入' : '未載入'
+        });
     }, 1000);
 }); 
