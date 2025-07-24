@@ -652,7 +652,31 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 新增：語音播放問候語
+    // 新增：顯示清喉嚨彈出對話框
+    function showThroatClearingPopup() {
+        console.log('😴 顯示清喉嚨提示');
+        const popup = document.getElementById('throatClearingPopup');
+        const overlay = document.getElementById('popupOverlay');
+        
+        if (popup && overlay) {
+            popup.classList.add('show');
+            overlay.classList.add('show');
+        }
+    }
+
+    // 新增：隱藏清喉嚨彈出對話框
+    function hideThroatClearingPopup() {
+        console.log('😊 隱藏清喉嚨提示');
+        const popup = document.getElementById('throatClearingPopup');
+        const overlay = document.getElementById('popupOverlay');
+        
+        if (popup && overlay) {
+            popup.classList.remove('show');
+            overlay.classList.remove('show');
+        }
+    }
+
+    // 新增：語音播放問候語（含清喉嚨提示）
     async function speakGreeting(greetingData) {
         console.log('🔊 正在播放語音問候:', greetingData);
         
@@ -662,6 +686,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 console.warn('🔇 此瀏覽器不支援語音合成');
                 return;
             }
+
+            // 顯示清喉嚨提示
+            showThroatClearingPopup();
 
             // 停止任何正在播放的語音
             window.speechSynthesis.cancel();
@@ -682,10 +709,14 @@ window.addEventListener('firebaseReady', async (event) => {
             // 播放完成的回調
             utterance.onend = () => {
                 console.log('🔊 語音播放完成');
+                // 隱藏清喉嚨提示
+                hideThroatClearingPopup();
             };
 
             utterance.onerror = (error) => {
                 console.error('🔇 語音播放錯誤:', error);
+                // 隱藏清喉嚨提示
+                hideThroatClearingPopup();
             };
 
             // 開始播放
@@ -694,6 +725,8 @@ window.addEventListener('firebaseReady', async (event) => {
 
         } catch (error) {
             console.error('🔇 語音播放失敗:', error);
+            // 隱藏清喉嚨提示
+            hideThroatClearingPopup();
         }
     }
 
@@ -916,6 +949,16 @@ window.addEventListener('firebaseReady', async (event) => {
         if (refreshGlobalMapButton) {
             refreshGlobalMapButton.addEventListener('click', loadGlobalMap);
             console.log('✅ 刷新全球地圖按鈕事件已設定');
+        }
+
+        // 設定清喉嚨對話框點擊關閉事件
+        const popupOverlay = document.getElementById('popupOverlay');
+        if (popupOverlay) {
+            popupOverlay.addEventListener('click', () => {
+                console.log('🔘 點擊遮罩關閉清喉嚨提示');
+                hideThroatClearingPopup();
+                        });
+            console.log('✅ 清喉嚨對話框點擊事件已設定');
         }
     }
 

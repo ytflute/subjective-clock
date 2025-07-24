@@ -13,6 +13,11 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="theme-color" content="#4d714f">
     
+    <!-- Google Fonts - Pixel/Digital 風格字體 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=VT323&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="pi-style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -38,8 +43,7 @@
                         <div class="pulse-circle delay-1"></div>
                         <div class="pulse-circle delay-2"></div>
                     </div>
-                    <h2 class="waiting-text">準備探索今日甦醒...</h2>
-                    <p class="waiting-subtitle">按下按鈕開始您的甦醒之旅</p>
+                    <h2 class="waiting-text">按下按鈕，喚醒今日的你！</h2>
                 </div>
             </div>
 
@@ -47,28 +51,51 @@
             <div id="loadingState" class="loading-state">
                 <div class="loading-content">
                     <div class="loading-spinner"></div>
-                    <h2 class="loading-text">尋找您的甦醒城市...</h2>
-                    <p class="loading-subtitle">正在探索世界的美好角落</p>
+                    <h2 class="loading-text">定位你的甦醒位置中....</h2>
+                    <p class="loading-subtitle"></p>
                 </div>
             </div>
 
-            <!-- 結果顯示區域 -->
+            <!-- 結果顯示區域 - 新布局 -->
             <div id="resultState" class="result-state">
-                <div class="city-info">
-                    <div class="city-main">
-                        <h2 id="cityName" class="city-name"></h2>
-                        <div class="country-info">
-                            <img id="countryFlag" class="country-flag" src="" alt="國旗" style="display:none;"/>
-                            <h3 id="countryName" class="country-name"></h3>
+                <div class="result-layout">
+                    <!-- 左側內容區 -->
+                    <div class="left-content">
+                        <!-- 城市名稱大標題 -->
+                        <div class="city-title-section">
+                            <h1 id="cityName" class="city-title blink-text"></h1>
+                        </div>
+                        
+                        <!-- 國家信息區 -->
+                        <div class="country-section">
+                            <div class="country-info-row">
+                                <div class="flag-container">
+                                    <img id="countryFlag" class="country-flag" src="" alt="國旗" style="display:none;"/>
+                                    <span class="flag-label">國旗<br/>icon</span>
+                                </div>
+                                <h2 id="countryName" class="country-title"></h2>
+                            </div>
+                        </div>
+                        
+                        <!-- 故事內容區 -->
+                        <div class="story-section">
+                            <div id="greetingText" class="story-content"></div>
                         </div>
                     </div>
-                    <div id="greetingText" class="greeting-text"></div>
+                    
+                    <!-- 右側地圖按鈕區 -->
+                    <div class="right-content">
+                        <div class="map-button-container">
+                            <button id="mapButton" class="map-button" onclick="toggleMap()">
+                                地圖
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="map-section">
-                    <div id="mapContainer" class="map-container"></div>
-                    <div id="coordinateInfo" class="coordinate-info"></div>
-                </div>
+                
+                <!-- 隱藏的地圖容器 -->
+                <div id="mapContainer" class="map-container hidden"></div>
+                <div id="coordinateInfo" class="coordinate-info"></div>
             </div>
 
             <!-- 錯誤狀態 -->
@@ -109,6 +136,16 @@
         </div>
     </div>
 
+    <!-- 清喉嚨彈出對話框 -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="throat-clearing-popup" id="throatClearingPopup">
+        <div class="throat-clearing-text">
+            剛起床，正在清喉嚨<br>
+            請稍待
+        </div>
+        <div class="throat-clearing-dots">...</div>
+    </div>
+    
     <!-- 載入彈跳式日誌視窗 -->
     <div id="historyLogModal" class="modal" style="display:none;">
         <div class="modal-dialog">
@@ -165,5 +202,86 @@
 
     <!-- 4. 載入主要應用程式腳本 -->
     <script src="pi-script.js"></script>
+    
+    <script>
+        // 地圖切換功能
+        function toggleMap() {
+            const mapContainer = document.getElementById('mapContainer');
+            const mapButton = document.getElementById('mapButton');
+            
+            if (mapContainer.classList.contains('hidden')) {
+                mapContainer.classList.remove('hidden');
+                mapButton.textContent = '隱藏地圖';
+                mapButton.style.background = '#333';
+                mapButton.style.color = '#fff';
+                
+                // 如果地圖還沒初始化，初始化它
+                if (!window.currentMap) {
+                    initializeMap();
+                }
+            } else {
+                mapContainer.classList.add('hidden');
+                mapButton.textContent = '地圖';
+                mapButton.style.background = '#fff';
+                mapButton.style.color = '#000';
+            }
+        }
+        
+        // 初始化地圖
+        function initializeMap() {
+            const mapContainer = document.getElementById('mapContainer');
+            if (mapContainer && !window.currentMap) {
+                // 使用原有的地圖初始化邏輯
+                const latitude = window.currentLatitude || 25.0330;
+                const longitude = window.currentLongitude || 121.5654;
+                
+                window.currentMap = L.map('mapContainer').setView([latitude, longitude], 10);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(window.currentMap);
+                
+                // 添加標記
+                L.marker([latitude, longitude]).addTo(window.currentMap)
+                    .bindPopup(window.currentCityName || '甦醒位置')
+                    .openPopup();
+            }
+        }
+        
+        // 當城市名稱更新時添加冒號
+        function updateCityDisplay(cityName) {
+            const cityElement = document.getElementById('cityName');
+            if (cityElement && cityName) {
+                cityElement.textContent = cityName.toUpperCase() + ':';
+            }
+        }
+        
+        // 監聽城市名稱變化
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                    const cityElement = document.getElementById('cityName');
+                    if (cityElement && cityElement.textContent && !cityElement.textContent.endsWith(':')) {
+                        const cityName = cityElement.textContent.trim();
+                        if (cityName && cityName !== '') {
+                            updateCityDisplay(cityName);
+                        }
+                    }
+                }
+            });
+        });
+        
+        // 開始觀察城市名稱元素
+        document.addEventListener('DOMContentLoaded', function() {
+            const cityElement = document.getElementById('cityName');
+            if (cityElement) {
+                observer.observe(cityElement, {
+                    childList: true,
+                    characterData: true,
+                    subtree: true
+                });
+            }
+        });
+    </script>
 </body>
 </html> 
