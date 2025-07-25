@@ -607,6 +607,9 @@ window.addEventListener('firebaseReady', async (event) => {
 
     // 開始這一天
     async function startTheDay() {
+        // 立即設置調試標記
+        window.debugStartTheDay = 'STARTED';
+        
         console.log('🌅 開始這一天被呼叫 (完整版本)');
         console.log('🔍 當前狀態檢查:', {
             db: !!db,
@@ -615,6 +618,22 @@ window.addEventListener('firebaseReady', async (event) => {
             currentState: currentState,
             firebase: !!window.firebaseSDK
         });
+        
+        // 設置調試進度
+        window.debugStartTheDay = 'CHECKING_STATE';
+        
+        // 檢查基本條件
+        if (!db) {
+            window.debugStartTheDay = 'ERROR_NO_DB';
+            throw new Error('Firebase 資料庫未初始化');
+        }
+        
+        if (!auth || !auth.currentUser) {
+            window.debugStartTheDay = 'ERROR_NO_AUTH';
+            throw new Error('Firebase 認證未完成');
+        }
+        
+        window.debugStartTheDay = 'INITIALIZED';
         
         // 標記這是完整版本
         startTheDay.isFullVersion = true;

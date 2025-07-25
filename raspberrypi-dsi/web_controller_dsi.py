@@ -208,6 +208,7 @@ class WebControllerDSI:
                 self.logger.info("使用 JavaScript 直接觸發甦醒流程...")
                 result = self.driver.execute_script("""
                     try {
+                        window.debugStartTheDay = 'NOT_STARTED';
                         if (typeof startTheDay === 'function') {
                             startTheDay();
                             return 'JavaScript 函數已執行';
@@ -215,13 +216,22 @@ class WebControllerDSI:
                             return 'startTheDay 函數未找到';
                         }
                     } catch (error) {
+                        window.debugStartTheDay = 'ERROR: ' + error.message;
                         return 'JavaScript 錯誤: ' + error.message;
                     }
                 """)
                 self.logger.info(f"JavaScript 執行結果：{result}")
                 
+                # 檢查調試狀態
+                debug_status = self.driver.execute_script("return window.debugStartTheDay || 'UNKNOWN';")
+                self.logger.info(f"調試狀態：{debug_status}")
+                
                 # 等待處理完成
                 time.sleep(8)
+                
+                # 再次檢查調試狀態
+                final_debug_status = self.driver.execute_script("return window.debugStartTheDay || 'UNKNOWN';")
+                self.logger.info(f"最終調試狀態：{final_debug_status}")
                 
                 # 檢查最終狀態
                 final_state = self.driver.execute_script("return window.currentState || 'unknown';")
