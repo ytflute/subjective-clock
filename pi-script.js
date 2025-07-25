@@ -358,7 +358,7 @@ window.addEventListener('firebaseReady', async (event) => {
 
             // 創建新地圖（使用滿版容器）
             clockLeafletMap = L.map('mapContainer', {
-                zoomControl: true,
+                zoomControl: false, // 禁用默認縮放控制，使用自定義按鈕
                 scrollWheelZoom: true,
                 doubleClickZoom: true,
                 boxZoom: true,
@@ -381,7 +381,7 @@ window.addEventListener('firebaseReady', async (event) => {
             
             // 自定義彈出窗口內容
             const popupContent = `
-                <div style="text-align: center; font-family: 'VT323', monospace; font-size: 14px;">
+                <div style="text-align: center; font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace; font-size: 14px;">
                     <strong style="color: #000000;">🌅 甦醒位置</strong><br>
                     <span style="color: #333333; font-size: 16px;">${cityName}</span><br>
                     <span style="color: #666666; font-size: 14px;">${countryName}</span><br>
@@ -404,6 +404,9 @@ window.addEventListener('firebaseReady', async (event) => {
                     if (mapContainer) {
                         mapContainer.classList.add('loaded');
                     }
+                    
+                    // 初始化自定義縮放按鈕
+                    initCustomZoomControls();
                     
                     console.log('🗺️ 地圖大小已調整');
                 }
@@ -778,10 +781,97 @@ window.addEventListener('firebaseReady', async (event) => {
             `;
         }
         
-        await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+                await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
     }
 
-
+    // 新增：初始化自定義縮放按鈕功能
+    function initCustomZoomControls() {
+        console.log('🔍 初始化自定義縮放按鈕');
+        
+        const zoomInButton = document.getElementById('zoomInButton');
+        const zoomOutButton = document.getElementById('zoomOutButton');
+        
+        if (!zoomInButton || !zoomOutButton) {
+            console.warn('⚠️ 縮放按鈕元素未找到');
+            return;
+        }
+        
+        if (!clockLeafletMap) {
+            console.warn('⚠️ 地圖實例未找到');
+            return;
+        }
+        
+        // 縮放按鈕事件監聽器
+        zoomInButton.addEventListener('click', () => {
+            if (clockLeafletMap) {
+                const currentZoom = clockLeafletMap.getZoom();
+                const maxZoom = clockLeafletMap.getMaxZoom();
+                
+                if (currentZoom < maxZoom) {
+                    clockLeafletMap.zoomIn();
+                    console.log('🔍 地圖放大，當前縮放級別:', currentZoom + 1);
+                }
+                
+                updateZoomButtonState();
+            }
+        });
+        
+        zoomOutButton.addEventListener('click', () => {
+            if (clockLeafletMap) {
+                const currentZoom = clockLeafletMap.getZoom();
+                const minZoom = clockLeafletMap.getMinZoom();
+                
+                if (currentZoom > minZoom) {
+                    clockLeafletMap.zoomOut();
+                    console.log('🔍 地圖縮小，當前縮放級別:', currentZoom - 1);
+                }
+                
+                updateZoomButtonState();
+            }
+        });
+        
+        // 監聽地圖縮放事件，更新按鈕狀態
+        clockLeafletMap.on('zoomend', updateZoomButtonState);
+        
+        // 初始更新按鈕狀態
+        updateZoomButtonState();
+        
+        console.log('✅ 自定義縮放按鈕初始化完成');
+    }
+    
+    // 新增：更新縮放按鈕狀態
+    function updateZoomButtonState() {
+        if (!clockLeafletMap) return;
+        
+        const zoomInButton = document.getElementById('zoomInButton');
+        const zoomOutButton = document.getElementById('zoomOutButton');
+        
+        if (!zoomInButton || !zoomOutButton) return;
+        
+        const currentZoom = clockLeafletMap.getZoom();
+        const maxZoom = clockLeafletMap.getMaxZoom();
+        const minZoom = clockLeafletMap.getMinZoom();
+        
+        // 更新放大按鈕狀態
+        if (currentZoom >= maxZoom) {
+            zoomInButton.disabled = true;
+            zoomInButton.title = '已達最大縮放級別';
+        } else {
+            zoomInButton.disabled = false;
+            zoomInButton.title = '放大';
+        }
+        
+        // 更新縮小按鈕狀態
+        if (currentZoom <= minZoom) {
+            zoomOutButton.disabled = true;
+            zoomOutButton.title = '已達最小縮放級別';
+        } else {
+            zoomOutButton.disabled = false;
+            zoomOutButton.title = '縮小';
+        }
+        
+        console.log(`🔍 縮放級別更新: ${currentZoom} (範圍: ${minZoom}-${maxZoom})`);
+    }
 
     // 新增：顯示清喉嚨彈出對話框
     function showThroatClearingPopup() {

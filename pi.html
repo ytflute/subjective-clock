@@ -18,6 +18,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=VT323&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- 自定義像素字體 -->
+    <style>
+        @font-face {
+            font-family: 'ByteBounce';
+            src: local('ByteBounce'), local('ByteBounce-Regular');
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'GB18030 Bitmap';
+            src: local('GB18030 Bitmap'), local('GB18030Bitmap');
+            font-display: swap;
+        }
+        
+        /* 字體堆疊設置 */
+        .pixel-font-en {
+            font-family: 'ByteBounce', 'Press Start 2P', 'Courier New', monospace;
+        }
+        
+        .pixel-font-cn {
+            font-family: 'GB18030 Bitmap', 'Microsoft YaHei', '微軟雅黑', SimHei, '黑體', sans-serif;
+        }
+        
+        .pixel-font-mixed {
+            font-family: 'ByteBounce', 'GB18030 Bitmap', 'Press Start 2P', 'Microsoft YaHei', '微軟雅黑', monospace;
+        }
+    </style>
+    
     <link rel="stylesheet" href="pi-style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -79,7 +107,13 @@
                     
                     <!-- 右側互動地圖區 -->
                     <div class="right-content">
-                        <div id="mapContainer" class="map-container-fullscreen"></div>
+                        <div id="mapContainer" class="map-container-fullscreen">
+                            <!-- 自定義縮放按鈕 -->
+                            <div class="custom-zoom-controls">
+                                <button id="zoomInButton" class="zoom-button zoom-in" title="放大">+</button>
+                                <button id="zoomOutButton" class="zoom-button zoom-out" title="縮小">−</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
