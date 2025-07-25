@@ -1156,6 +1156,14 @@ window.addEventListener('firebaseReady', async (event) => {
                 return;
             }
 
+            // 先獲取現有記錄數量
+            const q = query(
+                collection(db, 'wakeup_records'),
+                where('userId', '==', rawUserDisplayName)
+            );
+            const querySnapshot = await getDocs(q);
+            const currentDay = querySnapshot.size + 1;
+
             const recordData = {
                 userId: rawUserDisplayName,
                 displayName: rawUserDisplayName,
@@ -1168,11 +1176,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 timezone: cityData.timezone || '',
                 localTime: cityData.local_time || '',
                 timestamp: serverTimestamp(),
-                date: new Date().toISOString().split('T')[0]
+                date: new Date().toISOString().split('T')[0],
+                day: currentDay
             };
 
             await addDoc(collection(db, 'wakeup_records'), recordData);
-            console.log('✅ 記錄已儲存至 Firebase');
+            console.log('✅ 記錄已儲存至 Firebase，Day:', currentDay);
             
             // 更新軌跡線
             setTimeout(() => {
@@ -1331,7 +1340,22 @@ window.addEventListener('firebaseReady', async (event) => {
         // 更新天數
         const dayNumberEl = document.getElementById('dayNumber');
         if (dayNumberEl) {
-            dayNumberEl.textContent = data.day || '1';
+            // 如果沒有提供 day，從 Firebase 獲取
+            if (!data.day) {
+                const q = query(
+                    collection(db, 'wakeup_records'),
+                    where('userId', '==', rawUserDisplayName)
+                );
+                getDocs(q).then(querySnapshot => {
+                    const currentDay = querySnapshot.size + 1;
+                    dayNumberEl.textContent = currentDay;
+                }).catch(error => {
+                    console.error('獲取 Day 計數失敗:', error);
+                    dayNumberEl.textContent = '1';
+                });
+            } else {
+                dayNumberEl.textContent = data.day;
+            }
         }
 
         // 更新日期
@@ -1824,7 +1848,7 @@ async function loadAndDrawTrajectory() {
                     city: data.city,
                     country: data.country,
                     date: data.date,
-                    day: trajectoryData.length + 1
+                    day: data.day || trajectoryData.length + 1
                 });
             }
         });
