@@ -1276,17 +1276,18 @@ body {
     z-index: 999 !important;
 }
 
-/* 調試背景顏色 - 可以暫時取消註解來檢查元素位置 */
-/*
+/* 調試背景顏色 - 暫時啟用來檢查元素位置 */
 .result-info-panel {
-    background: red !important;
+    background: rgba(255, 0, 0, 0.8) !important;
+    border: 3px solid yellow !important;
 }
 
 .voice-loading-bar {
-    background: blue !important;
+    background: rgba(0, 0, 255, 0.8) !important;
+    border: 2px solid white !important;
 }
 
 .coordinate-info {
-    background: green !important;
-}
-*/ 
+    background: rgba(0, 255, 0, 0.8) !important;
+    border: 2px solid black !important;
+} 
