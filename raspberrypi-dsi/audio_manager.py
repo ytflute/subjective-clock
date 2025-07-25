@@ -549,18 +549,17 @@ class AudioManager:
             
             # API 端點
             from config import API_ENDPOINTS
-            api_url = API_ENDPOINTS['generate_morning_greeting']
+            api_url = API_ENDPOINTS['generate_story']  # 使用與網頁端相同的 API
             
-            # 請求資料（添加故事生成請求）
+            # 請求資料
             request_data = {
                 "city": city,
                 "country": country,
-                "countryCode": country_code,
-                "includeStory": True  # 請求生成中文故事
+                "countryCode": country_code
             }
             
-            self.logger.info(f"調用問候語和故事 API: {api_url}")
-            self.logger.info(f"請求資料: {request_data}")  # 改為 INFO 級別以便在日誌中看到
+            self.logger.info(f"調用故事生成 API: {api_url}")
+            self.logger.info(f"請求資料: {request_data}")
             
             # 發送請求
             response = requests.post(
@@ -572,20 +571,20 @@ class AudioManager:
             
             if response.status_code == 200:
                 result = response.json()
-                if result.get('success') and result.get('data'):
-                    greeting_data = result['data']
-                    story_info = " + 故事" if greeting_data.get('chineseStory') else ""
-                    self.logger.info(f"API 返回問候語{story_info}: {greeting_data['greeting']} ({greeting_data['language']})")
-                    return greeting_data
-                else:
-                    self.logger.warning(f"API 返回格式錯誤: {result}")
-                    return None
+                greeting_data = {
+                    'greeting': result['greeting'],
+                    'language': result['language'],
+                    'languageCode': result['languageCode'],
+                    'chineseStory': result['story']  # 使用 story 字段
+                }
+                self.logger.info(f"API 返回故事: {greeting_data['chineseStory']}")
+                return greeting_data
             else:
                 self.logger.error(f"API 請求失敗: {response.status_code} - {response.text}")
                 return None
                 
         except Exception as e:
-            self.logger.error(f"調用問候語 API 時發生錯誤: {e}")
+            self.logger.error(f"調用故事生成 API 時發生錯誤: {e}")
             return None
     
     def _get_greeting_text(self, country_code: str, city_name: str = "") -> str:
