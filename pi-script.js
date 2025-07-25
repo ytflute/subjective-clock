@@ -611,6 +611,7 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log('🔍 當前狀態檢查:', {
             db: !!db,
             auth: !!auth,
+            currentUser: !!auth?.currentUser,
             currentState: currentState,
             firebase: !!window.firebaseSDK
         });
@@ -619,8 +620,10 @@ window.addEventListener('firebaseReady', async (event) => {
         startTheDay.isFullVersion = true;
         
         try {
+            console.log('🎯 準備設定載入狀態...');
             // 設定載入狀態
             setState('loading');
+            console.log('✅ 載入狀態已設定');
 
             if (findCityButton) {
                 findCityButton.disabled = true;
@@ -703,15 +706,22 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📡 API 回應資料:', data);
 
             if (data.success && data.city) {
+                console.log('🎉 API 成功回應，準備處理城市資料:', data.city);
+                
                 // 先儲存到 Firebase，確保 day 計數正確
+                console.log('💾 開始儲存到 Firebase...');
                 await saveToFirebase(data.city);
+                console.log('✅ Firebase 儲存完成');
 
                 // 然後顯示結果 - 使用新的顯示元素
+                console.log('🎨 開始顯示甦醒結果...');
                 await displayAwakeningResult(data.city);
+                console.log('✅ 結果顯示完成');
 
                 console.log('✅ 甦醒城市尋找成功:', data.city);
 
             } else {
+                console.error('❌ API 回應失敗:', data);
                 throw new Error(data.error || '尋找城市失敗');
             }
 

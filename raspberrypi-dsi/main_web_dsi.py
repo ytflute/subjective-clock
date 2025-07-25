@@ -463,6 +463,15 @@ class WakeUpMapWebApp:
             city_data = self.web_controller.driver.execute_script(city_data_js)
             
             if city_data and city_data.get('city'):
+                # 清理城市名稱（移除冒號和空格）
+                city_data['city'] = city_data['city'].strip().rstrip(':').strip() if city_data['city'] else ''
+                city_data['country'] = city_data['country'].strip() if city_data['country'] else ''
+                
+                # 如果沒有國家代碼，嘗試從國家名稱獲取
+                if not city_data.get('countryCode') and city_data.get('country'):
+                    city_data['countryCode'] = self._guess_country_code(city_data['country'])
+                
+                self.logger.info(f"清理後的城市資料: {city_data}")
                 return city_data
             else:
                 self.logger.warning(f"未能提取到有效的城市資料: {city_data}")
