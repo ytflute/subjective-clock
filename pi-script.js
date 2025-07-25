@@ -1966,6 +1966,14 @@ async function loadAndDrawTrajectory() {
         });
         
         console.log(`📍 載入了 ${trajectoryData.length} 個軌跡點`);
+        console.log('查詢用戶名:', rawUserDisplayName);
+        
+        if (trajectoryData.length === 0) {
+            console.log('⚠️ 沒有找到軌跡數據，可能原因:');
+            console.log('  1. 尚未按過實體按鈕記錄甦醒位置');
+            console.log('  2. 用戶名不匹配 (當前:', rawUserDisplayName, ')');
+            console.log('  3. Firebase數據尚未同步');
+        }
         
         // 繪製軌跡線
         drawTrajectoryLine();
@@ -1985,22 +1993,24 @@ function drawTrajectoryLine() {
     // 清除現有軌跡線
     trajectoryLayer.clearLayers();
     
-    if (trajectoryData.length < 2) {
-        console.log('📍 軌跡點少於2個，無法繪製軌跡線');
-        return;
+    // 如果有2個或以上的點，繪製軌跡線
+    if (trajectoryData.length >= 2) {
+        // 準備軌跡點座標
+        const latlngs = trajectoryData.map(point => [point.lat, point.lng]);
+        
+        // 創建軌跡線 (polyline)
+        const trajectoryLine = L.polyline(latlngs, {
+            color: '#FF6B6B',        // 紅色軌跡線
+            weight: 3,               // 線條粗細
+            opacity: 0.8,            // 透明度
+            smoothFactor: 1.0,       // 平滑度
+            dashArray: '10, 5'       // 虛線樣式
+        }).addTo(trajectoryLayer);
+        
+        console.log(`🗺️ 軌跡線已繪製，連接 ${trajectoryData.length} 個點`);
+    } else {
+        console.log('📍 軌跡點少於2個，只顯示Day標記，不繪製連線');
     }
-    
-    // 準備軌跡點座標
-    const latlngs = trajectoryData.map(point => [point.lat, point.lng]);
-    
-    // 創建軌跡線 (polyline)
-    const trajectoryLine = L.polyline(latlngs, {
-        color: '#FF6B6B',        // 紅色軌跡線
-        weight: 3,               // 線條粗細
-        opacity: 0.8,            // 透明度
-        smoothFactor: 1.0,       // 平滑度
-        dashArray: '10, 5'       // 虛線樣式
-    }).addTo(trajectoryLayer);
     
     // 添加軌跡點標記
     trajectoryData.forEach((point, index) => {
@@ -2030,8 +2040,34 @@ function drawTrajectoryLine() {
         });
     });
     
-    console.log(`🗺️ 軌跡線繪製完成，包含 ${trajectoryData.length} 個點`);
+    console.log(`🗺️ 軌跡標記繪製完成，包含 ${trajectoryData.length} 個點`);
 }
+
+// Debug function for checking trajectory status
+window.checkTrajectory = function() {
+    console.log('🔍 軌跡線狀態檢查:');
+    console.log('當前用戶名:', rawUserDisplayName);
+    console.log('軌跡數據點數:', trajectoryData.length);
+    console.log('軌跡數據:', trajectoryData);
+    console.log('軌跡圖層是否存在:', !!trajectoryLayer);
+    console.log('主地圖是否存在:', !!mainInteractiveMap);
+    console.log('Firebase資料庫是否就緒:', !!db);
+    
+    if (trajectoryData.length > 0) {
+        console.log('✅ 軌跡數據正常');
+        console.log('軌跡點詳情:');
+        trajectoryData.forEach((point, index) => {
+            console.log(`  Day ${point.day}: ${point.city}, ${point.country} (${point.date})`);
+        });
+    } else {
+        console.log('❌ 沒有軌跡數據');
+        console.log('💡 請嘗試按下實體按鈕記錄甦醒位置');
+    }
+    
+    // 手動重新載入軌跡線
+    console.log('🔄 手動重新載入軌跡線...');
+    loadAndDrawTrajectory();
+};
 
 // Debug functions removed for production
 
