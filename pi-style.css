@@ -793,118 +793,129 @@ body {
 
 /* 左側信息面板 (浮層) - 適應DSI螢幕 */
 .result-info-panel {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 420px; /* 增加寬度以容納完整日期 */
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    padding: 20px;
-    z-index: 100 !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: fixed !important;
+    top: 15px !important;
+    left: 15px !important;
+    width: 400px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    z-index: 999999 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
     display: block !important;
     visibility: visible !important;
-    max-height: 440px; /* 限制高度適應480px螢幕 */
-    overflow-y: auto;
+    opacity: 1 !important;
+    max-height: 440px !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
 }
 
 /* Day 計數器 */
 .day-counter {
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
+    display: block !important;
 }
 
 .day-label {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 14px;
-    color: #333333;
-    margin-right: 8px;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 14px !important;
+    color: #333333 !important;
+    margin-right: 8px !important;
 }
 
 .day-number {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 18px;
-    color: #000000;
-    font-weight: bold;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 18px !important;
+    color: #000000 !important;
+    font-weight: bold !important;
 }
 
 /* 日期信息 */
 .date-info {
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
+    display: block !important;
 }
 
 .date-label {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 12px;
-    color: #333333;
-    margin-right: 8px;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 12px !important;
+    color: #333333 !important;
+    margin-right: 8px !important;
 }
 
 .date-value {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 14px;
-    color: #000000;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 14px !important;
+    color: #000000 !important;
 }
 
 /* 當地問候語 */
 .greeting-info {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
+    display: block !important;
 }
 
 .local-greeting {
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace;
-    font-size: 12px;
-    color: #666666;
-    display: block;
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace !important;
+    font-size: 12px !important;
+    color: #666666 !important;
+    display: block !important;
 }
 
 /* 位置信息 */
 .location-info {
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
+    display: block !important;
 }
 
 /* 座標信息（整合到位置信息中） */
 .coordinates-info {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid #e0e0e0;
+    margin-top: 10px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid #e0e0e0 !important;
+    display: block !important;
 }
 
 .coordinates-text {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 10px;
-    color: #666666;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 4px 8px;
-    border-radius: 4px;
-    display: inline-block;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 10px !important;
+    color: #666666 !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    display: inline-block !important;
 }
 
 .city-name {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 32px;
-    color: #000000;
-    margin: 0 0 15px 0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 32px !important;
+    color: #000000 !important;
+    margin: 0 0 15px 0 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    display: block !important;
 }
 
 .country-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 15px !important;
 }
 
 .country-flag {
-    width: 32px;
-    height: 24px;
-    border: 1px solid #cccccc;
-    border-radius: 2px;
+    width: 32px !important;
+    height: 24px !important;
+    border: 1px solid #cccccc !important;
+    border-radius: 2px !important;
+    display: block !important;
 }
 
 .country-name {
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 16px;
-    color: #333333;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 16px !important;
+    color: #333333 !important;
+    display: block !important;
 }
 
 /* 地圖縮放控制按鈕 - 移到左上角 */
@@ -955,37 +966,39 @@ body {
 
 /* 底部語音提示條 (浮層) - 適應DSI螢幕 */
 .voice-loading-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 20px 25px; /* 增加上下內邊距 */
-    z-index: 100 !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    padding: 20px 25px !important;
+    z-index: 999999 !important;
     display: block !important;
     visibility: visible !important;
-    max-width: 800px;
-    box-sizing: border-box;
-    min-height: 140px; /* 確保有足夠空間容納文字 */
+    opacity: 1 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    min-height: 140px !important;
+    box-sizing: border-box !important;
 }
 
 .voice-loading-text {
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace;
-    font-size: 18px; /* 增大字體 */
-    color: #FFFFFF;
-    margin: 0;
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace !important;
+    font-size: 18px !important;
+    color: #FFFFFF !important;
+    margin: 0 !important;
     text-align: left !important;
-    letter-spacing: 1px;
-    line-height: 1.8; /* 增加行高 */
-    position: relative;
-    min-height: 100px; /* 確保有足夠空間 */
+    letter-spacing: 1px !important;
+    line-height: 1.8 !important;
+    position: relative !important;
+    min-height: 100px !important;
     transition: none !important;
     animation: none !important;
-    word-wrap: break-word;
-    max-height: none; /* 移除最大高度限制 */
-    width: 100%;
-    display: block;
-    padding: 4px 0;
+    word-wrap: break-word !important;
+    max-height: none !important;
+    width: 100% !important;
+    display: block !important;
+    padding: 4px 0 !important;
 }
 
 /* 打字機光標效果 - 更明顯 */
@@ -1042,36 +1055,33 @@ body {
 /* DSI 800x480 螢幕調整 */
 @media (max-width: 800px), (max-height: 480px) {
     .result-info-panel {
-        top: 15px;
-        left: 15px;
-        width: 400px;
-        padding: 15px;
-        max-height: 420px;
+        padding: 15px !important;
+        max-height: 420px !important;
     }
     
     .city-name {
-        font-size: 22px;
-        letter-spacing: 1px;
+        font-size: 22px !important;
+        letter-spacing: 1px !important;
     }
     
     .country-flag {
-        width: 24px;
-        height: 18px;
+        width: 24px !important;
+        height: 18px !important;
     }
     
     .country-name {
-        font-size: 13px;
+        font-size: 13px !important;
     }
     
     .voice-loading-bar {
-        padding: 15px 20px;
-        min-height: 120px; /* 調整最小高度 */
+        padding: 15px 20px !important;
+        min-height: 120px !important;
     }
     
     .voice-loading-text {
-        font-size: 16px;
-        line-height: 1.6;
-        min-height: 90px;
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        min-height: 90px !important;
     }
     
     .map-zoom-controls {
