@@ -814,6 +814,14 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📖 故事 API 回應:', storyResult);
 
             if (storyResult.greeting && storyResult.story) {
+                // 先獲取當前的 day 計數
+                const q = query(
+                    collection(db, 'wakeup_records'),
+                    where('userId', '==', rawUserDisplayName)
+                );
+                const querySnapshot = await getDocs(q);
+                const currentDay = querySnapshot.size + 1;
+                
                 // 更新結果頁面數據
                 const resultData = {
                     city: cityData.name,
@@ -822,7 +830,8 @@ window.addEventListener('firebaseReady', async (event) => {
                     latitude: cityData.latitude,
                     longitude: cityData.longitude,
                     greeting: storyResult.greeting,
-                    story: storyResult.story
+                    story: storyResult.story,
+                    day: currentDay  // 添加 day 值
                 };
                 
                 // 使用新的結果數據更新函數
