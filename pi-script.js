@@ -986,16 +986,29 @@ window.addEventListener('firebaseReady', async (event) => {
     // 新增：語音播放故事（含當地問候語+打字機效果）
     async function speakStory(storyData) {
         console.log('🎬 正在播放完整語音內容:', storyData);
+        logToPanel('開始語音播放流程', 'info');
         
         try {
+            // 準備完整的語音內容：當地問候語 + 故事
+            const fullContent = `${storyData.greeting} ${storyData.story}`;
+            const displayContent = fullContent; // 用於打字機效果顯示
+            
+            logToPanel(`準備播放內容: ${fullContent.substring(0, 50)}...`, 'info');
+
             // 檢查瀏覽器是否支援語音合成
             if (!('speechSynthesis' in window)) {
                 console.warn('🔇 此瀏覽器不支援語音合成');
+                logToPanel('瀏覽器不支援語音合成，直接啟動打字機效果', 'warning');
+                // 即使沒有語音，也要啟動打字機效果
+                showVoiceLoading();
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                startStoryTypewriter(fullContent);
                 return;
             }
 
             // 顯示語音載入提示（清喉嚨階段）
             showVoiceLoading();
+            logToPanel('顯示清喉嚨提示', 'info');
 
             // 停止任何正在播放的語音和打字機效果
             window.speechSynthesis.cancel();
@@ -1004,16 +1017,13 @@ window.addEventListener('firebaseReady', async (event) => {
             // 短暫延遲後開始播放（模擬清喉嚨時間）
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            // 準備完整的語音內容：當地問候語 + 故事
-            const fullContent = `${storyData.greeting} ${storyData.story}`;
-            const displayContent = fullContent; // 用於打字機效果顯示
-
             // 創建語音合成實例（播放完整內容）
             const utterance = new SpeechSynthesisUtterance(fullContent);
             
             // 設定語言
             if (storyData.languageCode) {
                 utterance.lang = storyData.languageCode;
+                logToPanel(`設定語言: ${storyData.languageCode}`, 'info');
             }
             
             // 設定語音參數
@@ -1021,16 +1031,31 @@ window.addEventListener('firebaseReady', async (event) => {
             utterance.pitch = 1.0; // 正常音調
             utterance.volume = 1.0; // 最大音量
 
+            let speechStarted = false;
+            let typewriterStarted = false;
+
             // 語音開始播放時啟動打字機效果
             utterance.onstart = () => {
                 console.log('🎬 語音播放開始，啟動打字機效果');
+                logToPanel('✅ 語音播放開始!', 'success');
                 console.log('🌍 播放內容:', fullContent);
-                startStoryTypewriter(displayContent);
+                
+                // 隱藏 throat clearing popup
+                hideThroatClearingPopup();
+                logToPanel('隱藏清喉嚨對話框', 'info');
+                
+                speechStarted = true;
+                if (!typewriterStarted) {
+                    typewriterStarted = true;
+                    startStoryTypewriter(displayContent);
+                    logToPanel('啟動打字機效果', 'success');
+                }
             };
 
             // 播放完成的回調
             utterance.onend = () => {
                 console.log('🔊 完整語音播放完成');
+                logToPanel('語音播放完成', 'success');
                 hideVoiceLoading();
                 
                 // 確保打字機效果也完成
@@ -1046,19 +1071,44 @@ window.addEventListener('firebaseReady', async (event) => {
 
             utterance.onerror = (error) => {
                 console.error('🔇 語音播放錯誤:', error);
-                hideVoiceLoading();
-                stopTypeWriterEffect();
+                logToPanel(`語音播放錯誤: ${error.error}`, 'error');
                 
-                // 直接顯示完整內容
-                const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-                if (voiceLoadingTextEl && displayContent) {
-                    voiceLoadingTextEl.textContent = displayContent;
+                // 即使語音失敗，也要啟動打字機效果
+                hideThroatClearingPopup();
+                if (!typewriterStarted) {
+                    typewriterStarted = true;
+                    startStoryTypewriter(displayContent);
+                    logToPanel('語音失敗，但啟動打字機效果', 'warning');
                 }
+                
+                hideVoiceLoading();
+                
+                // 確保顯示完整內容
+                setTimeout(() => {
+                    const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+                    if (voiceLoadingTextEl && displayContent) {
+                        voiceLoadingTextEl.textContent = displayContent;
+                        voiceLoadingTextEl.classList.remove('typing');
+                        voiceLoadingTextEl.classList.add('completed');
+                    }
+                }, 2000);
             };
 
             // 開始播放完整內容
+            logToPanel('嘗試啟動語音播放...', 'info');
             window.speechSynthesis.speak(utterance);
             console.log('🎬 開始播放：當地問候語 + 故事');
+            
+            // 備用機制：如果 3 秒後語音還沒開始，強制啟動打字機效果
+            setTimeout(() => {
+                if (!speechStarted && !typewriterStarted) {
+                    console.warn('⚠️ 語音播放可能被阻止，強制啟動打字機效果');
+                    logToPanel('語音可能被阻止，強制啟動打字機效果', 'warning');
+                    hideThroatClearingPopup();
+                    typewriterStarted = true;
+                    startStoryTypewriter(displayContent);
+                }
+            }, 3000);
 
         } catch (error) {
             console.error('🔇 語音播放失敗:', error);
@@ -1440,6 +1490,15 @@ window.addEventListener('firebaseReady', async (event) => {
                 border: 3px solid white !important;
                 pointer-events: auto !important;
             `;
+            
+            // 設置語音條的初始文字
+            const voiceLoadingTextEl = voiceLoadingBar.querySelector('.voice-loading-text');
+            if (voiceLoadingTextEl) {
+                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+                voiceLoadingTextEl.classList.remove('typing', 'completed');
+                logToPanel('已設置語音條初始文字', 'success');
+            }
+            
             console.log('✅ 強制顯示 voice-loading-bar (最高優先級)');
             logToPanel('已強制設置語音條樣式', 'success');
         } else {
@@ -1550,12 +1609,18 @@ window.addEventListener('firebaseReady', async (event) => {
     function showVoiceLoading() {
         const voiceLoadingBar = document.getElementById('voiceLoadingBar');
         const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+        
+        // 顯示 throat clearing popup
+        showThroatClearingPopup();
+        logToPanel('顯示清喉嚨彈出對話框', 'info');
+        
         if (voiceLoadingBar) {
             voiceLoadingBar.style.display = 'block';
         }
         // 語音播放時顯示"清喉嚨"訊息
         if (voiceLoadingTextEl) {
             voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            voiceLoadingTextEl.classList.remove('typing', 'completed');
         }
     }
 
