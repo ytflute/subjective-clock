@@ -717,14 +717,21 @@ window.addEventListener('firebaseReady', async (event) => {
 
         } catch (error) {
             console.error('❌ 開始這一天失敗:', error);
+            console.error('❌ 錯誤堆疊:', error.stack);
+            console.error('❌ 當前狀態:', {
+                db: !!db,
+                auth: !!auth.currentUser,
+                firebase: !!window.firebaseSDK
+            });
             setState('error', error.message || '發生未知錯誤');
             updateConnectionStatus(false);
             
-            // 5秒後自動回到等待狀態
+            // 延長等待時間到10秒，讓用戶有時間看到錯誤
             setTimeout(() => {
+                console.log('🔄 從錯誤狀態恢復到等待狀態');
                 setState('waiting');
                 updateConnectionStatus(true);
-            }, 5000);
+            }, 10000);
         } finally {
             if (findCityButton) {
                 findCityButton.disabled = false;
@@ -1841,13 +1848,10 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
-        // 獲取當前的 day 值
-        const currentDayValue = getCurrentDayValue();
-        
-        // 創建自定義圖標
+        // 創建自定義圖標 - 使用簡單的 "TODAY" 標籤
         const customIcon = L.divIcon({
             className: 'trajectory-marker current-location',
-            html: `<div class="trajectory-day">Day ${currentDayValue}</div>`,
+            html: `<div class="trajectory-day">TODAY</div>`,
             iconSize: [60, 24],
             iconAnchor: [30, 12]
         });
@@ -1856,7 +1860,7 @@ function initMainInteractiveMap(lat, lon, city, country) {
             icon: customIcon
         }).addTo(mainInteractiveMap);
         
-        // 不需要彈窗，標記只顯示 Day 數字
+        // 不需要彈窗，標記只顯示 TODAY
         marker.bindPopup('', {
             offset: [0, 0]
         });
@@ -1880,15 +1884,6 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 立即載入並繪製軌跡線
     loadAndDrawTrajectory();
-}
-
-// 獲取當前 Day 值的輔助函數
-function getCurrentDayValue() {
-    const dayNumberEl = document.getElementById('dayNumber');
-    if (dayNumberEl && dayNumberEl.textContent) {
-        return parseInt(dayNumberEl.textContent) || 1;
-    }
-    return 1;
 }
 
 // 載入並繪製軌跡線
