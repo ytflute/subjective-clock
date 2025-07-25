@@ -1412,9 +1412,18 @@ body {
     position: fixed !important;
     top: 15px !important;
     left: 15px !important;
-    width: 350px !important; /* 修正為DSI螢幕適用寬度 */
+    width: 400px !important;
     min-height: 150px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     pointer-events: auto !important;
+    max-height: 440px !important;
+    overflow-y: auto !important;
 }
 
 .voice-loading-bar {
@@ -1423,7 +1432,15 @@ body {
     bottom: 20px !important;
     left: 20px !important;
     right: 20px !important;
-    height: 100px !important;
+    min-height: 140px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    padding: 20px 25px !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     pointer-events: auto !important;
 } 
 
@@ -1491,4 +1508,65 @@ body {
         min-width: 44px;
         padding: 4px 8px;
     }
+} 
+
+/* ===== 緊急調試樣式 - 確保浮動元素顯示 ===== */
+.result-state .result-info-panel,
+.result-state #resultInfoPanel,
+#resultState .result-info-panel {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9999999 !important;
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    width: 400px !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 3px solid red !important; /* 緊急調試邊框 */
+    border-radius: 12px !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    pointer-events: auto !important;
+}
+
+.result-state .voice-loading-bar,
+.result-state #voiceLoadingBar,
+#resultState .voice-loading-bar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9999999 !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: 20px !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    border: 3px solid blue !important; /* 緊急調試邊框 */
+    padding: 20px !important;
+    pointer-events: auto !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* 強制所有內部元素也顯示 */
+.result-info-panel * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.voice-loading-bar * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 確保地圖層級在最底層 */
+.leaflet-container,
+.leaflet-container *,
+#mainMapContainer,
+#mainMapContainer * {
+    z-index: 1 !important;
+    max-z-index: 10 !important;
 } 
