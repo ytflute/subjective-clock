@@ -902,11 +902,13 @@ window.addEventListener('firebaseReady', async (event) => {
         }
         
         // 移除舊的事件監聽器
-        zoomInButton.removeEventListener('click', null);
-        zoomOutButton.removeEventListener('click', null);
+        const oldZoomIn = () => mainInteractiveMap.zoomIn();
+        const oldZoomOut = () => mainInteractiveMap.zoomOut();
+        zoomInButton.removeEventListener('click', oldZoomIn);
+        zoomOutButton.removeEventListener('click', oldZoomOut);
         
         // 縮放按鈕事件監聽器
-        zoomInButton.addEventListener('click', () => {
+        const handleZoomIn = () => {
             if (mainInteractiveMap) {
                 const currentZoom = mainInteractiveMap.getZoom();
                 const maxZoom = mainInteractiveMap.getMaxZoom();
@@ -918,9 +920,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 
                 updateZoomButtonState();
             }
-        });
+        };
         
-        zoomOutButton.addEventListener('click', () => {
+        const handleZoomOut = () => {
             if (mainInteractiveMap) {
                 const currentZoom = mainInteractiveMap.getZoom();
                 const minZoom = mainInteractiveMap.getMinZoom();
@@ -932,7 +934,10 @@ window.addEventListener('firebaseReady', async (event) => {
                 
                 updateZoomButtonState();
             }
-        });
+        };
+        
+        zoomInButton.addEventListener('click', handleZoomIn);
+        zoomOutButton.addEventListener('click', handleZoomOut);
         
         // 監聽地圖縮放事件，更新按鈕狀態
         mainInteractiveMap.on('zoomend', updateZoomButtonState);

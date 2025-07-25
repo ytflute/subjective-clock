@@ -918,50 +918,69 @@ body {
     display: block !important;
 }
 
-/* 地圖縮放控制按鈕 - 移到左上角 */
+/* 地圖縮放控制按鈕 - 移到右上角 */
 .map-zoom-controls {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100 !important;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 9999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    pointer-events: auto !important;
 }
 
 .zoom-button {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #333333;
-    border-radius: 6px;
-    font-family: 'Press Start 2P', 'Courier Prime', monospace;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333333;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    user-select: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 40px !important;
+    height: 40px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid #333333 !important;
+    border-radius: 6px !important;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    color: #333333 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    user-select: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    pointer-events: auto !important;
+    z-index: 9999999 !important;
 }
 
 .zoom-button:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 1) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 .zoom-button:active {
-    transform: scale(0.95);
+    transform: scale(0.95) !important;
 }
 
 .zoom-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+/* 確保地圖控制項在最上層 */
+.leaflet-control-container {
+    z-index: 9999999 !important;
+    pointer-events: auto !important;
+}
+
+/* 確保地圖圖層在底層 */
+.leaflet-map-pane {
+    z-index: 1 !important;
+}
+
+/* 確保地圖瓦片在底層 */
+.leaflet-tile-pane {
+    z-index: 1 !important;
 }
 
 /* 底部語音提示條 (浮層) - 適應DSI螢幕 */
