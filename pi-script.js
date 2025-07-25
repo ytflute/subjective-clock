@@ -1898,8 +1898,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
         const customIcon = L.divIcon({
             className: 'trajectory-marker current-location',
             html: `<div class="trajectory-day">NOW</div>`,
-            iconSize: [40, 20],
-            iconAnchor: [20, 10]
+            iconSize: [60, 24],
+            iconAnchor: [30, 12]
         });
 
         const marker = L.marker([lat, lon], {
@@ -2026,8 +2026,8 @@ function drawTrajectoryLine() {
         const customIcon = L.divIcon({
             className: 'trajectory-marker',
             html: `<div class="trajectory-day">Day ${point.day}</div>`,
-            iconSize: [40, 20],
-            iconAnchor: [20, 10]
+            iconSize: [60, 24],
+            iconAnchor: [30, 12]
         });
         
         const marker = L.marker([point.lat, point.lng], {
