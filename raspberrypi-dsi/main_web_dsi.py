@@ -362,7 +362,7 @@ class WakeUpMapWebApp:
                 loadingOverlay.innerHTML = `
                     <div style="text-align: center;">
                         <div style="font-size: 48px; margin-bottom: 20px;">🌍</div>
-                        <div>準備您的甦醒體驗...</div>
+                        <div style="font-size: 24px; margin-bottom: 20px;">剛起床，正在清喉嚨，請稍待......</div>
                         <div style="font-size: 16px; margin-top: 10px; opacity: 0.7;">Nova 正在為您準備完美的語音</div>
                     </div>
                 `;
