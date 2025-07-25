@@ -13,6 +13,10 @@ let historyMarkerLayerGroup = null;
 let currentGroupName = "";
 let initialLoadHandled = false;
 
+// 主要互動地圖 (唯一地圖實例)
+let mainInteractiveMap = null;
+let dayCounter = 1; // Day 計數器
+
 // 新增：狀態管理
 let currentState = 'waiting'; // waiting, loading, result, error
 window.currentState = currentState;
@@ -280,6 +284,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 break;
             case 'result':
                 if (resultStateEl) resultStateEl.classList.add('active');
+                // 初始化背景地圖 (如果還沒有位置數據，先顯示世界地圖)
+                setTimeout(() => {
+                    if (typeof initMainInteractiveMap === 'function') {
+                        initMainInteractiveMap(); // 先顯示世界地圖，稍後會被具體位置更新
+                    }
+                }, 100);
                 break;
             case 'error':
                 if (errorStateEl) errorStateEl.classList.add('active');
@@ -289,6 +299,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 break;
         }
     }
+
+    // 移除重複的 setState 定義
 
     // 分頁切換功能
     function initializeTabButtons() {
@@ -733,22 +745,25 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📖 故事 API 回應:', storyResult);
 
             if (storyResult.greeting && storyResult.story) {
-                // 顯示問候語和故事
-                if (greetingTextEl) {
-                    greetingTextEl.innerHTML = `
-                        <div class="greeting-section">
-                            <div class="greeting-main">當地早安：${storyResult.greeting}</div>
-                        </div>
-                        <div class="story-section">
-                            <div class="story-text">${storyResult.story}</div>
-                        </div>
-                    `;
-                }
+                // 更新結果頁面數據
+                const resultData = {
+                    city: cityData.name,
+                    country: cityData.country,
+                    countryCode: cityData.country_iso_code,
+                    latitude: cityData.latitude,
+                    longitude: cityData.longitude,
+                    greeting: storyResult.greeting,
+                    story: storyResult.story
+                };
+                
+                // 使用新的結果數據更新函數
+                updateResultData(resultData);
 
-                // 語音播放問候語
-                await speakGreeting({ 
+                // 語音播放故事（同時啟動打字機效果）
+                await speakStory({ 
+                    story: storyResult.story,
                     greeting: storyResult.greeting, 
-                    languageCode: 'auto' 
+                    languageCode: 'zh-TW' 
                 });
 
                 console.log(`✅ 故事和問候語顯示成功`);
@@ -770,18 +785,25 @@ window.addEventListener('firebaseReady', async (event) => {
         const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
         const fallbackStory = `今天的你在${cityData.country}的${cityData.name}醒來，準備開始美好的一天！`;
         
-        if (greetingTextEl) {
-            greetingTextEl.innerHTML = `
-                <div class="greeting-section">
-                    <div class="greeting-main">當地早安：${fallbackGreeting}</div>
-                </div>
-                <div class="story-section">
-                    <div class="story-text">${fallbackStory}</div>
-                </div>
-            `;
-        }
+        // 更新結果頁面數據
+        const resultData = {
+            city: cityData.name,
+            country: cityData.country,
+            countryCode: cityData.country_iso_code,
+            latitude: cityData.latitude,
+            longitude: cityData.longitude,
+            greeting: fallbackGreeting,
+            story: fallbackStory
+        };
         
-                await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
+        // 使用新的結果數據更新函數
+        updateResultData(resultData);
+        
+        await speakStory({ 
+            story: fallbackStory,
+            greeting: fallbackGreeting, 
+            languageCode: 'zh-TW' 
+        });
     }
 
     // 新增：初始化自定義縮放按鈕功能
@@ -897,7 +919,90 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 新增：語音播放問候語（含清喉嚨提示）
+    // 新增：語音播放故事（含打字機效果）
+    async function speakStory(storyData) {
+        console.log('🎬 正在播放故事語音:', storyData);
+        
+        try {
+            // 檢查瀏覽器是否支援語音合成
+            if (!('speechSynthesis' in window)) {
+                console.warn('🔇 此瀏覽器不支援語音合成');
+                return;
+            }
+
+            // 顯示語音載入提示（清喉嚨階段）
+            showVoiceLoading();
+
+            // 停止任何正在播放的語音和打字機效果
+            window.speechSynthesis.cancel();
+            stopTypeWriterEffect();
+
+            // 短暫延遲後開始播放（模擬清喉嚨時間）
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // 創建語音合成實例（播放故事）
+            const utterance = new SpeechSynthesisUtterance(storyData.story);
+            
+            // 設定語言
+            if (storyData.languageCode) {
+                utterance.lang = storyData.languageCode;
+            }
+            
+            // 設定語音參數
+            utterance.rate = 0.7;  // 稍微慢一點以配合打字機效果
+            utterance.pitch = 1.0; // 正常音調
+            utterance.volume = 1.0; // 最大音量
+
+            // 語音開始播放時啟動打字機效果
+            utterance.onstart = () => {
+                console.log('🎬 語音播放開始，啟動打字機效果');
+                startStoryTypewriter(storyData.story);
+            };
+
+            // 播放完成的回調
+            utterance.onend = () => {
+                console.log('🔊 故事語音播放完成');
+                hideVoiceLoading();
+                
+                // 確保打字機效果也完成
+                setTimeout(() => {
+                    const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+                    if (voiceLoadingTextEl && currentStoryText) {
+                        voiceLoadingTextEl.textContent = currentStoryText;
+                    }
+                }, 500);
+            };
+
+            utterance.onerror = (error) => {
+                console.error('🔇 故事語音播放錯誤:', error);
+                hideVoiceLoading();
+                stopTypeWriterEffect();
+                
+                // 直接顯示完整故事
+                const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+                if (voiceLoadingTextEl && storyData.story) {
+                    voiceLoadingTextEl.textContent = storyData.story;
+                }
+            };
+
+            // 開始播放故事
+            window.speechSynthesis.speak(utterance);
+            console.log('🎬 開始播放故事語音');
+
+        } catch (error) {
+            console.error('🔇 故事語音播放失敗:', error);
+            hideVoiceLoading();
+            stopTypeWriterEffect();
+            
+            // 直接顯示完整故事
+            const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+            if (voiceLoadingTextEl && storyData.story) {
+                voiceLoadingTextEl.textContent = storyData.story;
+            }
+        }
+    }
+
+    // 保留原始的語音播放問候語函數（備用）
     async function speakGreeting(greetingData) {
         console.log('🔊 正在播放語音問候:', greetingData);
         
@@ -907,9 +1012,6 @@ window.addEventListener('firebaseReady', async (event) => {
                 console.warn('🔇 此瀏覽器不支援語音合成');
                 return;
             }
-
-            // 顯示清喉嚨提示
-            showThroatClearingPopup();
 
             // 停止任何正在播放的語音
             window.speechSynthesis.cancel();
@@ -927,27 +1029,12 @@ window.addEventListener('firebaseReady', async (event) => {
             utterance.pitch = 1.0; // 正常音調
             utterance.volume = 1.0; // 最大音量
 
-            // 播放完成的回調
-            utterance.onend = () => {
-                console.log('🔊 語音播放完成');
-                // 隱藏清喉嚨提示
-                hideThroatClearingPopup();
-            };
-
-            utterance.onerror = (error) => {
-                console.error('🔇 語音播放錯誤:', error);
-                // 隱藏清喉嚨提示
-                hideThroatClearingPopup();
-            };
-
             // 開始播放
             window.speechSynthesis.speak(utterance);
             console.log(`🔊 開始播放 ${greetingData.language || '未知語言'} 問候語`);
 
         } catch (error) {
             console.error('🔇 語音播放失敗:', error);
-            // 隱藏清喉嚨提示
-            hideThroatClearingPopup();
         }
     }
 
@@ -1138,6 +1225,188 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
+    // 舊的 initResultMap 函數已移除 - 使用 initMainInteractiveMap
+
+    // 格式化日期
+    function formatWakeupDate(date) {
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        
+        const dayName = days[date.getDay()];
+        const month = months[date.getMonth()];
+        const day = date.getDate().toString().padStart(2, '0');
+        
+        return `${month}/${day} ${dayName}`;
+    }
+
+    // 更新結果頁面數據
+    function updateResultData(data) {
+        // 更新 Day 計數器
+        const dayNumberEl = document.getElementById('dayNumber');
+        if (dayNumberEl) {
+            dayNumberEl.textContent = dayCounter;
+            dayCounter++; // 為下次使用自增
+        }
+        
+        // 更新日期
+        const wakeupDateEl = document.getElementById('wakeupDate');
+        if (wakeupDateEl) {
+            const currentDate = new Date();
+            wakeupDateEl.textContent = formatWakeupDate(currentDate);
+        }
+        
+        // 更新當地問候語
+        const localGreetingEl = document.getElementById('localGreeting');
+        if (localGreetingEl && data.greeting) {
+            // 提取語言信息 (假設格式為 "Good morning! (English)")
+            const languageMatch = data.greeting.match(/\((.*?)\)/);
+            const language = languageMatch ? languageMatch[1] : 'Local';
+            const greetingText = data.greeting.replace(/\s*\([^)]*\)/g, '').trim();
+            localGreetingEl.textContent = `${greetingText.toUpperCase()} (${language})`;
+        }
+        
+        // 更新城市名稱
+        const cityNameEl = document.getElementById('cityName');
+        if (cityNameEl && data.city) {
+            cityNameEl.textContent = data.city.toUpperCase();
+        }
+        
+        // 更新國家信息
+        const countryNameEl = document.getElementById('countryName');
+        if (countryNameEl && data.country) {
+            countryNameEl.textContent = data.country;
+        }
+        
+        // 更新國旗
+        const countryFlagEl = document.getElementById('countryFlag');
+        if (countryFlagEl && data.countryCode) {
+            // 使用 flagcdn.com 或其他國旗 API
+            const flagUrl = `https://flagcdn.com/32x24/${data.countryCode.toLowerCase()}.png`;
+            countryFlagEl.src = flagUrl;
+            countryFlagEl.style.display = 'block';
+        }
+        
+                // 初始化主要互動地圖
+    setTimeout(() => {
+        initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+        
+        // 地圖初始化完成後，保持顯示初始的"清喉嚨"訊息
+        // 故事內容將在語音播放開始時通過打字機效果顯示
+    }, 100);
+    }
+
+    // 打字機效果相關變數
+    let typewriterTimer = null;
+    let currentStoryText = '';
+
+    // 打字機效果函數
+    function typeWriterEffect(text, element, speed = 80) {
+        return new Promise((resolve) => {
+            // 清除之前的計時器
+            if (typewriterTimer) {
+                clearTimeout(typewriterTimer);
+            }
+            
+            // 清空元素內容並添加打字狀態
+            element.textContent = '';
+            element.classList.add('typing');
+            element.classList.remove('completed');
+            
+            let index = 0;
+            
+            function typeNextChar() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    typewriterTimer = setTimeout(typeNextChar, speed);
+                } else {
+                    // 打字完成，移除光標並添加完成效果
+                    element.classList.remove('typing');
+                    element.classList.add('completed');
+                    resolve(); // 打字完成
+                }
+            }
+            
+            // 開始打字
+            typeNextChar();
+        });
+    }
+
+    // 停止打字機效果
+    function stopTypeWriterEffect() {
+        if (typewriterTimer) {
+            clearTimeout(typewriterTimer);
+            typewriterTimer = null;
+        }
+        
+        // 移除打字狀態的 CSS 類
+        const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+        if (voiceLoadingTextEl) {
+            voiceLoadingTextEl.classList.remove('typing');
+            voiceLoadingTextEl.classList.remove('completed');
+        }
+    }
+
+    // 計算語音播放時間 (估算)
+    function estimateSpeechDuration(text) {
+        // 使用 0.7 的語音速度，估算實際播放時間
+        const chineseChars = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+        const englishWords = (text.match(/[a-zA-Z]+/g) || []).length;
+        const punctuation = (text.match(/[，。！？、；：]/g) || []).length;
+        
+        // 中文：每字約 400ms (較慢語速)，英文：每詞約 500ms，標點符號：每個 200ms 暫停
+        const baseDuration = (chineseChars * 400) + (englishWords * 500) + (punctuation * 200);
+        
+        // 考慮 0.7 的語音速度
+        const adjustedDuration = baseDuration / 0.7;
+        
+        // 最少 3 秒，最多 40 秒
+        return Math.max(3000, Math.min(40000, adjustedDuration));
+    }
+
+    // 顯示/隱藏語音載入提示
+    function showVoiceLoading() {
+        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
+        const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+        if (voiceLoadingBar) {
+            voiceLoadingBar.style.display = 'block';
+        }
+        // 語音播放時顯示"清喉嚨"訊息
+        if (voiceLoadingTextEl) {
+            voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+        }
+    }
+
+    function hideVoiceLoading() {
+        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
+        if (voiceLoadingBar) {
+            voiceLoadingBar.style.display = 'block'; // 保持顯示，但改變內容
+        }
+        // 語音播放完成後，文字會保持為故事內容 (已在 updateResultData 中設置)
+    }
+
+    // 開始語音播放時的打字機效果
+    function startStoryTypewriter(storyText) {
+        const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
+        if (!voiceLoadingTextEl || !storyText) {
+            return Promise.resolve();
+        }
+        
+        // 儲存當前故事文字
+        currentStoryText = storyText;
+        
+        // 估算合適的打字速度 (根據語音播放時間調整)
+        const estimatedDuration = estimateSpeechDuration(storyText);
+        
+        // 計算每個字符的顯示間隔（讓打字機效果略快於語音，避免延遲）
+        const typeSpeed = Math.max(60, Math.min(150, (estimatedDuration * 0.85) / storyText.length));
+        
+        console.log(`🎬 開始打字機效果 - 文字長度: ${storyText.length}, 估算語音時間: ${estimatedDuration}ms, 打字速度: ${typeSpeed}ms/字`);
+        
+        // 開始打字機效果
+        return typeWriterEffect(storyText, voiceLoadingTextEl, typeSpeed);
+    }
+
     // 設定事件監聽器
     function setupEventListeners() {
         console.log('🎧 設定事件監聽器...');
@@ -1256,3 +1525,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 1000);
 }); 
+
+// 舊的地圖初始化函數已移除 - 現在只使用一個主要互動地圖 
+
+// 初始化主要互動地圖 (唯一地圖實例)
+function initMainInteractiveMap(lat, lon, city, country) {
+    if (mainInteractiveMap) {
+        mainInteractiveMap.remove();
+    }
+    
+    // 創建主要地圖實例 - 作為背景使用
+    mainInteractiveMap = L.map('mainMapContainer', {
+        center: [lat || 20, lon || 0],
+        zoom: lat && lon ? 4 : 2, // 如果有具體位置則縮放，否則顯示世界地圖
+        zoomControl: false,
+        scrollWheelZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+        keyboard: true,
+        dragging: true,
+        tap: true,
+        touchZoom: true
+    });
+    
+    // 添加地圖瓦片 (灰黃配色)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: ''
+    }).addTo(mainInteractiveMap);
+    
+    // 如果有具體位置，添加標記
+    if (lat && lon && city && country) {
+        const marker = L.marker([lat, lon]).addTo(mainInteractiveMap);
+        
+        // 自定義標記彈窗
+        const popupContent = `
+            <div style="text-align: center;">
+                <h3 style="margin: 0; font-size: 14px; color: #000;">${city}</h3>
+                <p style="margin: 5px 0 0 0; font-size: 10px; color: #666;">${country}</p>
+            </div>
+        `;
+        
+        marker.bindPopup(popupContent).openPopup();
+    }
+    
+    // 隱藏版權信息
+    mainInteractiveMap.attributionControl.setPrefix('');
+    
+    // 更新坐標顯示
+    if (lat && lon) {
+        const coordinateEl = document.getElementById('coordinates');
+        if (coordinateEl) {
+            coordinateEl.textContent = `${lat.toFixed(3)}, ${lon.toFixed(3)}`;
+        }
+    }
+} 

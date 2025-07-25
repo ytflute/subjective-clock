@@ -58,67 +58,70 @@
         <!-- 主要顯示區域 -->
         <main class="main-display">
             <!-- 等待狀態 -->
-            <div id="waitingState" class="waiting-state active">
-                <div class="waiting-content">
-                    <div class="waiting-animation">
-                        <div class="pulse-circle"></div>
-                        <div class="pulse-circle delay-1"></div>
-                        <div class="pulse-circle delay-2"></div>
-                    </div>
-                    <h2 class="waiting-text">按下按鈕，喚醒今日的你！</h2>
+            <div id="waitingState" class="state waiting-state active">
+                <!-- 背景地圖 -->
+                <div id="waitingMapContainer" class="waiting-map-container"></div>
+                
+                <!-- 中央內容框 -->
+                <div class="waiting-content-box">
+                    <h1 class="press-button-title blinking-text">PRESS THE BUTTON</h1>
+                    <p class="press-button-subtitle">TO LOCATE YOUR WAKEUP LOCATION</p>
+                    <p class="press-button-chinese">按下按鈕，定位你今日的甦醒位置</p>
                 </div>
             </div>
 
             <!-- 載入狀態 -->
-            <div id="loadingState" class="loading-state">
-                <div class="loading-content">
-                    <div class="loading-spinner"></div>
-                    <h2 class="loading-text">定位你的甦醒位置中....</h2>
-                    <p class="loading-subtitle"></p>
+            <div id="loadingState" class="state loading-state">
+                <!-- 背景地圖 (與等待畫面共用) -->
+                <div id="loadingMapContainer" class="loading-map-container"></div>
+                
+                <!-- 中央內容框 -->
+                <div class="loading-content-box">
+                    <h1 class="locating-title blinking-text">LOCATING...</h1>
+                    <p class="locating-progress">正在為你定位今日的甦醒位置......</p>
+                    <p class="locating-subtitle">按下按鈕，定位你今日的甦醒位置</p>
                 </div>
             </div>
 
-            <!-- 結果顯示區域 - 新布局 -->
-            <div id="resultState" class="result-state">
-                <div class="result-layout">
-                    <!-- 左側內容區 -->
-                    <div class="left-content">
-                        <!-- 城市名稱大標題 -->
-                        <div class="city-title-section">
-                            <h1 id="cityName" class="city-title blink-text"></h1>
-                        </div>
-                        
-                        <!-- 國家信息區 -->
-                        <div class="country-section">
-                            <div class="country-info-row">
-                                <div class="flag-container">
-                                    <img id="countryFlag" class="country-flag" src="" alt="國旗" style="display:none;"/>
-                                    
-                                </div>
-                                <h2 id="countryName" class="country-title"></h2>
-                            </div>
-                            
-                            <!-- 故事內容區移到國家信息區內，在圖片下方 -->
-                            <div class="story-section">
-                                <div id="greetingText" class="story-content"></div>
-                            </div>
-                        </div>
+            <!-- 結果狀態 -->
+            <div id="resultState" class="state result-state">
+                <!-- 主要互動地圖 (作為背景) -->
+                <div id="mainMapContainer" class="main-map-background"></div>
+                
+                <!-- 左側信息面板 (浮層) -->
+                <div class="result-info-panel">
+                    <div class="day-counter">
+                        <span class="day-label">Day</span>
+                        <span id="dayNumber" class="day-number">1</span>
                     </div>
                     
-                    <!-- 右側互動地圖區 -->
-                    <div class="right-content">
-                        <div id="mapContainer" class="map-container-fullscreen">
-                            <!-- 自定義縮放按鈕 -->
-                            <div class="custom-zoom-controls">
-                                <button id="zoomInButton" class="zoom-button zoom-in" title="放大">+</button>
-                                <button id="zoomOutButton" class="zoom-button zoom-out" title="縮小">−</button>
-                            </div>
+                    <div class="date-info">
+                        <span class="date-label">Date:</span>
+                        <span id="wakeupDate" class="date-value">07/25 Fri</span>
+                    </div>
+                    
+                    <div class="greeting-info">
+                        <span id="localGreeting" class="local-greeting">GOOD MORNING! (English)</span>
+                    </div>
+                    
+                    <div class="location-info">
+                        <h1 id="cityName" class="city-name">LOGAN</h1>
+                        <div class="country-info">
+                            <img id="countryFlag" class="country-flag" src="" alt="Flag">
+                            <span id="countryName" class="country-name">United States</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 座標信息顯示在左下角 -->
-                <div id="coordinateInfo" class="coordinate-info"></div>
+                <!-- 坐標信息 (浮層) -->
+                <div id="coordinateInfo" class="coordinate-info">
+                    <span id="coordinates">21.276, 55.517</span>
+                </div>
+                
+                <!-- 底部語音提示 (浮層) -->
+                <div id="voiceLoadingBar" class="voice-loading-bar">
+                    <p class="voice-loading-text">剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....</p>
+                </div>
             </div>
 
             <!-- 錯誤狀態 -->

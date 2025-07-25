@@ -580,84 +580,9 @@ body {
     visibility: visible;
 }
 
-/* 等待狀態 */
-.waiting-state {
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
+/* 舊的等待狀態樣式已移除 - 使用新的設計 */
 
-.waiting-content {
-    text-align: center;
-}
-
-.waiting-animation {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.pulse-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    animation: pulseWave 1.5s infinite;
-}
-
-.pulse-circle.delay-1 {
-    animation-delay: 0.2s;
-}
-
-.pulse-circle.delay-2 {
-    animation-delay: 0.4s;
-}
-
-.waiting-text {
-    font-size: 28px;
-    font-weight: 300;
-    margin-bottom: 15px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.waiting-subtitle {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* 載入狀態 */
-.loading-state {
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.loading-content {
-    text-align: center;
-}
-
-.loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #ffffff;
-    border-radius: 50%;
-    margin: 0 auto 25px;
-    animation: spin 1s linear infinite;
-}
-
-.loading-text {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 12px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.loading-subtitle {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-}
+/* 舊的載入狀態樣式已移除 - 使用新的設計 */
 
 /* 結果顯示狀態 */
 .result-state {
@@ -801,377 +726,276 @@ body {
     display: none !important; /* 隱藏地圖控制項 */
 } 
 
-/* === 新的結果顯示布局樣式 - 經典黑白 Pixel 風格 === */
+/* 舊的結果頁面樣式已移除 - 使用新的設計 */
 
-/* 主要結果布局 */
-.result-layout {
-    display: flex;
-    width: 100%;
-    height: 440px;
-    background: #ffffff;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace; /* 實際安裝的像素字體 */
-}
+/* 舊的閃爍動畫已移除 - 新設計使用 titleBlink 動畫 */
 
-/* 左側內容區 */
-.left-content {
-    flex: 1.2;
-    padding: 15px 20px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+/* 舊的國家信息區樣式已移除 - 使用新的設計 */
 
-/* 右側互動地圖區 */
-.right-content {
-    flex: 1;
-    display: flex;
-    background: #ffffff;
-    padding: 15px;
-}
+/* 舊的故事和問候語樣式已移除 - 新設計不需要這些 */
 
-/* 城市名稱大標題 - 8位元遊戲風格 */
-.city-title-section {
-    margin-bottom: 15px;
-}
+/* 舊的地圖和滾動條樣式已移除 - 新設計不需要這些 */
 
-.city-title {
-    font-size: 28px;
-    font-weight: normal;
-    color: #000000;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    text-shadow: 
-        1px 1px 0px #cccccc,
-        2px 2px 0px #999999;
-    line-height: 1.1;
-}
+/* 舊的zoom按鈕樣式已移除 - 新設計不需要這些 */
 
-/* 電子鐘閃爍效果 - 增強版 */
-.blink-text {
-    animation: digitalBlink 1.5s step-end infinite;
-}
+/* 舊的媒體查詢已移除 - 新設計有自己的響應式樣式 */
 
-@keyframes digitalBlink {
-    0%, 60% { 
-        opacity: 1; 
-        text-shadow: 
-            1px 1px 0px #cccccc,
-            2px 2px 0px #999999;
-    }
-    61%, 100% { 
-        opacity: 0.7; 
-        text-shadow: 
-            1px 1px 0px #eeeeee;
-    }
-}
+/* 移除重複的結果狀態定義 */
 
-/* 國家信息區 - 經典風格 */
-.country-section {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.country-info-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.flag-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 80px;
-}
-
-.country-flag {
-    width: 36px;
-    height: 27px;
-    object-fit: cover;
-    margin-bottom: 5px;
-    border-radius: 3px;
-}
-
-.flag-label {
-    font-size: 10px;
-    color: #666666;
-    text-align: center;
-    background: #ffffff;
-    padding: 2px 6px;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    letter-spacing: 0.5px;
-}
-
-.country-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: #000000;
-    margin: 0;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    text-shadow: 
-        1px 1px 0px #dddddd;
-}
-
-/* 故事內容區 - 簡潔白色風格 */
-.story-section {
-    margin-top: 12px;
-    width: 100%;
-}
-
-.story-content {
-    font-size: 15px;
-    line-height: 1.4;
-    color: #000000;
-    background: #ffffff;
-    padding: 0;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    letter-spacing: 0.5px;
-}
-
-/* 問候語區域樣式 */
-.greeting-section {
-    margin-bottom: 8px;
-}
-
-.greeting-main {
-    font-size: 14px;
-    font-weight: normal;
-    color: #666666;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    margin-bottom: 6px;
-    letter-spacing: 0.5px;
-    font-style: italic;
-}
-
-/* 故事文字樣式 */
-.story-text {
-    font-size: 15px;
-    line-height: 1.4;
-    color: #000000;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    letter-spacing: 0.3px;
-    text-align: left;
-}
-
-/* 自定義滾動條 - 黑白風格 */
-.story-content::-webkit-scrollbar {
-    width: 12px;
-}
-
-.story-content::-webkit-scrollbar-track {
-    background: #f0f0f0;
-    border: 1px solid #000000;
-}
-
-.story-content::-webkit-scrollbar-thumb {
-    background: #000000;
-    border: 1px solid #404040;
-}
-
-.story-content::-webkit-scrollbar-thumb:hover {
-    background: #404040;
-}
-
-/* 滿版地圖容器 */
-.map-container-fullscreen {
+/* === 結果頁面樣式 === */
+.result-state {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: #ffffff;
-    position: relative;
-    border-radius: 8px;
     overflow: hidden;
 }
 
-/* 地圖顯示動畫 */
-.map-container-fullscreen.loaded {
-    animation: map-fade-in 0.5s ease-out;
+/* 主要互動地圖背景 */
+.main-map-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-@keyframes map-fade-in {
-    from {
+/* 地圖瓦片 - 灰黃配色 */
+.main-map-background .leaflet-tile {
+    filter: sepia(40%) saturate(60%) hue-rotate(25deg) brightness(0.8) contrast(1.0);
+}
+
+/* 地圖容器背景 - 灰色基調 */
+.main-map-background .leaflet-container {
+    background-color: #9A9A9A !important;
+}
+
+/* 隱藏地圖控制項 */
+.main-map-background .leaflet-control-container {
+    display: none !important;
+}
+
+/* 左側信息面板 (浮層) */
+.result-info-panel {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 350px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 25px;
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Day 計數器 */
+.day-counter {
+    margin-bottom: 15px;
+}
+
+.day-label {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 14px;
+    color: #333333;
+    margin-right: 8px;
+}
+
+.day-number {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* 日期信息 */
+.date-info {
+    margin-bottom: 15px;
+}
+
+.date-label {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 12px;
+    color: #333333;
+    margin-right: 8px;
+}
+
+.date-value {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 14px;
+    color: #000000;
+}
+
+/* 當地問候語 */
+.greeting-info {
+    margin-bottom: 20px;
+}
+
+.local-greeting {
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace;
+    font-size: 12px;
+    color: #666666;
+    display: block;
+}
+
+/* 位置信息 */
+.location-info {
+    margin-bottom: 15px;
+}
+
+.city-name {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 32px;
+    color: #000000;
+    margin: 0 0 15px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.country-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.country-flag {
+    width: 32px;
+    height: 24px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+}
+
+.country-name {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 16px;
+    color: #333333;
+}
+
+/* 坐標信息 (右下角浮層) */
+.coordinate-info {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 12px;
+    color: #333333;
+    z-index: 10;
+}
+
+/* 底部語音提示條 (浮層) */
+.voice-loading-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 30px;
+    z-index: 10;
+    display: block; /* 始終顯示 */
+}
+
+.voice-loading-text {
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    position: relative;
+    min-height: 21px; /* 確保即使沒有文字也有高度 */
+}
+
+/* 打字機光標效果 */
+.voice-loading-text.typing::after {
+    content: '|';
+    color: #FFFFFF;
+    font-weight: bold;
+    animation: typingCursor 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes typingCursor {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
         opacity: 0;
+    }
+}
+
+/* 打字機文字出現效果 */
+.voice-loading-text.typing {
+    animation: none;
+}
+
+/* 當語音播放完成時的淡入效果 */
+.voice-loading-text.completed {
+    animation: fadeInComplete 0.5s ease-in;
+}
+
+@keyframes fadeInComplete {
+    from {
+        opacity: 0.8;
     }
     to {
         opacity: 1;
     }
 }
 
-/* 地圖彈出窗口自定義樣式 */
-.leaflet-popup-content-wrapper {
+/* 地圖標記彈窗樣式 */
+.main-map-background .leaflet-popup-content-wrapper {
     background: #ffffff !important;
-    border: 1px solid #dddddd !important;
+    border: 2px solid #333333 !important;
     border-radius: 8px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
 }
 
-.leaflet-popup-tip {
+.main-map-background .leaflet-popup-tip {
     background: #ffffff !important;
-    border: 1px solid #dddddd !important;
-    box-shadow: none !important;
+    border: 2px solid #333333 !important;
 }
 
-.wake-up-popup .leaflet-popup-content {
-    margin: 8px !important;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace !important;
-}
-
-/* 座標信息樣式 */
-.coordinate-info {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 6px 10px;
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    font-size: 12px;
-    color: #666666;
-    border-radius: 4px;
-    z-index: 1000;
-}
-
-/* 自定義縮放按鈕樣式 */
-.custom-zoom-controls {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    z-index: 1000;
-}
-
-.zoom-button {
-    width: 40px;
-    height: 40px;
-    background: #ffffff;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333333;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-}
-
-.zoom-button:hover {
-    background: #f8f8f8;
-    border-color: #999999;
-    color: #000000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transform: translateY(-1px);
-}
-
-.zoom-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    background: #f0f0f0;
-}
-
-.zoom-button:disabled {
-    background: #f5f5f5;
-    color: #cccccc;
-    border-color: #e0e0e0;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* 特殊樣式調整 */
-.zoom-in {
-    line-height: 1;
-}
-
-.zoom-out {
-    line-height: 1;
-    font-size: 24px;
-}
-
-/* 特殊調整：800*480螢幕 */
+/* 800x480 螢幕調整 */
 @media (max-width: 800px), (max-height: 480px) {
-    .result-layout {
-        height: 460px;
+    .result-info-panel {
+        top: 20px;
+        left: 20px;
+        width: 280px;
+        padding: 20px;
     }
     
-    .city-title {
+    .city-name {
         font-size: 24px;
-        letter-spacing: 2px;
-        margin-bottom: 8px;
-    }
-    
-    .country-title {
-        font-size: 18px;
         letter-spacing: 1px;
     }
     
-    .left-content {
-        padding: 12px 15px;
+    .country-flag {
+        width: 24px;
+        height: 18px;
     }
     
-    .right-content {
-        padding: 12px;
-    }
-    
-    .story-content {
+    .country-name {
         font-size: 14px;
     }
     
-    .greeting-main {
+    .voice-loading-bar {
+        padding: 12px 20px;
+    }
+    
+    .voice-loading-text {
         font-size: 12px;
-        margin-bottom: 4px;
-    }
-    
-    .story-text {
-        font-size: 14px;
-        line-height: 1.3;
+        line-height: 1.4;
     }
     
     .coordinate-info {
-        bottom: 8px;
-        left: 15px;
-        font-size: 11px;
-        padding: 4px 8px;
-    }
-    
-    .custom-zoom-controls {
-        bottom: 10px;
-        right: 10px;
-    }
-    
-    .zoom-button {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-    
-    .zoom-out {
-        font-size: 20px;
+        bottom: 50px;
+        right: 15px;
+        font-size: 10px;
     }
 }
-
-/* === 結果顯示區域整體樣式調整 - 簡潔白色風格 === */
-.result-state {
-    padding: 0;
-    background: #ffffff;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-
 
 /* === 新增：清喉嚨彈出對話框樣式 === */
 .throat-clearing-popup {
@@ -1244,4 +1068,182 @@ body {
 
 .popup-overlay.show {
     display: block;
+} 
+
+/* === 等待畫面樣式 === */
+.waiting-state {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 等待畫面背景地圖樣式已移除 */
+
+/* 中央內容框 */
+.waiting-content-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid #FFD700;
+    border-radius: 8px;
+    padding: 40px 60px;
+    text-align: center;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 90%;
+}
+
+/* 主標題 - PRESS THE BUTTON */
+.press-button-title {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 36px;
+    color: #000000;
+    margin: 0 0 20px 0;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* 副標題 - TO LOCATE YOUR WAKEUP LOCATION */
+.press-button-subtitle {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 14px;
+    color: #333333;
+    margin: 0 0 25px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* 中文說明 */
+.press-button-chinese {
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-size: 16px;
+    color: #666666;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* 閃爍動畫 */
+.blinking-text {
+    animation: titleBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes titleBlink {
+    0%, 70% { 
+        opacity: 1;
+        text-shadow: 2px 2px 0px #FFD700;
+    }
+    80%, 100% { 
+        opacity: 0.3;
+        text-shadow: 1px 1px 0px #FFD700;
+    }
+}
+
+/* 800x480 螢幕調整 */
+@media (max-width: 800px), (max-height: 480px) {
+    .waiting-content-box {
+        padding: 30px 40px;
+        max-width: 600px;
+    }
+    
+    .press-button-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+    
+    .press-button-subtitle {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .press-button-chinese {
+        font-size: 14px;
+    }
+} 
+
+/* 舊的等待畫面地圖樣式已移除 */ 
+
+/* === Loading 畫面樣式 === */
+.loading-state {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Loading 畫面背景地圖樣式已移除 */
+
+/* Loading 中央內容框 */
+.loading-content-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    border: 3px solid #666666;
+    border-radius: 8px;
+    padding: 40px 60px;
+    text-align: center;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    max-width: 700px;
+    width: 90%;
+}
+
+/* LOCATING... 標題 */
+.locating-title {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 36px;
+    color: #FFFFFF;
+    margin: 0 0 20px 0;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+/* 進度文字 - 正在為你定位... */
+.locating-progress {
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 0 0 25px 0;
+    letter-spacing: 1px;
+}
+
+/* 底部說明文字 */
+.locating-subtitle {
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-size: 14px;
+    color: #AAAAAA;
+    margin: 0;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+/* 舊的loading畫面地圖樣式已移除 */
+
+/* 800x480 螢幕調整 */
+@media (max-width: 800px), (max-height: 480px) {
+    .loading-content-box {
+        padding: 30px 40px;
+        max-width: 600px;
+    }
+    
+    .locating-title {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+    
+    .locating-progress {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .locating-subtitle {
+        font-size: 12px;
+    }
 } 
