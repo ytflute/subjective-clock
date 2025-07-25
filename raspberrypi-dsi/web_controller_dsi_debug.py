@@ -87,6 +87,13 @@ class WebControllerDSIDebug:
         # 啟用遠程調試
         options.add_argument('--remote-debugging-port=9222')
         
+        # 啟用日誌記錄
+        options.add_argument('--enable-logging')
+        options.add_argument('--log-level=0')
+        
+        # 設定日誌偏好
+        options.set_capability('goog:loggingPrefs', {'browser': 'ALL'})
+        
         return options
 
     def start_browser(self):
@@ -148,6 +155,69 @@ class WebControllerDSIDebug:
             self.logger.error(f"點擊開始按鈕失敗: {e}")
             return False
 
+    def monitor_console_logs(self):
+        """監控瀏覽器控制台日誌"""
+        try:
+            logs = self.driver.get_log('browser')
+            for log in logs:
+                level = log['level']
+                message = log['message']
+                timestamp = log['timestamp']
+                
+                # 格式化日誌等級
+                if level == 'SEVERE':
+                    self.logger.error(f"瀏覽器錯誤: {message}")
+                elif level == 'WARNING':
+                    self.logger.warning(f"瀏覽器警告: {message}")
+                elif level == 'INFO':
+                    self.logger.info(f"瀏覽器信息: {message}")
+                else:
+                    self.logger.debug(f"瀏覽器日誌[{level}]: {message}")
+                    
+        except Exception as e:
+            # 靜默處理，避免日誌監控本身產生過多噪音
+            pass
+
+    def execute_debug_command(self, command):
+        """執行調試命令"""
+        try:
+            self.logger.info(f"執行調試命令: {command}")
+            result = self.driver.execute_script(f"return {command}")
+            self.logger.info(f"命令執行結果: {result}")
+            return result
+        except Exception as e:
+            self.logger.error(f"調試命令執行失敗: {e}")
+            return None
+
+    def force_show_debug_panel(self):
+        """強制顯示調試面板"""
+        try:
+            # 強制顯示調試面板
+            self.driver.execute_script("""
+                if (typeof debugPageStructure === 'function') {
+                    debugPageStructure();
+                } else {
+                    console.log('debugPageStructure 函數不可用');
+                }
+            """)
+            
+            # 也嘗試直接創建調試面板
+            self.driver.execute_script("""
+                if (typeof showDebugPanel === 'function') {
+                    showDebugPanel();
+                    console.log('調試面板已強制顯示');
+                } else {
+                    console.log('showDebugPanel 函數不可用');
+                }
+            """)
+            
+            self.logger.info("已嘗試強制顯示調試面板")
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"強制顯示調試面板失敗: {e}")
+            return False
+
     def run_debug_session(self):
         """運行調試會話"""
         if not self.start_browser():
@@ -158,12 +228,70 @@ class WebControllerDSIDebug:
             
         self.logger.info("調試模式準備就緒!")
         self.logger.info("瀏覽器開發者工具已自動開啟")
-        self.logger.info("可以使用以下方式觸發按鈕:")
-        self.logger.info("1. 調用 click_start_button() 方法")
-        self.logger.info("2. 在開發者控制台執行 startTheDay()")
-        self.logger.info("3. 在網頁上快速點擊5次顯示調試面板")
+        
+        # 等待頁面完全載入
+        time.sleep(3)
+        
+        # 強制顯示調試面板
+        self.force_show_debug_panel()
+        
+        self.logger.info("\n=== 可用的調試命令 ===")
+        self.logger.info("按 Enter 鍵: 觸發按鈕 (startTheDay)")
+        self.logger.info("debug: 顯示調試面板")
+        self.logger.info("state: 檢查當前狀態")
+        self.logger.info("elements: 檢查DOM元素")
+        self.logger.info("logs: 查看瀏覽器控制台日誌")
+        self.logger.info("clear: 清空日誌")
+        self.logger.info("quit: 退出")
         
         return True
+
+    def interactive_debug_loop(self):
+        """交互式調試循環"""
+        while True:
+            try:
+                # 監控控制台日誌
+                self.monitor_console_logs()
+                
+                command = input("\n調試命令 (Enter=觸發按鈕, help=幫助): ").strip()
+                
+                if command.lower() == 'quit':
+                    break
+                elif command == '':
+                    self.click_start_button()
+                elif command.lower() == 'debug':
+                    self.force_show_debug_panel()
+                elif command.lower() == 'state':
+                    result = self.execute_debug_command("window.currentState")
+                    print(f"當前狀態: {result}")
+                elif command.lower() == 'elements':
+                    result = self.execute_debug_command("document.querySelectorAll('.result-info-panel').length")
+                    print(f"result-info-panel 元素數量: {result}")
+                    result = self.execute_debug_command("document.querySelectorAll('.voice-loading-bar').length")
+                    print(f"voice-loading-bar 元素數量: {result}")
+                elif command.lower() == 'logs':
+                    print("=== 瀏覽器控制台日誌 ===")
+                    self.monitor_console_logs()
+                elif command.lower() == 'clear':
+                    self.driver.execute_script("console.clear();")
+                    print("瀏覽器控制台已清空")
+                elif command.lower() == 'help':
+                    print("\n=== 調試命令幫助 ===")
+                    print("Enter: 觸發按鈕")
+                    print("debug: 強制顯示調試面板")
+                    print("state: 檢查當前狀態")
+                    print("elements: 檢查關鍵DOM元素")
+                    print("logs: 查看瀏覽器日誌")
+                    print("clear: 清空控制台")
+                    print("quit: 退出")
+                else:
+                    print(f"未知命令: {command}")
+                    
+            except KeyboardInterrupt:
+                print("\n用戶中斷")
+                break
+            except Exception as e:
+                print(f"執行命令時發生錯誤: {e}")
 
     def close(self):
         """關閉瀏覽器"""
@@ -187,15 +315,7 @@ if __name__ == "__main__":
             print("瀏覽器和開發者工具已開啟")
             print("按 Enter 鍵觸發按鈕，或輸入 'quit' 退出")
             
-            while True:
-                command = input("輸入命令 (Enter=觸發按鈕, quit=退出): ").strip()
-                
-                if command.lower() == 'quit':
-                    break
-                elif command == '':
-                    controller.click_start_button()
-                else:
-                    print("未知命令")
+            controller.interactive_debug_loop()
                     
     except KeyboardInterrupt:
         print("\n用戶中斷")

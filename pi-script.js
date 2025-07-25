@@ -1831,19 +1831,20 @@ function createDebugPanel() {
         position: fixed;
         top: 10px;
         right: 10px;
-        width: 400px;
-        max-height: 600px;
-        background: rgba(0, 0, 0, 0.9);
+        width: 380px;
+        max-height: 500px;
+        background: rgba(0, 0, 0, 0.95);
         color: #00ff00;
         font-family: 'Courier New', monospace;
-        font-size: 10px;
-        padding: 10px;
-        border: 2px solid #00ff00;
-        border-radius: 5px;
-        z-index: 10000;
+        font-size: 11px;
+        padding: 15px;
+        border: 3px solid #00ff00;
+        border-radius: 8px;
+        z-index: 10002;
         overflow-y: auto;
         white-space: pre-wrap;
-        display: none;
+        display: block;
+        box-shadow: 0 8px 32px rgba(0,255,0,0.3);
     `;
     
     // 添加關閉按鈕
@@ -2018,6 +2019,27 @@ document.addEventListener('keydown', function(e) {
 let touchStartTime = 0;
 let touchCount = 0;
 
+// 更簡單的觸摸檢測
+document.addEventListener('click', function(e) {
+    const now = Date.now();
+    if (now - touchStartTime < 500) {
+        touchCount++;
+    } else {
+        touchCount = 1;
+    }
+    touchStartTime = now;
+    
+    logToPanel(`點擊檢測: 第${touchCount}次`, 'info');
+    
+    // 3次點擊就顯示調試面板 (降低門檻)
+    if (touchCount >= 3) {
+        touchCount = 0;
+        logToPanel('觸發調試面板!', 'success');
+        debugPageStructure();
+    }
+});
+
+// 保留原始的touchstart事件作為備用
 document.addEventListener('touchstart', function(e) {
     const now = Date.now();
     if (now - touchStartTime < 500) {
@@ -2027,18 +2049,111 @@ document.addEventListener('touchstart', function(e) {
     }
     touchStartTime = now;
     
-    // 5次快速點擊顯示調試面板
+    logToPanel(`觸摸檢測: 第${touchCount}次`, 'info');
+    
+    // 5次快速觸摸顯示調試面板
     if (touchCount >= 5) {
         touchCount = 0;
+        logToPanel('觸摸觸發調試面板!', 'success');
         debugPageStructure();
     }
 });
 
-// 自動啟動調試 (5秒後)
+// 添加一個可見的調試按鈕 (5秒後出現)
 setTimeout(() => {
-    logToPanel('調試系統啟動', 'info');
-    logToPanel('快捷鍵: Ctrl+D 顯示/隱藏面板', 'info');
-    logToPanel('觸控: 快速點擊5次顯示面板', 'info');
+    const debugButton = document.createElement('button');
+    debugButton.textContent = 'DEBUG';
+    debugButton.style.cssText = `
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        background: #ff6600;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        z-index: 10001;
+        cursor: pointer;
+        opacity: 0.9;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        min-width: 60px;
+        min-height: 40px;
+    `;
+    debugButton.onclick = () => {
+        logToPanel('DEBUG按鈕被點擊', 'success');
+        debugPageStructure();
+    };
+    
+    // 添加點擊動畫效果
+    debugButton.addEventListener('mousedown', () => {
+        debugButton.style.transform = 'scale(0.95)';
+    });
+    debugButton.addEventListener('mouseup', () => {
+        debugButton.style.transform = 'scale(1)';
+    });
+    
+    document.body.appendChild(debugButton);
+    logToPanel('DEBUG按鈕已添加到左下角', 'info');
+}, 5000);
+
+// 添加一個狀態顯示按鈕 (3秒後出現)
+setTimeout(() => {
+    const statusButton = document.createElement('button');
+    statusButton.textContent = 'STATUS';
+    statusButton.style.cssText = `
+        position: fixed;
+        bottom: 60px;
+        left: 10px;
+        background: #0066ff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: bold;
+        z-index: 10001;
+        cursor: pointer;
+        opacity: 0.8;
+        min-width: 60px;
+        min-height: 35px;
+    `;
+    statusButton.onclick = () => {
+        logToPanel('=== 狀態檢查 ===', 'info');
+        logToPanel(`當前狀態: ${window.currentState || 'undefined'}`, 'info');
+        
+        const resultState = document.getElementById('resultState');
+        logToPanel(`結果元素存在: ${!!resultState}`, resultState ? 'success' : 'error');
+        if (resultState) {
+            logToPanel(`結果元素啟動: ${resultState.classList.contains('active')}`, 
+                      resultState.classList.contains('active') ? 'success' : 'warning');
+        }
+        
+        const infoPanel = document.querySelector('.result-info-panel');
+        logToPanel(`信息面板存在: ${!!infoPanel}`, infoPanel ? 'success' : 'error');
+    };
+    
+    document.body.appendChild(statusButton);
+    logToPanel('STATUS按鈕已添加', 'info');
+}, 3000);
+
+// 自動啟動調試 (5秒後) - 修改為更詳細
+setTimeout(() => {
+    logToPanel('=== 調試系統啟動 ===', 'info');
+    logToPanel('版本: DSI專用調試版', 'info');
+    logToPanel('觸發方式:', 'info');
+    logToPanel('1. 點擊螢幕3次 (降低門檻)', 'info');
+    logToPanel('2. 觸摸螢幕5次', 'info');  
+    logToPanel('3. Ctrl+D 鍵盤快捷鍵', 'info');
+    logToPanel('4. 等待DEBUG按鈕出現 (10秒後)', 'info');
+    
+    // 自動觸發一次調試，讓用戶看到面板
+    setTimeout(() => {
+        logToPanel('=== 自動觸發調試檢查 ===', 'warning');
+        showDebugPanel(); // 直接顯示面板
+        debugPageStructure();
+    }, 1000); // 更快觸發
 }, 5000);
 
 // ... existing code ...
