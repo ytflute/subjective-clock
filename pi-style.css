@@ -989,7 +989,7 @@ body {
     bottom: 20px !important;
     left: 20px !important;
     right: 20px !important;
-    background: rgba(0, 0, 0, 0.9) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
     padding: 20px 25px !important;
     z-index: 999999 !important;
     display: block !important;
@@ -997,7 +997,7 @@ body {
     opacity: 1 !important;
     max-width: 800px !important;
     margin: 0 auto !important;
-    min-height: 140px !important;
+    min-height: 100px !important;
     box-sizing: border-box !important;
 }
 
@@ -1587,4 +1587,70 @@ body {
 #mainMapContainer * {
     z-index: 1 !important;
     max-z-index: 10 !important;
+} 
+
+/* 結果資訊面板 - 置中顯示 */
+.result-info-panel {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 300px !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    z-index: 999999 !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    max-height: 440px !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+/* 軌跡標記樣式 */
+.trajectory-marker {
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+}
+
+.trajectory-day {
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    padding: 3px 8px !important;
+    border-radius: 4px !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 10px !important;
+    min-width: 42px !important;
+    text-align: center !important;
+    border: 2px solid white !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 當前位置標記 */
+.trajectory-marker.current-location .trajectory-day {
+    background: #FF4B4B !important;
+    color: white !important;
+    border-color: white !important;
+    font-size: 10px !important;
+    min-width: 42px !important;
+    padding: 3px 8px !important;
+    z-index: 1001 !important;
+    box-shadow: 0 2px 8px rgba(255, 75, 75, 0.4) !important;
+}
+
+/* 軌跡線樣式 */
+.trajectory-line {
+    stroke: #999999 !important;
+    stroke-width: 2px !important;
+    stroke-dasharray: 5, 5 !important;
+    opacity: 0.6 !important;
+}
+
+.trajectory-line.current {
+    stroke: #FF4B4B !important;
+    stroke-width: 3px !important;
+    stroke-dasharray: none !important;
+    opacity: 0.8 !important;
 } 

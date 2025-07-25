@@ -1814,8 +1814,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 創建主要地圖實例 - 作為背景使用
     mainInteractiveMap = L.map('mainMapContainer', {
-        center: [lat || 20, (lon || 0) - 8], // 向左偏移8度，讓標記出現在右半邊
-        zoom: lat && lon ? 5 : 2, // 如果有具體位置則縮放，否則顯示世界地圖
+        center: [lat || 20, (lon || 0)], // 不再偏移，保持置中
+        zoom: lat && lon ? 3 : 2, // 更大的初始縮放級別，顯示更多世界地圖
         zoomControl: false,
         scrollWheelZoom: true,
         doubleClickZoom: true,
@@ -1842,18 +1842,18 @@ function initMainInteractiveMap(lat, lon, city, country) {
         // 創建自定義圖標
         const customIcon = L.divIcon({
             className: 'trajectory-marker current-location',
-            html: `<div class="trajectory-day">TODAY</div>`,
+            html: `<div class="trajectory-day">Day ${currentDay || 1}</div>`,
             iconSize: [60, 24],
-            iconAnchor: [30, 24]
+            iconAnchor: [30, 12]
         });
 
         const marker = L.marker([lat, lon], {
             icon: customIcon
         }).addTo(mainInteractiveMap);
         
-        // 不需要彈窗，標記只顯示TODAY
+        // 不需要彈窗，標記只顯示 Day 數字
         marker.bindPopup('', {
-            offset: [150, 0]
+            offset: [0, 0]
         });
     }
     
@@ -1944,14 +1944,28 @@ function drawTrajectoryLine() {
         // 準備軌跡點座標
         const latlngs = trajectoryData.map(point => [point.lat, point.lng]);
         
-        // 創建軌跡線 (polyline)
-        const trajectoryLine = L.polyline(latlngs, {
-            color: '#FF6B6B',        // 紅色軌跡線
-            weight: 3,               // 線條粗細
-            opacity: 0.8,            // 透明度
-            smoothFactor: 1.0,       // 平滑度
-            dashArray: '10, 5'       // 虛線樣式
-        }).addTo(trajectoryLayer);
+        // 創建舊軌跡線 (除了最後一段)
+        if (latlngs.length > 2) {
+            const oldLatlngs = latlngs.slice(0, -1);
+            const oldTrajectoryLine = L.polyline(oldLatlngs, {
+                className: 'trajectory-line',
+                color: '#999999',
+                weight: 2,
+                opacity: 0.6,
+                dashArray: '5, 5'
+            }).addTo(trajectoryLayer);
+        }
+        
+        // 創建最新軌跡線 (最後一段)
+        if (latlngs.length >= 2) {
+            const lastTwoPoints = latlngs.slice(-2);
+            const currentTrajectoryLine = L.polyline(lastTwoPoints, {
+                className: 'trajectory-line current',
+                color: '#FF4B4B',
+                weight: 3,
+                opacity: 0.8
+            }).addTo(trajectoryLayer);
+        }
         
         console.log(`🗺️ 軌跡線已繪製，連接 ${trajectoryData.length} 個點`);
     } else {
@@ -1960,12 +1974,14 @@ function drawTrajectoryLine() {
     
     // 添加軌跡點標記
     trajectoryData.forEach((point, index) => {
+        const isCurrentLocation = index === trajectoryData.length - 1;
+        
         // 創建自定義圖標 (顯示Day數字)
         const customIcon = L.divIcon({
-            className: 'trajectory-marker',
+            className: `trajectory-marker${isCurrentLocation ? ' current-location' : ''}`,
             html: `<div class="trajectory-day">Day ${point.day}</div>`,
             iconSize: [60, 24],
-            iconAnchor: [30, 24]
+            iconAnchor: [30, 12]
         });
         
         const marker = L.marker([point.lat, point.lng], {
@@ -1974,7 +1990,7 @@ function drawTrajectoryLine() {
         
         // 不需要彈窗，標記只顯示Day數字
         marker.bindPopup('', {
-            offset: [150, 0]
+            offset: [0, 0]
         });
     });
     
