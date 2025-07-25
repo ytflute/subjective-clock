@@ -1387,10 +1387,10 @@ window.addEventListener('firebaseReady', async (event) => {
             initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
         }
         
-        // 更新語音載入提示文字
+        // 確保語音載入提示區域是空的，等待打字機效果
         const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
         if (voiceLoadingTextEl) {
-            voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            voiceLoadingTextEl.textContent = '';
             voiceLoadingTextEl.classList.remove('typing', 'completed');
         }
     }
