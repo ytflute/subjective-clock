@@ -703,11 +703,11 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📡 API 回應資料:', data);
 
             if (data.success && data.city) {
-                // 顯示結果 - 使用新的顯示元素
-                await displayAwakeningResult(data.city);
-
-                // 儲存到 Firebase
+                // 先儲存到 Firebase，確保 day 計數正確
                 await saveToFirebase(data.city);
+
+                // 然後顯示結果 - 使用新的顯示元素
+                await displayAwakeningResult(data.city);
 
                 console.log('✅ 甦醒城市尋找成功:', data.city);
 
@@ -814,13 +814,13 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📖 故事 API 回應:', storyResult);
 
             if (storyResult.greeting && storyResult.story) {
-                // 先獲取當前的 day 計數
+                // 獲取當前的 day 計數（此時已經保存到 Firebase）
                 const q = query(
                     collection(db, 'wakeup_records'),
                     where('userId', '==', rawUserDisplayName)
                 );
                 const querySnapshot = await getDocs(q);
-                const currentDay = querySnapshot.size + 1;
+                const currentDay = querySnapshot.size; // 當前已保存的記錄數量就是 day
                 
                 // 更新結果頁面數據
                 const resultData = {
@@ -831,7 +831,7 @@ window.addEventListener('firebaseReady', async (event) => {
                     longitude: cityData.longitude,
                     greeting: storyResult.greeting,
                     story: storyResult.story,
-                    day: currentDay  // 添加 day 值
+                    day: currentDay  // 使用已保存的記錄數量
                 };
                 
                 // 使用新的結果數據更新函數
