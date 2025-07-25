@@ -338,6 +338,103 @@ class WebControllerDSI:
         except Exception:
             return False
 
+    def _extract_city_data(self):
+        """從網頁提取城市資料"""
+        try:
+            # 等待城市名稱元素出現
+            city_name = self.wait_for_element_text('.city-name', timeout=2)
+            country_name = self.wait_for_element_text('.country-name', timeout=2)
+            
+            # 清理城市名稱（移除冒號和空格）
+            city_name = city_name.strip().rstrip(':').strip() if city_name else ''
+            country_name = country_name.strip() if country_name else ''
+            
+            # 從國家名稱獲取國家代碼
+            country_code = self._get_country_code(country_name)
+            
+            # 獲取經緯度
+            coordinates = self.wait_for_element_text('#coordinates', timeout=2)
+            lat, lon = None, None
+            if coordinates:
+                try:
+                    lat_str, lon_str = coordinates.split(',')
+                    lat = float(lat_str.strip())
+                    lon = float(lon_str.strip())
+                except:
+                    self.logger.warning(f'無法解析座標: {coordinates}')
+            
+            # 獲取時區
+            timezone = self.wait_for_element_attribute('.timezone-info', 'data-timezone', timeout=2) or ''
+            
+            city_data = {
+                'city': city_name,
+                'country': country_name,
+                'countryCode': country_code,
+                'latitude': lat,
+                'longitude': lon,
+                'timezone': timezone
+            }
+            
+            self.logger.info(f'甦醒城市：{city_name}')
+            return city_data
+            
+        except Exception as e:
+            self.logger.error(f'提取城市資料失敗: {e}')
+            return None
+            
+    def _get_country_code(self, country_name):
+        """根據國家名稱獲取國家代碼"""
+        country_map = {
+            'United States': 'US',
+            'Chile': 'CL',
+            'Peru': 'PE',
+            'Brazil': 'BR',
+            'Argentina': 'AR',
+            'Mexico': 'MX',
+            'Canada': 'CA',
+            'China': 'CN',
+            'Japan': 'JP',
+            'South Korea': 'KR',
+            'Taiwan': 'TW',
+            'Hong Kong': 'HK',
+            'Singapore': 'SG',
+            'Malaysia': 'MY',
+            'Thailand': 'TH',
+            'Vietnam': 'VN',
+            'Indonesia': 'ID',
+            'Philippines': 'PH',
+            'India': 'IN',
+            'Australia': 'AU',
+            'New Zealand': 'NZ',
+            'United Kingdom': 'GB',
+            'France': 'FR',
+            'Germany': 'DE',
+            'Italy': 'IT',
+            'Spain': 'ES',
+            'Portugal': 'PT',
+            'Netherlands': 'NL',
+            'Belgium': 'BE',
+            'Switzerland': 'CH',
+            'Austria': 'AT',
+            'Sweden': 'SE',
+            'Norway': 'NO',
+            'Denmark': 'DK',
+            'Finland': 'FI',
+            'Russia': 'RU',
+            'Poland': 'PL',
+            'Czech Republic': 'CZ',
+            'Hungary': 'HU',
+            'Greece': 'GR',
+            'Turkey': 'TR',
+            'Israel': 'IL',
+            'South Africa': 'ZA',
+            'Egypt': 'EG',
+            'Morocco': 'MA',
+            'United Arab Emirates': 'AE',
+            'Saudi Arabia': 'SA'
+        }
+        return country_map.get(country_name, '')
+
 # 測試程式
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

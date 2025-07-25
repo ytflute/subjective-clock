@@ -551,6 +551,14 @@ class AudioManager:
             from config import API_ENDPOINTS
             api_url = API_ENDPOINTS['generate_story']  # 使用與網頁端相同的 API
             
+            # 清理城市名稱（移除冒號和空格）
+            city = city.strip().rstrip(':').strip() if city else ''
+            country = country.strip() if country else ''
+            
+            # 如果沒有提供國家代碼，嘗試從國家名稱獲取
+            if not country_code:
+                country_code = self._get_country_code(country)
+            
             # 請求資料
             request_data = {
                 "city": city,
@@ -586,6 +594,59 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"調用故事生成 API 時發生錯誤: {e}")
             return None
+            
+    def _get_country_code(self, country_name: str) -> str:
+        """根據國家名稱獲取國家代碼"""
+        country_map = {
+            'United States': 'US',
+            'Chile': 'CL',
+            'Peru': 'PE',
+            'Brazil': 'BR',
+            'Argentina': 'AR',
+            'Mexico': 'MX',
+            'Canada': 'CA',
+            'China': 'CN',
+            'Japan': 'JP',
+            'South Korea': 'KR',
+            'Taiwan': 'TW',
+            'Hong Kong': 'HK',
+            'Singapore': 'SG',
+            'Malaysia': 'MY',
+            'Thailand': 'TH',
+            'Vietnam': 'VN',
+            'Indonesia': 'ID',
+            'Philippines': 'PH',
+            'India': 'IN',
+            'Australia': 'AU',
+            'New Zealand': 'NZ',
+            'United Kingdom': 'GB',
+            'France': 'FR',
+            'Germany': 'DE',
+            'Italy': 'IT',
+            'Spain': 'ES',
+            'Portugal': 'PT',
+            'Netherlands': 'NL',
+            'Belgium': 'BE',
+            'Switzerland': 'CH',
+            'Austria': 'AT',
+            'Sweden': 'SE',
+            'Norway': 'NO',
+            'Denmark': 'DK',
+            'Finland': 'FI',
+            'Russia': 'RU',
+            'Poland': 'PL',
+            'Czech Republic': 'CZ',
+            'Hungary': 'HU',
+            'Greece': 'GR',
+            'Turkey': 'TR',
+            'Israel': 'IL',
+            'South Africa': 'ZA',
+            'Egypt': 'EG',
+            'Morocco': 'MA',
+            'United Arab Emirates': 'AE',
+            'Saudi Arabia': 'SA'
+        }
+        return country_map.get(country_name, '')
     
     def _get_greeting_text(self, country_code: str, city_name: str = "") -> str:
         """獲取問候語文本"""
