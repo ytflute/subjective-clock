@@ -796,8 +796,8 @@ body {
     position: fixed !important;
     top: 15px !important;
     left: 15px !important;
-    width: 350px !important;
-    background: rgba(255, 255, 255, 0.67) !important;
+    width: 300px !important;
+    background: rgba(255, 255, 255, 0.85) !important;  /* 增加透明度 */
     border-radius: 12px !important;
     padding: 20px !important;
     z-index: 999999 !important;
@@ -805,7 +805,7 @@ body {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    max-height: 400px !important;
+    max-height: 440px !important;
     overflow-y: auto !important;
     pointer-events: auto !important;
 }

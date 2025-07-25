@@ -995,24 +995,24 @@ window.addEventListener('firebaseReady', async (event) => {
         try {
             // 故事內容已經包含當地語言的問候語
             const fullContent = storyData.story;
-            const displayContent = fullContent; // 用於打字機效果顯示
+            const loadingText = '剛起床，正在清喉嚨，準備朗誦你的甦醒日誌......';
 
             // 檢查瀏覽器是否支援語音合成
             if (!('speechSynthesis' in window)) {
                 console.warn('🔇 此瀏覽器不支援語音合成');
-                // 即使沒有語音，也要啟動打字機效果
                 showVoiceLoading();
+                await startStoryTypewriter(loadingText);
                 await new Promise(resolve => setTimeout(resolve, 1500));
-                startStoryTypewriter(fullContent);
+                await startStoryTypewriter(fullContent);
                 return;
             }
 
-            // 顯示語音載入提示，但不顯示故事文字
+            // 顯示語音載入提示，先打出 loading 文字
             showVoiceLoading();
+            await startStoryTypewriter(loadingText);
 
-            // 停止任何正在播放的語音和打字機效果
+            // 停止任何正在播放的語音
             window.speechSynthesis.cancel();
-            stopTypeWriterEffect();
 
             // 短暫延遲後開始播放
             await new Promise(resolve => setTimeout(resolve, 1500));
@@ -1041,7 +1041,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 speechStarted = true;
                 if (!typewriterStarted) {
                     typewriterStarted = true;
-                    startStoryTypewriter(displayContent);
+                    startStoryTypewriter(fullContent); // 清除 loading 文字，顯示故事內容
                 }
             };
 
@@ -1066,7 +1066,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 if (!speechStarted && !typewriterStarted) {
                     console.warn('⚠️ 語音播放可能被阻止，強制啟動打字機效果');
                     typewriterStarted = true;
-                    startStoryTypewriter(displayContent);
+                    startStoryTypewriter(fullContent);
                 }
             }, 3000);
 
@@ -1444,6 +1444,7 @@ window.addEventListener('firebaseReady', async (event) => {
         if (voiceLoadingTextEl) {
             voiceLoadingTextEl.classList.remove('typing');
             voiceLoadingTextEl.classList.remove('completed');
+            voiceLoadingTextEl.textContent = ''; // 清空文字
         }
     }
 
