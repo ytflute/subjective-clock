@@ -1192,13 +1192,27 @@ window.addEventListener('firebaseReady', async (event) => {
                 return;
             }
 
+            console.log('📊 開始計算 Day 計數...');
+            console.log('📊 查詢用戶:', rawUserDisplayName);
+
             // 先獲取現有記錄數量
             const q = query(
                 collection(db, 'wakeup_records'),
                 where('userId', '==', rawUserDisplayName)
             );
             const querySnapshot = await getDocs(q);
-            const currentDay = querySnapshot.size + 1;
+            const existingRecordsCount = querySnapshot.size;
+            const currentDay = existingRecordsCount + 1;
+
+            console.log('📊 現有記錄數量:', existingRecordsCount);
+            console.log('📊 新的 Day 值:', currentDay);
+
+            // 列出現有記錄
+            console.log('📊 現有記錄詳情:');
+            querySnapshot.forEach((doc, index) => {
+                const data = doc.data();
+                console.log(`  記錄 ${index + 1}: Day ${data.day}, 日期: ${data.date}, 城市: ${data.city}`);
+            });
 
             const recordData = {
                 userId: rawUserDisplayName,
@@ -1216,8 +1230,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 day: currentDay
             };
 
-            await addDoc(collection(db, 'wakeup_records'), recordData);
-            console.log('✅ 記錄已儲存至 Firebase，Day:', currentDay);
+            console.log('📊 準備保存的記錄:', recordData);
+
+            const docRef = await addDoc(collection(db, 'wakeup_records'), recordData);
+            console.log('✅ 記錄已儲存至 Firebase');
+            console.log('✅ 文檔 ID:', docRef.id);
+            console.log('✅ Day 值:', currentDay);
             
             // 更新軌跡線
             setTimeout(() => {
@@ -1378,18 +1396,22 @@ window.addEventListener('firebaseReady', async (event) => {
         if (dayNumberEl) {
             // 如果沒有提供 day，從 Firebase 獲取
             if (!data.day) {
+                console.log('📊 updateResultData: 沒有提供 day 值，從 Firebase 查詢');
                 const q = query(
                     collection(db, 'wakeup_records'),
                     where('userId', '==', rawUserDisplayName)
                 );
                 getDocs(q).then(querySnapshot => {
-                    const currentDay = querySnapshot.size + 1;
+                    const currentDay = querySnapshot.size; // 使用已保存的記錄數量
+                    console.log('📊 updateResultData: 查詢到記錄數量:', querySnapshot.size);
+                    console.log('📊 updateResultData: 顯示 Day 值:', currentDay);
                     dayNumberEl.textContent = currentDay;
                 }).catch(error => {
                     console.error('獲取 Day 計數失敗:', error);
                     dayNumberEl.textContent = '1';
                 });
             } else {
+                console.log('📊 updateResultData: 使用提供的 day 值:', data.day);
                 dayNumberEl.textContent = data.day;
             }
         }
