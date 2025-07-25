@@ -1589,12 +1589,11 @@ body {
     max-z-index: 10 !important;
 } 
 
-/* 結果資訊面板 - 置中顯示 */
+/* 結果資訊面板 - 顯示在地圖標記附近 */
 .result-info-panel {
     position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    top: 15px !important;
+    left: 15px !important;
     width: 300px !important;
     background: rgba(255, 255, 255, 0.85) !important;
     border-radius: 12px !important;

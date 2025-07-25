@@ -830,8 +830,10 @@ window.addEventListener('firebaseReady', async (event) => {
                     latitude: cityData.latitude,
                     longitude: cityData.longitude,
                     greeting: storyResult.greeting,
+                    language: storyResult.language,
                     story: storyResult.story,
-                    day: currentDay  // 使用已保存的記錄數量
+                    day: currentDay,  // 使用已保存的記錄數量
+                    flag: cityData.country_iso_code ? `https://flagcdn.com/96x72/${cityData.country_iso_code.toLowerCase()}.png` : ''
                 };
                 
                 // 使用新的結果數據更新函數
@@ -1814,8 +1816,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 創建主要地圖實例 - 作為背景使用
     mainInteractiveMap = L.map('mainMapContainer', {
-        center: [lat || 20, (lon || 0)], // 不再偏移，保持置中
-        zoom: lat && lon ? 3 : 2, // 更大的初始縮放級別，顯示更多世界地圖
+        center: [lat || 20, (lon || 0)], // 置中顯示
+        zoom: lat && lon ? 4 : 2, // 有位置時適中縮放，無位置時顯示世界地圖
         zoomControl: false,
         scrollWheelZoom: true,
         doubleClickZoom: true,
@@ -1839,10 +1841,13 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
+        // 獲取當前的 day 值
+        const currentDayValue = getCurrentDayValue();
+        
         // 創建自定義圖標
         const customIcon = L.divIcon({
             className: 'trajectory-marker current-location',
-            html: `<div class="trajectory-day">Day ${currentDay || 1}</div>`,
+            html: `<div class="trajectory-day">Day ${currentDayValue}</div>`,
             iconSize: [60, 24],
             iconAnchor: [30, 12]
         });
@@ -1875,7 +1880,16 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 立即載入並繪製軌跡線
     loadAndDrawTrajectory();
-} 
+}
+
+// 獲取當前 Day 值的輔助函數
+function getCurrentDayValue() {
+    const dayNumberEl = document.getElementById('dayNumber');
+    if (dayNumberEl && dayNumberEl.textContent) {
+        return parseInt(dayNumberEl.textContent) || 1;
+    }
+    return 1;
+}
 
 // 載入並繪製軌跡線
 async function loadAndDrawTrajectory() {
