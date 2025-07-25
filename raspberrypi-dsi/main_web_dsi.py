@@ -384,7 +384,7 @@ class WakeUpMapWebApp:
             self.logger.error(f"設定Loading狀態失敗: {e}")
     
     def _prepare_complete_audio(self, country_code: str, city_name: str, country_name: str) -> Optional[Path]:
-        """準備完整音頻但不播放"""
+        """準備完整音頻但不播放，並將內容傳給網頁"""
         try:
             import time
             from pathlib import Path
@@ -392,8 +392,8 @@ class WakeUpMapWebApp:
             
             self.logger.info("🎧 開始準備完整音頻...")
             
-            # 禁用快速模式，準備完整音頻
-            audio_file = self.audio_manager.prepare_greeting_audio(
+            # 1. 先生成音頻內容並獲取故事文本
+            audio_file, story_content = self.audio_manager.prepare_greeting_audio_with_content(
                 country_code=country_code,
                 city_name=city_name,
                 country_name=country_name
@@ -402,8 +402,12 @@ class WakeUpMapWebApp:
             end_time = time.time()
             duration = end_time - start_time
             
-            if audio_file and audio_file.exists():
+            if audio_file and audio_file.exists() and story_content:
                 self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
+                
+                # 2. 將故事內容傳給網頁端用於打字機效果
+                self._send_story_to_web(story_content)
+                
                 return audio_file
             else:
                 self.logger.error(f"❌ 完整音頻準備失敗 (耗時: {duration:.1f}秒)")
@@ -412,6 +416,39 @@ class WakeUpMapWebApp:
         except Exception as e:
             self.logger.error(f"準備完整音頻時發生錯誤: {e}")
             return None
+
+    def _send_story_to_web(self, story_content: dict):
+        """將故事內容傳給網頁端用於打字機效果"""
+        try:
+            if not self.web_controller or not self.web_controller.driver:
+                self.logger.warning("網頁控制器未初始化，無法傳送故事內容")
+                return
+            
+            # 將故事內容注入到網頁中
+            story_js = f"""
+            // 設定樹莓派生成的故事內容
+            window.piGeneratedStory = {{
+                greeting: {json.dumps(story_content.get('greeting', ''), ensure_ascii=False)},
+                language: {json.dumps(story_content.get('language', ''), ensure_ascii=False)},
+                languageCode: {json.dumps(story_content.get('languageCode', ''), ensure_ascii=False)},
+                story: {json.dumps(story_content.get('story', ''), ensure_ascii=False)},
+                fullContent: {json.dumps(story_content.get('fullContent', ''), ensure_ascii=False)}
+            }};
+            
+            // 通知網頁端故事內容已準備好
+            window.dispatchEvent(new CustomEvent('piStoryReady', {{ 
+                detail: window.piGeneratedStory 
+            }}));
+            
+            console.log('🎵 樹莓派故事內容已準備完成:', window.piGeneratedStory);
+            """
+            
+            import json
+            self.web_controller.driver.execute_script(story_js)
+            self.logger.info("✅ 故事內容已傳送給網頁端")
+            
+        except Exception as e:
+            self.logger.error(f"傳送故事內容失敗: {e}")
     
     def _synchronized_reveal_and_play(self, audio_file: Path):
         """同步顯示畫面和播放音頻"""

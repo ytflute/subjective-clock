@@ -143,6 +143,29 @@ let groupNameInput, groupFilterSelect, connectionStatus;
 let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
     let cityNameEl, countryNameEl, greetingTextEl, coordinatesEl, errorMessageEl;
 
+// 監聽樹莓派傳來的故事內容
+window.addEventListener('piStoryReady', (event) => {
+    console.log('🎵 收到樹莓派傳來的故事內容:', event.detail);
+    
+    // 使用樹莓派生成的內容更新顯示
+    const storyData = event.detail;
+    if (storyData && storyData.story) {
+        // 開始打字機效果顯示故事
+        showVoiceLoading();
+        
+        // 設定載入訊息
+        const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
+        if (voiceLoadingTextEl) {
+            voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            
+            // 等一下後開始顯示故事內容
+            setTimeout(() => {
+                startStoryTypewriter(storyData.fullContent || storyData.story);
+            }, 1000);
+        }
+    }
+});
+
 // 當 Firebase 準備就緒時執行
 window.addEventListener('firebaseReady', async (event) => {
     console.log('🔥 Firebase Ready 事件觸發');
@@ -830,9 +853,92 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 新增：生成並顯示故事和問候語
+    // 新增：生成並顯示故事和問候語（修改為不呼叫 API，等待樹莓派內容）
     async function generateAndDisplayStoryAndGreeting(cityData) {
-        console.log('📖 正在生成甦醒故事和問候語...');
+        console.log('📖 等待樹莓派生成甦醒故事和問候語...');
+        
+        try {
+            // 不再呼叫 API，改為等待樹莓派傳來的故事內容
+            // 如果在指定時間內沒有收到樹莓派的故事，則回到原有邏輯
+            let receivedPiStory = false;
+            
+            const waitForPiStory = new Promise((resolve, reject) => {
+                const timeout = setTimeout(() => {
+                    if (!receivedPiStory) {
+                        console.warn('⏱️ 等待樹莓派故事超時，使用備用方案');
+                        reject(new Error('等待樹莓派故事超時'));
+                    }
+                }, 15000); // 15秒超時
+                
+                // 監聽樹莓派故事準備好的事件
+                const handlePiStory = (event) => {
+                    receivedPiStory = true;
+                    clearTimeout(timeout);
+                    window.removeEventListener('piStoryReady', handlePiStory);
+                    resolve(event.detail);
+                };
+                
+                window.addEventListener('piStoryReady', handlePiStory);
+                
+                // 檢查是否已經有故事內容
+                if (window.piGeneratedStory) {
+                    receivedPiStory = true;
+                    clearTimeout(timeout);
+                    resolve(window.piGeneratedStory);
+                }
+            });
+            
+            try {
+                // 等待樹莓派故事
+                const storyResult = await waitForPiStory;
+                console.log('📖 收到樹莓派故事:', storyResult);
+                
+                if (storyResult.greeting && storyResult.story) {
+                    // 獲取當前的 day 計數
+                    const q = query(
+                        collection(db, 'wakeup_records'),
+                        where('userId', '==', rawUserDisplayName)
+                    );
+                    const querySnapshot = await getDocs(q);
+                    const currentDay = querySnapshot.size;
+                    
+                    // 更新結果頁面數據
+                    const resultData = {
+                        city: cityData.name,
+                        country: cityData.country,
+                        countryCode: cityData.country_iso_code,
+                        latitude: cityData.latitude,
+                        longitude: cityData.longitude,
+                        greeting: storyResult.greeting,
+                        language: storyResult.language,
+                        story: storyResult.story,
+                        day: currentDay,
+                        flag: cityData.country_iso_code ? `https://flagcdn.com/96x72/${cityData.country_iso_code.toLowerCase()}.png` : ''
+                    };
+                    
+                    // 使用新的結果數據更新函數
+                    updateResultData(resultData);
+                    
+                    console.log(`✅ 使用樹莓派故事內容顯示成功`);
+                } else {
+                    throw new Error('樹莓派故事內容格式不正確');
+                }
+                
+            } catch (error) {
+                console.warn('樹莓派故事獲取失敗，使用備用 API:', error);
+                // 備用方案：呼叫原有的 API
+                await generateStoryWithAPI(cityData);
+            }
+
+        } catch (error) {
+            console.error('❌ 故事處理失敗:', error);
+            setState('error', '生成故事時發生錯誤');
+        }
+    }
+    
+    // 備用方案：使用 API 生成故事
+    async function generateStoryWithAPI(cityData) {
+        console.log('📖 使用 API 生成故事...');
         
         try {
             // 調用故事生成 API
@@ -850,13 +956,13 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📖 故事 API 回應:', storyResult);
 
             if (storyResult.greeting && storyResult.story) {
-                // 獲取當前的 day 計數（此時已經保存到 Firebase）
+                // 獲取當前的 day 計數
                 const q = query(
                     collection(db, 'wakeup_records'),
                     where('userId', '==', rawUserDisplayName)
                 );
                 const querySnapshot = await getDocs(q);
-                const currentDay = querySnapshot.size; // 當前已保存的記錄數量就是 day
+                const currentDay = querySnapshot.size;
                 
                 // 更新結果頁面數據
                 const resultData = {
@@ -868,7 +974,7 @@ window.addEventListener('firebaseReady', async (event) => {
                     greeting: storyResult.greeting,
                     language: storyResult.language,
                     story: storyResult.story,
-                    day: currentDay,  // 使用已保存的記錄數量
+                    day: currentDay,
                     flag: cityData.country_iso_code ? `https://flagcdn.com/96x72/${cityData.country_iso_code.toLowerCase()}.png` : ''
                 };
                 
@@ -882,16 +988,14 @@ window.addEventListener('firebaseReady', async (event) => {
                     languageCode: getLanguageCodeFromCountry(cityData.country_iso_code) 
                 });
 
-                console.log(`✅ 故事和問候語顯示成功`);
+                console.log(`✅ API 故事顯示成功`);
             } else {
                 // 使用備用方案
                 console.warn('故事 API 失敗，使用備用問候語');
                 await generateFallbackGreeting(cityData);
             }
-
         } catch (error) {
-            console.error('❌ 生成故事失敗:', error);
-            // 使用備用方案
+            console.error('API 故事生成失敗:', error);
             await generateFallbackGreeting(cityData);
         }
     }

@@ -13,7 +13,7 @@ import hashlib
 import subprocess
 import struct
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Tuple
 
 try:
     import pyttsx3
@@ -342,6 +342,70 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"準備問候語音頻失敗: {e}")
             return None
+    
+    def prepare_greeting_audio_with_content(self, country_code: str, city_name: str = "", country_name: str = "") -> Tuple[Optional[Path], Optional[Dict[str, Any]]]:
+        """
+        準備完整問候語音頻並返回故事內容（用於網頁顯示）
+        
+        Args:
+            country_code: 國家代碼
+            city_name: 城市名稱
+            country_name: 國家名稱
+        
+        Returns:
+            Tuple[Path, Dict]: (音頻文件路徑, 故事內容字典)
+        """
+        try:
+            if not AUDIO_CONFIG['enabled']:
+                self.logger.info("音頻功能已禁用，返回空結果")
+                return None, None
+            
+            self.logger.info("🎧 準備完整問候語音頻（同步模式）...")
+            
+            # 📡 獲取完整問候語和故事
+            greeting_data = self._fetch_greeting_and_story_from_api(city_name, country_name, country_code)
+            
+            if greeting_data:
+                greeting_text = greeting_data['greeting']
+                language_code = greeting_data['languageCode']
+                story_text = greeting_data.get('chineseStory', '')
+                
+                self.logger.info(f"🔍 準備音頻 - 問候語資料: {greeting_data}")
+                self.logger.info(f"🔍 準備音頻 - story_text: '{story_text}'")
+                
+                # 創建完整的音頻內容：問候語 + 故事
+                full_content = f"{greeting_text}。{story_text}"
+                self.logger.info(f"完整音頻內容: {full_content}")
+                
+                # 🌟 準備 Nova 音頻
+                self.logger.info("🌟 準備 Nova 音頻：整合模式")
+                
+                # 生成音頻文件
+                audio_file = self._generate_audio_openai_direct(full_content, language_code, voice='nova')
+                
+                if audio_file and audio_file.exists():
+                    self.logger.info(f"✨ Nova 整合音頻生成成功: {audio_file.name}")
+                    
+                    # 準備返回的故事內容
+                    story_content = {
+                        'greeting': greeting_text,
+                        'language': greeting_data.get('language', ''),
+                        'languageCode': language_code,
+                        'story': story_text,
+                        'fullContent': full_content
+                    }
+                    
+                    return audio_file, story_content
+                else:
+                    self.logger.error("Nova 整合音頻生成失敗")
+                    return None, None
+            else:
+                self.logger.warning("ChatGPT API 失敗，無法準備音頻")
+                return None, None
+                
+        except Exception as e:
+            self.logger.error(f"準備完整音頻失敗: {e}")
+            return None, None
     
     # 快速模式已移除 - 只使用完整 Nova 語音播放
     
