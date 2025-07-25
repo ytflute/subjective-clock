@@ -907,11 +907,11 @@ body {
     color: #333333;
 }
 
-/* 地圖縮放控制按鈕 */
+/* 地圖縮放控制按鈕 - 移到左上角 */
 .map-zoom-controls {
     position: absolute;
-    bottom: 100px;
-    right: 20px;
+    top: 20px;
+    left: 20px;
     z-index: 100 !important;
     display: flex;
     flex-direction: column;
@@ -934,12 +934,13 @@ body {
     justify-content: center;
     transition: all 0.2s ease;
     user-select: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .zoom-button:hover {
     background: rgba(255, 255, 255, 1);
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .zoom-button:active {
@@ -1074,8 +1075,8 @@ body {
     }
     
     .map-zoom-controls {
-        bottom: 80px;
-        right: 15px;
+        top: 15px;
+        left: 15px;
     }
     
     .zoom-button {
@@ -1414,4 +1415,70 @@ body {
     right: 20px !important;
     height: 100px !important;
     pointer-events: auto !important;
+} 
+
+/* 軌跡線和標記樣式 */
+.trajectory-marker {
+    background: none !important;
+    border: none !important;
+    z-index: 1000 !important;
+}
+
+.trajectory-day {
+    background: #FF6B6B;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 4px 8px;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    min-width: 42px;
+    line-height: 1.2;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+}
+
+.trajectory-marker:hover .trajectory-day {
+    background: #FF5252;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+/* 當前位置標記樣式 */
+.trajectory-marker.current-location .trajectory-day {
+    background: #4CAF50;
+    border-color: white;
+    font-size: 12px;
+    min-width: 48px;
+    padding: 5px 10px;
+    z-index: 1001 !important;
+}
+
+/* DSI 800x480 螢幕調整 */
+@media (max-width: 800px), (max-height: 480px) {
+    .map-zoom-controls {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .zoom-button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .trajectory-day {
+        font-size: 9px;
+        min-width: 38px;
+        padding: 3px 6px;
+    }
+    
+    .trajectory-marker.current-location .trajectory-day {
+        font-size: 11px;
+        min-width: 44px;
+        padding: 4px 8px;
+    }
 } 

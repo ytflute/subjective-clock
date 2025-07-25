@@ -1362,176 +1362,24 @@ window.addEventListener('firebaseReady', async (event) => {
         return `${month}/${day} ${dayName}`;
     }
 
-    // 更新結果頁面數據
+    // 更新結果數據
     function updateResultData(data) {
-        console.log('🔍 updateResultData 被調用，數據:', data);
+        // 不需要更新UI元素，因為已經移除了右側資訊面板
+        // 所有資訊都會顯示在地圖標記的彈出視窗中
+        console.log('更新位置數據:', data);
         
-        // 檢查結果狀態是否啟動
-        const resultStateEl = document.getElementById('resultState');
-        console.log('🔍 resultState 元素:', resultStateEl);
-        console.log('🔍 resultState 是否有 active 類:', resultStateEl?.classList.contains('active'));
-        
-        // 檢查所有浮動元素是否存在
-        const dayNumberEl = document.getElementById('dayNumber');
-        const wakeupDateEl = document.getElementById('wakeupDate');
-        const localGreetingEl = document.getElementById('localGreeting');
-        const cityNameEl = document.getElementById('cityName');
-        const countryNameEl = document.getElementById('countryName');
-        const countryFlagEl = document.getElementById('countryFlag');
-        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
-        const coordinatesEl = document.getElementById('coordinates'); // 新的座標元素
-        
-        console.log('🔍 關鍵元素檢查:', {
-            dayNumber: !!dayNumberEl,
-            wakeupDate: !!wakeupDateEl,
-            localGreeting: !!localGreetingEl,
-            cityName: !!cityNameEl,
-            countryName: !!countryNameEl,
-            countryFlag: !!countryFlagEl,
-            voiceLoadingBar: !!voiceLoadingBar,
-            coordinates: !!coordinatesEl
-        });
-        
-        // 更新 Day 計數器
-        if (dayNumberEl) {
-            dayNumberEl.textContent = dayCounter;
-            console.log('✅ Day 計數器已更新:', dayCounter);
-            dayCounter++; // 為下次使用自增
-        } else {
-            console.error('❌ dayNumber 元素未找到');
-        }
-        
-        // 更新日期 (加上年份)
-        if (wakeupDateEl) {
-            const currentDate = new Date();
-            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-            const day = String(currentDate.getDate()).padStart(2, '0');
-            const year = currentDate.getFullYear();
-            const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][currentDate.getDay()];
-            wakeupDateEl.textContent = `${month}/${day}/${year} ${weekday}`;
-            console.log('✅ 日期已更新');
-        } else {
-            console.error('❌ wakeupDate 元素未找到');
-        }
-        
-        // 更新當地問候語 - 支持新的API格式
-        if (localGreetingEl && data.greeting) {
-            let language = '當地語言';
-            let greetingText = data.greeting;
-            
-            // 檢查是否有新的API格式 (包含language字段)
-            if (data.language) {
-                language = data.language;
-            } else {
-                // 舊格式：從括號中提取語言信息
-                const languageMatch = data.greeting.match(/\((.*?)\)/);
-                if (languageMatch) {
-                    language = languageMatch[1];
-                    greetingText = data.greeting.replace(/\s*\([^)]*\)/g, '').trim();
-                }
-            }
-            
-            localGreetingEl.textContent = `${greetingText.toUpperCase()} (${language})`;
-            console.log('✅ 當地問候語已更新:', localGreetingEl.textContent);
-        } else {
-            console.error('❌ localGreeting 元素未找到或數據缺失');
-        }
-        
-        // 更新城市名稱
-        if (cityNameEl && data.city) {
-            cityNameEl.textContent = data.city.toUpperCase();
-            console.log('✅ 城市名稱已更新:', data.city);
-        } else {
-            console.error('❌ cityName 元素未找到或數據缺失');
-        }
-        
-        // 更新國家信息
-        if (countryNameEl && data.country) {
-            countryNameEl.textContent = data.country;
-            console.log('✅ 國家名稱已更新:', data.country);
-        } else {
-            console.error('❌ countryName 元素未找到或數據缺失');
-        }
-        
-        // 更新國旗
-        if (countryFlagEl && data.countryCode) {
-            // 使用 flagcdn.com 或其他國旗 API
-            const flagUrl = `https://flagcdn.com/32x24/${data.countryCode.toLowerCase()}.png`;
-            countryFlagEl.src = flagUrl;
-            countryFlagEl.style.display = 'block';
-            console.log('✅ 國旗已更新:', flagUrl);
-        } else {
-            console.error('❌ countryFlag 元素未找到或數據缺失');
-        }
-        
-        // 更新座標信息 (現在整合在info panel中)
-        if (coordinatesEl && data.latitude && data.longitude) {
-            coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
-            console.log('✅ 座標已更新:', coordinatesEl.textContent);
-        } else {
-            console.error('❌ coordinates 元素未找到或數據缺失');
-        }
-        
-        // 強制顯示所有浮動元素 - 使用最高優先級CSS
-        const resultInfoPanel = document.querySelector('.result-info-panel');
-        if (resultInfoPanel) {
-            resultInfoPanel.style.cssText = `
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                z-index: 999999 !important;
-                position: fixed !important;
-                top: 15px !important;
-                left: 15px !important;
-                width: 400px !important;
-                min-height: 150px !important;
-                background: rgba(255, 255, 255, 0.95) !important;
-                border-radius: 12px !important;
-                pointer-events: auto !important;
-            `;
-                        console.log('✅ 強制顯示 result-info-panel (最高優先級)');
-        } else {
-            console.error('❌ result-info-panel 元素未找到');
-        }
-        
-        if (voiceLoadingBar) {
-            voiceLoadingBar.style.cssText = `
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                z-index: 999999 !important;
-                position: fixed !important;
-                bottom: 20px !important;
-                left: 20px !important;
-                right: 20px !important;
-                height: 60px !important;
-                background: rgba(0, 0, 255, 0.9) !important;
-                border: 3px solid white !important;
-                pointer-events: auto !important;
-            `;
-            
-            // 設置語音條的初始文字
-            const voiceLoadingTextEl = voiceLoadingBar.querySelector('.voice-loading-text');
-            if (voiceLoadingTextEl) {
-                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
-                voiceLoadingTextEl.classList.remove('typing', 'completed');
-            }
-            
-            console.log('✅ 強制顯示 voice-loading-bar (最高優先級)');
-        } else {
-            console.error('❌ voice-loading-bar 元素未找到');
-        }
-        
-
-        
-        // 初始化主要互動地圖
-        setTimeout(() => {
-            console.log('🗺️ 初始化地圖，位置:', data.latitude, data.longitude);
+        // 更新地圖標記
+        if (data.latitude && data.longitude) {
+            // 重新初始化地圖，更新位置
             initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
-            
-            // 地圖初始化完成後，保持顯示初始的"清喉嚨"訊息
-            // 故事內容將在語音播放開始時通過打字機效果顯示
-        }, 100);
+        }
+        
+        // 更新語音載入提示文字
+        const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
+        if (voiceLoadingTextEl) {
+            voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            voiceLoadingTextEl.classList.remove('typing', 'completed');
+        }
     }
 
     // 打字機效果相關變數
@@ -1898,7 +1746,7 @@ function initMainInteractiveMap(lat, lon, city, country) {
         // 創建自定義圖標
         const customIcon = L.divIcon({
             className: 'trajectory-marker current-location',
-            html: `<div class="trajectory-day">NOW</div>`,
+            html: `<div class="trajectory-day">TODAY</div>`,
             iconSize: [60, 24],
             iconAnchor: [30, 24]
         });
