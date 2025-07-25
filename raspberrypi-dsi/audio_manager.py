@@ -870,14 +870,78 @@ class AudioManager:
             text_hash = hashlib.md5(f"{text}_{language_code}_{selected_voice}".encode()).hexdigest()
             audio_file = self.cache_dir / f"openai_direct_{language_code}_{selected_voice}_{text_hash}.wav"
             
-            # 調用 OpenAI TTS
-            result = self._generate_audio_openai(text, audio_file)
+            # 檢查是否已有快取
+            if audio_file.exists():
+                self.logger.info(f"使用快取的音頻文件: {audio_file}")
+                return audio_file
             
-            if result and result.exists():
-                self.logger.info(f"✨ Nova 直接生成音頻成功: {language_code}")
-                return result
+            # 調用 OpenAI TTS API
+            if not self.openai_client:
+                self.logger.error("OpenAI 客戶端未初始化")
+                return None
+                
+            self.logger.info(f"🤖 使用 OpenAI TTS 生成音頻: {selected_voice}")
+            
+            # 調用 OpenAI TTS API
+            response = self.openai_client.audio.speech.create(
+                model=TTS_CONFIG['openai_model'],
+                voice=selected_voice,
+                input=text,
+                speed=TTS_CONFIG['openai_speed']
+            )
+            
+            # OpenAI 返回 MP3，直接保存為 MP3 然後轉換
+            temp_mp3_file = audio_file.with_suffix('.mp3')
+            
+            # 將音頻數據寫入 MP3 文件
+            with open(temp_mp3_file, 'wb') as f:
+                for chunk in response.iter_bytes(1024):
+                    f.write(chunk)
+            
+            # 驗證 MP3 文件
+            if temp_mp3_file.exists() and temp_mp3_file.stat().st_size > 0:
+                self.logger.info(f"OpenAI MP3 文件生成成功: {temp_mp3_file.stat().st_size} bytes")
+                
+                # 轉換 MP3 到 WAV
+                try:
+                    import subprocess
+                    # 嘗試 ffmpeg
+                    convert_cmd = ['ffmpeg', '-i', str(temp_mp3_file), '-y', str(audio_file)]
+                    result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
+                    
+                    if result.returncode == 0 and audio_file.exists():
+                        self.logger.info("ffmpeg 轉換成功")
+                        temp_mp3_file.unlink()  # 刪除臨時 MP3
+                    else:
+                        # ffmpeg 失敗，嘗試 sox
+                        self.logger.warning("ffmpeg 失敗，嘗試 sox")
+                        convert_cmd = ['sox', str(temp_mp3_file), str(audio_file)]
+                        result = subprocess.run(convert_cmd, capture_output=True, timeout=30)
+                        
+                        if result.returncode == 0 and audio_file.exists():
+                            self.logger.info("sox 轉換成功")
+                            temp_mp3_file.unlink()  # 刪除臨時 MP3
+                        else:
+                            # 兩個都失敗，直接用 MP3
+                            self.logger.warning("格式轉換失敗，直接使用 MP3")
+                            temp_mp3_file.rename(audio_file.with_suffix('.mp3'))
+                            audio_file = audio_file.with_suffix('.mp3')
+                            
+                except Exception as e:
+                    self.logger.warning(f"音頻格式轉換失敗: {e}")
+                    # 如果轉換失敗，使用原始 MP3
+                    temp_mp3_file.rename(audio_file.with_suffix('.mp3'))
+                    audio_file = audio_file.with_suffix('.mp3')
+                
+                # 最終驗證文件
+                if audio_file.exists() and audio_file.stat().st_size > 0:
+                    self.logger.info(f"✨ OpenAI TTS 音頻生成成功: {audio_file}")
+                    return audio_file
+                else:
+                    self.logger.error("音頻文件轉換後無效")
+                    return None
             else:
-                self.logger.error(f"Nova 直接生成音頻失敗: {language_code}")
+                self.logger.error("OpenAI MP3 文件生成失敗")
                 return None
                 
         except Exception as e:
