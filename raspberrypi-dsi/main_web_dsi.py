@@ -239,9 +239,8 @@ class WakeUpMapWebApp:
         
         def synchronized_loading_and_play():
             try:
-                # 🎵 立即播放按鈕確認音效
-                self.logger.info("🎵 播放按鈕確認音效")
-                self.audio_manager.play_notification_sound('success')
+                # 🎵 跳過提示音，直接進入 loading 模式
+                self.logger.info("🎵 跳過提示音，開始 loading")
                 
                 # 🔄 顯示 Loading 狀態
                 self.logger.info("📺 設定 Loading 狀態...")
@@ -420,6 +419,8 @@ class WakeUpMapWebApp:
     def _send_story_to_web(self, story_content: dict):
         """將故事內容傳給網頁端用於打字機效果"""
         try:
+            import json
+            
             if not self.web_controller or not self.web_controller.driver:
                 self.logger.warning("網頁控制器未初始化，無法傳送故事內容")
                 return
@@ -443,7 +444,6 @@ class WakeUpMapWebApp:
             console.log('🎵 樹莓派故事內容已準備完成:', window.piGeneratedStory);
             """
             
-            import json
             self.web_controller.driver.execute_script(story_js)
             self.logger.info("✅ 故事內容已傳送給網頁端")
             

@@ -589,9 +589,8 @@ class AudioManager:
             import requests
             import json
             
-            # API 端點
-            from config import API_ENDPOINTS
-            api_url = API_ENDPOINTS['generate_story']  # 使用與網頁端相同的 API
+            # API 端點 - 強制使用正確的 Pi 故事生成 API
+            api_url = 'https://subjective-clock.vercel.app/api/generatePiStory'
             
             # 清理城市名稱（移除冒號和空格）
             city = city.strip().rstrip(':').strip() if city else ''
