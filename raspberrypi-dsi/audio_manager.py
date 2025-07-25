@@ -851,13 +851,14 @@ class AudioManager:
             self.logger.error(f"生成音頻失敗: {e}")
             return None
 
-    def _generate_audio_openai_direct(self, text: str, language_code: str) -> Optional[Path]:
+    def _generate_audio_openai_direct(self, text: str, language_code: str, voice: str = None) -> Optional[Path]:
         """
         直接使用 OpenAI TTS 生成音頻（繞過其他引擎選擇）
         
         Args:
             text: 要轉換的文字
             language_code: 語言代碼
+            voice: 指定的語音模型（可選，默認使用配置中的語音）
         
         Returns:
             Path: 生成的音頻文件路徑，如果失敗則返回 None
@@ -865,8 +866,9 @@ class AudioManager:
         try:
             # 創建音頻文件路徑
             import hashlib
-            text_hash = hashlib.md5(f"{text}_{language_code}".encode()).hexdigest()
-            audio_file = self.cache_dir / f"nova_direct_{language_code}_{text_hash}.wav"
+            selected_voice = voice or TTS_CONFIG['openai_voice']
+            text_hash = hashlib.md5(f"{text}_{language_code}_{selected_voice}".encode()).hexdigest()
+            audio_file = self.cache_dir / f"openai_direct_{language_code}_{selected_voice}_{text_hash}.wav"
             
             # 調用 OpenAI TTS
             result = self._generate_audio_openai(text, audio_file)
@@ -889,12 +891,12 @@ class AudioManager:
                 self.logger.error("OpenAI 客戶端未初始化")
                 return None
                 
-            self.logger.info(f"🤖 使用 OpenAI TTS 生成音頻: {TTS_CONFIG['openai_voice']}")
+            self.logger.info(f"🤖 使用 OpenAI TTS 生成音頻: {selected_voice}")
             
             # 調用 OpenAI TTS API
             response = self.openai_client.audio.speech.create(
                 model=TTS_CONFIG['openai_model'],
-                voice=TTS_CONFIG['openai_voice'],
+                voice=selected_voice,
                 input=text,
                 speed=TTS_CONFIG['openai_speed']
             )
@@ -1321,8 +1323,9 @@ class AudioManager:
             
             # 根據音效類型選擇不同的問候語
             if sound_type == 'success':
-                # 播放簡短的成功音效（使用英語 "Great!"）
-                return self.play_greeting('US', '', 'United States')
+                # 播放簡短的成功音效（使用嗶聲而不是完整問候語）
+                self.logger.info("播放成功提示音")
+                return self._play_simple_beep(frequency=880, duration=0.1)
             elif sound_type == 'error':
                 # 播放錯誤提示音
                 self.logger.info("播放錯誤提示音")
