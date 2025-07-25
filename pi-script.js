@@ -883,19 +883,19 @@ window.addEventListener('firebaseReady', async (event) => {
             return;
         }
         
-        if (!clockLeafletMap) {
-            console.warn('⚠️ 地圖實例未找到');
+        if (!mainInteractiveMap) {
+            console.warn('⚠️ 主地圖實例未找到');
             return;
         }
         
         // 縮放按鈕事件監聽器
         zoomInButton.addEventListener('click', () => {
-            if (clockLeafletMap) {
-                const currentZoom = clockLeafletMap.getZoom();
-                const maxZoom = clockLeafletMap.getMaxZoom();
+            if (mainInteractiveMap) {
+                const currentZoom = mainInteractiveMap.getZoom();
+                const maxZoom = mainInteractiveMap.getMaxZoom();
                 
                 if (currentZoom < maxZoom) {
-                    clockLeafletMap.zoomIn();
+                    mainInteractiveMap.zoomIn();
                     console.log('🔍 地圖放大，當前縮放級別:', currentZoom + 1);
                 }
                 
@@ -904,12 +904,12 @@ window.addEventListener('firebaseReady', async (event) => {
         });
         
         zoomOutButton.addEventListener('click', () => {
-            if (clockLeafletMap) {
-                const currentZoom = clockLeafletMap.getZoom();
-                const minZoom = clockLeafletMap.getMinZoom();
+            if (mainInteractiveMap) {
+                const currentZoom = mainInteractiveMap.getZoom();
+                const minZoom = mainInteractiveMap.getMinZoom();
                 
                 if (currentZoom > minZoom) {
-                    clockLeafletMap.zoomOut();
+                    mainInteractiveMap.zoomOut();
                     console.log('🔍 地圖縮小，當前縮放級別:', currentZoom - 1);
                 }
                 
@@ -918,7 +918,7 @@ window.addEventListener('firebaseReady', async (event) => {
         });
         
         // 監聽地圖縮放事件，更新按鈕狀態
-        clockLeafletMap.on('zoomend', updateZoomButtonState);
+        mainInteractiveMap.on('zoomend', updateZoomButtonState);
         
         // 初始更新按鈕狀態
         updateZoomButtonState();
@@ -928,16 +928,16 @@ window.addEventListener('firebaseReady', async (event) => {
     
     // 新增：更新縮放按鈕狀態
     function updateZoomButtonState() {
-        if (!clockLeafletMap) return;
+        if (!mainInteractiveMap) return;
         
         const zoomInButton = document.getElementById('zoomInButton');
         const zoomOutButton = document.getElementById('zoomOutButton');
         
         if (!zoomInButton || !zoomOutButton) return;
         
-        const currentZoom = clockLeafletMap.getZoom();
-        const maxZoom = clockLeafletMap.getMaxZoom();
-        const minZoom = clockLeafletMap.getMinZoom();
+        const currentZoom = mainInteractiveMap.getZoom();
+        const maxZoom = mainInteractiveMap.getMaxZoom();
+        const minZoom = mainInteractiveMap.getMinZoom();
         
         // 更新放大按鈕狀態
         if (currentZoom >= maxZoom) {
@@ -1904,6 +1904,11 @@ function initMainInteractiveMap(lat, lon, city, country) {
             coordinateEl.textContent = `${lat.toFixed(3)}, ${lon.toFixed(3)}`;
         }
     }
+    
+    // 初始化縮放按鈕功能
+    setTimeout(() => {
+        initCustomZoomControls();
+    }, 100);
 } 
 
 // Debug functions removed for production
