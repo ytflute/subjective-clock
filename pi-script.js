@@ -1364,13 +1364,65 @@ window.addEventListener('firebaseReady', async (event) => {
 
     // 更新結果數據
     function updateResultData(data) {
-        // 不需要更新UI元素，因為已經移除了右側資訊面板
-        // 所有資訊都會顯示在地圖標記的彈出視窗中
-        console.log('更新位置數據:', data);
-        
-        // 更新地圖標記
+        // 更新天數
+        const dayNumberEl = document.getElementById('dayNumber');
+        if (dayNumberEl) {
+            dayNumberEl.textContent = data.day || '1';
+        }
+
+        // 更新日期
+        const wakeupDateEl = document.getElementById('wakeupDate');
+        if (wakeupDateEl) {
+            const currentDate = new Date();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const year = currentDate.getFullYear();
+            const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][currentDate.getDay()];
+            wakeupDateEl.textContent = `${month}/${day}/${year} ${weekday}`;
+        }
+
+        // 更新當地問候語
+        const localGreetingEl = document.getElementById('localGreeting');
+        if (localGreetingEl && data.greeting) {
+            let language = '當地語言';
+            let greetingText = data.greeting;
+            if (data.language) {
+                language = data.language;
+            } else {
+                const languageMatch = data.greeting.match(/\((.*?)\)/);
+                if (languageMatch) {
+                    language = languageMatch[1];
+                    greetingText = data.greeting.replace(/\s*\([^)]*\)/g, '').trim();
+                }
+            }
+            localGreetingEl.textContent = `${greetingText.toUpperCase()} (${language})`;
+        }
+
+        // 更新城市名稱
+        const cityNameEl = document.getElementById('cityName');
+        if (cityNameEl) {
+            cityNameEl.textContent = data.city || 'Unknown City';
+        }
+
+        // 更新國家名稱和國旗
+        const countryNameEl = document.getElementById('countryName');
+        const countryFlagEl = document.getElementById('countryFlag');
+        if (countryNameEl) {
+            countryNameEl.textContent = data.country || 'Unknown Country';
+        }
+        if (countryFlagEl && data.flag) {
+            countryFlagEl.src = data.flag;
+            countryFlagEl.alt = `${data.country} Flag`;
+        }
+
+        // 更新座標
         if (data.latitude && data.longitude) {
-            // 重新初始化地圖，更新位置
+            const coordinatesEl = document.getElementById('coordinates');
+            if (coordinatesEl) {
+                coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
+            }
+            
+            // 更新地圖標記
             initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
         }
         
@@ -1755,17 +1807,10 @@ function initMainInteractiveMap(lat, lon, city, country) {
             icon: customIcon
         }).addTo(mainInteractiveMap);
         
-        // 自定義標記彈窗
-        const popupContent = `
-            <div style="text-align: center;">
-                <h3 style="margin: 0; font-size: 14px; color: #000;">${city}</h3>
-                <p style="margin: 5px 0 0 0; font-size: 10px; color: #666;">${country}</p>
-            </div>
-        `;
-        
-        marker.bindPopup(popupContent, {
-            offset: [150, 0] // 向右移動150px，放在右半邊中間
-        }).openPopup();
+        // 不需要彈窗，標記只顯示TODAY
+        marker.bindPopup('', {
+            offset: [150, 0]
+        });
     }
     
     // 隱藏版權信息
@@ -1883,17 +1928,9 @@ function drawTrajectoryLine() {
             icon: customIcon
         }).addTo(trajectoryLayer);
         
-        // 添加彈窗
-        const popupContent = `
-            <div style="text-align: center; font-size: 12px;">
-                <strong>Day ${point.day}</strong><br>
-                ${point.city}, ${point.country}<br>
-                <small>${point.date}</small>
-            </div>
-        `;
-        
-        marker.bindPopup(popupContent, {
-            offset: [150, 0] // 向右移動150px，放在右半邊中間
+        // 不需要彈窗，標記只顯示Day數字
+        marker.bindPopup('', {
+            offset: [150, 0]
         });
     });
     

@@ -82,6 +82,35 @@
 
             <!-- 結果狀態 -->
             <div id="resultState" class="state result-state">
+                <!-- 左側信息面板 (浮層) -->
+                <div class="result-info-panel">
+                    <div class="day-counter">
+                        <span class="day-label">Day</span>
+                        <span id="dayNumber" class="day-number">1</span>
+                    </div>
+                    
+                    <div class="date-info">
+                        <span class="date-label">Date:</span>
+                        <span id="wakeupDate" class="date-value">07/25/2025 Fri</span>
+                    </div>
+                    
+                    <div class="greeting-info">
+                        <span id="localGreeting" class="local-greeting">GOOD MORNING! (English)</span>
+                    </div>
+                    
+                    <div class="location-info">
+                        <h1 id="cityName" class="city-name">LOGAN</h1>
+                        <div class="country-info">
+                            <img id="countryFlag" class="country-flag" src="" alt="Flag">
+                            <span id="countryName" class="country-name">United States</span>
+                        </div>
+                        <!-- 座標信息整合到此處 -->
+                        <div class="coordinates-info">
+                            <span id="coordinates" class="coordinates-text">21.276, 55.517</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- 地圖縮放控制按鈕 -->
                 <div class="map-zoom-controls">
                     <button id="zoomInButton" class="zoom-button zoom-in">+</button>
