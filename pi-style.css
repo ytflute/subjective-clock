@@ -25,7 +25,7 @@
 
 /* === 基礎佈局 === */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     font-size: 14px;
     line-height: 1.4;
     color: var(--text-color);
@@ -36,6 +36,21 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+}
+
+/* 英文像素字體類 */
+.pixel-font-en {
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+}
+
+/* 中文點陣字體類 */
+.pixel-font-cn {
+    font-family: 'WenQuanYi Bitmap Song', 'Courier Prime', 'Microsoft YaHei', '微軟雅黑', monospace;
+}
+
+/* 混合字體類 */
+.pixel-font-mixed {
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
 }
 
 .container {
@@ -794,7 +809,7 @@ body {
     width: 100%;
     height: 440px;
     background: #ffffff;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'Press Start 2P', 'Microsoft YaHei', '微軟雅黑', monospace; /* 自定義像素字體 */
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace; /* 實際安裝的像素字體 */
 }
 
 /* 左側內容區 */
@@ -827,7 +842,7 @@ body {
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'Press Start 2P', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     text-shadow: 
         1px 1px 0px #cccccc,
         2px 2px 0px #999999;
@@ -888,7 +903,7 @@ body {
     text-align: center;
     background: #ffffff;
     padding: 2px 6px;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     letter-spacing: 0.5px;
 }
 
@@ -897,7 +912,7 @@ body {
     font-weight: 700;
     color: #000000;
     margin: 0;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'Orbitron', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-shadow: 
@@ -916,7 +931,7 @@ body {
     color: #000000;
     background: #ffffff;
     padding: 0;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     letter-spacing: 0.5px;
 }
 
@@ -929,7 +944,7 @@ body {
     font-size: 14px;
     font-weight: normal;
     color: #666666;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     margin-bottom: 6px;
     letter-spacing: 0.5px;
     font-style: italic;
@@ -940,7 +955,7 @@ body {
     font-size: 15px;
     line-height: 1.4;
     color: #000000;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     letter-spacing: 0.3px;
     text-align: left;
 }
@@ -1004,7 +1019,7 @@ body {
 
 .wake-up-popup .leaflet-popup-content {
     margin: 8px !important;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace !important;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace !important;
 }
 
 /* 座標信息樣式 */
@@ -1014,7 +1029,7 @@ body {
     left: 20px;
     background: rgba(255, 255, 255, 0.9);
     padding: 6px 10px;
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'VT323', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
     font-size: 12px;
     color: #666666;
     border-radius: 4px;
@@ -1047,7 +1062,7 @@ body {
     justify-content: center;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    font-family: 'ByteBounce', 'GB18030 Bitmap', 'Press Start 2P', 'Microsoft YaHei', '微軟雅黑', monospace;
+    font-family: 'Press Start 2P', 'Courier Prime', 'WenQuanYi Bitmap Song', 'Microsoft YaHei', '微軟雅黑', monospace;
 }
 
 .zoom-button:hover {
