@@ -358,7 +358,7 @@ window.addEventListener('firebaseReady', async (event) => {
             }
 
             console.log(`✅ 狀態切換完成: ${newState}`);
-        logToPanel(`狀態切換完成: ${newState}`, 'success');
+
         } catch (e) {
             console.error('❌ 狀態切換失敗:', e);
         }
@@ -986,19 +986,15 @@ window.addEventListener('firebaseReady', async (event) => {
     // 新增：語音播放故事（含當地問候語+打字機效果）
     async function speakStory(storyData) {
         console.log('🎬 正在播放完整語音內容:', storyData);
-        logToPanel('開始語音播放流程', 'info');
         
         try {
-            // 準備完整的語音內容：當地問候語 + 故事
-            const fullContent = `${storyData.greeting} ${storyData.story}`;
+            // 只播放故事內容，不要問候語
+            const fullContent = storyData.story;
             const displayContent = fullContent; // 用於打字機效果顯示
-            
-            logToPanel(`準備播放內容: ${fullContent.substring(0, 50)}...`, 'info');
 
             // 檢查瀏覽器是否支援語音合成
             if (!('speechSynthesis' in window)) {
                 console.warn('🔇 此瀏覽器不支援語音合成');
-                logToPanel('瀏覽器不支援語音合成，直接啟動打字機效果', 'warning');
                 // 即使沒有語音，也要啟動打字機效果
                 showVoiceLoading();
                 await new Promise(resolve => setTimeout(resolve, 1500));
@@ -1008,7 +1004,6 @@ window.addEventListener('firebaseReady', async (event) => {
 
             // 顯示語音載入提示（清喉嚨階段）
             showVoiceLoading();
-            logToPanel('顯示清喉嚨提示', 'info');
 
             // 停止任何正在播放的語音和打字機效果
             window.speechSynthesis.cancel();
@@ -1023,7 +1018,6 @@ window.addEventListener('firebaseReady', async (event) => {
             // 設定語言
             if (storyData.languageCode) {
                 utterance.lang = storyData.languageCode;
-                logToPanel(`設定語言: ${storyData.languageCode}`, 'info');
             }
             
             // 設定語音參數
@@ -1037,25 +1031,21 @@ window.addEventListener('firebaseReady', async (event) => {
             // 語音開始播放時啟動打字機效果
             utterance.onstart = () => {
                 console.log('🎬 語音播放開始，啟動打字機效果');
-                logToPanel('✅ 語音播放開始!', 'success');
                 console.log('🌍 播放內容:', fullContent);
                 
                 // 隱藏 throat clearing popup
                 hideThroatClearingPopup();
-                logToPanel('隱藏清喉嚨對話框', 'info');
                 
                 speechStarted = true;
                 if (!typewriterStarted) {
                     typewriterStarted = true;
                     startStoryTypewriter(displayContent);
-                    logToPanel('啟動打字機效果', 'success');
                 }
             };
 
             // 播放完成的回調
             utterance.onend = () => {
                 console.log('🔊 完整語音播放完成');
-                logToPanel('語音播放完成', 'success');
                 hideVoiceLoading();
                 
                 // 確保打字機效果也完成
@@ -1071,14 +1061,12 @@ window.addEventListener('firebaseReady', async (event) => {
 
             utterance.onerror = (error) => {
                 console.error('🔇 語音播放錯誤:', error);
-                logToPanel(`語音播放錯誤: ${error.error}`, 'error');
                 
                 // 即使語音失敗，也要啟動打字機效果
                 hideThroatClearingPopup();
                 if (!typewriterStarted) {
                     typewriterStarted = true;
                     startStoryTypewriter(displayContent);
-                    logToPanel('語音失敗，但啟動打字機效果', 'warning');
                 }
                 
                 hideVoiceLoading();
@@ -1095,7 +1083,6 @@ window.addEventListener('firebaseReady', async (event) => {
             };
 
             // 開始播放完整內容
-            logToPanel('嘗試啟動語音播放...', 'info');
             window.speechSynthesis.speak(utterance);
             console.log('🎬 開始播放：當地問候語 + 故事');
             
@@ -1103,7 +1090,6 @@ window.addEventListener('firebaseReady', async (event) => {
             setTimeout(() => {
                 if (!speechStarted && !typewriterStarted) {
                     console.warn('⚠️ 語音播放可能被阻止，強制啟動打字機效果');
-                    logToPanel('語音可能被阻止，強制啟動打字機效果', 'warning');
                     hideThroatClearingPopup();
                     typewriterStarted = true;
                     startStoryTypewriter(displayContent);
@@ -1364,7 +1350,6 @@ window.addEventListener('firebaseReady', async (event) => {
     // 更新結果頁面數據
     function updateResultData(data) {
         console.log('🔍 updateResultData 被調用，數據:', data);
-    logToPanel('updateResultData 被調用', 'debug');
         
         // 檢查結果狀態是否啟動
         const resultStateEl = document.getElementById('resultState');
@@ -1396,11 +1381,9 @@ window.addEventListener('firebaseReady', async (event) => {
         if (dayNumberEl) {
             dayNumberEl.textContent = dayCounter;
             console.log('✅ Day 計數器已更新:', dayCounter);
-        logToPanel(`Day 計數器已更新: ${dayCounter}`, 'success');
             dayCounter++; // 為下次使用自增
         } else {
             console.error('❌ dayNumber 元素未找到');
-        logToPanel('dayNumber 元素未找到', 'error');
         }
         
         // 更新日期
@@ -1468,11 +1451,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 border: 4px solid yellow !important;
                 pointer-events: auto !important;
             `;
-            console.log('✅ 強制顯示 result-info-panel (最高優先級)');
-            logToPanel('已強制設置信息面板樣式', 'success');
+                        console.log('✅ 強制顯示 result-info-panel (最高優先級)');
         } else {
             console.error('❌ result-info-panel 元素未找到');
-            logToPanel('❌ 關鍵問題: result-info-panel 元素未找到!', 'error');
         }
         
         if (voiceLoadingBar) {
@@ -1496,11 +1477,9 @@ window.addEventListener('firebaseReady', async (event) => {
             if (voiceLoadingTextEl) {
                 voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 voiceLoadingTextEl.classList.remove('typing', 'completed');
-                logToPanel('已設置語音條初始文字', 'success');
             }
             
             console.log('✅ 強制顯示 voice-loading-bar (最高優先級)');
-            logToPanel('已強制設置語音條樣式', 'success');
         } else {
             console.error('❌ voice-loading-bar 元素未找到');
         }
@@ -1521,7 +1500,6 @@ window.addEventListener('firebaseReady', async (event) => {
                 pointer-events: auto !important;
             `;
             console.log('✅ 強制顯示 coordinate-info (最高優先級)');
-            logToPanel('已強制設置坐標信息樣式', 'success');
         } else {
             console.error('❌ coordinate-info 元素未找到');
         }
@@ -1612,7 +1590,6 @@ window.addEventListener('firebaseReady', async (event) => {
         
         // 顯示 throat clearing popup
         showThroatClearingPopup();
-        logToPanel('顯示清喉嚨彈出對話框', 'info');
         
         if (voiceLoadingBar) {
             voiceLoadingBar.style.display = 'block';
@@ -1645,8 +1622,8 @@ window.addEventListener('firebaseReady', async (event) => {
         // 估算合適的打字速度 (根據語音播放時間調整)
         const estimatedDuration = estimateSpeechDuration(storyText);
         
-        // 計算每個字符的顯示間隔（讓打字機效果略快於語音，避免延遲）
-        const typeSpeed = Math.max(60, Math.min(150, (estimatedDuration * 0.85) / storyText.length));
+        // 使用固定的打字速度，讓效果更明顯
+        const typeSpeed = 100; // 固定100ms每字，打字機效果更明顯
         
         console.log(`🎬 開始打字機效果 - 文字長度: ${storyText.length}, 估算語音時間: ${estimatedDuration}ms, 打字速度: ${typeSpeed}ms/字`);
         
@@ -1917,341 +1894,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
     }
 } 
 
-// 在網頁上顯示調試信息的面板
-let debugPanel = null;
+// Debug functions removed for production
 
-function createDebugPanel() {
-    if (debugPanel) return debugPanel;
-    
-    debugPanel = document.createElement('div');
-    debugPanel.id = 'debugPanel';
-    debugPanel.style.cssText = `
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        width: 380px;
-        max-height: 500px;
-        background: rgba(0, 0, 0, 0.95);
-        color: #00ff00;
-        font-family: 'Courier New', monospace;
-        font-size: 11px;
-        padding: 15px;
-        border: 3px solid #00ff00;
-        border-radius: 8px;
-        z-index: 10002;
-        overflow-y: auto;
-        white-space: pre-wrap;
-        display: block;
-        box-shadow: 0 8px 32px rgba(0,255,0,0.3);
-    `;
-    
-    // 添加關閉按鈕
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = '✕';
-    closeBtn.style.cssText = `
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        background: #ff0000;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-        cursor: pointer;
-    `;
-    closeBtn.onclick = () => hideDebugPanel();
-    
-    debugPanel.appendChild(closeBtn);
-    document.body.appendChild(debugPanel);
-    
-    return debugPanel;
-}
-
-function showDebugPanel() {
-    const panel = createDebugPanel();
-    panel.style.display = 'block';
-    return panel;
-}
-
-function hideDebugPanel() {
-    if (debugPanel) {
-        debugPanel.style.display = 'none';
-    }
-}
-
-function logToPanel(message, type = 'info') {
-    const panel = createDebugPanel();
-    const timestamp = new Date().toLocaleTimeString();
-    const prefix = {
-        'info': '📘',
-        'success': '✅',
-        'error': '❌',
-        'warning': '⚠️',
-        'debug': '🔍'
-    }[type] || '📘';
-    
-    const logEntry = `[${timestamp}] ${prefix} ${message}\n`;
-    
-    // 如果面板不可見，創建內容容器
-    if (!panel.querySelector('.debug-content')) {
-        const content = document.createElement('div');
-        content.className = 'debug-content';
-        content.style.marginTop = '25px';
-        panel.appendChild(content);
-    }
-    
-    const content = panel.querySelector('.debug-content');
-    content.textContent += logEntry;
-    
-    // 自動滾動到底部
-    content.scrollTop = content.scrollHeight;
-    
-    // 限制日誌長度
-    const lines = content.textContent.split('\n');
-    if (lines.length > 50) {
-        content.textContent = lines.slice(-50).join('\n');
-    }
-    
-    // 如果有錯誤，自動顯示面板
-    if (type === 'error') {
-        showDebugPanel();
-    }
-}
-
-// 修改現有的 console.log 調用，同時記錄到面板
-function debugLog(message, type = 'info') {
-    console.log(message);
-    logToPanel(message, type);
-}
-
-// 重寫關鍵調試函數
-window.debugPageStructure = function() {
-    showDebugPanel();
-    logToPanel('=== 頁面結構調試開始 ===', 'debug');
-    
-    // 檢查主要容器
-    const mainDisplay = document.querySelector('.main-display');
-    logToPanel(`主要顯示容器: ${mainDisplay ? '✅ 存在' : '❌ 不存在'}`, mainDisplay ? 'success' : 'error');
-    
-    // 檢查地圖容器
-    const mapContainer = document.getElementById('mainMapContainer');
-    logToPanel(`地圖容器: ${mapContainer ? '✅ 存在' : '❌ 不存在'}`, mapContainer ? 'success' : 'error');
-    
-    // 檢查所有狀態元素
-    const states = {
-        waiting: document.getElementById('waitingState'),
-        loading: document.getElementById('loadingState'),
-        result: document.getElementById('resultState'),
-        error: document.getElementById('errorState')
-    };
-    
-    Object.entries(states).forEach(([name, element]) => {
-        const exists = !!element;
-        const isActive = element?.classList.contains('active');
-        logToPanel(`狀態 ${name}: ${exists ? '✅ 存在' : '❌ 不存在'} ${isActive ? '(啟動中)' : ''}`, 
-                  exists ? 'success' : 'error');
-    });
-    
-    // 檢查結果狀態的子元素
-    const resultState = states.result;
-    if (resultState) {
-        logToPanel(`結果狀態詳細:`, 'debug');
-        logToPanel(`  - 是否啟動: ${resultState.classList.contains('active')}`, 'debug');
-        logToPanel(`  - 子元素數量: ${resultState.children.length}`, 'debug');
-        
-        // 檢查關鍵子元素
-        const infoPanel = resultState.querySelector('.result-info-panel');
-        const voiceBar = resultState.querySelector('.voice-loading-bar');
-        const coordInfo = resultState.querySelector('.coordinate-info');
-        
-        [
-            { name: '信息面板', element: infoPanel, selector: '.result-info-panel' },
-            { name: '語音條', element: voiceBar, selector: '.voice-loading-bar' },
-            { name: '坐標信息', element: coordInfo, selector: '.coordinate-info' }
-        ].forEach(({ name, element, selector }) => {
-            if (element) {
-                const styles = getComputedStyle(element);
-                logToPanel(`${name}: ✅ 存在`, 'success');
-                logToPanel(`  - display: ${styles.display}`, 'debug');
-                logToPanel(`  - visibility: ${styles.visibility}`, 'debug');
-                logToPanel(`  - opacity: ${styles.opacity}`, 'debug');
-                logToPanel(`  - z-index: ${styles.zIndex}`, 'debug');
-            } else {
-                logToPanel(`${name}: ❌ 不存在 (${selector})`, 'error');
-            }
-        });
-    }
-    
-    // 檢查當前狀態
-    logToPanel(`當前狀態: ${window.currentState || 'undefined'}`, 'debug');
-    
-    logToPanel('=== 調試完成 ===', 'debug');
-    return '調試信息已顯示在面板中';
-};
-
-// 創建快捷鍵來顯示/隱藏調試面板
-document.addEventListener('keydown', function(e) {
-    // Ctrl + D 顯示/隱藏調試面板
-    if (e.ctrlKey && e.key === 'd') {
-        e.preventDefault();
-        if (debugPanel && debugPanel.style.display === 'block') {
-            hideDebugPanel();
-        } else {
-            debugPageStructure();
-        }
-    }
-    
-    // Ctrl + Shift + D 清空調試面板
-    if (e.ctrlKey && e.shiftKey && e.key === 'D') {
-        e.preventDefault();
-        if (debugPanel) {
-            const content = debugPanel.querySelector('.debug-content');
-            if (content) content.textContent = '';
-        }
-    }
-});
-
-// 創建觸摸手勢來顯示調試面板 (適合觸控螢幕)
-let touchStartTime = 0;
-let touchCount = 0;
-
-// 更簡單的觸摸檢測
-document.addEventListener('click', function(e) {
-    const now = Date.now();
-    if (now - touchStartTime < 500) {
-        touchCount++;
-    } else {
-        touchCount = 1;
-    }
-    touchStartTime = now;
-    
-    logToPanel(`點擊檢測: 第${touchCount}次`, 'info');
-    
-    // 3次點擊就顯示調試面板 (降低門檻)
-    if (touchCount >= 3) {
-        touchCount = 0;
-        logToPanel('觸發調試面板!', 'success');
-        debugPageStructure();
-    }
-});
-
-// 保留原始的touchstart事件作為備用
-document.addEventListener('touchstart', function(e) {
-    const now = Date.now();
-    if (now - touchStartTime < 500) {
-        touchCount++;
-    } else {
-        touchCount = 1;
-    }
-    touchStartTime = now;
-    
-    logToPanel(`觸摸檢測: 第${touchCount}次`, 'info');
-    
-    // 5次快速觸摸顯示調試面板
-    if (touchCount >= 5) {
-        touchCount = 0;
-        logToPanel('觸摸觸發調試面板!', 'success');
-        debugPageStructure();
-    }
-});
-
-// 添加一個可見的調試按鈕 (5秒後出現)
-setTimeout(() => {
-    const debugButton = document.createElement('button');
-    debugButton.textContent = 'DEBUG';
-    debugButton.style.cssText = `
-        position: fixed;
-        bottom: 10px;
-        left: 10px;
-        background: #ff6600;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        font-size: 14px;
-        font-weight: bold;
-        z-index: 10001;
-        cursor: pointer;
-        opacity: 0.9;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        min-width: 60px;
-        min-height: 40px;
-    `;
-    debugButton.onclick = () => {
-        logToPanel('DEBUG按鈕被點擊', 'success');
-        debugPageStructure();
-    };
-    
-    // 添加點擊動畫效果
-    debugButton.addEventListener('mousedown', () => {
-        debugButton.style.transform = 'scale(0.95)';
-    });
-    debugButton.addEventListener('mouseup', () => {
-        debugButton.style.transform = 'scale(1)';
-    });
-    
-    document.body.appendChild(debugButton);
-    logToPanel('DEBUG按鈕已添加到左下角', 'info');
-}, 5000);
-
-// 添加一個狀態顯示按鈕 (3秒後出現)
-setTimeout(() => {
-    const statusButton = document.createElement('button');
-    statusButton.textContent = 'STATUS';
-    statusButton.style.cssText = `
-        position: fixed;
-        bottom: 60px;
-        left: 10px;
-        background: #0066ff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 8px 12px;
-        font-size: 12px;
-        font-weight: bold;
-        z-index: 10001;
-        cursor: pointer;
-        opacity: 0.8;
-        min-width: 60px;
-        min-height: 35px;
-    `;
-    statusButton.onclick = () => {
-        logToPanel('=== 狀態檢查 ===', 'info');
-        logToPanel(`當前狀態: ${window.currentState || 'undefined'}`, 'info');
-        
-        const resultState = document.getElementById('resultState');
-        logToPanel(`結果元素存在: ${!!resultState}`, resultState ? 'success' : 'error');
-        if (resultState) {
-            logToPanel(`結果元素啟動: ${resultState.classList.contains('active')}`, 
-                      resultState.classList.contains('active') ? 'success' : 'warning');
-        }
-        
-        const infoPanel = document.querySelector('.result-info-panel');
-        logToPanel(`信息面板存在: ${!!infoPanel}`, infoPanel ? 'success' : 'error');
-    };
-    
-    document.body.appendChild(statusButton);
-    logToPanel('STATUS按鈕已添加', 'info');
-}, 3000);
-
-// 自動啟動調試 (5秒後) - 修改為更詳細
-setTimeout(() => {
-    logToPanel('=== 調試系統啟動 ===', 'info');
-    logToPanel('版本: DSI專用調試版', 'info');
-    logToPanel('觸發方式:', 'info');
-    logToPanel('1. 點擊螢幕3次 (降低門檻)', 'info');
-    logToPanel('2. 觸摸螢幕5次', 'info');  
-    logToPanel('3. Ctrl+D 鍵盤快捷鍵', 'info');
-    logToPanel('4. 等待DEBUG按鈕出現 (10秒後)', 'info');
-    
-    // 自動觸發一次調試，讓用戶看到面板
-    setTimeout(() => {
-        logToPanel('=== 自動觸發調試檢查 ===', 'warning');
-        showDebugPanel(); // 直接顯示面板
-        debugPageStructure();
-    }, 1000); // 更快觸發
-}, 5000);
+// Debug functions removed for production
 
 // ... existing code ...
