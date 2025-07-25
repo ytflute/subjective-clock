@@ -77,7 +77,7 @@ TTS_CONFIG = {
     'openai_speed': 1.0,  # 0.25 到 4.0
     
     # Nova 整合模式
-    'nova_integrated_mode': True,  # 使用 Nova 整合播放當地問候+中文故事
+    'nova_integrated_mode': True,  # 使用 Nova 播放中文故事
     
     # 音質增強設定
     'audio_quality': 'high',
