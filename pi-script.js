@@ -137,7 +137,7 @@ let groupNameInput, groupFilterSelect, connectionStatus;
 
 // 新增：顯示狀態元素
 let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
-let cityNameEl, countryNameEl, greetingTextEl, coordinateInfoEl, errorMessageEl;
+    let cityNameEl, countryNameEl, greetingTextEl, coordinatesEl, errorMessageEl;
 
 // 當 Firebase 準備就緒時執行
 window.addEventListener('firebaseReady', async (event) => {
@@ -187,7 +187,7 @@ window.addEventListener('firebaseReady', async (event) => {
         cityNameEl = document.getElementById('cityName');
         countryNameEl = document.getElementById('countryName');
         greetingTextEl = document.getElementById('greetingText');
-        coordinateInfoEl = document.getElementById('coordinateInfo');
+        coordinatesEl = document.getElementById('coordinates');
         errorMessageEl = document.getElementById('errorMessage');
 
         console.log('✅ DOM 元素取得完成');
@@ -756,8 +756,8 @@ window.addEventListener('firebaseReady', async (event) => {
             await generateAndDisplayStoryAndGreeting(cityData);
             
             // 設定座標資訊
-            if (coordinateInfoEl) {
-                coordinateInfoEl.textContent = 
+            if (coordinatesEl) {
+                coordinatesEl.textContent = 
                     `${cityData.latitude.toFixed(4)}°, ${cityData.longitude.toFixed(4)}°`;
             }
             
@@ -1364,7 +1364,7 @@ window.addEventListener('firebaseReady', async (event) => {
         const countryNameEl = document.getElementById('countryName');
         const countryFlagEl = document.getElementById('countryFlag');
         const voiceLoadingBar = document.getElementById('voiceLoadingBar');
-        const coordinateInfo = document.getElementById('coordinateInfo');
+        const coordinatesEl = document.getElementById('coordinates'); // 新的座標元素
         
         console.log('🔍 關鍵元素檢查:', {
             dayNumber: !!dayNumberEl,
@@ -1374,7 +1374,7 @@ window.addEventListener('firebaseReady', async (event) => {
             countryName: !!countryNameEl,
             countryFlag: !!countryFlagEl,
             voiceLoadingBar: !!voiceLoadingBar,
-            coordinateInfo: !!coordinateInfo
+            coordinates: !!coordinatesEl
         });
         
         // 更新 Day 計數器
@@ -1386,21 +1386,36 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ dayNumber 元素未找到');
         }
         
-        // 更新日期
+        // 更新日期 (加上年份)
         if (wakeupDateEl) {
             const currentDate = new Date();
-            wakeupDateEl.textContent = formatWakeupDate(currentDate);
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const year = currentDate.getFullYear();
+            const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][currentDate.getDay()];
+            wakeupDateEl.textContent = `${month}/${day}/${year} ${weekday}`;
             console.log('✅ 日期已更新');
         } else {
             console.error('❌ wakeupDate 元素未找到');
         }
         
-        // 更新當地問候語
+        // 更新當地問候語 - 支持新的API格式
         if (localGreetingEl && data.greeting) {
-            // 提取語言信息 (假設格式為 "Good morning! (English)")
-            const languageMatch = data.greeting.match(/\((.*?)\)/);
-            const language = languageMatch ? languageMatch[1] : 'Local';
-            const greetingText = data.greeting.replace(/\s*\([^)]*\)/g, '').trim();
+            let language = '當地語言';
+            let greetingText = data.greeting;
+            
+            // 檢查是否有新的API格式 (包含language字段)
+            if (data.language) {
+                language = data.language;
+            } else {
+                // 舊格式：從括號中提取語言信息
+                const languageMatch = data.greeting.match(/\((.*?)\)/);
+                if (languageMatch) {
+                    language = languageMatch[1];
+                    greetingText = data.greeting.replace(/\s*\([^)]*\)/g, '').trim();
+                }
+            }
+            
             localGreetingEl.textContent = `${greetingText.toUpperCase()} (${language})`;
             console.log('✅ 當地問候語已更新:', localGreetingEl.textContent);
         } else {
@@ -1432,6 +1447,14 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('✅ 國旗已更新:', flagUrl);
         } else {
             console.error('❌ countryFlag 元素未找到或數據缺失');
+        }
+        
+        // 更新座標信息 (現在整合在info panel中)
+        if (coordinatesEl && data.latitude && data.longitude) {
+            coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
+            console.log('✅ 座標已更新:', coordinatesEl.textContent);
+        } else {
+            console.error('❌ coordinates 元素未找到或數據缺失');
         }
         
         // 強制顯示所有浮動元素 - 使用最高優先級CSS
@@ -1484,25 +1507,7 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ voice-loading-bar 元素未找到');
         }
         
-        if (coordinateInfo) {
-            coordinateInfo.style.cssText = `
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                z-index: 999999 !important;
-                position: fixed !important;
-                top: 20px !important;
-                right: 20px !important;
-                width: 150px !important;
-                min-height: 80px !important;
-                background: rgba(0, 255, 0, 0.9) !important;
-                border: 3px solid black !important;
-                pointer-events: auto !important;
-            `;
-            console.log('✅ 強制顯示 coordinate-info (最高優先級)');
-        } else {
-            console.error('❌ coordinate-info 元素未找到');
-        }
+
         
         // 初始化主要互動地圖
         setTimeout(() => {

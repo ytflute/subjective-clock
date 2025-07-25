@@ -31,28 +31,44 @@ export default async function handler(req, res) {
             apiKey: process.env.OPENAI_API_KEY
         });
 
-        // 生成問候語
+        // 生成問候語和語言信息
         const greetingPrompt = `你是一位語言專家。請根據以下地點：${city}, ${country}${countryCode ? ` (${countryCode})` : ''}，
-提供一句當地最常用的語言說的「早安」問候語。
+提供當地最常用語言的「早安」問候語。
 
-要求：
-1. 必須使用當地最常用的官方語言或主要語言
-2. 必須包含：
-   - 原文的早安問候語   
-3. 格式範例：
-   - Guten Morgen! 
-   - おはようございます!
-4. 如果是使用非拉丁字母的語言，請一併提供其羅馬拼音
-5. 回覆必須精簡，只需要問候語，不要加入其他說明文字`;
+請以JSON格式回覆，包含：
+{
+  "greeting": "當地語言的早安問候語",
+  "language": "語言名稱(中文)",
+  "languageCode": "ISO語言代碼"
+}
+
+範例：
+- 德國：{"greeting": "Guten Morgen!", "language": "德語", "languageCode": "de"}
+- 日本：{"greeting": "おはようございます", "language": "日語", "languageCode": "ja"}
+- 法國：{"greeting": "Bonjour!", "language": "法語", "languageCode": "fr"}
+- 美國：{"greeting": "Good morning!", "language": "英語", "languageCode": "en"}
+
+注意：只回覆JSON，不要其他文字`;
 
         const greetingResponse = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [{ role: "user", content: greetingPrompt }],
             temperature: 0.7,
-            max_tokens: 100
+            max_tokens: 150
         });
 
-        const greeting = greetingResponse.choices[0].message.content.trim();
+        let greetingData;
+        try {
+            greetingData = JSON.parse(greetingResponse.choices[0].message.content.trim());
+        } catch (parseError) {
+            // 如果解析失敗，使用預設值
+            const rawGreeting = greetingResponse.choices[0].message.content.trim();
+            greetingData = {
+                greeting: rawGreeting,
+                language: "英語",
+                languageCode: "en"
+            };
+        }
 
         // 生成跟城市和國家相關的創意故事
         const storyPrompt = `請生成一個關於 ${city}, ${country}${countryCode ? ` (${countryCode})` : ''} 的有趣且富有創意的故事。
@@ -73,7 +89,7 @@ export default async function handler(req, res) {
 6. 內容要真實且具體，但可以用想像和創意的方式呈現
 7. 語氣要生動有趣，讓人感受到這座城市的魅力
 8. 故事要有畫面感，讓讀者彷彿身歷其境
-9. 控制在80字以內，要精煉但富有想像力
+9. 控制在50字以內，要精煉但富有想像力
 10. 避免太平凡的描述，要有驚喜感和獨特性`;
 
         const storyResponse = await openai.chat.completions.create({
@@ -86,8 +102,11 @@ export default async function handler(req, res) {
         const story = storyResponse.choices[0].message.content.trim();
 
         res.status(200).json({
-            greeting,
+            greeting: greetingData.greeting,
+            language: greetingData.language,
+            languageCode: greetingData.languageCode,
             story,
+            chineseStory: story,  // 保持向後兼容
             trivia: story  // 保持向後兼容
         });
 

@@ -91,7 +91,7 @@
                     
                     <div class="date-info">
                         <span class="date-label">Date:</span>
-                        <span id="wakeupDate" class="date-value">07/25 Fri</span>
+                        <span id="wakeupDate" class="date-value">07/25/2025 Fri</span>
                     </div>
                     
                     <div class="greeting-info">
@@ -104,17 +104,22 @@
                             <img id="countryFlag" class="country-flag" src="" alt="Flag">
                             <span id="countryName" class="country-name">United States</span>
                         </div>
+                        <!-- 座標信息整合到此處 -->
+                        <div class="coordinates-info">
+                            <span id="coordinates" class="coordinates-text">21.276, 55.517</span>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- 坐標信息 (浮層) -->
-                <div id="coordinateInfo" class="coordinate-info">
-                    <span id="coordinates">21.276, 55.517</span>
+                <!-- 地圖縮放控制按鈕 -->
+                <div class="map-zoom-controls">
+                    <button id="zoomInButton" class="zoom-button zoom-in">+</button>
+                    <button id="zoomOutButton" class="zoom-button zoom-out">−</button>
                 </div>
                 
                 <!-- 底部語音提示 (浮層) -->
                 <div id="voiceLoadingBar" class="voice-loading-bar">
-                    <p class="voice-loading-text">剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....</p>
+                    <p id="voiceLoadingText" class="voice-loading-text">剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....</p>
                 </div>
             </div>
 
