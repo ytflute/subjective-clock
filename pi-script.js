@@ -263,35 +263,103 @@ window.addEventListener('firebaseReady', async (event) => {
 
     // 新增：狀態管理函數
     function setState(newState, message = '') {
-        console.log(`🔄 狀態切換: ${currentState} → ${newState}`);
+        console.log(`🔄 狀態切換: ${currentState} -> ${newState}`);
         
-        // 移除所有 active 類別
-        if (waitingStateEl) waitingStateEl.classList.remove('active');
-        if (resultStateEl) resultStateEl.classList.remove('active');
-        if (loadingStateEl) loadingStateEl.classList.remove('active');
-        if (errorStateEl) errorStateEl.classList.remove('active');
-        
-        // 設定新狀態
-        currentState = newState;
-        window.currentState = newState;
-        
-        switch (newState) {
-            case 'waiting':
-                if (waitingStateEl) waitingStateEl.classList.add('active');
-                break;
-            case 'loading':
-                if (loadingStateEl) loadingStateEl.classList.add('active');
-                break;
-            case 'result':
-                if (resultStateEl) resultStateEl.classList.add('active');
-                // 結果狀態不需要重新初始化地圖，因為已經在頁面載入時初始化了
-                break;
-            case 'error':
-                if (errorStateEl) errorStateEl.classList.add('active');
-                if (message && errorMessageEl) {
-                    errorMessageEl.textContent = message;
+        try {
+            currentState = newState;
+
+            // 獲取所有狀態元素
+            const waitingStateEl = document.getElementById('waitingState');
+            const loadingStateEl = document.getElementById('loadingState');
+            const resultStateEl = document.getElementById('resultState');
+            const errorStateEl = document.getElementById('errorState');
+
+            console.log('🔍 狀態元素檢查:', {
+                waiting: !!waitingStateEl,
+                loading: !!loadingStateEl,
+                result: !!resultStateEl,
+                error: !!errorStateEl
+            });
+
+            // 移除所有 active 類別
+            [waitingStateEl, loadingStateEl, resultStateEl, errorStateEl].forEach(el => {
+                if (el) {
+                    el.classList.remove('active');
                 }
-                break;
+            });
+
+            // 根據新狀態啟動相應元素
+            switch (newState) {
+                case 'waiting':
+                    if (waitingStateEl) {
+                        waitingStateEl.classList.add('active');
+                        console.log('✅ 等待狀態啟動');
+                    } else {
+                        console.error('❌ 等待狀態元素未找到');
+                    }
+                    break;
+                case 'loading':
+                    if (loadingStateEl) {
+                        loadingStateEl.classList.add('active');
+                        console.log('✅ 載入狀態啟動');
+                    } else {
+                        console.error('❌ 載入狀態元素未找到');
+                    }
+                    break;
+                case 'result':
+                    if (resultStateEl) {
+                        resultStateEl.classList.add('active');
+                        console.log('✅ 結果狀態啟動');
+                        console.log('🔍 結果狀態詳細信息:', {
+                            element: resultStateEl,
+                            hasActiveClass: resultStateEl.classList.contains('active'),
+                            allClasses: Array.from(resultStateEl.classList),
+                            children: resultStateEl.children.length,
+                            innerHTML: resultStateEl.innerHTML.substring(0, 200) + '...'
+                        });
+                        
+                        // 檢查結果狀態內的子元素
+                        const childElements = resultStateEl.querySelectorAll('*');
+                        console.log('🔍 結果狀態子元素數量:', childElements.length);
+                        
+                        const infoPanel = resultStateEl.querySelector('.result-info-panel');
+                        const voiceBar = resultStateEl.querySelector('.voice-loading-bar');
+                        const coordInfo = resultStateEl.querySelector('.coordinate-info');
+                        
+                        console.log('🔍 結果狀態關鍵子元素:', {
+                            infoPanel: !!infoPanel,
+                            voiceBar: !!voiceBar,
+                            coordInfo: !!coordInfo
+                        });
+                        
+                    } else {
+                        console.error('❌ 結果狀態元素未找到');
+                    }
+                    // 結果狀態不需要重新初始化地圖，因為已經在頁面載入時初始化了
+                    break;
+                case 'error':
+                    if (errorStateEl) {
+                        errorStateEl.classList.add('active');
+                        console.log('✅ 錯誤狀態啟動');
+                        
+                        // 處理錯誤消息
+                        if (message) {
+                            const errorMessageEl = errorStateEl.querySelector('.error-message');
+                            if (errorMessageEl) {
+                                errorMessageEl.textContent = message;
+                            }
+                        }
+                    } else {
+                        console.error('❌ 錯誤狀態元素未找到');
+                    }
+                    break;
+                default:
+                    console.warn(`⚠️ 未知的狀態: ${newState}`);
+            }
+
+            console.log(`✅ 狀態切換完成: ${newState}`);
+        } catch (e) {
+            console.error('❌ 狀態切換失敗:', e);
         }
     }
 
@@ -1244,58 +1312,131 @@ window.addEventListener('firebaseReady', async (event) => {
 
     // 更新結果頁面數據
     function updateResultData(data) {
-        // 更新 Day 計數器
+        console.log('🔍 updateResultData 被調用，數據:', data);
+        
+        // 檢查結果狀態是否啟動
+        const resultStateEl = document.getElementById('resultState');
+        console.log('🔍 resultState 元素:', resultStateEl);
+        console.log('🔍 resultState 是否有 active 類:', resultStateEl?.classList.contains('active'));
+        
+        // 檢查所有浮動元素是否存在
         const dayNumberEl = document.getElementById('dayNumber');
+        const wakeupDateEl = document.getElementById('wakeupDate');
+        const localGreetingEl = document.getElementById('localGreeting');
+        const cityNameEl = document.getElementById('cityName');
+        const countryNameEl = document.getElementById('countryName');
+        const countryFlagEl = document.getElementById('countryFlag');
+        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
+        const coordinateInfo = document.getElementById('coordinateInfo');
+        
+        console.log('🔍 關鍵元素檢查:', {
+            dayNumber: !!dayNumberEl,
+            wakeupDate: !!wakeupDateEl,
+            localGreeting: !!localGreetingEl,
+            cityName: !!cityNameEl,
+            countryName: !!countryNameEl,
+            countryFlag: !!countryFlagEl,
+            voiceLoadingBar: !!voiceLoadingBar,
+            coordinateInfo: !!coordinateInfo
+        });
+        
+        // 更新 Day 計數器
         if (dayNumberEl) {
             dayNumberEl.textContent = dayCounter;
+            console.log('✅ Day 計數器已更新:', dayCounter);
             dayCounter++; // 為下次使用自增
+        } else {
+            console.error('❌ dayNumber 元素未找到');
         }
         
         // 更新日期
-        const wakeupDateEl = document.getElementById('wakeupDate');
         if (wakeupDateEl) {
             const currentDate = new Date();
             wakeupDateEl.textContent = formatWakeupDate(currentDate);
+            console.log('✅ 日期已更新');
+        } else {
+            console.error('❌ wakeupDate 元素未找到');
         }
         
         // 更新當地問候語
-        const localGreetingEl = document.getElementById('localGreeting');
         if (localGreetingEl && data.greeting) {
             // 提取語言信息 (假設格式為 "Good morning! (English)")
             const languageMatch = data.greeting.match(/\((.*?)\)/);
             const language = languageMatch ? languageMatch[1] : 'Local';
             const greetingText = data.greeting.replace(/\s*\([^)]*\)/g, '').trim();
             localGreetingEl.textContent = `${greetingText.toUpperCase()} (${language})`;
+            console.log('✅ 當地問候語已更新:', localGreetingEl.textContent);
+        } else {
+            console.error('❌ localGreeting 元素未找到或數據缺失');
         }
         
         // 更新城市名稱
-        const cityNameEl = document.getElementById('cityName');
         if (cityNameEl && data.city) {
             cityNameEl.textContent = data.city.toUpperCase();
+            console.log('✅ 城市名稱已更新:', data.city);
+        } else {
+            console.error('❌ cityName 元素未找到或數據缺失');
         }
         
         // 更新國家信息
-        const countryNameEl = document.getElementById('countryName');
         if (countryNameEl && data.country) {
             countryNameEl.textContent = data.country;
+            console.log('✅ 國家名稱已更新:', data.country);
+        } else {
+            console.error('❌ countryName 元素未找到或數據缺失');
         }
         
         // 更新國旗
-        const countryFlagEl = document.getElementById('countryFlag');
         if (countryFlagEl && data.countryCode) {
             // 使用 flagcdn.com 或其他國旗 API
             const flagUrl = `https://flagcdn.com/32x24/${data.countryCode.toLowerCase()}.png`;
             countryFlagEl.src = flagUrl;
             countryFlagEl.style.display = 'block';
+            console.log('✅ 國旗已更新:', flagUrl);
+        } else {
+            console.error('❌ countryFlag 元素未找到或數據缺失');
         }
         
-                // 初始化主要互動地圖
-    setTimeout(() => {
-        initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+        // 強制顯示所有浮動元素
+        const resultInfoPanel = document.querySelector('.result-info-panel');
+        if (resultInfoPanel) {
+            resultInfoPanel.style.display = 'block';
+            resultInfoPanel.style.visibility = 'visible';
+            resultInfoPanel.style.opacity = '1';
+            resultInfoPanel.style.zIndex = '999';
+            console.log('✅ 強制顯示 result-info-panel');
+        } else {
+            console.error('❌ result-info-panel 元素未找到');
+        }
         
-        // 地圖初始化完成後，保持顯示初始的"清喉嚨"訊息
-        // 故事內容將在語音播放開始時通過打字機效果顯示
-    }, 100);
+        if (voiceLoadingBar) {
+            voiceLoadingBar.style.display = 'block';
+            voiceLoadingBar.style.visibility = 'visible';
+            voiceLoadingBar.style.opacity = '1';
+            voiceLoadingBar.style.zIndex = '999';
+            console.log('✅ 強制顯示 voice-loading-bar');
+        } else {
+            console.error('❌ voice-loading-bar 元素未找到');
+        }
+        
+        if (coordinateInfo) {
+            coordinateInfo.style.display = 'block';
+            coordinateInfo.style.visibility = 'visible';
+            coordinateInfo.style.opacity = '1';
+            coordinateInfo.style.zIndex = '999';
+            console.log('✅ 強制顯示 coordinate-info');
+        } else {
+            console.error('❌ coordinate-info 元素未找到');
+        }
+        
+        // 初始化主要互動地圖
+        setTimeout(() => {
+            console.log('🗺️ 初始化地圖，位置:', data.latitude, data.longitude);
+            initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+            
+            // 地圖初始化完成後，保持顯示初始的"清喉嚨"訊息
+            // 故事內容將在語音播放開始時通過打字機效果顯示
+        }, 100);
     }
 
     // 打字機效果相關變數
@@ -1672,3 +1813,84 @@ function initMainInteractiveMap(lat, lon, city, country) {
         }
     }
 } 
+
+// 全域調試函數
+window.debugPageStructure = function() {
+    console.log('🔍 === 頁面結構調試 ===');
+    
+    // 檢查主要容器
+    const mainDisplay = document.querySelector('.main-display');
+    console.log('🔍 主要顯示容器:', mainDisplay);
+    
+    // 檢查地圖容器
+    const mapContainer = document.getElementById('mainMapContainer');
+    console.log('🔍 地圖容器:', mapContainer);
+    
+    // 檢查所有狀態元素
+    const states = {
+        waiting: document.getElementById('waitingState'),
+        loading: document.getElementById('loadingState'),
+        result: document.getElementById('resultState'),
+        error: document.getElementById('errorState')
+    };
+    
+    console.log('🔍 狀態元素:', states);
+    
+    // 檢查結果狀態的子元素
+    const resultState = states.result;
+    if (resultState) {
+        console.log('🔍 結果狀態詳細:', {
+            element: resultState,
+            isActive: resultState.classList.contains('active'),
+            classes: Array.from(resultState.classList),
+            children: resultState.children.length,
+            childElements: Array.from(resultState.children).map(child => ({
+                tagName: child.tagName,
+                className: child.className,
+                id: child.id
+            }))
+        });
+        
+        // 檢查關鍵子元素
+        const infoPanel = resultState.querySelector('.result-info-panel');
+        const voiceBar = resultState.querySelector('.voice-loading-bar');
+        const coordInfo = resultState.querySelector('.coordinate-info');
+        
+        console.log('🔍 關鍵子元素:', {
+            infoPanel: infoPanel ? {
+                element: infoPanel,
+                display: getComputedStyle(infoPanel).display,
+                visibility: getComputedStyle(infoPanel).visibility,
+                opacity: getComputedStyle(infoPanel).opacity,
+                zIndex: getComputedStyle(infoPanel).zIndex
+            } : null,
+            voiceBar: voiceBar ? {
+                element: voiceBar,
+                display: getComputedStyle(voiceBar).display,
+                visibility: getComputedStyle(voiceBar).visibility,
+                opacity: getComputedStyle(voiceBar).opacity,
+                zIndex: getComputedStyle(voiceBar).zIndex
+            } : null,
+            coordInfo: coordInfo ? {
+                element: coordInfo,
+                display: getComputedStyle(coordInfo).display,
+                visibility: getComputedStyle(coordInfo).visibility,
+                opacity: getComputedStyle(coordInfo).opacity,
+                zIndex: getComputedStyle(coordInfo).zIndex
+            } : null
+        });
+    }
+    
+    // 檢查當前狀態
+    console.log('🔍 當前狀態:', {
+        currentState: window.currentState,
+        activeStates: Object.entries(states).filter(([name, el]) => 
+            el?.classList.contains('active')
+        ).map(([name]) => name)
+    });
+    
+    return '調試信息已輸出到控制台';
+};
+
+// 在控制台提示用戶可以使用調試函數
+console.log('🛠️ 調試提示：在控制台輸入 debugPageStructure() 來檢查頁面結構');
