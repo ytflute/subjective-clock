@@ -44,5 +44,35 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/config",
+      "destination": "/api/config"
+    },
+    {
+      "source": "/api/find-city-geonames",
+      "destination": "/api/find-city-geonames"
+    },
+    {
+      "source": "/api/translate-location",
+      "destination": "/api/translate-location"
+    },
+    {
+      "source": "/api/generateStory",
+      "destination": "/api/generateStory"
+    },
+    {
+      "source": "/api/generatePiStory",
+      "destination": "/api/generatePiStory"
+    },
+    {
+      "source": "/api/generateMorningGreeting",
+      "destination": "/api/generateMorningGreeting"
+    },
+    {
+      "source": "/api/save-record",
+      "destination": "/api/save-record"
+    }
   ]
 } 

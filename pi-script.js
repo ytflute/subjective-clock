@@ -800,7 +800,7 @@ window.addEventListener('firebaseReady', async (event) => {
         
         try {
             // 調用故事生成 API
-            const storyResponse = await fetch('/api/generateStory', {
+            const storyResponse = await fetch('/api/generatePiStory', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -891,6 +891,10 @@ window.addEventListener('firebaseReady', async (event) => {
             console.warn('⚠️ 主地圖實例未找到');
             return;
         }
+        
+        // 移除舊的事件監聽器
+        zoomInButton.removeEventListener('click', null);
+        zoomOutButton.removeEventListener('click', null);
         
         // 縮放按鈕事件監聽器
         zoomInButton.addEventListener('click', () => {
