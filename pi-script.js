@@ -284,12 +284,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 break;
             case 'result':
                 if (resultStateEl) resultStateEl.classList.add('active');
-                // 初始化背景地圖 (如果還沒有位置數據，先顯示世界地圖)
-                setTimeout(() => {
-                    if (typeof initMainInteractiveMap === 'function') {
-                        initMainInteractiveMap(); // 先顯示世界地圖，稍後會被具體位置更新
-                    }
-                }, 100);
+                // 結果狀態不需要重新初始化地圖，因為已經在頁面載入時初始化了
                 break;
             case 'error':
                 if (errorStateEl) errorStateEl.classList.add('active');
@@ -1592,6 +1587,17 @@ document.addEventListener('DOMContentLoaded', () => {
         startTheDayFunction: typeof window.startTheDay,
         currentState: window.currentState
     });
+    
+    // 初始化背景地圖
+    setTimeout(() => {
+        console.log('🗺️ 初始化背景地圖...');
+        try {
+            initMainInteractiveMap(); // 初始化世界地圖作為背景
+            console.log('✅ 背景地圖初始化成功');
+        } catch (error) {
+            console.error('❌ 背景地圖初始化失敗:', error);
+        }
+    }, 500);
     
     // 添加點擊測試功能
     setTimeout(() => {

@@ -57,11 +57,11 @@
 
         <!-- 主要顯示區域 -->
         <main class="main-display">
+            <!-- 全域背景地圖 -->
+            <div id="mainMapContainer" class="main-map-background"></div>
+            
             <!-- 等待狀態 -->
             <div id="waitingState" class="state waiting-state active">
-                <!-- 背景地圖 -->
-                <div id="waitingMapContainer" class="waiting-map-container"></div>
-                
                 <!-- 中央內容框 -->
                 <div class="waiting-content-box">
                     <h1 class="press-button-title blinking-text">PRESS THE BUTTON</h1>
@@ -72,9 +72,6 @@
 
             <!-- 載入狀態 -->
             <div id="loadingState" class="state loading-state">
-                <!-- 背景地圖 (與等待畫面共用) -->
-                <div id="loadingMapContainer" class="loading-map-container"></div>
-                
                 <!-- 中央內容框 -->
                 <div class="loading-content-box">
                     <h1 class="locating-title blinking-text">LOCATING...</h1>
@@ -85,9 +82,6 @@
 
             <!-- 結果狀態 -->
             <div id="resultState" class="state result-state">
-                <!-- 主要互動地圖 (作為背景) -->
-                <div id="mainMapContainer" class="main-map-background"></div>
-                
                 <!-- 左側信息面板 (浮層) -->
                 <div class="result-info-panel">
                     <div class="day-counter">

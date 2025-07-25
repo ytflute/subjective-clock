@@ -578,18 +578,15 @@ body {
 .error-state.active {
     opacity: 1;
     visibility: visible;
+    position: relative;
+    z-index: 1; /* 確保在地圖之上 */
 }
 
 /* 舊的等待狀態樣式已移除 - 使用新的設計 */
 
 /* 舊的載入狀態樣式已移除 - 使用新的設計 */
 
-/* 結果顯示狀態 */
-.result-state {
-    flex-direction: column;
-    padding: 15px;
-    color: white;
-}
+/* 舊的結果狀態樣式已移除 - 使用新設計 */
 
 .city-info {
     display: flex;
@@ -750,14 +747,14 @@ body {
     overflow: hidden;
 }
 
-/* 主要互動地圖背景 */
+/* 主要互動地圖背景 - 全域背景 */
 .main-map-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; /* 最底層 */
 }
 
 /* 地圖瓦片 - 灰黃配色 */
