@@ -890,6 +890,24 @@ window.addEventListener('firebaseReady', async (event) => {
         
         const zoomInButton = document.getElementById('zoomInButton');
         const zoomOutButton = document.getElementById('zoomOutButton');
+        const zoomControls = document.querySelector('.map-zoom-controls');
+        
+        console.log('🔍 按鈕元素檢查:', {
+            zoomInButton: !!zoomInButton,
+            zoomOutButton: !!zoomOutButton,
+            zoomControls: !!zoomControls
+        });
+        
+        if (zoomControls) {
+            console.log('🔍 縮放控制容器樣式:', {
+                display: window.getComputedStyle(zoomControls).display,
+                visibility: window.getComputedStyle(zoomControls).visibility,
+                zIndex: window.getComputedStyle(zoomControls).zIndex,
+                position: window.getComputedStyle(zoomControls).position,
+                top: window.getComputedStyle(zoomControls).top,
+                right: window.getComputedStyle(zoomControls).right
+            });
+        }
         
         if (!zoomInButton || !zoomOutButton) {
             console.warn('⚠️ 縮放按鈕元素未找到');
