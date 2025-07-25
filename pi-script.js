@@ -1007,8 +1007,10 @@ window.addEventListener('firebaseReady', async (event) => {
                 return;
             }
 
-            // 顯示語音載入提示，先打出 loading 文字
+            // 顯示語音載入提示
             showVoiceLoading();
+            
+            // 在黑色對話框中先打出 loading 文字
             await startStoryTypewriter(loadingText);
 
             // 停止任何正在播放的語音
@@ -1033,15 +1035,16 @@ window.addEventListener('firebaseReady', async (event) => {
             let speechStarted = false;
             let typewriterStarted = false;
 
-            // 語音開始播放時啟動打字機效果
+            // 語音開始播放時清除 loading 文字並啟動故事打字機效果
             utterance.onstart = () => {
-                console.log('🎬 語音播放開始，啟動打字機效果');
+                console.log('🎬 語音播放開始，啟動故事打字機效果');
                 console.log('🌍 播放內容:', fullContent);
                 
                 speechStarted = true;
                 if (!typewriterStarted) {
                     typewriterStarted = true;
-                    startStoryTypewriter(fullContent); // 清除 loading 文字，顯示故事內容
+                    // 清除 loading 文字，顯示故事內容
+                    startStoryTypewriter(fullContent);
                 }
             };
 
