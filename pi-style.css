@@ -959,32 +959,32 @@ body {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.9);
-    padding: 15px 25px; /* 增加內邊距 */
+    padding: 20px 25px; /* 增加上下內邊距 */
     z-index: 100 !important;
     display: block !important;
     visibility: visible !important;
-    max-width: 800px; /* 限制寬度適應DSI螢幕 */
+    max-width: 800px;
     box-sizing: border-box;
+    min-height: 140px; /* 確保有足夠空間容納文字 */
 }
 
 .voice-loading-text {
     font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace;
-    font-size: 16px; /* 增大字體 */
+    font-size: 18px; /* 增大字體 */
     color: #FFFFFF;
     margin: 0;
     text-align: left !important;
-    letter-spacing: 1px; /* 增加字間距 */
-    line-height: 1.6; /* 增加行高 */
+    letter-spacing: 1px;
+    line-height: 1.8; /* 增加行高 */
     position: relative;
-    min-height: 24px; /* 增加最小高度 */
+    min-height: 100px; /* 確保有足夠空間 */
     transition: none !important;
     animation: none !important;
     word-wrap: break-word;
-    max-height: 120px; /* 增加最大高度 */
-    overflow: hidden;
+    max-height: none; /* 移除最大高度限制 */
     width: 100%;
     display: block;
-    padding: 4px 0; /* 增加上下內邊距 */
+    padding: 4px 0;
 }
 
 /* 打字機光標效果 - 更明顯 */
@@ -1063,15 +1063,14 @@ body {
     }
     
     .voice-loading-bar {
-        padding: 12px 20px;
-        max-height: 90px;
+        padding: 15px 20px;
+        min-height: 120px; /* 調整最小高度 */
     }
     
     .voice-loading-text {
-        font-size: 14px; /* 稍微調整字體大小 */
-        line-height: 1.5;
-        max-height: 70px;
-        text-align: left !important;
+        font-size: 16px;
+        line-height: 1.6;
+        min-height: 90px;
     }
     
     .map-zoom-controls {

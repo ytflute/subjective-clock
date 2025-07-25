@@ -994,7 +994,8 @@ window.addEventListener('firebaseReady', async (event) => {
         
         try {
             // 只播放故事內容，不要問候語
-            const fullContent = storyData.story;
+            // 準備要朗讀的內容（當地語言問候 + 故事）
+            const fullContent = `${storyData.greeting}\n\n${storyData.story}`;
             const displayContent = fullContent; // 用於打字機效果顯示
 
             // 檢查瀏覽器是否支援語音合成
@@ -1899,7 +1900,7 @@ function initMainInteractiveMap(lat, lon, city, country) {
             className: 'trajectory-marker current-location',
             html: `<div class="trajectory-day">NOW</div>`,
             iconSize: [60, 24],
-            iconAnchor: [30, 12]
+            iconAnchor: [30, 24]
         });
 
         const marker = L.marker([lat, lon], {
@@ -2027,7 +2028,7 @@ function drawTrajectoryLine() {
             className: 'trajectory-marker',
             html: `<div class="trajectory-day">Day ${point.day}</div>`,
             iconSize: [60, 24],
-            iconAnchor: [30, 12]
+            iconAnchor: [30, 24]
         });
         
         const marker = L.marker([point.lat, point.lng], {
