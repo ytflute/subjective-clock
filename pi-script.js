@@ -1869,8 +1869,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 創建主要地圖實例 - 作為背景使用
     mainInteractiveMap = L.map('mainMapContainer', {
-        center: [lat || 20, (lon || 0) - 2], // 向左偏移2度，讓標記出現在右半邊
-        zoom: lat && lon ? 4 : 2, // 如果有具體位置則縮放，否則顯示世界地圖
+        center: [lat || 20, (lon || 0) - 8], // 向左偏移8度，讓標記出現在右半邊
+        zoom: lat && lon ? 5 : 2, // 如果有具體位置則縮放，否則顯示世界地圖
         zoomControl: false,
         scrollWheelZoom: true,
         doubleClickZoom: true,
@@ -1894,7 +1894,17 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
-        const marker = L.marker([lat, lon]).addTo(mainInteractiveMap);
+        // 創建自定義圖標
+        const customIcon = L.divIcon({
+            className: 'trajectory-marker current-location',
+            html: `<div class="trajectory-day">NOW</div>`,
+            iconSize: [40, 20],
+            iconAnchor: [20, 10]
+        });
+
+        const marker = L.marker([lat, lon], {
+            icon: customIcon
+        }).addTo(mainInteractiveMap);
         
         // 自定義標記彈窗
         const popupContent = `
@@ -1925,10 +1935,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
         initCustomZoomControls();
     }, 100);
     
-    // 載入並繪製軌跡線
-    setTimeout(() => {
-        loadAndDrawTrajectory();
-    }, 200);
+    // 立即載入並繪製軌跡線
+    loadAndDrawTrajectory();
 } 
 
 // 載入並繪製軌跡線

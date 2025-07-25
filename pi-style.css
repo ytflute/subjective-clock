@@ -969,7 +969,7 @@ body {
 
 .voice-loading-text {
     font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', monospace;
-    font-size: 12px; /* 減小字體以適應DSI螢幕 */
+    font-size: 18px; /* 減小字體以適應DSI螢幕 */
     color: #FFFFFF;
     margin: 0;
     text-align: left !important; /* 靠左對齊 */
@@ -980,7 +980,7 @@ body {
     transition: none !important;
     animation: none !important;
     word-wrap: break-word; /* 允許文字換行 */
-    max-height: 60px; /* 限制高度，最多3行 */
+    max-height: 100px; /* 限制高度，最多3行 */
     overflow: hidden;
     width: 100%; /* 確保佔滿容器寬度 */
     display: block; /* 確保是塊級元素 */
@@ -1093,6 +1093,7 @@ body {
 .trajectory-marker {
     background: none !important;
     border: none !important;
+    z-index: 1000 !important;
 }
 
 .trajectory-day {
@@ -1108,6 +1109,8 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     min-width: 36px;
     line-height: 1.2;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
 }
 
 /* 軌跡線動畫效果 */
@@ -1115,6 +1118,16 @@ body {
     background: #FF5252;
     transform: scale(1.1);
     transition: all 0.2s ease;
+}
+
+/* 當前位置標記樣式 */
+.trajectory-marker.current-location .trajectory-day {
+    background: #4CAF50;
+    border-color: white;
+    font-size: 10px;
+    min-width: 42px;
+    padding: 3px 8px;
+    z-index: 1001 !important;
 }
 
 /* === 新增：清喉嚨彈出對話框樣式 === */
@@ -1341,7 +1354,7 @@ body {
 /* 底部說明文字 */
 .locating-subtitle {
     font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
-    font-size: 14px;
+    font-size: 18px;
     color: #AAAAAA;
     margin: 0;
     letter-spacing: 1px;
@@ -1388,7 +1401,7 @@ body {
     position: fixed !important;
     top: 15px !important;
     left: 15px !important;
-    width: 400px !important; /* 修正為DSI螢幕適用寬度 */
+    width: 350px !important; /* 修正為DSI螢幕適用寬度 */
     min-height: 150px !important;
     pointer-events: auto !important;
 }
@@ -1399,6 +1412,6 @@ body {
     bottom: 20px !important;
     left: 20px !important;
     right: 20px !important;
-    height: 60px !important;
+    height: 100px !important;
     pointer-events: auto !important;
 } 
