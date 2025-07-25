@@ -1358,9 +1358,9 @@ body {
 .result-info-panel {
     z-index: 999999 !important;
     position: fixed !important;
-    top: 20px !important;
-    left: 20px !important;
-    width: 200px !important;
+    top: 15px !important;
+    left: 15px !important;
+    width: 400px !important; /* 修正為DSI螢幕適用寬度 */
     min-height: 150px !important;
     pointer-events: auto !important;
 }
