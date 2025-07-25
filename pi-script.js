@@ -763,7 +763,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 await speakStory({ 
                     story: storyResult.story,
                     greeting: storyResult.greeting, 
-                    languageCode: 'zh-TW' 
+                    languageCode: getLanguageCodeFromCountry(cityData.country_iso_code) 
                 });
 
                 console.log(`✅ 故事和問候語顯示成功`);
@@ -802,7 +802,7 @@ window.addEventListener('firebaseReady', async (event) => {
         await speakStory({ 
             story: fallbackStory,
             greeting: fallbackGreeting, 
-            languageCode: 'zh-TW' 
+            languageCode: getLanguageCodeFromCountry(cityData.country_iso_code) 
         });
     }
 
@@ -919,9 +919,9 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 新增：語音播放故事（含打字機效果）
+    // 新增：語音播放故事（含當地問候語+打字機效果）
     async function speakStory(storyData) {
-        console.log('🎬 正在播放故事語音:', storyData);
+        console.log('🎬 正在播放完整語音內容:', storyData);
         
         try {
             // 檢查瀏覽器是否支援語音合成
@@ -940,8 +940,12 @@ window.addEventListener('firebaseReady', async (event) => {
             // 短暫延遲後開始播放（模擬清喉嚨時間）
             await new Promise(resolve => setTimeout(resolve, 1500));
 
-            // 創建語音合成實例（播放故事）
-            const utterance = new SpeechSynthesisUtterance(storyData.story);
+            // 準備完整的語音內容：當地問候語 + 故事
+            const fullContent = `${storyData.greeting} ${storyData.story}`;
+            const displayContent = fullContent; // 用於打字機效果顯示
+
+            // 創建語音合成實例（播放完整內容）
+            const utterance = new SpeechSynthesisUtterance(fullContent);
             
             // 設定語言
             if (storyData.languageCode) {
@@ -956,48 +960,52 @@ window.addEventListener('firebaseReady', async (event) => {
             // 語音開始播放時啟動打字機效果
             utterance.onstart = () => {
                 console.log('🎬 語音播放開始，啟動打字機效果');
-                startStoryTypewriter(storyData.story);
+                console.log('🌍 播放內容:', fullContent);
+                startStoryTypewriter(displayContent);
             };
 
             // 播放完成的回調
             utterance.onend = () => {
-                console.log('🔊 故事語音播放完成');
+                console.log('🔊 完整語音播放完成');
                 hideVoiceLoading();
                 
                 // 確保打字機效果也完成
                 setTimeout(() => {
                     const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-                    if (voiceLoadingTextEl && currentStoryText) {
-                        voiceLoadingTextEl.textContent = currentStoryText;
+                    if (voiceLoadingTextEl && displayContent) {
+                        voiceLoadingTextEl.textContent = displayContent;
+                        voiceLoadingTextEl.classList.remove('typing');
+                        voiceLoadingTextEl.classList.add('completed');
                     }
                 }, 500);
             };
 
             utterance.onerror = (error) => {
-                console.error('🔇 故事語音播放錯誤:', error);
+                console.error('🔇 語音播放錯誤:', error);
                 hideVoiceLoading();
                 stopTypeWriterEffect();
                 
-                // 直接顯示完整故事
+                // 直接顯示完整內容
                 const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-                if (voiceLoadingTextEl && storyData.story) {
-                    voiceLoadingTextEl.textContent = storyData.story;
+                if (voiceLoadingTextEl && displayContent) {
+                    voiceLoadingTextEl.textContent = displayContent;
                 }
             };
 
-            // 開始播放故事
+            // 開始播放完整內容
             window.speechSynthesis.speak(utterance);
-            console.log('🎬 開始播放故事語音');
+            console.log('🎬 開始播放：當地問候語 + 故事');
 
         } catch (error) {
-            console.error('🔇 故事語音播放失敗:', error);
+            console.error('🔇 語音播放失敗:', error);
             hideVoiceLoading();
             stopTypeWriterEffect();
             
-            // 直接顯示完整故事
+            // 直接顯示完整內容
             const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
             if (voiceLoadingTextEl && storyData.story) {
-                voiceLoadingTextEl.textContent = storyData.story;
+                const fallbackContent = `${storyData.greeting} ${storyData.story}`;
+                voiceLoadingTextEl.textContent = fallbackContent;
             }
         }
     }
@@ -1405,6 +1413,85 @@ window.addEventListener('firebaseReady', async (event) => {
         
         // 開始打字機效果
         return typeWriterEffect(storyText, voiceLoadingTextEl, typeSpeed);
+    }
+
+    // 根據國家代碼獲取對應的語言代碼
+    function getLanguageCodeFromCountry(countryCode) {
+        // 國家代碼到語言代碼的映射
+        const countryToLanguage = {
+            // 亞洲
+            'CN': 'zh-CN',      // 中國 - 簡體中文
+            'TW': 'zh-TW',      // 台灣 - 繁體中文
+            'HK': 'zh-HK',      // 香港 - 繁體中文
+            'JP': 'ja-JP',      // 日本 - 日語
+            'KR': 'ko-KR',      // 韓國 - 韓語
+            'TH': 'th-TH',      // 泰國 - 泰語
+            'VN': 'vi-VN',      // 越南 - 越南語
+            'IN': 'hi-IN',      // 印度 - 印地語
+            'ID': 'id-ID',      // 印尼 - 印尼語
+            'MY': 'ms-MY',      // 馬來西亞 - 馬來語
+            'SG': 'en-SG',      // 新加坡 - 英語
+            'PH': 'en-PH',      // 菲律賓 - 英語
+            
+            // 歐洲
+            'GB': 'en-GB',      // 英國 - 英語
+            'IE': 'en-IE',      // 愛爾蘭 - 英語
+            'FR': 'fr-FR',      // 法國 - 法語
+            'DE': 'de-DE',      // 德國 - 德語
+            'IT': 'it-IT',      // 義大利 - 義大利語
+            'ES': 'es-ES',      // 西班牙 - 西班牙語
+            'PT': 'pt-PT',      // 葡萄牙 - 葡萄牙語
+            'NL': 'nl-NL',      // 荷蘭 - 荷蘭語
+            'BE': 'nl-BE',      // 比利時 - 荷蘭語
+            'CH': 'de-CH',      // 瑞士 - 德語
+            'AT': 'de-AT',      // 奧地利 - 德語
+            'SE': 'sv-SE',      // 瑞典 - 瑞典語
+            'NO': 'nb-NO',      // 挪威 - 挪威語
+            'DK': 'da-DK',      // 丹麥 - 丹麥語
+            'FI': 'fi-FI',      // 芬蘭 - 芬蘭語
+            'RU': 'ru-RU',      // 俄羅斯 - 俄語
+            'PL': 'pl-PL',      // 波蘭 - 波蘭語
+            'CZ': 'cs-CZ',      // 捷克 - 捷克語
+            'HU': 'hu-HU',      // 匈牙利 - 匈牙利語
+            'GR': 'el-GR',      // 希臘 - 希臘語
+            
+            // 美洲
+            'US': 'en-US',      // 美國 - 英語
+            'CA': 'en-CA',      // 加拿大 - 英語
+            'MX': 'es-MX',      // 墨西哥 - 西班牙語
+            'BR': 'pt-BR',      // 巴西 - 葡萄牙語
+            'AR': 'es-AR',      // 阿根廷 - 西班牙語
+            'CL': 'es-CL',      // 智利 - 西班牙語
+            'CO': 'es-CO',      // 哥倫比亞 - 西班牙語
+            'PE': 'es-PE',      // 秘魯 - 西班牙語
+            
+            // 大洋洲
+            'AU': 'en-AU',      // 澳洲 - 英語
+            'NZ': 'en-NZ',      // 紐西蘭 - 英語
+            
+            // 非洲
+            'ZA': 'en-ZA',      // 南非 - 英語
+            'EG': 'ar-EG',      // 埃及 - 阿拉伯語
+            'MA': 'ar-MA',      // 摩洛哥 - 阿拉伯語
+            
+            // 中東
+            'AE': 'ar-AE',      // 阿聯酋 - 阿拉伯語
+            'SA': 'ar-SA',      // 沙烏地阿拉伯 - 阿拉伯語
+            'IL': 'he-IL',      // 以色列 - 希伯來語
+            'TR': 'tr-TR',      // 土耳其 - 土耳其語
+        };
+        
+        // 獲取對應的語言代碼
+        const languageCode = countryToLanguage[countryCode?.toUpperCase()];
+        
+        // 如果找不到對應的語言代碼，根據地區返回默認值
+        if (!languageCode) {
+            console.warn(`🌍 未找到國家代碼 ${countryCode} 的語言映射，使用英語作為默認`);
+            return 'en-US'; // 默認使用美式英語
+        }
+        
+        console.log(`🌍 國家 ${countryCode} 對應語言代碼: ${languageCode}`);
+        return languageCode;
     }
 
     // 設定事件監聽器
