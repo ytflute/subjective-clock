@@ -17,6 +17,10 @@ let initialLoadHandled = false;
 let mainInteractiveMap = null;
 let dayCounter = 1; // Day 計數器
 
+// 軌跡線相關
+let trajectoryLayer = null; // 軌跡線圖層
+let trajectoryData = []; // 軌跡點數據
+
 // 新增：狀態管理
 let currentState = 'waiting'; // waiting, loading, result, error
 window.currentState = currentState;
@@ -1204,6 +1208,11 @@ window.addEventListener('firebaseReady', async (event) => {
 
             await addDoc(collection(db, 'wakeup_records'), recordData);
             console.log('✅ 記錄已儲存至 Firebase');
+            
+            // 更新軌跡線
+            setTimeout(() => {
+                loadAndDrawTrajectory();
+            }, 500);
 
         } catch (error) {
             console.error('❌ 儲存至 Firebase 失敗:', error);
@@ -1877,6 +1886,12 @@ function initMainInteractiveMap(lat, lon, city, country) {
         attribution: ''
     }).addTo(mainInteractiveMap);
     
+    // 初始化軌跡線圖層
+    if (trajectoryLayer) {
+        mainInteractiveMap.removeLayer(trajectoryLayer);
+    }
+    trajectoryLayer = L.layerGroup().addTo(mainInteractiveMap);
+    
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
         const marker = L.marker([lat, lon]).addTo(mainInteractiveMap);
@@ -1909,7 +1924,114 @@ function initMainInteractiveMap(lat, lon, city, country) {
     setTimeout(() => {
         initCustomZoomControls();
     }, 100);
+    
+    // 載入並繪製軌跡線
+    setTimeout(() => {
+        loadAndDrawTrajectory();
+    }, 200);
 } 
+
+// 載入並繪製軌跡線
+async function loadAndDrawTrajectory() {
+    try {
+        if (!db) {
+            console.log('⚠️ Firebase 資料庫未初始化，跳過軌跡線載入');
+            return;
+        }
+        
+        console.log('🗺️ 開始載入軌跡線數據...');
+        
+        // 讀取當前用戶的歷史記錄
+        const q = query(
+            collection(db, 'wakeup_records'),
+            where('userId', '==', rawUserDisplayName),
+            orderBy('timestamp', 'asc') // 按時間順序排列
+        );
+        
+        const querySnapshot = await getDocs(q);
+        trajectoryData = [];
+        
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            if (data.latitude && data.longitude) {
+                trajectoryData.push({
+                    lat: data.latitude,
+                    lng: data.longitude,
+                    city: data.city,
+                    country: data.country,
+                    date: data.date,
+                    day: trajectoryData.length + 1
+                });
+            }
+        });
+        
+        console.log(`📍 載入了 ${trajectoryData.length} 個軌跡點`);
+        
+        // 繪製軌跡線
+        drawTrajectoryLine();
+        
+    } catch (error) {
+        console.error('❌ 載入軌跡線失敗:', error);
+    }
+}
+
+// 繪製軌跡線
+function drawTrajectoryLine() {
+    if (!trajectoryLayer || !mainInteractiveMap) {
+        console.log('⚠️ 地圖或軌跡圖層未初始化');
+        return;
+    }
+    
+    // 清除現有軌跡線
+    trajectoryLayer.clearLayers();
+    
+    if (trajectoryData.length < 2) {
+        console.log('📍 軌跡點少於2個，無法繪製軌跡線');
+        return;
+    }
+    
+    // 準備軌跡點座標
+    const latlngs = trajectoryData.map(point => [point.lat, point.lng]);
+    
+    // 創建軌跡線 (polyline)
+    const trajectoryLine = L.polyline(latlngs, {
+        color: '#FF6B6B',        // 紅色軌跡線
+        weight: 3,               // 線條粗細
+        opacity: 0.8,            // 透明度
+        smoothFactor: 1.0,       // 平滑度
+        dashArray: '10, 5'       // 虛線樣式
+    }).addTo(trajectoryLayer);
+    
+    // 添加軌跡點標記
+    trajectoryData.forEach((point, index) => {
+        // 創建自定義圖標 (顯示Day數字)
+        const customIcon = L.divIcon({
+            className: 'trajectory-marker',
+            html: `<div class="trajectory-day">Day ${point.day}</div>`,
+            iconSize: [40, 20],
+            iconAnchor: [20, 10]
+        });
+        
+        const marker = L.marker([point.lat, point.lng], {
+            icon: customIcon
+        }).addTo(trajectoryLayer);
+        
+        // 添加彈窗
+        const popupContent = `
+            <div style="text-align: center; font-size: 12px;">
+                <strong>Day ${point.day}</strong><br>
+                ${point.city}, ${point.country}<br>
+                <small>${point.date}</small>
+            </div>
+        `;
+        
+        marker.bindPopup(popupContent, {
+            offset: [150, 0] // 向右移動150px，放在右半邊中間
+        });
+    });
+    
+    console.log(`🗺️ 軌跡線繪製完成，包含 ${trajectoryData.length} 個點`);
+}
 
 // Debug functions removed for production
 

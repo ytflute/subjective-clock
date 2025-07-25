@@ -1089,6 +1089,34 @@ body {
     }
 }
 
+/* === 軌跡線樣式 === */
+.trajectory-marker {
+    background: none !important;
+    border: none !important;
+}
+
+.trajectory-day {
+    background: #FF6B6B;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-family: 'Press Start 2P', 'Courier Prime', monospace;
+    font-size: 8px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    min-width: 36px;
+    line-height: 1.2;
+}
+
+/* 軌跡線動畫效果 */
+.trajectory-marker:hover .trajectory-day {
+    background: #FF5252;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
 /* === 新增：清喉嚨彈出對話框樣式 === */
 .throat-clearing-popup {
     position: fixed;
