@@ -1401,35 +1401,68 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ countryFlag 元素未找到或數據缺失');
         }
         
-        // 強制顯示所有浮動元素
+        // 強制顯示所有浮動元素 - 使用最高優先級CSS
         const resultInfoPanel = document.querySelector('.result-info-panel');
         if (resultInfoPanel) {
-            resultInfoPanel.style.display = 'block';
-            resultInfoPanel.style.visibility = 'visible';
-            resultInfoPanel.style.opacity = '1';
-            resultInfoPanel.style.zIndex = '999';
-            console.log('✅ 強制顯示 result-info-panel');
+            resultInfoPanel.style.cssText = `
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 999999 !important;
+                position: fixed !important;
+                top: 20px !important;
+                left: 20px !important;
+                width: 200px !important;
+                min-height: 150px !important;
+                background: rgba(255, 0, 0, 0.9) !important;
+                border: 4px solid yellow !important;
+                pointer-events: auto !important;
+            `;
+            console.log('✅ 強制顯示 result-info-panel (最高優先級)');
+            logToPanel('已強制設置信息面板樣式', 'success');
         } else {
             console.error('❌ result-info-panel 元素未找到');
-        logToPanel('❌ 關鍵問題: result-info-panel 元素未找到!', 'error');
+            logToPanel('❌ 關鍵問題: result-info-panel 元素未找到!', 'error');
         }
         
         if (voiceLoadingBar) {
-            voiceLoadingBar.style.display = 'block';
-            voiceLoadingBar.style.visibility = 'visible';
-            voiceLoadingBar.style.opacity = '1';
-            voiceLoadingBar.style.zIndex = '999';
-            console.log('✅ 強制顯示 voice-loading-bar');
+            voiceLoadingBar.style.cssText = `
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 999999 !important;
+                position: fixed !important;
+                bottom: 20px !important;
+                left: 20px !important;
+                right: 20px !important;
+                height: 60px !important;
+                background: rgba(0, 0, 255, 0.9) !important;
+                border: 3px solid white !important;
+                pointer-events: auto !important;
+            `;
+            console.log('✅ 強制顯示 voice-loading-bar (最高優先級)');
+            logToPanel('已強制設置語音條樣式', 'success');
         } else {
             console.error('❌ voice-loading-bar 元素未找到');
         }
         
         if (coordinateInfo) {
-            coordinateInfo.style.display = 'block';
-            coordinateInfo.style.visibility = 'visible';
-            coordinateInfo.style.opacity = '1';
-            coordinateInfo.style.zIndex = '999';
-            console.log('✅ 強制顯示 coordinate-info');
+            coordinateInfo.style.cssText = `
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 999999 !important;
+                position: fixed !important;
+                top: 20px !important;
+                right: 20px !important;
+                width: 150px !important;
+                min-height: 80px !important;
+                background: rgba(0, 255, 0, 0.9) !important;
+                border: 3px solid black !important;
+                pointer-events: auto !important;
+            `;
+            console.log('✅ 強制顯示 coordinate-info (最高優先級)');
+            logToPanel('已強制設置坐標信息樣式', 'success');
         } else {
             console.error('❌ coordinate-info 元素未找到');
         }
