@@ -441,7 +441,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 keyboard: true,
                 dragging: true,
                 attributionControl: true
-            }).setView([latitude, longitude], 8);
+            }).setView([latitude, longitude - 2], 8); // 向左偏移2度，讓標記出現在右半邊
 
             // 添加地圖圖層
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1471,12 +1471,12 @@ window.addEventListener('firebaseReady', async (event) => {
                 opacity: 1 !important;
                 z-index: 999999 !important;
                 position: fixed !important;
-                top: 20px !important;
-                left: 20px !important;
-                width: 200px !important;
+                top: 15px !important;
+                left: 15px !important;
+                width: 400px !important;
                 min-height: 150px !important;
-                background: rgba(255, 0, 0, 0.9) !important;
-                border: 4px solid yellow !important;
+                background: rgba(255, 255, 255, 0.95) !important;
+                border-radius: 12px !important;
                 pointer-events: auto !important;
             `;
                         console.log('✅ 強制顯示 result-info-panel (最高優先級)');
@@ -1860,7 +1860,7 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 創建主要地圖實例 - 作為背景使用
     mainInteractiveMap = L.map('mainMapContainer', {
-        center: [lat || 20, lon || 0],
+        center: [lat || 20, (lon || 0) - 2], // 向左偏移2度，讓標記出現在右半邊
         zoom: lat && lon ? 4 : 2, // 如果有具體位置則縮放，否則顯示世界地圖
         zoomControl: false,
         scrollWheelZoom: true,

@@ -972,7 +972,7 @@ body {
     font-size: 12px; /* 減小字體以適應DSI螢幕 */
     color: #FFFFFF;
     margin: 0;
-    text-align: center !important; /* 強制置中對齊 */
+    text-align: left !important; /* 靠左對齊 */
     letter-spacing: 0.5px;
     line-height: 1.4;
     position: relative;
@@ -1070,7 +1070,7 @@ body {
         font-size: 11px;
         line-height: 1.3;
         max-height: 50px;
-        text-align: center !important; /* 確保DSI螢幕也置中 */
+        text-align: left !important; /* 確保DSI螢幕也靠左 */
     }
     
     .map-zoom-controls {
