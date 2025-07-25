@@ -258,45 +258,16 @@ class AudioManager:
                 self.logger.info(f"🔍 調試 - TTS引擎: {TTS_CONFIG['engine']}")
                 self.logger.info(f"🔍 調試 - nova_integrated_mode: {TTS_CONFIG.get('nova_integrated_mode', True)}")
                 
-                # 🌟 Nova 整合模式：只播放中文故事
-                # 檢查是否啟用整合模式且使用 OpenAI
-                use_integrated_mode = (story_text and 
-                                     TTS_CONFIG['engine'] == 'openai' and 
-                                     TTS_CONFIG.get('nova_integrated_mode', True))
+                # 🌟 Nova 整合模式：先播放當地語言問候語，再播放中文故事
+                self.logger.info(f"🌟 Nova 整合模式：先播放當地語言問候語，再播放中文故事")
+                self.logger.info(f"當地問候語: {greeting_text} ({language_code})")
+                self.logger.info(f"中文故事: {story_text}")
                 
-                # 🔧 如果使用 OpenAI，強制使用 Nova（即使不是整合模式）
-                force_nova_mode = TTS_CONFIG['engine'] == 'openai'
+                # 創建完整的音頻內容：問候語 + 故事
+                full_content = f"{greeting_text}。{story_text}"
+                self.logger.info(f"完整音頻內容: {full_content}")
                 
-                self.logger.info(f"🔍 整合模式條件檢查: story_text='{bool(story_text)}', openai='{TTS_CONFIG['engine'] == 'openai'}', integrated='{TTS_CONFIG.get('nova_integrated_mode', True)}'")
-                self.logger.info(f"🔍 模式決定: use_integrated={use_integrated_mode}, force_nova={force_nova_mode}")
-                
-                if use_integrated_mode:
-                    self.logger.info(f"🌟 Nova 整合模式：只播放中文故事")
-                    self.logger.info(f"中文故事: {story_text}")
-                    
-                    # 只播放中文故事，不播放問候語
-                    return self._play_integrated_nova_content(story_text)
-                    
-                else:
-                    # 🔄 分離模式：只播放中文故事，跳過問候語
-                    success = True
-                    
-                    # 只播放中文故事（如果有的話）
-                    if story_text:
-                        if force_nova_mode:
-                            self.logger.info(f"🤖 Nova 播放中文故事: {story_text}")
-                            story_success = self._play_text_with_nova(story_text, 'zh')
-                        else:
-                            self.logger.info(f"📢 傳統引擎播放中文故事: {story_text}")
-                            story_success = self._play_text_with_language(story_text, 'zh')
-                        
-                        if not story_success:
-                            self.logger.warning("中文故事播放失敗")
-                            success = False
-                    else:
-                        self.logger.info("沒有故事內容，跳過播放")
-                    
-                    return success
+                return self._play_integrated_nova_content(full_content, language_code)
             else:
                 # 備用方案：使用內建問候語
                 self.logger.warning("ChatGPT API 失敗，使用備用問候語")
@@ -432,23 +403,30 @@ class AudioManager:
             self.logger.error(f"直接播放音頻失敗: {e}")
             return False
 
-    def _play_integrated_nova_content(self, content: str) -> bool:
+    def _play_integrated_nova_content(self, content: str, language_code: str) -> bool:
         """
         使用 Nova 播放故事內容
         
         Args:
             content: 故事文本內容
+            language_code: 語言代碼
         
         Returns:
             bool: 播放是否成功
         """
         try:
-            self.logger.info("🤖 Nova 故事朗讀開始...")
+            self.logger.info("🤖 Nova 整合音頻生成中...")
+            self.logger.info(f"🤖 使用 OpenAI TTS 生成 {language_code} 語音")
+            self.logger.info(f"🤖 使用 OpenAI TTS 生成音頻: nova")
             
-            # 使用 OpenAI TTS 生成音頻（Nova 會自動處理多語言）
-            audio_file = self._generate_audio(content, 'auto')  # 使用 auto 讓 Nova 自動檢測語言
+            # 使用 OpenAI TTS 生成音頻，使用指定的語言代碼
+            audio_file = self._generate_audio_openai_direct(content, language_code, voice='nova')
             
             if audio_file and audio_file.exists():
+                self.logger.info(f"✨ OpenAI TTS 音頻生成成功: {audio_file}")
+                self.logger.info(f"音頻文件生成成功: {audio_file}")
+                self.logger.info(f"✨ Nova 整合音頻生成成功: {audio_file.name}")
+                
                 # 播放音頻
                 success = self._play_audio_file(audio_file)
                 
