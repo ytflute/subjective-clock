@@ -358,6 +358,7 @@ window.addEventListener('firebaseReady', async (event) => {
             }
 
             console.log(`✅ 狀態切換完成: ${newState}`);
+        logToPanel(`狀態切換完成: ${newState}`, 'success');
         } catch (e) {
             console.error('❌ 狀態切換失敗:', e);
         }
@@ -1313,6 +1314,7 @@ window.addEventListener('firebaseReady', async (event) => {
     // 更新結果頁面數據
     function updateResultData(data) {
         console.log('🔍 updateResultData 被調用，數據:', data);
+    logToPanel('updateResultData 被調用', 'debug');
         
         // 檢查結果狀態是否啟動
         const resultStateEl = document.getElementById('resultState');
@@ -1344,9 +1346,11 @@ window.addEventListener('firebaseReady', async (event) => {
         if (dayNumberEl) {
             dayNumberEl.textContent = dayCounter;
             console.log('✅ Day 計數器已更新:', dayCounter);
+        logToPanel(`Day 計數器已更新: ${dayCounter}`, 'success');
             dayCounter++; // 為下次使用自增
         } else {
             console.error('❌ dayNumber 元素未找到');
+        logToPanel('dayNumber 元素未找到', 'error');
         }
         
         // 更新日期
@@ -1407,6 +1411,7 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('✅ 強制顯示 result-info-panel');
         } else {
             console.error('❌ result-info-panel 元素未找到');
+        logToPanel('❌ 關鍵問題: result-info-panel 元素未找到!', 'error');
         }
         
         if (voiceLoadingBar) {
@@ -1814,17 +1819,126 @@ function initMainInteractiveMap(lat, lon, city, country) {
     }
 } 
 
-// 全域調試函數
+// 在網頁上顯示調試信息的面板
+let debugPanel = null;
+
+function createDebugPanel() {
+    if (debugPanel) return debugPanel;
+    
+    debugPanel = document.createElement('div');
+    debugPanel.id = 'debugPanel';
+    debugPanel.style.cssText = `
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 400px;
+        max-height: 600px;
+        background: rgba(0, 0, 0, 0.9);
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        padding: 10px;
+        border: 2px solid #00ff00;
+        border-radius: 5px;
+        z-index: 10000;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        display: none;
+    `;
+    
+    // 添加關閉按鈕
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = '✕';
+    closeBtn.style.cssText = `
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        cursor: pointer;
+    `;
+    closeBtn.onclick = () => hideDebugPanel();
+    
+    debugPanel.appendChild(closeBtn);
+    document.body.appendChild(debugPanel);
+    
+    return debugPanel;
+}
+
+function showDebugPanel() {
+    const panel = createDebugPanel();
+    panel.style.display = 'block';
+    return panel;
+}
+
+function hideDebugPanel() {
+    if (debugPanel) {
+        debugPanel.style.display = 'none';
+    }
+}
+
+function logToPanel(message, type = 'info') {
+    const panel = createDebugPanel();
+    const timestamp = new Date().toLocaleTimeString();
+    const prefix = {
+        'info': '📘',
+        'success': '✅',
+        'error': '❌',
+        'warning': '⚠️',
+        'debug': '🔍'
+    }[type] || '📘';
+    
+    const logEntry = `[${timestamp}] ${prefix} ${message}\n`;
+    
+    // 如果面板不可見，創建內容容器
+    if (!panel.querySelector('.debug-content')) {
+        const content = document.createElement('div');
+        content.className = 'debug-content';
+        content.style.marginTop = '25px';
+        panel.appendChild(content);
+    }
+    
+    const content = panel.querySelector('.debug-content');
+    content.textContent += logEntry;
+    
+    // 自動滾動到底部
+    content.scrollTop = content.scrollHeight;
+    
+    // 限制日誌長度
+    const lines = content.textContent.split('\n');
+    if (lines.length > 50) {
+        content.textContent = lines.slice(-50).join('\n');
+    }
+    
+    // 如果有錯誤，自動顯示面板
+    if (type === 'error') {
+        showDebugPanel();
+    }
+}
+
+// 修改現有的 console.log 調用，同時記錄到面板
+function debugLog(message, type = 'info') {
+    console.log(message);
+    logToPanel(message, type);
+}
+
+// 重寫關鍵調試函數
 window.debugPageStructure = function() {
-    console.log('🔍 === 頁面結構調試 ===');
+    showDebugPanel();
+    logToPanel('=== 頁面結構調試開始 ===', 'debug');
     
     // 檢查主要容器
     const mainDisplay = document.querySelector('.main-display');
-    console.log('🔍 主要顯示容器:', mainDisplay);
+    logToPanel(`主要顯示容器: ${mainDisplay ? '✅ 存在' : '❌ 不存在'}`, mainDisplay ? 'success' : 'error');
     
     // 檢查地圖容器
     const mapContainer = document.getElementById('mainMapContainer');
-    console.log('🔍 地圖容器:', mapContainer);
+    logToPanel(`地圖容器: ${mapContainer ? '✅ 存在' : '❌ 不存在'}`, mapContainer ? 'success' : 'error');
     
     // 檢查所有狀態元素
     const states = {
@@ -1834,63 +1948,97 @@ window.debugPageStructure = function() {
         error: document.getElementById('errorState')
     };
     
-    console.log('🔍 狀態元素:', states);
+    Object.entries(states).forEach(([name, element]) => {
+        const exists = !!element;
+        const isActive = element?.classList.contains('active');
+        logToPanel(`狀態 ${name}: ${exists ? '✅ 存在' : '❌ 不存在'} ${isActive ? '(啟動中)' : ''}`, 
+                  exists ? 'success' : 'error');
+    });
     
     // 檢查結果狀態的子元素
     const resultState = states.result;
     if (resultState) {
-        console.log('🔍 結果狀態詳細:', {
-            element: resultState,
-            isActive: resultState.classList.contains('active'),
-            classes: Array.from(resultState.classList),
-            children: resultState.children.length,
-            childElements: Array.from(resultState.children).map(child => ({
-                tagName: child.tagName,
-                className: child.className,
-                id: child.id
-            }))
-        });
+        logToPanel(`結果狀態詳細:`, 'debug');
+        logToPanel(`  - 是否啟動: ${resultState.classList.contains('active')}`, 'debug');
+        logToPanel(`  - 子元素數量: ${resultState.children.length}`, 'debug');
         
         // 檢查關鍵子元素
         const infoPanel = resultState.querySelector('.result-info-panel');
         const voiceBar = resultState.querySelector('.voice-loading-bar');
         const coordInfo = resultState.querySelector('.coordinate-info');
         
-        console.log('🔍 關鍵子元素:', {
-            infoPanel: infoPanel ? {
-                element: infoPanel,
-                display: getComputedStyle(infoPanel).display,
-                visibility: getComputedStyle(infoPanel).visibility,
-                opacity: getComputedStyle(infoPanel).opacity,
-                zIndex: getComputedStyle(infoPanel).zIndex
-            } : null,
-            voiceBar: voiceBar ? {
-                element: voiceBar,
-                display: getComputedStyle(voiceBar).display,
-                visibility: getComputedStyle(voiceBar).visibility,
-                opacity: getComputedStyle(voiceBar).opacity,
-                zIndex: getComputedStyle(voiceBar).zIndex
-            } : null,
-            coordInfo: coordInfo ? {
-                element: coordInfo,
-                display: getComputedStyle(coordInfo).display,
-                visibility: getComputedStyle(coordInfo).visibility,
-                opacity: getComputedStyle(coordInfo).opacity,
-                zIndex: getComputedStyle(coordInfo).zIndex
-            } : null
+        [
+            { name: '信息面板', element: infoPanel, selector: '.result-info-panel' },
+            { name: '語音條', element: voiceBar, selector: '.voice-loading-bar' },
+            { name: '坐標信息', element: coordInfo, selector: '.coordinate-info' }
+        ].forEach(({ name, element, selector }) => {
+            if (element) {
+                const styles = getComputedStyle(element);
+                logToPanel(`${name}: ✅ 存在`, 'success');
+                logToPanel(`  - display: ${styles.display}`, 'debug');
+                logToPanel(`  - visibility: ${styles.visibility}`, 'debug');
+                logToPanel(`  - opacity: ${styles.opacity}`, 'debug');
+                logToPanel(`  - z-index: ${styles.zIndex}`, 'debug');
+            } else {
+                logToPanel(`${name}: ❌ 不存在 (${selector})`, 'error');
+            }
         });
     }
     
     // 檢查當前狀態
-    console.log('🔍 當前狀態:', {
-        currentState: window.currentState,
-        activeStates: Object.entries(states).filter(([name, el]) => 
-            el?.classList.contains('active')
-        ).map(([name]) => name)
-    });
+    logToPanel(`當前狀態: ${window.currentState || 'undefined'}`, 'debug');
     
-    return '調試信息已輸出到控制台';
+    logToPanel('=== 調試完成 ===', 'debug');
+    return '調試信息已顯示在面板中';
 };
 
-// 在控制台提示用戶可以使用調試函數
-console.log('🛠️ 調試提示：在控制台輸入 debugPageStructure() 來檢查頁面結構');
+// 創建快捷鍵來顯示/隱藏調試面板
+document.addEventListener('keydown', function(e) {
+    // Ctrl + D 顯示/隱藏調試面板
+    if (e.ctrlKey && e.key === 'd') {
+        e.preventDefault();
+        if (debugPanel && debugPanel.style.display === 'block') {
+            hideDebugPanel();
+        } else {
+            debugPageStructure();
+        }
+    }
+    
+    // Ctrl + Shift + D 清空調試面板
+    if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+        e.preventDefault();
+        if (debugPanel) {
+            const content = debugPanel.querySelector('.debug-content');
+            if (content) content.textContent = '';
+        }
+    }
+});
+
+// 創建觸摸手勢來顯示調試面板 (適合觸控螢幕)
+let touchStartTime = 0;
+let touchCount = 0;
+
+document.addEventListener('touchstart', function(e) {
+    const now = Date.now();
+    if (now - touchStartTime < 500) {
+        touchCount++;
+    } else {
+        touchCount = 1;
+    }
+    touchStartTime = now;
+    
+    // 5次快速點擊顯示調試面板
+    if (touchCount >= 5) {
+        touchCount = 0;
+        debugPageStructure();
+    }
+});
+
+// 自動啟動調試 (5秒後)
+setTimeout(() => {
+    logToPanel('調試系統啟動', 'info');
+    logToPanel('快捷鍵: Ctrl+D 顯示/隱藏面板', 'info');
+    logToPanel('觸控: 快速點擊5次顯示面板', 'info');
+}, 5000);
+
+// ... existing code ...
