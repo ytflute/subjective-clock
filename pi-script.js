@@ -356,26 +356,58 @@ window.addEventListener('firebaseReady', async (event) => {
                 clockLeafletMap = null;
             }
 
-            // 創建新地圖
+            // 創建新地圖（使用滿版容器）
             clockLeafletMap = L.map('mapContainer', {
                 zoomControl: true,
-                scrollWheelZoom: false
-            }).setView([latitude, longitude], 6);
+                scrollWheelZoom: true,
+                doubleClickZoom: true,
+                boxZoom: true,
+                keyboard: true,
+                dragging: true,
+                attributionControl: true
+            }).setView([latitude, longitude], 8);
 
             // 添加地圖圖層
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors',
-                maxZoom: 18
+                maxZoom: 18,
+                minZoom: 2
             }).addTo(clockLeafletMap);
 
-            // 添加標記
-            const marker = L.marker([latitude, longitude]).addTo(clockLeafletMap);
-            marker.bindPopup(`<b>${cityName}</b><br/>${countryName}`).openPopup();
+            // 添加甦醒位置標記
+            const marker = L.marker([latitude, longitude], {
+                title: `甦醒位置：${cityName}, ${countryName}`
+            }).addTo(clockLeafletMap);
+            
+            // 自定義彈出窗口內容
+            const popupContent = `
+                <div style="text-align: center; font-family: 'VT323', monospace; font-size: 14px;">
+                    <strong style="color: #000000;">🌅 甦醒位置</strong><br>
+                    <span style="color: #333333; font-size: 16px;">${cityName}</span><br>
+                    <span style="color: #666666; font-size: 14px;">${countryName}</span><br>
+                    <small style="color: #999999; font-size: 12px;">${latitude.toFixed(4)}°, ${longitude.toFixed(4)}°</small>
+                </div>
+            `;
+            
+            marker.bindPopup(popupContent, {
+                maxWidth: 200,
+                className: 'wake-up-popup'
+            }).openPopup();
 
-            // 調整地圖大小
+            // 調整地圖大小（重要：確保地圖正確渲染）
             setTimeout(() => {
-                clockLeafletMap.invalidateSize();
-            }, 100);
+                if (clockLeafletMap) {
+                    clockLeafletMap.invalidateSize();
+                    
+                    // 添加載入完成動畫
+                    const mapContainer = document.getElementById('mapContainer');
+                    if (mapContainer) {
+                        mapContainer.classList.add('loaded');
+                    }
+                    
+                    console.log('🗺️ 地圖大小已調整');
+                }
+            }, 200);
 
             console.log('✅ 今日甦醒地圖初始化完成');
         } catch (error) {
@@ -702,7 +734,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 if (greetingTextEl) {
                     greetingTextEl.innerHTML = `
                         <div class="greeting-section">
-                            <div class="greeting-main">${storyResult.greeting}</div>
+                            <div class="greeting-main">當地早安：${storyResult.greeting}</div>
                         </div>
                         <div class="story-section">
                             <div class="story-text">${storyResult.story}</div>
@@ -738,7 +770,7 @@ window.addEventListener('firebaseReady', async (event) => {
         if (greetingTextEl) {
             greetingTextEl.innerHTML = `
                 <div class="greeting-section">
-                    <div class="greeting-main">${fallbackGreeting}</div>
+                    <div class="greeting-main">當地早安：${fallbackGreeting}</div>
                 </div>
                 <div class="story-section">
                     <div class="story-text">${fallbackStory}</div>
@@ -749,37 +781,7 @@ window.addEventListener('firebaseReady', async (event) => {
         await speakGreeting({ greeting: fallbackGreeting, languageCode: 'zh-TW' });
     }
 
-    // 新增：地圖切換功能
-    function toggleMap() {
-        console.log('🗺️ 切換地圖顯示狀態');
-        const mapContainer = document.getElementById('mapContainer');
-        const mapButton = document.getElementById('mapButton');
-        
-        if (mapContainer && mapButton) {
-            if (mapContainer.classList.contains('hidden')) {
-                // 顯示地圖
-                mapContainer.classList.remove('hidden');
-                mapButton.textContent = '隱藏';
-                console.log('🗺️ 顯示地圖');
-                
-                // 重新調整地圖大小
-                setTimeout(() => {
-                    if (clockLeafletMap) {
-                        clockLeafletMap.invalidateSize();
-                        console.log('🗺️ 地圖大小已調整');
-                    }
-                }, 100);
-            } else {
-                // 隱藏地圖
-                mapContainer.classList.add('hidden');
-                mapButton.textContent = '地圖';
-                console.log('🗺️ 隱藏地圖');
-            }
-        }
-    }
 
-    // 將 toggleMap 設為全域函數，供 HTML onclick 使用
-    window.toggleMap = toggleMap;
 
     // 新增：顯示清喉嚨彈出對話框
     function showThroatClearingPopup() {
@@ -1090,15 +1092,7 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('✅ 清喉嚨對話框點擊事件已設定');
         }
         
-        // 設定地圖按鈕事件
-        const mapButton = document.getElementById('mapButton');
-        if (mapButton) {
-            mapButton.addEventListener('click', () => {
-                console.log('🔘 地圖按鈕被點擊');
-                toggleMap();
-            });
-            console.log('✅ 地圖按鈕事件已設定');
-        }
+
     }
 
     // 初始化
