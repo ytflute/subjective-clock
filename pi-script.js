@@ -993,9 +993,8 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log('🎬 正在播放完整語音內容:', storyData);
         
         try {
-            // 只播放故事內容，不要問候語
-            // 準備要朗讀的內容（當地語言問候 + 故事）
-            const fullContent = `${storyData.greeting}\n\n${storyData.story}`;
+            // 故事內容已經包含當地語言的問候語
+            const fullContent = storyData.story;
             const displayContent = fullContent; // 用於打字機效果顯示
 
             // 檢查瀏覽器是否支援語音合成
