@@ -15,6 +15,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// 常數定義
+const APP_ID = 'default-app-id-worldclock-history';
+
 export default async function handler(req, res) {
     // 設定 CORS 標頭
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -70,8 +73,8 @@ export default async function handler(req, res) {
         const day = now.getDate().toString().padStart(2, '0');
         const recordedDateString = `${year}-${month}-${day}`;
 
-        // 準備記錄資料
-        const recordData = {
+        // 準備基本記錄資料
+        const baseRecordData = {
             dataIdentifier: dataIdentifier || userDisplayName.toLowerCase(),
             userDisplayName,
             recordedAt: serverTimestamp(),
@@ -98,12 +101,8 @@ export default async function handler(req, res) {
             imageUrl: null // 將由前端填入
         };
 
-        // 儲存到個人歷史記錄
-        const historyDocRef = await addDoc(collection(db, 'userHistory'), recordData);
-        console.log('個人歷史記錄已儲存，文件 ID:', historyDocRef.id);
-
         // 準備全域記錄資料
-        const globalRecordData = {
+        const baseGlobalRecordData = {
             userDisplayName,
             city,
             country,
@@ -118,53 +117,69 @@ export default async function handler(req, res) {
             deviceType
         };
 
-        // 儲存到全域每日記錄
-        const globalDocRef = await addDoc(collection(db, 'globalDailyRecords'), globalRecordData);
-        console.log('全域每日記錄已儲存，文件 ID:', globalDocRef.id);
+        // 準備 artifacts 結構所需的額外資料
+        const sanitizedDisplayName = userDisplayName.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const artifactsData = {
+            appId: APP_ID,
+            sanitizedDisplayName,
+            source: 'raspberry_pi_api'
+        };
 
-        // === 新增：同時儲存到 artifacts 結構，讓網頁版能讀取 ===
+        // 主要儲存：artifacts 結構
         try {
-            const appId = 'default-app-id-worldclock-history'; // 網頁版使用的應用程式 ID
-            const sanitizedDisplayName = userDisplayName.toLowerCase().replace(/[^a-z0-9]/g, '');
-            
             // 儲存到個人檔案結構（對應網頁版個人軌跡）
-            const userProfilePath = `artifacts/${appId}/userProfiles/${sanitizedDisplayName}/clockHistory`;
+            const userProfilePath = `artifacts/${APP_ID}/userProfiles/${sanitizedDisplayName}/clockHistory`;
             const userProfileDocRef = await addDoc(collection(db, userProfilePath), {
-                ...recordData,
-                sanitizedDisplayName,
-                appId,
-                source: 'raspberry_pi_api'
+                ...baseRecordData,
+                ...artifactsData
             });
-            console.log('個人檔案記錄已儲存，文件 ID:', userProfileDocRef.id);
+            console.log('✅ 個人檔案記錄已儲存到 artifacts，文件 ID:', userProfileDocRef.id);
 
             // 儲存到公共資料結構（對應網頁版眾人地圖）
-            const publicDataPath = `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`;
+            const publicDataPath = `artifacts/${APP_ID}/publicData/allSharedEntries/dailyRecords`;
             const publicDocRef = await addDoc(collection(db, publicDataPath), {
-                ...globalRecordData,
-                appId,
-                sanitizedDisplayName,
-                source: 'raspberry_pi_api'
+                ...baseGlobalRecordData,
+                ...artifactsData
             });
-            console.log('公共資料記錄已儲存，文件 ID:', publicDocRef.id);
+            console.log('✅ 公共資料記錄已儲存到 artifacts，文件 ID:', publicDocRef.id);
 
-        } catch (artifactsError) {
-            console.error('儲存到 artifacts 結構時發生錯誤:', artifactsError);
-            // 不影響主要功能，只記錄錯誤
+            // === 棄用：為了向後兼容，暫時保留寫入到根層級 ===
+            // 儲存到個人歷史記錄
+            const historyDocRef = await addDoc(collection(db, 'userHistory'), baseRecordData);
+            console.log('⚠️ [棄用] 個人歷史記錄已儲存到根層級，文件 ID:', historyDocRef.id);
+
+            // 儲存到全域每日記錄
+            const globalDocRef = await addDoc(collection(db, 'globalDailyRecords'), baseGlobalRecordData);
+            console.log('⚠️ [棄用] 全域每日記錄已儲存到根層級，文件 ID:', globalDocRef.id);
+
+            return res.status(200).json({
+                success: true,
+                message: '記錄已成功儲存',
+                artifactsIds: {
+                    userProfileId: userProfileDocRef.id,
+                    publicDataId: publicDocRef.id
+                },
+                legacyIds: {  // 棄用
+                    historyId: historyDocRef.id,
+                    globalId: globalDocRef.id
+                },
+                recordData: {
+                    ...baseRecordData,
+                    recordedAt: now.toISOString()
+                }
+            });
+
+        } catch (error) {
+            console.error('儲存記錄時發生錯誤:', error);
+            return res.status(500).json({
+                success: false,
+                error: '內部伺服器錯誤',
+                details: error.message
+            });
         }
 
-        return res.status(200).json({
-            success: true,
-            message: '記錄已成功儲存',
-            historyId: historyDocRef.id,
-            globalId: globalDocRef.id,
-            recordData: {
-                ...recordData,
-                recordedAt: now.toISOString()
-            }
-        });
-
     } catch (error) {
-        console.error('儲存記錄時發生錯誤:', error);
+        console.error('處理請求時發生錯誤:', error);
         return res.status(500).json({
             success: false,
             error: '內部伺服器錯誤',

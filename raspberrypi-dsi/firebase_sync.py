@@ -153,17 +153,24 @@ class FirebaseSync:
         # 格式化日期
         date_str = timestamp_dt.strftime('%Y-%m-%d')
         
+        # 準備中文翻譯（如果有）
+        city_zh = record.get('city_zh', record.get('city', ''))
+        country_zh = record.get('country_zh', record.get('country', ''))
+        
         # 準備 Firebase 記錄（符合 API 欄位格式）
         firebase_record = {
             'userDisplayName': self.display_name,
             'dataIdentifier': self.user_id,
             'city': record.get('city', ''),
             'country': record.get('country', ''),
+            'city_zh': city_zh,
+            'country_zh': country_zh,
             'country_iso_code': record.get('countryCode', ''),
             'latitude': float(record.get('latitude', 0)) if record.get('latitude') else 0,
             'longitude': float(record.get('longitude', 0)) if record.get('longitude') else 0,
             'timezone': record.get('timezone', ''),
             'localTime': timestamp_dt.strftime('%H:%M:%S'),
+            'recordedDateString': date_str,  # 添加日期字串
             'targetUTCOffset': 0,  # 預設值
             'matchedCityUTCOffset': 0,  # 預設值
             'source': 'raspberry_pi_local_sync',
