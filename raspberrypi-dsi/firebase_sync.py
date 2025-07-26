@@ -184,18 +184,30 @@ class FirebaseSync:
                 timeout=API_CONFIG['timeout']
             )
             
+            self.logger.debug(f"API 響應狀態: {response.status_code}")
+            self.logger.debug(f"API 響應內容: {response.text[:200]}...")
+            
             if response.status_code == 200:
-                config = response.json()
-                if config.get('apiKey'):
-                    self.logger.info("✅ Firebase 連接測試成功")
-                    return True
-                else:
-                    self.logger.warning("❌ Firebase 配置無效")
+                try:
+                    config = response.json()
+                    if config.get('apiKey'):
+                        self.logger.info("✅ Firebase 連接測試成功")
+                        return True
+                    else:
+                        self.logger.warning("❌ Firebase 配置無效")
+                        return False
+                except json.JSONDecodeError as e:
+                    self.logger.error(f"❌ Firebase API 返回無效 JSON: {e}")
+                    self.logger.error(f"響應內容: {response.text}")
                     return False
             else:
                 self.logger.warning(f"❌ Firebase 連接測試失敗: HTTP {response.status_code}")
+                self.logger.warning(f"響應內容: {response.text}")
                 return False
                 
+        except requests.exceptions.RequestException as e:
+            self.logger.error(f"❌ Firebase 連接請求失敗: {e}")
+            return False
         except Exception as e:
             self.logger.error(f"❌ Firebase 連接測試失敗: {e}")
             return False
