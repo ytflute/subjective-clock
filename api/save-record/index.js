@@ -124,11 +124,11 @@ export default async function handler(req, res) {
 
         // === 新增：同時儲存到 artifacts 結構，讓網頁版能讀取 ===
         try {
-            const appId = 'subjective-clock'; // 固定應用程式 ID
+            const appId = 'default-app-id-worldclock-history'; // 網頁版使用的應用程式 ID
             const sanitizedDisplayName = userDisplayName.toLowerCase().replace(/[^a-z0-9]/g, '');
             
             // 儲存到個人檔案結構（對應網頁版個人軌跡）
-            const userProfilePath = `artifacts/${appId}/userProfiles/${sanitizedDisplayName}`;
+            const userProfilePath = `artifacts/${appId}/userProfiles/${sanitizedDisplayName}/clockHistory`;
             const userProfileDocRef = await addDoc(collection(db, userProfilePath), {
                 ...recordData,
                 sanitizedDisplayName,
