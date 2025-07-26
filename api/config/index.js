@@ -38,6 +38,25 @@ export default function handler(req, res) {
     return;
   }
 
+  // 檢查請求頭，如果是來自樹莓派或API客戶端，返回JSON
+  const userAgent = req.headers['user-agent'] || '';
+  const acceptHeader = req.headers['accept'] || '';
+  
+  // 如果是curl、python requests或其他API客戶端，返回JSON
+  if (userAgent.includes('curl') || 
+      userAgent.includes('python') || 
+      acceptHeader.includes('application/json') ||
+      req.query.format === 'json') {
+    
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.status(200).json(config);
+    return;
+  }
+
+  // 預設為網頁使用，返回JavaScript
   const configScript = `window.firebaseConfig = ${JSON.stringify(config)};`;
   
   res.setHeader('Content-Type', 'application/javascript');

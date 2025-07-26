@@ -181,6 +181,7 @@ class FirebaseSync:
             
             response = requests.get(
                 self.firebase_config_url,
+                headers={'Accept': 'application/json'},
                 timeout=API_CONFIG['timeout']
             )
             
