@@ -152,28 +152,38 @@ window.addEventListener('piStoryReady', (event) => {
     if (storyData && (storyData.fullContent || storyData.story)) {
         console.log('🔍 piStoryReady: 檢查 Firebase 狀態 - db:', !!db, 'rawUserDisplayName:', rawUserDisplayName);
         
-        // 檢查 Firebase 是否已初始化
-        if (!db) {
-            console.error('❌ piStoryReady: Firebase db 未初始化，使用預設 Day 1');
+        // 檢查 Firebase 是否已初始化，如果沒有就強制使用預設值
+        if (!db || !window.firebaseSDK) {
+            console.error('❌ piStoryReady: Firebase 未初始化，使用預設 Day 1 並顯示故事');
+            console.log('🔍 當前 Firebase 狀態:', {
+                db: !!db,
+                firebaseSDK: !!window.firebaseSDK,
+                firebaseConfig: !!window.firebaseConfig
+            });
+            
             // 直接使用預設值並顯示故事
             const resultData = {
-                city: storyData.city || '',
-                country: storyData.country || '',
-                countryCode: storyData.countryCode || '',
-                latitude: storyData.latitude || '',
-                longitude: storyData.longitude || '',
-                greeting: storyData.greeting || '',
-                language: storyData.language || '',
-                story: storyData.story || '',
-                day: 1, // 預設值
+                city: storyData.city || 'Unknown City',
+                country: storyData.country || 'Unknown Country',
+                countryCode: storyData.countryCode || 'XX',
+                latitude: storyData.latitude || 0,
+                longitude: storyData.longitude || 0,
+                greeting: storyData.greeting || 'Good Morning!',
+                language: storyData.language || 'English',
+                story: storyData.story || 'No story available',
+                day: 1, // 預設值，因為無法查詢 Firebase
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
+            
+            console.log('📊 使用預設結果數據:', resultData);
             updateResultData(resultData);
             showVoiceLoading();
+            
             const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
             if (voiceLoadingTextEl) {
                 voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
+                    console.log('🎬 開始打字機效果，內容:', storyData.fullContent || storyData.story);
                     startStoryTypewriter(storyData.fullContent || storyData.story);
                 }, 1000);
             }
@@ -1179,37 +1189,64 @@ window.addEventListener('firebaseReady', async (event) => {
         zoomInButton.removeEventListener('click', oldZoomIn);
         zoomOutButton.removeEventListener('click', oldZoomOut);
         
-        // 縮放按鈕事件監聽器
-        const handleZoomIn = () => {
+        // 縮放按鈕事件監聽器 - 增強版本，強制綁定事件
+        const handleZoomIn = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('🔍 縮放按鈕被點擊 (放大)');
+            
             if (mainInteractiveMap) {
                 const currentZoom = mainInteractiveMap.getZoom();
                 const maxZoom = mainInteractiveMap.getMaxZoom();
                 
+                console.log('🔍 當前縮放:', currentZoom, '最大縮放:', maxZoom);
+                
                 if (currentZoom < maxZoom) {
                     mainInteractiveMap.zoomIn();
                     console.log('🔍 地圖放大，當前縮放級別:', currentZoom + 1);
+                } else {
+                    console.log('🔍 已達最大縮放級別');
                 }
                 
                 updateZoomButtonState();
+            } else {
+                console.error('❌ 地圖實例不存在');
             }
         };
         
-        const handleZoomOut = () => {
+        const handleZoomOut = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('🔍 縮放按鈕被點擊 (縮小)');
+            
             if (mainInteractiveMap) {
                 const currentZoom = mainInteractiveMap.getZoom();
                 const minZoom = mainInteractiveMap.getMinZoom();
                 
+                console.log('🔍 當前縮放:', currentZoom, '最小縮放:', minZoom);
+                
                 if (currentZoom > minZoom) {
                     mainInteractiveMap.zoomOut();
                     console.log('🔍 地圖縮小，當前縮放級別:', currentZoom - 1);
+                } else {
+                    console.log('🔍 已達最小縮放級別');
                 }
                 
                 updateZoomButtonState();
+            } else {
+                console.error('❌ 地圖實例不存在');
             }
         };
         
+        // 移除舊的事件監聽器並重新綁定
+        zoomInButton.removeEventListener('click', handleZoomIn);
+        zoomOutButton.removeEventListener('click', handleZoomOut);
         zoomInButton.addEventListener('click', handleZoomIn);
         zoomOutButton.addEventListener('click', handleZoomOut);
+        
+        // 也綁定觸摸事件，確保在觸控螢幕上也能工作
+        zoomInButton.addEventListener('touchstart', handleZoomIn);
+        zoomOutButton.addEventListener('touchstart', handleZoomOut);
         
         // 監聽地圖縮放事件，更新按鈕狀態
         mainInteractiveMap.on('zoomend', updateZoomButtonState);
@@ -1829,23 +1866,40 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 開始語音播放時的打字機效果
+    // 開始語音播放時的打字機效果 - 增強版本
     function startStoryTypewriter(storyText) {
+        console.log('🎬 startStoryTypewriter 被調用，故事內容:', storyText);
+        
         const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-        if (!voiceLoadingTextEl || !storyText) {
+        console.log('🎬 找到文字元素:', !!voiceLoadingTextEl);
+        
+        if (!voiceLoadingTextEl) {
+            console.error('❌ 找不到 .voice-loading-text 元素');
             return Promise.resolve();
+        }
+        
+        if (!storyText || storyText.trim() === '') {
+            console.error('❌ 故事文字為空或未定義');
+            voiceLoadingTextEl.textContent = '故事內容載入中...';
+            return Promise.resolve();
+        }
+        
+        // 確保黑色框可見
+        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
+        if (voiceLoadingBar) {
+            voiceLoadingBar.style.display = 'block';
+            voiceLoadingBar.style.visibility = 'visible';
+            voiceLoadingBar.style.opacity = '1';
         }
         
         // 儲存當前故事文字
         currentStoryText = storyText;
         
-        // 估算合適的打字速度 (根據語音播放時間調整)
-        const estimatedDuration = estimateSpeechDuration(storyText);
-        
         // 使用固定的打字速度，讓效果更明顯
-        const typeSpeed = 100; // 固定100ms每字，打字機效果更明顯
+        const typeSpeed = 80; // 較快的打字速度
         
-        console.log(`🎬 開始打字機效果 - 文字長度: ${storyText.length}, 估算語音時間: ${estimatedDuration}ms, 打字速度: ${typeSpeed}ms/字`);
+        console.log(`🎬 開始打字機效果 - 文字長度: ${storyText.length}, 打字速度: ${typeSpeed}ms/字`);
+        console.log(`🎬 故事內容預覽: "${storyText.substring(0, 50)}..."`);
         
         // 開始打字機效果
         return typeWriterEffect(storyText, voiceLoadingTextEl, typeSpeed);
@@ -2124,9 +2178,23 @@ function initMainInteractiveMap(lat, lon, city, country) {
         }
     }
     
-    // 初始化縮放按鈕功能
+    // 初始化縮放按鈕功能 - 增加重試確保成功
     setTimeout(() => {
         initCustomZoomControls();
+        // 再次確保按鈕可見和可點擊
+        const zoomControls = document.querySelector('.map-zoom-controls');
+        if (zoomControls) {
+            zoomControls.style.cssText = `
+                position: fixed !important;
+                top: 20px !important;
+                right: 20px !important;
+                z-index: 9999999 !important;
+                pointer-events: auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 10px !important;
+            `;
+        }
     }, 100);
     
     // 立即載入並繪製軌跡線
