@@ -1109,8 +1109,9 @@ body {
     }
     
     .map-zoom-controls {
-        top: 15px;
-        left: 15px;
+        top: 15px !important;
+        right: 15px !important;
+        left: auto !important;
     }
     
     .zoom-button {
@@ -1512,8 +1513,9 @@ body {
 /* DSI 800x480 螢幕調整 */
 @media (max-width: 800px), (max-height: 480px) {
     .map-zoom-controls {
-        top: 15px;
-        left: 15px;
+        top: 15px !important;
+        right: 15px !important;
+        left: auto !important;
     }
     
     .zoom-button {
