@@ -161,7 +161,10 @@ window.addEventListener('piStoryReady', (event) => {
                 firebaseConfig: !!window.firebaseConfig
             });
             
-            // 直接使用預設值並顯示故事
+            // 直接使用預設值並顯示故事，優先使用樹莓派的 Day 值
+            const finalDay = storyData.day || 1; // 優先使用樹莓派的 Day 值，否則預設為 1
+            console.log('📊 Firebase 未初始化，Day 值決定: 樹莓派傳來:', storyData.day, '最終使用:', finalDay);
+            
             const resultData = {
                 city: storyData.city || 'Unknown City',
                 country: storyData.country || 'Unknown Country',
@@ -171,7 +174,7 @@ window.addEventListener('piStoryReady', (event) => {
                 greeting: storyData.greeting || 'Good Morning!',
                 language: storyData.language || 'English',
                 story: storyData.story || 'No story available',
-                day: 1, // 預設值，因為無法查詢 Firebase
+                day: finalDay, // 優先使用樹莓派的 Day 值
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             
@@ -201,7 +204,10 @@ window.addEventListener('piStoryReady', (event) => {
             console.log('📊 piStoryReady: 查詢到記錄數量:', querySnapshot.size);
             console.log('📊 piStoryReady: 使用 Day 值:', currentDay);
             
-            // 更新結果頁面數據，包含正確的 day 值
+            // 更新結果頁面數據，優先使用樹莓派傳來的 Day 值
+            const finalDay = storyData.day || currentDay || 1; // 優先使用樹莓派的 Day 值
+            console.log('📊 Day 值決定: 樹莓派傳來:', storyData.day, '本地查詢:', currentDay, '最終使用:', finalDay);
+            
             const resultData = {
                 city: storyData.city || '',
                 country: storyData.country || '',
@@ -211,7 +217,7 @@ window.addEventListener('piStoryReady', (event) => {
                 greeting: storyData.greeting || '',
                 language: storyData.language || '',
                 story: storyData.story || '',
-                day: currentDay, // 使用查詢到的正確 Day 值
+                day: finalDay, // 優先使用樹莓派的 Day 值
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             updateResultData(resultData);
@@ -227,7 +233,10 @@ window.addEventListener('piStoryReady', (event) => {
             }
         }).catch(error => {
             console.error('❌ piStoryReady: 查詢 Day 失敗:', error);
-            // 如果查詢失敗，使用預設 Day 1
+            // 如果查詢失敗，優先使用樹莓派的 Day 值
+            const finalDay = storyData.day || 1; // 優先使用樹莓派的 Day 值，否則預設為 1
+            console.log('📊 查詢失敗，Day 值決定: 樹莓派傳來:', storyData.day, '最終使用:', finalDay);
+            
             const resultData = {
                 city: storyData.city || '',
                 country: storyData.country || '',
@@ -237,7 +246,7 @@ window.addEventListener('piStoryReady', (event) => {
                 greeting: storyData.greeting || '',
                 language: storyData.language || '',
                 story: storyData.story || '',
-                day: 1, // 預設值
+                day: finalDay, // 優先使用樹莓派的 Day 值
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             updateResultData(resultData);

@@ -18,6 +18,7 @@ from config import (
     LOGGING_CONFIG, DEBUG_MODE, AUTOSTART_CONFIG, BUTTON_CONFIG,
     SCREENSAVER_CONFIG, ERROR_MESSAGES, USER_CONFIG
 )
+from local_storage import LocalStorage
 
 # 確保模組可以被導入
 try:
@@ -94,6 +95,9 @@ class WakeUpMapWebApp:
         # 音訊管理
         self.audio_manager = None
         
+        # 本地儲存管理
+        self.local_storage = None
+        
         # 螢幕保護程式
         self.screensaver_active = False
         self.screensaver_timer = None
@@ -117,6 +121,16 @@ class WakeUpMapWebApp:
             # 初始化網頁控制器
             self.logger.info("初始化網頁控制器...")
             self.web_controller = WebControllerDSI()
+            
+            # 初始化本地儲存
+            self.logger.info("初始化本地儲存...")
+            try:
+                self.local_storage = LocalStorage()
+                stats = self.local_storage.get_storage_stats()
+                self.logger.info(f"本地儲存狀態: Day {stats['current_day']}, 總記錄 {stats['total_records']}")
+            except Exception as e:
+                self.logger.warning(f"本地儲存初始化失敗：{e}")
+                self.local_storage = None
             
             # 初始化音訊管理器
             self.logger.info("初始化音訊管理器...")
@@ -215,6 +229,10 @@ class WakeUpMapWebApp:
             if result and result.get('success'):
                 self.logger.info("開始按鈕點擊成功")
                 
+                # 📊 先增加本地 Day 計數
+                current_day = self._increment_local_day_counter()
+                self.logger.info(f"📊 本地 Day 計數已更新為: {current_day}")
+                
                 # 從網頁提取城市資料並播放問候語
                 self._extract_city_data_and_play_greeting()
                 
@@ -230,6 +248,49 @@ class WakeUpMapWebApp:
                 self.is_processing_button = False
             
             threading.Thread(target=reset_processing_state, daemon=True).start()
+
+    def _increment_local_day_counter(self) -> int:
+        """增加本地 Day 計數"""
+        if self.local_storage:
+            try:
+                return self.local_storage.increment_day_counter()
+            except Exception as e:
+                self.logger.error(f"增加本地 Day 計數失敗: {e}")
+                return 1
+        else:
+            self.logger.warning("本地儲存未初始化，無法增加 Day 計數")
+            return 1
+    
+    def _get_current_day_number(self) -> int:
+        """獲取當前 Day 編號"""
+        if self.local_storage:
+            try:
+                return self.local_storage.get_current_day_number()
+            except Exception as e:
+                self.logger.error(f"獲取當前 Day 編號失敗: {e}")
+                return 1
+        else:
+            return 1
+    
+    def _save_local_record(self, city_data: dict):
+        """儲存甦醒記錄到本地"""
+        if self.local_storage:
+            try:
+                record_data = {
+                    "city": city_data.get("city", ""),
+                    "country": city_data.get("country", ""),
+                    "countryCode": city_data.get("countryCode", ""),
+                    "latitude": city_data.get("latitude"),
+                    "longitude": city_data.get("longitude"),
+                    "timezone": city_data.get("timezone", ""),
+                }
+                return self.local_storage.save_wakeup_record(record_data)
+            except Exception as e:
+                self.logger.error(f"儲存本地記錄失敗: {e}")
+                return False
+        else:
+            self.logger.warning("本地儲存未初始化，無法儲存記錄")
+            return False
 
     def _extract_city_data_and_play_greeting(self):
         """從網頁提取城市資料並播放問候語和故事（優化版：視聽同步）"""
@@ -425,9 +486,12 @@ class WakeUpMapWebApp:
                 self.logger.warning("網頁控制器未初始化，無法傳送故事內容")
                 return
             
-            # 將故事內容注入到網頁中
+            # 獲取當前 Day 編號
+            current_day = self._get_current_day_number()
+            
+            # 將故事內容注入到網頁中，包含本地 Day 計數
             story_js = f"""
-            // 設定樹莓派生成的故事內容（包含城市和國家資訊）
+            // 設定樹莓派生成的故事內容（包含城市和國家資訊以及本地Day計數）
             window.piGeneratedStory = {{
                 greeting: {json.dumps(story_content.get('greeting', ''), ensure_ascii=False)},
                 language: {json.dumps(story_content.get('language', ''), ensure_ascii=False)},
@@ -436,7 +500,8 @@ class WakeUpMapWebApp:
                 fullContent: {json.dumps(story_content.get('fullContent', ''), ensure_ascii=False)},
                 city: {json.dumps(story_content.get('city', ''), ensure_ascii=False)},
                 country: {json.dumps(story_content.get('country', ''), ensure_ascii=False)},
-                countryCode: {json.dumps(story_content.get('countryCode', ''), ensure_ascii=False)}
+                countryCode: {json.dumps(story_content.get('countryCode', ''), ensure_ascii=False)},
+                day: {current_day}
             }};
             
             // 通知網頁端故事內容已準備好
@@ -445,7 +510,7 @@ class WakeUpMapWebApp:
             }}));
             
             console.log('🎵 樹莓派故事內容已準備完成:', window.piGeneratedStory);
-            console.log('🎵 即將觸發 piStoryReady 事件');
+            console.log('🎵 即將觸發 piStoryReady 事件，Day: {current_day}');
             """
             
             self.web_controller.driver.execute_script(story_js)
