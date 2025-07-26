@@ -427,13 +427,16 @@ class WakeUpMapWebApp:
             
             # 將故事內容注入到網頁中
             story_js = f"""
-            // 設定樹莓派生成的故事內容
+            // 設定樹莓派生成的故事內容（包含城市和國家資訊）
             window.piGeneratedStory = {{
                 greeting: {json.dumps(story_content.get('greeting', ''), ensure_ascii=False)},
                 language: {json.dumps(story_content.get('language', ''), ensure_ascii=False)},
                 languageCode: {json.dumps(story_content.get('languageCode', ''), ensure_ascii=False)},
                 story: {json.dumps(story_content.get('story', ''), ensure_ascii=False)},
-                fullContent: {json.dumps(story_content.get('fullContent', ''), ensure_ascii=False)}
+                fullContent: {json.dumps(story_content.get('fullContent', ''), ensure_ascii=False)},
+                city: {json.dumps(story_content.get('city', ''), ensure_ascii=False)},
+                country: {json.dumps(story_content.get('country', ''), ensure_ascii=False)},
+                countryCode: {json.dumps(story_content.get('countryCode', ''), ensure_ascii=False)}
             }};
             
             // 通知網頁端故事內容已準備好
@@ -442,6 +445,7 @@ class WakeUpMapWebApp:
             }}));
             
             console.log('🎵 樹莓派故事內容已準備完成:', window.piGeneratedStory);
+            console.log('🎵 即將觸發 piStoryReady 事件');
             """
             
             self.web_controller.driver.execute_script(story_js)

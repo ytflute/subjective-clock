@@ -150,7 +150,37 @@ window.addEventListener('piStoryReady', (event) => {
     // 使用樹莓派生成的內容更新顯示
     const storyData = event.detail;
     if (storyData && (storyData.fullContent || storyData.story)) {
-        // 查詢當前的 Day 計數，因為樹莓派沒有提供
+        console.log('🔍 piStoryReady: 檢查 Firebase 狀態 - db:', !!db, 'rawUserDisplayName:', rawUserDisplayName);
+        
+        // 檢查 Firebase 是否已初始化
+        if (!db) {
+            console.error('❌ piStoryReady: Firebase db 未初始化，使用預設 Day 1');
+            // 直接使用預設值並顯示故事
+            const resultData = {
+                city: storyData.city || '',
+                country: storyData.country || '',
+                countryCode: storyData.countryCode || '',
+                latitude: storyData.latitude || '',
+                longitude: storyData.longitude || '',
+                greeting: storyData.greeting || '',
+                language: storyData.language || '',
+                story: storyData.story || '',
+                day: 1, // 預設值
+                flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
+            };
+            updateResultData(resultData);
+            showVoiceLoading();
+            const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
+            if (voiceLoadingTextEl) {
+                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+                setTimeout(() => {
+                    startStoryTypewriter(storyData.fullContent || storyData.story);
+                }, 1000);
+            }
+            return;
+        }
+        
+        // 查詢當前的 Day 計數
         const q = query(
             collection(db, 'wakeup_records'),
             where('userId', '==', rawUserDisplayName),

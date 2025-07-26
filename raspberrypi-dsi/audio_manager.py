@@ -386,13 +386,16 @@ class AudioManager:
                 if audio_file and audio_file.exists():
                     self.logger.info(f"✨ Nova 整合音頻生成成功: {audio_file.name}")
                     
-                    # 準備返回的故事內容
+                    # 準備返回的故事內容，包含城市和國家資訊
                     story_content = {
                         'greeting': greeting_text,
                         'language': greeting_data.get('language', ''),
                         'languageCode': language_code,
                         'story': story_text,
-                        'fullContent': full_content
+                        'fullContent': full_content,
+                        'city': city_name,
+                        'country': country_name,
+                        'countryCode': country_code
                     }
                     
                     return audio_file, story_content
