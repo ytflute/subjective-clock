@@ -122,6 +122,36 @@ export default async function handler(req, res) {
         const globalDocRef = await addDoc(collection(db, 'globalDailyRecords'), globalRecordData);
         console.log('全域每日記錄已儲存，文件 ID:', globalDocRef.id);
 
+        // === 新增：同時儲存到 artifacts 結構，讓網頁版能讀取 ===
+        try {
+            const appId = 'subjective-clock'; // 固定應用程式 ID
+            const sanitizedDisplayName = userDisplayName.toLowerCase().replace(/[^a-z0-9]/g, '');
+            
+            // 儲存到個人檔案結構（對應網頁版個人軌跡）
+            const userProfilePath = `artifacts/${appId}/userProfiles/${sanitizedDisplayName}`;
+            const userProfileDocRef = await addDoc(collection(db, userProfilePath), {
+                ...recordData,
+                sanitizedDisplayName,
+                appId,
+                source: 'raspberry_pi_api'
+            });
+            console.log('個人檔案記錄已儲存，文件 ID:', userProfileDocRef.id);
+
+            // 儲存到公共資料結構（對應網頁版眾人地圖）
+            const publicDataPath = `artifacts/${appId}/publicData/allSharedEntries/dailyRecords`;
+            const publicDocRef = await addDoc(collection(db, publicDataPath), {
+                ...globalRecordData,
+                appId,
+                sanitizedDisplayName,
+                source: 'raspberry_pi_api'
+            });
+            console.log('公共資料記錄已儲存，文件 ID:', publicDocRef.id);
+
+        } catch (artifactsError) {
+            console.error('儲存到 artifacts 結構時發生錯誤:', artifactsError);
+            // 不影響主要功能，只記錄錯誤
+        }
+
         return res.status(200).json({
             success: true,
             message: '記錄已成功儲存',
