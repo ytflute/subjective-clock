@@ -112,13 +112,18 @@ class FirebaseSync:
             if response.status_code == 200:
                 result = response.json()
                 if result.get('success'):
-                    self.logger.debug(f"記錄同步成功: Day {record.get('day')}, 城市: {record.get('city')}")
+                    self.logger.info(f"✅ 記錄同步成功: Day {record.get('day')}, 城市: {record.get('city')}")
                     return True
                 else:
-                    self.logger.warning(f"記錄同步失敗: {result.get('error', 'Unknown error')}")
+                    self.logger.warning(f"❌ 記錄同步失敗: {result.get('error', 'Unknown error')}")
                     return False
             else:
-                self.logger.warning(f"記錄同步請求失敗: HTTP {response.status_code}")
+                self.logger.warning(f"❌ 記錄同步請求失敗: HTTP {response.status_code}")
+                try:
+                    error_details = response.json()
+                    self.logger.warning(f"錯誤詳情: {error_details}")
+                except:
+                    self.logger.warning(f"響應內容: {response.text}")
                 return False
                 
         except Exception as e:
@@ -148,23 +153,25 @@ class FirebaseSync:
         # 格式化日期
         date_str = timestamp_dt.strftime('%Y-%m-%d')
         
-        # 準備 Firebase 記錄
+        # 準備 Firebase 記錄（符合 API 欄位格式）
         firebase_record = {
-            'userId': self.user_id,
-            'displayName': self.display_name,
-            'groupName': self.group_name,
+            'userDisplayName': self.display_name,
+            'dataIdentifier': self.user_id,
             'city': record.get('city', ''),
             'country': record.get('country', ''),
-            'countryIsoCode': record.get('countryCode', ''),
-            'latitude': record.get('latitude', 0),
-            'longitude': record.get('longitude', 0),
+            'country_iso_code': record.get('countryCode', ''),
+            'latitude': float(record.get('latitude', 0)) if record.get('latitude') else 0,
+            'longitude': float(record.get('longitude', 0)) if record.get('longitude') else 0,
             'timezone': record.get('timezone', ''),
-            'localTime': timestamp_dt.isoformat(),
-            'date': date_str,
-            'day': record.get('day', 1),
-            'timestamp': timestamp_dt.isoformat(),
-            'deviceType': USER_CONFIG.get('device_type', 'raspberry_pi_dsi'),
-            'source': 'raspberry_pi_local_sync'
+            'localTime': timestamp_dt.strftime('%H:%M:%S'),
+            'targetUTCOffset': 0,  # 預設值
+            'matchedCityUTCOffset': 0,  # 預設值
+            'source': 'raspberry_pi_local_sync',
+            'translationSource': 'local_database',
+            'timeMinutes': timestamp_dt.hour * 60 + timestamp_dt.minute,
+            'latitudePreference': float(record.get('latitude', 0)) if record.get('latitude') else 0,
+            'latitudeDescription': '',
+            'deviceType': USER_CONFIG.get('device_type', 'raspberry_pi_dsi')
         }
         
         return firebase_record
@@ -262,4 +269,42 @@ class FirebaseSync:
             
         except Exception as e:
             self.logger.error(f"啟動背景同步失敗: {e}")
-            return False 
+            return False
+    
+    def sync_all_records(self) -> Dict[str, Any]:
+        """
+        同步所有本地記錄到 Firebase
+        
+        Returns:
+            Dict: 同步結果統計
+        """
+        try:
+            all_records = self.local_storage.get_all_records()
+            if not all_records:
+                self.logger.info("沒有本地記錄需要同步")
+                return {'success': True, 'total': 0, 'synced': 0, 'failed': 0}
+            
+            synced_count = 0
+            failed_count = 0
+            
+            self.logger.info(f"開始同步 {len(all_records)} 筆本地記錄...")
+            
+            for record in all_records:
+                if self._sync_single_record(record):
+                    synced_count += 1
+                else:
+                    failed_count += 1
+            
+            result = {
+                'success': True,
+                'total': len(all_records),
+                'synced': synced_count,
+                'failed': failed_count
+            }
+            
+            self.logger.info(f"📊 同步完成 - 總計: {len(all_records)}, 成功: {synced_count}, 失敗: {failed_count}")
+            return result
+            
+        except Exception as e:
+            self.logger.error(f"同步所有記錄失敗: {e}")
+            return {'success': False, 'error': str(e)} 
