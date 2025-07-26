@@ -1254,8 +1254,18 @@ window.addEventListener('firebaseReady', async (event) => {
         zoomOutButton.addEventListener('click', handleZoomOut);
         
         // 也綁定觸摸事件，確保在觸控螢幕上也能工作
-        zoomInButton.addEventListener('touchstart', handleZoomIn);
-        zoomOutButton.addEventListener('touchstart', handleZoomOut);
+        zoomInButton.addEventListener('touchstart', handleZoomIn, { passive: false });
+        zoomOutButton.addEventListener('touchstart', handleZoomOut, { passive: false });
+        
+        // 額外綁定 touchend 事件，提高觸控響應
+        zoomInButton.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        }, { passive: false });
+        zoomOutButton.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        }, { passive: false });
         
         // 監聽地圖縮放事件，更新按鈕狀態
         mainInteractiveMap.on('zoomend', updateZoomButtonState);
