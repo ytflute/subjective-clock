@@ -134,6 +134,7 @@ API_ENDPOINTS = {
 USER_CONFIG = {
     'display_name': 'future',
     'identifier': 'future',
+    'group_name': 'Pi',
     'device_type': 'raspberry_pi_dsi'
 }
 

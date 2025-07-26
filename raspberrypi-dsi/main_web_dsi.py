@@ -19,6 +19,7 @@ from config import (
     SCREENSAVER_CONFIG, ERROR_MESSAGES, USER_CONFIG
 )
 from local_storage import LocalStorage
+from firebase_sync import FirebaseSync
 
 # 確保模組可以被導入
 try:
@@ -98,6 +99,9 @@ class WakeUpMapWebApp:
         # 本地儲存管理
         self.local_storage = None
         
+        # Firebase 同步管理
+        self.firebase_sync = None
+        
         # 螢幕保護程式
         self.screensaver_active = False
         self.screensaver_timer = None
@@ -128,9 +132,17 @@ class WakeUpMapWebApp:
                 self.local_storage = LocalStorage()
                 stats = self.local_storage.get_storage_stats()
                 self.logger.info(f"本地儲存狀態: Day {stats['current_day']}, 總記錄 {stats['total_records']}")
+                
+                # 初始化 Firebase 同步
+                self.logger.info("初始化 Firebase 同步...")
+                self.firebase_sync = FirebaseSync(self.local_storage)
+                sync_status = self.firebase_sync.get_sync_status()
+                self.logger.info(f"Firebase 同步狀態: 用戶 {sync_status['display_name']}, 群組 {sync_status['group_name']}")
+                
             except Exception as e:
-                self.logger.warning(f"本地儲存初始化失敗：{e}")
+                self.logger.warning(f"本地儲存或 Firebase 同步初始化失敗：{e}")
                 self.local_storage = None
+                self.firebase_sync = None
             
             # 初始化音訊管理器
             self.logger.info("初始化音訊管理器...")
@@ -273,7 +285,7 @@ class WakeUpMapWebApp:
             return 1
     
     def _save_local_record(self, city_data: dict):
-        """儲存甦醒記錄到本地"""
+        """儲存甦醒記錄到本地並同步到 Firebase"""
         if self.local_storage:
             try:
                 record_data = {
@@ -284,7 +296,21 @@ class WakeUpMapWebApp:
                     "longitude": city_data.get("longitude"),
                     "timezone": city_data.get("timezone", ""),
                 }
-                return self.local_storage.save_wakeup_record(record_data)
+                
+                # 保存到本地
+                local_success = self.local_storage.save_wakeup_record(record_data)
+                
+                if local_success:
+                    self.logger.info("✅ 本地記錄儲存成功")
+                    
+                    # 背景同步到 Firebase
+                    if self.firebase_sync:
+                        self.firebase_sync.auto_sync_background()
+                    else:
+                        self.logger.warning("Firebase 同步器未初始化，跳過雲端同步")
+                
+                return local_success
+                
             except Exception as e:
                 self.logger.error(f"儲存本地記錄失敗: {e}")
                 return False
@@ -316,6 +342,9 @@ class WakeUpMapWebApp:
                 
                 if city_data:
                     self.logger.info(f"📍 從網頁提取到城市資料: {city_data}")
+                    
+                    # 💾 保存甦醒記錄到本地並同步到 Firebase
+                    self._save_local_record(city_data)
                     
                     # 🎧 在背景準備完整音頻（不播放）
                     country_code = city_data.get('countryCode') or city_data.get('country_code', 'US')

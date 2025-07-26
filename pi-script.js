@@ -10,7 +10,7 @@ let globalLeafletMap = null;
 let globalMarkerLayerGroup = null;
 let historyLeafletMap = null;
 let historyMarkerLayerGroup = null;
-let currentGroupName = "";
+let currentGroupName = "Pi";  // 固定群組為 Pi
 let initialLoadHandled = false;
 
 // 主要互動地圖 (唯一地圖實例)
