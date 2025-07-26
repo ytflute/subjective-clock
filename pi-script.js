@@ -149,20 +149,69 @@ window.addEventListener('piStoryReady', (event) => {
     
     // 使用樹莓派生成的內容更新顯示
     const storyData = event.detail;
-    if (storyData && storyData.story) {
-        // 開始打字機效果顯示故事
-        showVoiceLoading();
-        
-        // 設定載入訊息
-        const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
-        if (voiceLoadingTextEl) {
-            voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+    if (storyData && (storyData.fullContent || storyData.story)) {
+        // 查詢當前的 Day 計數，因為樹莓派沒有提供
+        const q = query(
+            collection(db, 'wakeup_records'),
+            where('userId', '==', rawUserDisplayName),
+            orderBy('timestamp', 'desc')
+        );
+        getDocs(q).then(querySnapshot => {
+            const currentDay = querySnapshot.size; // 當前記錄數量就是 Day 數
+            console.log('📊 piStoryReady: 查詢到記錄數量:', querySnapshot.size);
+            console.log('📊 piStoryReady: 使用 Day 值:', currentDay);
             
-            // 等一下後開始顯示故事內容
-            setTimeout(() => {
-                startStoryTypewriter(storyData.fullContent || storyData.story);
-            }, 1000);
-        }
+            // 更新結果頁面數據，包含正確的 day 值
+            const resultData = {
+                city: storyData.city || '',
+                country: storyData.country || '',
+                countryCode: storyData.countryCode || '',
+                latitude: storyData.latitude || '',
+                longitude: storyData.longitude || '',
+                greeting: storyData.greeting || '',
+                language: storyData.language || '',
+                story: storyData.story || '',
+                day: currentDay, // 使用查詢到的正確 Day 值
+                flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
+            };
+            updateResultData(resultData);
+
+            // 開始打字機效果顯示故事
+            showVoiceLoading();
+            const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
+            if (voiceLoadingTextEl) {
+                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+                setTimeout(() => {
+                    startStoryTypewriter(storyData.fullContent || storyData.story);
+                }, 1000);
+            }
+        }).catch(error => {
+            console.error('❌ piStoryReady: 查詢 Day 失敗:', error);
+            // 如果查詢失敗，使用預設 Day 1
+            const resultData = {
+                city: storyData.city || '',
+                country: storyData.country || '',
+                countryCode: storyData.countryCode || '',
+                latitude: storyData.latitude || '',
+                longitude: storyData.longitude || '',
+                greeting: storyData.greeting || '',
+                language: storyData.language || '',
+                story: storyData.story || '',
+                day: 1, // 預設值
+                flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
+            };
+            updateResultData(resultData);
+
+            // 開始打字機效果顯示故事
+            showVoiceLoading();
+            const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
+            if (voiceLoadingTextEl) {
+                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+                setTimeout(() => {
+                    startStoryTypewriter(storyData.fullContent || storyData.story);
+                }, 1000);
+            }
+        });
     }
 });
 
@@ -853,6 +902,39 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
+    // 只允許樹莓派內容，generateAndDisplayStoryAndGreeting 只等待 piStoryReady，不再 fallback
+    async function generateAndDisplayStoryAndGreeting(cityData) {
+        console.log('📖 等待樹莓派生成甦醒故事和問候語...');
+        try {
+            let receivedPiStory = false;
+            const waitForPiStory = new Promise((resolve, reject) => {
+                const timeout = setTimeout(() => {
+                    if (!receivedPiStory) {
+                        reject(new Error('等待樹莓派故事超時'));
+                    }
+                }, 30000); // 最多等30秒
+                const handlePiStory = (event) => {
+                    receivedPiStory = true;
+                    clearTimeout(timeout);
+                    window.removeEventListener('piStoryReady', handlePiStory);
+                    resolve(event.detail);
+                };
+                window.addEventListener('piStoryReady', handlePiStory);
+                if (window.piGeneratedStory) {
+                    receivedPiStory = true;
+                    clearTimeout(timeout);
+                    resolve(window.piGeneratedStory);
+                }
+            });
+            const storyResult = await waitForPiStory;
+            console.log('📖 收到樹莓派故事:', storyResult);
+            // 不再 fallback，僅顯示樹莓派內容
+        } catch (error) {
+            console.error('❌ 未收到樹莓派故事內容:', error);
+            setState('error', '未收到樹莓派故事內容，請重試');
+        }
+    }
+
     // 新增：生成並顯示故事和問候語（修改為不呼叫 API，等待樹莓派內容）
     async function generateAndDisplayStoryAndGreeting(cityData) {
         console.log('📖 等待樹莓派生成甦醒故事和問候語...');
@@ -1536,12 +1618,17 @@ window.addEventListener('firebaseReady', async (event) => {
         // 更新天數
         const dayNumberEl = document.getElementById('dayNumber');
         if (dayNumberEl) {
-            // 如果沒有提供 day，從 Firebase 獲取
-            if (!data.day) {
+            // 優先使用提供的 day 值
+            if (data.day) {
+                console.log('📊 updateResultData: 使用提供的 day 值:', data.day);
+                dayNumberEl.textContent = data.day;
+            } else {
+                // 如果沒有提供 day，從 Firebase 獲取最新記錄數量
                 console.log('📊 updateResultData: 沒有提供 day 值，從 Firebase 查詢');
                 const q = query(
                     collection(db, 'wakeup_records'),
-                    where('userId', '==', rawUserDisplayName)
+                    where('userId', '==', rawUserDisplayName),
+                    orderBy('timestamp', 'desc')
                 );
                 getDocs(q).then(querySnapshot => {
                     const currentDay = querySnapshot.size; // 使用已保存的記錄數量
@@ -1552,9 +1639,6 @@ window.addEventListener('firebaseReady', async (event) => {
                     console.error('獲取 Day 計數失敗:', error);
                     dayNumberEl.textContent = '1';
                 });
-            } else {
-                console.log('📊 updateResultData: 使用提供的 day 值:', data.day);
-                dayNumberEl.textContent = data.day;
             }
         }
 
