@@ -95,8 +95,8 @@
                     <!-- 隱藏的緊急備用按鈕 -->
                     <div id="hiddenBackupButton" onclick="window.startTheDay && window.startTheDay()" style="
                         position: fixed;
-                        bottom: 10px;
-                        right: 10px;
+                        top: 10px;
+                        left: 10px;
                         width: 50px;
                         height: 50px;
                         background: rgba(255, 255, 255, 0.02);
@@ -359,21 +359,21 @@
                 }
             }
             
-            // 雙擊 ESC 鍵顯示/隱藏緊急按鈕
-            if (event.key === 'Escape') {
-                const hiddenButton = document.getElementById('hiddenBackupButton');
-                if (hiddenButton) {
-                    if (hiddenButton.style.opacity === '0.02' || hiddenButton.style.opacity === '') {
-                        hiddenButton.style.opacity = '0.3';
-                        hiddenButton.style.background = 'rgba(255, 100, 100, 0.3)';
-                        console.log('🆘 緊急按鈕已顯示');
-                        setTimeout(() => {
-                            hiddenButton.style.opacity = '0.02';
-                            hiddenButton.style.background = 'rgba(255, 255, 255, 0.02)';
-                        }, 5000); // 5秒後自動隱藏
-                    }
-                }
-            }
+                         // ESC 鍵顯示/隱藏緊急按鈕
+             if (event.key === 'Escape') {
+                 const hiddenButton = document.getElementById('hiddenBackupButton');
+                 if (hiddenButton) {
+                     if (hiddenButton.style.opacity === '0.02' || hiddenButton.style.opacity === '') {
+                         hiddenButton.style.opacity = '0.3';
+                         hiddenButton.style.background = 'rgba(255, 100, 100, 0.3)';
+                         console.log('🆘 緊急按鈕已顯示 (左上角)');
+                         setTimeout(() => {
+                             hiddenButton.style.opacity = '0.02';
+                             hiddenButton.style.background = 'rgba(255, 255, 255, 0.02)';
+                         }, 5000); // 5秒後自動隱藏
+                     }
+                 }
+             }
         });
         
         // 隱藏按鈕調試功能 (開發者控制台使用)
@@ -404,16 +404,16 @@
                     console.warn('⚠️ startTheDay 函數尚未準備就緒');
                 }
             },
-            help: function() {
-                console.log(`
+                         help: function() {
+                 console.log(`
 🔧 隱藏按鈕控制指令：
-- hiddenButtonControl.show()    : 顯示隱藏按鈕
+- hiddenButtonControl.show()    : 顯示隱藏按鈕 (左上角)
 - hiddenButtonControl.hide()    : 隱藏按鈕
 - hiddenButtonControl.trigger() : 觸發按鈕功能
 - Ctrl + H                      : 鍵盤快捷鍵觸發
-- ESC                          : 臨時顯示緊急按鈕 (5秒)
+- ESC                          : 臨時顯示緊急按鈕 (5秒，左上角)
                  `);
-            }
+             }
         };
         
         // 在控制台顯示隱藏按鈕使用說明

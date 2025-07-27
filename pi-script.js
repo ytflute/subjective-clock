@@ -281,6 +281,15 @@ window.addEventListener('firebaseReady', async (event) => {
         serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
     } = window.firebaseSDK;
 
+    // 設定全域 Firebase 函數，供其他函數使用
+    window.collection = collection;
+    window.query = query;
+    window.where = where;
+    window.orderBy = orderBy;
+    window.getDocs = getDocs;
+    window.addDoc = addDoc;
+    window.serverTimestamp = serverTimestamp;
+
     // 取得 DOM 元素
     console.log('🔍 正在取得 DOM 元素...');
     try {
@@ -1159,7 +1168,7 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     // 新增：初始化自定義縮放按鈕功能
-    function initCustomZoomControls() {
+    window.initCustomZoomControls = function initCustomZoomControls() {
         console.log('🔍 初始化自定義縮放按鈕');
         
         const zoomInButton = document.getElementById('zoomInButton');
@@ -2211,7 +2220,9 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 初始化縮放按鈕功能 - 增加重試確保成功
     setTimeout(() => {
-        initCustomZoomControls();
+        if (window.initCustomZoomControls) {
+            window.initCustomZoomControls();
+        }
         // 再次確保按鈕可見和可點擊
         const zoomControls = document.querySelector('.map-zoom-controls');
         if (zoomControls) {
@@ -2243,13 +2254,13 @@ async function loadAndDrawTrajectory() {
         console.log('🗺️ 開始載入軌跡線數據...');
         
         // 讀取當前用戶的歷史記錄
-        const q = query(
-            collection(db, 'wakeup_records'),
-            where('userId', '==', rawUserDisplayName),
-            orderBy('timestamp', 'asc') // 按時間順序排列
+        const q = window.query(
+            window.collection(db, 'wakeup_records'),
+            window.where('userId', '==', rawUserDisplayName),
+            window.orderBy('timestamp', 'asc') // 按時間順序排列
         );
         
-        const querySnapshot = await getDocs(q);
+        const querySnapshot = await window.getDocs(q);
         trajectoryData = [];
         
         querySnapshot.forEach((doc) => {
