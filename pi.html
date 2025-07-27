@@ -60,7 +60,7 @@
             <!-- 全域背景地圖 -->
             <div id="mainMapContainer" class="main-map-background"></div>
             
-            <!-- 地圖縮放控制按鈕 -->
+            <!-- 地圖縮放控制按鈕 - 統一位置 -->
             <div class="map-zoom-controls">
                 <button id="zoomInButton" class="zoom-button" title="放大">+</button>
                 <button id="zoomOutButton" class="zoom-button" title="縮小">-</button>
@@ -133,8 +133,7 @@
                 <!-- 左側信息面板 (浮層) -->
                 <div class="result-info-panel">
                     <div class="day-counter">
-                        <span class="day-label">Day</span>
-                        <span id="dayNumber" class="day-number">1</span>
+                        <span class="day-label">Day </span><span id="dayNumber" class="day-number">1</span>
                     </div>
                     
                     <div class="date-info">
@@ -158,12 +157,7 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- 地圖縮放控制按鈕 -->
-                <div class="map-zoom-controls">
-                    <button id="zoomInButton" class="zoom-button zoom-in">+</button>
-                    <button id="zoomOutButton" class="zoom-button zoom-out">−</button>
-                </div>
+
                 
                 <!-- 底部語音提示 (浮層) -->
                 <div id="voiceLoadingBar" class="voice-loading-bar">

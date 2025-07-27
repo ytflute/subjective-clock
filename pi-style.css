@@ -796,8 +796,9 @@ body {
     position: fixed !important;
     top: 15px !important;
     left: 15px !important;
-    width: 300px !important;
-    background: rgba(255, 255, 255, 0.85) !important;  /* 增加透明度 */
+    width: 320px !important;
+    min-height: 200px !important;
+    background: rgba(255, 255, 255, 0.92) !important;  /* 增加透明度 */
     border-radius: 12px !important;
     padding: 20px !important;
     z-index: 999999 !important;
@@ -805,7 +806,7 @@ body {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    max-height: 440px !important;
+    max-height: 380px !important;
     overflow-y: auto !important;
     pointer-events: auto !important;
 }
@@ -813,14 +814,16 @@ body {
 /* Day 計數器 */
 .day-counter {
     margin-bottom: 15px !important;
-    display: block !important;
+    display: flex !important;
+    align-items: baseline !important;
+    line-height: 1 !important;
 }
 
 .day-label {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
     font-size: 14px !important;
     color: #333333 !important;
-    margin-right: 8px !important;
+    margin-right: 0 !important;
 }
 
 .day-number {
@@ -1127,6 +1130,24 @@ body {
     }
 }
 
+/* === 地圖 Popup 樣式 === */
+.leaflet-popup-content-wrapper {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.trajectory-popup .leaflet-popup-content,
+.today-popup .leaflet-popup-content,
+.wake-up-popup .leaflet-popup-content {
+    margin: 8px 12px !important;
+    font-family: 'Press Start 2P', monospace !important;
+}
+
+.leaflet-popup-tip {
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
 /* === 軌跡線樣式 === */
 .trajectory-marker {
     background: none !important;
@@ -1255,19 +1276,20 @@ body {
 .waiting-content-box {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.95);
     border: 3px solid #FFD700;
     border-radius: 8px;
-    padding: 40px 60px;
+    padding: 30px 50px;
     text-align: center;
     z-index: 100 !important; /* 提高層級，確保在地圖之上 */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     display: block !important;
     visibility: visible !important;
-    max-width: 700px;
-    width: 90%;
+    max-width: 450px;
+    width: 60%;
+    min-height: 220px;
 }
 
 /* 主標題 - PRESS THE BUTTON */

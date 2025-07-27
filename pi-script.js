@@ -2336,9 +2336,23 @@ function initMainInteractiveMap(lat, lon, city, country) {
             icon: customIcon
         }).addTo(mainInteractiveMap);
         
-        // 不需要彈窗，標記只顯示 TODAY
-        marker.bindPopup('', {
-            offset: [0, 0]
+        // 點擊顯示今日城市信息
+        const cityNameEl = document.getElementById('cityName');
+        const countryNameEl = document.getElementById('countryName');
+        const todayCity = cityNameEl ? cityNameEl.textContent : '今日位置';
+        const todayCountry = countryNameEl ? countryNameEl.textContent : '';
+        
+        marker.bindPopup(`
+            <div style="text-align: center; font-family: 'Press Start 2P', monospace; font-size: 12px;">
+                <strong style="color: #000000;">🌅 TODAY</strong><br>
+                <span style="color: #333333; font-size: 14px;">${todayCity}</span><br>
+                <span style="color: #666666; font-size: 12px;">${todayCountry}</span><br>
+                <small style="color: #999999; font-size: 10px;">${lat.toFixed(4)}°, ${lon.toFixed(4)}°</small>
+            </div>
+        `, {
+            offset: [0, -12],
+            maxWidth: 200,
+            className: 'today-popup'
         });
     }
     
@@ -2500,9 +2514,18 @@ function drawTrajectoryLine() {
             icon: customIcon
         }).addTo(trajectoryLayer);
         
-        // 不需要彈窗，標記只顯示Day數字
-        marker.bindPopup('', {
-            offset: [0, 0]
+        // 點擊顯示城市和國家名字
+        marker.bindPopup(`
+            <div style="text-align: center; font-family: 'Press Start 2P', monospace; font-size: 12px;">
+                <strong style="color: #000000;">Day ${point.day}</strong><br>
+                <span style="color: #333333; font-size: 14px;">${point.city || '未知城市'}</span><br>
+                <span style="color: #666666; font-size: 12px;">${point.country || '未知國家'}</span><br>
+                <small style="color: #999999; font-size: 10px;">${point.date || ''}</small>
+            </div>
+        `, {
+            offset: [0, -12],
+            maxWidth: 200,
+            className: 'trajectory-popup'
         });
     });
     
