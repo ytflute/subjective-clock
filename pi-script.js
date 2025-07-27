@@ -903,6 +903,13 @@ window.addEventListener('firebaseReady', async (event) => {
             if (data.success && data.city) {
                 console.log('🎉 API 成功回應，準備處理城市資料:', data.city);
                 
+                // 🌍 設定全域變數供樹莓派提取使用 (修正時區欄位格式)
+                window.currentCityData = {
+                    ...data.city,
+                    timezone: data.city.timezone?.timeZoneId || data.city.timezone || 'UTC'
+                };
+                console.log('🔗 已設定 window.currentCityData 供後端提取:', window.currentCityData);
+                
                 // 先儲存到 Firebase，確保 day 計數正確
                 console.log('💾 開始儲存到 Firebase...');
                 await saveToFirebase(data.city);
