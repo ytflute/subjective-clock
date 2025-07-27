@@ -1775,6 +1775,14 @@ window.addEventListener('firebaseReady', async (event) => {
         } else {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
+
+        // 🔧 新增：每次更新結果數據後，嘗試從Firebase讀取並顯示故事
+        setTimeout(() => {
+            console.log('📖 updateResultData完成，開始從Firebase讀取故事...');
+            if (window.loadAndDisplayStoryFromFirebase) {
+                loadAndDisplayStoryFromFirebase();
+            }
+        }, 1500); // 延遲1.5秒確保其他元素都更新完成
     }
 
     // 打字機效果相關變數
@@ -2523,3 +2531,75 @@ window.checkTrajectory = function() {
             setTimeout(() => {
                 loadHistoryTrajectory();
             }, 2000);
+
+    // 新增：從Firebase直接讀取並顯示故事文字
+    async function loadAndDisplayStoryFromFirebase() {
+        try {
+            if (!db || !auth.currentUser) {
+                console.log('⚠️ Firebase未就緒，無法讀取故事');
+                return;
+            }
+
+            console.log('📖 從Firebase讀取最新故事內容...');
+            
+            // 查詢所有記錄（避免索引問題）
+            const { collection, query, where, getDocs } = window.firebaseSDK;
+            const q = query(
+                collection(db, 'wakeup_records'),
+                where('userId', '==', rawUserDisplayName)
+            );
+
+            const querySnapshot = await getDocs(q);
+            
+            if (!querySnapshot.empty) {
+                // 客戶端排序獲取最新記錄
+                const records = [];
+                querySnapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (data.timestamp) {
+                        records.push(data);
+                    }
+                });
+                
+                // 按timestamp排序，最新的在前
+                records.sort((a, b) => {
+                    const aTime = a.timestamp?.toDate?.() || new Date(a.timestamp || 0);
+                    const bTime = b.timestamp?.toDate?.() || new Date(b.timestamp || 0);
+                    return bTime - aTime;
+                });
+                
+                if (records.length > 0) {
+                    const latestRecord = records[0];
+                    const storyText = latestRecord.story || latestRecord.greeting || '';
+                    
+                                         console.log('📖 從Firebase讀取到最新故事:', storyText);
+                     console.log('📊 總記錄數:', records.length, '最新記錄時間:', latestRecord.timestamp);
+                 
+                     if (storyText) {
+                         const storyTextEl = document.getElementById('storyText');
+                         if (storyTextEl) {
+                             storyTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+                             setTimeout(() => {
+                                 console.log('🔧 開始顯示Firebase中的故事:', storyText);
+                                 startStoryTypewriter(storyText);
+                             }, 1000);
+                         } else {
+                             console.error('❌ 找不到 #storyText 元素');
+                         }
+                     } else {
+                         console.warn('⚠️ Firebase記錄中沒有故事內容');
+                     }
+                 } else {
+                     console.warn('⚠️ Firebase記錄中沒有有效的時間戳');
+                 }
+            } else {
+                console.warn('⚠️ Firebase中沒有找到任何記錄');
+            }
+
+        } catch (error) {
+            console.error('❌ 從Firebase讀取故事失敗:', error);
+        }
+    }
+
+    // 將函數暴露給全域範圍
+    window.loadAndDisplayStoryFromFirebase = loadAndDisplayStoryFromFirebase;
