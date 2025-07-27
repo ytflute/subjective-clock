@@ -796,9 +796,9 @@ body {
     position: fixed !important;
     top: 15px !important;
     left: 15px !important;
-    width: 320px !important;
-    min-height: 200px !important;
-    background: rgba(255, 255, 255, 0.92) !important;  /* 增加透明度 */
+    width: 400px !important;
+    min-height: 300px !important;
+    background: rgba(255, 255, 255, 0.94) !important;  /* 增加透明度 */
     border-radius: 12px !important;
     padding: 20px !important;
     z-index: 999999 !important;
@@ -806,7 +806,7 @@ body {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    max-height: 380px !important;
+    max-height: 420px !important;
     overflow-y: auto !important;
     pointer-events: auto !important;
 }
@@ -815,8 +815,9 @@ body {
 .day-counter {
     margin-bottom: 15px !important;
     display: flex !important;
-    align-items: baseline !important;
+    align-items: center !important;
     line-height: 1 !important;
+    gap: 0 !important;
 }
 
 .day-label {
@@ -831,6 +832,40 @@ body {
     font-size: 18px !important;
     color: #000000 !important;
     font-weight: bold !important;
+}
+
+/* 故事文字容器 */
+.story-container {
+    margin-top: 20px !important;
+    padding: 15px 0 !important;
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.story-text {
+    font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+    color: #333333 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* 打字機效果樣式 */
+.story-text.typing::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: #4d714f;
+}
+
+.story-text.completed {
+    opacity: 1;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 /* 日期信息 */
@@ -1113,18 +1148,6 @@ body {
         overflow: hidden !important;
     }
     
-    .map-zoom-controls {
-        top: 15px !important;
-        right: 15px !important;
-        left: auto !important;
-    }
-    
-    .zoom-button {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-    
     .coordinates-text {
         font-size: 9px;
     }
@@ -1376,19 +1399,20 @@ body {
 .loading-content-box {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.85);
     border: 3px solid #666666;
     border-radius: 8px;
-    padding: 40px 60px;
+    padding: 30px 50px;
     text-align: center;
     z-index: 100 !important; /* 提高層級，確保在地圖之上 */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     display: block !important;
     visibility: visible !important;
-    max-width: 700px;
-    width: 90%;
+    max-width: 450px;
+    width: 60%;
+    min-height: 180px;
 }
 
 /* LOCATING... 標題 */

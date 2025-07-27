@@ -181,11 +181,10 @@ window.addEventListener('piStoryReady', (event) => {
             
             console.log('📊 使用預設結果數據:', resultData);
             updateResultData(resultData);
-            showVoiceLoading();
             
-            const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
-            if (voiceLoadingTextEl) {
-                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            const storyTextEl = document.getElementById('storyText');
+            if (storyTextEl) {
+                storyTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
                     console.log('🎬 開始打字機效果，內容:', storyData.fullContent || storyData.story);
                     startStoryTypewriter(storyData.fullContent || storyData.story);
@@ -240,10 +239,9 @@ window.addEventListener('piStoryReady', (event) => {
             }
 
             // 開始打字機效果顯示故事
-            showVoiceLoading();
-            const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
-            if (voiceLoadingTextEl) {
-                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            const storyTextEl = document.getElementById('storyText');
+            if (storyTextEl) {
+                storyTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
                     startStoryTypewriter(storyData.fullContent || storyData.story);
                 }, 1000);
@@ -286,10 +284,9 @@ window.addEventListener('piStoryReady', (event) => {
             }
 
             // 開始打字機效果顯示故事
-            showVoiceLoading();
-            const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
-            if (voiceLoadingTextEl) {
-                voiceLoadingTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            const storyTextEl = document.getElementById('storyText');
+            if (storyTextEl) {
+                storyTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
                     startStoryTypewriter(storyData.fullContent || storyData.story);
                 }, 1000);
@@ -1457,15 +1454,11 @@ window.addEventListener('firebaseReady', async (event) => {
             // 檢查瀏覽器是否支援語音合成
             if (!('speechSynthesis' in window)) {
                 console.warn('🔇 此瀏覽器不支援語音合成');
-                showVoiceLoading();
                 await startStoryTypewriter(loadingText);
                 await new Promise(resolve => setTimeout(resolve, 1500));
                 await startStoryTypewriter(fullContent);
                 return;
             }
-
-            // 顯示語音載入提示
-            showVoiceLoading();
             
             // 在黑色對話框中先打出 loading 文字
             await startStoryTypewriter(loadingText);
@@ -1929,11 +1922,11 @@ window.addEventListener('firebaseReady', async (event) => {
             initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
         }
         
-        // 確保語音載入提示區域是空的，等待打字機效果
-        const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
-        if (voiceLoadingTextEl) {
-            voiceLoadingTextEl.textContent = '';
-            voiceLoadingTextEl.classList.remove('typing', 'completed');
+        // 確保故事文字區域是空的，等待打字機效果
+        const storyTextEl = document.getElementById('storyText');
+        if (storyTextEl) {
+            storyTextEl.textContent = '';
+            storyTextEl.classList.remove('typing', 'completed');
         }
     }
 
@@ -1982,11 +1975,11 @@ window.addEventListener('firebaseReady', async (event) => {
         }
         
         // 移除打字狀態的 CSS 類
-        const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-        if (voiceLoadingTextEl) {
-            voiceLoadingTextEl.classList.remove('typing');
-            voiceLoadingTextEl.classList.remove('completed');
-            voiceLoadingTextEl.textContent = ''; // 清空文字
+        const storyTextEl = document.getElementById('storyText');
+        if (storyTextEl) {
+            storyTextEl.classList.remove('typing');
+            storyTextEl.classList.remove('completed');
+            storyTextEl.textContent = ''; // 清空文字
         }
     }
 
@@ -2007,53 +2000,22 @@ window.addEventListener('firebaseReady', async (event) => {
         return Math.max(3000, Math.min(40000, adjustedDuration));
     }
 
-    // 顯示/隱藏語音載入提示
-    function showVoiceLoading() {
-        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
-        const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-        
-        if (voiceLoadingBar) {
-            voiceLoadingBar.style.display = 'block';
-        }
-        
-        // 初始時不顯示任何文字
-        if (voiceLoadingTextEl) {
-            voiceLoadingTextEl.textContent = '';
-            voiceLoadingTextEl.classList.remove('typing', 'completed');
-        }
-    }
-
-    function hideVoiceLoading() {
-        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
-        if (voiceLoadingBar) {
-            voiceLoadingBar.style.display = 'block'; // 保持顯示，因為會顯示故事文字
-        }
-    }
-
     // 開始語音播放時的打字機效果 - 增強版本
     function startStoryTypewriter(storyText) {
         console.log('🎬 startStoryTypewriter 被調用，故事內容:', storyText);
         
-        const voiceLoadingTextEl = document.querySelector('.voice-loading-text');
-        console.log('🎬 找到文字元素:', !!voiceLoadingTextEl);
+        const storyTextEl = document.getElementById('storyText');
+        console.log('🎬 找到故事文字元素:', !!storyTextEl);
         
-        if (!voiceLoadingTextEl) {
-            console.error('❌ 找不到 .voice-loading-text 元素');
+        if (!storyTextEl) {
+            console.error('❌ 找不到 #storyText 元素');
             return Promise.resolve();
         }
         
         if (!storyText || storyText.trim() === '') {
             console.error('❌ 故事文字為空或未定義');
-            voiceLoadingTextEl.textContent = '故事內容載入中...';
+            storyTextEl.textContent = '故事內容載入中...';
             return Promise.resolve();
-        }
-        
-        // 確保黑色框可見
-        const voiceLoadingBar = document.getElementById('voiceLoadingBar');
-        if (voiceLoadingBar) {
-            voiceLoadingBar.style.display = 'block';
-            voiceLoadingBar.style.visibility = 'visible';
-            voiceLoadingBar.style.opacity = '1';
         }
         
         // 儲存當前故事文字
@@ -2066,7 +2028,7 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log(`🎬 故事內容預覽: "${storyText.substring(0, 50)}..."`);
         
         // 開始打字機效果
-        return typeWriterEffect(storyText, voiceLoadingTextEl, typeSpeed);
+        return typeWriterEffect(storyText, storyTextEl, typeSpeed);
     }
 
     // 根據國家代碼獲取對應的語言代碼
