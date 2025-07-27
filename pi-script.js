@@ -647,8 +647,7 @@ window.addEventListener('firebaseReady', async (event) => {
             
             marker.bindPopup(popupContent, {
                 maxWidth: 200,
-                className: 'wake-up-popup',
-                offset: [150, 0] // 向右移動150px，放在右半邊中間
+                className: 'wake-up-popup'
             }).openPopup();
 
             // 調整地圖大小（重要：確保地圖正確渲染）
@@ -1766,9 +1765,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 // 添加到地圖
                 if (historyMarkerLayerGroup && data.latitude && data.longitude) {
                     const marker = L.marker([data.latitude, data.longitude])
-                        .bindPopup(`${data.city}, ${data.country}<br>${data.date}`, {
-                            offset: [150, 0] // 向右移動150px，放在右半邊中間
-                        })
+                        .bindPopup(`${data.city}, ${data.country}<br>${data.date}`)
                         .addTo(historyMarkerLayerGroup);
                 }
             });
@@ -1827,9 +1824,7 @@ window.addEventListener('firebaseReady', async (event) => {
                             <strong>${data.displayName || data.userId}</strong><br>
                             ${data.city}, ${data.country}<br>
                             ${data.localTime || '時間未知'}
-                        `, {
-                            offset: [150, 0] // 向右移動150px，放在右半邊中間
-                        })
+                        `)
                         .addTo(globalMarkerLayerGroup);
                     recordCount++;
                 }
