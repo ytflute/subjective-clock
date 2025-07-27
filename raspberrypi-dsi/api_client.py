@@ -131,21 +131,22 @@ class APIClient:
                 response.raise_for_status()
                 data = response.json()
                 
-                # 檢查是否有城市資料
-                if data.get('city') or data.get('name'):
+                # 檢查是否有城市資料 - 修復 API 回應結構解析
+                if data.get('success') and data.get('city'):
+                    city_data = data['city']  # 正確獲取城市資料物件
                     # 統一城市資料格式
                     result = {
-                        'city': data.get('city') or data.get('name'),
-                        'city_zh': data.get('city_zh') or data.get('name_zh') or data.get('city') or data.get('name'),
-                        'country': data.get('country') or data.get('countryName'),
-                        'country_zh': data.get('country_zh') or data.get('countryName_zh') or data.get('country'),
-                        'country_code': data.get('country_iso_code') or data.get('country_code'),
-                        'latitude': data.get('latitude') or data.get('lat'),
-                        'longitude': data.get('longitude') or data.get('lng'),
-                        'timezone': data.get('timezone', {}).get('timeZoneId') if isinstance(data.get('timezone'), dict) else data.get('timezone'),
-                        'local_time': self._format_local_time(data),
-                        'population': data.get('population'),
-                        'source': data.get('source', 'api')
+                        'city': city_data.get('name') or city_data.get('city'),
+                        'city_zh': city_data.get('name_zh') or city_data.get('city_zh') or city_data.get('name') or city_data.get('city'),
+                        'country': city_data.get('country') or city_data.get('countryName'),
+                        'country_zh': city_data.get('country_zh') or city_data.get('countryName_zh') or city_data.get('country'),
+                        'country_code': city_data.get('country_iso_code') or city_data.get('country_code'),
+                        'latitude': city_data.get('latitude') or city_data.get('lat') or 0,
+                        'longitude': city_data.get('longitude') or city_data.get('lng') or 0,
+                        'timezone': city_data.get('timezone', {}).get('timeZoneId') if isinstance(city_data.get('timezone'), dict) else city_data.get('timezone'),
+                        'local_time': self._format_local_time(city_data),
+                        'population': city_data.get('population'),
+                        'source': city_data.get('source', 'api')
                     }
                     
                     logger.info(f"找到匹配城市: {result['city']}, {result['country']}")
