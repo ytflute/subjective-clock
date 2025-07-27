@@ -2603,3 +2603,122 @@ window.checkTrajectory = function() {
 
     // 將函數暴露給全域範圍
     window.loadAndDisplayStoryFromFirebase = loadAndDisplayStoryFromFirebase;
+
+    // 強制顯示故事（用於處理載入用戶資料失敗的情況）
+    async function forceDisplayStoryFromFirebase() {
+        try {
+            console.log('🔧 強制從Firebase讀取故事（忽略認證狀態）...');
+            
+            // 即使沒有認證也嘗試讀取（匿名訪問）
+            if (!db) {
+                console.error('❌ Firebase數據庫未初始化');
+                return false;
+            }
+
+            // 強制設置用戶名稱為 "future"
+            if (!rawUserDisplayName) {
+                rawUserDisplayName = "future";
+                console.log('🔧 強制設置用戶名稱為:', rawUserDisplayName);
+            }
+
+            // 查詢所有記錄（避免認證問題）
+            const { collection, query, where, getDocs } = window.firebaseSDK;
+            const q = query(
+                collection(db, 'wakeup_records'),
+                where('userId', '==', rawUserDisplayName)
+            );
+
+            console.log('📡 執行Firebase查詢，用戶:', rawUserDisplayName);
+            const querySnapshot = await getDocs(q);
+            
+            if (!querySnapshot.empty) {
+                // 客戶端排序獲取最新記錄
+                const records = [];
+                querySnapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (data.timestamp) {
+                        records.push(data);
+                    }
+                });
+                
+                console.log(`📊 找到 ${records.length} 筆記錄`);
+                
+                if (records.length > 0) {
+                    // 按timestamp排序，最新的在前
+                    records.sort((a, b) => {
+                        const aTime = a.timestamp?.toDate?.() || new Date(a.timestamp || 0);
+                        const bTime = b.timestamp?.toDate?.() || new Date(b.timestamp || 0);
+                        return bTime - aTime;
+                    });
+                    
+                    const latestRecord = records[0];
+                    const storyText = latestRecord.story || latestRecord.greeting || '';
+                    
+                    console.log('📖 最新故事內容:', storyText);
+                    
+                    if (storyText) {
+                        const storyTextEl = document.getElementById('storyText');
+                        if (storyTextEl) {
+                            storyTextEl.textContent = '正在為你朗誦你的甦醒日誌.....';
+                            setTimeout(() => {
+                                console.log('🎬 強制顯示故事:', storyText);
+                                startStoryTypewriter(storyText);
+                            }, 800);
+                            return true;
+                        } else {
+                            console.error('❌ 找不到 #storyText 元素');
+                        }
+                    } else {
+                        console.warn('⚠️ 記錄中沒有故事內容');
+                    }
+                } else {
+                    console.warn('⚠️ 沒有有效的時間戳記錄');
+                }
+            } else {
+                console.warn('⚠️ Firebase中沒有找到任何記錄');
+            }
+
+        } catch (error) {
+            console.error('❌ 強制顯示故事失敗:', error);
+        }
+        return false;
+    }
+
+    // 將強制顯示函數暴露給全域範圍
+    window.forceDisplayStoryFromFirebase = forceDisplayStoryFromFirebase;
+
+    // 監控用戶資料載入失敗，自動嘗試強制顯示故事
+    let userDataLoadAttempts = 0;
+    const maxUserDataLoadAttempts = 3;
+    
+    function monitorUserDataLoad() {
+        // 檢查是否載入成功
+        if (rawUserDisplayName && rawUserDisplayName !== '') {
+            console.log('✅ 用戶資料已載入:', rawUserDisplayName);
+            return;
+        }
+        
+        userDataLoadAttempts++;
+        console.log(`⚠️ 用戶資料載入檢查第 ${userDataLoadAttempts} 次`);
+        
+        if (userDataLoadAttempts >= maxUserDataLoadAttempts) {
+            console.log('🔧 用戶資料載入失敗，嘗試強制顯示故事...');
+            // 強制設置用戶資料
+            rawUserDisplayName = "future";
+            if (currentUserIdSpan) currentUserIdSpan.textContent = rawUserDisplayName;
+            if (currentUserDisplayNameSpan) currentUserDisplayNameSpan.textContent = rawUserDisplayName;
+            
+            // 嘗試強制顯示故事
+            setTimeout(() => {
+                if (window.forceDisplayStoryFromFirebase) {
+                    forceDisplayStoryFromFirebase();
+                }
+            }, 2000);
+        } else {
+            // 繼續監控
+            setTimeout(monitorUserDataLoad, 5000);
+        }
+    }
+
+    // 啟動用戶資料載入監控
+    setTimeout(monitorUserDataLoad, 10000); // 10秒後開始監控
