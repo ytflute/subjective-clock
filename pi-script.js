@@ -568,7 +568,7 @@ window.addEventListener('firebaseReady', async (event) => {
             }
 
             // 創建新地圖（使用滿版容器）
-            clockLeafletMap = L.map('mapContainer', {
+            clockLeafletMap = L.map('mainMapContainer', {
                 zoomControl: false, // 禁用默認縮放控制，使用自定義按鈕
                 scrollWheelZoom: true,
                 doubleClickZoom: true,
@@ -1227,7 +1227,9 @@ window.addEventListener('firebaseReady', async (event) => {
                     console.log('🔍 已達最大縮放級別');
                 }
                 
-                updateZoomButtonState();
+                if (typeof window.updateZoomButtonState === 'function') {
+                    window.updateZoomButtonState();
+                }
             } else {
                 console.error('❌ 地圖實例不存在');
             }
@@ -1251,7 +1253,9 @@ window.addEventListener('firebaseReady', async (event) => {
                     console.log('🔍 已達最小縮放級別');
                 }
                 
-                updateZoomButtonState();
+                if (typeof window.updateZoomButtonState === 'function') {
+                    window.updateZoomButtonState();
+                }
             } else {
                 console.error('❌ 地圖實例不存在');
             }
@@ -1278,16 +1282,18 @@ window.addEventListener('firebaseReady', async (event) => {
         }, { passive: false });
         
         // 監聽地圖縮放事件，更新按鈕狀態
-        mainInteractiveMap.on('zoomend', updateZoomButtonState);
+        mainInteractiveMap.on('zoomend', window.updateZoomButtonState);
         
         // 初始更新按鈕狀態
-        updateZoomButtonState();
+        if (typeof window.updateZoomButtonState === 'function') {
+            window.updateZoomButtonState();
+        }
         
         console.log('✅ 自定義縮放按鈕初始化完成');
     }
     
     // 新增：更新縮放按鈕狀態
-    function updateZoomButtonState() {
+    window.updateZoomButtonState = function updateZoomButtonState() {
         if (!mainInteractiveMap) return;
         
         const zoomInButton = document.getElementById('zoomInButton');
@@ -1497,7 +1503,8 @@ window.addEventListener('firebaseReady', async (event) => {
             'TW': 'zh-TW', 'CN': 'zh-CN', 'HK': 'zh-TW', 'MO': 'zh-TW',
             'JP': 'ja', 'KR': 'ko', 'ES': 'es', 'MX': 'es', 'AR': 'es',
             'FR': 'fr', 'DE': 'de', 'IT': 'it', 'PT': 'pt', 'BR': 'pt',
-            'RU': 'ru', 'SA': 'ar', 'TH': 'th', 'VN': 'vi', 'IN': 'hi'
+            'RU': 'ru', 'SA': 'ar', 'TH': 'th', 'VN': 'vi', 'IN': 'hi',
+            'RE': 'fr' // 留尼汪 - 法語
         };
         
         const language = languageMap[countryCode] || 'en';
@@ -1516,6 +1523,7 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📊 查詢用戶:', rawUserDisplayName);
 
             // 先獲取現有記錄數量
+            const { collection, query, where, getDocs, addDoc } = window.firebaseSDK;
             const q = query(
                 collection(db, 'wakeup_records'),
                 where('userId', '==', rawUserDisplayName)
@@ -1721,31 +1729,9 @@ window.addEventListener('firebaseReady', async (event) => {
             } else {
                 // 如果沒有提供 day，從本地 Day 計數器獲取
                 console.log('📊 updateResultData: 沒有提供 day 值，使用本地計數');
-                // 讀取本地 Day 計數
-                fetch('/get-day-count')
-                    .then(response => response.json())
-                    .then(data => {
-                        const currentDay = data.day || 1;
-                        console.log('📊 updateResultData: 本地 Day 計數:', currentDay);
-                        dayNumberEl.textContent = currentDay;
-                    })
-                    .catch(error => {
-                        console.error('獲取本地 Day 計數失敗:', error);
-                        // 備用方案：從 Firebase userHistory 查詢
-                        const q = query(
-                            collection(db, 'userHistory'),
-                            where('userDisplayName', '==', rawUserDisplayName),
-                            orderBy('recordedAt', 'desc')
-                        );
-                        getDocs(q).then(querySnapshot => {
-                            const currentDay = querySnapshot.size;
-                            console.log('📊 updateResultData: Firebase 記錄數量:', currentDay);
-                            dayNumberEl.textContent = currentDay || 1;
-                        }).catch(fbError => {
-                            console.error('Firebase 查詢也失敗:', fbError);
-                            dayNumberEl.textContent = '1';
-                        });
-                    });
+                // 使用預設 Day 計數 1
+                console.log('📊 updateResultData: 沒有提供 day 值，使用預設值 1');
+                dayNumberEl.textContent = '1';
             }
         }
 
@@ -2220,8 +2206,10 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 初始化縮放按鈕功能 - 增加重試確保成功
     setTimeout(() => {
-        if (window.initCustomZoomControls) {
+        if (typeof window.initCustomZoomControls === 'function') {
             window.initCustomZoomControls();
+        } else {
+            console.warn('⚠️ initCustomZoomControls 函數未找到');
         }
         // 再次確保按鈕可見和可點擊
         const zoomControls = document.querySelector('.map-zoom-controls');
@@ -2254,13 +2242,14 @@ async function loadAndDrawTrajectory() {
         console.log('🗺️ 開始載入軌跡線數據...');
         
         // 讀取當前用戶的歷史記錄
-        const q = window.query(
-            window.collection(db, 'wakeup_records'),
-            window.where('userId', '==', rawUserDisplayName),
-            window.orderBy('timestamp', 'asc') // 按時間順序排列
+        const { collection, query, where, orderBy, getDocs } = window.firebaseSDK;
+        const q = query(
+            collection(db, 'wakeup_records'),
+            where('userId', '==', rawUserDisplayName),
+            orderBy('timestamp', 'asc') // 按時間順序排列
         );
         
-        const querySnapshot = await window.getDocs(q);
+        const querySnapshot = await getDocs(q);
         trajectoryData = [];
         
         querySnapshot.forEach((doc) => {
@@ -2508,7 +2497,9 @@ window.checkTrajectory = function() {
 
             // 5. 地圖成功初始化，更新狀態
             mainInteractiveMap = clockLeafletMap;
-            updateZoomButtonState();
+            if (typeof window.updateZoomButtonState === 'function') {
+                window.updateZoomButtonState();
+            }
             
             // 載入歷史軌跡
             setTimeout(() => {
