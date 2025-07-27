@@ -602,7 +602,7 @@ window.addEventListener('firebaseReady', async (event) => {
             // 如果主地圖已存在，直接更新而不重新創建
             if (mainInteractiveMap) {
                 console.log('🗺️ 使用現有主地圖實例更新位置');
-                mainInteractiveMap.setView([latitude, longitude - 2], 8);
+                mainInteractiveMap.setView([latitude, longitude - 1.2], 4);
                 clockLeafletMap = mainInteractiveMap; // 重用主地圖實例
             } else {
                 // 創建新地圖（使用滿版容器）
@@ -614,7 +614,7 @@ window.addEventListener('firebaseReady', async (event) => {
                     keyboard: true,
                     dragging: true,
                     attributionControl: true
-                }).setView([latitude, longitude - 2], 8); // 向左偏移2度，讓標記出現在右半邊
+                }).setView([latitude, longitude - 1.2], 4); // 向左偏移1.2度，讓標記在右半邊但不會太靠邊
                 
                 // 將時鐘地圖實例設為主地圖實例
                 mainInteractiveMap = clockLeafletMap;
