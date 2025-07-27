@@ -221,6 +221,18 @@ window.addEventListener('piStoryReady', (event) => {
             };
             updateResultData(resultData);
 
+            // 🔧 修復：Firebase 查詢成功後顯示故事文字
+            const storyElement = document.getElementById('storyText');
+            if (storyElement) {
+                storyElement.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+                setTimeout(() => {
+                    console.log('🔧 Firebase查詢成功，開始顯示故事文字:', storyData.fullContent || storyData.story);
+                    startStoryTypewriter(storyData.fullContent || storyData.story);
+                }, 1000);
+            } else {
+                console.error('❌ Firebase查詢成功但找不到 #storyText 元素');
+            }
+
             // 更新 Firebase 記錄，加入故事和問候語資料
             if (storyData.story || storyData.greeting) {
                 console.log('📖 更新 Firebase 記錄加入故事資料...');
@@ -238,13 +250,17 @@ window.addEventListener('piStoryReady', (event) => {
                 });
             }
 
+            // 🔧 修復：Firebase 查詢成功後也要顯示故事文字
             // 開始打字機效果顯示故事
-            const storyTextEl = document.getElementById('storyText');
-            if (storyTextEl) {
-                storyTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
+            const storyElem = document.getElementById('storyText');
+            if (storyElem) {
+                storyElem.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
+                    console.log('🔧 Firebase查詢成功後開始打字機效果，內容:', storyData.fullContent || storyData.story);
                     startStoryTypewriter(storyData.fullContent || storyData.story);
                 }, 1000);
+            } else {
+                console.error('❌ Firebase查詢成功但找不到 #storyText 元素');
             }
         }).catch(error => {
             console.error('❌ piStoryReady: 查詢 Day 失敗:', error);
