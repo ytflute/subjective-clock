@@ -169,8 +169,8 @@ AUTOSTART_CONFIG = {
 
 # 螢幕保護配置
 SCREENSAVER_CONFIG = {
-    'enabled': True,
-    'timeout': 300,       # 5分鐘無操作後進入螢幕保護
+    'enabled': False,      # 禁用螢幕保護程式
+    'timeout': 1800,      # 30分鐘無操作後進入螢幕保護 (如果啟用)
     'dim_brightness': 20, # 螢幕保護時的亮度百分比
 }
 
