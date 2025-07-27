@@ -222,6 +222,23 @@ window.addEventListener('piStoryReady', (event) => {
             };
             updateResultData(resultData);
 
+            // 更新 Firebase 記錄，加入故事和問候語資料
+            if (storyData.story || storyData.greeting) {
+                console.log('📖 更新 Firebase 記錄加入故事資料...');
+                updateFirebaseWithStory({
+                    story: storyData.story || storyData.fullContent || '',
+                    greeting: storyData.greeting || '',
+                    language: storyData.language || '',
+                    languageCode: storyData.languageCode || ''
+                }).then(success => {
+                    if (success) {
+                        console.log('✅ Firebase 故事資料更新成功');
+                    } else {
+                        console.warn('⚠️ Firebase 故事資料更新失敗');
+                    }
+                });
+            }
+
             // 開始打字機效果顯示故事
             showVoiceLoading();
             const voiceLoadingTextEl = document.getElementById('voiceLoadingText');
@@ -250,6 +267,23 @@ window.addEventListener('piStoryReady', (event) => {
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             updateResultData(resultData);
+
+            // 更新 Firebase 記錄，加入故事和問候語資料（錯誤處理區塊）
+            if (storyData.story || storyData.greeting) {
+                console.log('📖 查詢失敗但仍嘗試更新 Firebase 記錄加入故事資料...');
+                updateFirebaseWithStory({
+                    story: storyData.story || storyData.fullContent || '',
+                    greeting: storyData.greeting || '',
+                    language: storyData.language || '',
+                    languageCode: storyData.languageCode || ''
+                }).then(success => {
+                    if (success) {
+                        console.log('✅ Firebase 故事資料更新成功（錯誤後恢復）');
+                    } else {
+                        console.warn('⚠️ Firebase 故事資料更新失敗（錯誤後仍失敗）');
+                    }
+                });
+            }
 
             // 開始打字機效果顯示故事
             showVoiceLoading();
@@ -280,14 +314,16 @@ window.addEventListener('firebaseReady', async (event) => {
         serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
     } = window.firebaseSDK;
 
-    // 設定全域 Firebase 函數，供其他函數使用
-    window.collection = collection;
-    window.query = query;
-    window.where = where;
-    window.orderBy = orderBy;
-    window.getDocs = getDocs;
-    window.addDoc = addDoc;
-    window.serverTimestamp = serverTimestamp;
+                // 設定全域 Firebase 函數，供其他函數使用
+            window.collection = collection;
+            window.query = query;
+            window.where = where;
+            window.orderBy = orderBy;
+            window.getDocs = getDocs;
+            window.addDoc = addDoc;
+            window.serverTimestamp = serverTimestamp;
+            window.updateDoc = updateDoc;
+            window.doc = doc;
 
     // 取得 DOM 元素
     console.log('🔍 正在取得 DOM 元素...');
@@ -1521,18 +1557,18 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     // 儲存到 Firebase
-    async function saveToFirebase(cityData) {
+    async function saveToFirebase(cityData, storyData = null) {
         try {
             if (!db || !auth.currentUser) {
                 console.log('⚠️ Firebase 未就緒，跳過儲存');
-                return;
+                return null;
             }
 
             console.log('📊 開始計算 Day 計數...');
             console.log('📊 查詢用戶:', rawUserDisplayName);
 
             // 先獲取現有記錄數量
-            const { collection, query, where, getDocs, addDoc, serverTimestamp } = window.firebaseSDK;
+            const { collection, query, where, getDocs, addDoc, updateDoc, doc, serverTimestamp } = window.firebaseSDK;
             const q = query(
                 collection(db, 'wakeup_records'),
                 where('userId', '==', rawUserDisplayName)
@@ -1567,6 +1603,15 @@ window.addEventListener('firebaseReady', async (event) => {
                 day: currentDay
             };
 
+            // 如果有故事資料，加入記錄中
+            if (storyData) {
+                recordData.story = storyData.story || '';
+                recordData.greeting = storyData.greeting || '';
+                recordData.language = storyData.language || '';
+                recordData.languageCode = storyData.languageCode || '';
+                console.log('📖 包含故事和問候語資料');
+            }
+
             console.log('📊 準備保存的記錄:', recordData);
 
             const docRef = await addDoc(collection(db, 'wakeup_records'), recordData);
@@ -1574,13 +1619,51 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('✅ 文檔 ID:', docRef.id);
             console.log('✅ Day 值:', currentDay);
             
+            // 儲存文檔 ID 以供後續更新使用
+            window.currentRecordId = docRef.id;
+            
             // 更新軌跡線
             setTimeout(() => {
                 loadAndDrawTrajectory();
             }, 500);
 
+            return docRef.id;
+
         } catch (error) {
             console.error('❌ 儲存至 Firebase 失敗:', error);
+            return null;
+        }
+    }
+
+    // 新增：更新現有記錄的故事資料
+    async function updateFirebaseWithStory(storyData) {
+        try {
+            if (!db || !auth.currentUser || !window.currentRecordId) {
+                console.log('⚠️ Firebase 未就緒或沒有記錄 ID，跳過更新');
+                return false;
+            }
+
+            const { doc, updateDoc } = window.firebaseSDK;
+            
+            const updateData = {
+                story: storyData.story || '',
+                greeting: storyData.greeting || '',
+                language: storyData.language || '',
+                languageCode: storyData.languageCode || ''
+            };
+
+            console.log('📖 更新 Firebase 記錄，ID:', window.currentRecordId);
+            console.log('📖 更新資料:', updateData);
+
+            const docRef = doc(db, 'wakeup_records', window.currentRecordId);
+            await updateDoc(docRef, updateData);
+            
+            console.log('✅ 故事資料已更新至 Firebase');
+            return true;
+
+        } catch (error) {
+            console.error('❌ 更新 Firebase 故事資料失敗:', error);
+            return false;
         }
     }
 

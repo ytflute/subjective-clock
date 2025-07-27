@@ -57,7 +57,11 @@ export default async function handler(req, res) {
             timeMinutes,
             latitudePreference,
             latitudeDescription,
-            deviceType = 'raspberry_pi'
+            deviceType = 'raspberry_pi',
+            story,
+            greeting,
+            language,
+            languageCode
         } = req.body;
 
         // 驗證必要欄位
@@ -98,8 +102,10 @@ export default async function handler(req, res) {
             latitudePreference: parseFloat(latitudePreference) || 0,
             latitudeDescription: latitudeDescription || '',
             deviceType,
-            greeting: '', // 將由前端填入
-            story: '', // 將由前端填入
+            story: story || '',
+            greeting: greeting || '',
+            language: language || '',
+            languageCode: languageCode || '',
             imageUrl: null // 將由前端填入
         };
 
