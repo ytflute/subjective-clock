@@ -1167,6 +1167,21 @@ window.addEventListener('firebaseReady', async (event) => {
                 // 使用新的結果數據更新函數
                 updateResultData(resultData);
 
+                // 更新 Firebase 記錄，加入 API 生成的故事資料
+                console.log('📖 更新 Firebase 記錄加入 API 故事資料...');
+                await updateFirebaseWithStory({
+                    story: storyResult.story || '',
+                    greeting: storyResult.greeting || '',
+                    language: storyResult.language || '',
+                    languageCode: storyResult.languageCode || ''
+                }).then(success => {
+                    if (success) {
+                        console.log('✅ Firebase API 故事資料更新成功');
+                    } else {
+                        console.warn('⚠️ Firebase API 故事資料更新失敗');
+                    }
+                });
+
                 // 語音播放故事（同時啟動打字機效果）
                 await speakStory({ 
                     story: storyResult.story,
@@ -1191,6 +1206,19 @@ window.addEventListener('firebaseReady', async (event) => {
         const fallbackGreeting = getLocalizedGreeting(cityData.country_iso_code);
         const fallbackStory = `今天的你在${cityData.country}的${cityData.name}醒來，準備開始美好的一天！`;
         
+        // 獲取當前的 day 計數
+        let currentDay = 1;
+        try {
+            const q = query(
+                collection(db, 'wakeup_records'),
+                where('userId', '==', rawUserDisplayName)
+            );
+            const querySnapshot = await getDocs(q);
+            currentDay = querySnapshot.size;
+        } catch (error) {
+            console.warn('⚠️ 備用方案：無法查詢 Day 計數，使用預設值 1');
+        }
+        
         // 更新結果頁面數據
         const resultData = {
             city: cityData.name,
@@ -1199,11 +1227,27 @@ window.addEventListener('firebaseReady', async (event) => {
             latitude: cityData.latitude,
             longitude: cityData.longitude,
             greeting: fallbackGreeting,
-            story: fallbackStory
+            story: fallbackStory,
+            day: currentDay
         };
         
         // 使用新的結果數據更新函數
         updateResultData(resultData);
+        
+        // 更新 Firebase 記錄，加入備用故事資料
+        console.log('📖 更新 Firebase 記錄加入備用故事資料...');
+        await updateFirebaseWithStory({
+            story: fallbackStory,
+            greeting: fallbackGreeting,
+            language: 'Chinese',
+            languageCode: getLanguageCodeFromCountry(cityData.country_iso_code)
+        }).then(success => {
+            if (success) {
+                console.log('✅ Firebase 備用故事資料更新成功');
+            } else {
+                console.warn('⚠️ Firebase 備用故事資料更新失敗');
+            }
+        });
         
         await speakStory({ 
             story: fallbackStory,

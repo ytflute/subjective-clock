@@ -122,7 +122,11 @@ export default async function handler(req, res) {
             timezone: timezone || 'UTC',
             recordedAt: admin.firestore.FieldValue.serverTimestamp(),
             recordedDateString,
-            deviceType
+            deviceType,
+            story: story || '',
+            greeting: greeting || '',
+            language: language || '',
+            languageCode: languageCode || ''
         };
 
         // 準備 artifacts 結構所需的額外資料
