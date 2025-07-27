@@ -833,7 +833,7 @@ body {
 
 .day-number {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
-    font-size: 18px !important;
+    font-size: 10px !important;
     color: #000000 !important;
     font-weight: bold !important;
     flex-shrink: 0 !important;
@@ -854,7 +854,7 @@ body {
 
 .story-text {
     font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace !important;
-    font-size: 12px !important;
+    font-size: 16px !important;
     line-height: 1.6 !important;
     color: #333333 !important;
     margin: 0 !important;
@@ -897,7 +897,7 @@ body {
 
 .date-value {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
-    font-size: 14px !important;
+    font-size: 10px !important;
     color: #000000 !important;
 }
 
@@ -960,14 +960,16 @@ body {
     height: 24px !important;
     border: 1px solid #cccccc !important;
     border-radius: 2px !important;
-    display: block !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
 }
 
 .country-name {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
     font-size: 16px !important;
     color: #333333 !important;
-    display: block !important;
+    display: inline !important;
+    flex: 1 !important;
 }
 
 /* 地圖縮放控制按鈕 - 移到右上角 */
