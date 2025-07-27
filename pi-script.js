@@ -17,9 +17,10 @@ let initialLoadHandled = false;
 let mainInteractiveMap = null;
 let dayCounter = 1; // Day 計數器
 
-// 軌跡線相關
+        // 軌跡線相關
 let trajectoryLayer = null; // 軌跡線圖層
 let trajectoryData = []; // 軌跡點數據
+let historyMarkersLayer = null; // 歷史點位圖層
 
 // 新增：狀態管理
 let currentState = 'waiting'; // waiting, loading, result, error
@@ -1709,22 +1710,33 @@ window.addEventListener('firebaseReady', async (event) => {
                 console.log('📊 updateResultData: 使用提供的 day 值:', data.day);
                 dayNumberEl.textContent = data.day;
             } else {
-                // 如果沒有提供 day，從 Firebase 獲取最新記錄數量
-                console.log('📊 updateResultData: 沒有提供 day 值，從 Firebase 查詢');
-                const q = query(
-                    collection(db, 'wakeup_records'),
-                    where('userId', '==', rawUserDisplayName),
-                    orderBy('timestamp', 'desc')
-                );
-                getDocs(q).then(querySnapshot => {
-                    const currentDay = querySnapshot.size; // 使用已保存的記錄數量
-                    console.log('📊 updateResultData: 查詢到記錄數量:', querySnapshot.size);
-                    console.log('📊 updateResultData: 顯示 Day 值:', currentDay);
-                    dayNumberEl.textContent = currentDay;
-                }).catch(error => {
-                    console.error('獲取 Day 計數失敗:', error);
-                    dayNumberEl.textContent = '1';
-                });
+                // 如果沒有提供 day，從本地 Day 計數器獲取
+                console.log('📊 updateResultData: 沒有提供 day 值，使用本地計數');
+                // 讀取本地 Day 計數
+                fetch('/get-day-count')
+                    .then(response => response.json())
+                    .then(data => {
+                        const currentDay = data.day || 1;
+                        console.log('📊 updateResultData: 本地 Day 計數:', currentDay);
+                        dayNumberEl.textContent = currentDay;
+                    })
+                    .catch(error => {
+                        console.error('獲取本地 Day 計數失敗:', error);
+                        // 備用方案：從 Firebase userHistory 查詢
+                        const q = query(
+                            collection(db, 'userHistory'),
+                            where('userDisplayName', '==', rawUserDisplayName),
+                            orderBy('recordedAt', 'desc')
+                        );
+                        getDocs(q).then(querySnapshot => {
+                            const currentDay = querySnapshot.size;
+                            console.log('📊 updateResultData: Firebase 記錄數量:', currentDay);
+                            dayNumberEl.textContent = currentDay || 1;
+                        }).catch(fbError => {
+                            console.error('Firebase 查詢也失敗:', fbError);
+                            dayNumberEl.textContent = '1';
+                        });
+                    });
             }
         }
 
@@ -2371,3 +2383,131 @@ window.checkTrajectory = function() {
 // Debug functions removed for production
 
 // ... existing code ...
+
+    // 載入歷史軌跡
+    async function loadHistoryTrajectory() {
+        if (!db || !auth.currentUser) {
+            console.log('📍 載入歷史軌跡：Firebase 未就緒');
+            return;
+        }
+
+        try {
+            console.log('📍 開始載入歷史軌跡...');
+            
+            // 查詢 userHistory 中的歷史記錄
+            const historyQuery = query(
+                collection(db, 'userHistory'),
+                where('userDisplayName', '==', rawUserDisplayName),
+                orderBy('recordedAt', 'asc') // 按時間順序排列
+            );
+
+            const querySnapshot = await getDocs(historyQuery);
+            const historyPoints = [];
+
+            querySnapshot.forEach((doc) => {
+                const record = doc.data();
+                if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
+                    typeof record.longitude === 'number' && isFinite(record.longitude)) {
+                    
+                    const timestamp = record.recordedAt?.toMillis?.() || Date.now();
+                    const city = record.city || '未知城市';
+                    const country = record.country || '未知國家';
+                    
+                    historyPoints.push({
+                        lat: record.latitude,
+                        lng: record.longitude,
+                        city: city,
+                        country: country,
+                        timestamp: timestamp,
+                        date: new Date(timestamp).toLocaleDateString('zh-TW')
+                    });
+                }
+            });
+
+            console.log(`📍 載入了 ${historyPoints.length} 個歷史點位`);
+            
+            if (historyPoints.length > 0 && mainInteractiveMap) {
+                displayHistoryTrajectory(historyPoints);
+            }
+
+        } catch (error) {
+            console.error('📍 載入歷史軌跡失敗:', error);
+        }
+    }
+
+    // 顯示歷史軌跡
+    function displayHistoryTrajectory(historyPoints) {
+        if (!mainInteractiveMap) return;
+
+        // 清除之前的歷史圖層
+        if (historyMarkersLayer) {
+            mainInteractiveMap.removeLayer(historyMarkersLayer);
+        }
+        if (trajectoryLayer) {
+            mainInteractiveMap.removeLayer(trajectoryLayer);
+        }
+
+        // 創建新的圖層群組
+        historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
+
+        // 添加歷史點位標記
+        historyPoints.forEach((point, index) => {
+            const marker = L.circleMarker([point.lat, point.lng], {
+                radius: 6,
+                fillColor: index === historyPoints.length - 1 ? '#ff6b6b' : '#4ecdc4', // 最新點用紅色
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.8
+            });
+
+            // 設定點位說明
+            const popupContent = `
+                <div style="font-family: monospace; font-size: 12px;">
+                    <strong>${point.date}</strong><br/>
+                    📍 ${point.city}, ${point.country}<br/>
+                    🌍 ${point.lat.toFixed(4)}, ${point.lng.toFixed(4)}
+                </div>
+            `;
+            marker.bindPopup(popupContent);
+
+            historyMarkersLayer.addLayer(marker);
+        });
+
+        // 如果有多個點，創建軌跡線
+        if (historyPoints.length > 1) {
+            const latlngs = historyPoints.map(point => [point.lat, point.lng]);
+            
+            trajectoryLayer = L.polyline(latlngs, {
+                color: '#4ecdc4',
+                weight: 3,
+                opacity: 0.7,
+                dashArray: '10, 5' // 虛線效果
+            }).addTo(mainInteractiveMap);
+
+            // 自動調整地圖視野包含所有點位
+            const group = new L.featureGroup([trajectoryLayer, historyMarkersLayer]);
+            mainInteractiveMap.fitBounds(group.getBounds().pad(0.1));
+        }
+
+        console.log('📍 歷史軌跡顯示完成');
+    }
+
+// ... existing code ...
+
+            // 5. 地圖成功初始化，更新狀態
+            mainInteractiveMap = clockLeafletMap;
+            updateZoomButtonState();
+            
+            // 載入歷史軌跡
+            setTimeout(() => {
+                loadHistoryTrajectory();
+            }, 1000);
+
+            // 設定完成狀態
+            setState('result');
+            
+            // 等待地圖渲染完成後載入軌跡
+            setTimeout(() => {
+                loadHistoryTrajectory();
+            }, 2000);

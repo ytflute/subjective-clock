@@ -445,6 +445,16 @@ class WebControllerDSI:
         }
         return country_map.get(country_name, '')
 
+    def get_day_count(self):
+        """獲取當前 Day 計數"""
+        try:
+            day_count = self.local_storage.get_current_day_number()
+            self.logger.info(f"🔢 返回當前 Day 計數: {day_count}")
+            return {'day': day_count}
+        except Exception as e:
+            self.logger.error(f"獲取 Day 計數失敗: {e}")
+            return {'day': 1}
+
 # 測試程式
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)

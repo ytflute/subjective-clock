@@ -169,16 +169,20 @@ class FirebaseSync:
             'latitude': float(record.get('latitude', 0)) if record.get('latitude') else 0,
             'longitude': float(record.get('longitude', 0)) if record.get('longitude') else 0,
             'timezone': record.get('timezone', ''),
-            'localTime': timestamp_dt.strftime('%H:%M:%S'),
+            'localTime': timestamp_dt.strftime('%H:%M'),  # 修改為 HH:MM 格式
+            'recordedAt': timestamp_dt.isoformat(),  # 轉換為 ISO 格式字串
             'recordedDateString': date_str,  # 添加日期字串
-            'targetUTCOffset': 0,  # 預設值
-            'matchedCityUTCOffset': 0,  # 預設值
+            'targetUTCOffset': 8,  # 台灣時區
+            'matchedCityUTCOffset': 8,  # 預設為台灣時區
             'source': 'raspberry_pi_local_sync',
             'translationSource': 'local_database',
             'timeMinutes': timestamp_dt.hour * 60 + timestamp_dt.minute,
             'latitudePreference': float(record.get('latitude', 0)) if record.get('latitude') else 0,
             'latitudeDescription': '',
-            'deviceType': USER_CONFIG.get('device_type', 'raspberry_pi_dsi')
+            'deviceType': USER_CONFIG.get('device_type', 'raspberry_pi_dsi'),
+            # 添加問候語和故事內容
+            'greeting': record.get('greeting', ''),
+            'story': record.get('story', ''),
         }
         
         return firebase_record

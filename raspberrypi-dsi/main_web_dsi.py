@@ -284,7 +284,13 @@ class WakeUpMapWebApp:
         else:
             return 1
     
-    def _save_local_record(self, city_data: dict):
+    def _save_basic_record(self, city_data: dict):
+        """儲存基本城市資料（暫不包含問候語和故事）"""
+        # 先增加 Day 計數
+        self._increment_local_day_counter()
+        self.logger.info("📊 基本城市資料記錄完成，等待故事內容...")
+
+    def _save_local_record(self, city_data: dict, story_content: dict = None):
         """儲存甦醒記錄到本地並同步到 Firebase"""
         if self.local_storage:
             try:
@@ -296,6 +302,16 @@ class WakeUpMapWebApp:
                     "longitude": city_data.get("longitude"),
                     "timezone": city_data.get("timezone", ""),
                 }
+                
+                # 添加問候語和故事內容
+                if story_content:
+                    record_data.update({
+                        "greeting": story_content.get("greeting", ""),
+                        "story": story_content.get("story", ""),
+                        "languageCode": story_content.get("languageCode", ""),
+                        "city_zh": story_content.get("city_zh", ""),
+                        "country_zh": story_content.get("country_zh", ""),
+                    })
                 
                 # 保存到本地
                 local_success = self.local_storage.save_wakeup_record(record_data)
@@ -343,8 +359,9 @@ class WakeUpMapWebApp:
                 if city_data:
                     self.logger.info(f"📍 從網頁提取到城市資料: {city_data}")
                     
-                    # 💾 保存甦醒記錄到本地並同步到 Firebase
-                    self._save_local_record(city_data)
+                    # 💾 保存甦醒記錄到本地並同步到 Firebase（包含故事內容）
+                    # 注意：這裡我們還沒有故事內容，需要在音頻準備完成後再保存
+                    self._save_basic_record(city_data)
                     
                     # 🎧 在背景準備完整音頻（不播放）
                     country_code = city_data.get('countryCode') or city_data.get('country_code', 'US')
@@ -358,7 +375,7 @@ class WakeUpMapWebApp:
                     self.logger.info(f"🎧 Loading 模式：準備完整音頻 - 城市: {city_name}, 國家: {country_name} ({country_code})")
                     
                     # 🚀 準備完整音頻但不立即播放
-                    audio_file = self._prepare_complete_audio(country_code, city_name, country_name)
+                    audio_file = self._prepare_complete_audio(country_code, city_name, country_name, city_data)
                     
                     if audio_file:
                         # ✨ 音頻準備完成，同步顯示畫面和播放聲音
@@ -472,7 +489,7 @@ class WakeUpMapWebApp:
         except Exception as e:
             self.logger.error(f"設定Loading狀態失敗: {e}")
     
-    def _prepare_complete_audio(self, country_code: str, city_name: str, country_name: str) -> Optional[Path]:
+    def _prepare_complete_audio(self, country_code: str, city_name: str, country_name: str, city_data: dict = None) -> Optional[Path]:
         """準備完整音頻但不播放，並將內容傳給網頁"""
         try:
             import time
@@ -494,7 +511,11 @@ class WakeUpMapWebApp:
             if audio_file and audio_file.exists() and story_content:
                 self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
                 
-                # 2. 將故事內容傳給網頁端用於打字機效果
+                # 2. 保存完整記錄（包含問候語和故事內容）
+                if city_data:
+                    self._save_local_record(city_data, story_content)
+                
+                # 3. 將故事內容傳給網頁端用於打字機效果
                 self._send_story_to_web(story_content)
                 
                 return audio_file
