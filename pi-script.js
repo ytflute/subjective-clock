@@ -194,20 +194,19 @@ window.addEventListener('piStoryReady', (event) => {
             return;
         }
         
-        // 查詢當前的 Day 計數
+        // 查詢當前的 Day 計數（完全從 Firebase 計算，忽略本地資料）
         const q = query(
             collection(db, 'wakeup_records'),
-            where('userId', '==', rawUserDisplayName),
-            orderBy('timestamp', 'desc')
+            where('userId', '==', rawUserDisplayName)
+            // 移除 orderBy 避免索引需求，只需要數量
         );
         getDocs(q).then(querySnapshot => {
-            const currentDay = querySnapshot.size; // 當前記錄數量就是 Day 數
-            console.log('📊 piStoryReady: 查詢到記錄數量:', querySnapshot.size);
-            console.log('📊 piStoryReady: 使用 Day 值:', currentDay);
+            const firebaseDay = querySnapshot.size; // 當前記錄數量就是 Day 數
+            console.log('📊 piStoryReady: Firebase 查詢到記錄數量:', querySnapshot.size);
             
-            // 更新結果頁面數據，優先使用樹莓派傳來的 Day 值
-            const finalDay = storyData.day || currentDay || 1; // 優先使用樹莓派的 Day 值
-            console.log('📊 Day 值決定: 樹莓派傳來:', storyData.day, '本地查詢:', currentDay, '最終使用:', finalDay);
+            // 完全使用 Firebase 計算的 Day 值，忽略樹莓派本地計數
+            const finalDay = firebaseDay || 1; 
+            console.log('📊 Day 值決定: 忽略樹莓派本地值:', storyData.day, 'Firebase 計算值:', firebaseDay, '最終使用:', finalDay);
             
             const resultData = {
                 city: storyData.city || '',
@@ -1523,7 +1522,7 @@ window.addEventListener('firebaseReady', async (event) => {
             console.log('📊 查詢用戶:', rawUserDisplayName);
 
             // 先獲取現有記錄數量
-            const { collection, query, where, getDocs, addDoc } = window.firebaseSDK;
+            const { collection, query, where, getDocs, addDoc, serverTimestamp } = window.firebaseSDK;
             const q = query(
                 collection(db, 'wakeup_records'),
                 where('userId', '==', rawUserDisplayName)
@@ -2241,12 +2240,12 @@ async function loadAndDrawTrajectory() {
         
         console.log('🗺️ 開始載入軌跡線數據...');
         
-        // 讀取當前用戶的歷史記錄
-        const { collection, query, where, orderBy, getDocs } = window.firebaseSDK;
+        // 讀取當前用戶的歷史記錄（暫時簡化查詢避免索引需求）
+        const { collection, query, where, getDocs } = window.firebaseSDK;
         const q = query(
             collection(db, 'wakeup_records'),
-            where('userId', '==', rawUserDisplayName),
-            orderBy('timestamp', 'asc') // 按時間順序排列
+            where('userId', '==', rawUserDisplayName)
+            // 暫時移除 orderBy 避免索引需求，改為在客戶端排序
         );
         
         const querySnapshot = await getDocs(q);
@@ -2261,9 +2260,17 @@ async function loadAndDrawTrajectory() {
                     city: data.city,
                     country: data.country,
                     date: data.date,
-                    day: data.day || trajectoryData.length + 1
+                    day: data.day || trajectoryData.length + 1,
+                    timestamp: data.timestamp // 保留時間戳用於排序
                 });
             }
+        });
+        
+        // 在客戶端按時間排序（避免 Firebase 索引需求）
+        trajectoryData.sort((a, b) => {
+            const timeA = a.timestamp && a.timestamp.toMillis ? a.timestamp.toMillis() : 0;
+            const timeB = b.timestamp && b.timestamp.toMillis ? b.timestamp.toMillis() : 0;
+            return timeA - timeB; // 升序排列
         });
         
         console.log(`📍 載入了 ${trajectoryData.length} 個軌跡點`);
@@ -2394,11 +2401,11 @@ window.checkTrajectory = function() {
         try {
             console.log('📍 開始載入歷史軌跡...');
             
-            // 查詢 userHistory 中的歷史記錄
+            // 查詢 userHistory 中的歷史記錄（暫時簡化查詢避免索引需求）
             const historyQuery = query(
                 collection(db, 'userHistory'),
-                where('userDisplayName', '==', rawUserDisplayName),
-                orderBy('recordedAt', 'asc') // 按時間順序排列
+                where('userDisplayName', '==', rawUserDisplayName)
+                // 暫時移除 orderBy 避免索引需求，改為在客戶端排序
             );
 
             const querySnapshot = await getDocs(historyQuery);
@@ -2419,9 +2426,17 @@ window.checkTrajectory = function() {
                         city: city,
                         country: country,
                         timestamp: timestamp,
-                        date: new Date(timestamp).toLocaleDateString('zh-TW')
+                        date: new Date(timestamp).toLocaleDateString('zh-TW'),
+                        recordedAt: record.recordedAt // 保留原始時間戳用於排序
                     });
                 }
+            });
+
+            // 在客戶端按時間排序（避免 Firebase 索引需求）
+            historyPoints.sort((a, b) => {
+                const timeA = a.recordedAt && a.recordedAt.toMillis ? a.recordedAt.toMillis() : a.timestamp;
+                const timeB = b.recordedAt && b.recordedAt.toMillis ? b.recordedAt.toMillis() : b.timestamp;
+                return timeA - timeB; // 升序排列
             });
 
             console.log(`📍 載入了 ${historyPoints.length} 個歷史點位`);
