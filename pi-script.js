@@ -1927,6 +1927,9 @@ window.addEventListener('firebaseReady', async (event) => {
         if (storyTextEl) {
             storyTextEl.textContent = '';
             storyTextEl.classList.remove('typing', 'completed');
+            console.log('✅ 故事文字元素已找到並清空');
+        } else {
+            console.error('❌ 找不到故事文字元素 #storyText');
         }
     }
 
@@ -2017,6 +2020,10 @@ window.addEventListener('firebaseReady', async (event) => {
             storyTextEl.textContent = '故事內容載入中...';
             return Promise.resolve();
         }
+        
+        // 清除任何測試內容
+        storyTextEl.style.display = 'block';
+        storyTextEl.style.visibility = 'visible';
         
         // 儲存當前故事文字
         currentStoryText = storyText;
@@ -2192,6 +2199,20 @@ window.addEventListener('firebaseReady', async (event) => {
     }
 
     console.log('🎉 Raspberry Pi 甦醒地圖初始化完成');
+    
+    // 檢查故事文字元素是否正確載入
+    setTimeout(() => {
+        const storyTextEl = document.getElementById('storyText');
+        if (storyTextEl) {
+            console.log('✅ 故事文字元素檢查通過');
+            // 添加測試內容，確保元素可見
+            storyTextEl.textContent = '等待故事內容...';
+            storyTextEl.style.display = 'block';
+            storyTextEl.style.visibility = 'visible';
+        } else {
+            console.error('❌ 初始化後仍找不到故事文字元素');
+        }
+    }, 1000);
 });
 
 // 錯誤處理
