@@ -566,16 +566,26 @@ window.addEventListener('firebaseReady', async (event) => {
                 clockLeafletMap = null;
             }
 
-            // 創建新地圖（使用滿版容器）
-            clockLeafletMap = L.map('mainMapContainer', {
-                zoomControl: false, // 禁用默認縮放控制，使用自定義按鈕
-                scrollWheelZoom: true,
-                doubleClickZoom: true,
-                boxZoom: true,
-                keyboard: true,
-                dragging: true,
-                attributionControl: true
-            }).setView([latitude, longitude - 2], 8); // 向左偏移2度，讓標記出現在右半邊
+            // 如果主地圖已存在，直接更新而不重新創建
+            if (mainInteractiveMap) {
+                console.log('🗺️ 使用現有主地圖實例更新位置');
+                mainInteractiveMap.setView([latitude, longitude - 2], 8);
+                clockLeafletMap = mainInteractiveMap; // 重用主地圖實例
+            } else {
+                // 創建新地圖（使用滿版容器）
+                clockLeafletMap = L.map('mainMapContainer', {
+                    zoomControl: false, // 禁用默認縮放控制，使用自定義按鈕
+                    scrollWheelZoom: true,
+                    doubleClickZoom: true,
+                    boxZoom: true,
+                    keyboard: true,
+                    dragging: true,
+                    attributionControl: true
+                }).setView([latitude, longitude - 2], 8); // 向左偏移2度，讓標記出現在右半邊
+                
+                // 將時鐘地圖實例設為主地圖實例
+                mainInteractiveMap = clockLeafletMap;
+            }
 
             // 添加地圖圖層
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -2143,28 +2153,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 初始化主要互動地圖 (唯一地圖實例)
 function initMainInteractiveMap(lat, lon, city, country) {
-    if (mainInteractiveMap) {
-        mainInteractiveMap.remove();
+    // 如果地圖已存在且是時鐘地圖，不要移除，直接更新
+    if (mainInteractiveMap && mainInteractiveMap === clockLeafletMap) {
+        console.log('🗺️ 重用現有地圖實例，更新位置');
+        mainInteractiveMap.setView([lat || 20, (lon || 0)], lat && lon ? 4 : 2);
+    } else {
+        if (mainInteractiveMap) {
+            mainInteractiveMap.remove();
+        }
+        
+        // 創建主要地圖實例 - 作為背景使用
+        mainInteractiveMap = L.map('mainMapContainer', {
+            center: [lat || 20, (lon || 0)], // 置中顯示
+            zoom: lat && lon ? 4 : 2, // 有位置時適中縮放，無位置時顯示世界地圖
+            zoomControl: false,
+            scrollWheelZoom: true,
+            doubleClickZoom: true,
+            boxZoom: true,
+            keyboard: true,
+            dragging: true,
+            tap: true,
+            touchZoom: true
+        });
+        
+        // 添加地圖瓦片 (灰黃配色)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: ''
+        }).addTo(mainInteractiveMap);
     }
-    
-    // 創建主要地圖實例 - 作為背景使用
-    mainInteractiveMap = L.map('mainMapContainer', {
-        center: [lat || 20, (lon || 0)], // 置中顯示
-        zoom: lat && lon ? 4 : 2, // 有位置時適中縮放，無位置時顯示世界地圖
-        zoomControl: false,
-        scrollWheelZoom: true,
-        doubleClickZoom: true,
-        boxZoom: true,
-        keyboard: true,
-        dragging: true,
-        tap: true,
-        touchZoom: true
-    });
-    
-    // 添加地圖瓦片 (灰黃配色)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: ''
-    }).addTo(mainInteractiveMap);
     
     // 初始化軌跡線圖層
     if (trajectoryLayer) {
