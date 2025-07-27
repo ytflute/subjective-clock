@@ -815,11 +815,12 @@ body {
 .day-counter {
     margin-bottom: 15px !important;
     display: flex !important;
-    align-items: center !important;
+    align-items: baseline !important;
     line-height: 1 !important;
-    gap: 0 !important;
+    gap: 5px !important;
     flex-wrap: nowrap !important;
     white-space: nowrap !important;
+    flex-direction: row !important;
 }
 
 .day-label {
@@ -885,20 +886,28 @@ body {
 /* 日期信息 */
 .date-info {
     margin-bottom: 15px !important;
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
 }
 
 .date-label {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
     font-size: 12px !important;
     color: #333333 !important;
-    margin-right: 8px !important;
+    margin-right: 5px !important;
+    flex-shrink: 0 !important;
+    display: inline !important;
 }
 
 .date-value {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
     font-size: 10px !important;
     color: #000000 !important;
+    flex-shrink: 0 !important;
+    display: inline !important;
 }
 
 /* 當地問候語 */
@@ -951,8 +960,10 @@ body {
 .country-info {
     display: flex !important;
     align-items: center !important;
-    gap: 12px !important;
+    gap: 8px !important;
     margin-bottom: 15px !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
 }
 
 .country-flag {
@@ -968,8 +979,9 @@ body {
     font-family: 'Press Start 2P', 'Courier Prime', monospace !important;
     font-size: 16px !important;
     color: #333333 !important;
-    display: inline !important;
-    flex: 1 !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+    margin-left: 0 !important;
 }
 
 /* 地圖縮放控制按鈕 - 移到右上角 */
