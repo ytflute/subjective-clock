@@ -648,7 +648,7 @@ window.addEventListener('firebaseReady', async (event) => {
             marker.bindPopup(popupContent, {
                 maxWidth: 200,
                 className: 'wake-up-popup'
-            }).openPopup();
+            });
 
             // 調整地圖大小（重要：確保地圖正確渲染）
             setTimeout(() => {
