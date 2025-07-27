@@ -1,19 +1,21 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import admin from 'firebase-admin';
 
-// Firebase 配置
-const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
-};
+// 初始化 Firebase Admin SDK（如果尚未初始化）
+if (!admin.apps.length) {
+    // 從環境變數獲取服務帳戶金鑰
+    const serviceAccount = {
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+    };
 
-// 初始化 Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+        projectId: process.env.FIREBASE_PROJECT_ID,
+    });
+}
+
+const db = admin.firestore();
 
 // 常數定義
 const APP_ID = 'default-app-id-worldclock-history';
@@ -77,7 +79,7 @@ export default async function handler(req, res) {
         const baseRecordData = {
             dataIdentifier: dataIdentifier || userDisplayName.toLowerCase(),
             userDisplayName,
-            recordedAt: serverTimestamp(),
+            recordedAt: admin.firestore.FieldValue.serverTimestamp(),
             localTime: localTime || now.toLocaleTimeString(),
             city,
             country,
@@ -112,7 +114,7 @@ export default async function handler(req, res) {
             latitude: parseFloat(latitude) || 0,
             longitude: parseFloat(longitude) || 0,
             timezone: timezone || 'UTC',
-            recordedAt: serverTimestamp(),
+            recordedAt: admin.firestore.FieldValue.serverTimestamp(),
             recordedDateString,
             deviceType
         };
@@ -129,7 +131,7 @@ export default async function handler(req, res) {
         try {
             // 儲存到個人檔案結構（對應網頁版個人軌跡）
             const userProfilePath = `artifacts/${APP_ID}/userProfiles/${sanitizedDisplayName}/clockHistory`;
-            const userProfileDocRef = await addDoc(collection(db, userProfilePath), {
+            const userProfileDocRef = await db.collection(userProfilePath).add({
                 ...baseRecordData,
                 ...artifactsData
             });
@@ -137,7 +139,7 @@ export default async function handler(req, res) {
 
             // 儲存到公共資料結構（對應網頁版眾人地圖）
             const publicDataPath = `artifacts/${APP_ID}/publicData/allSharedEntries/dailyRecords`;
-            const publicDocRef = await addDoc(collection(db, publicDataPath), {
+            const publicDocRef = await db.collection(publicDataPath).add({
                 ...baseGlobalRecordData,
                 ...artifactsData
             });
@@ -145,11 +147,11 @@ export default async function handler(req, res) {
 
             // === 棄用：為了向後兼容，暫時保留寫入到根層級 ===
             // 儲存到個人歷史記錄
-            const historyDocRef = await addDoc(collection(db, 'userHistory'), baseRecordData);
+            const historyDocRef = await db.collection('userHistory').add(baseRecordData);
             console.log('⚠️ [棄用] 個人歷史記錄已儲存到根層級，文件 ID:', historyDocRef.id);
 
             // 儲存到全域每日記錄
-            const globalDocRef = await addDoc(collection(db, 'globalDailyRecords'), baseGlobalRecordData);
+            const globalDocRef = await db.collection('globalDailyRecords').add(baseGlobalRecordData);
             console.log('⚠️ [棄用] 全域每日記錄已儲存到根層級，文件 ID:', globalDocRef.id);
 
             return res.status(200).json({
