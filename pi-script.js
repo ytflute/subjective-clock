@@ -1782,17 +1782,21 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // 🔧 強壯的故事顯示機制 - 增加延遲確保Firebase寫入完成
-        console.log('⏰ 設定延遲讀取，確保Firebase有足夠時間寫入...');
-        setTimeout(() => {
-            const currentStoryEl = document.getElementById('storyText');
-            if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '' || currentStoryEl.textContent.includes('等待'))) {
-                console.log('📖 [延遲3秒後] 故事文字為空或等待中，啟動強壯備援機制...');
-                guaranteedStoryDisplay(data);
-            } else {
-                console.log('✅ [延遲3秒後] 故事文字已存在，跳過備援');
-            }
-        }, 3000); // 🔧 增加到3秒，給Firebase充分的寫入時間
+        // 🔥 緊急直接顯示機制 - 立即生成故事
+        console.log('🔥 [緊急] 立即啟動故事生成，不再等待！');
+        
+        // 立即顯示loading狀態
+        const storyTextEl = document.getElementById('storyText');
+        if (storyTextEl) {
+            storyTextEl.textContent = '正在為你創作甦醒故事...';
+            console.log('🔥 [緊急] 已設置loading文字');
+        }
+        
+        // 立即嘗試生成故事
+        setTimeout(async () => {
+            console.log('🔥 [緊急] 開始緊急故事生成流程...');
+            await emergencyStoryGeneration(data);
+        }, 500); // 只等0.5秒就開始
     }
 
     // 打字機效果相關變數
@@ -2956,23 +2960,7 @@ window.checkTrajectory = function() {
             console.log('⚠️ [備援1] Firebase讀取失敗:', error);
         }
 
-        // 第二層：使用API重新生成故事
-        try {
-            console.log('🔥 [備援2] 嘗試API重新生成故事...');
-            const story = await generateFreshStory(cityData);
-            if (story) {
-                storyTextEl.textContent = '重新為你創作甦醒故事...';
-                setTimeout(() => {
-                    startStoryTypewriter(story);
-                }, 1000);
-                console.log('✅ [備援2] API重新生成成功');
-                return;
-            }
-        } catch (error) {
-            console.log('⚠️ [備援2] API重新生成失敗:', error);
-        }
-
-        // 第三層：最終備案 - 使用generatePiStory API
+        // 第二層：最終備案 - 使用generatePiStory API
         try {
             console.log('🔥 [備援3] 使用generatePiStory API作為最終備案...');
             storyTextEl.textContent = '為你重新創作甦醒故事...';
@@ -3070,3 +3058,53 @@ window.checkTrajectory = function() {
 
     // 暴露強壯備援函數
     window.guaranteedStoryDisplay = guaranteedStoryDisplay;
+
+    // 🚨 緊急故事生成 - 絕對會有結果的簡化版本
+    async function emergencyStoryGeneration(cityData) {
+        console.log('🚨 [緊急生成] 啟動絕對會成功的故事生成...');
+        
+        const storyTextEl = document.getElementById('storyText');
+        if (!storyTextEl) {
+            console.error('❌ [緊急生成] 找不到故事元素');
+            return;
+        }
+
+        const city = cityData?.city || '未知城市';
+        const country = cityData?.country || '未知國家';
+        
+        // 方案1：直接調用generatePiStory API
+        try {
+            console.log('🚨 [緊急] 嘗試generatePiStory API...');
+            const response = await fetch('/api/generatePiStory', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ city, country })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (data.story) {
+                    console.log('✅ [緊急] generatePiStory成功:', data.story);
+                    storyTextEl.textContent = '故事創作完成，開始朗誦...';
+                    setTimeout(() => startStoryTypewriter(data.story), 800);
+                    return;
+                }
+            }
+            console.log('⚠️ [緊急] generatePiStory失敗');
+        } catch (error) {
+            console.log('⚠️ [緊急] generatePiStory錯誤:', error);
+        }
+
+        // 方案2：本地立即故事（絕對會執行）
+        console.log('🚨 [緊急] 使用本地立即故事');
+        const immediateStory = `Good Morning! 今天的你在${country}的${city}醒來。這是一個充滿希望的早晨，新的一天帶來無限可能。陽光透過窗戶灑進來，提醒你今天將是特別的一天。`;
+        
+        storyTextEl.textContent = '故事準備就緒...';
+        setTimeout(() => {
+            console.log('🎬 [緊急] 開始顯示立即故事');
+            startStoryTypewriter(immediateStory);
+        }, 500);
+    }
+
+    // 暴露緊急生成函數
+    window.emergencyStoryGeneration = emergencyStoryGeneration;
