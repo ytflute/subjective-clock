@@ -1762,10 +1762,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
             }
             
-            // 🔧 修復：不重新創建地圖，initClockMap已經正確設定了偏移
-            // 移除這個調用，避免覆蓋 initClockMap 的偏移設定
-            // initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
-            console.log('✅ 保持 initClockMap 的地圖設定，避免被覆蓋');
+            // 更新地圖標記
+            initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
         }
         
         // 確保故事文字區域是空的，等待打字機效果
@@ -2531,15 +2529,15 @@ window.checkTrajectory = function() {
             // 載入歷史軌跡
             setTimeout(() => {
                 loadHistoryTrajectory();
-            }, 1500);  // 改為1.5秒，只調用一次
+            }, 1000);
 
             // 設定完成狀態
             setState('result');
             
-            // 移除重複的loadHistoryTrajectory調用
-            // setTimeout(() => {
-            //     loadHistoryTrajectory();
-            // }, 2000);
+            // 等待地圖渲染完成後載入軌跡
+            setTimeout(() => {
+                loadHistoryTrajectory();
+            }, 2000);
 
     // 新增：從Firebase直接讀取並顯示故事文字
     async function loadAndDisplayStoryFromFirebase() {
