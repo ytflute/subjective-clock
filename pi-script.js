@@ -618,7 +618,7 @@ window.addEventListener('firebaseReady', async (event) => {
             // 如果主地圖已存在，直接更新而不重新創建
             if (mainInteractiveMap) {
                 console.log('🗺️ 使用現有主地圖實例更新位置');
-                mainInteractiveMap.setView([latitude, longitude - 1], 3);
+                mainInteractiveMap.setView([latitude, longitude - 3], 3);  // 增加偏移量到-3
                 clockLeafletMap = mainInteractiveMap; // 重用主地圖實例
             } else {
                 // 創建新地圖（使用滿版容器）
@@ -630,7 +630,7 @@ window.addEventListener('firebaseReady', async (event) => {
                     keyboard: true,
                     dragging: true,
                     attributionControl: true
-                }).setView([latitude, longitude - 1], 3); // 向左偏移1度，大區域視角
+                }).setView([latitude, longitude - 3], 3); // 增加偏移量到-3，大區域視角
                 
                 // 將時鐘地圖實例設為主地圖實例
                 mainInteractiveMap = clockLeafletMap;
@@ -2120,8 +2120,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
     // 如果地圖已存在且是時鐘地圖，不要移除，直接更新
     if (mainInteractiveMap && mainInteractiveMap === clockLeafletMap) {
         console.log('🗺️ 重用現有地圖實例，更新位置');
-        // 🔧 修復：使用正確的偏移(-1)和縮放(3)設定
-        mainInteractiveMap.setView([lat || 20, (lon || 0) - 1], 3);
+        // 🔧 修復：使用正確的偏移(-3)和縮放(3)設定
+        mainInteractiveMap.setView([lat || 20, (lon || 0) - 3], 3);
     } else {
         if (mainInteractiveMap) {
             mainInteractiveMap.remove();
@@ -2129,7 +2129,7 @@ function initMainInteractiveMap(lat, lon, city, country) {
         
         // 創建主要地圖實例 - 作為背景使用
         mainInteractiveMap = L.map('mainMapContainer', {
-            center: [lat || 20, (lon || 0) - 1], // 🔧 修復：加入-1偏移
+            center: [lat || 20, (lon || 0) - 3], // 🔧 修復：加入-3偏移
             zoom: 3, // 🔧 修復：統一使用縮放等級3
             zoomControl: false,
             scrollWheelZoom: true,
