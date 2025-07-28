@@ -1782,16 +1782,17 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // 🔧 強壯的故事顯示機制 - 多層備援確保一定有故事
+        // 🔧 強壯的故事顯示機制 - 增加延遲確保Firebase寫入完成
+        console.log('⏰ 設定延遲讀取，確保Firebase有足夠時間寫入...');
         setTimeout(() => {
             const currentStoryEl = document.getElementById('storyText');
             if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '' || currentStoryEl.textContent.includes('等待'))) {
-                console.log('📖 故事文字為空或等待中，啟動強壯備援機制...');
+                console.log('📖 [延遲3秒後] 故事文字為空或等待中，啟動強壯備援機制...');
                 guaranteedStoryDisplay(data);
             } else {
-                console.log('✅ 故事文字已存在，跳過備援');
+                console.log('✅ [延遲3秒後] 故事文字已存在，跳過備援');
             }
-        }, 1000);
+        }, 3000); // 🔧 增加到3秒，給Firebase充分的寫入時間
     }
 
     // 打字機效果相關變數
@@ -2938,6 +2939,10 @@ window.checkTrajectory = function() {
             console.error('❌ 找不到故事文字元素，放棄');
             return;
         }
+
+        // 🔧 額外等待，確保Firebase寫入絕對完成
+        console.log('⏰ [強壯備援] 額外等待2秒，確保Firebase寫入完成...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
         // 第一層：嘗試從Firebase讀取最新記錄
         try {
