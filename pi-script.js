@@ -2824,7 +2824,32 @@ window.checkTrajectory = function() {
             const querySnapshot = await getDocs(q);
             
             if (!querySnapshot.empty) {
-                const latestRecord = querySnapshot.docs[0].data();
+                let latestRecord;
+                
+                // 如果是簡單查詢（無orderBy），需要客戶端排序
+                if (q._query.orderBy.length === 0) {
+                    console.log('🔄 [簡化邏輯] 執行客戶端排序');
+                    const records = [];
+                    querySnapshot.forEach(doc => {
+                        const data = doc.data();
+                        if (data.timestamp) {
+                            records.push(data);
+                        }
+                    });
+                    
+                    // 客戶端排序
+                    records.sort((a, b) => {
+                        const aTime = a.timestamp?.toDate?.() || new Date(a.timestamp || 0);
+                        const bTime = b.timestamp?.toDate?.() || new Date(b.timestamp || 0);
+                        return bTime - aTime;  // 降序
+                    });
+                    
+                    latestRecord = records[0];
+                } else {
+                    // 如果有orderBy，直接取第一個
+                    latestRecord = querySnapshot.docs[0].data();
+                }
+                
                 const storyText = latestRecord.story || latestRecord.greeting || '';
                 
                 console.log('📖 [簡化邏輯] 找到最新故事:', storyText);
