@@ -2504,9 +2504,15 @@ window.checkTrajectory = function() {
                 dashArray: '10, 5' // 虛線效果
             }).addTo(mainInteractiveMap);
 
-            // 自動調整地圖視野包含所有點位
-            const group = new L.featureGroup([trajectoryLayer, historyMarkersLayer]);
-            mainInteractiveMap.fitBounds(group.getBounds().pad(0.1));
+            // 🔧 修復：不使用自動fitBounds，保持用戶設定的偏移和縮放
+            // 使用最新點的位置加上偏移，而不是自動居中所有點
+            if (historyPoints.length > 0) {
+                const latestPoint = historyPoints[historyPoints.length - 1];
+                mainInteractiveMap.setView([latestPoint.lat, latestPoint.lng - 3], 3);
+                console.log('🗺️ 使用偏移設定而非自動fitBounds:', latestPoint.lat, latestPoint.lng - 3);
+            }
+            // 移除原本的 fitBounds 調用，因為它會覆蓋偏移設定
+            // mainInteractiveMap.fitBounds(group.getBounds().pad(0.1));
         }
 
         console.log('📍 歷史軌跡顯示完成');
