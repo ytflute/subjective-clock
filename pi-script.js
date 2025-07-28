@@ -1782,21 +1782,62 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // 🔥 緊急直接顯示機制 - 立即生成故事
-        console.log('🔥 [緊急] 立即啟動故事生成，不再等待！');
+        // 🎵 直接同步語音故事 - 使用generatePiStory API
+        console.log('🎵 [同步] 直接使用generatePiStory與語音同步...');
         
-        // 立即顯示loading狀態
-        const emergencyStoryEl = document.getElementById('storyText');
-        if (emergencyStoryEl) {
-            emergencyStoryEl.textContent = '正在為你創作甦醒故事...';
-            console.log('🔥 [緊急] 已設置loading文字');
+        const storyEl = document.getElementById('storyText');
+        if (storyEl) {
+            storyEl.textContent = '正在生成與語音同步的故事...';
+            console.log('🎵 [同步] 已設置loading文字');
+            
+            // 立即調用generatePiStory API
+            setTimeout(async () => {
+                try {
+                    console.log('🎵 [同步] 調用generatePiStory API...');
+                    const response = await fetch('/api/generatePiStory', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            city: data.city || 'Unknown City',
+                            country: data.country || 'Unknown Country'
+                        })
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        if (result.story) {
+                            console.log('✅ [同步] generatePiStory成功，故事內容:', result.story);
+                            
+                            // 直接開始打字機效果
+                            if (window.startStoryTypewriter) {
+                                console.log('🎬 [同步] 開始打字機效果...');
+                                startStoryTypewriter(result.story);
+                            } else {
+                                console.error('❌ [同步] startStoryTypewriter函數不存在');
+                                storyEl.textContent = result.story;
+                            }
+                            return;
+                        }
+                    }
+                    
+                    console.log('⚠️ [同步] API失敗，使用備案故事');
+                    throw new Error('API失敗');
+                    
+                } catch (error) {
+                    console.error('❌ [同步] generatePiStory失敗:', error);
+                    
+                    // 備案：簡單故事
+                    const backupStory = `今天的你在${data.country || '未知國度'}的${data.city || '未知城市'}醒來。這是一個充滿希望的新開始！`;
+                    console.log('📖 [同步] 使用備案故事:', backupStory);
+                    
+                    if (window.startStoryTypewriter) {
+                        startStoryTypewriter(backupStory);
+                    } else {
+                        storyEl.textContent = backupStory;
+                    }
+                }
+            }, 500);
         }
-        
-        // 立即嘗試生成故事
-        setTimeout(async () => {
-            console.log('🔥 [緊急] 開始緊急故事生成流程...');
-            await emergencyStoryGeneration(data);
-        }, 500); // 只等0.5秒就開始
     }
 
     // 打字機效果相關變數
