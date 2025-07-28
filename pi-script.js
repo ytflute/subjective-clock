@@ -144,10 +144,8 @@ let groupNameInput, groupFilterSelect, connectionStatus;
 let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
     let cityNameEl, countryNameEl, greetingTextEl, coordinatesEl, errorMessageEl;
 
-// 🔧 移除重複的 piStoryReady 事件處理器，避免與 generateAndDisplayStoryAndGreeting 中的處理器衝突
-// 統一由 generateAndDisplayStoryAndGreeting 函數處理 piStoryReady 事件
-/*
-// 監聽樹莓派傳來的故事內容 - 已註釋，避免重複處理
+// 🔧 重新啟用 piStoryReady 事件處理器，確保語音故事上傳到 Firebase
+// 監聽樹莓派傳來的故事內容
 window.addEventListener('piStoryReady', (event) => {
     console.log('🎵 收到樹莓派傳來的故事內容:', event.detail);
     
@@ -379,7 +377,6 @@ window.addEventListener('piStoryReady', (event) => {
         });
     }
 });
-*/
 
 // 當 Firebase 準備就緒時執行
 window.addEventListener('firebaseReady', async (event) => {
