@@ -147,10 +147,41 @@ let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
 // 🔧 重新啟用 piStoryReady 事件處理器，確保語音故事上傳到 Firebase
 // 監聽樹莓派傳來的故事內容
 window.addEventListener('piStoryReady', (event) => {
-    console.log('🎵 收到樹莓派傳來的故事內容:', event.detail);
+    console.log('🎵 [Firebase上傳] piStoryReady事件觸發！');
+    console.log('🎵 [Firebase上傳] 收到樹莓派傳來的故事內容:', event.detail);
+    console.log('🎵 [Firebase上傳] 事件詳細數據:', JSON.stringify(event.detail, null, 2));
     
     // 使用樹莓派生成的內容更新顯示
     const storyData = event.detail;
+    
+    // 🔧 立即嘗試保存故事，無論其他條件如何
+    if (storyData && (storyData.story || storyData.greeting)) {
+        console.log('🚀 [Firebase上傳-立即保存] 立即嘗試保存語音故事，不等待其他條件...');
+        const cityData = {
+            name: storyData.city || 'Unknown City',
+            country: storyData.country || 'Unknown Country',
+            country_iso_code: storyData.countryCode || 'XX',
+            latitude: parseFloat(storyData.latitude) || 0,
+            longitude: parseFloat(storyData.longitude) || 0,
+            timezone: storyData.timezone || 'UTC',
+            local_time: new Date().toLocaleTimeString()
+        };
+        
+        const storyContent = {
+            story: storyData.story || storyData.fullContent || '',
+            greeting: storyData.greeting || '',
+            language: storyData.language || '',
+            languageCode: storyData.languageCode || ''
+        };
+        
+        console.log('🚀 [Firebase上傳-立即保存] 立即調用 saveToFirebase...');
+        saveToFirebase(cityData, storyContent).then(success => {
+            console.log('🚀 [Firebase上傳-立即保存] 結果:', success ? '成功' : '失敗');
+        }).catch(error => {
+            console.error('🚀 [Firebase上傳-立即保存] 錯誤:', error);
+        });
+    }
+    
     if (storyData && (storyData.fullContent || storyData.story)) {
         console.log('🔍 piStoryReady: 檢查 Firebase 狀態 - db:', !!db, 'rawUserDisplayName:', rawUserDisplayName);
         
@@ -236,8 +267,11 @@ window.addEventListener('piStoryReady', (event) => {
 
             // 🔧 修復：確保語音故事上傳到 Firebase
             if (storyData.story || storyData.greeting) {
-                console.log('📖 檢查是否需要保存語音故事到 Firebase...');
-                console.log('🔍 當前記錄ID:', window.currentRecordId);
+                console.log('📖 [Firebase上傳] 開始保存語音故事到 Firebase！');
+                console.log('📖 [Firebase上傳] 故事內容檢查 - story:', !!storyData.story, 'greeting:', !!storyData.greeting);
+                console.log('📖 [Firebase上傳] 故事內容 - story:', storyData.story);
+                console.log('📖 [Firebase上傳] 問候語內容 - greeting:', storyData.greeting);
+                console.log('🔍 [Firebase上傳] 當前記錄ID:', window.currentRecordId);
                 
                 if (!window.currentRecordId) {
                     // 沒有記錄ID，需要先保存完整記錄到Firebase
@@ -259,12 +293,18 @@ window.addEventListener('piStoryReady', (event) => {
                         languageCode: storyData.languageCode || ''
                     };
                     
+                    console.log('📡 [Firebase上傳] 即將調用 saveToFirebase...');
+                    console.log('📡 [Firebase上傳] cityData:', cityData);
+                    console.log('📡 [Firebase上傳] storyContent:', storyContent);
+                    
                     saveToFirebase(cityData, storyContent).then(success => {
                         if (success) {
-                            console.log('✅ 語音故事已保存到 Firebase（新記錄）');
+                            console.log('✅ [Firebase上傳] 語音故事已保存到 Firebase（新記錄）');
                         } else {
-                            console.warn('⚠️ 語音故事保存失敗');
+                            console.warn('⚠️ [Firebase上傳] 語音故事保存失敗');
                         }
+                    }).catch(error => {
+                        console.error('❌ [Firebase上傳] saveToFirebase 錯誤:', error);
                     });
                 } else {
                     // 有記錄ID，更新現有記錄
@@ -318,8 +358,8 @@ window.addEventListener('piStoryReady', (event) => {
 
             // 🔧 修復：確保語音故事上傳到 Firebase（錯誤處理區塊）
             if (storyData.story || storyData.greeting) {
-                console.log('📖 查詢失敗但仍嘗試保存語音故事到 Firebase...');
-                console.log('🔍 當前記錄ID:', window.currentRecordId);
+                console.log('📖 [Firebase上傳-錯誤恢復] 查詢失敗但仍嘗試保存語音故事到 Firebase...');
+                console.log('🔍 [Firebase上傳-錯誤恢復] 當前記錄ID:', window.currentRecordId);
                 
                 if (!window.currentRecordId) {
                     // 沒有記錄ID，需要先保存完整記錄到Firebase
