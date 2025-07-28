@@ -1782,18 +1782,18 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // 🔧 修復：只在故事文字為空時才嘗試從Firebase讀取
+        // ✨ 新的簡化邏輯：直接從Firebase獲取future用戶的最新故事
         setTimeout(() => {
             const currentStoryEl = document.getElementById('storyText');
             if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '')) {
-                console.log('📖 故事文字為空，嘗試從Firebase讀取...');
-                if (window.loadAndDisplayStoryFromFirebase) {
-                    loadAndDisplayStoryFromFirebase();
+                console.log('📖 [簡化] 故事文字為空，使用簡化邏輯從Firebase讀取最新故事...');
+                if (window.displayLatestStoryFromFirebase) {
+                    displayLatestStoryFromFirebase();
                 }
             } else {
                 console.log('✅ 故事文字已存在，跳過Firebase讀取');
             }
-        }, 1500);
+        }, 1000); // 減少延遲到1秒，因為邏輯簡化了
     }
 
     // 打字機效果相關變數
@@ -2889,29 +2889,3 @@ window.checkTrajectory = function() {
 
     // 將簡化邏輯暴露給全域，方便調用
     window.displayLatestStoryFromFirebase = displayLatestStoryFromFirebase;
-
-    // 🔧 修復：不清空故事文字，保持 piStoryReady 事件處理器設置的故事內容
-    // 確保故事文字區域存在，但不清空內容
-    const storyTextEl = document.getElementById('storyText');
-    if (storyTextEl) {
-        // 移除清空文字的代碼，保持現有故事內容
-        // storyTextEl.textContent = '';
-        storyTextEl.classList.remove('typing', 'completed');
-        console.log('✅ 故事文字元素已找到，保持現有內容');
-    } else {
-        console.error('❌ 找不到故事文字元素 #storyText');
-    }
-
-    // ✨ 新的簡化邏輯：直接從Firebase獲取future用戶的最新故事
-    setTimeout(() => {
-        const currentStoryEl = document.getElementById('storyText');
-        if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '')) {
-            console.log('📖 [簡化] 故事文字為空，使用簡化邏輯從Firebase讀取最新故事...');
-            if (window.displayLatestStoryFromFirebase) {
-                displayLatestStoryFromFirebase();
-            }
-        } else {
-            console.log('✅ 故事文字已存在，跳過Firebase讀取');
-        }
-    }, 1000); // 減少延遲到1秒，因為邏輯簡化了
-}
