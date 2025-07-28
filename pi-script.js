@@ -2504,12 +2504,33 @@ window.checkTrajectory = function() {
                 dashArray: '10, 5' // 虛線效果
             }).addTo(mainInteractiveMap);
 
-            // 🔧 修復：不使用自動fitBounds，保持用戶設定的偏移和縮放
-            // 使用最新點的位置加上偏移，而不是自動居中所有點
-            if (historyPoints.length > 0) {
+            // 🔧 修復：使用今日位置（而非歷史最新點）加上偏移，保持與initMainInteractiveMap一致
+            // 獲取今日位置信息
+            const cityNameEl = document.getElementById('cityName');
+            const coordinatesEl = document.getElementById('coordinates');
+            
+            if (coordinatesEl && coordinatesEl.textContent) {
+                // 從座標顯示元素獲取今日位置
+                const coordText = coordinatesEl.textContent;
+                const [latStr, lonStr] = coordText.split(', ');
+                const todayLat = parseFloat(latStr);
+                const todayLon = parseFloat(lonStr);
+                
+                if (!isNaN(todayLat) && !isNaN(todayLon)) {
+                    mainInteractiveMap.setView([todayLat, todayLon - 3], 3);
+                    console.log('🗺️ 使用今日位置偏移而非歷史點:', todayLat, todayLon - 3);
+                } else {
+                    console.log('⚠️ 無法解析今日座標，使用歷史點位置');
+                    if (historyPoints.length > 0) {
+                        const latestPoint = historyPoints[historyPoints.length - 1];
+                        mainInteractiveMap.setView([latestPoint.lat, latestPoint.lng - 3], 3);
+                    }
+                }
+            } else if (historyPoints.length > 0) {
+                // 備用方案：使用歷史最新點
                 const latestPoint = historyPoints[historyPoints.length - 1];
                 mainInteractiveMap.setView([latestPoint.lat, latestPoint.lng - 3], 3);
-                console.log('🗺️ 使用偏移設定而非自動fitBounds:', latestPoint.lat, latestPoint.lng - 3);
+                console.log('🗺️ 備用方案：使用歷史點偏移:', latestPoint.lat, latestPoint.lng - 3);
             }
             // 移除原本的 fitBounds 調用，因為它會覆蓋偏移設定
             // mainInteractiveMap.fitBounds(group.getBounds().pad(0.1));
