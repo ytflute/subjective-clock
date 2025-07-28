@@ -2797,13 +2797,29 @@ window.checkTrajectory = function() {
             }
 
             // 查詢future用戶的最後一筆記錄（依照時間戳排序）
+            if (!window.firebaseSDK) {
+                console.error('❌ window.firebaseSDK 未初始化');
+                return false;
+            }
+            
             const { collection, query, where, orderBy, limit, getDocs } = window.firebaseSDK;
-            const q = query(
-                collection(db, 'wakeup_records'),
-                where('userId', '==', 'future'),
-                orderBy('timestamp', 'desc'),  // 按時間戳降序排列
-                limit(1)  // 只取最新的一筆
-            );
+            
+            // 先嘗試無索引查詢作為備援
+            let q;
+            try {
+                q = query(
+                    collection(db, 'wakeup_records'),
+                    where('userId', '==', 'future'),
+                    orderBy('timestamp', 'desc'),  // 按時間戳降序排列
+                    limit(1)  // 只取最新的一筆
+                );
+            } catch (indexError) {
+                console.log('⚠️ 索引查詢失敗，使用簡單查詢:', indexError);
+                q = query(
+                    collection(db, 'wakeup_records'),
+                    where('userId', '==', 'future')
+                );
+            }
 
             const querySnapshot = await getDocs(q);
             

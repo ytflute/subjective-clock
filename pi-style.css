@@ -1377,7 +1377,7 @@ body {
 .waiting-content-box {
     position: absolute;
     top: 50%;
-    left: 55%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.95);
     border: 3px solid #FFD700;
