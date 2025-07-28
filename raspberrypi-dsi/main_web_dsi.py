@@ -229,9 +229,8 @@ class WakeUpMapWebApp:
             if result and result.get('success'):
                 self.logger.info("開始按鈕點擊成功")
                 
-                # 📊 先增加本地 Day 計數
-                current_day = self._increment_local_day_counter()
-                self.logger.info(f"📊 本地 Day 計數已更新為: {current_day}")
+                # 🔧 Day計數由前端Firebase決定，不再使用本地計數
+                self.logger.info("📊 Day計數將由前端Firebase查詢決定")
                 
                 # 從網頁提取城市資料並播放問候語
                 self._extract_city_data_and_play_greeting()
@@ -250,33 +249,19 @@ class WakeUpMapWebApp:
             threading.Thread(target=reset_processing_state, daemon=True).start()
 
     def _increment_local_day_counter(self) -> int:
-        """增加本地 Day 計數"""
-        if self.local_storage:
-            try:
-                return self.local_storage.increment_day_counter()
-            except Exception as e:
-                self.logger.error(f"增加本地 Day 計數失敗: {e}")
-                return 1
-        else:
-            self.logger.warning("本地儲存未初始化，無法增加 Day 計數")
-            return 1
+        """🔧 已停用本地Day計數，由前端Firebase決定"""
+        self.logger.info("Day計數由前端Firebase查詢決定，不再使用本地計數")
+        return 1  # 回傳預設值，實際由前端決定
     
     def _get_current_day_number(self) -> int:
-        """獲取當前 Day 編號"""
-        if self.local_storage:
-            try:
-                return self.local_storage.get_current_day_number()
-            except Exception as e:
-                self.logger.error(f"獲取當前 Day 編號失敗: {e}")
-                return 1
-        else:
-            return 1
+        """🔧 已停用本地Day查詢，由前端Firebase決定"""
+        self.logger.info("Day編號由前端Firebase查詢決定，不再使用本地計數")
+        return 1  # 回傳預設值，實際由前端決定
     
     def _save_basic_record(self, city_data: dict):
-        """儲存基本城市資料（暫不包含問候語和故事）"""
-        # 先增加 Day 計數
-        self._increment_local_day_counter()
-        self.logger.info("📊 基本城市資料記錄完成，等待故事內容...")
+        """🔧 已停用基本記錄儲存，由前端統一處理"""
+        # 移除本地Day計數調用
+        self.logger.info("📊 基本城市資料處理完成，Day計數由前端決定")
 
     def _save_local_record(self, city_data: dict, story_content: dict = None):
         """🔧 已停用本地儲存，資料將由前端直接寫入Firebase"""
