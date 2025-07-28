@@ -1786,9 +1786,9 @@ window.addEventListener('firebaseReady', async (event) => {
         console.log('🔥 [緊急] 立即啟動故事生成，不再等待！');
         
         // 立即顯示loading狀態
-        const storyTextEl = document.getElementById('storyText');
-        if (storyTextEl) {
-            storyTextEl.textContent = '正在為你創作甦醒故事...';
+        const emergencyStoryEl = document.getElementById('storyText');
+        if (emergencyStoryEl) {
+            emergencyStoryEl.textContent = '正在為你創作甦醒故事...';
             console.log('🔥 [緊急] 已設置loading文字');
         }
         
