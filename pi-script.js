@@ -1766,23 +1766,30 @@ window.addEventListener('firebaseReady', async (event) => {
             initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
         }
         
-        // 確保故事文字區域是空的，等待打字機效果
+        // 🔧 修復：不清空故事文字，保持 piStoryReady 事件處理器設置的故事內容
+        // 確保故事文字區域存在，但不清空內容
         const storyTextEl = document.getElementById('storyText');
         if (storyTextEl) {
-            storyTextEl.textContent = '';
+            // 移除清空文字的代碼，保持現有故事內容
+            // storyTextEl.textContent = '';
             storyTextEl.classList.remove('typing', 'completed');
-            console.log('✅ 故事文字元素已找到並清空');
+            console.log('✅ 故事文字元素已找到，保持現有內容');
         } else {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // 🔧 新增：每次更新結果數據後，嘗試從Firebase讀取並顯示故事
+        // 🔧 修復：只在故事文字為空時才嘗試從Firebase讀取
         setTimeout(() => {
-            console.log('📖 updateResultData完成，開始從Firebase讀取故事...');
-            if (window.loadAndDisplayStoryFromFirebase) {
-                loadAndDisplayStoryFromFirebase();
+            const currentStoryEl = document.getElementById('storyText');
+            if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '')) {
+                console.log('📖 故事文字為空，嘗試從Firebase讀取...');
+                if (window.loadAndDisplayStoryFromFirebase) {
+                    loadAndDisplayStoryFromFirebase();
+                }
+            } else {
+                console.log('✅ 故事文字已存在，跳過Firebase讀取');
             }
-        }, 1500); // 延遲1.5秒確保其他元素都更新完成
+        }, 1500);
     }
 
     // 打字機效果相關變數
@@ -2563,9 +2570,22 @@ window.checkTrajectory = function() {
     // 新增：從Firebase直接讀取並顯示故事文字
     async function loadAndDisplayStoryFromFirebase() {
         try {
-            if (!db || !auth.currentUser) {
-                console.log('⚠️ Firebase未就緒，無法讀取故事');
+            // 🔧 修復：放寬認證檢查，只要Firebase已初始化就嘗試讀取
+            if (!db) {
+                console.log('⚠️ Firebase數據庫未初始化，無法讀取故事');
                 return;
+            }
+
+            // 如果沒有認證，嘗試匿名登入
+            if (!auth.currentUser) {
+                console.log('🔑 用戶未認證，嘗試匿名登入...');
+                try {
+                    await signInAnonymously(auth);
+                    console.log('✅ 匿名登入成功');
+                } catch (authError) {
+                    console.error('❌ 匿名登入失敗:', authError);
+                    return;
+                }
             }
 
             console.log('📖 從Firebase讀取最新故事內容...');
