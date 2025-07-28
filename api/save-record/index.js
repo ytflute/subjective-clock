@@ -41,6 +41,7 @@ export default async function handler(req, res) {
         const {
             userDisplayName,
             dataIdentifier,
+            groupName, // 🔧 添加 groupName 參數
             city,
             country,
             city_zh,
@@ -83,6 +84,7 @@ export default async function handler(req, res) {
         const baseRecordData = {
             dataIdentifier: dataIdentifier || userDisplayName.toLowerCase(),
             userDisplayName,
+            groupName: groupName || '', // 🔧 確保 groupName 儲存到 artifacts
             recordedAt: admin.firestore.FieldValue.serverTimestamp(),
             localTime: localTime || now.toLocaleTimeString(),
             city,
@@ -102,8 +104,8 @@ export default async function handler(req, res) {
             latitudePreference: parseFloat(latitudePreference) || 0,
             latitudeDescription: latitudeDescription || '',
             deviceType,
-            story: story || '',
-            greeting: greeting || '',
+            story: story || '', // 🔧 確保 story 儲存到 artifacts
+            greeting: greeting || '', // 🔧 確保 greeting 儲存到 artifacts
             language: language || '',
             languageCode: languageCode || '',
             imageUrl: null // 將由前端填入
@@ -112,6 +114,7 @@ export default async function handler(req, res) {
         // 準備全域記錄資料
         const baseGlobalRecordData = {
             userDisplayName,
+            groupName: groupName || '', // 🔧 確保 groupName 儲存到全域記錄
             city,
             country,
             city_zh: city_zh || city,
@@ -123,8 +126,8 @@ export default async function handler(req, res) {
             recordedAt: admin.firestore.FieldValue.serverTimestamp(),
             recordedDateString,
             deviceType,
-            story: story || '',
-            greeting: greeting || '',
+            story: story || '', // 🔧 確保 story 儲存到全域記錄
+            greeting: greeting || '', // 🔧 確保 greeting 儲存到全域記錄
             language: language || '',
             languageCode: languageCode || ''
         };

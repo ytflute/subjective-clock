@@ -236,21 +236,54 @@ window.addEventListener('piStoryReady', (event) => {
                 console.error('❌ Firebase查詢成功但找不到 #storyText 元素');
             }
 
-            // 更新 Firebase 記錄，加入故事和問候語資料
+            // 🔧 修復：確保語音故事上傳到 Firebase
             if (storyData.story || storyData.greeting) {
-                console.log('📖 更新 Firebase 記錄加入故事資料...');
-                updateFirebaseWithStory({
-                    story: storyData.story || storyData.fullContent || '',
-                    greeting: storyData.greeting || '',
-                    language: storyData.language || '',
-                    languageCode: storyData.languageCode || ''
-                }).then(success => {
-                    if (success) {
-                        console.log('✅ Firebase 故事資料更新成功');
-                    } else {
-                        console.warn('⚠️ Firebase 故事資料更新失敗');
-                    }
-                });
+                console.log('📖 檢查是否需要保存語音故事到 Firebase...');
+                console.log('🔍 當前記錄ID:', window.currentRecordId);
+                
+                if (!window.currentRecordId) {
+                    // 沒有記錄ID，需要先保存完整記錄到Firebase
+                    console.log('📊 沒有現有記錄，先保存語音故事到 Firebase...');
+                    const cityData = {
+                        name: storyData.city || 'Unknown City',
+                        country: storyData.country || 'Unknown Country',
+                        country_iso_code: storyData.countryCode || 'XX',
+                        latitude: parseFloat(storyData.latitude) || 0,
+                        longitude: parseFloat(storyData.longitude) || 0,
+                        timezone: storyData.timezone || 'UTC',
+                        local_time: new Date().toLocaleTimeString()
+                    };
+                    
+                    const storyContent = {
+                        story: storyData.story || storyData.fullContent || '',
+                        greeting: storyData.greeting || '',
+                        language: storyData.language || '',
+                        languageCode: storyData.languageCode || ''
+                    };
+                    
+                    saveToFirebase(cityData, storyContent).then(success => {
+                        if (success) {
+                            console.log('✅ 語音故事已保存到 Firebase（新記錄）');
+                        } else {
+                            console.warn('⚠️ 語音故事保存失敗');
+                        }
+                    });
+                } else {
+                    // 有記錄ID，更新現有記錄
+                    console.log('📖 更新現有 Firebase 記錄加入語音故事資料...');
+                    updateFirebaseWithStory({
+                        story: storyData.story || storyData.fullContent || '',
+                        greeting: storyData.greeting || '',
+                        language: storyData.language || '',
+                        languageCode: storyData.languageCode || ''
+                    }).then(success => {
+                        if (success) {
+                            console.log('✅ Firebase 故事資料更新成功');
+                        } else {
+                            console.warn('⚠️ Firebase 故事資料更新失敗');
+                        }
+                    });
+                }
             }
 
             // 🔧 修復：Firebase 查詢成功後也要顯示故事文字
@@ -285,21 +318,54 @@ window.addEventListener('piStoryReady', (event) => {
             };
             updateResultData(resultData);
 
-            // 更新 Firebase 記錄，加入故事和問候語資料（錯誤處理區塊）
+            // 🔧 修復：確保語音故事上傳到 Firebase（錯誤處理區塊）
             if (storyData.story || storyData.greeting) {
-                console.log('📖 查詢失敗但仍嘗試更新 Firebase 記錄加入故事資料...');
-                updateFirebaseWithStory({
-                    story: storyData.story || storyData.fullContent || '',
-                    greeting: storyData.greeting || '',
-                    language: storyData.language || '',
-                    languageCode: storyData.languageCode || ''
-                }).then(success => {
-                    if (success) {
-                        console.log('✅ Firebase 故事資料更新成功（錯誤後恢復）');
-                    } else {
-                        console.warn('⚠️ Firebase 故事資料更新失敗（錯誤後仍失敗）');
-                    }
-                });
+                console.log('📖 查詢失敗但仍嘗試保存語音故事到 Firebase...');
+                console.log('🔍 當前記錄ID:', window.currentRecordId);
+                
+                if (!window.currentRecordId) {
+                    // 沒有記錄ID，需要先保存完整記錄到Firebase
+                    console.log('📊 沒有現有記錄，先保存語音故事到 Firebase（錯誤恢復）...');
+                    const cityData = {
+                        name: storyData.city || 'Unknown City',
+                        country: storyData.country || 'Unknown Country',
+                        country_iso_code: storyData.countryCode || 'XX',
+                        latitude: parseFloat(storyData.latitude) || 0,
+                        longitude: parseFloat(storyData.longitude) || 0,
+                        timezone: storyData.timezone || 'UTC',
+                        local_time: new Date().toLocaleTimeString()
+                    };
+                    
+                    const storyContent = {
+                        story: storyData.story || storyData.fullContent || '',
+                        greeting: storyData.greeting || '',
+                        language: storyData.language || '',
+                        languageCode: storyData.languageCode || ''
+                    };
+                    
+                    saveToFirebase(cityData, storyContent).then(success => {
+                        if (success) {
+                            console.log('✅ 語音故事已保存到 Firebase（錯誤恢復新記錄）');
+                        } else {
+                            console.warn('⚠️ 語音故事保存失敗（錯誤恢復失敗）');
+                        }
+                    });
+                } else {
+                    // 有記錄ID，更新現有記錄
+                    console.log('📖 查詢失敗但仍嘗試更新現有 Firebase 記錄加入語音故事資料...');
+                    updateFirebaseWithStory({
+                        story: storyData.story || storyData.fullContent || '',
+                        greeting: storyData.greeting || '',
+                        language: storyData.language || '',
+                        languageCode: storyData.languageCode || ''
+                    }).then(success => {
+                        if (success) {
+                            console.log('✅ Firebase 故事資料更新成功（錯誤後恢復）');
+                        } else {
+                            console.warn('⚠️ Firebase 故事資料更新失敗（錯誤後仍失敗）');
+                        }
+                    });
+                }
             }
 
             // 開始打字機效果顯示故事
@@ -1521,6 +1587,7 @@ window.addEventListener('firebaseReady', async (event) => {
                 const apiData = {
                     userDisplayName: rawUserDisplayName,
                     dataIdentifier: rawUserDisplayName,
+                    groupName: currentGroupName, // 🔧 確保 artifacts 集合包含 groupName: "Pi"
                     city: cityData.name,
                     country: cityData.country,
                     city_zh: cityData.name, // 可加入中文翻譯邏輯
@@ -1538,8 +1605,8 @@ window.addEventListener('firebaseReady', async (event) => {
                     latitudePreference: parseFloat(cityData.latitude) || 0,
                     latitudeDescription: '',
                     deviceType: 'raspberry_pi_web',
-                    story: storyData?.story || '',
-                    greeting: storyData?.greeting || '',
+                    story: storyData?.story || '', // 🔧 確保 story 上傳
+                    greeting: storyData?.greeting || '', // 🔧 確保 greeting 上傳
                     language: storyData?.language || '',
                     languageCode: storyData?.languageCode || ''
                 };
