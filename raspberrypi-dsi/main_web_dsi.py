@@ -18,8 +18,9 @@ from config import (
     LOGGING_CONFIG, DEBUG_MODE, AUTOSTART_CONFIG, BUTTON_CONFIG,
     SCREENSAVER_CONFIG, ERROR_MESSAGES, USER_CONFIG
 )
-from local_storage import LocalStorage
-from firebase_sync import FirebaseSync
+# 🔧 已停用本地儲存，統一使用前端Firebase直寫
+# from local_storage import LocalStorage  
+# from firebase_sync import FirebaseSync
 
 # 確保模組可以被導入
 try:
@@ -126,23 +127,10 @@ class WakeUpMapWebApp:
             self.logger.info("初始化網頁控制器...")
             self.web_controller = WebControllerDSI()
             
-            # 初始化本地儲存
-            self.logger.info("初始化本地儲存...")
-            try:
-                self.local_storage = LocalStorage()
-                stats = self.local_storage.get_storage_stats()
-                self.logger.info(f"本地儲存狀態: Day {stats['current_day']}, 總記錄 {stats['total_records']}")
-                
-                # 初始化 Firebase 同步
-                self.logger.info("初始化 Firebase 同步...")
-                self.firebase_sync = FirebaseSync(self.local_storage)
-                sync_status = self.firebase_sync.get_sync_status()
-                self.logger.info(f"Firebase 同步狀態: 用戶 {sync_status['display_name']}, 群組 {sync_status['group_name']}")
-                
-            except Exception as e:
-                self.logger.warning(f"本地儲存或 Firebase 同步初始化失敗：{e}")
-                self.local_storage = None
-                self.firebase_sync = None
+            # 🔧 統一使用前端Firebase直寫，停用本地儲存
+            self.logger.info("已停用本地儲存，採用前端Firebase直寫模式")
+            self.local_storage = None
+            self.firebase_sync = None
             
             # 初始化音訊管理器
             self.logger.info("初始化音訊管理器...")
@@ -291,48 +279,15 @@ class WakeUpMapWebApp:
         self.logger.info("📊 基本城市資料記錄完成，等待故事內容...")
 
     def _save_local_record(self, city_data: dict, story_content: dict = None):
-        """儲存甦醒記錄到本地並同步到 Firebase"""
-        if self.local_storage:
-            try:
-                record_data = {
-                    "city": city_data.get("city", ""),
-                    "country": city_data.get("country", ""),
-                    "countryCode": city_data.get("countryCode", ""),
-                    "latitude": city_data.get("latitude"),
-                    "longitude": city_data.get("longitude"),
-                    "timezone": city_data.get("timezone", ""),
-                }
-                
-                # 添加問候語和故事內容
-                if story_content:
-                    record_data.update({
-                        "greeting": story_content.get("greeting", ""),
-                        "story": story_content.get("story", ""),
-                        "languageCode": story_content.get("languageCode", ""),
-                        "city_zh": story_content.get("city_zh", ""),
-                        "country_zh": story_content.get("country_zh", ""),
-                    })
-                
-                # 保存到本地
-                local_success = self.local_storage.save_wakeup_record(record_data)
-                
-                if local_success:
-                    self.logger.info("✅ 本地記錄儲存成功")
-                    
-                    # 背景同步到 Firebase
-                    if self.firebase_sync:
-                        self.firebase_sync.auto_sync_background()
-                    else:
-                        self.logger.warning("Firebase 同步器未初始化，跳過雲端同步")
-                
-                return local_success
-                
-            except Exception as e:
-                self.logger.error(f"儲存本地記錄失敗: {e}")
-                return False
-        else:
-            self.logger.warning("本地儲存未初始化，無法儲存記錄")
-            return False
+        """🔧 已停用本地儲存，資料將由前端直接寫入Firebase"""
+        self.logger.info("📊 資料儲存交由前端處理，確保單一寫入點")
+        
+        # 記錄資料內容供除錯使用
+        if story_content:
+            self.logger.info(f"📖 故事內容準備完成: {story_content.get('city', '')} / {story_content.get('story', '')[:50]}...")
+        
+        # 不再進行本地儲存，由前端統一處理
+        return True
 
     def _extract_city_data_and_play_greeting(self):
         """從網頁提取城市資料並播放問候語和故事（優化版：視聽同步）"""
