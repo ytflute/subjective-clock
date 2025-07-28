@@ -798,7 +798,7 @@ body {
     left: 15px !important;
     width: 400px !important;
     min-height: 300px !important;
-    background: rgba(255, 255, 255, 0.94) !important;  /* 增加透明度 */
+    background: rgba(255, 255, 255, 0.6) !important;  /* 增加透明度 */
     border-radius: 12px !important;
     padding: 20px !important;
     z-index: 999999 !important;
@@ -818,6 +818,44 @@ body {
     width: auto !important;
     white-space: nowrap !important;
     line-height: 1.2 !important;
+    vertical-align: baseline !important;
+}
+
+/* 確保容器支持同一行顯示 */
+.result-info-panel .day-counter,
+.day-counter {
+    display: block !important;
+    white-space: nowrap !important;
+}
+
+.result-info-panel .date-info,
+.date-info {
+    display: block !important;
+    white-space: nowrap !important;
+    margin-bottom: 10px !important;
+}
+
+.result-info-panel .country-info,
+.country-info {
+    display: block !important;
+    white-space: nowrap !important;
+    margin-bottom: 10px !important;
+}
+
+.result-info-panel .day-counter .day-label,
+.result-info-panel .day-counter .day-number,
+.day-counter .day-label,
+.day-counter .day-number,
+.result-info-panel .date-info .date-label,
+.result-info-panel .date-info .date-value,
+.date-info .date-label,
+.date-info .date-value,
+.result-info-panel .country-info .country-flag,
+.result-info-panel .country-info .country-name,
+.country-info .country-flag,
+.country-info .country-name {
+    display: inline !important;
+    white-space: nowrap !important;
     vertical-align: baseline !important;
 }
 
@@ -1653,11 +1691,23 @@ body {
     margin: 0 auto !important;
 }
 
-/* 強制所有內部元素也顯示 */
-.result-info-panel * {
+/* 強制所有內部元素也顯示，但排除需要同一行顯示的元素 */
+.result-info-panel *:not(.day-label):not(.day-number):not(.date-label):not(.date-value):not(.country-flag):not(.country-name) {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+}
+
+/* 專門設置需要同一行顯示的元素 */
+.result-info-panel .day-label,
+.result-info-panel .day-number,
+.result-info-panel .date-label,
+.result-info-panel .date-value,
+.result-info-panel .country-flag,
+.result-info-panel .country-name {
+    display: inline !important;
+    white-space: nowrap !important;
+    vertical-align: baseline !important;
 }
 
 .voice-loading-bar * {
