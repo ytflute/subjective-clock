@@ -2774,3 +2774,144 @@ window.checkTrajectory = function() {
 
     // 啟動用戶資料載入監控
     setTimeout(monitorUserDataLoad, 10000); // 10秒後開始監控
+
+    // ✨ 新增：簡化的故事顯示邏輯 - 直接從Firebase抓取future用戶的最新故事
+    async function displayLatestStoryFromFirebase() {
+        try {
+            console.log('📖 [簡化邏輯] 直接從Firebase獲取future用戶的最新故事...');
+            
+            if (!db) {
+                console.log('⚠️ Firebase數據庫未初始化');
+                return false;
+            }
+
+            // 確保有認證
+            if (!auth.currentUser) {
+                try {
+                    await signInAnonymously(auth);
+                    console.log('✅ 匿名登入成功');
+                } catch (authError) {
+                    console.error('❌ 匿名登入失敗:', authError);
+                    return false;
+                }
+            }
+
+            // 查詢future用戶的最後一筆記錄（依照時間戳排序）
+            const { collection, query, where, orderBy, limit, getDocs } = window.firebaseSDK;
+            const q = query(
+                collection(db, 'wakeup_records'),
+                where('userId', '==', 'future'),
+                orderBy('timestamp', 'desc'),  // 按時間戳降序排列
+                limit(1)  // 只取最新的一筆
+            );
+
+            const querySnapshot = await getDocs(q);
+            
+            if (!querySnapshot.empty) {
+                const latestRecord = querySnapshot.docs[0].data();
+                const storyText = latestRecord.story || latestRecord.greeting || '';
+                
+                console.log('📖 [簡化邏輯] 找到最新故事:', storyText);
+                
+                if (storyText) {
+                    const storyTextEl = document.getElementById('storyText');
+                    if (storyTextEl) {
+                        storyTextEl.textContent = '正在為你朗誦你的甦醒日誌.....';
+                        setTimeout(() => {
+                            console.log('🎬 [簡化邏輯] 開始顯示最新故事');
+                            startStoryTypewriter(storyText);
+                        }, 1000);
+                        return true;
+                    } else {
+                        console.error('❌ 找不到 #storyText 元素');
+                    }
+                } else {
+                    console.log('⚠️ 最新記錄中沒有故事內容');
+                }
+            } else {
+                console.log('⚠️ 沒有找到future用戶的記錄');
+            }
+
+        } catch (error) {
+            console.error('❌ [簡化邏輯] 獲取最新故事失敗:', error);
+            
+            // 備援：如果有索引問題，使用客戶端排序
+            try {
+                console.log('🔄 [簡化邏輯] 嘗試備援方案：客戶端排序');
+                const { collection, query, where, getDocs } = window.firebaseSDK;
+                const fallbackQuery = query(
+                    collection(db, 'wakeup_records'),
+                    where('userId', '==', 'future')
+                );
+                
+                const fallbackSnapshot = await getDocs(fallbackQuery);
+                
+                if (!fallbackSnapshot.empty) {
+                    const records = [];
+                    fallbackSnapshot.forEach(doc => {
+                        const data = doc.data();
+                        if (data.timestamp) {
+                            records.push(data);
+                        }
+                    });
+                    
+                    // 客戶端排序
+                    records.sort((a, b) => {
+                        const aTime = a.timestamp?.toDate?.() || new Date(a.timestamp || 0);
+                        const bTime = b.timestamp?.toDate?.() || new Date(b.timestamp || 0);
+                        return bTime - aTime;  // 降序
+                    });
+                    
+                    if (records.length > 0) {
+                        const latestRecord = records[0];
+                        const storyText = latestRecord.story || latestRecord.greeting || '';
+                        
+                        if (storyText) {
+                            const storyTextEl = document.getElementById('storyText');
+                            if (storyTextEl) {
+                                storyTextEl.textContent = '正在為你朗誦你的甦醒日誌.....';
+                                setTimeout(() => {
+                                    console.log('🎬 [備援] 開始顯示最新故事');
+                                    startStoryTypewriter(storyText);
+                                }, 1000);
+                                return true;
+                            }
+                        }
+                    }
+                }
+            } catch (fallbackError) {
+                console.error('❌ [簡化邏輯] 備援方案也失敗:', fallbackError);
+            }
+        }
+        
+        return false;
+    }
+
+    // 將簡化邏輯暴露給全域，方便調用
+    window.displayLatestStoryFromFirebase = displayLatestStoryFromFirebase;
+
+    // 🔧 修復：不清空故事文字，保持 piStoryReady 事件處理器設置的故事內容
+    // 確保故事文字區域存在，但不清空內容
+    const storyTextEl = document.getElementById('storyText');
+    if (storyTextEl) {
+        // 移除清空文字的代碼，保持現有故事內容
+        // storyTextEl.textContent = '';
+        storyTextEl.classList.remove('typing', 'completed');
+        console.log('✅ 故事文字元素已找到，保持現有內容');
+    } else {
+        console.error('❌ 找不到故事文字元素 #storyText');
+    }
+
+    // ✨ 新的簡化邏輯：直接從Firebase獲取future用戶的最新故事
+    setTimeout(() => {
+        const currentStoryEl = document.getElementById('storyText');
+        if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '')) {
+            console.log('📖 [簡化] 故事文字為空，使用簡化邏輯從Firebase讀取最新故事...');
+            if (window.displayLatestStoryFromFirebase) {
+                displayLatestStoryFromFirebase();
+            }
+        } else {
+            console.log('✅ 故事文字已存在，跳過Firebase讀取');
+        }
+    }, 1000); // 減少延遲到1秒，因為邏輯簡化了
+}
