@@ -27,7 +27,7 @@
 body {
     font-family: 'Press Start 2P', 'Courier Prime', 'Noto Sans CJK TC', 'Noto Sans CJK SC', 'Microsoft YaHei', '微軟雅黑', monospace;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.2;
     color: var(--text-color);
     background-color: var(--background-color);
     overflow-x: hidden;
@@ -1565,7 +1565,7 @@ body {
     left: 15px !important;
     width: 300px !important;
     min-height: 150px !important;
-    background: rgba(255, 255, 255, 0.85) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
     border-radius: 12px !important;
     padding: 20px !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
