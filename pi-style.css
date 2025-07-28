@@ -838,8 +838,8 @@ body {
 .result-info-panel .country-info,
 .country-info {
     display: block !important;
-    white-space: nowrap !important;
     margin-bottom: 10px !important;
+    /* 移除 white-space: nowrap，允許內容換行 */
 }
 
 .result-info-panel .day-counter .day-label,
@@ -855,8 +855,18 @@ body {
 .country-info .country-flag,
 .country-info .country-name {
     display: inline !important;
-    white-space: nowrap !important;
     vertical-align: baseline !important;
+    /* 移除 white-space: nowrap，允許國家名稱換行 */
+}
+
+/* 專門為國家名稱設定換行規則 */
+.result-info-panel .country-name,
+.country-name {
+    max-width: 300px !important;  /* 設定最大寬度 */
+    word-wrap: break-word !important;  /* 允許長單詞換行 */
+    overflow-wrap: break-word !important;  /* 現代瀏覽器的換行屬性 */
+    line-height: 1.2 !important;  /* 設定行高 */
+    display: inline-block !important;  /* 改為 inline-block 以支援寬度設定 */
 }
 
 .day-label {
@@ -1002,8 +1012,8 @@ body {
     align-items: center !important;
     gap: 8px !important;
     margin-bottom: 15px !important;
-    flex-wrap: nowrap !important;
-    white-space: nowrap !important;
+    flex-wrap: wrap !important;  /* 允許換行 */
+    /* 移除 white-space: nowrap，允許長文字換行 */
 }
 
 .country-flag {
@@ -1703,11 +1713,17 @@ body {
 .result-info-panel .day-number,
 .result-info-panel .date-label,
 .result-info-panel .date-value,
-.result-info-panel .country-flag,
-.result-info-panel .country-name {
+.result-info-panel .country-flag {
     display: inline !important;
     white-space: nowrap !important;
     vertical-align: baseline !important;
+}
+
+/* 國家名稱特殊處理：允許換行但盡量保持在同一行 */
+.result-info-panel .country-name {
+    display: inline-block !important;
+    vertical-align: baseline !important;
+    /* 不設定 white-space: nowrap，允許長國家名稱換行 */
 }
 
 .voice-loading-bar * {
