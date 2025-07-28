@@ -1782,18 +1782,16 @@ window.addEventListener('firebaseReady', async (event) => {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // ✨ 新的簡化邏輯：直接從Firebase獲取future用戶的最新故事
+        // 🔧 強壯的故事顯示機制 - 多層備援確保一定有故事
         setTimeout(() => {
             const currentStoryEl = document.getElementById('storyText');
-            if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '')) {
-                console.log('📖 [簡化] 故事文字為空，使用簡化邏輯從Firebase讀取最新故事...');
-                if (window.displayLatestStoryFromFirebase) {
-                    displayLatestStoryFromFirebase();
-                }
+            if (currentStoryEl && (!currentStoryEl.textContent || currentStoryEl.textContent.trim() === '' || currentStoryEl.textContent.includes('等待'))) {
+                console.log('📖 故事文字為空或等待中，啟動強壯備援機制...');
+                guaranteedStoryDisplay(data);
             } else {
-                console.log('✅ 故事文字已存在，跳過Firebase讀取');
+                console.log('✅ 故事文字已存在，跳過備援');
             }
-        }, 1000); // 減少延遲到1秒，因為邏輯簡化了
+        }, 1000);
     }
 
     // 打字機效果相關變數
@@ -2930,3 +2928,140 @@ window.checkTrajectory = function() {
 
     // 將簡化邏輯暴露給全域，方便調用
     window.displayLatestStoryFromFirebase = displayLatestStoryFromFirebase;
+
+    // 🔥 強壯的故事顯示機制 - 多層備援，確保一定有故事！
+    async function guaranteedStoryDisplay(cityData) {
+        console.log('🔥 [強壯備援] 啟動多層故事顯示機制...');
+        
+        const storyTextEl = document.getElementById('storyText');
+        if (!storyTextEl) {
+            console.error('❌ 找不到故事文字元素，放棄');
+            return;
+        }
+
+        // 第一層：嘗試從Firebase讀取最新記錄
+        try {
+            console.log('🔥 [備援1] 嘗試從Firebase讀取...');
+            const success = await displayLatestStoryFromFirebase();
+            if (success) {
+                console.log('✅ [備援1] Firebase讀取成功');
+                return;
+            }
+        } catch (error) {
+            console.log('⚠️ [備援1] Firebase讀取失敗:', error);
+        }
+
+        // 第二層：使用API重新生成故事
+        try {
+            console.log('🔥 [備援2] 嘗試API重新生成故事...');
+            const story = await generateFreshStory(cityData);
+            if (story) {
+                storyTextEl.textContent = '重新為你創作甦醒故事...';
+                setTimeout(() => {
+                    startStoryTypewriter(story);
+                }, 1000);
+                console.log('✅ [備援2] API重新生成成功');
+                return;
+            }
+        } catch (error) {
+            console.log('⚠️ [備援2] API重新生成失敗:', error);
+        }
+
+        // 第三層：最終備案 - 使用generatePiStory API
+        try {
+            console.log('🔥 [備援3] 使用generatePiStory API作為最終備案...');
+            storyTextEl.textContent = '為你重新創作甦醒故事...';
+            const localStory = await generateLocalStory(cityData);
+            if (localStory) {
+                setTimeout(() => {
+                    startStoryTypewriter(localStory);
+                }, 500);
+                console.log('✅ [備援3] generatePiStory API備案成功');
+                return;
+            }
+        } catch (error) {
+            console.log('⚠️ [備援3] generatePiStory API備案也失敗:', error);
+        }
+
+        // 超級最終備案：確保一定有內容
+        console.log('🔥 [超級備案] 確保基本內容顯示...');
+        const city = cityData?.city || '未知之地';
+        const country = cityData?.country || '神秘國度';
+        const emergencyStory = `今天的你在${country}的${city}醒來。新的一天，新的開始！`;
+        storyTextEl.textContent = '準備甦醒內容...';
+        setTimeout(() => {
+            startStoryTypewriter(emergencyStory);
+        }, 500);
+        console.log('✅ [超級備案] 緊急內容顯示完成');
+    }
+
+    // API重新生成故事
+    async function generateFreshStory(cityData) {
+        try {
+            if (!cityData || !cityData.city || !cityData.country) {
+                console.log('⚠️ 城市資料不完整，跳過API生成');
+                return null;
+            }
+
+            const response = await fetch('/api/generatePiStory', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: cityData.city,
+                    country: cityData.country
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('✅ API重新生成故事成功:', data.story);
+                return data.story;
+            } else {
+                console.log('⚠️ API回應失敗:', response.status);
+                return null;
+            }
+        } catch (error) {
+            console.error('❌ API重新生成故事失敗:', error);
+            return null;
+        }
+    }
+
+    // 最終備案故事生成 - 使用generatePiStory API
+    async function generateLocalStory(cityData) {
+        try {
+            console.log('🔥 [最終備案] 使用generatePiStory API生成故事...');
+            
+            const city = cityData?.city || 'Unknown City';
+            const country = cityData?.country || 'Unknown Country';
+            
+            const response = await fetch('/api/generatePiStory', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    city: city,
+                    country: country
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('✅ [最終備案] generatePiStory API成功:', data.story);
+                return data.story;
+            } else {
+                console.log('⚠️ [最終備案] API回應失敗，使用超級備案');
+                throw new Error(`API失敗: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('❌ [最終備案] generatePiStory API失敗:', error);
+            
+            // 超級最終備案：本地簡單故事
+            const city = cityData?.city || '未知之地';
+            const country = cityData?.country || '神秘國度';
+            const fallbackStory = `今天的你在${country}的${city}醒來。這是一個充滿可能性的早晨，新的一天帶來新的希望。`;
+            console.log('🔥 [超級備案] 使用本地故事:', fallbackStory);
+            return fallbackStory;
+        }
+    }
+
+    // 暴露強壯備援函數
+    window.guaranteedStoryDisplay = guaranteedStoryDisplay;
