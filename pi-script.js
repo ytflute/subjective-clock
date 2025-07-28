@@ -1505,13 +1505,62 @@ window.addEventListener('firebaseReady', async (event) => {
 
             console.log('📊 準備保存的記錄:', recordData);
 
+            // 1. 儲存到 wakeup_records 集合（前端直寫）
             const docRef = await addDoc(collection(db, 'wakeup_records'), recordData);
-            console.log('✅ 記錄已儲存至 Firebase');
+            console.log('✅ 記錄已儲存至 wakeup_records 集合');
             console.log('✅ 文檔 ID:', docRef.id);
-            console.log('✅ Day 值:', currentDay);
             
             // 儲存文檔 ID 以供後續更新使用
             window.currentRecordId = docRef.id;
+
+            // 2. 🔧 重要：同時調用 /api/save-record API 儲存到 artifacts 集合
+            // 這樣 index.html 才能查詢到 future 的資料！
+            try {
+                console.log('📡 同時儲存到 artifacts 集合，確保 index.html 可查詢...');
+                
+                const apiData = {
+                    userDisplayName: rawUserDisplayName,
+                    dataIdentifier: rawUserDisplayName,
+                    city: cityData.name,
+                    country: cityData.country,
+                    city_zh: cityData.name, // 可加入中文翻譯邏輯
+                    country_zh: cityData.country,
+                    country_iso_code: cityData.country_iso_code || '',
+                    latitude: parseFloat(cityData.latitude) || 0,
+                    longitude: parseFloat(cityData.longitude) || 0,
+                    timezone: cityData.timezone || 'UTC',
+                    localTime: cityData.local_time || new Date().toLocaleTimeString(),
+                    targetUTCOffset: 8, // 台灣時區
+                    matchedCityUTCOffset: 8,
+                    source: 'raspberry_pi_frontend',
+                    translationSource: 'frontend_api',
+                    timeMinutes: new Date().getHours() * 60 + new Date().getMinutes(),
+                    latitudePreference: parseFloat(cityData.latitude) || 0,
+                    latitudeDescription: '',
+                    deviceType: 'raspberry_pi_web',
+                    story: storyData?.story || '',
+                    greeting: storyData?.greeting || '',
+                    language: storyData?.language || '',
+                    languageCode: storyData?.languageCode || ''
+                };
+
+                const apiResponse = await fetch('/api/save-record', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(apiData)
+                });
+
+                if (apiResponse.ok) {
+                    const apiResult = await apiResponse.json();
+                    console.log('✅ 資料已同步到 artifacts 集合，index.html 可查詢');
+                    console.log('✅ artifacts ID:', apiResult.historyId);
+                } else {
+                    console.warn('⚠️ artifacts 同步失敗，但 wakeup_records 已儲存');
+                }
+            } catch (apiError) {
+                console.error('❌ artifacts 同步錯誤:', apiError);
+                console.log('⚠️ wakeup_records 已儲存，artifacts 同步失敗不影響主要功能');
+            }
             
             // 更新軌跡線
             setTimeout(() => {
