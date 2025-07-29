@@ -147,9 +147,23 @@ let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
 // 🔧 重新啟用 piStoryReady 事件處理器，確保語音故事上傳到 Firebase
 // 監聽樹莓派傳來的故事內容
 window.addEventListener('piStoryReady', (event) => {
-    console.log('🎵 [Firebase上傳] piStoryReady事件觸發！');
-    console.log('🎵 [Firebase上傳] 收到樹莓派傳來的故事內容:', event.detail);
-    console.log('🎵 [Firebase上傳] 事件詳細數據:', JSON.stringify(event.detail, null, 2));
+    console.log('🎵 [故事事件] ===== piStoryReady事件觸發！=====');
+    console.log('🎵 [故事事件] 收到樹莓派傳來的故事內容:', event.detail);
+    console.log('🎵 [故事事件] 事件詳細數據:', JSON.stringify(event.detail, null, 2));
+    
+    // 🔍 詳細檢查故事內容
+    if (event.detail && event.detail.story) {
+        console.log('✅ [故事事件] 故事內容存在，長度:', event.detail.story.length);
+        console.log('📖 [故事事件] 故事內容預覽:', event.detail.story.substring(0, 100) + '...');
+    } else {
+        console.warn('⚠️ [故事事件] 故事內容不存在或為空！');
+    }
+    
+    if (event.detail && event.detail.greeting) {
+        console.log('✅ [故事事件] 問候語存在:', event.detail.greeting);
+    } else {
+        console.warn('⚠️ [故事事件] 問候語不存在！');
+    }
     
     // 使用樹莓派生成的內容更新顯示
     const storyData = event.detail;
@@ -159,8 +173,16 @@ window.addEventListener('piStoryReady', (event) => {
         console.log('🎵 [語音完成更新] 語音播放完成，現在更新 Firebase 記錄中的故事內容...');
         
         // 優先使用 updateFirebaseWithStory 更新現有記錄
+        console.log('🔍 [語音完成更新] 檢查記錄ID狀態:', {
+            currentRecordId: window.currentRecordId,
+            hasRecordId: !!window.currentRecordId,
+            storyLength: (storyData.story || '').length,
+            greetingExists: !!storyData.greeting
+        });
+        
         if (window.currentRecordId) {
             console.log('🎵 [語音完成更新] 找到現有記錄ID:', window.currentRecordId);
+            console.log('🎵 [語音完成更新] 準備更新的故事內容:', storyData.story?.substring(0, 100) + '...');
             
             updateFirebaseWithStory({
                 story: storyData.story || storyData.fullContent || '',
@@ -178,6 +200,7 @@ window.addEventListener('piStoryReady', (event) => {
             });
         } else {
             console.warn('⚠️ [語音完成更新] 沒有找到現有記錄ID，嘗試創建新記錄...');
+            console.warn('🔍 [語音完成更新] 這表示 saveToFirebase 可能沒有成功創建記錄');
             
             // 備用：如果沒有記錄ID，創建新記錄
             const cityData = {
@@ -1656,11 +1679,16 @@ window.addEventListener('firebaseReady', async (event) => {
         }
     }
 
-    // 新增：更新現有記錄的故事資料
+    // 新增：更新現有記錄的故事資料（同時更新 wakeup_records 和 artifacts）
     async function updateFirebaseWithStory(storyData) {
         try {
             if (!db || !auth.currentUser || !window.currentRecordId) {
                 console.log('⚠️ Firebase 未就緒或沒有記錄 ID，跳過更新');
+                console.log('🔍 調試檢查:', {
+                    db: !!db,
+                    currentUser: !!auth.currentUser,
+                    currentRecordId: window.currentRecordId
+                });
                 return false;
             }
 
@@ -1673,17 +1701,57 @@ window.addEventListener('firebaseReady', async (event) => {
                 languageCode: storyData.languageCode || ''
             };
 
-            console.log('📖 更新 Firebase 記錄，ID:', window.currentRecordId);
-            console.log('📖 更新資料:', updateData);
+            console.log('📖 [故事更新] 開始更新 Firebase 記錄...');
+            console.log('📖 [故事更新] 記錄ID:', window.currentRecordId);
+            console.log('📖 [故事更新] 更新資料:', updateData);
+            console.log('📖 [故事更新] 故事內容長度:', updateData.story.length);
 
+            // 1. 更新 wakeup_records 集合
             const docRef = doc(db, 'wakeup_records', window.currentRecordId);
             await updateDoc(docRef, updateData);
+            console.log('✅ [故事更新] wakeup_records 已更新');
+
+            // 2. 同時調用 API 更新 artifacts 集合
+            try {
+                console.log('📡 [故事更新] 同時更新 artifacts 集合...');
+                
+                // 從當前城市數據獲取必要資訊
+                const cityData = window.currentCityData || {};
+                
+                const apiData = {
+                    userDisplayName: rawUserDisplayName,
+                    dataIdentifier: rawUserDisplayName,
+                    groupName: currentGroupName,
+                    city: cityData.city || 'Unknown City',
+                    country: cityData.country || 'Unknown Country',
+                    story: updateData.story,
+                    greeting: updateData.greeting,
+                    language: updateData.language,
+                    languageCode: updateData.languageCode,
+                    updateExisting: true, // 標記這是更新操作
+                    recordId: window.currentRecordId
+                };
+
+                const apiResponse = await fetch('/api/save-record', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(apiData)
+                });
+
+                if (apiResponse.ok) {
+                    console.log('✅ [故事更新] artifacts 集合也已更新');
+                } else {
+                    console.warn('⚠️ [故事更新] artifacts 更新失敗，但 wakeup_records 已更新');
+                }
+            } catch (apiError) {
+                console.error('❌ [故事更新] artifacts 更新錯誤:', apiError);
+            }
             
-            console.log('✅ 故事資料已更新至 Firebase');
+            console.log('✅ [故事更新] 故事資料更新完成');
             return true;
 
         } catch (error) {
-            console.error('❌ 更新 Firebase 故事資料失敗:', error);
+            console.error('❌ [故事更新] 更新 Firebase 故事資料失敗:', error);
             return false;
         }
     }
