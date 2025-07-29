@@ -1621,6 +1621,16 @@ window.addEventListener('firebaseReady', async (event) => {
             try {
                 console.log('📡 同時儲存到 artifacts 集合，確保 index.html 可查詢...');
                 
+                // 🔧 檢查故事內容是否有效
+                const hasValidStory = storyData && (storyData.story || storyData.greeting);
+                console.log('🔍 故事內容檢查:', {
+                    hasStoryData: !!storyData,
+                    hasStory: !!(storyData && storyData.story),
+                    hasGreeting: !!(storyData && storyData.greeting),
+                    storyLength: storyData?.story?.length || 0,
+                    greetingLength: storyData?.greeting?.length || 0
+                });
+                
                 const apiData = {
                     userDisplayName: rawUserDisplayName,
                     dataIdentifier: rawUserDisplayName,
@@ -1642,10 +1652,10 @@ window.addEventListener('firebaseReady', async (event) => {
                     latitudePreference: parseFloat(cityData.latitude) || 0,
                     latitudeDescription: '',
                     deviceType: 'raspberry_pi_web',
-                    story: storyData?.story || '', // 🔧 確保 story 上傳
-                    greeting: storyData?.greeting || '', // 🔧 確保 greeting 上傳
-                    language: storyData?.language || '',
-                    languageCode: storyData?.languageCode || ''
+                    story: (storyData && storyData.story) ? storyData.story : '', // 🔧 修復：確實檢查故事內容
+                    greeting: (storyData && storyData.greeting) ? storyData.greeting : '', // 🔧 修復：確實檢查問候語內容
+                    language: (storyData && storyData.language) ? storyData.language : '',
+                    languageCode: (storyData && storyData.languageCode) ? storyData.languageCode : ''
                 };
 
                 const apiResponse = await fetch('/api/save-record', {
