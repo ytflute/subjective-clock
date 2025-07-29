@@ -398,6 +398,14 @@ class AudioManager:
                         'countryCode': country_code
                     }
                     
+                    # 🔧 立即上傳故事到Firebase，確保數據持久化
+                    self.logger.info("🔥 故事生成成功，立即上傳到Firebase...")
+                    upload_success = self._upload_story_to_firebase(story_content)
+                    if upload_success:
+                        self.logger.info("✅ 故事已成功上傳到Firebase")
+                    else:
+                        self.logger.warning("⚠️ 故事上傳到Firebase失敗")
+                    
                     return audio_file, story_content
                 else:
                     self.logger.error("Nova 整合音頻生成失敗")
@@ -638,6 +646,58 @@ class AudioManager:
         except Exception as e:
             self.logger.error(f"調用故事生成 API 時發生錯誤: {e}")
             return None
+    
+    def _upload_story_to_firebase(self, story_content: Dict[str, Any]) -> bool:
+        """
+        將故事內容上傳到Firebase
+        
+        Args:
+            story_content: 包含故事、問候語、城市等信息的字典
+            
+        Returns:
+            bool: 上傳是否成功
+        """
+        try:
+            import requests
+            import json
+            
+            # 構建上傳到Firebase的數據
+            api_data = {
+                'userDisplayName': 'future',  # Pi用戶固定為future
+                'dataIdentifier': 'future',
+                'groupName': 'Pi',  # Pi群組
+                'city': story_content.get('city', 'Unknown City'),
+                'country': story_content.get('country', 'Unknown Country'),
+                'story': story_content.get('story', ''),
+                'greeting': story_content.get('greeting', ''),
+                'language': story_content.get('language', ''),
+                'languageCode': story_content.get('languageCode', ''),
+                'latitude': 0,  # 將由前端補充正確的坐標
+                'longitude': 0
+            }
+            
+            self.logger.info(f"🔥 [Firebase上傳] 準備上傳數據: {api_data}")
+            
+            # 調用save-record API
+            api_url = 'https://subjective-clock.vercel.app/api/save-record'
+            response = requests.post(
+                api_url,
+                json=api_data,
+                headers={'Content-Type': 'application/json'},
+                timeout=15
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                self.logger.info(f"✅ [Firebase上傳] 成功上傳到Firebase: {result}")
+                return True
+            else:
+                self.logger.error(f"❌ [Firebase上傳] 上傳失敗: {response.status_code} - {response.text}")
+                return False
+                
+        except Exception as e:
+            self.logger.error(f"❌ [Firebase上傳] 上傳時發生錯誤: {e}")
+            return False
             
     def _get_country_code(self, country_name: str) -> str:
         """根據國家名稱獲取國家代碼"""

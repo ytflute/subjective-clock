@@ -454,11 +454,10 @@ class WakeUpMapWebApp:
             if audio_file and audio_file.exists() and story_content:
                 self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
                 
-                # 2. 保存完整記錄（包含問候語和故事內容）
-                if city_data:
-                    self._save_local_record(city_data, story_content)
+                # 🔧 數據已由 audio_manager 直接上傳到 Firebase，無需本地保存
+                self.logger.info("📊 故事資料已由 audio_manager 上傳到 Firebase")
                 
-                # 3. 將故事內容傳給網頁端用於打字機效果
+                # 將故事內容傳給網頁端用於打字機效果顯示
                 self._send_story_to_web(story_content)
                 
                 return audio_file
