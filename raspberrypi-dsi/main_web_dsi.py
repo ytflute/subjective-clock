@@ -132,6 +132,9 @@ class WakeUpMapWebApp:
             self.local_storage = None
             self.firebase_sync = None
             
+            # 🔧 前端日誌監控標誌
+            self.frontend_log_monitoring_started = False
+            
             # 初始化音訊管理器
             self.logger.info("初始化音訊管理器...")
             try:
@@ -506,8 +509,70 @@ class WakeUpMapWebApp:
             self.web_controller.driver.execute_script(story_js)
             self.logger.info("✅ 故事內容已傳送給網頁端")
             
+            # 🔧 啟動前端日誌監控
+            self._start_frontend_log_monitoring()
+            
         except Exception as e:
             self.logger.error(f"傳送故事內容失敗: {e}")
+    
+    def _start_frontend_log_monitoring(self):
+        """啟動前端日誌監控，定期讀取前端日誌並輸出到後端日誌"""
+        if self.frontend_log_monitoring_started:
+            return  # 避免重複啟動
+            
+        import threading
+        import time
+        
+        def monitor_frontend_logs():
+            try:
+                last_timestamp = None
+                
+                while True:
+                    try:
+                        if not self.web_controller or not self.web_controller.driver:
+                            break
+                            
+                        # 讀取前端日誌橋接元素
+                        log_element = self.web_controller.driver.find_element("id", "frontend-log-bridge")
+                        current_timestamp = log_element.get_attribute("data-timestamp")
+                        
+                        # 如果有新的日誌條目
+                        if current_timestamp and current_timestamp != last_timestamp:
+                            log_content = log_element.text
+                            if log_content:
+                                try:
+                                    import json
+                                    log_entry = json.loads(log_content)
+                                    level = log_entry.get('level', 'INFO')
+                                    message = log_entry.get('message', '')
+                                    data = log_entry.get('data', '')
+                                    
+                                    # 根據日誌級別輸出到對應的後端日誌
+                                    if level == 'ERROR':
+                                        self.logger.error(f"[前端] {message} {data}")
+                                    elif level == 'WARN':
+                                        self.logger.warning(f"[前端] {message} {data}")
+                                    else:
+                                        self.logger.info(f"[前端] {message} {data}")
+                                    
+                                    last_timestamp = current_timestamp
+                                    
+                                except json.JSONDecodeError:
+                                    pass  # 忽略JSON解析錯誤
+                                    
+                    except Exception:
+                        pass  # 忽略元素不存在等錯誤
+                    
+                    time.sleep(1)  # 每秒檢查一次
+                    
+            except Exception as e:
+                self.logger.error(f"前端日誌監控失敗: {e}")
+        
+        # 在後台執行緒中啟動監控
+        monitor_thread = threading.Thread(target=monitor_frontend_logs, daemon=True)
+        monitor_thread.start()
+        self.frontend_log_monitoring_started = True
+        self.logger.info("🔧 [日誌橋接] 前端日誌監控已啟動")
     
     def _synchronized_reveal_and_play(self, audio_file: Path):
         """同步顯示畫面和播放音頻"""
