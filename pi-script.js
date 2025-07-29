@@ -147,13 +147,20 @@ let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
     // 🔧 日誌橋接函數：將前端日誌發送到後端日誌系統
     function logToBackend(level, message, data = null) {
         try {
+            // 確保在HTML文檔載入後才操作DOM
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => logToBackend(level, message, data));
+                return;
+            }
+            
             // 創建或更新隱藏的日誌元素供後端讀取
             let logElement = document.getElementById('frontend-log-bridge');
             if (!logElement) {
                 logElement = document.createElement('div');
                 logElement.id = 'frontend-log-bridge';
-                logElement.style.display = 'none';
+                logElement.style.cssText = 'display: none !important; position: absolute; left: -9999px;';
                 document.body.appendChild(logElement);
+                console.log('🔧 [日誌橋接] 創建日誌橋接元素');
             }
             
             const timestamp = new Date().toISOString();
@@ -161,7 +168,7 @@ let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
                 timestamp,
                 level,
                 message,
-                data: data ? (typeof data === 'string' ? data : JSON.stringify(data)) : null
+                data: data ? (typeof data === 'string' ? data : JSON.stringify(data, null, 2).substring(0, 500)) : null
             };
             
             // 保存最新的日誌條目供後端讀取
@@ -170,15 +177,20 @@ let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
             logElement.setAttribute('data-level', level);
             
             // 同時在瀏覽器console中顯示
-            console.log(`[${level}] ${message}`, data || '');
+            console.log(`🔗 [日誌橋接-${level}] ${message}`, data || '');
             
         } catch (error) {
-            console.error('日誌橋接失敗:', error);
+            console.error('❌ 日誌橋接失敗:', error);
         }
     }
 
-    // 將logToBackend設為全域函數
+    // 將logToBackend設為全域函數，並立即測試
     window.logToBackend = logToBackend;
+    
+    // 🔧 立即測試日誌橋接功能
+    setTimeout(() => {
+        logToBackend('INFO', '🔧 [系統] 日誌橋接系統已初始化');
+    }, 100);
 
 // 🔧 重新啟用 piStoryReady 事件處理器，確保語音故事上傳到 Firebase
 // 監聽樹莓派傳來的故事內容
@@ -224,19 +236,20 @@ window.addEventListener('piStoryReady', (event) => {
             currentRecordId: window.currentRecordId,
             hasRecordId: !!window.currentRecordId,
             storyLength: (storyData.story || '').length,
-            greetingExists: !!storyData.greeting
+            greetingExists: !!storyData.greeting,
+            hasStoryOrGreeting: !!(storyData.story || storyData.greeting)
         };
         
         logToBackend('INFO', '🔍 [語音完成更新] 檢查記錄ID狀態', recordStatus);
         console.log('🔍 [語音完成更新] 檢查記錄ID狀態:', recordStatus);
         
         if (window.currentRecordId) {
-            const storyPreview = storyData.story?.substring(0, 100) + '...';
-            logToBackend('INFO', `🎵 [語音完成更新] 找到現有記錄ID: ${window.currentRecordId}`);
-            logToBackend('INFO', `🎵 [語音完成更新] 準備更新的故事內容: ${storyPreview}`);
-            
-            console.log('🎵 [語音完成更新] 找到現有記錄ID:', window.currentRecordId);
-            console.log('🎵 [語音完成更新] 準備更新的故事內容:', storyPreview);
+                const storyPreview = storyData.story?.substring(0, 100) + '...';
+                logToBackend('INFO', `🎵 [語音完成更新] 找到現有記錄ID: ${window.currentRecordId}`);
+                logToBackend('INFO', `🎵 [語音完成更新] 準備更新的故事內容: ${storyPreview}`);
+                
+                console.log('🎵 [語音完成更新] 找到現有記錄ID:', window.currentRecordId);
+                console.log('🎵 [語音完成更新] 準備更新的故事內容:', storyPreview);
             
             updateFirebaseWithStory({
                 story: storyData.story || storyData.fullContent || '',

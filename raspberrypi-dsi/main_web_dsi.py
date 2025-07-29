@@ -526,6 +526,10 @@ class WakeUpMapWebApp:
         def monitor_frontend_logs():
             try:
                 last_timestamp = None
+                element_found = False
+                
+                # 給前端足夠時間初始化
+                time.sleep(2)
                 
                 while True:
                     try:
@@ -534,6 +538,11 @@ class WakeUpMapWebApp:
                             
                         # 讀取前端日誌橋接元素
                         log_element = self.web_controller.driver.find_element("id", "frontend-log-bridge")
+                        
+                        if not element_found:
+                            self.logger.info("🔧 [日誌橋接] 找到前端日誌橋接元素")
+                            element_found = True
+                        
                         current_timestamp = log_element.get_attribute("data-timestamp")
                         
                         # 如果有新的日誌條目
@@ -557,11 +566,14 @@ class WakeUpMapWebApp:
                                     
                                     last_timestamp = current_timestamp
                                     
-                                except json.JSONDecodeError:
-                                    pass  # 忽略JSON解析錯誤
+                                except json.JSONDecodeError as e:
+                                    self.logger.warning(f"🔧 [日誌橋接] JSON解析失敗: {e}, 內容: {log_content[:100]}")
                                     
-                    except Exception:
-                        pass  # 忽略元素不存在等錯誤
+                    except Exception as e:
+                        if not element_found:
+                            # 只在第一次找不到元素時報告
+                            self.logger.warning(f"🔧 [日誌橋接] 尚未找到前端日誌元素: {e}")
+                            element_found = None  # 標記為已報告
                     
                     time.sleep(1)  # 每秒檢查一次
                     
