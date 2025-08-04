@@ -5,11 +5,29 @@ import admin from 'firebase-admin';
 
 // 初始化 Firebase Admin（如果尚未初始化）
 if (!getApps().length) {
-    const serviceAccountKey = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-    initializeApp({
-        credential: admin.credential.cert(serviceAccountKey),
-        storageBucket: process.env.FIREBASE_STORAGE_BUCKET
-    });
+    try {
+        if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+            throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY 環境變數未設定');
+        }
+        if (!process.env.FIREBASE_STORAGE_BUCKET) {
+            throw new Error('FIREBASE_STORAGE_BUCKET 環境變數未設定');
+        }
+        
+        const serviceAccountKey = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+        console.log('正在初始化 Firebase Admin...');
+        
+        initializeApp({
+            credential: admin.credential.cert(serviceAccountKey),
+            storageBucket: process.env.FIREBASE_STORAGE_BUCKET
+        });
+        
+        console.log('Firebase Admin 初始化成功');
+    } catch (initError) {
+        console.error('Firebase Admin 初始化失敗:', initError);
+        throw initError;
+    }
+} else {
+    console.log('Firebase Admin 已經初始化');
 }
 
 export default async function handler(req, res) {
@@ -27,24 +45,58 @@ export default async function handler(req, res) {
     }
 
     try {
+        console.log('=== 開始批量修復圖片 ===');
+        console.log('請求體:', req.body);
+        
         const { userIdentifier } = req.body;
 
         if (!userIdentifier) {
+            console.log('錯誤：缺少userIdentifier參數');
             return res.status(400).json({ 
                 error: '缺少必要參數：userIdentifier' 
             });
         }
 
-        const db = getFirestore();
-        const bucket = getStorage().bucket();
+        console.log('用戶識別碼:', userIdentifier);
+
+        // 檢查Firebase服務是否正常初始化
+        let db, bucket;
+        try {
+            db = getFirestore();
+            bucket = getStorage().bucket();
+            console.log('Firebase服務初始化成功');
+        } catch (initError) {
+            console.error('Firebase初始化失敗:', initError);
+            return res.status(500).json({
+                error: 'Firebase服務初始化失敗',
+                details: initError.message
+            });
+        }
+
         const appId = 'default-app-id-worldclock-history';
         
         // 獲取用戶的所有記錄
+        console.log('準備查詢用戶記錄...');
         const userCollectionRef = db.collection(`artifacts/${appId}/userProfiles/${userIdentifier}/clockHistory`);
-        const querySnapshot = await userCollectionRef.get();
+        
+        let querySnapshot;
+        try {
+            querySnapshot = await userCollectionRef.get();
+            console.log(`查詢完成，找到 ${querySnapshot.size} 筆記錄`);
+        } catch (queryError) {
+            console.error('查詢用戶記錄失敗:', queryError);
+            return res.status(500).json({
+                error: '查詢用戶記錄失敗',
+                details: queryError.message
+            });
+        }
         
         if (querySnapshot.empty) {
-            return res.status(404).json({ error: '找不到用戶記錄' });
+            console.log('用戶沒有任何記錄');
+            return res.status(404).json({ 
+                error: '找不到用戶記錄',
+                userIdentifier: userIdentifier
+            });
         }
 
         let fixedCount = 0;
@@ -70,28 +122,79 @@ export default async function handler(req, res) {
             }
 
             try {
+                console.log(`處理記錄 ${doc.id}:`, {
+                    city: recordData.city,
+                    imageUrl: recordData.imageUrl,
+                    timestamp: recordData.recordedAt?.toMillis?.()
+                });
+
                 // 從舊URL中提取文件路徑
                 let fileName = null;
                 
-                // 嘗試從URL中提取文件路徑
-                const urlMatch = recordData.imageUrl.match(/breakfast-images\/[^?&]+/);
-                if (urlMatch) {
-                    fileName = urlMatch[0];
-                } else {
-                    // 如果無法提取，根據記錄信息構建可能的文件名
+                if (recordData.imageUrl) {
+                    console.log(`嘗試從URL提取文件路徑: ${recordData.imageUrl}`);
+                    
+                    // 改進的正則表達式，支持多種URL格式
+                    const urlPatterns = [
+                        /breakfast-images\/[^?&\s]+\.(?:png|jpg|jpeg|gif|webp)/i,  // 標準格式
+                        /breakfast-images\/[^?&\s]+/,  // 沒有副檔名的格式
+                        /([^\/]*breakfast-images[^?&\s]*)/i  // 更寬鬆的匹配
+                    ];
+                    
+                    for (const pattern of urlPatterns) {
+                        const urlMatch = recordData.imageUrl.match(pattern);
+                        if (urlMatch) {
+                            fileName = urlMatch[0];
+                            // 如果匹配的路徑不是以 breakfast-images 開頭，則提取正確的部分
+                            if (!fileName.startsWith('breakfast-images/')) {
+                                const breakfastMatch = fileName.match(/breakfast-images\/[^?&\s]*/);
+                                if (breakfastMatch) {
+                                    fileName = breakfastMatch[0];
+                                }
+                            }
+                            console.log(`從URL提取到文件路徑: ${fileName}`);
+                            break;
+                        }
+                    }
+                }
+                
+                // 如果無法從URL提取路徑，嘗試根據記錄信息搜尋文件
+                if (!fileName) {
+                    console.log('無法從URL提取文件路徑，嘗試搜尋匹配的文件...');
                     const city = recordData.city || 'unknown';
                     const timestamp = recordData.recordedAt?.toMillis?.() || Date.now();
                     
-                    // 嘗試找到匹配的文件
-                    const [files] = await bucket.getFiles({ prefix: 'breakfast-images/' });
-                    const matchingFile = files.find(file => {
-                        const fn = file.name;
-                        return fn.includes(city) || fn.includes(city.toLowerCase()) ||
-                               fn.includes(timestamp.toString());
-                    });
-                    
-                    if (matchingFile) {
-                        fileName = matchingFile.name;
+                    try {
+                        // 列出所有 breakfast-images 文件
+                        const [files] = await bucket.getFiles({ prefix: 'breakfast-images/' });
+                        console.log(`找到 ${files.length} 個 breakfast-images 文件`);
+                        
+                        // 嘗試多種匹配策略
+                        const matchingStrategies = [
+                            (file) => file.name.includes(timestamp.toString()),  // 時間戳匹配
+                            (file) => file.name.toLowerCase().includes(city.toLowerCase()),  // 城市名匹配
+                            (file) => {
+                                // 嘗試匹配記錄創建時間附近的文件
+                                const fileNameMatch = file.name.match(/(\d{13})/);  // 13位時間戳
+                                if (fileNameMatch) {
+                                    const fileTimestamp = parseInt(fileNameMatch[1]);
+                                    const timeDiff = Math.abs(fileTimestamp - timestamp);
+                                    return timeDiff < 60000; // 1分鐘內
+                                }
+                                return false;
+                            }
+                        ];
+                        
+                        for (const strategy of matchingStrategies) {
+                            const matchingFile = files.find(strategy);
+                            if (matchingFile) {
+                                fileName = matchingFile.name;
+                                console.log(`找到匹配的文件: ${fileName}`);
+                                break;
+                            }
+                        }
+                    } catch (searchError) {
+                        console.error('搜尋文件時發生錯誤:', searchError);
                     }
                 }
                 
@@ -156,7 +259,12 @@ export default async function handler(req, res) {
             }
         }
 
-        res.status(200).json({
+        console.log('=== 批量修復完成 ===');
+        console.log(`總記錄數: ${querySnapshot.size}`);
+        console.log(`成功修復: ${fixedCount}`);
+        console.log(`錯誤數量: ${errorCount}`);
+        
+        const response = {
             success: true,
             summary: {
                 totalRecords: querySnapshot.size,
@@ -165,13 +273,28 @@ export default async function handler(req, res) {
                 alreadyPermanentCount: results.filter(r => r.status === 'already_permanent').length
             },
             details: results
-        });
+        };
+        
+        console.log('返回響應:', response.summary);
+        res.status(200).json(response);
 
     } catch (error) {
-        console.error('批量修復圖片URL時發生錯誤:', error);
+        console.error('=== 批量修復圖片URL時發生嚴重錯誤 ===');
+        console.error('錯誤類型:', error.name);
+        console.error('錯誤消息:', error.message);
+        console.error('錯誤堆疊:', error.stack);
+        
+        // 檢查是否是特定的Firebase錯誤
+        if (error.code) {
+            console.error('Firebase錯誤代碼:', error.code);
+        }
+        
         res.status(500).json({ 
             error: error.message,
-            details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+            errorName: error.name,
+            errorCode: error.code || 'UNKNOWN',
+            details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+            timestamp: new Date().toISOString()
         });
     }
 }

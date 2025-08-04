@@ -5,11 +5,29 @@ import admin from 'firebase-admin';
 
 // 初始化 Firebase Admin（如果尚未初始化）
 if (!getApps().length) {
-    const serviceAccountKey = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
-    initializeApp({
-        credential: admin.credential.cert(serviceAccountKey),
-        storageBucket: process.env.FIREBASE_STORAGE_BUCKET
-    });
+    try {
+        if (!process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+            throw new Error('FIREBASE_SERVICE_ACCOUNT_KEY 環境變數未設定');
+        }
+        if (!process.env.FIREBASE_STORAGE_BUCKET) {
+            throw new Error('FIREBASE_STORAGE_BUCKET 環境變數未設定');
+        }
+        
+        const serviceAccountKey = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+        console.log('正在初始化 Firebase Admin...');
+        
+        initializeApp({
+            credential: admin.credential.cert(serviceAccountKey),
+            storageBucket: process.env.FIREBASE_STORAGE_BUCKET
+        });
+        
+        console.log('Firebase Admin 初始化成功');
+    } catch (initError) {
+        console.error('Firebase Admin 初始化失敗:', initError);
+        throw initError;
+    }
+} else {
+    console.log('Firebase Admin 已經初始化');
 }
 
 export default async function handler(req, res) {
