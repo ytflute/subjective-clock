@@ -150,14 +150,12 @@ export default async function handler(req, res) {
                 }
             });
 
-            // 獲取可訪問的 URL
-            const [signedUrl] = await file.getSignedUrl({
-                action: 'read',
-                expires: Date.now() + 7 * 24 * 60 * 60 * 1000 // URL 有效期 7 天
-            });
+            // 使用永久的下載 URL，無期限限制
+            await file.makePublic();
+            const permanentUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
 
             res.status(200).json({
-                imageUrl: signedUrl
+                imageUrl: permanentUrl
             });
         } catch (storageError) {
             console.error('Firebase Storage 操作失敗:', storageError);

@@ -445,7 +445,8 @@ class WakeUpMapWebApp:
             audio_file, story_content = self.audio_manager.prepare_greeting_audio_with_content(
                 country_code=country_code,
                 city_name=city_name,
-                country_name=country_name
+                country_name=country_name,
+                city_data=city_data  # 🔧 傳遞完整城市數據，包含坐標信息
             )
             
             end_time = time.time()

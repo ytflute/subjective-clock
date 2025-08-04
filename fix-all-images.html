@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量修復早餐圖片連結</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #4d714f;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .info-box {
+            background: #e8f5e8;
+            border: 1px solid #4d714f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4d714f;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #3d5a3f;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .progress {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍳 批量修復早餐圖片連結</h1>
+        
+        <div class="info-box">
+            <h3>📋 使用說明</h3>
+            <p>此工具會將您所有過期的早餐圖片連結轉換為<strong>永久連結</strong>，不再會有過期問題。</p>
+            <ul>
+                <li>✅ 新圖片：自動使用永久連結</li>
+                <li>🔧 舊圖片：透過此工具修復為永久連結</li>
+                <li>⏰ 修復時間：通常在幾秒內完成</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ 注意事項</h3>
+            <p>請輸入您在甦醒地圖中使用的<strong>顯示名稱</strong>，這個名稱必須與您在應用中設定的完全一致。</p>
+        </div>
+
+        <div class="input-group">
+            <label for="userDisplayName">您的顯示名稱：</label>
+            <input type="text" id="userDisplayName" placeholder="請輸入您在甦醒地圖中的顯示名稱" />
+        </div>
+
+        <button id="fixButton" onclick="fixAllImages()">🔧 開始修復所有圖片</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // 生成安全識別碼的函數（與主應用保持一致）
+        function generateSafeId(originalName) {
+            let hash = 0;
+            for (let i = 0; i < originalName.length; i++) {
+                const char = originalName.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            hash = Math.abs(hash);
+            
+            const safeChars = originalName.replace(/[^a-zA-Z0-9]/g, '');
+            const prefix = safeChars.length > 0 ? safeChars : 'user';
+            return `${prefix}_${hash}`;
+        }
+
+        function sanitizeNameToFirestoreId(name) {
+            if (!name || typeof name !== 'string') return null;
+            
+            if (!name.trim()) return null;
+            
+            if (/[\u4e00-\u9fa5]/.test(name)) {
+                return generateSafeId(name);
+            }
+            
+            let sanitized = name.toLowerCase().trim();
+            sanitized = sanitized.replace(/\s+/g, '_');
+            sanitized = sanitized.replace(/[^a-z0-9_.-]/g, '');
+            
+            if (sanitized === "." || sanitized === "..") {
+                sanitized = `name_${sanitized.replace(/\./g, '')}`;
+            }
+            if (sanitized.startsWith("__") && sanitized.endsWith("__") && sanitized.length > 4) {
+                 sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
+            } else if (sanitized.startsWith("__")) {
+                 sanitized = `name${sanitized.substring(2)}`;
+            } else if (sanitized.endsWith("__")) {
+                 sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
+            }
+            
+            return sanitized.substring(0, 100) || generateSafeId(name);
+        }
+
+        async function fixAllImages() {
+            const userDisplayName = document.getElementById('userDisplayName').value.trim();
+            const resultDiv = document.getElementById('result');
+            const fixButton = document.getElementById('fixButton');
+
+            if (!userDisplayName) {
+                showResult('error', '請輸入您的顯示名稱');
+                return;
+            }
+
+            // 生成用戶識別碼
+            const userIdentifier = sanitizeNameToFirestoreId(userDisplayName);
+            if (!userIdentifier) {
+                showResult('error', '顯示名稱格式無效，請檢查輸入');
+                return;
+            }
+
+            console.log('顯示名稱:', userDisplayName);
+            console.log('用戶識別碼:', userIdentifier);
+
+            fixButton.disabled = true;
+            fixButton.textContent = '🔧 修復中...請稍候';
+            showResult('progress', '正在修復您的早餐圖片連結，請稍候...');
+
+            try {
+                const response = await fetch('/api/fixAllImages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userIdentifier: userIdentifier
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API錯誤: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.success) {
+                    const { summary } = result;
+                    let message = `✅ 修復完成！\n\n`;
+                    message += `📊 統計資訊：\n`;
+                    message += `• 總記錄數: ${summary.totalRecords}\n`;
+                    message += `• 成功修復: ${summary.fixedCount}\n`;
+                    message += `• 已是永久連結: ${summary.alreadyPermanentCount}\n`;
+                    if (summary.errorCount > 0) {
+                        message += `• 修復失敗: ${summary.errorCount}\n`;
+                    }
+                    message += `\n🎉 現在您的所有早餐圖片都是永久連結，不會再過期了！`;
+
+                    showResult('success', message);
+                } else {
+                    throw new Error('API返回格式錯誤');
+                }
+
+            } catch (error) {
+                console.error('修復失敗:', error);
+                let errorMessage = `❌ 修復失敗：${error.message}\n\n`;
+                
+                if (error.message.includes('404')) {
+                    errorMessage += '可能原因：\n';
+                    errorMessage += '• 顯示名稱輸入錯誤\n';
+                    errorMessage += '• 該用戶沒有任何記錄\n';
+                    errorMessage += '• 請確認顯示名稱與應用中完全一致';
+                } else {
+                    errorMessage += '請稍後再試或聯繫管理員。';
+                }
+                
+                showResult('error', errorMessage);
+            } finally {
+                fixButton.disabled = false;
+                fixButton.textContent = '🔧 開始修復所有圖片';
+            }
+        }
+
+        function showResult(type, message) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = type;
+            resultDiv.innerHTML = message.replace(/\n/g, '<br>');
+            resultDiv.style.display = 'block';
+        }
+
+        // 允許按 Enter 鍵提交
+        document.getElementById('userDisplayName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                fixAllImages();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -343,7 +343,7 @@ class AudioManager:
             self.logger.error(f"準備問候語音頻失敗: {e}")
             return None
     
-    def prepare_greeting_audio_with_content(self, country_code: str, city_name: str = "", country_name: str = "") -> Tuple[Optional[Path], Optional[Dict[str, Any]]]:
+    def prepare_greeting_audio_with_content(self, country_code: str, city_name: str = "", country_name: str = "", city_data: dict = None) -> Tuple[Optional[Path], Optional[Dict[str, Any]]]:
         """
         準備完整問候語音頻並返回故事內容（用於網頁顯示）
         
@@ -351,6 +351,7 @@ class AudioManager:
             country_code: 國家代碼
             city_name: 城市名稱
             country_name: 國家名稱
+            city_data: 完整城市數據，包含坐標信息
         
         Returns:
             Tuple[Path, Dict]: (音頻文件路徑, 故事內容字典)
@@ -395,12 +396,14 @@ class AudioManager:
                         'fullContent': full_content,
                         'city': city_name,
                         'country': country_name,
-                        'countryCode': country_code
+                        'countryCode': country_code,
+                        'latitude': city_data.get('latitude', 0) if city_data else 0,
+                        'longitude': city_data.get('longitude', 0) if city_data else 0
                     }
                     
                     # 🔧 立即上傳故事到Firebase，確保數據持久化
                     self.logger.info("🔥 故事生成成功，立即上傳到Firebase...")
-                    upload_success = self._upload_story_to_firebase(story_content)
+                    upload_success = self._upload_story_to_firebase(story_content, city_data)
                     if upload_success:
                         self.logger.info("✅ 故事已成功上傳到Firebase")
                     else:
@@ -647,7 +650,7 @@ class AudioManager:
             self.logger.error(f"調用故事生成 API 時發生錯誤: {e}")
             return None
     
-    def _upload_story_to_firebase(self, story_content: Dict[str, Any]) -> bool:
+    def _upload_story_to_firebase(self, story_content: Dict[str, Any], city_data: Optional[Dict[str, Any]]) -> bool:
         """
         將故事內容上傳到Firebase
         
@@ -672,8 +675,8 @@ class AudioManager:
                 'greeting': story_content.get('greeting', ''),
                 'language': story_content.get('language', ''),
                 'languageCode': story_content.get('languageCode', ''),
-                'latitude': 0,  # 將由前端補充正確的坐標
-                'longitude': 0
+                'latitude': city_data.get('latitude', 0) if city_data else 0,  # 將由前端補充正確的坐標
+                'longitude': city_data.get('longitude', 0) if city_data else 0
             }
             
             self.logger.info(f"🔥 [Firebase上傳] 準備上傳數據: {api_data}")

@@ -625,9 +625,11 @@ window.addEventListener('firebaseReady', async (event) => {
                 breakfastContainer.style.textAlign = 'center';
 
                 if (lastRecord.imageUrl) {
+                    const recordId = querySnapshot.docs[0].id; // 獲取記錄ID
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
-                            <img src="${lastRecord.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;">
+                            <img src="${lastRecord.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;" 
+                                 onerror="handleImageLoadError(this, '${recordId}', '${currentDataIdentifier}', '${finalCityName}')">
                             <p style="font-size: 0.9em; color: #555;"><em>${finalCityName}的早餐</em></p>
                         </div>
                     `;
@@ -1263,6 +1265,8 @@ window.addEventListener('firebaseReady', async (event) => {
             findCityButton.disabled = false;
         }
     }
+
+
 
     findCityButton.addEventListener('click', findMatchingCity);
     refreshHistoryButton.addEventListener('click', loadHistory);
@@ -2164,11 +2168,14 @@ window.addEventListener('firebaseReady', async (event) => {
             
             // 如果有早餐圖片，優先顯示
             if (record.imageUrl) {
+                const recordId = record.docId || 'unknown';
+                const cityDisplayName = record.city_zh || record.city || '未知城市';
                 contentHTML += `
                     <div class="log-detail" style="text-align: left;">
                         <h3>今日早餐</h3>
-                        <div style="text-align: center; margin: 10px 0;">
-                            <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div id="historyImageContainer-${recordId}" style="text-align: center; margin: 10px 0;">
+                            <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" 
+                                 onerror="handleHistoryImageError(this, '${recordId}', '${currentDataIdentifier}', '${cityDisplayName}')">
                         </div>
                     </div>
                 `;
@@ -2591,3 +2598,152 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initializeTabButtons();
 });
+
+// 全域函數：處理圖片載入錯誤
+window.handleImageLoadError = async function(imgElement, recordId, userIdentifier, cityName) {
+    console.log(`[handleImageLoadError] 圖片載入失敗，嘗試刷新URL: recordId=${recordId}, userIdentifier=${userIdentifier}`);
+    
+    // 避免重複嘗試
+    if (imgElement.dataset.retryAttempted === 'true') {
+        console.log('[handleImageLoadError] 已嘗試過刷新，不再重試');
+        imgElement.parentElement.innerHTML = `
+            <p style="color: #888; font-style: italic;">
+                <em>${cityName}的早餐圖片暫時無法顯示</em><br>
+                <small>圖片可能已過期，請聯繫管理員</small>
+            </p>
+        `;
+        return;
+    }
+    
+    // 標記為已嘗試
+    imgElement.dataset.retryAttempted = 'true';
+    
+    // 顯示載入中狀態
+    const container = imgElement.parentElement;
+    container.innerHTML = `
+        <p style="color: #007bff;">
+            <em>正在嘗試修復${cityName}的早餐圖片...</em>
+        </p>
+    `;
+    
+    try {
+        // 調用刷新圖片URL的API
+        const response = await fetch('/api/refreshImageUrl', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                recordId: recordId,
+                userIdentifier: userIdentifier
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`API錯誤: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.success && result.newImageUrl) {
+            console.log('[handleImageLoadError] 成功獲取新的圖片URL:', result.newImageUrl);
+            
+            // 更新圖片
+            container.innerHTML = `
+                <div class="postcard-image-container">
+                    <img src="${result.newImageUrl}" alt="${cityName}的早餐" style="max-width: 100%; border-radius: 8px;">
+                    <p style="font-size: 0.9em; color: #555;"><em>${cityName}的早餐</em></p>
+                </div>
+            `;
+        } else {
+            throw new Error('API返回格式錯誤');
+        }
+        
+    } catch (error) {
+        console.error('[handleImageLoadError] 刷新圖片URL失敗:', error);
+        container.innerHTML = `
+            <p style="color: #888; font-style: italic;">
+                <em>${cityName}的早餐圖片暫時無法顯示</em><br>
+                <small>修復失敗: ${error.message}</small>
+            </p>
+        `;
+    }
+};
+
+// 全域函數：處理歷史記錄中的圖片載入錯誤
+window.handleHistoryImageError = async function(imgElement, recordId, userIdentifier, cityName) {
+    console.log(`[handleHistoryImageError] 歷史圖片載入失敗，嘗試刷新URL: recordId=${recordId}, userIdentifier=${userIdentifier}`);
+    
+    // 避免重複嘗試
+    if (imgElement.dataset.retryAttempted === 'true') {
+        console.log('[handleHistoryImageError] 已嘗試過刷新，不再重試');
+        const containerId = `historyImageContainer-${recordId}`;
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = `
+                <p style="color: #888; font-style: italic; text-align: center;">
+                    <em>${cityName}的早餐圖片暫時無法顯示</em><br>
+                    <small>圖片可能已過期</small>
+                </p>
+            `;
+        }
+        return;
+    }
+    
+    // 標記為已嘗試
+    imgElement.dataset.retryAttempted = 'true';
+    
+    // 顯示載入中狀態
+    const containerId = `historyImageContainer-${recordId}`;
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error('[handleHistoryImageError] 找不到圖片容器');
+        return;
+    }
+    
+    container.innerHTML = `
+        <p style="color: #007bff; text-align: center;">
+            <em>正在嘗試修復${cityName}的早餐圖片...</em>
+        </p>
+    `;
+    
+    try {
+        // 調用刷新圖片URL的API
+        const response = await fetch('/api/refreshImageUrl', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                recordId: recordId,
+                userIdentifier: userIdentifier
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`API錯誤: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.success && result.newImageUrl) {
+            console.log('[handleHistoryImageError] 成功獲取新的圖片URL:', result.newImageUrl);
+            
+            // 更新圖片
+            container.innerHTML = `
+                <img src="${result.newImageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            `;
+        } else {
+            throw new Error('API返回格式錯誤');
+        }
+        
+    } catch (error) {
+        console.error('[handleHistoryImageError] 刷新圖片URL失敗:', error);
+        container.innerHTML = `
+            <p style="color: #888; font-style: italic; text-align: center;">
+                <em>${cityName}的早餐圖片暫時無法顯示</em><br>
+                <small>修復失敗: ${error.message}</small>
+            </p>
+        `;
+    }
+};
