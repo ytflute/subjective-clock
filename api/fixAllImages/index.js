@@ -120,8 +120,16 @@ export default async function handler(req, res) {
                 }
 
                 // 設置為公開並獲取永久URL
-                await file.makePublic();
+                try {
+                    await file.makePublic();
+                    console.log(`文件已設置為公開: ${fileName}`);
+                } catch (publicError) {
+                    console.error(`設置文件為公開時發生錯誤: ${fileName}`, publicError);
+                    // 繼續執行，即使設置公開失敗
+                }
+                
                 const permanentUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+                console.log(`生成永久URL: ${permanentUrl}`);
 
                 // 更新記錄
                 await doc.ref.update({
