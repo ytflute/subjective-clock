@@ -1483,21 +1483,40 @@ class AudioManager:
             bool: 播放是否成功
         """
         try:
-            # 使用 speaker-test 生成簡單的測試音
-            result = subprocess.run([
-                'speaker-test', '-t', 'sine', '-f', str(frequency), 
-                '-l', '1', '-s', '1'
-            ], capture_output=True, timeout=5)
+            # 首先嘗試使用 aplay 播放預設的提示音
+            beep_file = Path(AUDIO_FILES.get('error', ''))
+            if beep_file.exists():
+                try:
+                    subprocess.run(
+                        ['aplay', str(beep_file)],
+                        timeout=2,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL
+                    )
+                    return True
+                except Exception:
+                    self.logger.warning("使用 aplay 播放提示音失敗，嘗試其他方法")
             
-            if result.returncode == 0:
-                self.logger.debug(f"播放嗶聲成功 ({frequency}Hz, {duration}s)")
+            # 如果沒有提示音檔案，嘗試使用 beep 命令
+            try:
+                subprocess.run(
+                    ['beep', '-f', str(frequency), '-l', str(int(duration * 1000))],
+                    timeout=2,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
                 return True
-            else:
-                # 如果 speaker-test 失敗，嘗試使用 espeak 生成音效
-                result = subprocess.run([
-                    'espeak', '-s', '200', 'beep'
-                ], capture_output=True, timeout=5)
-                return result.returncode == 0
+            except Exception:
+                self.logger.warning("使用 beep 命令失敗，嘗試 espeak")
+            
+            # 最後嘗試使用 espeak
+            subprocess.run(
+                ['espeak', '-s', '200', 'beep'],
+                timeout=2,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL
+            )
+            return True
                 
         except Exception as e:
             self.logger.error(f"播放嗶聲失敗: {e}")

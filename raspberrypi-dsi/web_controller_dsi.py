@@ -168,84 +168,77 @@ class WebControllerDSI:
         try:
             self.logger.info("正在載入用戶資料...")
             
+            # 確保用戶名稱已設定
+            self.driver.execute_script("""
+                if (typeof rawUserDisplayName === 'undefined' || !rawUserDisplayName) {
+                    window.rawUserDisplayName = 'future';
+                }
+            """)
+            
             # 等待載入資料按鈕出現並可點擊
-            load_button = self.wait.until(
-                EC.element_to_be_clickable((By.ID, "setUserNameButton"))
-            )
+            try:
+                load_button = self.wait.until(
+                    EC.element_to_be_clickable((By.ID, "setUserNameButton"))
+                )
+                load_button.click()
+                self.logger.info("已點擊載入資料按鈕")
+            except Exception as e:
+                self.logger.warning(f"無法點擊載入按鈕：{e}")
             
-            # 點擊載入資料按鈕
-            load_button.click()
-            
-            # 等待按鈕處理完成，並確保開始按鈕被啟用
+            # 等待 Firebase 初始化完成
             time.sleep(3)
             
-            # 確認開始按鈕已被啟用
-            try:
-                start_button = self.driver.find_element(By.ID, "findCityButton")
-                if start_button.is_enabled():
-                    self.logger.info("開始這一天按鈕已啟用")
-                else:
-                    self.logger.warning("開始這一天按鈕仍為禁用狀態，等待更長時間...")
-                    time.sleep(2)
-            except Exception:
-                self.logger.warning("無法檢查開始按鈕狀態")
+            # 強制設置用戶資料和啟用按鈕
+            force_setup_js = """
+            // 強制設置用戶資料
+            window.rawUserDisplayName = 'future';
             
-            self.logger.info("用戶資料載入成功")
+            // 強制啟用開始按鈕
+            const findCityButton = document.getElementById('findCityButton');
+            if (findCityButton) {
+                findCityButton.disabled = false;
+                console.log('🔧 強制啟用開始按鈕');
+            }
+            
+            // 更新用戶顯示
+            const currentUserIdSpan = document.getElementById('currentUserId');
+            const currentUserDisplayNameSpan = document.getElementById('currentUserDisplayName');
+            if (currentUserIdSpan) currentUserIdSpan.textContent = 'future';
+            if (currentUserDisplayNameSpan) currentUserDisplayNameSpan.textContent = 'future';
+            
+            // 確保 Firebase 配置存在
+            if (typeof firebaseConfig === 'undefined') {
+                console.log('🔧 設置預設 Firebase 配置');
+                window.firebaseConfig = window.defaultFirebaseConfig || {};
+            }
+            
+            console.log('🔧 用戶資料強制設置完成');
+            """
+            
+            self.driver.execute_script(force_setup_js)
+            self.logger.info("✅ 用戶資料強制設置完成")
+            
+            # 等待 Firebase 初始化完成
+            time.sleep(2)
+            
+            # 觸發強制故事顯示
+            story_trigger_js = """
+            if (window.forceDisplayStoryFromFirebase) {
+                console.log('🔧 樹莓派觸發強制故事顯示');
+                window.forceDisplayStoryFromFirebase();
+            } else {
+                console.log('⚠️ forceDisplayStoryFromFirebase 函數未找到');
+            }
+            """
+            
+            self.driver.execute_script(story_trigger_js)
+            self.logger.info("✅ 已觸發強制故事顯示")
+            
             return True
             
         except Exception as e:
             self.logger.error(f"載入用戶資料失敗：{e}")
-            
-            # 🔧 載入用戶資料失敗後，嘗試手動觸發故事顯示
-            try:
-                self.logger.info("🔧 嘗試手動觸發故事顯示...")
-                
-                # 強制設置用戶名稱和啟用按鈕
-                force_setup_js = """
-                // 強制設置用戶資料
-                if (typeof rawUserDisplayName === 'undefined' || !rawUserDisplayName) {
-                    window.rawUserDisplayName = 'future';
-                }
-                
-                // 強制啟用開始按鈕
-                const findCityButton = document.getElementById('findCityButton');
-                if (findCityButton) {
-                    findCityButton.disabled = false;
-                    console.log('🔧 強制啟用開始按鈕');
-                }
-                
-                // 更新用戶顯示
-                const currentUserIdSpan = document.getElementById('currentUserId');
-                const currentUserDisplayNameSpan = document.getElementById('currentUserDisplayName');
-                if (currentUserIdSpan) currentUserIdSpan.textContent = 'future';
-                if (currentUserDisplayNameSpan) currentUserDisplayNameSpan.textContent = 'future';
-                
-                console.log('🔧 用戶資料強制設置完成');
-                """
-                
-                self.driver.execute_script(force_setup_js)
-                self.logger.info("✅ 用戶資料強制設置完成")
-                
-                # 嘗試觸發強制故事顯示
-                story_trigger_js = """
-                setTimeout(() => {
-                    if (window.forceDisplayStoryFromFirebase) {
-                        console.log('🔧 樹莓派觸發強制故事顯示');
-                        window.forceDisplayStoryFromFirebase();
-                    } else {
-                        console.log('⚠️ forceDisplayStoryFromFirebase 函數未找到');
-                    }
-                }, 2000);
-                """
-                
-                self.driver.execute_script(story_trigger_js)
-                self.logger.info("✅ 已觸發強制故事顯示")
-                
-                return True  # 即使載入失敗也返回成功，因為我們已經手動修復
-                
-            except Exception as fallback_error:
-                self.logger.error(f"手動觸發故事顯示也失敗：{fallback_error}")
-                return False
+            return False
 
     def click_start_button(self):
         """點擊開始這一天按鈕"""
