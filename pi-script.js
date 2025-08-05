@@ -142,7 +142,10 @@ let groupNameInput, groupFilterSelect, connectionStatus;
 
 // 新增：顯示狀態元素
 let waitingStateEl, resultStateEl, loadingStateEl, errorStateEl;
-    let cityNameEl, countryNameEl, greetingTextEl, coordinatesEl, errorMessageEl;
+let cityNameEl, countryNameEl, greetingTextEl, coordinatesEl, errorMessageEl;
+
+// 故事相關元素
+let storyTextEl;
 
     // 🔧 日誌橋接函數：將前端日誌發送到後端日誌系統
     function logToBackend(level, message, data = null) {
@@ -439,7 +442,7 @@ window.addEventListener('firebaseReady', async (event) => {
         resultTextDiv = document.getElementById('resultText');
         countryFlagImg = document.getElementById('countryFlag');
         mapContainerDiv = document.getElementById('mapContainer');
-        debugInfoSmall = document.getElementById('debugInfo');
+        debugInfoSmall = document.getElementById('debugInfoSmall');
         userNameInput = document.getElementById('userName');
         setUserNameButton = document.getElementById('setUserNameButton');
         currentUserIdSpan = document.getElementById('currentUserId');
@@ -463,9 +466,19 @@ window.addEventListener('firebaseReady', async (event) => {
         errorStateEl = document.getElementById('errorState');
         cityNameEl = document.getElementById('cityName');
         countryNameEl = document.getElementById('countryName');
-        greetingTextEl = document.getElementById('greetingText');
+        greetingTextEl = document.getElementById('localGreeting');
         coordinatesEl = document.getElementById('coordinates');
         errorMessageEl = document.getElementById('errorMessage');
+        
+        // 獲取故事相關元素
+        storyTextEl = document.getElementById('storyText');
+        
+        console.log('🔍 重要元素檢查:', {
+            debugInfoSmall: debugInfoSmall ? '找到' : '未找到',
+            storyTextEl: storyTextEl ? '找到' : '未找到',
+            greetingTextEl: greetingTextEl ? '找到' : '未找到',
+            coordinatesEl: coordinatesEl ? '找到' : '未找到'
+        });
 
         console.log('✅ DOM 元素取得完成');
         console.log('🔘 findCityButton:', findCityButton ? '找到' : '未找到');
