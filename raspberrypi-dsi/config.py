@@ -12,8 +12,8 @@ WakeUpMap - 樹莓派4B DSI螢幕版本配置檔案
 SCREEN_CONFIG = {
     'width': 800,
     'height': 480,
-    'fullscreen': True,
-    'resizable': False,
+    'fullscreen': False,  # 暫時關閉全螢幕模式
+    'resizable': True,    # 允許調整視窗大小
     'title': 'WakeUpMap 甦醒地圖'
 }
 
