@@ -2422,13 +2422,16 @@ function initMainInteractiveMap(lat, lon, city, country) {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: ''
         }).addTo(mainInteractiveMap);
+        
+        // 初始化軌跡線圖層
+        if (trajectoryLayer) {
+            mainInteractiveMap.removeLayer(trajectoryLayer);
+        }
+        trajectoryLayer = L.layerGroup().addTo(mainInteractiveMap);
+        
+    } catch (error) {
+        console.error('❌ 地圖初始化失敗:', error);
     }
-    
-    // 初始化軌跡線圖層
-    if (trajectoryLayer) {
-        mainInteractiveMap.removeLayer(trajectoryLayer);
-    }
-    trajectoryLayer = L.layerGroup().addTo(mainInteractiveMap);
     
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
@@ -2666,6 +2669,10 @@ function drawTrajectoryLine() {
     });
     
     console.log(`🗺️ 軌跡標記繪製完成，包含 ${trajectoryData.length} 個點`);
+    
+    } catch (error) {
+        console.error('❌ 軌跡線繪製失敗:', error);
+    }
 }
 
 // Debug function for checking trajectory status
