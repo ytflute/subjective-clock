@@ -745,7 +745,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 0; /* 最底層 */
+    z-index: 1;
 }
 
 /* 地圖瓦片 - 灰黃配色 */
@@ -756,35 +756,23 @@ body {
 /* 地圖容器背景 - 灰色基調 */
 .main-map-background .leaflet-container {
     background-color: #9A9A9A !important;
-    z-index: 1 !important; /* 確保地圖在底層 */
 }
 
-/* 確保地圖相關元素在底層 */
-.main-map-background .leaflet-map-pane,
-.main-map-background .leaflet-tile-pane,
-.main-map-background .leaflet-overlay-pane,
-.main-map-background .leaflet-shadow-pane,
-.main-map-background .leaflet-marker-pane,
-.main-map-background .leaflet-tooltip-pane,
-.main-map-background .leaflet-popup-pane {
-    z-index: 1 !important;
-}
+/* 地圖圖層順序 */
+.main-map-background .leaflet-map-pane { z-index: 100 !important; }
+.main-map-background .leaflet-tile-pane { z-index: 110 !important; }
+.main-map-background .leaflet-overlay-pane { z-index: 120 !important; }
+.main-map-background .leaflet-shadow-pane { z-index: 130 !important; }
+.main-map-background .leaflet-marker-pane { z-index: 140 !important; }
+.main-map-background .leaflet-tooltip-pane { z-index: 150 !important; }
+.main-map-background .leaflet-popup-pane { z-index: 160 !important; }
 
-/* 強制所有leaflet元素保持在UI層之下 */
-.leaflet-container,
-.leaflet-container *,
-.leaflet-map-pane,
-.leaflet-tile-pane,
-.leaflet-overlay-pane,
-.leaflet-shadow-pane,
-.leaflet-marker-pane,
-.leaflet-tooltip-pane,
-.leaflet-popup-pane,
-.leaflet-control,
-.leaflet-control * {
-    z-index: 1 !important;
-    max-z-index: 10 !important;
-}
+/* 確保軌跡線和標記在地圖上方 */
+.trajectory-line { z-index: 200 !important; }
+.trajectory-marker { z-index: 210 !important; }
+.trajectory-day { z-index: 220 !important; }
+.trajectory-marker.current-location { z-index: 230 !important; }
+.trajectory-marker.current-location .trajectory-day { z-index: 240 !important; }
 
 /* 隱藏地圖控制項 */
 .main-map-background .leaflet-control-container {

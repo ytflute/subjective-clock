@@ -2375,20 +2375,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 初始化主要互動地圖 (唯一地圖實例)
 function initMainInteractiveMap(lat, lon, city, country) {
-    // 如果地圖已存在且是時鐘地圖，不要移除，直接更新
-    if (mainInteractiveMap && mainInteractiveMap === clockLeafletMap) {
-        console.log('🗺️ 重用現有地圖實例，更新位置');
-        // 🔧 修復：使用正確的偏移(-3)和縮放(3)設定
-        mainInteractiveMap.setView([lat || 20, (lon || 0) - 3], 3);
-    } else {
+    try {
+        // 確保容器存在
+        const mapContainer = document.getElementById('mainMapContainer');
+        if (!mapContainer) {
+            console.error('❌ 找不到地圖容器元素');
+            return;
+        }
+
+        // 如果地圖已存在，直接更新位置
         if (mainInteractiveMap) {
-            mainInteractiveMap.remove();
+            console.log('🗺️ 重用現有地圖實例，更新位置');
+            mainInteractiveMap.setView([lat || 20, (lon || 0) - 3], 3);
+            return;
         }
         
-        // 創建主要地圖實例 - 作為背景使用
+        // 創建新的地圖實例
+        console.log('🗺️ 創建新的地圖實例');
         mainInteractiveMap = L.map('mainMapContainer', {
-            center: [lat || 20, (lon || 0) - 3], // 🔧 修復：加入-3偏移
-            zoom: 3, // 🔧 修復：統一使用縮放等級3
+            center: [lat || 20, (lon || 0) - 3],
+            zoom: 3,
             zoomControl: false,
             scrollWheelZoom: true,
             doubleClickZoom: true,
@@ -2486,24 +2492,36 @@ function initMainInteractiveMap(lat, lon, city, country) {
 // 載入並繪製軌跡線
 async function loadAndDrawTrajectory() {
     try {
+        // 檢查必要條件
         if (!db) {
             console.log('⚠️ Firebase 資料庫未初始化，跳過軌跡線載入');
             return;
         }
         
+        if (!mainInteractiveMap) {
+            console.log('⚠️ 地圖未初始化，跳過軌跡線載入');
+            return;
+        }
+        
         console.log('🗺️ 開始載入軌跡線數據...');
         
-        // 讀取當前用戶的歷史記錄（暫時簡化查詢避免索引需求）
+        // 確保軌跡圖層存在
+        if (!trajectoryLayer) {
+            console.log('🗺️ 創建新的軌跡圖層');
+            trajectoryLayer = L.layerGroup().addTo(mainInteractiveMap);
+        }
+        
+        // 讀取當前用戶的歷史記錄
         const { collection, query, where, getDocs } = window.firebaseSDK;
         const q = query(
             collection(db, 'wakeup_records'),
             where('userId', '==', rawUserDisplayName)
-            // 暫時移除 orderBy 避免索引需求，改為在客戶端排序
         );
         
         const querySnapshot = await getDocs(q);
         trajectoryData = [];
         
+        // 收集所有有效的軌跡點
         querySnapshot.forEach((doc) => {
             const data = doc.data();
             if (data.latitude && data.longitude) {
@@ -2514,26 +2532,31 @@ async function loadAndDrawTrajectory() {
                     country: data.country,
                     date: data.date,
                     day: data.day || trajectoryData.length + 1,
-                    timestamp: data.timestamp // 保留時間戳用於排序
+                    timestamp: data.timestamp
                 });
             }
         });
         
-        // 在客戶端按時間排序（避免 Firebase 索引需求）
+        // 按時間排序
         trajectoryData.sort((a, b) => {
-            const timeA = a.timestamp && a.timestamp.toMillis ? a.timestamp.toMillis() : 0;
-            const timeB = b.timestamp && b.timestamp.toMillis ? b.timestamp.toMillis() : 0;
-            return timeA - timeB; // 升序排列
+            const timeA = a.timestamp?.toMillis?.() || 0;
+            const timeB = b.timestamp?.toMillis?.() || 0;
+            return timeA - timeB;
+        });
+        
+        // 更新 Day 編號
+        trajectoryData.forEach((point, index) => {
+            point.day = index + 1;
         });
         
         console.log(`📍 載入了 ${trajectoryData.length} 個軌跡點`);
-        console.log('查詢用戶名:', rawUserDisplayName);
         
         if (trajectoryData.length === 0) {
             console.log('⚠️ 沒有找到軌跡數據，可能原因:');
             console.log('  1. 尚未按過實體按鈕記錄甦醒位置');
             console.log('  2. 用戶名不匹配 (當前:', rawUserDisplayName, ')');
             console.log('  3. Firebase數據尚未同步');
+            return;
         }
         
         // 繪製軌跡線
@@ -2546,40 +2569,51 @@ async function loadAndDrawTrajectory() {
 
 // 繪製軌跡線
 function drawTrajectoryLine() {
-    if (!trajectoryLayer || !mainInteractiveMap) {
-        console.log('⚠️ 地圖或軌跡圖層未初始化');
-        return;
-    }
-    
-    // 清除現有軌跡線
-    trajectoryLayer.clearLayers();
-    
-    // 如果有2個或以上的點，繪製軌跡線
-    if (trajectoryData.length >= 2) {
-        // 準備軌跡點座標
-        const latlngs = trajectoryData.map(point => [point.lat, point.lng]);
-        
-        // 創建舊軌跡線 (除了最後一段)
-        if (latlngs.length > 2) {
-            const oldLatlngs = latlngs.slice(0, -1);
-            const oldTrajectoryLine = L.polyline(oldLatlngs, {
-                className: 'trajectory-line',
-                color: '#999999',
-                weight: 2,
-                opacity: 0.6,
-                dashArray: '5, 5'
-            }).addTo(trajectoryLayer);
+    try {
+        // 檢查必要條件
+        if (!trajectoryLayer || !mainInteractiveMap) {
+            console.log('⚠️ 地圖或軌跡圖層未初始化');
+            return;
         }
         
-        // 創建最新軌跡線 (最後一段)
-        if (latlngs.length >= 2) {
-            const lastTwoPoints = latlngs.slice(-2);
-            const currentTrajectoryLine = L.polyline(lastTwoPoints, {
-                className: 'trajectory-line current',
-                color: '#FF4B4B',
-                weight: 3,
-                opacity: 0.8
-            }).addTo(trajectoryLayer);
+        if (!trajectoryData || !Array.isArray(trajectoryData)) {
+            console.log('⚠️ 軌跡數據未初始化或格式錯誤');
+            return;
+        }
+        
+        console.log('🗺️ 開始繪製軌跡線...');
+        
+        // 清除現有軌跡線
+        trajectoryLayer.clearLayers();
+        
+        // 如果有2個或以上的點，繪製軌跡線
+        if (trajectoryData.length >= 2) {
+            // 準備軌跡點座標
+            const latlngs = trajectoryData.map(point => [point.lat, point.lng]);
+            
+            // 創建舊軌跡線 (除了最後一段)
+            if (latlngs.length > 2) {
+                const oldLatlngs = latlngs.slice(0, -1);
+                const oldTrajectoryLine = L.polyline(oldLatlngs, {
+                    className: 'trajectory-line',
+                    color: '#999999',
+                    weight: 2,
+                    opacity: 0.6,
+                    dashArray: '5, 5',
+                    zIndexOffset: 100
+                }).addTo(trajectoryLayer);
+            }
+            
+            // 創建最新軌跡線 (最後一段)
+            if (latlngs.length >= 2) {
+                const lastTwoPoints = latlngs.slice(-2);
+                const currentTrajectoryLine = L.polyline(lastTwoPoints, {
+                    className: 'trajectory-line current',
+                    color: '#FF4B4B',
+                    weight: 3,
+                    opacity: 0.8,
+                    zIndexOffset: 200
+                }).addTo(trajectoryLayer);
         }
         
         console.log(`🗺️ 軌跡線已繪製，連接 ${trajectoryData.length} 個點`);
