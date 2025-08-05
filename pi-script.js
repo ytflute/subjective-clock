@@ -2403,6 +2403,13 @@ function initMainInteractiveMap(lat, lon, city, country) {
             return;
         }
         
+        // 檢查容器是否已經被 Leaflet 使用
+        if (mapContainer._leaflet_id) {
+            console.log('🗺️ 地圖容器已被使用，清理後重新初始化');
+            mapContainer._leaflet_id = null;
+            mapContainer.innerHTML = '';
+        }
+        
         // 創建新的地圖實例
         console.log('🗺️ 創建新的地圖實例');
         mainInteractiveMap = L.map('mainMapContainer', {
@@ -2431,6 +2438,14 @@ function initMainInteractiveMap(lat, lon, city, country) {
         
     } catch (error) {
         console.error('❌ 地圖初始化失敗:', error);
+        // 如果失敗，清理容器狀態
+        const mapContainer = document.getElementById('mainMapContainer');
+        if (mapContainer && mapContainer._leaflet_id) {
+            mapContainer._leaflet_id = null;
+            mapContainer.innerHTML = '';
+        }
+        // 重置地圖變數
+        mainInteractiveMap = null;
     }
     
     // 如果有具體位置，添加標記

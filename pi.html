@@ -272,21 +272,41 @@
         // 地圖初始化功能
         function initializeMap() {
             const mapContainer = document.getElementById('mainMapContainer');
-            if (mapContainer && !window.mainInteractiveMap) {
-                // 使用原有的地圖初始化邏輯
+            if (!mapContainer) {
+                console.warn('⚠️ 地圖容器元素不存在');
+                return;
+            }
+            
+            // 檢查是否已經初始化過
+            if (window.mainInteractiveMap) {
+                console.log('🗺️ 地圖已經初始化，跳過重複初始化');
+                return;
+            }
+            
+            // 檢查容器是否已經被 Leaflet 使用
+            if (mapContainer._leaflet_id) {
+                console.log('🗺️ 地圖容器已被使用，清理後重新初始化');
+                mapContainer._leaflet_id = null;
+                mapContainer.innerHTML = '';
+            }
+            
+            try {
                 const latitude = window.currentLatitude || 25.0330;
                 const longitude = window.currentLongitude || 121.5654;
                 
-                try {
-                    window.mainInteractiveMap = L.map('mainMapContainer').setView([latitude, longitude], 3);
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 18,
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(window.mainInteractiveMap);
-                    
-                    console.log('✅ 地圖初始化成功');
-                } catch (error) {
-                    console.error('❌ 地圖初始化失敗:', error);
+                window.mainInteractiveMap = L.map('mainMapContainer').setView([latitude, longitude], 3);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(window.mainInteractiveMap);
+                
+                console.log('✅ 地圖初始化成功');
+            } catch (error) {
+                console.error('❌ 地圖初始化失敗:', error);
+                // 如果失敗，清理容器狀態
+                if (mapContainer._leaflet_id) {
+                    mapContainer._leaflet_id = null;
+                    mapContainer.innerHTML = '';
                 }
             }
         }
