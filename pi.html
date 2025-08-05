@@ -139,7 +139,6 @@
                             <span id="coordinates" class="coordinates-text">21.276, 55.517</span>
                         </div>
                     </div>
-                    
                     <!-- 故事文字容器 (移到白色框內) -->
                     <div class="story-container">
                         <p id="storyText" class="story-text"></p>
@@ -171,6 +170,7 @@
             <!-- 相容性元素 -->
             <div id="resultText" class="result-text"></div>
             <div id="debugInfo" class="debug-info"></div>
+            <div id="debugInfoSmall" class="debug-info-small"></div>
             <div id="currentUserId">future</div>
             <div id="currentUserDisplayName">future</div>
             
@@ -217,22 +217,46 @@
             serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
         } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
 
-        // Firebase 配置將由 /api/config 端點提供
-        if (window.firebaseConfig) {
-            const app = initializeApp(window.firebaseConfig);
-            
-            // 打包所有 Firebase 功能供主腳本使用
-            window.firebaseSDK = {
-                initializeApp,
-                getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
-                getFirestore, collection, addDoc, query, where, getDocs, orderBy, 
-                serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
-            };
-            
-            // 發送 Firebase 就緒事件
-            window.dispatchEvent(new CustomEvent('firebaseReady'));
+        // 等待 Firebase 配置載入
+        function initializeFirebase() {
+            if (window.firebaseConfig) {
+                try {
+                    console.log('🔥 開始初始化 Firebase...');
+                    const app = initializeApp(window.firebaseConfig);
+                    
+                    // 打包所有 Firebase 功能供主腳本使用
+                    window.firebaseSDK = {
+                        initializeApp,
+                        getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+                        getFirestore, collection, addDoc, query, where, getDocs, orderBy, 
+                        serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
+                    };
+                    
+                    console.log('✅ Firebase SDK 已準備就緒');
+                    
+                    // 發送 Firebase 就緒事件
+                    window.dispatchEvent(new CustomEvent('firebaseReady'));
+                } catch (error) {
+                    console.error('❌ Firebase 初始化失敗:', error);
+                    // 即使失敗也要設置基本的 SDK
+                    window.firebaseSDK = {
+                        initializeApp,
+                        getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+                        getFirestore, collection, addDoc, query, where, getDocs, orderBy, 
+                        serverTimestamp, doc, setDoc, getDoc, limit, updateDoc, setLogLevel
+                    };
+                }
+            } else {
+                console.warn('⚠️ Firebase 配置尚未載入，2秒後重試...');
+                setTimeout(initializeFirebase, 2000);
+            }
+        }
+
+        // 開始初始化
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeFirebase);
         } else {
-            console.error('Firebase 配置未載入');
+            initializeFirebase();
         }
     </script>
 
@@ -245,47 +269,35 @@
     <script src="pi-script.js"></script>
     
     <script>
-        // 地圖切換功能
-        function toggleMap() {
-            const mapContainer = document.getElementById('mapContainer');
-            const mapButton = document.getElementById('mapButton');
-            
-            if (mapContainer.classList.contains('hidden')) {
-                mapContainer.classList.remove('hidden');
-                mapButton.textContent = '隱藏地圖';
-                mapButton.style.background = '#333';
-                mapButton.style.color = '#fff';
-                
-                // 如果地圖還沒初始化，初始化它
-                if (!window.currentMap) {
-                    initializeMap();
-                }
-            } else {
-                mapContainer.classList.add('hidden');
-                mapButton.textContent = '地圖';
-                mapButton.style.background = '#fff';
-                mapButton.style.color = '#000';
-            }
-        }
-        
-        // 初始化地圖
+        // 地圖初始化功能
         function initializeMap() {
-            const mapContainer = document.getElementById('mapContainer');
-            if (mapContainer && !window.currentMap) {
+            const mapContainer = document.getElementById('mainMapContainer');
+            if (mapContainer && !window.mainInteractiveMap) {
                 // 使用原有的地圖初始化邏輯
                 const latitude = window.currentLatitude || 25.0330;
                 const longitude = window.currentLongitude || 121.5654;
                 
-                window.currentMap = L.map('mapContainer').setView([latitude, longitude], 10);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 18,
-                    attribution: '© OpenStreetMap contributors'
-                }).addTo(window.currentMap);
-                
-                // 添加標記
-                L.marker([latitude, longitude]).addTo(window.currentMap)
-                    .bindPopup(window.currentCityName || '甦醒位置')
-                    .openPopup();
+                try {
+                    window.mainInteractiveMap = L.map('mainMapContainer').setView([latitude, longitude], 3);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 18,
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(window.mainInteractiveMap);
+                    
+                    console.log('✅ 地圖初始化成功');
+                } catch (error) {
+                    console.error('❌ 地圖初始化失敗:', error);
+                }
+            }
+        }
+        
+        // 確保地圖在頁面載入後初始化
+        function ensureMapInitialized() {
+            if (typeof L !== 'undefined' && !window.mainInteractiveMap) {
+                initializeMap();
+            } else if (typeof L === 'undefined') {
+                console.warn('⚠️ Leaflet 尚未載入，稍後重試...');
+                setTimeout(ensureMapInitialized, 1000);
             }
         }
         
@@ -322,6 +334,9 @@
                     subtree: true
                 });
             }
+            
+            // 確保地圖初始化
+            setTimeout(ensureMapInitialized, 1000);
         });
         
         // 隱藏按鈕快捷鍵功能
