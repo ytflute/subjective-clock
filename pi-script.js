@@ -2161,6 +2161,9 @@ window.addEventListener('firebaseReady', async (event) => {
         return typeWriterEffect(storyText, storyTextEl, typeSpeed);
     }
 
+    // 暴露 startStoryTypewriter 函數到全域作用域
+    window.startStoryTypewriter = startStoryTypewriter;
+
     // 根據國家代碼獲取對應的語言代碼
     function getLanguageCodeFromCountry(countryCode) {
         // 國家代碼到語言代碼的映射
