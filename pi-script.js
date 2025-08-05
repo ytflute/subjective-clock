@@ -2999,6 +2999,30 @@ window.checkTrajectory = function() {
             console.log('📡 執行Firebase查詢，用戶:', rawUserDisplayName);
             const querySnapshot = await getDocs(q);
             
+            console.log('🔍 查詢結果 - 是否為空:', querySnapshot.empty);
+            console.log('🔍 查詢結果 - 文檔數量:', querySnapshot.size);
+            
+            // 調試：檢查所有記錄（不限用戶）
+            try {
+                const allRecordsQuery = query(collection(db, 'wakeup_records'));
+                const allSnapshot = await getDocs(allRecordsQuery);
+                console.log('🔍 資料庫總記錄數:', allSnapshot.size);
+                
+                if (allSnapshot.size > 0) {
+                    console.log('🔍 資料庫中的用戶列表:');
+                    const userIds = new Set();
+                    allSnapshot.forEach(doc => {
+                        const data = doc.data();
+                        if (data.userId) {
+                            userIds.add(data.userId);
+                        }
+                    });
+                    console.log('🔍 找到的用戶ID:', Array.from(userIds));
+                }
+            } catch (debugError) {
+                console.log('🔍 調試查詢失敗:', debugError);
+            }
+            
             if (!querySnapshot.empty) {
                 // 客戶端排序獲取最新記錄
                 const records = [];
@@ -3043,11 +3067,43 @@ window.checkTrajectory = function() {
                     console.warn('⚠️ 沒有有效的時間戳記錄');
                 }
             } else {
-                console.warn('⚠️ Firebase中沒有找到任何記錄');
+                console.warn('⚠️ Firebase中沒有找到任何記錄，使用備援故事');
+                
+                // 備援方案：如果沒有記錄，創建一個簡單的歡迎故事
+                const storyTextEl = document.getElementById('storyText');
+                if (storyTextEl) {
+                    const backupStory = `Good Morning! 歡迎使用甦醒地圖！這是你的第一次體驗，今天將是一個全新的開始。讓我們一起探索這個世界的美好角落吧！`;
+                    
+                    storyTextEl.textContent = '正在為你朗誦歡迎故事.....';
+                    setTimeout(() => {
+                        console.log('🎬 顯示備援故事:', backupStory);
+                        startStoryTypewriter(backupStory);
+                    }, 800);
+                    return true;
+                } else {
+                    console.error('❌ 找不到 #storyText 元素');
+                }
             }
 
         } catch (error) {
             console.error('❌ 強制顯示故事失敗:', error);
+            
+            // 最終備援：即使出錯也要顯示一個故事
+            try {
+                const storyTextEl = document.getElementById('storyText');
+                if (storyTextEl) {
+                    const emergencyStory = `Good Morning! 甦醒地圖系統正在為您準備中，請耐心等候。今天會是美好的一天！`;
+                    
+                    storyTextEl.textContent = '系統準備中，請稍候.....';
+                    setTimeout(() => {
+                        console.log('🚨 顯示緊急備援故事:', emergencyStory);
+                        startStoryTypewriter(emergencyStory);
+                    }, 800);
+                    return true;
+                }
+            } catch (finalError) {
+                console.error('❌ 最終備援也失敗:', finalError);
+            }
         }
         return false;
     }
