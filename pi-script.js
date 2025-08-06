@@ -462,6 +462,15 @@ window.addEventListener('piStoryReady', (event) => {
             // 🔧 縮短延遲，立即開始統一的地圖初始化
             setTimeout(() => {
                 console.log('🔄 開始統一的地圖和軌跡初始化...');
+                console.log('🔍 準備調用 loadHistoryTrajectory');
+                console.log('🔍 當前 Firebase 狀態:', {
+                    db: !!window.db,
+                    auth: !!window.auth,
+                    collection: !!window.collection,
+                    query: !!window.query,
+                    where: !!window.where,
+                    getDocs: !!window.getDocs
+                });
                 loadHistoryTrajectory();
             }, 50);
 
@@ -2885,6 +2894,10 @@ window.checkTrajectory = function() {
 
     // 載入歷史軌跡
     async function loadHistoryTrajectory() {
+        console.log('🔄 loadHistoryTrajectory 函數被調用');
+        console.log('🔍 Firebase db 狀態:', !!db);
+        console.log('🔍 Firebase auth 狀態:', !!auth);
+        
         if (!db) {
             console.log('📍 載入歷史軌跡：Firebase 數據庫未初始化');
             return;
@@ -2905,11 +2918,15 @@ window.checkTrajectory = function() {
                 // 暫時移除 orderBy 避免索引需求，改為在客戶端排序
             );
 
+            console.log('🔍 執行Firebase查詢...');
             const querySnapshot = await getDocs(historyQuery);
+            console.log(`🔍 查詢結果: ${querySnapshot.size} 筆記錄`);
             const historyPoints = [];
 
             querySnapshot.forEach((doc) => {
                 const record = doc.data();
+                console.log('🔍 處理記錄:', record);
+                
                 if (typeof record.latitude === 'number' && isFinite(record.latitude) &&
                     typeof record.longitude === 'number' && isFinite(record.longitude)) {
                     
@@ -2917,7 +2934,7 @@ window.checkTrajectory = function() {
                     const city = record.city || '未知城市';
                     const country = record.country || '未知國家';
                     
-                    historyPoints.push({
+                    const point = {
                         lat: record.latitude,
                         lng: record.longitude,
                         city: city,
@@ -2925,7 +2942,12 @@ window.checkTrajectory = function() {
                         timestamp: timestamp,
                         date: new Date(timestamp).toLocaleDateString('zh-TW'),
                         recordedAt: record.recordedAt // 保留原始時間戳用於排序
-                    });
+                    };
+                    
+                    historyPoints.push(point);
+                    console.log(`✅ 添加有效點位 ${historyPoints.length}:`, point);
+                } else {
+                    console.log('⚠️ 跳過無效座標記錄:', record);
                 }
             });
 
@@ -2966,18 +2988,31 @@ window.checkTrajectory = function() {
 
     // 🔧 統一的基礎地圖初始化
     function initBaseMapIfNeeded() {
+        console.log('🗺️ initBaseMapIfNeeded 被調用');
+        console.log('🗺️ mainInteractiveMap 存在:', !!mainInteractiveMap);
+        
         if (!mainInteractiveMap) {
             const coordinatesEl = document.getElementById('coordinates');
+            console.log('🗺️ 座標元素:', coordinatesEl ? coordinatesEl.textContent : '未找到');
+            
             if (coordinatesEl && coordinatesEl.textContent) {
                 const [latStr, lonStr] = coordinatesEl.textContent.split(', ');
                 const lat = parseFloat(latStr);
                 const lon = parseFloat(lonStr);
                 
+                console.log('🗺️ 解析座標:', { lat, lon });
+                
                 if (!isNaN(lat) && !isNaN(lon)) {
                     console.log('🗺️ 初始化基礎地圖，座標:', lat, lon);
                     initMainInteractiveMap(lat, lon, '', '');
+                } else {
+                    console.log('❌ 座標解析失敗');
                 }
+            } else {
+                console.log('❌ 座標元素不存在或為空');
             }
+        } else {
+            console.log('✅ 地圖已存在，跳過初始化');
         }
     }
     
@@ -3061,7 +3096,9 @@ window.checkTrajectory = function() {
             `;
             marker.bindPopup(popupContent);
 
+            console.log(`🔧 準備添加標記 ${dayNumber} 到圖層:`, marker);
             historyMarkersLayer.addLayer(marker);
+            console.log(`✅ 標記 ${dayNumber} 已添加，圖層中標記數量:`, historyMarkersLayer.getLayers().length);
         });
 
         console.log(`🗺️ 已添加 ${historyPoints.length} 個標記到地圖`);
