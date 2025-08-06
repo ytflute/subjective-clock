@@ -491,6 +491,8 @@ window.addEventListener('piStoryReady', (event) => {
                 storyElement.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
                     console.log('🔥 顯示最終故事內容:', finalStory);
+                    window.voiceStoryDisplayed = true; // 標記語音故事已顯示
+                    window.voiceStoryContent = finalStory; // 保存語音故事內容
                     startStoryTypewriter(finalStory);
                 }, 1000);
             } else {
@@ -1073,6 +1075,11 @@ window.addEventListener('firebaseReady', async (event) => {
     async function startTheDay() {
         // 立即設置調試標記
         window.debugStartTheDay = 'STARTED';
+        
+        // 🔧 重置語音故事標記，確保新的一天全新開始
+        window.voiceStoryDisplayed = false;
+        window.voiceStoryContent = null;
+        console.log('🔧 已重置語音故事標記');
         
         console.log('🌅 開始這一天被呼叫 (完整版本)');
         console.log('🔍 當前狀態檢查:', {
@@ -2174,6 +2181,12 @@ function updateResultData(data) {
         // 🎵 檢查是否已有語音故事，避免覆蓋
         console.log('🎵 [同步] 檢查是否已有語音故事...');
         
+        // 檢查全域標記
+        if (window.voiceStoryDisplayed) {
+            console.log('✅ [同步] 全域標記顯示已有語音故事，跳過重新生成');
+            return;
+        }
+        
         const storyEl = document.getElementById('storyText');
         if (storyEl) {
             const currentText = storyEl.textContent;
@@ -2181,16 +2194,19 @@ function updateResultData(data) {
                 !currentText.includes('正在生成') && 
                 !currentText.includes('正在清喉嚨') && 
                 !currentText.includes('剛起床') &&
+                !currentText.includes('Good Morning! 歡迎使用') &&
                 currentText.length > 30;
             
             console.log('🎵 [同步] 故事檢查:', {
                 當前文字長度: currentText?.length || 0,
                 是否有語音故事: hasVoiceStory,
+                全域標記: !!window.voiceStoryDisplayed,
                 當前內容預覽: currentText?.substring(0, 50) + '...'
             });
             
             if (hasVoiceStory) {
                 console.log('✅ [同步] 已有語音故事，跳過重新生成');
+                window.voiceStoryDisplayed = true; // 設置標記
                 return;
             }
             
@@ -3411,6 +3427,12 @@ window.checkTrajectory = function() {
     // 強制顯示故事（用於處理載入用戶資料失敗的情況）
     async function forceDisplayStoryFromFirebase() {
         try {
+            // 🔧 檢查是否已有語音故事，避免覆蓋
+            if (window.voiceStoryDisplayed && window.voiceStoryContent) {
+                console.log('✅ 已有語音故事，跳過強制Firebase讀取:', window.voiceStoryContent.substring(0, 50) + '...');
+                return true; // 返回成功，避免觸發備援邏輯
+            }
+            
             console.log('🔧 強制從Firebase讀取故事（忽略認證狀態）...');
             
             // 即使沒有認證也嘗試讀取（匿名訪問）
