@@ -72,9 +72,8 @@ function updateResultData(data) {
             coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
         }
         
-        // 更新地圖標記
-        console.log('🗺️ updateResultData: 更新地圖到座標:', data.latitude, data.longitude);
-        initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+        // 🔧 地圖初始化已統一到 loadHistoryTrajectory，這裡不再重複調用
+        console.log('🗺️ updateResultData: 座標已更新，等待統一的地圖初始化');
     }
 
     // 更新問候語
@@ -2562,36 +2561,13 @@ function initMainInteractiveMap(lat, lon, city, country) {
             return;
         }
         
-        // 檢查容器是否可見和有尺寸
-        const containerRect = mapContainer.getBoundingClientRect();
-        if (containerRect.width === 0 || containerRect.height === 0) {
-            console.warn('⚠️ 地圖容器尺寸為 0，嘗試強制設定尺寸');
-            mapContainer.style.width = '100%';
-            mapContainer.style.height = '400px';
-            mapContainer.style.display = 'block';
-            mapContainer.style.visibility = 'visible';
-        }
-        
-        // 確保容器在 DOM 中可見
-        if (mapContainer.offsetParent === null) {
-            console.warn('⚠️ 地圖容器不可見，強制設置可見性');
-            
-            // 強制容器本身可見
-            mapContainer.style.display = 'block';
-            mapContainer.style.visibility = 'visible';
-            mapContainer.style.width = '100vw';
-            mapContainer.style.height = '100vh';
-            
-            // 確保父元素也可見
-            let parent = mapContainer.parentElement;
-            while (parent && parent !== document.body) {
-                parent.style.display = 'block';
-                parent.style.visibility = 'visible';
-                parent = parent.parentElement;
-            }
-            
-            console.log('✅ 已強制設置地圖容器為可見');
-        }
+        // 🔧 地圖容器使用 position: fixed，offsetParent 為 null 是正常的
+        console.log('🗺️ 地圖容器狀態:', {
+            width: mapContainer.offsetWidth,
+            height: mapContainer.offsetHeight,
+            display: getComputedStyle(mapContainer).display,
+            position: getComputedStyle(mapContainer).position
+        });
 
         // 如果地圖已存在，直接更新位置
         if (mainInteractiveMap) {
