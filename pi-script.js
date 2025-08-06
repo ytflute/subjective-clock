@@ -417,6 +417,10 @@ window.addEventListener('piStoryReady', (event) => {
             };
             updateResultData(resultData);
 
+            // 🔧 修復：現在切換到結果狀態，因為故事已準備完成
+            setState('result');
+            console.log('✅ 故事已準備完成，切換到結果頁面');
+
             // 顯示故事文字
             const storyElement = document.getElementById('storyText');
             if (storyElement && finalStory) {
@@ -1230,8 +1234,9 @@ window.addEventListener('firebaseReady', async (event) => {
                 debugInfoSmall.textContent = `緯度: ${cityData.latitude.toFixed(4)}, 經度: ${cityData.longitude.toFixed(4)}`;
             }
             
-            // 切換到結果狀態
-            setState('result');
+            // 🔧 修復：不立即切換到結果狀態，等待故事準備完成
+            // setState('result'); // 改為在 piStoryReady 事件中切換
+            console.log('🔄 城市資料已準備，等待語音和故事生成完成...');
             
             console.log('✅ 結果顯示完成');
             
