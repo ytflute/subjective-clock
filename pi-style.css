@@ -557,7 +557,6 @@ body {
 }
 
 /* 狀態管理 */
-.waiting-state,
 .result-state,
 .loading-state,
 .error-state {
@@ -572,7 +571,16 @@ body {
     transition: all 0.5s ease-in-out;
 }
 
-.waiting-state.active,
+.waiting-state {
+    position: relative !important;
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+}
+
 .result-state.active,
 .loading-state.active,
 .error-state.active {
@@ -580,6 +588,13 @@ body {
     visibility: visible;
     position: relative;
     z-index: 1; /* 確保在地圖之上 */
+}
+
+.waiting-state.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 /* 舊的等待狀態樣式已移除 - 使用新的設計 */

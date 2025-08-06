@@ -3605,3 +3605,59 @@ window.checkTrajectory = function() {
 
     // 暴露緊急生成函數
     window.emergencyStoryGeneration = emergencyStoryGeneration;
+
+// 🚨 最終強制確保初始狀態正確 - 延遲執行以覆蓋任何衝突
+setTimeout(() => {
+    console.log('🚨 執行最終強制初始狀態檢查...');
+    
+    const waitingStateEl = document.getElementById('waitingState');
+    const loadingStateEl = document.getElementById('loadingState');
+    const resultStateEl = document.getElementById('resultState');
+    const errorStateEl = document.getElementById('errorState');
+    
+    // 檢查當前狀態
+    console.log('🔍 當前狀態檢查:', {
+        waitingActive: waitingStateEl?.classList.contains('active'),
+        loadingActive: loadingStateEl?.classList.contains('active'),
+        resultActive: resultStateEl?.classList.contains('active'),
+        errorActive: errorStateEl?.classList.contains('active'),
+        currentState: window.currentState
+    });
+    
+    // 強制移除所有 active
+    [loadingStateEl, resultStateEl, errorStateEl].forEach(el => {
+        if (el) {
+            el.classList.remove('active');
+            // 額外確保隱藏
+            el.style.display = 'none';
+            el.style.opacity = '0';
+            el.style.visibility = 'hidden';
+        }
+    });
+    
+    // 強制顯示等待狀態
+    if (waitingStateEl) {
+        waitingStateEl.classList.add('active');
+        waitingStateEl.style.display = 'flex';
+        waitingStateEl.style.opacity = '1';
+        waitingStateEl.style.visibility = 'visible';
+        waitingStateEl.style.position = 'relative';
+        waitingStateEl.style.zIndex = '10';
+        
+        console.log('✅ 最終強制初始狀態已設定');
+        
+        // 檢查內容框是否可見
+        const contentBox = waitingStateEl.querySelector('.waiting-content-box');
+        if (contentBox) {
+            contentBox.style.display = 'block';
+            contentBox.style.visibility = 'visible';
+            contentBox.style.opacity = '1';
+            console.log('✅ 等待內容框已強制顯示');
+        }
+    } else {
+        console.error('❌ 最終檢查：等待狀態元素仍然未找到！');
+    }
+    
+    window.currentState = 'waiting';
+    
+}, 2000); // 延遲 2 秒執行，確保在所有其他初始化完成後
