@@ -343,6 +343,11 @@ window.addEventListener('piStoryReady', (event) => {
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             
+            // 🔧 標記語音故事即將顯示，避免 updateResultData 生成新故事
+            window.voiceStoryDisplayed = true;
+            window.voiceStoryContent = storyData.fullContent || storyData.story;
+            console.log('✅ [Firebase未初始化分支] 標記語音故事即將顯示');
+            
             updateResultData(resultData);
             
             const storyTextEl = document.getElementById('storyText');
@@ -453,6 +458,12 @@ window.addEventListener('piStoryReady', (event) => {
                 longitude: finalLongitude,
                 source: finalLatitude !== storyData.latitude ? 'currentCityData' : 'storyData'
             });
+            
+            // 🔧 標記語音故事即將顯示，避免 updateResultData 生成新故事
+            window.voiceStoryDisplayed = true;
+            window.voiceStoryContent = finalStory;
+            console.log('✅ [正常分支] 標記語音故事即將顯示，避免重複生成');
+            
             updateResultData(resultData);
 
             // 🔧 修復：現在切換到結果狀態，因為故事已準備完成
@@ -529,6 +540,11 @@ window.addEventListener('piStoryReady', (event) => {
             // 如果查詢失敗，優先使用樹莓派的 Day 值
             const finalDay = storyData.day || 1; // 優先使用樹莓派的 Day 值，否則預設為 1
             console.log('📊 查詢失敗，Day 值決定: 樹莓派傳來:', storyData.day, '最終使用:', finalDay);
+            
+            // 🔧 標記語音故事已顯示，避免 updateResultData 重複生成故事
+            window.voiceStoryDisplayed = true;
+            window.voiceStoryContent = storyData.fullContent || storyData.story;
+            console.log('✅ [錯誤分支] 標記語音故事已顯示，避免重複生成');
             
             const resultData = {
                 city: storyData.city || '',
@@ -1369,6 +1385,11 @@ window.addEventListener('firebaseReady', async (event) => {
                 day: currentDay,
                 flag: cityData.country_iso_code ? `https://flagcdn.com/96x72/${cityData.country_iso_code.toLowerCase()}.png` : ''
             };
+            
+            // 🔧 標記語音故事已顯示，避免 updateResultData 重複生成故事
+            window.voiceStoryDisplayed = true;
+            window.voiceStoryContent = storyResult.story;
+            console.log('✅ [generateAndDisplayStoryAndGreeting] 標記語音故事已顯示');
             
             // 使用新的結果數據更新函數
             updateResultData(resultData);
