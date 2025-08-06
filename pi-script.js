@@ -2961,40 +2961,68 @@ window.checkTrajectory = function() {
         // 創建新的圖層群組
         historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
 
-        // 添加歷史點位標記
+        // 添加歷史點位標記 - 學習 index.html 的 Day 標記樣式
         historyPoints.forEach((point, index) => {
-            const marker = L.circleMarker([point.lat, point.lng], {
-                radius: 6,
-                fillColor: index === historyPoints.length - 1 ? '#ff6b6b' : '#4ecdc4', // 最新點用紅色
-                color: '#fff',
-                weight: 2,
-                opacity: 1,
-                fillOpacity: 0.8
+            const isLatest = index === historyPoints.length - 1;
+            const dayNumber = index + 1;
+            
+            // 創建自定義圖標顯示 Day 數字（學習 index.html 軌跡標記）
+            const customIcon = L.divIcon({
+                className: `trajectory-marker${isLatest ? ' current-location' : ''}`,
+                html: `<div class="trajectory-day">Day ${dayNumber}</div>`,
+                iconSize: [60, 24],
+                iconAnchor: [30, 12]
             });
 
-            // 設定點位說明
+            const marker = L.marker([point.lat, point.lng], {
+                icon: customIcon
+            });
+
+            // 設定點位說明 - 更豐富的彈出窗格式
             const popupContent = `
-                <div style="font-family: monospace; font-size: 12px;">
-                    <strong>${point.date}</strong><br/>
-                    📍 ${point.city}, ${point.country}<br/>
-                    🌍 ${point.lat.toFixed(4)}, ${point.lng.toFixed(4)}
+                <div style="text-align: center; font-family: 'Press Start 2P', monospace; font-size: 12px;">
+                    <strong style="color: #000000;">Day ${dayNumber}</strong><br>
+                    <span style="color: #333333; font-size: 14px;">${point.city || '未知城市'}</span><br>
+                    <span style="color: #666666; font-size: 12px;">${point.country || '未知國家'}</span><br>
+                    <small style="color: #999999; font-size: 10px;">${point.date || ''}</small>
                 </div>
             `;
-            marker.bindPopup(popupContent);
+            marker.bindPopup(popupContent, {
+                offset: [0, -12],
+                maxWidth: 200,
+                className: 'trajectory-popup'
+            });
 
             historyMarkersLayer.addLayer(marker);
         });
 
-        // 如果有多個點，創建軌跡線
+        // 如果有多個點，創建軌跡線 - 學習 index.html 的多段線實現
         if (historyPoints.length > 1) {
             const latlngs = historyPoints.map(point => [point.lat, point.lng]);
             
-            trajectoryLayer = L.polyline(latlngs, {
-                color: '#4ecdc4',
-                weight: 3,
-                opacity: 0.7,
-                dashArray: '10, 5' // 虛線效果
-            }).addTo(mainInteractiveMap);
+            // 創建軌跡線圖層組
+            trajectoryLayer = L.layerGroup().addTo(mainInteractiveMap);
+            
+            // 創建歷史軌跡線（除了最後一段）
+            if (latlngs.length > 2) {
+                const oldLatlngs = latlngs.slice(0, -1);
+                const oldTrajectoryLine = L.polyline(oldLatlngs, {
+                    color: '#999999',
+                    weight: 2,
+                    opacity: 0.6,
+                    dashArray: '5, 5' // 虛線效果，表示歷史軌跡
+                }).addTo(trajectoryLayer);
+            }
+            
+            // 創建最新軌跡線（最後一段）- 突出顯示
+            if (latlngs.length >= 2) {
+                const lastTwoPoints = latlngs.slice(-2);
+                const currentTrajectoryLine = L.polyline(lastTwoPoints, {
+                    color: '#FF4B4B', // 紅色表示最新軌跡
+                    weight: 3,
+                    opacity: 0.8
+                }).addTo(trajectoryLayer);
+            }
 
             // 🔧 修復：使用今日位置（而非歷史最新點）加上偏移，保持與initMainInteractiveMap一致
             // 獲取今日位置信息

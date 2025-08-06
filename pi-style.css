@@ -577,11 +577,12 @@ body {
     left: 0 !important;
     width: 100vw !important; /* 覆蓋整個視窗 */
     height: 100vh !important;
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    display: none; /* 預設隱藏，只有 active 時才顯示 */
+    opacity: 0;
+    visibility: hidden;
     z-index: 1000 !important; /* 非常高的 z-index 確保在最上層 */
     background: rgba(0, 0, 0, 0.1); /* 輕微的半透明背景讓地圖若隱若現 */
+    transition: all 0.3s ease-in-out;
 }
 
 .result-state.active,
@@ -594,6 +595,7 @@ body {
 }
 
 .waiting-state.active {
+    display: flex !important; /* 只有 active 時才顯示 */
     opacity: 1 !important;
     visibility: visible !important;
     position: fixed !important; /* 使用 fixed 定位 */
