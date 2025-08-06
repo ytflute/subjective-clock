@@ -106,7 +106,7 @@ class AudioManager(LoggerMixin):
             self.engine = 'mock'
     
     async def generate_and_play_greeting(self, city_data: Dict) -> bool:
-        """生成並播放問候語"""
+        """生成並播放問候語 - 與後端TTS系統協作"""
         try:
             if not self.enabled:
                 self.logger.info("🔇 音頻已停用，跳過語音生成")
@@ -115,13 +115,38 @@ class AudioManager(LoggerMixin):
             city = city_data.get('name', '未知城市')
             country = city_data.get('country', '未知國家')
             
-            if self.nova_mode and self.openai_client:
-                return await self._generate_nova_greeting(city, country)
+            self.logger.info(f"🎵 為 {city}, {country} 生成語音問候")
+            
+            # 方案1: 如果有Nova模式，調用後端TTS API
+            if self.nova_mode:
+                return await self._call_backend_tts(city, country)
+            
+            # 方案2: 使用本地Festival TTS
             else:
                 return await self._generate_festival_greeting(city, country)
                 
         except Exception as e:
             self.logger.error(f"❌ 語音生成失敗: {e}")
+            return False
+    
+    async def _call_backend_tts(self, city: str, country: str) -> bool:
+        """調用後端TTS API生成語音"""
+        try:
+            # 這裡可以調用現有的後端TTS系統
+            # 例如：main_web_dsi.py 中的音頻生成邏輯
+            
+            self.logger.info("🎵 調用後端TTS系統...")
+            
+            # 模擬調用，實際可以：
+            # 1. 調用 audio_manager.py 的TTS功能
+            # 2. 或者觸發現有的語音生成流程
+            # 3. 或者通過subprocess調用原有腳本
+            
+            # 這裡先用Festival替代
+            return await self._generate_festival_greeting(city, country)
+            
+        except Exception as e:
+            self.logger.error(f"❌ 後端TTS調用失敗: {e}")
             return False
     
     async def _generate_festival_greeting(self, city: str, country: str) -> bool:

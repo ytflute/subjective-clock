@@ -82,7 +82,8 @@ class DisplayManager(LoggerMixin):
     
     async def show_result(self, city_data: Dict):
         """顯示結果畫面"""
-        await self._set_state('result', city_data)
+        # 觸發 JavaScript 的完整流程，包括軌跡視覺化
+        await self._trigger_wakeup_process(city_data)
     
     async def show_error(self, error_message: str):
         """顯示錯誤畫面"""
@@ -123,6 +124,53 @@ class DisplayManager(LoggerMixin):
             
         except Exception as e:
             self.logger.error(f"❌ 顯示狀態設定失敗: {e}")
+    
+    async def _trigger_wakeup_process(self, city_data: Dict):
+        """觸發 JavaScript 的完整甦醒流程"""
+        try:
+            if not WEBVIEW_AVAILABLE:
+                self.logger.info("🖥️ 模擬觸發甦醒流程")
+                self.logger.info(f"🖥️ 城市資料: {city_data.get('name')}, {city_data.get('country')}")
+                return
+            
+            # 設定城市資料到 window 物件
+            js_set_data = f"""
+            window.currentCityData = {json.dumps(city_data)};
+            console.log('🔄 Python設定城市資料:', window.currentCityData);
+            """
+            await self.execute_js(js_set_data)
+            
+            # 觸發 displayAwakeningResult，這會啟動完整的 v4.0.0 流程
+            js_trigger = f"""
+            if (window.displayAwakeningResult) {{
+                console.log('🚀 Python觸發 displayAwakeningResult');
+                window.displayAwakeningResult(window.currentCityData);
+            }} else {{
+                console.warn('⚠️ displayAwakeningResult 函數不存在');
+            }}
+            """
+            await self.execute_js(js_trigger)
+            
+            self.logger.info("✅ 已觸發 JavaScript 甦醒流程")
+            
+        except Exception as e:
+            self.logger.error(f"❌ 觸發甦醒流程失敗: {e}")
+    
+    async def trigger_pi_story_ready(self, story_data: Dict):
+        """觸發 piStoryReady 事件"""
+        try:
+            js_code = f"""
+            console.log('🎵 Python觸發 piStoryReady 事件');
+            const event = new CustomEvent('piStoryReady', {{
+                detail: {json.dumps(story_data)}
+            }});
+            window.dispatchEvent(event);
+            """
+            await self.execute_js(js_code)
+            self.logger.info("✅ 已觸發 piStoryReady 事件")
+            
+        except Exception as e:
+            self.logger.error(f"❌ 觸發 piStoryReady 事件失敗: {e}")
     
     async def execute_js(self, js_code: str):
         """執行JavaScript代碼"""

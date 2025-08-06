@@ -80,28 +80,58 @@ class WakeUpMapController:
             self.logger.error(f"❌ 按鈕事件處理失敗: {e}")
     
     async def start_wakeup_process(self):
-        """開始甦醒流程"""
+        """開始甦醒流程 - Python後端 + JavaScript前端協作"""
         try:
+            self.logger.info("🚀 開始甦醒流程...")
+            
             # 1. 顯示載入畫面
             await self.display_manager.show_loading()
             
             # 2. 調用API獲取城市資料
+            self.logger.info("🌍 調用API尋找城市...")
             city_data = await self.api_client.find_city()
             if not city_data:
                 raise Exception("無法獲取城市資料")
             
-            # 3. 生成並播放語音問候
-            audio_success = await self.audio_manager.generate_and_play_greeting(city_data)
+            # 3. 生成故事內容
+            self.logger.info("📖 生成故事內容...")
+            story_data = await self.api_client.generate_story(
+                city_data.get('name', ''), 
+                city_data.get('country', '')
+            )
             
-            # 4. 同步資料到Firebase
-            await self.firebase_sync.save_record(city_data)
+            # 4. 生成並播放語音問候（背景執行）
+            self.logger.info("🔊 開始音頻生成和播放...")
+            audio_task = asyncio.create_task(
+                self.audio_manager.generate_and_play_greeting(city_data)
+            )
             
-            # 5. 顯示結果畫面
+            # 5. 同步資料到Firebase（背景執行）
+            self.logger.info("🔥 同步資料到Firebase...")
+            firebase_task = asyncio.create_task(
+                self.firebase_sync.save_record(city_data)
+            )
+            
+            # 6. 立即觸發JavaScript前端流程（包含軌跡視覺化）
+            self.logger.info("🖥️ 觸發JavaScript前端流程...")
             await self.display_manager.show_result(city_data)
             
-            # 6. 如果音頻失敗，顯示錯誤提示
+            # 7. 如果有故事，觸發piStoryReady事件
+            if story_data:
+                await asyncio.sleep(1)  # 稍等確保前端準備好
+                await self.display_manager.trigger_pi_story_ready(story_data)
+            
+            # 8. 等待背景任務完成
+            audio_success = await audio_task
+            firebase_success = await firebase_task
+            
+            # 9. 處理錯誤情況
             if not audio_success:
+                self.logger.warning("⚠️ 音頻播放失敗")
                 await self.audio_manager.play_error_sound()
+            
+            if not firebase_success:
+                self.logger.warning("⚠️ Firebase同步失敗")
             
             self.logger.info("✅ 甦醒流程完成")
             
