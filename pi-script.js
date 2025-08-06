@@ -357,10 +357,10 @@ window.addEventListener('piStoryReady', (event) => {
             return;
         }
         
-        // 查詢當前的 Day 計數（完全從 Firebase 計算，忽略本地資料）
+        // 🔧 修復：使用與軌跡相同的表 userHistory 來計算 Day 數
         const q = query(
-            collection(db, 'wakeup_records'),
-            where('userId', '==', rawUserDisplayName)
+            collection(db, 'userHistory'),
+            where('userDisplayName', '==', rawUserDisplayName)
             // 移除 orderBy 避免索引需求，只需要數量
         );
         getDocs(q).then(querySnapshot => {
@@ -2670,12 +2670,12 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
-        // 創建自定義圖標 - 使用簡單的 "TODAY" 標籤
+        // 創建自定義圖標 - 強化 TODAY 標籤可見性
         const customIcon = L.divIcon({
             className: 'trajectory-marker current-location',
-            html: `<div class="trajectory-day">TODAY</div>`,
-            iconSize: [60, 24],
-            iconAnchor: [30, 12]
+            html: `<div class="trajectory-day" style="background: #FF4444 !important; color: white !important; border: 3px solid yellow !important; border-radius: 10px !important; padding: 4px 8px !important; font-family: 'Press Start 2P', monospace !important; font-size: 10px !important; font-weight: bold !important; text-align: center !important; box-shadow: 0 4px 8px rgba(0,0,0,0.8) !important; z-index: 10000 !important; position: relative !important; display: block !important; visibility: visible !important;">TODAY</div>`,
+            iconSize: [70, 28],
+            iconAnchor: [35, 14]
         });
 
         const marker = L.marker([lat, lon], {
@@ -3027,10 +3027,10 @@ window.checkTrajectory = function() {
             const isLatest = index === historyPoints.length - 1;
             const dayNumber = index + 1;
             
-            // 創建自定義圖標顯示 Day 數字（學習 index.html 軌跡標記）
+            // 創建自定義圖標顯示 Day 數字（強化可見性）
             const customIcon = L.divIcon({
                 className: `trajectory-marker${isLatest ? ' current-location' : ''}`,
-                html: `<div class="trajectory-day">Day ${dayNumber}</div>`,
+                html: `<div class="trajectory-day" style="background: #FF6B6B !important; color: white !important; border: 2px solid white !important; border-radius: 10px !important; padding: 2px 6px !important; font-family: 'Press Start 2P', monospace !important; font-size: 8px !important; text-align: center !important; box-shadow: 0 2px 6px rgba(0,0,0,0.5) !important; z-index: 9999 !important; position: relative !important; display: block !important; visibility: visible !important;">Day ${dayNumber}</div>`,
                 iconSize: [60, 24],
                 iconAnchor: [30, 12]
             });
