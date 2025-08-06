@@ -3020,12 +3020,24 @@ window.checkTrajectory = function() {
         }
     }
 
-    // 🔧 統一的基礎地圖初始化
+    // 🔧 統一的基礎地圖初始化 - 修復版本
     function initBaseMapIfNeeded() {
         console.log('🗺️ initBaseMapIfNeeded 被調用');
         console.log('🗺️ mainInteractiveMap 存在:', !!mainInteractiveMap);
         
-        if (!mainInteractiveMap) {
+        const container = document.getElementById('mainMapContainer');
+        const hasValidMapInstance = container && container._leaflet_map && mainInteractiveMap;
+        
+        console.log('🗺️ 地圖綁定檢查:', {
+            容器存在: !!container,
+            容器有地圖實例: !!(container && container._leaflet_map),
+            全域變數存在: !!mainInteractiveMap,
+            綁定正確: hasValidMapInstance && (container._leaflet_map === mainInteractiveMap)
+        });
+        
+        if (!hasValidMapInstance || (container._leaflet_map !== mainInteractiveMap)) {
+            console.log('🔧 地圖實例需要重新綁定');
+            
             const coordinatesEl = document.getElementById('coordinates');
             console.log('🗺️ 座標元素:', coordinatesEl ? coordinatesEl.textContent : '未找到');
             
@@ -3037,8 +3049,20 @@ window.checkTrajectory = function() {
                 console.log('🗺️ 解析座標:', { lat, lon });
                 
                 if (!isNaN(lat) && !isNaN(lon)) {
-                    console.log('🗺️ 初始化基礎地圖，座標:', lat, lon);
-                    initMainInteractiveMap(lat, lon, '', '');
+                    // 清理容器並重新創建地圖
+                    container.innerHTML = '';
+                    container.className = 'main-map-background';
+                    
+                    console.log('🗺️ 重新創建地圖實例到容器');
+                    mainInteractiveMap = L.map('mainMapContainer').setView([lat, lon], 3);
+                    window.mainInteractiveMap = mainInteractiveMap;
+                    
+                    // 添加地圖瓦片
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '© OpenStreetMap contributors'
+                    }).addTo(mainInteractiveMap);
+                    
+                    console.log('✅ 地圖實例已正確綁定到容器');
                 } else {
                     console.log('❌ 座標解析失敗');
                 }
@@ -3046,7 +3070,7 @@ window.checkTrajectory = function() {
                 console.log('❌ 座標元素不存在或為空');
             }
         } else {
-            console.log('✅ 地圖已存在，跳過初始化');
+            console.log('✅ 地圖綁定正確，跳過重新初始化');
         }
     }
     
@@ -3087,7 +3111,7 @@ window.checkTrajectory = function() {
         }
     }
 
-    // 顯示歷史軌跡
+    // 顯示歷史軌跡 - 使用成功的手動邏輯
     function displayHistoryTrajectory(historyPoints) {
         console.log(`🔄 displayHistoryTrajectory 被調用，點數: ${historyPoints.length}`);
         console.log(`🔍 地圖狀態: ${!!mainInteractiveMap}`);
@@ -3105,10 +3129,10 @@ window.checkTrajectory = function() {
             mainInteractiveMap.removeLayer(trajectoryLayer);
         }
 
-        // 創建新的圖層群組 - 確保全域變數正確設定
+        // 創建新的圖層群組 - 使用成功的邏輯
         try {
             historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
-            window.historyMarkersLayer = historyMarkersLayer; // 🔧 確保全域變數同步
+            window.historyMarkersLayer = historyMarkersLayer;
             console.log('🗺️ 創建歷史標記圖層群組:', historyMarkersLayer);
             console.log('🔍 圖層是否成功添加到地圖:', mainInteractiveMap.hasLayer(historyMarkersLayer));
             console.log('🔍 全域變數是否同步:', !!window.historyMarkersLayer);
@@ -3117,26 +3141,28 @@ window.checkTrajectory = function() {
             return;
         }
 
-        // 添加歷史點位標記 - 使用簡單的圓形標記（學習 index.html 的成功實現）
+        // 按時間排序歷史點位
+        historyPoints.sort((a, b) => a.timestamp - b.timestamp);
+
+        // 添加歷史點位標記 - 使用驗證成功的邏輯
         historyPoints.forEach((point, index) => {
-            const isLatest = index === historyPoints.length - 1;
             const dayNumber = index + 1;
-            const markerColor = isLatest ? '#e74c3c' : '#3498db'; // 最新: 紅色, 歷史: 藍色
             
+            // 歷史標記：小藍點
             const marker = L.circleMarker([point.lat, point.lng], {
-                color: markerColor,
-                fillColor: markerColor,
-                fillOpacity: 0.8,
-                radius: isLatest ? 10 : 8,
+                color: '#3498db',
+                fillColor: '#3498db', 
+                fillOpacity: 0.7,
+                radius: 6,
                 weight: 2
             });
             
-            console.log(`🗺️ 創建標記 ${dayNumber}: 座標 [${point.lat}, ${point.lng}]`, marker);
+            console.log(`🗺️ 創建歷史標記 ${dayNumber}: 座標 [${point.lat}, ${point.lng}]`);
 
             // 簡潔的彈出窗內容
             const popupContent = `
                 <div style="text-align: center; min-width: 150px;">
-                    <h4 style="margin: 5px 0; color: ${markerColor};">Day ${dayNumber}</h4>
+                    <h4 style="margin: 5px 0; color: #3498db;">Day ${dayNumber}</h4>
                     <p style="margin: 3px 0;"><strong>${point.city || '未知城市'}</strong></p>
                     <p style="margin: 3px 0; color: #666;">${point.country || '未知國家'}</p>
                     <small style="color: #999;">${point.date || ''}</small>
@@ -3144,10 +3170,44 @@ window.checkTrajectory = function() {
             `;
             marker.bindPopup(popupContent);
 
-            console.log(`🔧 準備添加標記 ${dayNumber} 到圖層:`, marker);
-            historyMarkersLayer.addLayer(marker);
-            console.log(`✅ 標記 ${dayNumber} 已添加，圖層中標記數量:`, historyMarkersLayer.getLayers().length);
+            // 直接添加到地圖和圖層
+            marker.addTo(historyMarkersLayer);
+            console.log(`✅ 歷史標記 ${dayNumber} 已添加`);
         });
+
+        // 添加軌跡線
+        if (historyPoints.length > 1) {
+            const latlngs = historyPoints.map(point => [point.lat, point.lng]);
+            const trajectoryLine = L.polyline(latlngs, {
+                color: '#e74c3c',
+                weight: 2,
+                opacity: 0.7
+            });
+            trajectoryLine.addTo(historyMarkersLayer);
+            console.log('✅ 軌跡線已添加');
+        }
+
+        // 添加今日標記（大紅點）
+        const coordinatesEl = document.getElementById('coordinates');
+        if (coordinatesEl && coordinatesEl.textContent) {
+            const [latStr, lonStr] = coordinatesEl.textContent.split(', ');
+            const lat = parseFloat(latStr);
+            const lon = parseFloat(lonStr);
+            
+            if (!isNaN(lat) && !isNaN(lon)) {
+                const todayMarker = L.circleMarker([lat, lon], {
+                    color: '#FF4444',
+                    fillColor: '#FF4444',
+                    fillOpacity: 0.9,
+                    radius: 12,
+                    weight: 3
+                });
+                
+                todayMarker.bindPopup('🌅 TODAY - 馬約特');
+                todayMarker.addTo(historyMarkersLayer);
+                console.log(`🌅 今日標記已添加: [${lat}, ${lon}]`);
+            }
+        }
 
         console.log(`🗺️ 已添加 ${historyPoints.length} 個標記到地圖`);
         console.log('🔍 最終圖層檢查:', {
