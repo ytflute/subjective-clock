@@ -3105,11 +3105,13 @@ window.checkTrajectory = function() {
             mainInteractiveMap.removeLayer(trajectoryLayer);
         }
 
-        // 創建新的圖層群組
+        // 創建新的圖層群組 - 確保全域變數正確設定
         try {
             historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
+            window.historyMarkersLayer = historyMarkersLayer; // 🔧 確保全域變數同步
             console.log('🗺️ 創建歷史標記圖層群組:', historyMarkersLayer);
             console.log('🔍 圖層是否成功添加到地圖:', mainInteractiveMap.hasLayer(historyMarkersLayer));
+            console.log('🔍 全域變數是否同步:', !!window.historyMarkersLayer);
         } catch (error) {
             console.error('❌ 創建軌跡圖層失敗:', error);
             return;
@@ -3148,12 +3150,24 @@ window.checkTrajectory = function() {
         });
 
         console.log(`🗺️ 已添加 ${historyPoints.length} 個標記到地圖`);
+        console.log('🔍 最終圖層檢查:', {
+            圖層存在: !!historyMarkersLayer,
+            標記數量: historyMarkersLayer ? historyMarkersLayer.getLayers().length : 0,
+            全域變數: !!window.historyMarkersLayer
+        });
 
         // 🔧 強制地圖重新計算和重繪
         if (mainInteractiveMap && mainInteractiveMap.invalidateSize) {
             setTimeout(() => {
                 mainInteractiveMap.invalidateSize();
                 console.log('🗺️ 地圖重新計算完成');
+                
+                // 🔧 確保圖層仍然存在
+                if (window.historyMarkersLayer && window.historyMarkersLayer.getLayers().length > 0) {
+                    console.log('✅ 軌跡顯示成功確認');
+                } else {
+                    console.log('⚠️ 軌跡可能顯示失敗，請檢查');
+                }
             }, 100);
         }
 
