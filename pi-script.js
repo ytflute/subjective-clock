@@ -3001,8 +3001,15 @@ window.checkTrajectory = function() {
         // 🔧 統一處理：先初始化基礎地圖，再添加所有標記
         initBaseMapIfNeeded();
         
+        console.log(`🔍 準備顯示軌跡: ${historyPoints.length} 個點，地圖存在: ${!!mainInteractiveMap}`);
+        
         if (historyPoints.length > 0 && mainInteractiveMap) {
             displayHistoryTrajectory(historyPoints);
+        } else {
+            console.log('❌ 軌跡顯示條件不滿足:', {
+                pointsCount: historyPoints.length,
+                mapExists: !!mainInteractiveMap
+            });
         }
         
         // 🔧 添加今日標記（如果有座標的話）
@@ -3082,7 +3089,13 @@ window.checkTrajectory = function() {
 
     // 顯示歷史軌跡
     function displayHistoryTrajectory(historyPoints) {
-        if (!mainInteractiveMap) return;
+        console.log(`🔄 displayHistoryTrajectory 被調用，點數: ${historyPoints.length}`);
+        console.log(`🔍 地圖狀態: ${!!mainInteractiveMap}`);
+        
+        if (!mainInteractiveMap) {
+            console.log('❌ displayHistoryTrajectory: 地圖不存在');
+            return;
+        }
 
         // 清除之前的歷史圖層
         if (historyMarkersLayer) {
@@ -3093,8 +3106,14 @@ window.checkTrajectory = function() {
         }
 
         // 創建新的圖層群組
-        historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
-        console.log('🗺️ 創建歷史標記圖層群組:', historyMarkersLayer);
+        try {
+            historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
+            console.log('🗺️ 創建歷史標記圖層群組:', historyMarkersLayer);
+            console.log('🔍 圖層是否成功添加到地圖:', mainInteractiveMap.hasLayer(historyMarkersLayer));
+        } catch (error) {
+            console.error('❌ 創建軌跡圖層失敗:', error);
+            return;
+        }
 
         // 添加歷史點位標記 - 使用簡單的圓形標記（學習 index.html 的成功實現）
         historyPoints.forEach((point, index) => {
