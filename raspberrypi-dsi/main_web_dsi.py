@@ -452,18 +452,20 @@ class WakeUpMapWebApp:
             end_time = time.time()
             duration = end_time - start_time
             
-            if audio_file and audio_file.exists() and story_content:
-                self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
-                
-                # 🔧 數據已由 audio_manager 直接上傳到 Firebase，無需本地保存
-                self.logger.info("📊 故事資料已由 audio_manager 上傳到 Firebase")
-                
-                # 將故事內容傳給網頁端用於打字機效果顯示
+            # 🔧 改進：即使音頻失敗，如果有故事內容也要傳送給前端顯示
+            if story_content:
+                self.logger.info("📖 發現故事內容，傳送給前端顯示")
                 self._send_story_to_web(story_content)
                 
-                return audio_file
+                if audio_file and audio_file.exists():
+                    self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
+                    self.logger.info("📊 故事資料已由 audio_manager 上傳到 Firebase")
+                    return audio_file
+                else:
+                    self.logger.warning(f"⚠️ 音頻生成失敗，但故事內容已傳送給前端 (耗時: {duration:.1f}秒)")
+                    return None
             else:
-                self.logger.error(f"❌ 完整音頻準備失敗 (耗時: {duration:.1f}秒)")
+                self.logger.error(f"❌ 完整音頻和故事內容準備失敗 (耗時: {duration:.1f}秒)")
                 return None
                 
         except Exception as e:
