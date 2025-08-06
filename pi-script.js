@@ -2417,8 +2417,13 @@ function updateResultData(data) {
         console.log('✅ Firebase 匿名登入成功');
         updateConnectionStatus(true);
         
-        // 設定初始狀態
-        setState('waiting');
+        // 設定初始狀態 - 但不覆蓋正在進行的狀態
+        if (currentState === 'waiting' || !currentState) {
+            console.log('🔧 設定初始等待狀態');
+            setState('waiting');
+        } else {
+            console.log('🔧 保持當前狀態:', currentState, '不覆蓋為waiting');
+        }
         
         // 自動載入使用者資料
         console.log('🤖 自動載入使用者資料...');
@@ -3670,40 +3675,32 @@ setTimeout(() => {
         currentState: window.currentState
     });
     
-    // 強制移除所有 active
-    [loadingStateEl, resultStateEl, errorStateEl].forEach(el => {
-        if (el) {
-            el.classList.remove('active');
-            // 額外確保隱藏
-            el.style.display = 'none';
-            el.style.opacity = '0';
-            el.style.visibility = 'hidden';
-        }
-    });
+    // 🔧 只在沒有任何狀態活躍時才強制設定等待狀態
+    const hasActiveState = 
+        waitingStateEl?.classList.contains('active') ||
+        loadingStateEl?.classList.contains('active') ||
+        resultStateEl?.classList.contains('active') ||
+        errorStateEl?.classList.contains('active');
     
-    // 強制顯示等待狀態
-    if (waitingStateEl) {
-        waitingStateEl.classList.add('active');
-        waitingStateEl.style.display = 'flex';
-        waitingStateEl.style.opacity = '1';
-        waitingStateEl.style.visibility = 'visible';
-        waitingStateEl.style.position = 'relative';
-        waitingStateEl.style.zIndex = '10';
+    if (!hasActiveState || window.currentState === 'waiting') {
+        console.log('🔧 沒有活躍狀態，設定等待狀態');
         
-        console.log('✅ 最終強制初始狀態已設定');
+        // 移除所有狀態
+        [loadingStateEl, resultStateEl, errorStateEl].forEach(el => {
+            if (el) {
+                el.classList.remove('active');
+            }
+        });
         
-        // 檢查內容框是否可見
-        const contentBox = waitingStateEl.querySelector('.waiting-content-box');
-        if (contentBox) {
-            contentBox.style.display = 'block';
-            contentBox.style.visibility = 'visible';
-            contentBox.style.opacity = '1';
-            console.log('✅ 等待內容框已強制顯示');
+        // 顯示等待狀態
+        if (waitingStateEl) {
+            waitingStateEl.classList.add('active');
+            console.log('✅ 等待狀態已設定');
         }
+        
+        window.currentState = 'waiting';
     } else {
-        console.error('❌ 最終檢查：等待狀態元素仍然未找到！');
+        console.log('🔧 保持當前活躍狀態:', window.currentState, '不強制設定等待狀態');
     }
-    
-    window.currentState = 'waiting';
     
 }, 2000); // 延遲 2 秒執行，確保在所有其他初始化完成後
