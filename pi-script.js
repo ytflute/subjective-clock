@@ -26,6 +26,64 @@ let historyMarkersLayer = null; // 歷史點位圖層
 let currentState = 'waiting'; // waiting, loading, result, error
 window.currentState = currentState;
 
+// 🔧 全域 updateResultData 函數，確保在所有作用域都可訪問
+function updateResultData(data) {
+    console.log('📊 updateResultData 被調用，數據:', data);
+    
+    // 更新天數
+    const dayNumberEl = document.getElementById('dayNumber');
+    if (dayNumberEl && data.day) {
+        console.log('📊 updateResultData: 使用提供的 day 值:', data.day);
+        dayNumberEl.textContent = data.day;
+    }
+
+    // 更新日期
+    const wakeupDateEl = document.getElementById('wakeupDate');
+    if (wakeupDateEl) {
+        const currentDate = new Date();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const year = currentDate.getFullYear();
+        const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][currentDate.getDay()];
+        wakeupDateEl.textContent = `${month}/${day}/${year} ${weekday}`;
+    }
+
+    // 更新城市名稱
+    const cityNameEl = document.getElementById('cityName');
+    if (cityNameEl && data.city) {
+        cityNameEl.textContent = data.city;
+    }
+
+    // 更新國家名稱和國旗
+    const countryNameEl = document.getElementById('countryName');
+    const countryFlagEl = document.getElementById('countryFlag');
+    if (countryNameEl && data.country) {
+        countryNameEl.textContent = data.country;
+    }
+    if (countryFlagEl && data.flag) {
+        countryFlagEl.src = data.flag;
+        countryFlagEl.alt = `${data.country} Flag`;
+    }
+
+    // 更新座標
+    if (data.latitude && data.longitude) {
+        const coordinatesEl = document.getElementById('coordinates');
+        if (coordinatesEl) {
+            coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
+        }
+        
+        // 更新地圖標記
+        console.log('🗺️ updateResultData: 更新地圖到座標:', data.latitude, data.longitude);
+        initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+    }
+
+    // 更新問候語
+    const localGreetingEl = document.getElementById('localGreeting');
+    if (localGreetingEl && data.greeting) {
+        localGreetingEl.textContent = `${data.greeting} (${data.language || 'Unknown'})`;
+    }
+}
+
 // 🔧 確保初始狀態正確設定
 function ensureInitialState() {
     console.log('🔧 確保初始狀態為 waiting');
@@ -1947,8 +2005,8 @@ window.addEventListener('firebaseReady', async (event) => {
         return `${month}/${day} ${dayName}`;
     }
 
-    // 更新結果數據
-    function updateResultData(data) {
+// 更新結果數據 (移到全域作用域)
+function updateResultData(data) {
         // 更新天數
         const dayNumberEl = document.getElementById('dayNumber');
         if (dayNumberEl) {
