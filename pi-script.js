@@ -364,7 +364,7 @@ window.addEventListener('piStoryReady', (event) => {
             // 移除 orderBy 避免索引需求，只需要數量
         );
         getDocs(q).then(querySnapshot => {
-            const firebaseDay = querySnapshot.size; // 當前記錄數量就是 Day 數
+            const firebaseDay = querySnapshot.size + 1; // 歷史記錄數量 + 1 = 今天的 Day 數
             console.log('📊 piStoryReady: Firebase 查詢到記錄數量:', querySnapshot.size);
             
             // 🔥 新邏輯：從Firebase查詢最新記錄的故事內容
@@ -2970,6 +2970,7 @@ window.checkTrajectory = function() {
 
         // 創建新的圖層群組
         historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
+        console.log('🗺️ 創建歷史標記圖層群組:', historyMarkersLayer);
 
         // 添加歷史點位標記 - 學習 index.html 的 Day 標記樣式
         historyPoints.forEach((point, index) => {
@@ -2987,6 +2988,8 @@ window.checkTrajectory = function() {
             const marker = L.marker([point.lat, point.lng], {
                 icon: customIcon
             });
+            
+            console.log(`🗺️ 創建標記 ${dayNumber}: 座標 [${point.lat}, ${point.lng}]`, marker);
 
             // 設定點位說明 - 更豐富的彈出窗格式
             const popupContent = `
@@ -3005,6 +3008,16 @@ window.checkTrajectory = function() {
 
             historyMarkersLayer.addLayer(marker);
         });
+
+        console.log(`🗺️ 已添加 ${historyPoints.length} 個標記到地圖`);
+
+        // 🔧 強制地圖重新計算和重繪
+        if (mainInteractiveMap && mainInteractiveMap.invalidateSize) {
+            setTimeout(() => {
+                mainInteractiveMap.invalidateSize();
+                console.log('🗺️ 地圖重新計算完成');
+            }, 100);
+        }
 
         // 如果有多個點，創建軌跡線 - 學習 index.html 的多段線實現
         if (historyPoints.length > 1) {
