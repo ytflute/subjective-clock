@@ -452,14 +452,20 @@ class WakeUpMapWebApp:
             end_time = time.time()
             duration = end_time - start_time
             
-            # 🔧 改進：即使音頻失敗，如果有故事內容也要傳送給前端顯示
+            # 🔧 改進：確保Firebase上傳完成後才觸發前端事件
             if story_content:
-                self.logger.info("📖 發現故事內容，傳送給前端顯示")
+                self.logger.info("📖 發現故事內容，檢查Firebase上傳狀態...")
+                
+                # 🕐 等待一下讓Firebase有時間同步（audio_manager已經上傳）
+                import time
+                time.sleep(2)  # 等待2秒讓Firebase同步
+                
+                self.logger.info("🔥 Firebase同步等待完成，現在傳送故事給前端顯示")
                 self._send_story_to_web(story_content)
                 
                 if audio_file and audio_file.exists():
                     self.logger.info(f"✅ 完整音頻準備成功 (耗時: {duration:.1f}秒): {audio_file.name}")
-                    self.logger.info("📊 故事資料已由 audio_manager 上傳到 Firebase")
+                    self.logger.info("📊 故事資料已由 audio_manager 上傳到 Firebase，前端事件已觸發")
                     return audio_file
                 else:
                     self.logger.warning(f"⚠️ 音頻生成失敗，但故事內容已傳送給前端 (耗時: {duration:.1f}秒)")

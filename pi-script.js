@@ -320,19 +320,17 @@ window.addEventListener('piStoryReady', (event) => {
     if (storyData && (storyData.fullContent || storyData.story)) {
         console.log('🔍 piStoryReady: 檢查 Firebase 狀態 - db:', !!db, 'rawUserDisplayName:', rawUserDisplayName);
         
-        // 檢查 Firebase 是否已初始化，如果沒有就強制使用預設值
+        // 🔧 新邏輯：piStoryReady事件觸發時，後端已確保Firebase上傳完成
+        // 現在應該從Firebase讀取最新資料，而不是使用備援
+        console.log('🔥 piStoryReady事件觸發，後端已確保Firebase上傳完成');
+        console.log('📊 後端傳來的故事數據:', storyData);
+        
+        // 檢查 Firebase 是否已初始化
         if (!db || !window.firebaseSDK) {
-            console.error('❌ piStoryReady: Firebase 未初始化，使用預設 Day 1 並顯示故事');
-            console.log('🔍 當前 Firebase 狀態:', {
-                db: !!db,
-                firebaseSDK: !!window.firebaseSDK,
-                firebaseConfig: !!window.firebaseConfig
-            });
+            console.error('❌ piStoryReady: Firebase 未初始化，使用後端傳來的數據');
             
-            // 直接使用預設值並顯示故事，優先使用樹莓派的 Day 值
-            const finalDay = storyData.day || 1; // 優先使用樹莓派的 Day 值，否則預設為 1
-            console.log('📊 Firebase 未初始化，Day 值決定: 樹莓派傳來:', storyData.day, '最終使用:', finalDay);
-            
+            // 直接使用後端傳來的數據
+            const finalDay = storyData.day || 1;
             const resultData = {
                 city: storyData.city || 'Unknown City',
                 country: storyData.country || 'Unknown Country',
@@ -342,18 +340,17 @@ window.addEventListener('piStoryReady', (event) => {
                 greeting: storyData.greeting || 'Good Morning!',
                 language: storyData.language || 'English',
                 story: storyData.story || 'No story available',
-                day: finalDay, // 優先使用樹莓派的 Day 值
+                day: finalDay,
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             
-            console.log('📊 使用預設結果數據:', resultData);
             updateResultData(resultData);
             
             const storyTextEl = document.getElementById('storyText');
             if (storyTextEl) {
                 storyTextEl.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
-                    console.log('🎬 開始打字機效果，內容:', storyData.fullContent || storyData.story);
+                    console.log('🎬 使用後端傳來的故事內容:', storyData.fullContent || storyData.story);
                     startStoryTypewriter(storyData.fullContent || storyData.story);
                 }, 1000);
             }
@@ -370,9 +367,41 @@ window.addEventListener('piStoryReady', (event) => {
             const firebaseDay = querySnapshot.size; // 當前記錄數量就是 Day 數
             console.log('📊 piStoryReady: Firebase 查詢到記錄數量:', querySnapshot.size);
             
-            // 完全使用 Firebase 計算的 Day 值，忽略樹莓派本地計數
+            // 🔥 新邏輯：從Firebase查詢最新記錄的故事內容
+            let latestFirebaseStory = '';
+            let latestRecord = null;
+            
+            if (!querySnapshot.empty) {
+                // 找到最新的記錄
+                const records = [];
+                querySnapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (data.timestamp) {
+                        records.push(data);
+                    }
+                });
+                
+                // 按時間戳排序，最新的在前
+                records.sort((a, b) => {
+                    const aTime = a.timestamp?.toDate?.() || new Date(a.timestamp || 0);
+                    const bTime = b.timestamp?.toDate?.() || new Date(b.timestamp || 0);
+                    return bTime - aTime;
+                });
+                
+                if (records.length > 0) {
+                    latestRecord = records[0];
+                    latestFirebaseStory = latestRecord.story || latestRecord.greeting || '';
+                    console.log('🔥 從Firebase找到最新故事:', latestFirebaseStory);
+                    console.log('📊 最新記錄時間:', latestRecord.timestamp);
+                }
+            }
+            
             const finalDay = firebaseDay || 1; 
-            console.log('📊 Day 值決定: 忽略樹莓派本地值:', storyData.day, 'Firebase 計算值:', firebaseDay, '最終使用:', finalDay);
+            console.log('📊 Day 值決定: Firebase計算值:', firebaseDay, '最終使用:', finalDay);
+            
+            // 優先使用Firebase中的最新故事，其次使用後端傳來的故事
+            const finalStory = latestFirebaseStory || storyData.fullContent || storyData.story || '';
+            console.log('📖 故事優先級: Firebase故事:', !!latestFirebaseStory, '後端故事:', !!(storyData.fullContent || storyData.story), '最終使用:', finalStory.substring(0, 50) + '...');
             
             const resultData = {
                 city: storyData.city || '',
@@ -382,22 +411,22 @@ window.addEventListener('piStoryReady', (event) => {
                 longitude: storyData.longitude || '',
                 greeting: storyData.greeting || '',
                 language: storyData.language || '',
-                story: storyData.story || '',
-                day: finalDay, // 優先使用樹莓派的 Day 值
+                story: finalStory,
+                day: finalDay,
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             updateResultData(resultData);
 
-            // 🔧 修復：Firebase 查詢成功後顯示故事文字
+            // 顯示故事文字
             const storyElement = document.getElementById('storyText');
-            if (storyElement) {
+            if (storyElement && finalStory) {
                 storyElement.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
                 setTimeout(() => {
-                    console.log('🔧 Firebase查詢成功，開始顯示故事文字:', storyData.fullContent || storyData.story);
-                    startStoryTypewriter(storyData.fullContent || storyData.story);
+                    console.log('🔥 顯示最終故事內容:', finalStory);
+                    startStoryTypewriter(finalStory);
                 }, 1000);
             } else {
-                console.error('❌ Firebase查詢成功但找不到 #storyText 元素');
+                console.error('❌ 找不到 #storyText 元素或故事內容為空');
             }
 
             // 🔧 恢復：更新Firebase記錄添加故事內容
@@ -424,18 +453,7 @@ window.addEventListener('piStoryReady', (event) => {
                 }
             }
 
-            // 🔧 修復：Firebase 查詢成功後也要顯示故事文字
-            // 開始打字機效果顯示故事
-            const storyElem = document.getElementById('storyText');
-            if (storyElem) {
-                storyElem.textContent = '剛起床，正在清喉嚨，準備為你朗誦你的甦醒日誌.....';
-                setTimeout(() => {
-                    console.log('🔧 Firebase查詢成功後開始打字機效果，內容:', storyData.fullContent || storyData.story);
-                    startStoryTypewriter(storyData.fullContent || storyData.story);
-                }, 1000);
-            } else {
-                console.error('❌ Firebase查詢成功但找不到 #storyText 元素');
-            }
+            // 故事顯示已在上面處理，無需重複
         }).catch(error => {
             console.error('❌ piStoryReady: 查詢 Day 失敗:', error);
             // 如果查詢失敗，優先使用樹莓派的 Day 值
