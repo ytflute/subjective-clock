@@ -2392,17 +2392,47 @@ document.addEventListener('DOMContentLoaded', () => {
 // 初始化主要互動地圖 (唯一地圖實例)
 function initMainInteractiveMap(lat, lon, city, country) {
     try {
-        // 確保容器存在
+        // 確保容器存在和可見
         const mapContainer = document.getElementById('mainMapContainer');
         if (!mapContainer) {
             console.error('❌ 找不到地圖容器元素');
             return;
         }
+        
+        // 檢查容器是否可見和有尺寸
+        const containerRect = mapContainer.getBoundingClientRect();
+        if (containerRect.width === 0 || containerRect.height === 0) {
+            console.warn('⚠️ 地圖容器尺寸為 0，嘗試強制設定尺寸');
+            mapContainer.style.width = '100%';
+            mapContainer.style.height = '400px';
+            mapContainer.style.display = 'block';
+            mapContainer.style.visibility = 'visible';
+        }
+        
+        // 確保容器在 DOM 中可見
+        if (mapContainer.offsetParent === null) {
+            console.warn('⚠️ 地圖容器不可見，檢查父元素');
+            // 確保父元素也可見
+            let parent = mapContainer.parentElement;
+            while (parent && parent !== document.body) {
+                parent.style.display = 'block';
+                parent.style.visibility = 'visible';
+                parent = parent.parentElement;
+            }
+        }
 
         // 如果地圖已存在，直接更新位置
         if (mainInteractiveMap) {
             console.log('🗺️ 重用現有地圖實例，更新位置');
-            mainInteractiveMap.setView([lat || 20, (lon || 0) - 3], 3);
+            
+            // 🔧 重新計算地圖尺寸，防止DOM變化導致的尺寸問題
+            try {
+                mainInteractiveMap.invalidateSize();
+                mainInteractiveMap.setView([lat || 20, (lon || 0) - 3], 3);
+                console.log('✅ 地圖位置和尺寸已更新');
+            } catch (e) {
+                console.warn('⚠️ 地圖更新失敗:', e);
+            }
             return;
         }
         
@@ -2432,6 +2462,18 @@ function initMainInteractiveMap(lat, lon, city, country) {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: ''
         }).addTo(mainInteractiveMap);
+        
+        // 🔧 強制重新計算地圖尺寸，防止 offsetWidth 錯誤
+        setTimeout(() => {
+            if (mainInteractiveMap) {
+                try {
+                    mainInteractiveMap.invalidateSize();
+                    console.log('✅ 地圖尺寸已重新計算');
+                } catch (e) {
+                    console.warn('⚠️ 地圖尺寸重新計算失敗:', e);
+                }
+            }
+        }, 100);
         
         // 初始化軌跡線圖層
         if (trajectoryLayer) {
