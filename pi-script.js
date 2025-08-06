@@ -364,10 +364,11 @@ window.addEventListener('piStoryReady', (event) => {
             // 移除 orderBy 避免索引需求，只需要數量
         );
         getDocs(q).then(querySnapshot => {
-            const firebaseDay = querySnapshot.size + 1; // 歷史記錄數量 + 1 = 今天的 Day 數
+            // 🔧 不在這裡計算 Day，統一在 loadHistoryTrajectory 中處理
             console.log('📊 piStoryReady: Firebase 查詢到記錄數量:', querySnapshot.size);
             console.log('📊 piStoryReady: 查詢用戶名:', rawUserDisplayName);
             console.log('📊 piStoryReady: 查詢結果為空:', querySnapshot.empty);
+            console.log('📊 piStoryReady: Day 計算將在軌跡載入時統一處理');
             
             // 🔧 如果沒有找到記錄，檢查資料庫中是否有任何記錄
             if (querySnapshot.empty) {
@@ -418,8 +419,8 @@ window.addEventListener('piStoryReady', (event) => {
                 }
             }
             
-            const finalDay = firebaseDay || 1; 
-            console.log('📊 Day 值決定: Firebase計算值:', firebaseDay, '最終使用:', finalDay);
+            // 🔧 Day 值將在軌跡載入時統一計算和更新
+            console.log('📊 Day 值將在軌跡載入完成後統一計算');
             
             // 優先使用Firebase中的最新故事，其次使用後端傳來的故事
             const finalStory = latestFirebaseStory || storyData.fullContent || storyData.story || '';
@@ -444,7 +445,7 @@ window.addEventListener('piStoryReady', (event) => {
                 greeting: storyData.greeting || '',
                 language: storyData.language || '',
                 story: finalStory,
-                day: finalDay,
+                day: 1, // 🔧 暫時設為1，將在軌跡載入後更新為正確值
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
             
@@ -2960,6 +2961,17 @@ window.checkTrajectory = function() {
             });
 
                     console.log(`📍 載入了 ${historyPoints.length} 個歷史點位`);
+        
+        // 🔧 統一計算和更新 Day 值
+        const correctDay = historyPoints.length + 1; // 歷史記錄 + 今天 = 正確的 Day
+        console.log(`📊 正確的 Day 計算: ${historyPoints.length} 個歷史記錄 + 1 = Day ${correctDay}`);
+        
+        // 更新 Day 顯示
+        const dayNumberEl = document.getElementById('dayNumber');
+        if (dayNumberEl) {
+            dayNumberEl.textContent = correctDay;
+            console.log(`📊 Day 數字已更新為: ${correctDay}`);
+        }
         
         // 🔧 統一處理：先初始化基礎地圖，再添加所有標記
         initBaseMapIfNeeded();
