@@ -2670,16 +2670,13 @@ function initMainInteractiveMap(lat, lon, city, country) {
     
     // 如果有具體位置，添加標記
     if (lat && lon && city && country) {
-        // 創建自定義圖標 - 強化 TODAY 標籤可見性
-        const customIcon = L.divIcon({
-            className: 'trajectory-marker current-location',
-            html: `<div class="trajectory-day" style="background: #FF4444 !important; color: white !important; border: 3px solid yellow !important; border-radius: 10px !important; padding: 4px 8px !important; font-family: 'Press Start 2P', monospace !important; font-size: 10px !important; font-weight: bold !important; text-align: center !important; box-shadow: 0 4px 8px rgba(0,0,0,0.8) !important; z-index: 10000 !important; position: relative !important; display: block !important; visibility: visible !important;">TODAY</div>`,
-            iconSize: [70, 28],
-            iconAnchor: [35, 14]
-        });
-
-        const marker = L.marker([lat, lon], {
-            icon: customIcon
+        // 使用簡單的圓形標記表示 TODAY
+        const marker = L.circleMarker([lat, lon], {
+            color: '#FF4444',
+            fillColor: '#FF4444', 
+            fillOpacity: 0.9,
+            radius: 12,
+            weight: 3
         }).addTo(mainInteractiveMap);
         
         // 點擊顯示今日城市信息
@@ -2689,17 +2686,13 @@ function initMainInteractiveMap(lat, lon, city, country) {
         const todayCountry = countryNameEl ? countryNameEl.textContent : '';
         
         marker.bindPopup(`
-            <div style="text-align: center; font-family: 'Press Start 2P', monospace; font-size: 12px;">
-                <strong style="color: #000000;">🌅 TODAY</strong><br>
-                <span style="color: #333333; font-size: 14px;">${todayCity}</span><br>
-                <span style="color: #666666; font-size: 12px;">${todayCountry}</span><br>
-                <small style="color: #999999; font-size: 10px;">${lat.toFixed(4)}°, ${lon.toFixed(4)}°</small>
+            <div style="text-align: center; min-width: 150px;">
+                <h4 style="margin: 5px 0; color: #FF4444;">🌅 TODAY</h4>
+                <p style="margin: 3px 0;"><strong>${todayCity}</strong></p>
+                <p style="margin: 3px 0; color: #666;">${todayCountry}</p>
+                <small style="color: #999;">${lat.toFixed(4)}°, ${lon.toFixed(4)}°</small>
             </div>
-        `, {
-            offset: [0, -12],
-            maxWidth: 200,
-            className: 'today-popup'
-        });
+        `);
     }
     
     // 隱藏版權信息
@@ -3022,39 +3015,32 @@ window.checkTrajectory = function() {
         historyMarkersLayer = L.layerGroup().addTo(mainInteractiveMap);
         console.log('🗺️ 創建歷史標記圖層群組:', historyMarkersLayer);
 
-        // 添加歷史點位標記 - 學習 index.html 的 Day 標記樣式
+        // 添加歷史點位標記 - 使用簡單的圓形標記（學習 index.html 的成功實現）
         historyPoints.forEach((point, index) => {
             const isLatest = index === historyPoints.length - 1;
             const dayNumber = index + 1;
+            const markerColor = isLatest ? '#e74c3c' : '#3498db'; // 最新: 紅色, 歷史: 藍色
             
-            // 創建自定義圖標顯示 Day 數字（強化可見性）
-            const customIcon = L.divIcon({
-                className: `trajectory-marker${isLatest ? ' current-location' : ''}`,
-                html: `<div class="trajectory-day" style="background: #FF6B6B !important; color: white !important; border: 2px solid white !important; border-radius: 10px !important; padding: 2px 6px !important; font-family: 'Press Start 2P', monospace !important; font-size: 8px !important; text-align: center !important; box-shadow: 0 2px 6px rgba(0,0,0,0.5) !important; z-index: 9999 !important; position: relative !important; display: block !important; visibility: visible !important;">Day ${dayNumber}</div>`,
-                iconSize: [60, 24],
-                iconAnchor: [30, 12]
-            });
-
-            const marker = L.marker([point.lat, point.lng], {
-                icon: customIcon
+            const marker = L.circleMarker([point.lat, point.lng], {
+                color: markerColor,
+                fillColor: markerColor,
+                fillOpacity: 0.8,
+                radius: isLatest ? 10 : 8,
+                weight: 2
             });
             
             console.log(`🗺️ 創建標記 ${dayNumber}: 座標 [${point.lat}, ${point.lng}]`, marker);
 
-            // 設定點位說明 - 更豐富的彈出窗格式
+            // 簡潔的彈出窗內容
             const popupContent = `
-                <div style="text-align: center; font-family: 'Press Start 2P', monospace; font-size: 12px;">
-                    <strong style="color: #000000;">Day ${dayNumber}</strong><br>
-                    <span style="color: #333333; font-size: 14px;">${point.city || '未知城市'}</span><br>
-                    <span style="color: #666666; font-size: 12px;">${point.country || '未知國家'}</span><br>
-                    <small style="color: #999999; font-size: 10px;">${point.date || ''}</small>
+                <div style="text-align: center; min-width: 150px;">
+                    <h4 style="margin: 5px 0; color: ${markerColor};">Day ${dayNumber}</h4>
+                    <p style="margin: 3px 0;"><strong>${point.city || '未知城市'}</strong></p>
+                    <p style="margin: 3px 0; color: #666;">${point.country || '未知國家'}</p>
+                    <small style="color: #999;">${point.date || ''}</small>
                 </div>
             `;
-            marker.bindPopup(popupContent, {
-                offset: [0, -12],
-                maxWidth: 200,
-                className: 'trajectory-popup'
-            });
+            marker.bindPopup(popupContent);
 
             historyMarkersLayer.addLayer(marker);
         });
