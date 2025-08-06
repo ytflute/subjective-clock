@@ -2898,8 +2898,24 @@ window.checkTrajectory = function() {
         console.log('🔍 Firebase db 狀態:', !!db);
         console.log('🔍 Firebase auth 狀態:', !!auth);
         
+        // 🔧 自動修復Firebase初始化問題
+        if (!db && window.firebaseSDK && window.firebaseSDK.getFirestore) {
+            console.log('🔧 自動修復：初始化Firebase db實例...');
+            window.db = window.firebaseSDK.getFirestore();
+            db = window.db; // 更新本地變數
+            console.log('✅ Firebase db實例已自動初始化');
+        }
+        
+        if (!auth && window.firebaseSDK && window.firebaseSDK.getAuth) {
+            console.log('🔧 自動修復：初始化Firebase auth實例...');
+            window.auth = window.firebaseSDK.getAuth();
+            auth = window.auth; // 更新本地變數
+            console.log('✅ Firebase auth實例已自動初始化');
+        }
+        
         if (!db) {
-            console.log('📍 載入歷史軌跡：Firebase 數據庫未初始化');
+            console.log('❌ 載入歷史軌跡：Firebase 數據庫仍然未初始化');
+            console.log('🔍 可用的firebaseSDK方法:', Object.keys(window.firebaseSDK || {}));
             return;
         }
         
