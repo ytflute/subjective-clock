@@ -288,9 +288,9 @@ class WakeUpMapWebApp:
                 # 🎵 跳過提示音，直接進入 loading 模式
                 self.logger.info("🎵 跳過提示音，開始 loading")
                 
-                # 🔄 顯示 Loading 狀態
-                self.logger.info("📺 設定 Loading 狀態...")
-                self._set_loading_state(True)
+                # 🔧 移除語音生成 Loading 狀態，保持 LOCATING 畫面
+                self.logger.info("📺 跳過語音 Loading 狀態，保持原有 LOCATING 畫面")
+                # self._set_loading_state(True) # 已移除
                 
                 # 等待網頁處理完成
                 import time
@@ -327,17 +327,17 @@ class WakeUpMapWebApp:
                     else:
                         # 音頻準備失敗，顯示畫面並播放備用音效
                         self.logger.warning("⚠️ 音頻準備失敗，顯示畫面")
-                        self._set_loading_state(False)
+                        # self._set_loading_state(False) # 已移除，不再需要語音 loading
                         self.audio_manager.play_notification_sound('error')
                         
                 else:
                     self.logger.warning("⚠️ 無法從網頁提取城市資料")
-                    self._set_loading_state(False)
+                    # self._set_loading_state(False) # 已移除，不再需要語音 loading
                     self.audio_manager.play_notification_sound('error')
                     
             except Exception as e:
                 self.logger.error(f"同步loading處理失敗: {e}")
-                self._set_loading_state(False)
+                # self._set_loading_state(False) # 已移除，不再需要語音 loading
                 self.audio_manager.play_notification_sound('error')
         
         # 在背景執行緒中執行
