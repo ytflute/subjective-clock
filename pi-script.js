@@ -3124,13 +3124,13 @@ window.checkTrajectory = function() {
             if (!isNaN(lat) && !isNaN(lon)) {
                 console.log('🗺️ 添加今日標記:', lat, lon, city, country);
                 
-                // 使用美化的圓形標記表示 TODAY
+                // 今日標記：紅色，半透明60%
                 const marker = L.circleMarker([lat, lon], {
                     color: '#E63946',
-                    fillColor: '#F8F9FA', 
-                    fillOpacity: 1,
-                    radius: 14,
-                    weight: 4,
+                    fillColor: '#E63946', 
+                    fillOpacity: 0.6,
+                    radius: 10,
+                    weight: 2,
                     className: 'today-marker'
                 }).addTo(mainInteractiveMap);
                 
@@ -3179,20 +3179,20 @@ window.checkTrajectory = function() {
         // 按時間排序歷史點位
         historyPoints.sort((a, b) => a.timestamp - b.timestamp);
 
-        // 添加歷史點位標記 - 美化版本
+        // 添加歷史點位標記 - 根據距離調整透明度
         historyPoints.forEach((point, index) => {
             const dayNumber = index + 1;
             
-            // 歷史標記：漸變藍色系，越新越亮
-            const opacity = Math.max(0.4, 1 - (historyPoints.length - index) * 0.05);
-            const radius = Math.max(4, 8 - (historyPoints.length - index) * 0.1);
+            // 計算透明度：越遠的點越透明，最近的點保持較高透明度
+            const distanceFromLatest = historyPoints.length - index;
+            const opacity = Math.max(0.1, Math.min(0.8, 1 - (distanceFromLatest - 1) * 0.1));
             
             const marker = L.circleMarker([point.lat, point.lng], {
-                color: '#2E86AB',
-                fillColor: '#A8DADC', 
+                color: '#3498db',
+                fillColor: '#3498db', 
                 fillOpacity: opacity,
-                radius: radius,
-                weight: 2,
+                radius: 6,
+                weight: 1,
                 className: 'history-marker'
             });
             
@@ -3214,22 +3214,24 @@ window.checkTrajectory = function() {
             console.log(`✅ 歷史標記 ${dayNumber} 已添加`);
         });
 
-        // 添加軌跡線 - 美化版本
+        // 添加軌跡線 - 分段處理
         if (historyPoints.length > 1) {
             const latlngs = historyPoints.map(point => [point.lat, point.lng]);
-            const trajectoryLine = L.polyline(latlngs, {
-                color: '#F1FAEE',
-                weight: 3,
-                opacity: 0.8,
-                dashArray: '5, 10',
+            
+            // 歷史軌跡線（灰色虛線）
+            const historyLine = L.polyline(latlngs, {
+                color: '#999999',
+                weight: 2,
+                opacity: 0.6,
+                dashArray: '5, 5',
                 lineCap: 'round',
                 className: 'trajectory-line'
             });
-            trajectoryLine.addTo(historyMarkersLayer);
-            console.log('✅ 美化軌跡線已添加');
+            historyLine.addTo(historyMarkersLayer);
+            console.log('✅ 歷史軌跡線已添加（灰色虛線）');
         }
 
-        // 添加今日標記（大紅點）
+        // 添加最後一段到今日位置的紅色線條
         const coordinatesEl = document.getElementById('coordinates');
         if (coordinatesEl && coordinatesEl.textContent) {
             const [latStr, lonStr] = coordinatesEl.textContent.split(', ');
@@ -3237,16 +3239,34 @@ window.checkTrajectory = function() {
             const lon = parseFloat(lonStr);
             
             if (!isNaN(lat) && !isNaN(lon)) {
+                // 如果有歷史點，添加從最後一個歷史點到今日位置的紅色實線
+                if (historyPoints.length > 0) {
+                    const lastHistoryPoint = historyPoints[historyPoints.length - 1];
+                    const finalLine = L.polyline([
+                        [lastHistoryPoint.lat, lastHistoryPoint.lng],
+                        [lat, lon]
+                    ], {
+                        color: '#E63946',
+                        weight: 3,
+                        opacity: 0.8,
+                        lineCap: 'round',
+                        className: 'trajectory-line current'
+                    });
+                    finalLine.addTo(historyMarkersLayer);
+                    console.log('✅ 最後一段紅色軌跡線已添加');
+                }
+                
+                // 今日標記：紅色，半透明60%
                 const todayMarker = L.circleMarker([lat, lon], {
                     color: '#E63946',
-                    fillColor: '#F8F9FA', 
-                    fillOpacity: 1,
-                    radius: 14,
-                    weight: 4,
+                    fillColor: '#E63946', 
+                    fillOpacity: 0.6,
+                    radius: 10,
+                    weight: 2,
                     className: 'today-marker'
                 });
                 
-                todayMarker.bindPopup('🌅 TODAY - 馬約特');
+                todayMarker.bindPopup('🌅 TODAY');
                 todayMarker.addTo(historyMarkersLayer);
                 console.log(`🌅 今日標記已添加: [${lat}, ${lon}]`);
             }
