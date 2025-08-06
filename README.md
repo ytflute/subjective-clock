@@ -193,7 +193,7 @@ window.voiceStoryContent = [語音故事內容]
 /api/translate-location/    # 多語言地名翻譯  
 /api/generateStory/         # AI 故事生成
 /api/generateImage/         # AI 圖片生成
-/api/generateMorningGreeting/  # 當地語言問候 + 中文故事生成 (v3.0 新增)
+/api/generatePiStory/       # Pi專用故事生成 (整合問候語與故事)
 /api/save-record/          # 記錄同步 (樹莓派專用)
 ```
 

@@ -23,10 +23,6 @@
       "destination": "/api/generatePiStory"
     },
     {
-      "source": "/api/generateMorningGreeting",
-      "destination": "/api/generateMorningGreeting"
-    },
-    {
       "source": "/api/save-record",
       "destination": "/api/save-record"
     }
