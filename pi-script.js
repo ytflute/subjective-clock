@@ -459,11 +459,11 @@ window.addEventListener('piStoryReady', (event) => {
             setState('result');
             console.log('✅ 故事已準備完成，切換到結果頁面');
 
-            // 🔧 重要：等待狀態切換完成後再載入軌跡，確保地圖容器可見
+            // 🔧 縮短延遲，立即開始統一的地圖初始化
             setTimeout(() => {
-                console.log('🔄 狀態切換完成，開始載入歷史軌跡...');
+                console.log('🔄 開始統一的地圖和軌跡初始化...');
                 loadHistoryTrajectory();
-            }, 300);
+            }, 50);
 
             // 顯示故事文字
             const storyElement = document.getElementById('storyText');
@@ -2135,12 +2135,8 @@ function updateResultData(data) {
                 coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
             }
             
-            // 🔧 延遲地圖初始化，確保容器可見
-            console.log('🗺️ 準備初始化地圖，等待容器可見...');
-            setTimeout(() => {
-                console.log('🗺️ 容器應該已可見，開始初始化地圖');
-                initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
-            }, 100);
+            // 🔧 不在這裡初始化地圖，統一在 loadHistoryTrajectory 中處理
+            console.log('🗺️ 座標已更新，等待統一的地圖初始化...');
         }
         
         // 🔧 修復：不清空故事文字，保持 piStoryReady 事件處理器設置的故事內容
@@ -2668,32 +2664,7 @@ function initMainInteractiveMap(lat, lon, city, country) {
         mainInteractiveMap = null;
     }
     
-    // 如果有具體位置，添加標記
-    if (lat && lon && city && country) {
-        // 使用簡單的圓形標記表示 TODAY
-        const marker = L.circleMarker([lat, lon], {
-            color: '#FF4444',
-            fillColor: '#FF4444', 
-            fillOpacity: 0.9,
-            radius: 12,
-            weight: 3
-        }).addTo(mainInteractiveMap);
-        
-        // 點擊顯示今日城市信息
-        const cityNameEl = document.getElementById('cityName');
-        const countryNameEl = document.getElementById('countryName');
-        const todayCity = cityNameEl ? cityNameEl.textContent : '今日位置';
-        const todayCountry = countryNameEl ? countryNameEl.textContent : '';
-        
-        marker.bindPopup(`
-            <div style="text-align: center; min-width: 150px;">
-                <h4 style="margin: 5px 0; color: #FF4444;">🌅 TODAY</h4>
-                <p style="margin: 3px 0;"><strong>${todayCity}</strong></p>
-                <p style="margin: 3px 0; color: #666;">${todayCountry}</p>
-                <small style="color: #999;">${lat.toFixed(4)}°, ${lon.toFixed(4)}°</small>
-            </div>
-        `);
-    }
+    // 🔧 TODAY 標記現在由 addTodayMarkerIfNeeded() 統一處理
     
     // 隱藏版權信息
     mainInteractiveMap.attributionControl.setPrefix('');
@@ -2988,14 +2959,74 @@ window.checkTrajectory = function() {
                 return timeA - timeB; // 升序排列
             });
 
-            console.log(`📍 載入了 ${historyPoints.length} 個歷史點位`);
-            
-            if (historyPoints.length > 0 && mainInteractiveMap) {
-                displayHistoryTrajectory(historyPoints);
-            }
+                    console.log(`📍 載入了 ${historyPoints.length} 個歷史點位`);
+        
+        // 🔧 統一處理：先初始化基礎地圖，再添加所有標記
+        initBaseMapIfNeeded();
+        
+        if (historyPoints.length > 0 && mainInteractiveMap) {
+            displayHistoryTrajectory(historyPoints);
+        }
+        
+        // 🔧 添加今日標記（如果有座標的話）
+        addTodayMarkerIfNeeded();
 
         } catch (error) {
             console.error('📍 載入歷史軌跡失敗:', error);
+        }
+    }
+
+    // 🔧 統一的基礎地圖初始化
+    function initBaseMapIfNeeded() {
+        if (!mainInteractiveMap) {
+            const coordinatesEl = document.getElementById('coordinates');
+            if (coordinatesEl && coordinatesEl.textContent) {
+                const [latStr, lonStr] = coordinatesEl.textContent.split(', ');
+                const lat = parseFloat(latStr);
+                const lon = parseFloat(lonStr);
+                
+                if (!isNaN(lat) && !isNaN(lon)) {
+                    console.log('🗺️ 初始化基礎地圖，座標:', lat, lon);
+                    initMainInteractiveMap(lat, lon, '', '');
+                }
+            }
+        }
+    }
+    
+    // 🔧 統一的今日標記添加
+    function addTodayMarkerIfNeeded() {
+        const coordinatesEl = document.getElementById('coordinates');
+        const cityNameEl = document.getElementById('cityName');
+        const countryNameEl = document.getElementById('countryName');
+        
+        if (coordinatesEl && coordinatesEl.textContent && mainInteractiveMap) {
+            const [latStr, lonStr] = coordinatesEl.textContent.split(', ');
+            const lat = parseFloat(latStr);
+            const lon = parseFloat(lonStr);
+            const city = cityNameEl ? cityNameEl.textContent : '今日位置';
+            const country = countryNameEl ? countryNameEl.textContent : '';
+            
+            if (!isNaN(lat) && !isNaN(lon)) {
+                console.log('🗺️ 添加今日標記:', lat, lon, city, country);
+                
+                // 使用簡單的圓形標記表示 TODAY
+                const marker = L.circleMarker([lat, lon], {
+                    color: '#FF4444',
+                    fillColor: '#FF4444', 
+                    fillOpacity: 0.9,
+                    radius: 12,
+                    weight: 3
+                }).addTo(mainInteractiveMap);
+                
+                marker.bindPopup(`
+                    <div style="text-align: center; min-width: 150px;">
+                        <h4 style="margin: 5px 0; color: #FF4444;">🌅 TODAY</h4>
+                        <p style="margin: 3px 0;"><strong>${city}</strong></p>
+                        <p style="margin: 3px 0; color: #666;">${country}</p>
+                        <small style="color: #999;">${lat.toFixed(4)}°, ${lon.toFixed(4)}°</small>
+                    </div>
+                `);
+            }
         }
     }
 
