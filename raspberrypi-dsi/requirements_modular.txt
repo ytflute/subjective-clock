@@ -1,0 +1,22 @@
+# 甦醒地圖模組化版本依賴
+
+# 核心依賴
+aiohttp>=3.8.0
+asyncio
+
+# 樹莓派GPIO支援
+RPi.GPIO>=0.7.1
+
+# 網頁顯示
+pywebview>=4.0.0
+
+# Firebase支援（可選）
+firebase-admin>=6.0.0
+
+# 音頻處理
+# festival (系統套件)
+# alsa-utils (系統套件)
+
+# 開發和測試
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
