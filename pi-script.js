@@ -366,6 +366,28 @@ window.addEventListener('piStoryReady', (event) => {
         getDocs(q).then(querySnapshot => {
             const firebaseDay = querySnapshot.size + 1; // 歷史記錄數量 + 1 = 今天的 Day 數
             console.log('📊 piStoryReady: Firebase 查詢到記錄數量:', querySnapshot.size);
+            console.log('📊 piStoryReady: 查詢用戶名:', rawUserDisplayName);
+            console.log('📊 piStoryReady: 查詢結果為空:', querySnapshot.empty);
+            
+            // 🔧 如果沒有找到記錄，檢查資料庫中是否有任何記錄
+            if (querySnapshot.empty) {
+                console.log('⚠️ 沒有找到用戶記錄，嘗試查詢資料庫中的所有記錄...');
+                const allRecordsQuery = query(collection(db, 'wakeup_records'));
+                getDocs(allRecordsQuery).then(allSnapshot => {
+                    console.log('📊 資料庫總記錄數:', allSnapshot.size);
+                    if (!allSnapshot.empty) {
+                        console.log('📊 資料庫中存在的用戶:');
+                        const users = new Set();
+                        allSnapshot.forEach(doc => {
+                            const userId = doc.data().userId;
+                            if (userId) users.add(userId);
+                        });
+                        console.log('👥 用戶列表:', Array.from(users));
+                    }
+                }).catch(err => {
+                    console.error('❌ 查詢所有記錄失敗:', err);
+                });
+            }
             
             // 🔥 新邏輯：從Firebase查詢最新記錄的故事內容
             let latestFirebaseStory = '';
@@ -403,18 +425,34 @@ window.addEventListener('piStoryReady', (event) => {
             const finalStory = latestFirebaseStory || storyData.fullContent || storyData.story || '';
             console.log('📖 故事優先級: Firebase故事:', !!latestFirebaseStory, '後端故事:', !!(storyData.fullContent || storyData.story), '最終使用:', finalStory.substring(0, 50) + '...');
             
+            // 🔧 嘗試從 window.currentCityData 獲取座標（如果後端沒有提供）
+            let finalLatitude = storyData.latitude || '';
+            let finalLongitude = storyData.longitude || '';
+            
+            if ((!finalLatitude || !finalLongitude) && window.currentCityData) {
+                console.log('📊 piStoryReady: 後端沒有座標，嘗試使用 currentCityData:', window.currentCityData);
+                finalLatitude = window.currentCityData.latitude || finalLatitude;
+                finalLongitude = window.currentCityData.longitude || finalLongitude;
+            }
+            
             const resultData = {
                 city: storyData.city || '',
                 country: storyData.country || '',
                 countryCode: storyData.countryCode || '',
-                latitude: storyData.latitude || '',
-                longitude: storyData.longitude || '',
+                latitude: finalLatitude,
+                longitude: finalLongitude,
                 greeting: storyData.greeting || '',
                 language: storyData.language || '',
                 story: finalStory,
                 day: finalDay,
                 flag: storyData.countryCode ? `https://flagcdn.com/96x72/${storyData.countryCode.toLowerCase()}.png` : ''
             };
+            
+            console.log('📊 piStoryReady: 最終座標數據:', { 
+                latitude: finalLatitude, 
+                longitude: finalLongitude,
+                source: finalLatitude !== storyData.latitude ? 'currentCityData' : 'storyData'
+            });
             updateResultData(resultData);
 
             // 🔧 修復：現在切換到結果狀態，因為故事已準備完成
