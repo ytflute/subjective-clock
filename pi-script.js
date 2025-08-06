@@ -421,6 +421,12 @@ window.addEventListener('piStoryReady', (event) => {
             setState('result');
             console.log('✅ 故事已準備完成，切換到結果頁面');
 
+            // 🔧 重要：等待狀態切換完成後再載入軌跡，確保地圖容器可見
+            setTimeout(() => {
+                console.log('🔄 狀態切換完成，開始載入歷史軌跡...');
+                loadHistoryTrajectory();
+            }, 300);
+
             // 顯示故事文字
             const storyElement = document.getElementById('storyText');
             if (storyElement && finalStory) {
@@ -1215,15 +1221,8 @@ window.addEventListener('firebaseReady', async (event) => {
                 cityData.country
             );
             
-            // 🔧 等待地圖初始化完成後載入歷史軌跡
-            setTimeout(async () => {
-                try {
-                    console.log('📍 開始載入歷史軌跡和標記...');
-                    await loadHistoryTrajectory();
-                } catch (error) {
-                    console.error('❌ 載入歷史軌跡失敗:', error);
-                }
-            }, 2000);
+            // 🔧 移除這裡的軌跡載入 - 現在在 piStoryReady 事件中處理
+            // 確保軌跡載入在 result 狀態激活後進行
             
             // 設定結果文字（保持相容性）
             const resultText = `今天你在 ${cityData.name}, ${cityData.country} 甦醒！`;
@@ -2098,8 +2097,12 @@ function updateResultData(data) {
                 coordinatesEl.textContent = `${data.latitude.toFixed(4)}, ${data.longitude.toFixed(4)}`;
             }
             
-            // 更新地圖標記
-            initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+            // 🔧 延遲地圖初始化，確保容器可見
+            console.log('🗺️ 準備初始化地圖，等待容器可見...');
+            setTimeout(() => {
+                console.log('🗺️ 容器應該已可見，開始初始化地圖');
+                initMainInteractiveMap(data.latitude, data.longitude, data.city, data.country);
+            }, 100);
         }
         
         // 🔧 修復：不清空故事文字，保持 piStoryReady 事件處理器設置的故事內容
@@ -2536,7 +2539,14 @@ function initMainInteractiveMap(lat, lon, city, country) {
         
         // 確保容器在 DOM 中可見
         if (mapContainer.offsetParent === null) {
-            console.warn('⚠️ 地圖容器不可見，檢查父元素');
+            console.warn('⚠️ 地圖容器不可見，強制設置可見性');
+            
+            // 強制容器本身可見
+            mapContainer.style.display = 'block';
+            mapContainer.style.visibility = 'visible';
+            mapContainer.style.width = '100vw';
+            mapContainer.style.height = '100vh';
+            
             // 確保父元素也可見
             let parent = mapContainer.parentElement;
             while (parent && parent !== document.body) {
@@ -2544,6 +2554,8 @@ function initMainInteractiveMap(lat, lon, city, country) {
                 parent.style.visibility = 'visible';
                 parent = parent.parentElement;
             }
+            
+            console.log('✅ 已強制設置地圖容器為可見');
         }
 
         // 如果地圖已存在，直接更新位置
