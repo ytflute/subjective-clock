@@ -1,0 +1,241 @@
+<!-- ⏳ Locating 頁面組件 -->
+<!-- 載入狀態 - 後端處理城市搜尋和語音生成時的載入畫面 -->
+<div id="loadingState" class="state loading-state">
+    <!-- 中央內容框 -->
+    <div class="loading-content-box">
+        <h1 class="locating-title blinking-text">LOCATING...</h1>
+        <p class="locating-progress">正在為你定位今日的甦醒位置......</p>
+        <p class="locating-subtitle">請稍候，正在處理中</p>
+        
+        <!-- 載入進度指示器 -->
+        <div class="loading-indicator">
+            <div class="loading-dots">
+                <span class="dot dot1">●</span>
+                <span class="dot dot2">●</span>
+                <span class="dot dot3">●</span>
+            </div>
+        </div>
+        
+        <!-- 處理狀態文字 -->
+        <div class="process-status">
+            <p id="processStatusText" class="status-text">初始化中...</p>
+        </div>
+    </div>
+</div>
+
+<!-- 載入狀態專用樣式 -->
+<style>
+    /* 載入狀態容器 */
+    .loading-state {
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, rgba(26, 35, 20, 0.95), rgba(45, 60, 35, 0.9));
+    }
+    
+    /* 載入內容框 */
+    .loading-content-box {
+        text-align: center;
+        padding: 50px 40px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.8);
+        border: 2px solid rgba(255, 193, 7, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        max-width: 650px;
+        animation: pulseGlow 2s ease-in-out infinite alternate;
+    }
+    
+    /* 主標題 */
+    .locating-title {
+        font-family: 'Press Start 2P', 'ByteBounce', monospace;
+        font-size: 28px;
+        color: #ffc107;
+        margin-bottom: 25px;
+        text-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+        letter-spacing: 3px;
+    }
+    
+    /* 進度文字 */
+    .locating-progress {
+        font-family: 'GB18030 Bitmap', 'Microsoft YaHei', sans-serif;
+        font-size: 18px;
+        color: #fff3c4;
+        margin-bottom: 15px;
+        opacity: 0.9;
+    }
+    
+    /* 副標題 */
+    .locating-subtitle {
+        font-family: 'Orbitron', monospace;
+        font-size: 14px;
+        color: #ffe082;
+        margin-bottom: 30px;
+        opacity: 0.8;
+    }
+    
+    /* 載入指示器 */
+    .loading-indicator {
+        margin: 20px 0;
+    }
+    
+    .loading-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .dot {
+        font-size: 20px;
+        color: #ffc107;
+        animation: dotPulse 1.5s ease-in-out infinite;
+    }
+    
+    .dot1 { animation-delay: 0s; }
+    .dot2 { animation-delay: 0.3s; }
+    .dot3 { animation-delay: 0.6s; }
+    
+    @keyframes dotPulse {
+        0%, 60%, 100% { 
+            opacity: 0.3; 
+            transform: scale(1);
+        }
+        30% { 
+            opacity: 1; 
+            transform: scale(1.2);
+        }
+    }
+    
+    /* 處理狀態區域 */
+    .process-status {
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(255, 193, 7, 0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 193, 7, 0.2);
+    }
+    
+    .status-text {
+        font-family: 'GB18030 Bitmap', 'Microsoft YaHei', sans-serif;
+        font-size: 14px;
+        color: #fff8e1;
+        margin: 0;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* 脈衝發光動畫 */
+    @keyframes pulseGlow {
+        0% { 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 193, 7, 0.1); 
+        }
+        100% { 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 40px rgba(255, 193, 7, 0.3); 
+        }
+    }
+    
+    /* 閃爍動畫 */
+    .blinking-text {
+        animation: blinkingAnimation 1.8s ease-in-out infinite;
+    }
+    
+    @keyframes blinkingAnimation {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0.6; }
+    }
+</style>
+
+<!-- 載入狀態專用腳本 -->
+<script>
+    // 載入狀態管理
+    class LoadingStateManager {
+        constructor() {
+            this.statusMessages = [
+                '🌍 正在搜尋城市位置...',
+                '📖 生成創意故事中...',
+                '🎵 準備語音內容...',
+                '🔥 同步資料到雲端...',
+                '🗺️ 更新地圖軌跡...',
+                '✨ 最後整理中...'
+            ];
+            this.currentMessageIndex = 0;
+            this.messageInterval = null;
+        }
+        
+        init() {
+            console.log('⏳ 載入狀態組件已載入');
+            this.setupStatusUpdater();
+        }
+        
+        // 設置狀態訊息輪播
+        setupStatusUpdater() {
+            const statusElement = document.getElementById('processStatusText');
+            if (!statusElement) return;
+            
+            // 立即顯示第一個訊息
+            statusElement.textContent = this.statusMessages[0];
+            
+            // 每3秒切換一次訊息
+            this.messageInterval = setInterval(() => {
+                this.currentMessageIndex = (this.currentMessageIndex + 1) % this.statusMessages.length;
+                statusElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    statusElement.textContent = this.statusMessages[this.currentMessageIndex];
+                    statusElement.style.opacity = '0.8';
+                }, 150);
+            }, 3000);
+        }
+        
+        // 設置自定義狀態訊息
+        setStatus(message) {
+            const statusElement = document.getElementById('processStatusText');
+            if (statusElement) {
+                statusElement.textContent = message;
+                // 暫停輪播
+                if (this.messageInterval) {
+                    clearInterval(this.messageInterval);
+                    this.messageInterval = null;
+                }
+            }
+        }
+        
+        // 恢復狀態輪播
+        resumeStatusRotation() {
+            if (!this.messageInterval) {
+                this.setupStatusUpdater();
+            }
+        }
+        
+        // 清理資源
+        cleanup() {
+            if (this.messageInterval) {
+                clearInterval(this.messageInterval);
+                this.messageInterval = null;
+            }
+        }
+    }
+    
+    // 全域載入狀態管理器
+    window.loadingStateManager = new LoadingStateManager();
+    
+    // 組件載入完成後初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        window.loadingStateManager.init();
+    });
+    
+    // 如果已經載入完成，立即初始化
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        window.loadingStateManager.init();
+    }
+    
+    // 監聽載入狀態變化
+    document.addEventListener('stateChanged', function(event) {
+        if (event.detail && event.detail.state === 'loading') {
+            console.log('🔄 進入載入狀態');
+            window.loadingStateManager.resumeStatusRotation();
+        } else if (event.detail && event.detail.state !== 'loading') {
+            console.log('🏁 離開載入狀態');
+            window.loadingStateManager.cleanup();
+        }
+    });
+</script>

@@ -1,0 +1,165 @@
+<!-- 🔘 Press The Button 頁面組件 -->
+<!-- 等待狀態 - 用戶按下實體按鈕前的待機畫面 -->
+<div id="waitingState" class="state waiting-state active">
+    <!-- 中央內容框 -->
+    <div class="waiting-content-box">
+        <h1 class="press-button-title blinking-text">PRESS THE BUTTON</h1>
+        <p class="press-button-subtitle">TO LOCATE YOUR WAKEUP LOCATION</p>
+        <p class="press-button-chinese">按下按鈕，定位你今日的甦醒位置</p>
+
+        <!-- 隱藏的緊急備用按鈕 -->
+        <!-- 功能: 當實體按鈕失效時的緊急備用方案 -->
+        <!-- 觸發: 點擊、Ctrl+H快捷鍵、ESC顯示5秒 -->
+        <div id="hiddenBackupButton" 
+             onclick="window.startTheDay && window.startTheDay()" 
+             style="
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                width: 50px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.02);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 50%;
+                cursor: pointer;
+                z-index: 9998;
+                opacity: 0.02;
+                transition: opacity 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.1);
+                user-select: none;
+             " 
+             onmouseover="this.style.opacity='0.1'" 
+             onmouseout="this.style.opacity='0.02'" 
+             title="隱藏緊急按鈕">
+            🆘
+        </div>
+    </div>
+</div>
+
+<!-- 等待狀態專用樣式 -->
+<style>
+    /* 等待狀態容器 */
+    .waiting-state {
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, rgba(13, 26, 14, 0.95), rgba(25, 50, 28, 0.9));
+    }
+    
+    /* 等待內容框 */
+    .waiting-content-box {
+        text-align: center;
+        padding: 40px;
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgba(77, 113, 79, 0.5);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        max-width: 600px;
+        animation: gentleGlow 3s ease-in-out infinite alternate;
+    }
+    
+    /* 主標題 */
+    .press-button-title {
+        font-family: 'Press Start 2P', 'ByteBounce', monospace;
+        font-size: 24px;
+        color: #4ecdc4;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+        letter-spacing: 2px;
+    }
+    
+    /* 英文副標題 */
+    .press-button-subtitle {
+        font-family: 'Orbitron', monospace;
+        font-size: 14px;
+        color: #a8e6cf;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        opacity: 0.9;
+    }
+    
+    /* 中文說明 */
+    .press-button-chinese {
+        font-family: 'GB18030 Bitmap', 'Microsoft YaHei', sans-serif;
+        font-size: 16px;
+        color: #c8e6c9;
+        margin-bottom: 0;
+        opacity: 0.8;
+    }
+    
+    /* 閃爍動畫 */
+    .blinking-text {
+        animation: blinkingAnimation 2s ease-in-out infinite;
+    }
+    
+    @keyframes blinkingAnimation {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0.7; }
+    }
+    
+    /* 輕微發光動畫 */
+    @keyframes gentleGlow {
+        0% { 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(77, 113, 79, 0.1); 
+        }
+        100% { 
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(77, 113, 79, 0.2); 
+        }
+    }
+    
+    /* 隱藏緊急按鈕hover效果 */
+    #hiddenBackupButton:hover {
+        background: rgba(77, 113, 79, 0.3) !important;
+        border-color: rgba(77, 113, 79, 0.5) !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+</style>
+
+<!-- 等待狀態專用腳本 -->
+<script>
+    // 等待狀態初始化
+    function initWaitingState() {
+        console.log('🔘 等待狀態組件已載入');
+        
+        // 確保狀態正確設置
+        const waitingState = document.getElementById('waitingState');
+        if (waitingState && !waitingState.classList.contains('active')) {
+            console.log('🔄 設置等待狀態為預設活躍狀態');
+            waitingState.classList.add('active');
+        }
+    }
+    
+    // 隱藏按鈕增強功能
+    function enhanceHiddenButton() {
+        const hiddenButton = document.getElementById('hiddenBackupButton');
+        if (hiddenButton) {
+            // 添加視覺回饋
+            hiddenButton.addEventListener('click', function() {
+                this.style.background = 'rgba(77, 113, 79, 0.8)';
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.background = 'rgba(255, 255, 255, 0.02)';
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+            
+            console.log('🆘 隱藏緊急按鈕已增強');
+        }
+    }
+    
+    // 組件載入完成後初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        initWaitingState();
+        enhanceHiddenButton();
+    });
+    
+    // 如果已經載入完成，立即初始化
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initWaitingState();
+        enhanceHiddenButton();
+    }
+</script>

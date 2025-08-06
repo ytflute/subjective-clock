@@ -1,0 +1,494 @@
+<!-- 📊 Result 頁面組件 -->
+<!-- 結果狀態 - 顯示城市資訊、地圖軌跡和創意故事 -->
+<div id="resultState" class="state result-state">
+    <!-- 左側信息面板 (浮層) -->
+    <div class="result-info-panel">
+        <!-- 日期信息區域 -->
+        <div class="date-info">
+            <span class="date-label">Date:</span>
+            <span id="wakeupDate" class="date-value">07/25/2025 Fri</span>
+        </div>
+        
+        <!-- 問候語信息區域 -->
+        <div class="greeting-info">
+            <span id="localGreeting" class="local-greeting">GOOD MORNING! (English)</span>
+        </div>
+        
+        <!-- 地點信息區域 -->
+        <div class="location-info">
+            <!-- 城市名稱 -->
+            <h1 id="cityName" class="city-name">LOGAN</h1>
+            
+            <!-- 國家信息 -->
+            <div class="country-info">
+                <img id="countryFlag" class="country-flag" src="" alt="Flag" onerror="this.style.display='none'">
+                <span id="countryName" class="country-name">United States</span>
+            </div>
+            
+            <!-- 座標信息 -->
+            <div class="coordinates-info">
+                <span class="coordinates-label">Coordinates:</span>
+                <span id="coordinates" class="coordinates-text">21.276, 55.517</span>
+            </div>
+        </div>
+        
+        <!-- 故事文字容器 -->
+        <div class="story-container">
+            <div class="story-header">
+                <span class="story-label">今日故事</span>
+                <div class="story-status">
+                    <span id="storyStatusIndicator" class="status-indicator">⏳</span>
+                </div>
+            </div>
+            <p id="storyText" class="story-text">載入中...</p>
+        </div>
+    </div>
+</div>
+
+<!-- 結果狀態專用樣式 -->
+<style>
+    /* 結果狀態容器 */
+    .result-state {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* 結果信息面板 */
+    .result-info-panel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 350px;
+        max-height: calc(100vh - 40px);
+        background: rgba(0, 0, 0, 0.85);
+        border: 2px solid rgba(77, 113, 79, 0.6);
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+        overflow-y: auto;
+        animation: slideInLeft 0.8s ease-out;
+    }
+    
+    @keyframes slideInLeft {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    /* 日期信息 */
+    .date-info {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(77, 113, 79, 0.3);
+    }
+    
+    .date-label {
+        font-family: 'Orbitron', monospace;
+        font-size: 12px;
+        color: #a8e6cf;
+        margin-right: 8px;
+    }
+    
+    .date-value {
+        font-family: 'Press Start 2P', monospace;
+        font-size: 14px;
+        color: #4ecdc4;
+        text-shadow: 0 0 5px rgba(78, 205, 196, 0.3);
+    }
+    
+    /* 問候語信息 */
+    .greeting-info {
+        margin-bottom: 25px;
+    }
+    
+    .local-greeting {
+        font-family: 'ByteBounce', 'Press Start 2P', monospace;
+        font-size: 16px;
+        color: #ffc107;
+        text-shadow: 0 0 8px rgba(255, 193, 7, 0.4);
+        display: block;
+        line-height: 1.4;
+    }
+    
+    /* 地點信息 */
+    .location-info {
+        margin-bottom: 25px;
+    }
+    
+    .city-name {
+        font-family: 'Press Start 2P', 'ByteBounce', monospace;
+        font-size: 24px;
+        color: #4d714f;
+        margin: 0 0 15px 0;
+        text-shadow: 0 0 10px rgba(77, 113, 79, 0.5);
+        word-break: break-word;
+    }
+    
+    .country-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        gap: 10px;
+    }
+    
+    .country-flag {
+        width: 24px;
+        height: 16px;
+        object-fit: cover;
+        border-radius: 2px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .country-name {
+        font-family: 'Orbitron', monospace;
+        font-size: 16px;
+        color: #c8e6c9;
+    }
+    
+    .coordinates-info {
+        margin-top: 10px;
+    }
+    
+    .coordinates-label {
+        font-family: 'Orbitron', monospace;
+        font-size: 11px;
+        color: #a8e6cf;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .coordinates-text {
+        font-family: 'VT323', monospace;
+        font-size: 14px;
+        color: #81c784;
+        background: rgba(77, 113, 79, 0.2);
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(77, 113, 79, 0.3);
+    }
+    
+    /* 故事容器 */
+    .story-container {
+        border-top: 1px solid rgba(77, 113, 79, 0.3);
+        padding-top: 20px;
+    }
+    
+    .story-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .story-label {
+        font-family: 'GB18030 Bitmap', 'Microsoft YaHei', sans-serif;
+        font-size: 14px;
+        color: #a8e6cf;
+        font-weight: bold;
+    }
+    
+    .story-status {
+        display: flex;
+        align-items: center;
+    }
+    
+    .status-indicator {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    
+    .status-indicator.loading {
+        color: #ffc107;
+        animation: spin 2s linear infinite;
+    }
+    
+    .status-indicator.ready {
+        color: #4caf50;
+    }
+    
+    .status-indicator.error {
+        color: #f44336;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .story-text {
+        font-family: 'GB18030 Bitmap', 'Microsoft YaHei', sans-serif;
+        font-size: 16px;
+        color: #e8f5e8;
+        line-height: 1.6;
+        margin: 0;
+        background: rgba(77, 113, 79, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid rgba(77, 113, 79, 0.2);
+        min-height: 100px;
+        word-wrap: break-word;
+    }
+    
+    /* 打字機效果 */
+    .story-text.typing {
+        border-right: 2px solid #4d714f;
+        animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+        0%, 50% { border-color: #4d714f; }
+        51%, 100% { border-color: transparent; }
+    }
+    
+    /* 響應式設計 */
+    @media (max-width: 480px) {
+        .result-info-panel {
+            width: calc(100% - 40px);
+            max-width: 350px;
+        }
+        
+        .city-name {
+            font-size: 20px;
+        }
+        
+        .story-text {
+            font-size: 14px;
+        }
+    }
+    
+    /* 滾動條美化 */
+    .result-info-panel::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .result-info-panel::-webkit-scrollbar-track {
+        background: rgba(77, 113, 79, 0.1);
+        border-radius: 4px;
+    }
+    
+    .result-info-panel::-webkit-scrollbar-thumb {
+        background: rgba(77, 113, 79, 0.5);
+        border-radius: 4px;
+    }
+    
+    .result-info-panel::-webkit-scrollbar-thumb:hover {
+        background: rgba(77, 113, 79, 0.7);
+    }
+</style>
+
+<!-- 結果狀態專用腳本 -->
+<script>
+    // 結果狀態管理
+    class ResultStateManager {
+        constructor() {
+            this.typewriterActive = false;
+            this.typewriterInterval = null;
+        }
+        
+        init() {
+            console.log('📊 結果狀態組件已載入');
+            this.setupCityNameObserver();
+            this.setupStoryStatusIndicator();
+        }
+        
+        // 監聽城市名稱變化，自動添加冒號
+        setupCityNameObserver() {
+            const cityElement = document.getElementById('cityName');
+            if (!cityElement) return;
+            
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                        const cityName = cityElement.textContent.trim();
+                        if (cityName && !cityName.endsWith(':')) {
+                            cityElement.textContent = cityName.toUpperCase() + ':';
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(cityElement, {
+                childList: true,
+                characterData: true,
+                subtree: true
+            });
+            
+            console.log('🏙️ 城市名稱觀察器已啟動');
+        }
+        
+        // 設置故事狀態指示器
+        setupStoryStatusIndicator() {
+            const indicator = document.getElementById('storyStatusIndicator');
+            if (indicator) {
+                this.setStoryStatus('loading');
+            }
+        }
+        
+        // 設置故事狀態
+        setStoryStatus(status) {
+            const indicator = document.getElementById('storyStatusIndicator');
+            if (!indicator) return;
+            
+            // 清除所有狀態類
+            indicator.className = 'status-indicator';
+            
+            switch (status) {
+                case 'loading':
+                    indicator.classList.add('loading');
+                    indicator.textContent = '⏳';
+                    indicator.title = '故事生成中...';
+                    break;
+                case 'ready':
+                    indicator.classList.add('ready');
+                    indicator.textContent = '✓';
+                    indicator.title = '故事已載入';
+                    break;
+                case 'error':
+                    indicator.classList.add('error');
+                    indicator.textContent = '⚠';
+                    indicator.title = '故事載入失敗';
+                    break;
+            }
+        }
+        
+        // 更新結果數據
+        updateResultData(cityData) {
+            console.log('🔄 更新結果數據:', cityData);
+            
+            // 更新日期
+            const dateElement = document.getElementById('wakeupDate');
+            if (dateElement) {
+                const now = new Date();
+                const options = {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    weekday: 'short'
+                };
+                dateElement.textContent = now.toLocaleDateString('en-US', options).replace(/\//g, '/');
+            }
+            
+            // 更新城市名稱
+            const cityElement = document.getElementById('cityName');
+            if (cityElement && cityData.name) {
+                cityElement.textContent = cityData.name.toUpperCase() + ':';
+            }
+            
+            // 更新國家信息
+            const countryElement = document.getElementById('countryName');
+            if (countryElement && cityData.country) {
+                countryElement.textContent = cityData.country;
+            }
+            
+            // 更新國旗 (如果有國家代碼)
+            const flagElement = document.getElementById('countryFlag');
+            if (flagElement && cityData.country_iso_code) {
+                flagElement.src = `https://flagcdn.com/24x18/${cityData.country_iso_code.toLowerCase()}.png`;
+                flagElement.style.display = 'block';
+            }
+            
+            // 更新座標
+            const coordsElement = document.getElementById('coordinates');
+            if (coordsElement && cityData.latitude && cityData.longitude) {
+                const lat = parseFloat(cityData.latitude).toFixed(3);
+                const lng = parseFloat(cityData.longitude).toFixed(3);
+                coordsElement.textContent = `${lat}, ${lng}`;
+            }
+        }
+        
+        // 顯示故事文字 (打字機效果)
+        displayStoryWithTypewriter(storyText, speed = 80) {
+            const storyElement = document.getElementById('storyText');
+            if (!storyElement || !storyText) return;
+            
+            // 清除任何現有的打字機效果
+            this.stopTypewriter();
+            
+            // 設置初始狀態
+            storyElement.textContent = '';
+            storyElement.classList.add('typing');
+            this.typewriterActive = true;
+            this.setStoryStatus('ready');
+            
+            let index = 0;
+            this.typewriterInterval = setInterval(() => {
+                if (index < storyText.length) {
+                    storyElement.textContent += storyText[index];
+                    index++;
+                } else {
+                    // 打字完成
+                    this.stopTypewriter();
+                }
+            }, speed);
+            
+            console.log('⌨️ 故事打字機效果已啟動');
+        }
+        
+        // 停止打字機效果
+        stopTypewriter() {
+            if (this.typewriterInterval) {
+                clearInterval(this.typewriterInterval);
+                this.typewriterInterval = null;
+            }
+            
+            const storyElement = document.getElementById('storyText');
+            if (storyElement) {
+                storyElement.classList.remove('typing');
+            }
+            
+            this.typewriterActive = false;
+        }
+        
+        // 設置故事文字 (無打字效果)
+        setStoryText(storyText) {
+            const storyElement = document.getElementById('storyText');
+            if (storyElement) {
+                this.stopTypewriter();
+                storyElement.textContent = storyText || '暫無故事內容';
+                this.setStoryStatus(storyText ? 'ready' : 'error');
+            }
+        }
+        
+        // 清理資源
+        cleanup() {
+            this.stopTypewriter();
+        }
+    }
+    
+    // 全域結果狀態管理器
+    window.resultStateManager = new ResultStateManager();
+    
+    // 組件載入完成後初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        window.resultStateManager.init();
+    });
+    
+    // 如果已經載入完成，立即初始化
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        window.resultStateManager.init();
+    }
+    
+    // 監聽故事相關事件
+    document.addEventListener('storyReady', function(event) {
+        if (event.detail && event.detail.story) {
+            console.log('📖 收到故事內容，開始打字機效果');
+            window.resultStateManager.displayStoryWithTypewriter(event.detail.story);
+        }
+    });
+    
+    // 監聽結果數據更新事件
+    document.addEventListener('resultDataUpdate', function(event) {
+        if (event.detail && event.detail.cityData) {
+            console.log('🔄 收到結果數據更新');
+            window.resultStateManager.updateResultData(event.detail.cityData);
+        }
+    });
+</script>
