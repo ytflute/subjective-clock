@@ -469,8 +469,19 @@ window.addEventListener('piStoryReady', (event) => {
                     collection: !!window.collection,
                     query: !!window.query,
                     where: !!window.where,
-                    getDocs: !!window.getDocs
+                    getDocs: !!window.getDocs,
+                    firebaseSDK: !!window.firebaseSDK,
+                    getFirestore: !!window.firebaseSDK?.getFirestore
                 });
+                
+                // 🔧 在調用之前確保Firebase已初始化
+                if (!window.db && window.firebaseSDK && window.firebaseSDK.getFirestore) {
+                    console.log('🔧 在軌跡載入前進行Firebase初始化...');
+                    window.db = window.firebaseSDK.getFirestore();
+                    window.auth = window.firebaseSDK.getAuth ? window.firebaseSDK.getAuth() : window.auth;
+                    console.log('✅ Firebase提前初始化完成，db狀態:', !!window.db);
+                }
+                
                 loadHistoryTrajectory();
             }, 50);
 
