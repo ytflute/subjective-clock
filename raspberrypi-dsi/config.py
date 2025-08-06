@@ -57,7 +57,7 @@ SPEAKER_CONFIG = {
 
 # TTS (文字轉語音) 配置
 TTS_CONFIG = {
-    'engine': 'festival',  # 預設引擎，可通過 setup_openai_tts.py 升級
+    'engine': 'openai',  # 使用 OpenAI TTS 引擎
     'speed': 140,  # 語速稍微放慢（words per minute）
     'voice_id': 'female',  # 女性聲音
     'voice_name': 'kal_diphone',  # Festival 聲音名稱
@@ -71,7 +71,7 @@ TTS_CONFIG = {
         'nitech_us_slt_arctic_hts'  # 備用女性聲音
     ],
     # OpenAI TTS 配置
-    'openai_api_key': '',  # 需要設定 OpenAI API 金鑰
+    'openai_api_key': 'CONFIGURED',  # API 金鑰已設定
     'openai_model': 'tts-1-hd',  # 'tts-1' 或 'tts-1-hd' (高品質)
     'openai_voice': 'nova',  # 'alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer'
     'openai_speed': 1.0,  # 0.25 到 4.0
