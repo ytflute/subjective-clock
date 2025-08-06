@@ -1110,6 +1110,16 @@ window.addEventListener('firebaseReady', async (event) => {
                 cityData.country
             );
             
+            // 🔧 等待地圖初始化完成後載入歷史軌跡
+            setTimeout(async () => {
+                try {
+                    console.log('📍 開始載入歷史軌跡和標記...');
+                    await loadHistoryTrajectory();
+                } catch (error) {
+                    console.error('❌ 載入歷史軌跡失敗:', error);
+                }
+            }, 2000);
+            
             // 設定結果文字（保持相容性）
             const resultText = `今天你在 ${cityData.name}, ${cityData.country} 甦醒！`;
             if (resultTextDiv) resultTextDiv.textContent = resultText;
@@ -2769,9 +2779,14 @@ window.checkTrajectory = function() {
 
     // 載入歷史軌跡
     async function loadHistoryTrajectory() {
-        if (!db || !auth.currentUser) {
-            console.log('📍 載入歷史軌跡：Firebase 未就緒');
+        if (!db) {
+            console.log('📍 載入歷史軌跡：Firebase 數據庫未初始化');
             return;
+        }
+        
+        // 🔧 修復：樹莓派環境下不需要用戶認證也能讀取軌跡
+        if (!auth.currentUser) {
+            console.log('📍 用戶未認證，嘗試匿名讀取軌跡...');
         }
 
         try {
@@ -2911,26 +2926,7 @@ window.checkTrajectory = function() {
         console.log('📍 歷史軌跡顯示完成');
     }
 
-// ... existing code ...
-
-            // 5. 地圖成功初始化，更新狀態
-            mainInteractiveMap = clockLeafletMap;
-            if (typeof window.updateZoomButtonState === 'function') {
-                window.updateZoomButtonState();
-            }
-            
-            // 載入歷史軌跡
-            setTimeout(() => {
-                loadHistoryTrajectory();
-            }, 1000);
-
-            // 設定完成狀態
-            setState('result');
-            
-            // 等待地圖渲染完成後載入軌跡
-            setTimeout(() => {
-                loadHistoryTrajectory();
-            }, 2000);
+// 移除遺留的不完整程式碼，這些功能已經在其他地方實現
 
     // 新增：從Firebase直接讀取並顯示故事文字
     async function loadAndDisplayStoryFromFirebase() {
