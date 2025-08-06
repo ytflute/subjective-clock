@@ -2171,13 +2171,31 @@ function updateResultData(data) {
             console.error('❌ 找不到故事文字元素 #storyText');
         }
 
-        // 🎵 直接同步語音故事 - 使用generatePiStory API
-        console.log('🎵 [同步] 直接使用generatePiStory與語音同步...');
+        // 🎵 檢查是否已有語音故事，避免覆蓋
+        console.log('🎵 [同步] 檢查是否已有語音故事...');
         
         const storyEl = document.getElementById('storyText');
         if (storyEl) {
+            const currentText = storyEl.textContent;
+            const hasVoiceStory = currentText && 
+                !currentText.includes('正在生成') && 
+                !currentText.includes('正在清喉嚨') && 
+                !currentText.includes('剛起床') &&
+                currentText.length > 30;
+            
+            console.log('🎵 [同步] 故事檢查:', {
+                當前文字長度: currentText?.length || 0,
+                是否有語音故事: hasVoiceStory,
+                當前內容預覽: currentText?.substring(0, 50) + '...'
+            });
+            
+            if (hasVoiceStory) {
+                console.log('✅ [同步] 已有語音故事，跳過重新生成');
+                return;
+            }
+            
             storyEl.textContent = '正在生成與語音同步的故事...';
-            console.log('🎵 [同步] 已設置loading文字');
+            console.log('🎵 [同步] 沒有語音故事，開始生成新故事');
             
             // 立即調用generatePiStory API
             setTimeout(async () => {
@@ -3090,13 +3108,14 @@ window.checkTrajectory = function() {
             if (!isNaN(lat) && !isNaN(lon)) {
                 console.log('🗺️ 添加今日標記:', lat, lon, city, country);
                 
-                // 使用簡單的圓形標記表示 TODAY
+                // 使用美化的圓形標記表示 TODAY
                 const marker = L.circleMarker([lat, lon], {
-                    color: '#FF4444',
-                    fillColor: '#FF4444', 
-                    fillOpacity: 0.9,
-                    radius: 12,
-                    weight: 3
+                    color: '#E63946',
+                    fillColor: '#F8F9FA', 
+                    fillOpacity: 1,
+                    radius: 14,
+                    weight: 4,
+                    className: 'today-marker'
                 }).addTo(mainInteractiveMap);
                 
                 marker.bindPopup(`
@@ -3144,17 +3163,21 @@ window.checkTrajectory = function() {
         // 按時間排序歷史點位
         historyPoints.sort((a, b) => a.timestamp - b.timestamp);
 
-        // 添加歷史點位標記 - 使用驗證成功的邏輯
+        // 添加歷史點位標記 - 美化版本
         historyPoints.forEach((point, index) => {
             const dayNumber = index + 1;
             
-            // 歷史標記：小藍點
+            // 歷史標記：漸變藍色系，越新越亮
+            const opacity = Math.max(0.4, 1 - (historyPoints.length - index) * 0.05);
+            const radius = Math.max(4, 8 - (historyPoints.length - index) * 0.1);
+            
             const marker = L.circleMarker([point.lat, point.lng], {
-                color: '#3498db',
-                fillColor: '#3498db', 
-                fillOpacity: 0.7,
-                radius: 6,
-                weight: 2
+                color: '#2E86AB',
+                fillColor: '#A8DADC', 
+                fillOpacity: opacity,
+                radius: radius,
+                weight: 2,
+                className: 'history-marker'
             });
             
             console.log(`🗺️ 創建歷史標記 ${dayNumber}: 座標 [${point.lat}, ${point.lng}]`);
@@ -3175,16 +3198,19 @@ window.checkTrajectory = function() {
             console.log(`✅ 歷史標記 ${dayNumber} 已添加`);
         });
 
-        // 添加軌跡線
+        // 添加軌跡線 - 美化版本
         if (historyPoints.length > 1) {
             const latlngs = historyPoints.map(point => [point.lat, point.lng]);
             const trajectoryLine = L.polyline(latlngs, {
-                color: '#e74c3c',
-                weight: 2,
-                opacity: 0.7
+                color: '#F1FAEE',
+                weight: 3,
+                opacity: 0.8,
+                dashArray: '5, 10',
+                lineCap: 'round',
+                className: 'trajectory-line'
             });
             trajectoryLine.addTo(historyMarkersLayer);
-            console.log('✅ 軌跡線已添加');
+            console.log('✅ 美化軌跡線已添加');
         }
 
         // 添加今日標記（大紅點）
@@ -3196,11 +3222,12 @@ window.checkTrajectory = function() {
             
             if (!isNaN(lat) && !isNaN(lon)) {
                 const todayMarker = L.circleMarker([lat, lon], {
-                    color: '#FF4444',
-                    fillColor: '#FF4444',
-                    fillOpacity: 0.9,
-                    radius: 12,
-                    weight: 3
+                    color: '#E63946',
+                    fillColor: '#F8F9FA', 
+                    fillOpacity: 1,
+                    radius: 14,
+                    weight: 4,
+                    className: 'today-marker'
                 });
                 
                 todayMarker.bindPopup('🌅 TODAY - 馬約特');
