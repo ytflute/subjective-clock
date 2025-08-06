@@ -455,28 +455,40 @@ class StateManager {
 // =====================================================
 class WakeUpManager {
     static async startTheDay() {
-        console.log('🌅 統一甦醒流程開始');
+        console.log('🌅 統一甦醒流程開始 - 實現6個功能需求');
         
         try {
             // 重置語音故事標記
             window.voiceStoryDisplayed = false;
             window.voiceStoryContent = null;
             
-            StateManager.setState('loading');
+            // 🔘 功能3: 按下按鈕後，press the button頁面消失
+            console.log('✅ 功能3: press the button 頁面即將消失');
             
-            // 計算目標位置
+            // 🔄 功能4: 出現locating頁面，後端開始處理
+            StateManager.setState('loading');
+            console.log('✅ 功能4開始: 顯示 locating 頁面，後端開始定位和生成');
+            
+            // 設定全域變數供後端使用
             const targetData = this._calculateTargetLocation();
             
-            // 呼叫 API 尋找城市
+            // 呼叫 API 尋找城市（後端會同時處理語音生成和Firebase上傳）
             const cityData = await this._findCity(targetData);
             if (!cityData) {
                 throw new Error('尋找城市失敗');
             }
 
-            // 顯示甦醒結果
+            // 設定全域變數供後端提取
+            window.currentCityData = {
+                ...cityData,
+                timezone: cityData.timezone?.timeZoneId || cityData.timezone || 'UTC'
+            };
+            console.log('🔗 已設定 window.currentCityData 供後端提取');
+
+            // 🗺️ 功能4完成 + 功能5: locating消失，地圖定位，顯示紅色今日標記
             await this._displayResults(cityData);
             
-            console.log('✅ 甦醒流程完成');
+            console.log('✅ 甦醒流程完成 - 6個功能已實現');
 
         } catch (error) {
             console.error('❌ 甦醒流程失敗:', error);
@@ -511,23 +523,48 @@ class WakeUpManager {
     }
 
     static async _displayResults(cityData) {
+        console.log('🎨 顯示甦醒結果 - 功能5和6');
+        
         // 更新UI元素
         this._updateUI(cityData);
         
-        // 初始化地圖
-        await MapManager.initMap('mainMapContainer', {
-            lat: cityData.latitude,
-            lng: cityData.longitude - 3,
-            zoom: 3
-        });
+        // 🗺️ 功能5: 地圖定位到該城市座標
+        if (mainInteractiveMap) {
+            // 地圖已存在，直接定位
+            mainInteractiveMap.setView([cityData.latitude, cityData.longitude - 3], 3);
+            console.log('✅ 功能5: 地圖已定位到城市座標');
+        } else {
+            // 重新初始化地圖
+            await MapManager.initMap('mainMapContainer', {
+                lat: cityData.latitude,
+                lng: cityData.longitude - 3,
+                zoom: 3
+            });
+            console.log('✅ 功能5: 地圖已初始化並定位');
+        }
         
-        // 顯示故事
-        await StoryManager.displayStory(cityData);
-        
-        // 載入軌跡
+        // 載入歷史軌跡
         await this._loadTrajectory();
         
+        // 🔴 功能5: 添加紅色今日標記
+        this._addTodayMarker(cityData);
+        
+        // 📖 功能6: 顯示result頁面，等待故事內容
         StateManager.setState('result');
+        console.log('✅ 功能6開始: result 頁面已顯示，等待語音故事');
+        
+        // 🎵 功能6: 顯示故事（優先等待piStoryReady事件，備援使用API）
+        // 如果沒有收到piStoryReady事件，則使用備援方案
+        setTimeout(async () => {
+            if (!window.voiceStoryDisplayed) {
+                console.log('⏰ 未收到語音故事，使用備援方案');
+                await StoryManager.displayStory(cityData, {
+                    preferVoice: false,
+                    useAPI: true,
+                    fallbackEnabled: true
+                });
+            }
+        }, 5000); // 5秒後備援
     }
 
     static _updateUI(cityData) {
@@ -552,12 +589,24 @@ class WakeUpManager {
 
     static async _loadTrajectory() {
         try {
-            const records = await FirebaseManager.queryUserRecords('userHistory', {
+            // 先嘗試 userHistory collection (歷史軌跡)
+            let records = await FirebaseManager.queryUserRecords('userHistory', {
                 clientSort: 'asc'
             });
 
+            // 如果 userHistory 沒有記錄，嘗試 wakeup_records
+            if (records.length === 0) {
+                console.log('📍 userHistory 為空，嘗試讀取 wakeup_records');
+                records = await FirebaseManager.queryUserRecords('wakeup_records', {
+                    clientSort: 'asc'
+                });
+            }
+
             if (records.length > 0 && mainInteractiveMap) {
                 this._displayTrajectory(records);
+                console.log(`📍 功能1完成: 已載入 ${records.length} 個歷史軌跡點`);
+            } else {
+                console.log('📍 沒有找到歷史軌跡記錄');
             }
 
         } catch (error) {
@@ -598,6 +647,30 @@ class WakeUpManager {
 
         console.log(`📍 已顯示 ${records.length} 個軌跡點`);
     }
+
+    static _addTodayMarker(cityData) {
+        // 🔴 功能5: 添加紅色今日標記
+        if (mainInteractiveMap && cityData.latitude && cityData.longitude) {
+            const todayMarker = MapManager.addMarker(
+                mainInteractiveMap, 
+                cityData.latitude, 
+                cityData.longitude, 
+                {
+                    type: 'today',
+                    popup: `
+                        <div style="text-align: center;">
+                            <h4 style="color: #E63946;">🌅 TODAY</h4>
+                            <p><strong>${cityData.name}</strong></p>
+                            <p>${cityData.country}</p>
+                            <small>${cityData.latitude.toFixed(4)}°, ${cityData.longitude.toFixed(4)}°</small>
+                        </div>
+                    `
+                }
+            );
+            console.log('✅ 功能5完成: 紅色今日標記已添加');
+            return todayMarker;
+        }
+    }
 }
 
 // =====================================================
@@ -620,13 +693,21 @@ function setupEventListeners() {
         });
     });
 
-    // piStoryReady 事件
+    // piStoryReady 事件 - 功能6的核心實現
     window.addEventListener('piStoryReady', (event) => {
-        console.log('🎵 收到 piStoryReady 事件');
+        console.log('🎵 收到 piStoryReady 事件 - 功能6語音故事');
         if (event.detail && event.detail.story) {
             window.voiceStoryDisplayed = true;
             window.voiceStoryContent = event.detail.story;
+            
+            // 立即顯示語音生成的故事內容（打字機效果）
             StoryManager._displayWithTyping(event.detail.story);
+            console.log('✅ 功能6完成: 語音故事已顯示（打字機效果）');
+            
+            // 切換到result狀態（如果還沒有）
+            if (window.currentState !== 'result') {
+                StateManager.setState('result');
+            }
         }
     });
 }
@@ -643,14 +724,28 @@ window.addEventListener('firebaseReady', async () => {
         db = getFirestore();
         auth = getAuth();
         
+        // Firebase 認證
+        await signInAnonymously(auth);
+        console.log('✅ Firebase 匿名登入成功');
+        
         // 設置事件監聽器
         setupEventListeners();
         
         // 自動載入用戶資料
         rawUserDisplayName = "future";
         
-        // 設置初始狀態
+        // 🗺️ 功能1: 初始化地圖並載入歷史軌跡
+        await MapManager.initMap('mainMapContainer', {
+            lat: 20,
+            lng: 0,
+            zoom: 3
+        });
+        await WakeUpManager._loadTrajectory();
+        console.log('✅ 功能1完成: 地圖已載入，顯示歷史軌跡');
+        
+        // 🔘 功能2: 設置初始waiting狀態 (press the button)
         StateManager.setState('waiting');
+        console.log('✅ 功能2完成: 顯示 press the button 頁面');
         
         // 啟用開始按鈕
         const startButton = document.getElementById('findCityButton');
@@ -662,13 +757,75 @@ window.addEventListener('firebaseReady', async () => {
         window.startTheDay = WakeUpManager.startTheDay;
         window.setState = StateManager.setState;
         
-        console.log('✅ 重構版本初始化完成');
+        console.log('✅ 重構版本初始化完成 - 已實現功能1和2');
         
     } catch (error) {
         console.error('❌ 重構版本初始化失敗:', error);
         StateManager.setState('error', '系統初始化失敗');
     }
 });
+
+// =====================================================
+// 🎬 打字機效果函數 (保留原始實現)
+// =====================================================
+let typewriterTimer = null;
+
+function typeWriterEffect(text, element, speed = 80) {
+    return new Promise((resolve) => {
+        // 清除之前的計時器
+        if (typewriterTimer) {
+            clearTimeout(typewriterTimer);
+        }
+        
+        // 清空元素內容並添加打字狀態
+        element.textContent = '';
+        element.classList.add('typing');
+        element.classList.remove('completed');
+        
+        let index = 0;
+        
+        function typeNextChar() {
+            if (index < text.length) {
+                element.textContent += text.charAt(index);
+                index++;
+                typewriterTimer = setTimeout(typeNextChar, speed);
+            } else {
+                // 打字完成，移除光標並添加完成效果
+                element.classList.remove('typing');
+                element.classList.add('completed');
+                resolve(); // 打字完成
+            }
+        }
+        
+        // 開始打字
+        typeNextChar();
+    });
+}
+
+function startStoryTypewriter(storyText) {
+    console.log('🎬 startStoryTypewriter 被調用，故事內容:', storyText);
+    
+    const storyTextEl = document.getElementById('storyText');
+    if (!storyTextEl) {
+        console.error('❌ 找不到 #storyText 元素');
+        return Promise.resolve();
+    }
+    
+    if (!storyText || storyText.trim() === '') {
+        console.error('❌ 故事文字為空或未定義');
+        storyTextEl.textContent = '故事內容載入中...';
+        return Promise.resolve();
+    }
+    
+    // 使用打字機效果
+    const typeSpeed = 80;
+    console.log(`🎬 開始打字機效果 - 文字長度: ${storyText.length}, 打字速度: ${typeSpeed}ms/字`);
+    
+    return typeWriterEffect(storyText, storyTextEl, typeSpeed);
+}
+
+// 暴露到全域範圍
+window.startStoryTypewriter = startStoryTypewriter;
 
 // =====================================================
 // 📋 9. 保持必要的全域函數 (向後相容)
