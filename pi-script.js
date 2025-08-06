@@ -26,6 +26,31 @@ let historyMarkersLayer = null; // 歷史點位圖層
 let currentState = 'waiting'; // waiting, loading, result, error
 window.currentState = currentState;
 
+// 🔧 確保初始狀態正確設定
+function ensureInitialState() {
+    console.log('🔧 確保初始狀態為 waiting');
+    const waitingStateEl = document.getElementById('waitingState');
+    const loadingStateEl = document.getElementById('loadingState');
+    const resultStateEl = document.getElementById('resultState');
+    const errorStateEl = document.getElementById('errorState');
+    
+    // 強制移除所有狀態的 active 類別
+    [waitingStateEl, loadingStateEl, resultStateEl, errorStateEl].forEach(el => {
+        if (el) {
+            el.classList.remove('active');
+        }
+    });
+    
+    // 確保 waiting 狀態顯示
+    if (waitingStateEl) {
+        waitingStateEl.classList.add('active');
+        console.log('✅ 強制設定 waiting 狀態為 active');
+    }
+    
+    currentState = 'waiting';
+    window.currentState = currentState;
+}
+
 // 設定基本的全域函數（確保始終可用）
 window.startTheDay = function() {
     console.log('⚠️ 使用基本版本的 startTheDay 函數');
@@ -2359,6 +2384,10 @@ window.addEventListener('error', (event) => {
 // 載入狀態指示
 document.addEventListener('DOMContentLoaded', () => {
     console.log('📄 DOM 載入完成，等待 Firebase...');
+    
+    // 🔧 首先確保初始狀態正確
+    ensureInitialState();
+    
     console.log('🔍 初始狀態檢查:', {
         firebaseConfig: !!window.firebaseConfig,
         firebaseSDK: !!window.firebaseSDK,
