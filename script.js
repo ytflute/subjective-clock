@@ -162,6 +162,8 @@ window.addEventListener('firebaseReady', async (event) => {
 
     // Firebase 設定
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history';
+    // 設置為全域變數，供其他函數使用
+    window.appId = appId;
     const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
     // 等待 Firebase 配置載入
@@ -2825,10 +2827,13 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
             try {
                 const { getFirestore, doc, updateDoc } = window.firebaseSDK;
                 const db = getFirestore();
-                const appId = window.firebaseConfig.appId.replace(/[^a-zA-Z0-9]/g, '_');
+                // 使用全域 appId 變數，而非 window.firebaseConfig.appId
+                const safeAppId = window.appId || (typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history');
                 const currentDataIdentifier = window.currentDataIdentifier || localStorage.getItem('worldClockUserName');
                 
-                const historyDocRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, recordId);
+                console.log(`[generateBreakfastImage] 使用 appId: ${safeAppId}, currentDataIdentifier: ${currentDataIdentifier}, recordId: ${recordId}`);
+                
+                const historyDocRef = doc(db, `artifacts/${safeAppId}/userProfiles/${currentDataIdentifier}/clockHistory`, recordId);
                 await updateDoc(historyDocRef, {
                     imageUrl: imageData.imageUrl
                 });
