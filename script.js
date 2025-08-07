@@ -1122,6 +1122,10 @@ window.addEventListener('firebaseReady', async (event) => {
                 }
             }
 
+            // 從bestMatchCity獲取中文城市和國家名稱（提前定義，以便後續使用）
+            const chineseCityName = bestMatchCity.city_zh || englishCityName;
+            const chineseCountryName = bestMatchCity.country_zh || englishCountryName;
+
             // 顯示早餐按鈕（當地特色）
             const breakfastButtonContainer = document.getElementById('breakfastButtonContainer');
             if (breakfastButtonContainer) {
@@ -1190,10 +1194,6 @@ window.addEventListener('firebaseReady', async (event) => {
             const savedDocId = await saveHistoryRecord(historyRecord);
             await saveToGlobalDailyRecord(historyRecord);
 
-            // 從bestMatchCity獲取中文城市和國家名稱
-            const chineseCityName = bestMatchCity.city_zh || englishCityName;
-            const chineseCountryName = bestMatchCity.country_zh || englishCountryName;
-            
             // 設置當地早餐按鈕點擊事件
             setupBreakfastButton({
                 city: englishCityName,
