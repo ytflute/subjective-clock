@@ -48,7 +48,7 @@ Name=甦醒地圖
 Name[en]=WakeUp Map
 Comment=啟動甦醒地圖應用程式
 Comment[en]=Start WakeUp Map Application
-Icon=${SCRIPT_DIR}/wakeup-map-icon.png
+Icon=${SCRIPT_DIR}/../icon-192x192.png
 Exec=${SCRIPT_DIR}/wakeup-map-launcher.sh
 Terminal=true
 StartupNotify=false
@@ -70,32 +70,13 @@ echo -e "   執行腳本: ${SCRIPT_DIR}/start-wakeup-map.sh"
 echo -e "   工作目錄: ${SCRIPT_DIR}"
 echo ""
 
-# 創建圖標文件（如果不存在）
-ICON_FILE="${SCRIPT_DIR}/wakeup-map-icon.png"
-if [ ! -f "$ICON_FILE" ]; then
-    echo -e "${YELLOW}🎨 創建預設圖標...${NC}"
-    
-    # 創建一個簡單的SVG圖標並轉換為PNG（如果有工具）
-    if command -v convert >/dev/null 2>&1; then
-        # 使用ImageMagick創建圖標
-        convert -size 64x64 xc:skyblue \
-                -gravity center \
-                -pointsize 20 \
-                -fill white \
-                -annotate +0+0 "甦醒" \
-                "$ICON_FILE" 2>/dev/null || echo -e "${YELLOW}⚠️  無法創建圖標，將使用系統預設圖標${NC}"
-    else
-        echo -e "${YELLOW}⚠️  ImageMagick未安裝，將使用系統預設圖標${NC}"
-        # 複製一個系統圖標作為備用
-        cp /usr/share/pixmaps/python3.png "$ICON_FILE" 2>/dev/null || true
-    fi
-fi
-
-# 檢查圖標是否存在
+# 檢查項目圖標文件
+ICON_FILE="${SCRIPT_DIR}/../icon-192x192.png"
 if [ -f "$ICON_FILE" ]; then
-    echo -e "${GREEN}🎨 圖標文件: ${ICON_FILE}${NC}"
+    echo -e "${GREEN}🎨 使用項目圖標: ${ICON_FILE}${NC}"
 else
-    echo -e "${YELLOW}⚠️  圖標文件不存在，將使用系統預設圖標${NC}"
+    echo -e "${YELLOW}⚠️  項目圖標文件不存在: ${ICON_FILE}${NC}"
+    echo -e "${YELLOW}    將使用系統預設圖標${NC}"
 fi
 
 echo ""
