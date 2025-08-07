@@ -622,8 +622,11 @@ window.addEventListener('firebaseReady', async (event) => {
                 // 顯示HTML中的早餐按鈕容器（如果有早餐圖片則隱藏按鈕，直接顯示圖片）
                 const breakfastButtonContainer = document.getElementById('breakfastButtonContainer');
                 
+                console.log(`[displayLastRecordForCurrentUser] 檢查早餐圖片: ${lastRecord.imageUrl ? '有' : '無'}`);
+                
                 if (lastRecord.imageUrl) {
                     // 如果已有早餐圖片，隱藏按鈕並創建圖片容器
+                    console.log(`[displayLastRecordForCurrentUser] 顯示早餐圖片: ${lastRecord.imageUrl}`);
                     if (breakfastButtonContainer) {
                         breakfastButtonContainer.style.display = 'none';
                     }
@@ -634,21 +637,26 @@ window.addEventListener('firebaseReady', async (event) => {
                     breakfastContainer.style.textAlign = 'center';
                     
                     const recordId = querySnapshot.docs[0].id; // 獲取記錄ID
+                    const displayName = lastRecord.city === "Unknown Planet" || lastRecord.city_zh === "未知星球" ? 
+                        "星際早餐" : `${finalCityName}的早餐`;
+                    
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
-                            <img src="${lastRecord.imageUrl}" alt="${finalCityName}的早餐" style="max-width: 100%; border-radius: 8px;" 
+                            <img src="${lastRecord.imageUrl}" alt="${displayName}" style="max-width: 100%; border-radius: 8px;" 
                                  onerror="handleImageLoadError(this, '${recordId}', '${currentDataIdentifier}', '${finalCityName}')">
-                            <p style="font-size: 0.9em; color: #555;"><em>${finalCityName}的早餐</em></p>
+                            <p style="font-size: 0.9em; color: #555;"><em>今日的${displayName}</em></p>
                         </div>
                     `;
                     
                     // 將早餐圖片容器插入到地圖和 debugInfo 之間
                     debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+                    console.log(`[displayLastRecordForCurrentUser] 早餐圖片容器已插入DOM`);
                 } else {
                     // 如果沒有早餐圖片，顯示早餐按鈕
+                    console.log(`[displayLastRecordForCurrentUser] 顯示早餐按鈕`);
                     if (breakfastButtonContainer) {
                         breakfastButtonContainer.style.display = 'block';
-                        // 設置按鈕點擊事件（會在後面實現）
+                        // 設置按鈕點擊事件
                         setupBreakfastButton(lastRecord, finalCityName, finalCountryName, querySnapshot.docs[0].id);
                     }
                 }
@@ -1182,6 +1190,10 @@ window.addEventListener('firebaseReady', async (event) => {
             const savedDocId = await saveHistoryRecord(historyRecord);
             await saveToGlobalDailyRecord(historyRecord);
 
+            // 從bestMatchCity獲取中文城市和國家名稱
+            const chineseCityName = bestMatchCity.city_zh || englishCityName;
+            const chineseCountryName = bestMatchCity.country_zh || englishCountryName;
+            
             // 設置當地早餐按鈕點擊事件
             setupBreakfastButton({
                 city: englishCityName,
