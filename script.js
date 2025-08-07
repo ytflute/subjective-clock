@@ -614,17 +614,25 @@ window.addEventListener('firebaseReady', async (event) => {
                     mapContainerDiv.innerHTML = "<p>無法顯示地圖，此記錄座標資訊不完整或無效。</p>";
                 }
 
-                // 添加早餐圖片顯示區域
-                // 先清除已存在的早餐圖片容器，防止重複顯示
+                // 添加早餐區域（按鈕或圖片）
+                // 先清除已存在的早餐容器，防止重複顯示
                 const existingBreakfastContainers = document.querySelectorAll('#breakfastImageContainer');
                 existingBreakfastContainers.forEach(container => container.remove());
                 
-                const breakfastContainer = document.createElement('div');
-                breakfastContainer.id = 'breakfastImageContainer';
-                breakfastContainer.style.marginTop = '20px';
-                breakfastContainer.style.textAlign = 'center';
-
+                // 顯示HTML中的早餐按鈕容器（如果有早餐圖片則隱藏按鈕，直接顯示圖片）
+                const breakfastButtonContainer = document.getElementById('breakfastButtonContainer');
+                
                 if (lastRecord.imageUrl) {
+                    // 如果已有早餐圖片，隱藏按鈕並創建圖片容器
+                    if (breakfastButtonContainer) {
+                        breakfastButtonContainer.style.display = 'none';
+                    }
+                    
+                    const breakfastContainer = document.createElement('div');
+                    breakfastContainer.id = 'breakfastImageContainer';
+                    breakfastContainer.style.marginTop = '20px';
+                    breakfastContainer.style.textAlign = 'center';
+                    
                     const recordId = querySnapshot.docs[0].id; // 獲取記錄ID
                     breakfastContainer.innerHTML = `
                         <div class="postcard-image-container">
@@ -633,12 +641,17 @@ window.addEventListener('firebaseReady', async (event) => {
                             <p style="font-size: 0.9em; color: #555;"><em>${finalCityName}的早餐</em></p>
                         </div>
                     `;
+                    
+                    // 將早餐圖片容器插入到地圖和 debugInfo 之間
+                    debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
                 } else {
-                    breakfastContainer.innerHTML = '<p style="color: #999;"><em>此記錄沒有早餐圖片。</em></p>';
+                    // 如果沒有早餐圖片，顯示早餐按鈕
+                    if (breakfastButtonContainer) {
+                        breakfastButtonContainer.style.display = 'block';
+                        // 設置按鈕點擊事件（會在後面實現）
+                        setupBreakfastButton(lastRecord, finalCityName, finalCountryName, querySnapshot.docs[0].id);
+                    }
                 }
-
-                // 將早餐圖片容器插入到地圖和 debugInfo 之間
-                debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
 
                 const recordedAtDate = lastRecord.recordedAt && lastRecord.recordedAt.toDate ? lastRecord.recordedAt.toDate().toLocaleString('zh-TW') : '未知記錄時間';
                 const targetUTCOffsetStr = (typeof lastRecord.targetUTCOffset === 'number' && isFinite(lastRecord.targetUTCOffset)) ? lastRecord.targetUTCOffset.toFixed(2) : 'N/A';
@@ -837,15 +850,17 @@ window.addEventListener('firebaseReady', async (event) => {
                 mapContainerDiv.innerHTML = "<p>浩瀚宇宙，無從定位...</p>";
                 countryFlagImg.style.display = 'none';
 
-                // 創建早餐圖片容器
-                const breakfastContainer = document.createElement('div');
-                breakfastContainer.id = 'breakfastImageContainer';
-                breakfastContainer.style.marginTop = '20px';
-                breakfastContainer.style.textAlign = 'center';
-                breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備來自宇宙深處的神秘早餐......</i></p>';
-                
-                // 將早餐圖片容器插入到地圖和 debugInfo 之間
-                debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+                // 顯示早餐按鈕（宇宙主題）
+                const breakfastButtonContainer = document.getElementById('breakfastButtonContainer');
+                if (breakfastButtonContainer) {
+                    breakfastButtonContainer.style.display = 'block';
+                    // 修改按鈕文字為宇宙主題
+                    const breakfastBtn = document.getElementById('generateBreakfastBtn');
+                    if (breakfastBtn) {
+                        breakfastBtn.innerHTML = '🌌 我想吃宇宙早餐';
+                        breakfastBtn.nextElementSibling.innerHTML = '<em>探索來自星際的神秘早餐</em>';
+                    }
+                }
                 debugInfoSmall.innerHTML = `(目標 UTC 偏移: ${requiredUTCOffset.toFixed(2)})`;
 
                 // 先保存宇宙記錄（不包含圖片）
@@ -884,55 +899,14 @@ window.addEventListener('firebaseReady', async (event) => {
                 const savedUniverseDocId = await saveHistoryRecord(universeRecord);
                 await saveToGlobalDailyRecord(universeRecord);
 
-                // 然後生成早餐圖片，使用特殊的宇宙主題提示
-                try {
-                    // 獲取 Firebase Auth token
-                    const idToken = await auth.currentUser.getIdToken();
-                    
-                    const imageResponse = await fetch('/api/generateImage', {
-                        method: 'POST',
-                        headers: { 
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${idToken}`
-                        },
-                        body: JSON.stringify({ 
-                            city: "未知星球",
-                            country: "宇宙",
-                            isUniverseTheme: true
-                        })
-                    });
-
-                    if (!imageResponse.ok) throw new Error(await imageResponse.text());
-                    const imageData = await imageResponse.json();
-
-                    if (imageData.imageUrl) {
-                        breakfastContainer.innerHTML = `
-                            <div class="postcard-image-container">
-                                <img src="${imageData.imageUrl}" alt="宇宙早餐" style="max-width: 100%; border-radius: 8px;">
-                                <p style="font-size: 0.9em; color: #555;"><em>今日的星際早餐</em></p>
-                            </div>
-                        `;
-                        console.log("宇宙早餐圖片生成成功，URL:", imageData.imageUrl);
-                        
-                        // 將圖片 URL 更新到已保存的宇宙記錄中
-                        if (savedUniverseDocId) {
-                            try {
-                                const historyDocRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, savedUniverseDocId);
-                                await updateDoc(historyDocRef, {
-                                    imageUrl: imageData.imageUrl
-                                });
-                                console.log("宇宙早餐圖片 URL 已更新到記錄中");
-                            } catch (updateError) {
-                                console.error("更新宇宙記錄中的圖片 URL 失敗:", updateError);
-                            }
-                        }
-                    } else {
-                        breakfastContainer.innerHTML = `<p style="color: #888;">星際早餐圖片生成中，請稍後查看歷史記錄！</p>`;
-                    }
-                } catch (error) {
-                    console.error("生成早餐圖片失敗:", error);
-                    breakfastContainer.innerHTML = `<p style="color: #888;">星際早餐圖片暫時無法顯示，但您的甦醒記錄已保存！</p>`;
-                }
+                // 設置宇宙早餐按鈕點擊事件
+                setupBreakfastButton({
+                    city: "Unknown Planet",
+                    country: "Universe",
+                    city_zh: "未知星球",
+                    country_zh: "宇宙",
+                    isUniverseTheme: true
+                }, "未知星球", "宇宙", savedUniverseDocId);
 
                 console.log("--- 尋找匹配城市結束 (宇宙情況) ---");
                 findCityButton.disabled = false;
@@ -1140,14 +1114,17 @@ window.addEventListener('firebaseReady', async (event) => {
                 }
             }
 
-            // 創建早餐圖片容器
-            const breakfastContainer = document.createElement('div');
-            breakfastContainer.id = 'breakfastImageContainer';
-            breakfastContainer.style.marginTop = '20px';
-            breakfastContainer.style.textAlign = 'center';
-            breakfastContainer.innerHTML = '<p style="color: #007bff;"><i>正在為你準備當地特色早餐......</i></p>';
-            
-            debugInfoSmall.parentNode.insertBefore(breakfastContainer, debugInfoSmall);
+            // 顯示早餐按鈕（當地特色）
+            const breakfastButtonContainer = document.getElementById('breakfastButtonContainer');
+            if (breakfastButtonContainer) {
+                breakfastButtonContainer.style.display = 'block';
+                // 修改按鈕文字為當地主題
+                const breakfastBtn = document.getElementById('generateBreakfastBtn');
+                if (breakfastBtn) {
+                    breakfastBtn.innerHTML = `🍽️ 我想吃${chineseCityName}早餐`;
+                    breakfastBtn.nextElementSibling.innerHTML = `<em>品嚐來自${chineseCityName}的當地特色早餐</em>`;
+                }
+            }
 
             const recordedAtDate = userLocalDate.toLocaleString();
             const latitudeStr = latitude ? latitude.toFixed(5) : 'N/A';
@@ -1205,56 +1182,14 @@ window.addEventListener('firebaseReady', async (event) => {
             const savedDocId = await saveHistoryRecord(historyRecord);
             await saveToGlobalDailyRecord(historyRecord);
 
-            // 然後嘗試生成早餐圖片
-            try {
-                // 獲取 Firebase Auth token
-                const idToken = await auth.currentUser.getIdToken();
-                
-                const imageResponse = await fetch('/api/generateImage', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${idToken}`
-                    },
-                    body: JSON.stringify({ 
-                        city: englishCityName,
-                        country: englishCountryName
-                    })
-                });
-
-                if (!imageResponse.ok) throw new Error(await imageResponse.text());
-                const imageData = await imageResponse.json();
-
-                if (imageData.imageUrl) {
-                    breakfastContainer.innerHTML = `
-                        <div class="postcard-image-container">
-                            <img src="${imageData.imageUrl}" alt="${englishCityName}早餐" style="max-width: 100%; border-radius: 8px;">
-                            <p style="font-size: 0.9em; color: #555;"><em>今日的${englishCityName}早餐</em></p>
-                        </div>
-                    `;
-
-                    // 更新記錄中的圖片 URL
-                    console.log("早餐圖片生成成功，URL:", imageData.imageUrl);
-                    
-                    // 將圖片 URL 更新到已保存的記錄中
-                    if (savedDocId) {
-                        try {
-                            const historyDocRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, savedDocId);
-                            await updateDoc(historyDocRef, {
-                                imageUrl: imageData.imageUrl
-                            });
-                            console.log("早餐圖片 URL 已更新到記錄中");
-                        } catch (updateError) {
-                            console.error("更新記錄中的圖片 URL 失敗:", updateError);
-                        }
-                    }
-                } else {
-                    breakfastContainer.innerHTML = `<p style="color: #888;">今日早餐圖片生成中，請稍後查看歷史記錄！</p>`;
-                }
-            } catch (error) {
-                console.error("生成早餐圖片失敗:", error);
-                breakfastContainer.innerHTML = `<p style="color: #888;">今日早餐圖片暫時無法顯示，但您的甦醒記錄已保存！</p>`;
-            }
+            // 設置當地早餐按鈕點擊事件
+            setupBreakfastButton({
+                city: englishCityName,
+                country: englishCountryName,
+                city_zh: chineseCityName,
+                country_zh: chineseCountryName,
+                isUniverseTheme: false
+            }, chineseCityName, chineseCountryName, savedDocId);
 
             console.log("--- 使用 GeoNames API 尋找匹配城市結束 ---");
 
@@ -2745,5 +2680,137 @@ window.handleHistoryImageError = async function(imgElement, recordId, userIdenti
                 <small>修復失敗: ${error.message}</small>
             </p>
         `;
+    }
+};
+
+// 全域函數：設置早餐按鈕
+window.setupBreakfastButton = function(recordData, cityDisplayName, countryDisplayName, recordId) {
+    console.log(`[setupBreakfastButton] 設置早餐按鈕: ${cityDisplayName}, ${countryDisplayName}, recordId: ${recordId}`);
+    
+    const breakfastBtn = document.getElementById('generateBreakfastBtn');
+    if (!breakfastBtn) {
+        console.error('[setupBreakfastButton] 找不到早餐按鈕元素');
+        return;
+    }
+    
+    // 移除舊的事件監聽器
+    const newBtn = breakfastBtn.cloneNode(true);
+    breakfastBtn.parentNode.replaceChild(newBtn, breakfastBtn);
+    
+    // 添加新的事件監聽器
+    document.getElementById('generateBreakfastBtn').addEventListener('click', () => {
+        generateBreakfastImage(recordData, cityDisplayName, countryDisplayName, recordId);
+    });
+};
+
+// 全域函數：生成早餐圖片
+window.generateBreakfastImage = async function(recordData, cityDisplayName, countryDisplayName, recordId) {
+    console.log(`[generateBreakfastImage] 開始生成早餐圖片: ${cityDisplayName}, ${countryDisplayName}`);
+    
+    const breakfastBtn = document.getElementById('generateBreakfastBtn');
+    const breakfastButtonContainer = document.getElementById('breakfastButtonContainer');
+    
+    if (!breakfastBtn || !breakfastButtonContainer) {
+        console.error('[generateBreakfastImage] 找不到按鈕元素');
+        return;
+    }
+    
+    // 禁用按鈕並顯示載入狀態
+    breakfastBtn.disabled = true;
+    breakfastBtn.innerHTML = '🍳 生成中...';
+    breakfastBtn.nextElementSibling.innerHTML = '<em>正在生成專屬早餐圖片，請稍候...</em>';
+    
+    try {
+        // 獲取 Firebase Auth token
+        const auth = window.firebaseSDK.getAuth();
+        if (!auth.currentUser) {
+            throw new Error('用戶未登入');
+        }
+        
+        const idToken = await auth.currentUser.getIdToken();
+        
+        // 呼叫早餐圖片生成API
+        const imageResponse = await fetch('/api/generateImage', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${idToken}`
+            },
+            body: JSON.stringify({ 
+                city: recordData.city,
+                country: recordData.country,
+                isUniverseTheme: recordData.isUniverseTheme || false
+            })
+        });
+
+        if (!imageResponse.ok) {
+            throw new Error(`生成圖片失敗: ${await imageResponse.text()}`);
+        }
+        
+        const imageData = await imageResponse.json();
+
+        if (!imageData.imageUrl) {
+            throw new Error('API 沒有返回圖片 URL');
+        }
+
+        console.log(`[generateBreakfastImage] 圖片生成成功: ${imageData.imageUrl}`);
+        
+        // 隱藏按鈕容器並創建圖片容器
+        breakfastButtonContainer.style.display = 'none';
+        
+        const breakfastContainer = document.createElement('div');
+        breakfastContainer.id = 'breakfastImageContainer';
+        breakfastContainer.style.marginTop = '20px';
+        breakfastContainer.style.textAlign = 'center';
+        
+        const displayName = recordData.isUniverseTheme ? '星際早餐' : `${cityDisplayName}的早餐`;
+        breakfastContainer.innerHTML = `
+            <div class="postcard-image-container">
+                <img src="${imageData.imageUrl}" alt="${displayName}" style="max-width: 100%; border-radius: 8px;">
+                <p style="font-size: 0.9em; color: #555;"><em>今日的${displayName}</em></p>
+            </div>
+        `;
+        
+        // 插入圖片容器
+        const debugInfo = document.getElementById('debugInfo');
+        debugInfo.parentNode.insertBefore(breakfastContainer, debugInfo);
+        
+        // 更新 Firebase 記錄中的圖片 URL
+        if (recordId) {
+            try {
+                const { getFirestore, doc, updateDoc } = window.firebaseSDK;
+                const db = getFirestore();
+                const appId = window.firebaseConfig.appId.replace(/[^a-zA-Z0-9]/g, '_');
+                const currentDataIdentifier = window.currentDataIdentifier || localStorage.getItem('worldClockUserName');
+                
+                const historyDocRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, recordId);
+                await updateDoc(historyDocRef, {
+                    imageUrl: imageData.imageUrl
+                });
+                
+                console.log(`[generateBreakfastImage] 圖片 URL 已更新到記錄中: ${recordId}`);
+            } catch (updateError) {
+                console.error('[generateBreakfastImage] 更新記錄中的圖片 URL 失敗:', updateError);
+            }
+        }
+        
+    } catch (error) {
+        console.error('[generateBreakfastImage] 生成早餐圖片失敗:', error);
+        
+        // 顯示錯誤狀態
+        breakfastBtn.innerHTML = '❌ 生成失敗';
+        breakfastBtn.nextElementSibling.innerHTML = `<em style="color: #dc3545;">生成失敗: ${error.message}</em>`;
+        
+        // 3秒後恢復按鈕
+        setTimeout(() => {
+            breakfastBtn.disabled = false;
+            if (recordData.isUniverseTheme) {
+                breakfastBtn.innerHTML = '🌌 我想吃宇宙早餐';
+                breakfastBtn.nextElementSibling.innerHTML = '<em>探索來自星際的神秘早餐</em>';
+            } else {
+                breakfastBtn.innerHTML = `🍽️ 我想吃${cityDisplayName}早餐`;
+                breakfastBtn.nextElementSibling.innerHTML = `<em>品嚐來自${cityDisplayName}的當地特色早餐</em>`;
+            }
+        }, 3000);
     }
 };
