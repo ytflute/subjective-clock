@@ -82,6 +82,7 @@ async def start_wakeup_process(self):
 ```
 
 #### **與 pi-script-refactored.js 的關係**
+{% raw %}
 ```python
 # display_manager.py 中觸發 JavaScript
 async def _trigger_wakeup_process(self, city_data):
@@ -99,6 +100,7 @@ async def _trigger_wakeup_process(self, city_data):
     """
     await self.execute_js(js_trigger)
 ```
+{% endraw %}
 
 ---
 

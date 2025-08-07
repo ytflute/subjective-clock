@@ -47,6 +47,7 @@ async def start_wakeup_process(self):
 ```
 
 ### 3. 觸發 JavaScript 前端處理
+{% raw %}
 ```python
 # Python: display_manager.py
 await self.execute_js(f"""
@@ -54,6 +55,7 @@ await self.execute_js(f"""
     displayAwakeningResult(window.currentCityData);
 """)
 ```
+{% endraw %}
 
 ### 4. JavaScript 接管 UI 和視覺化
 ```javascript
@@ -74,6 +76,7 @@ async function displayAwakeningResult(cityData) {
 ```
 
 ### 5. 故事生成和顯示
+{% raw %}
 ```python
 # Python: 生成故事後觸發事件
 await self.display_manager.execute_js(f"""
@@ -83,6 +86,7 @@ await self.display_manager.execute_js(f"""
     window.dispatchEvent(event);
 """)
 ```
+{% endraw %}
 
 ```javascript
 // JavaScript: 接收故事事件
