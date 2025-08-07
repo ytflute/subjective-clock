@@ -2081,70 +2081,103 @@ window.addEventListener('firebaseReady', async (event) => {
         }
         
         // 先顯示載入中的狀態
-        modalContent.innerHTML = '<div style="text-align: center; padding: 20px;">載入中...</div>';
+        modalContent.innerHTML = '<div style="text-align: center; padding: 20px;">載入最新資料中...</div>';
         modal.style.display = 'block';
         modal.classList.add('show');
         
         try {
-            // 計算甦醒次數
-            const wakeUpNumber = await calculateWakeUpNumber(record);
+            // 🔄 重新從Firebase讀取最新的記錄數據（解決早餐圖片時序問題）
+            let latestRecord = record;
+            if (record.docId) {
+                console.log(`[showHistoryLogModal] 重新讀取記錄 ${record.docId} 的最新數據`);
+                try {
+                    const { doc, getDoc } = window.firebaseSDK;
+                    const recordRef = doc(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`, record.docId);
+                    const docSnap = await getDoc(recordRef);
+                    
+                    if (docSnap.exists()) {
+                        latestRecord = { ...docSnap.data(), docId: record.docId };
+                        console.log(`[showHistoryLogModal] 成功讀取最新數據:`, latestRecord);
+                    } else {
+                        console.log(`[showHistoryLogModal] 記錄不存在，使用緩存數據`);
+                    }
+                } catch (firebaseError) {
+                    console.error(`[showHistoryLogModal] Firebase讀取失敗，使用緩存數據:`, firebaseError);
+                }
+            }
             
-            // 計算城市訪問次數
-            const cityVisitNumber = await calculateCityVisitNumber(record);
+            // 計算甦醒次數（使用最新記錄）
+            const wakeUpNumber = await calculateWakeUpNumber(latestRecord);
+            
+            // 計算城市訪問次數（使用最新記錄）
+            const cityVisitNumber = await calculateCityVisitNumber(latestRecord);
             
             // 設定彈窗標題
             modalTitle.textContent = `第 ${wakeUpNumber} 次的甦醒日誌`;
             
-            // 準備城市和國家顯示名稱
-            const cityDisplay = record.city_zh && record.city_zh !== record.city ? 
-                `${record.city_zh} (${record.city})` : record.city;
-            const countryDisplay = record.country_zh && record.country_zh !== record.country ? 
-                `${record.country_zh} (${record.country})` : record.country;
+            // 準備城市和國家顯示名稱（使用最新記錄）
+            const cityDisplay = latestRecord.city_zh && latestRecord.city_zh !== latestRecord.city ? 
+                `${latestRecord.city_zh} (${latestRecord.city})` : latestRecord.city;
+            const countryDisplay = latestRecord.country_zh && latestRecord.country_zh !== latestRecord.country ? 
+                `${latestRecord.country_zh} (${latestRecord.country})` : latestRecord.country;
             
-            // 創建詳細內容
+            // 處理記錄時間（確保兼容性）
+            let recordTime = '未知時間';
+            if (latestRecord.recordedAt) {
+                if (latestRecord.recordedAt.toDate) {
+                    recordTime = latestRecord.recordedAt.toDate().toLocaleString('zh-TW');
+                } else if (latestRecord.recordedAt instanceof Date) {
+                    recordTime = latestRecord.recordedAt.toLocaleString('zh-TW');
+                }
+            }
+            
+            // 創建詳細內容（使用最新記錄）
             let contentHTML = `
                 <div class="log-detail" style="text-align: left;">
                     <h3>基本資訊</h3>
-                    <p><strong>記錄時間：</strong>${record.recordedAt.toDate().toLocaleString('zh-TW')}</p>
+                    <p><strong>記錄時間：</strong>${recordTime}</p>
                     <p><strong>甦醒地點：</strong>${cityDisplay}, ${countryDisplay}</p>
                     ${cityVisitNumber > 1 ? `<p><strong>城市訪問：</strong>這是你第 ${cityVisitNumber} 次拜訪這座城市</p>` : ''}
-                    ${record.timezone ? `<p><strong>時區：</strong>${record.timezone}</p>` : ''}
-                    ${record.groupName ? `<p><strong>組別：</strong>${record.groupName}</p>` : ''}
+                    ${latestRecord.timezone ? `<p><strong>時區：</strong>${latestRecord.timezone}</p>` : ''}
+                    ${latestRecord.groupName ? `<p><strong>組別：</strong>${latestRecord.groupName}</p>` : ''}
                 </div>
             `;
             
-            // 如果有早餐圖片，優先顯示
-            if (record.imageUrl) {
-                const recordId = record.docId || 'unknown';
-                const cityDisplayName = record.city_zh || record.city || '未知城市';
+            // 🖼️ 如果有早餐圖片，優先顯示（使用最新記錄的imageUrl）
+            if (latestRecord.imageUrl) {
+                console.log(`[showHistoryLogModal] 發現早餐圖片: ${latestRecord.imageUrl}`);
+                const recordId = latestRecord.docId || 'unknown';
+                const cityDisplayName = latestRecord.city_zh || latestRecord.city || '未知城市';
                 contentHTML += `
                     <div class="log-detail" style="text-align: left;">
                         <h3>今日早餐</h3>
                         <div id="historyImageContainer-${recordId}" style="text-align: center; margin: 10px 0;">
-                            <img src="${record.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" 
+                            <img src="${latestRecord.imageUrl}" alt="早餐圖片" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" 
                                  onerror="handleHistoryImageError(this, '${recordId}', '${currentDataIdentifier}', '${cityDisplayName}')">
                         </div>
                     </div>
                 `;
+            } else {
+                console.log(`[showHistoryLogModal] 沒有早餐圖片`);
             }
             
-            // 如果有故事內容，顯示故事
-            if (record.story) {
+            // 如果有故事內容，顯示故事（使用最新記錄）
+            if (latestRecord.story) {
                 contentHTML += `
                     <div class="log-detail" style="text-align: left;">
                         <h3>今日故事</h3>
-                        <div class="story-content">${record.story}</div>
+                        <div class="story-content">${latestRecord.story}</div>
                     </div>
                 `;
             }
             
-            // 座標資訊
-            if (record.latitude && record.longitude) {
+            // 座標資訊（使用最新記錄）
+            if (latestRecord.latitude && latestRecord.longitude) {
                 contentHTML += `
                     <div class="log-detail" style="text-align: left;">
                         <h3>座標資訊</h3>
-                        <p><strong>緯度：</strong>${record.latitude.toFixed(6)}</p>
-                        <p><strong>經度：</strong>${record.longitude.toFixed(6)}</p>
+                        <p><strong>緯度：</strong>${latestRecord.latitude.toFixed(6)}</p>
+                        <p><strong>經度：</strong>${latestRecord.longitude.toFixed(6)}</p>
                     </div>
                 `;
             }
