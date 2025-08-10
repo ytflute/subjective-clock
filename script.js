@@ -2825,7 +2825,7 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
         // 更新 Firebase 記錄中的圖片 URL
         if (recordId) {
             try {
-                const { getFirestore, doc, updateDoc } = window.firebaseSDK;
+                const { getFirestore, doc, updateDoc, getDoc } = window.firebaseSDK;
                 const db = getFirestore();
                 // 使用全域 appId 變數，而非 window.firebaseConfig.appId
                 const safeAppId = window.appId || (typeof __app_id !== 'undefined' ? __app_id : 'default-app-id-worldclock-history');
@@ -2834,6 +2834,16 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
                 console.log(`[generateBreakfastImage] 使用 appId: ${safeAppId}, currentDataIdentifier: ${currentDataIdentifier}, recordId: ${recordId}`);
                 
                 const historyDocRef = doc(db, `artifacts/${safeAppId}/userProfiles/${currentDataIdentifier}/clockHistory`, recordId);
+                
+                // 🔍 先檢查文檔是否存在
+                const docSnap = await getDoc(historyDocRef);
+                if (!docSnap.exists()) {
+                    console.error(`[generateBreakfastImage] 記錄不存在，無法更新: ${recordId}`);
+                    console.error(`[generateBreakfastImage] 完整路徑: artifacts/${safeAppId}/userProfiles/${currentDataIdentifier}/clockHistory/${recordId}`);
+                    return;
+                }
+                
+                console.log(`[generateBreakfastImage] 找到記錄，準備更新圖片URL: ${recordId}`);
                 await updateDoc(historyDocRef, {
                     imageUrl: imageData.imageUrl
                 });
@@ -2841,6 +2851,11 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
                 console.log(`[generateBreakfastImage] 圖片 URL 已更新到記錄中: ${recordId}`);
             } catch (updateError) {
                 console.error('[generateBreakfastImage] 更新記錄中的圖片 URL 失敗:', updateError);
+                console.error('[generateBreakfastImage] 錯誤詳細信息:', {
+                    recordId,
+                    currentDataIdentifier: window.currentDataIdentifier || localStorage.getItem('worldClockUserName'),
+                    appId: window.appId || 'default-app-id-worldclock-history'
+                });
             }
         }
         
