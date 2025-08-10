@@ -2838,9 +2838,23 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
                 // 🔍 先檢查文檔是否存在
                 const docSnap = await getDoc(historyDocRef);
                 if (!docSnap.exists()) {
-                    console.error(`[generateBreakfastImage] 記錄不存在，無法更新: ${recordId}`);
-                    console.error(`[generateBreakfastImage] 完整路徑: artifacts/${safeAppId}/userProfiles/${currentDataIdentifier}/clockHistory/${recordId}`);
-                    return;
+                    console.warn(`[generateBreakfastImage] 記錄不存在，嘗試使用setDoc創建: ${recordId}`);
+                    console.warn(`[generateBreakfastImage] 完整路徑: artifacts/${safeAppId}/userProfiles/${currentDataIdentifier}/clockHistory/${recordId}`);
+                    
+                    // 🔧 如果記錄不存在，使用setDoc創建記錄（包含imageUrl）
+                    try {
+                        const { setDoc } = window.firebaseSDK;
+                        await setDoc(historyDocRef, {
+                            ...recordData,
+                            imageUrl: imageData.imageUrl,
+                            docId: recordId
+                        });
+                        console.log(`[generateBreakfastImage] 成功創建記錄並設置圖片URL: ${recordId}`);
+                        return;
+                    } catch (setDocError) {
+                        console.error(`[generateBreakfastImage] 創建記錄失敗: ${setDocError}`);
+                        return;
+                    }
                 }
                 
                 console.log(`[generateBreakfastImage] 找到記錄，準備更新圖片URL: ${recordId}`);
