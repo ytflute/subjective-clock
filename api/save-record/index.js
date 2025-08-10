@@ -73,12 +73,56 @@ export default async function handler(req, res) {
             });
         }
 
-        // 獲取當前日期字串
+        // 🔧 使用 Intl.DateTimeFormat 獲取用戶本地時區的當前日期字串
+        function getLocalDate({ now = new Date(), timeZone, offsetHours, fallbackTZ = 'Asia/Taipei' }) {
+            const fmt = (date, tz) =>
+                new Intl.DateTimeFormat('en-CA', { // en-CA 直接輸出 YYYY-MM-DD
+                    timeZone: tz,
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                }).format(date);
+
+            // 1) 如果給 IANA 時區 -> 正確處理 DST
+            if (typeof timeZone === 'string' && timeZone.trim()) {
+                try {
+                    return fmt(now, timeZone);
+                } catch {
+                    // 如果 timeZone 名稱無效，就落到偏移量或預設
+                }
+            }
+
+            // 2) 沒有 IANA 時區，改用數字偏移量（不含 DST）
+            const isValidOffset = typeof offsetHours === 'number' && offsetHours >= -12 && offsetHours <= 14;
+            if (isValidOffset) {
+                // 先把 UTC 時間加上偏移量後，再用 UTC 格式化，得到對應日期
+                const shifted = new Date(now.getTime() + offsetHours * 60 * 60 * 1000);
+                return fmt(shifted, 'UTC');
+            }
+
+            // 3) 最後預設使用台灣時區（含 DST 規則：台灣沒有 DST，但這裡依舊走 IANA 時區）
+            return fmt(now, fallbackTZ);
+        }
+
         const now = new Date();
-        const year = now.getFullYear();
-        const month = (now.getMonth() + 1).toString().padStart(2, '0');
-        const day = now.getDate().toString().padStart(2, '0');
-        const recordedDateString = `${year}-${month}-${day}`;
+        const userUTCOffset = parseFloat(targetUTCOffset);
+        
+        // 使用優雅的時區處理獲取本地日期
+        const recordedDateString = getLocalDate({ 
+            now: now, 
+            timeZone: timezone, // 優先使用 IANA 時區名稱
+            offsetHours: userUTCOffset, // fallback 到數字偏移量
+            fallbackTZ: 'Asia/Taipei' // 最終 fallback
+        });
+        
+        // 記錄使用的時區資訊
+        if (typeof timezone === 'string' && timezone.trim()) {
+            console.log(`📅 使用 IANA 時區: ${timezone}, 本地日期: ${recordedDateString}`);
+        } else if (!isNaN(userUTCOffset) && userUTCOffset >= -12 && userUTCOffset <= 14) {
+            console.log(`📅 使用 UTC 偏移量: ${userUTCOffset >= 0 ? '+' : ''}${userUTCOffset}, 本地日期: ${recordedDateString}`);
+        } else {
+            console.log(`📅 使用預設台灣時區, 本地日期: ${recordedDateString} (原始時區: ${timezone}, 偏移量: ${targetUTCOffset})`);
+        }
 
         // 準備基本記錄資料
         const baseRecordData = {
