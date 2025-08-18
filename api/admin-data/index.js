@@ -17,6 +17,49 @@ if (!admin.apps.length) {
 
 const db = admin.firestore();
 
+// 複製前端的名稱轉換邏輯
+function generateSafeId(originalName) {
+    let hash = 0;
+    for (let i = 0; i < originalName.length; i++) {
+        const char = originalName.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+    }
+    hash = Math.abs(hash);
+    
+    const safeChars = originalName.replace(/[^a-zA-Z0-9]/g, '');
+    const prefix = safeChars.length > 0 ? safeChars : 'user';
+    return `${prefix}_${hash}`;
+}
+
+function sanitizeNameToFirestoreId(name) {
+    if (!name || typeof name !== 'string') return null;
+    if (!name.trim()) return null;
+    
+    // 如果名稱中包含中文字符，使用雜湊函數生成固定的識別碼
+    if (/[\u4e00-\u9fa5]/.test(name)) {
+        return generateSafeId(name);
+    }
+    
+    // 對於非中文名稱，保持原有的處理邏輯
+    let sanitized = name.toLowerCase().trim();
+    sanitized = sanitized.replace(/\s+/g, '_');
+    sanitized = sanitized.replace(/[^a-z0-9_.-]/g, '');
+    
+    if (sanitized === "." || sanitized === "..") {
+        sanitized = `name_${sanitized.replace(/\./g, '')}`;
+    }
+    if (sanitized.startsWith("__") && sanitized.endsWith("__") && sanitized.length > 4) {
+        sanitized = `name${sanitized.substring(2, sanitized.length - 2)}`;
+    } else if (sanitized.startsWith("__")) {
+        sanitized = `name${sanitized.substring(2)}`;
+    } else if (sanitized.endsWith("__")) {
+        sanitized = `name${sanitized.substring(0, sanitized.length - 2)}`;
+    }
+    
+    return sanitized.substring(0, 100) || generateSafeId(name);
+}
+
 export default async function handler(req, res) {
     // 設定 CORS 標頭
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -110,13 +153,27 @@ export default async function handler(req, res) {
 
             // 如果指定了使用者ID，只搜尋該使用者
             if (userId) {
+                console.log(`🔍 搜尋使用者原始輸入: "${userId}"`);
+                
+                // 轉換使用者名稱為 Firebase 安全識別碼
+                const sanitizedUserId = sanitizeNameToFirestoreId(userId);
+                console.log(`🔧 轉換後的安全識別碼: "${sanitizedUserId}"`);
+                
+                if (!sanitizedUserId) {
+                    return res.status(400).json({
+                        success: false,
+                        error: '無效的使用者名稱'
+                    });
+                }
+                
                 const artifactsSnapshot = await db.collection('artifacts').get();
 
                 for (const artifactDoc of artifactsSnapshot.docs) {
                     const appId = artifactDoc.id;
+                    console.log(`🔍 在應用程式 ${appId} 中搜尋使用者 ${sanitizedUserId}`);
 
                     try {
-                        const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${userId}/clockHistory`)
+                        const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${sanitizedUserId}/clockHistory`)
                             .orderBy('recordedAt', 'desc')
                             .get();
 
