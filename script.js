@@ -2850,6 +2850,15 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
                             docId: recordId
                         });
                         console.log(`[generateBreakfastImage] 成功創建記錄並設置圖片URL: ${recordId}`);
+                        
+                        // 🔄 創建成功後，重新顯示最後記錄以反映早餐圖片
+                        setTimeout(() => {
+                            console.log(`[generateBreakfastImage] 重新載入最後記錄以顯示早餐圖片（setDoc後）`);
+                            if (typeof displayLastRecordForCurrentUser === 'function') {
+                                displayLastRecordForCurrentUser();
+                            }
+                        }, 1000); // 給Firebase一點時間完成更新
+                        
                         return;
                     } catch (setDocError) {
                         console.error(`[generateBreakfastImage] 創建記錄失敗: ${setDocError}`);
@@ -2863,6 +2872,15 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
                 });
                 
                 console.log(`[generateBreakfastImage] 圖片 URL 已更新到記錄中: ${recordId}`);
+                
+                // 🔄 更新成功後，重新顯示最後記錄以反映早餐圖片
+                setTimeout(() => {
+                    console.log(`[generateBreakfastImage] 重新載入最後記錄以顯示早餐圖片`);
+                    if (typeof displayLastRecordForCurrentUser === 'function') {
+                        displayLastRecordForCurrentUser();
+                    }
+                }, 1000); // 給Firebase一點時間完成更新
+                
             } catch (updateError) {
                 console.error('[generateBreakfastImage] 更新記錄中的圖片 URL 失敗:', updateError);
                 console.error('[generateBreakfastImage] 錯誤詳細信息:', {
