@@ -375,7 +375,7 @@
                 <input type="text" id="searchInput" placeholder="搜尋使用者代號、城市或國家...">
                 <span class="search-icon">🔍</span>
             </div>
-            <button class="btn btn-primary" onclick="loadAllUserData()">🔄 重新載入資料</button>
+            <button class="btn btn-primary" onclick="forceReloadData()">🔄 重新載入資料</button>
             <button class="btn btn-secondary" onclick="exportToCSV()">📥 匯出 CSV</button>
         </div>
 
@@ -438,6 +438,7 @@
     <script type="module">
         // Firebase 配置
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
         import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
 
         const firebaseConfig = {
@@ -450,15 +451,69 @@
         };
 
         const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
         const db = getFirestore(app);
 
         // 全域變數
         let allUserData = [];
         let filteredData = [];
         let currentSort = { column: null, direction: 'asc' };
+        let isAuthenticated = false;
+
+        // Firebase 身份驗證
+        const initializeAuth = async () => {
+            try {
+                // 監聽身份驗證狀態
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        console.log('✅ 使用者已登入:', user.uid);
+                        isAuthenticated = true;
+                        // 自動載入資料
+                        loadAllUserData();
+                    } else {
+                        console.log('❌ 使用者未登入，嘗試匿名登入...');
+                        signInAnonymously(auth)
+                            .then(() => {
+                                console.log('✅ 匿名登入成功');
+                            })
+                            .catch((error) => {
+                                console.error('❌ 匿名登入失敗:', error);
+                                showError(`登入失敗: ${error.message}`);
+                            });
+                    }
+                });
+            } catch (error) {
+                console.error('❌ 身份驗證初始化失敗:', error);
+                showError(`身份驗證失敗: ${error.message}`);
+            }
+        };
+
+        // 顯示錯誤訊息
+        const showError = (message) => {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            loadingIndicator.style.display = 'none';
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        };
+
+        // 強制重新載入資料（供按鈕呼叫）
+        window.forceReloadData = async function() {
+            if (!isAuthenticated) {
+                showError('請等待身份驗證完成，或重新整理頁面重試...');
+                return;
+            }
+            await loadAllUserData();
+        };
 
         // 載入所有使用者資料
         window.loadAllUserData = async function() {
+            // 檢查是否已驗證
+            if (!isAuthenticated) {
+                showError('請等待身份驗證完成...');
+                return;
+            }
+
             const loadingIndicator = document.getElementById('loadingIndicator');
             const errorMessage = document.getElementById('errorMessage');
             const tableContainer = document.getElementById('tableContainer');
@@ -707,9 +762,9 @@
             document.body.removeChild(link);
         };
 
-        // 頁面載入完成後自動載入資料
+        // 頁面載入完成後初始化身份驗證
         document.addEventListener('DOMContentLoaded', function() {
-            loadAllUserData();
+            initializeAuth();
         });
 
         // ESC 鍵關閉彈出窗口
