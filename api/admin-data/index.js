@@ -147,9 +147,15 @@ export default async function handler(req, res) {
 
         } else if (req.method === 'POST') {
             // POST 請求：根據搜尋條件返回特定使用者資料
+            console.log('📥 收到 POST 請求');
+            console.log('📝 請求體 (req.body):', req.body);
+            console.log('📝 請求體類型:', typeof req.body);
+            console.log('📝 原始請求:', req.rawBody);
+            
             const { searchTerm, userId, city, country, dateFrom, dateTo } = req.body;
 
             console.log('🔍 管理員搜尋請求:', { searchTerm, userId, city, country, dateFrom, dateTo });
+            console.log('🎯 提取的 userId:', userId);
 
             // 如果指定了使用者ID，只搜尋該使用者
             if (userId) {
@@ -167,10 +173,25 @@ export default async function handler(req, res) {
                 }
                 
                 const artifactsSnapshot = await db.collection('artifacts').get();
+                console.log(`📊 找到 ${artifactsSnapshot.size} 個應用程式`);
+                
+                // 列出所有應用程式ID
+                artifactsSnapshot.docs.forEach(doc => {
+                    console.log(`📱 應用程式ID: ${doc.id}`);
+                });
 
                 for (const artifactDoc of artifactsSnapshot.docs) {
                     const appId = artifactDoc.id;
                     console.log(`🔍 在應用程式 ${appId} 中搜尋使用者 ${sanitizedUserId}`);
+                    
+                    // 檢查 userProfiles 集合是否存在
+                    const userProfilesSnapshot = await db.collection(`artifacts/${appId}/userProfiles`).get();
+                    console.log(`👥 應用程式 ${appId} 下有 ${userProfilesSnapshot.size} 個使用者檔案`);
+                    
+                    // 列出所有使用者ID
+                    userProfilesSnapshot.docs.forEach(userDoc => {
+                        console.log(`👤 使用者ID: ${userDoc.id}`);
+                    });
 
                     try {
                         const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${sanitizedUserId}/clockHistory`)
