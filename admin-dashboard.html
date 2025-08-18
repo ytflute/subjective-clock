@@ -375,7 +375,8 @@
                 <input type="text" id="searchInput" placeholder="搜尋使用者代號、城市或國家...">
                 <span class="search-icon">🔍</span>
             </div>
-            <button class="btn btn-primary" onclick="forceReloadData()">🔄 重新載入資料</button>
+            <button class="btn btn-primary" onclick="searchSpecificUser()">🔍 搜尋特定使用者</button>
+            <button class="btn btn-primary" onclick="forceReloadData()">🔄 重新載入全部資料</button>
             <button class="btn btn-secondary" onclick="exportToCSV()">📥 匯出 CSV</button>
         </div>
 
@@ -509,8 +510,17 @@
                     if (user) {
                         console.log('✅ 使用者已登入:', user.uid);
                         isAuthenticated = true;
-                        // 自動載入資料
-                        loadAllUserData();
+                        // 顯示操作提示
+                        const loadingIndicator = document.getElementById('loadingIndicator');
+                        loadingIndicator.innerHTML = `
+                            <div style="text-align: center; padding: 50px;">
+                                <h3 style="color: #4facfe; margin-bottom: 20px;">🔐 身份驗證成功</h3>
+                                <p style="color: #666; margin-bottom: 30px;">請選擇查看方式：</p>
+                                <button class="btn btn-primary" onclick="loadAllUserData()" style="margin: 10px;">📊 載入所有使用者資料</button>
+                                <br>
+                                <button class="btn btn-secondary" onclick="document.getElementById('searchInput').focus()" style="margin: 10px;">🔍 搜尋特定使用者</button>
+                            </div>
+                        `;
                     } else {
                         console.log('❌ 使用者未登入，嘗試匿名登入...');
                         signInAnonymously(auth)
@@ -538,20 +548,13 @@
             errorMessage.style.display = 'block';
         };
 
-        // 強制重新載入資料（供按鈕呼叫）
-        window.forceReloadData = async function() {
-            if (!isAuthenticated) {
-                showError('請等待身份驗證完成，或重新整理頁面重試...');
-                return;
-            }
-            await loadAllUserData();
-        };
-
-        // 載入所有使用者資料
-        window.loadAllUserData = async function() {
-            // 檢查是否已驗證
-            if (!isAuthenticated) {
-                showError('請等待身份驗證完成...');
+        // 搜尋特定使用者
+        window.searchSpecificUser = async function() {
+            const searchInput = document.getElementById('searchInput');
+            const userId = searchInput.value.trim();
+            
+            if (!userId) {
+                showError('請輸入使用者代號');
                 return;
             }
 
@@ -567,53 +570,39 @@
             statsSection.style.display = 'none';
 
             try {
-                console.log('開始載入所有使用者資料...');
-                allUserData = [];
+                console.log(`🔍 搜尋使用者: ${userId}`);
+                
+                const response = await fetch('/api/admin-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        userId: userId
+                    })
+                });
 
-                // 查詢 artifacts 集合下的所有文檔
-                const artifactsCollection = collection(db, 'artifacts');
-                const artifactsSnapshot = await getDocs(artifactsCollection);
-
-                for (const artifactDoc of artifactsSnapshot.docs) {
-                    const appId = artifactDoc.id;
-                    console.log(`處理應用程式: ${appId}`);
-
-                    // 查詢該應用程式下的所有使用者
-                    const userProfilesCollection = collection(db, `artifacts/${appId}/userProfiles`);
-                    const userProfilesSnapshot = await getDocs(userProfilesCollection);
-
-                    for (const userDoc of userProfilesSnapshot.docs) {
-                        const userId = userDoc.id;
-                        console.log(`處理使用者: ${userId}`);
-
-                        // 查詢該使用者的所有甦醒記錄
-                        const clockHistoryCollection = collection(db, `artifacts/${appId}/userProfiles/${userId}/clockHistory`);
-                        const clockHistoryQuery = query(clockHistoryCollection, orderBy('recordedAt', 'desc'));
-                        const clockHistorySnapshot = await getDocs(clockHistoryQuery);
-
-                        clockHistorySnapshot.forEach(recordDoc => {
-                            const recordData = recordDoc.data();
-                            const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
-                            
-                            allUserData.push({
-                                userId: userId,
-                                appId: appId,
-                                recordId: recordDoc.id,
-                                date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
-                                time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
-                                city: recordData.city || '未知',
-                                country: recordData.country || '未知',
-                                cityZh: recordData.city_zh || '',
-                                countryZh: recordData.country_zh || '',
-                                imageUrl: recordData.imageUrl || '',
-                                recordedAt: recordedAt,
-                                ...recordData
-                            });
-                        });
-                    }
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
 
-                console.log(`載入完成，共 ${allUserData.length} 筆記錄`);
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error || '未知錯誤');
+                }
+
+                allUserData = result.data.map(record => ({
+                    ...record,
+                    recordedAt: record.recordedAt ? new Date(record.recordedAt) : null
+                }));
+
+                console.log(`✅ 搜尋完成，找到 ${allUserData.length} 筆記錄`);
+
+                if (allUserData.length === 0) {
+                    showError(`未找到使用者「${userId}」的任何記錄`);
+                    return;
+                }
 
                 // 初始化顯示
                 filteredData = [...allUserData];
@@ -626,7 +615,68 @@
                 statsSection.style.display = 'flex';
 
             } catch (error) {
-                console.error('載入資料時發生錯誤:', error);
+                console.error('❌ 搜尋使用者時發生錯誤:', error);
+                showError(`搜尋失敗: ${error.message}`);
+            }
+        };
+
+        // 強制重新載入資料（供按鈕呼叫）
+        window.forceReloadData = async function() {
+            await loadAllUserData();
+        };
+
+        // 載入所有使用者資料
+        window.loadAllUserData = async function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            const tableContainer = document.getElementById('tableContainer');
+            const statsSection = document.getElementById('statsSection');
+
+            // 顯示載入狀態
+            loadingIndicator.style.display = 'block';
+            errorMessage.style.display = 'none';
+            tableContainer.style.display = 'none';
+            statsSection.style.display = 'none';
+
+            try {
+                console.log('🔍 向後端請求所有使用者資料...');
+                
+                const response = await fetch('/api/admin-data', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                if (!result.success) {
+                    throw new Error(result.error || '未知錯誤');
+                }
+
+                allUserData = result.data.map(record => ({
+                    ...record,
+                    recordedAt: record.recordedAt ? new Date(record.recordedAt) : null
+                }));
+
+                console.log(`✅ 載入完成，共 ${allUserData.length} 筆記錄`);
+
+                // 初始化顯示
+                filteredData = [...allUserData];
+                renderTable();
+                updateStats();
+
+                // 隱藏載入狀態，顯示表格
+                loadingIndicator.style.display = 'none';
+                tableContainer.style.display = 'block';
+                statsSection.style.display = 'flex';
+
+            } catch (error) {
+                console.error('❌ 載入資料時發生錯誤:', error);
                 loadingIndicator.style.display = 'none';
                 errorMessage.textContent = `載入失敗: ${error.message}`;
                 errorMessage.style.display = 'block';
@@ -686,7 +736,7 @@
             document.getElementById('totalCities').textContent = uniqueCities;
         }
 
-        // 搜尋功能
+        // 搜尋功能 - 本地過濾
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             
@@ -704,6 +754,13 @@
             
             renderTable();
             updateStats();
+        });
+
+        // Enter 鍵搜尋特定使用者
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchSpecificUser();
+            }
         });
 
         // 排序功能
