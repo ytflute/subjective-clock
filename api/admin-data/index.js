@@ -106,27 +106,35 @@ export default async function handler(req, res) {
                 hasPrivateKey: !!process.env.FIREBASE_PRIVATE_KEY
             });
 
-            // 查詢 artifacts 集合下的所有文檔
+            // 直接使用已知的 APP_ID（與前端保持一致）
+            const knownAppId = 'default-app-id-worldclock-history';
+            console.log(`🎯 使用已知 APP_ID: ${knownAppId}`);
+            
+            // 查詢 artifacts 集合下的所有文檔（調試用）
             console.log('🔍 開始查詢 artifacts 集合...');
             const artifactsSnapshot = await db.collection('artifacts').get();
             console.log(`📄 找到 ${artifactsSnapshot.size} 個 artifacts 文檔`);
+            
+            // 列出所有找到的 artifacts 文檔
+            artifactsSnapshot.docs.forEach(doc => {
+                console.log(`📱 找到的應用程式ID: ${doc.id}`);
+            });
 
-            for (const artifactDoc of artifactsSnapshot.docs) {
-                const appId = artifactDoc.id;
-                console.log(`處理應用程式: ${appId}`);
+            // 直接查詢已知 APP_ID 的使用者資料
+            console.log(`🔍 直接查詢已知應用程式: ${knownAppId}`);
+                
+            // 查詢該應用程式下的所有使用者
+            console.log(`🔍 查詢路徑: artifacts/${knownAppId}/userProfiles`);
+            const userProfilesSnapshot = await db.collection(`artifacts/${knownAppId}/userProfiles`).get();
+            console.log(`👥 找到 ${userProfilesSnapshot.size} 個使用者檔案`);
 
-                // 查詢該應用程式下的所有使用者
-                console.log(`🔍 查詢路徑: artifacts/${appId}/userProfiles`);
-                const userProfilesSnapshot = await db.collection(`artifacts/${appId}/userProfiles`).get();
-                console.log(`👥 找到 ${userProfilesSnapshot.size} 個使用者檔案`);
+            for (const userDoc of userProfilesSnapshot.docs) {
+                const userId = userDoc.id;
+                console.log(`處理使用者: ${userId}`);
 
-                for (const userDoc of userProfilesSnapshot.docs) {
-                    const userId = userDoc.id;
-                    console.log(`處理使用者: ${userId}`);
-
-                    // 查詢該使用者的所有甦醒記錄
-                    console.log(`🔍 查詢記錄路徑: artifacts/${appId}/userProfiles/${userId}/clockHistory`);
-                    const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${userId}/clockHistory`)
+                // 查詢該使用者的所有甦醒記錄
+                console.log(`🔍 查詢記錄路徑: artifacts/${knownAppId}/userProfiles/${userId}/clockHistory`);
+                const clockHistorySnapshot = await db.collection(`artifacts/${knownAppId}/userProfiles/${userId}/clockHistory`)
                         .orderBy('recordedAt', 'desc')
                         .get();
                     console.log(`📝 找到 ${clockHistorySnapshot.size} 筆甦醒記錄`);
@@ -137,7 +145,7 @@ export default async function handler(req, res) {
                         
                         allUserData.push({
                             userId: userId,
-                            appId: appId,
+                            appId: knownAppId,
                             recordId: recordDoc.id,
                             date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
                             time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
@@ -168,9 +176,18 @@ export default async function handler(req, res) {
                 timestamp: new Date().toISOString()
             });
 
-        } else if (req.method === 'POST') {
-            // POST 請求：根據搜尋條件返回特定使用者資料
-            console.log('📥 收到 POST 請求');
+        } catch (error) {
+            console.error('❌ GET 請求處理失敗:', error);
+            return res.status(500).json({
+                success: false,
+                error: `GET 請求處理失敗: ${error.message}`
+            });
+        }
+
+        if (req.method === 'POST') {
+            try {
+                // POST 請求：根據搜尋條件返回特定使用者資料
+                console.log('📥 收到 POST 請求');
             console.log('📝 請求體 (req.body):', req.body);
             console.log('📝 請求體類型:', typeof req.body);
             console.log('📝 原始請求:', req.rawBody);
@@ -195,6 +212,10 @@ export default async function handler(req, res) {
                     });
                 }
                 
+                // 直接使用已知的 APP_ID
+                const knownAppId = 'default-app-id-worldclock-history';
+                console.log(`🎯 POST 請求使用已知 APP_ID: ${knownAppId}`);
+                
                 const artifactsSnapshot = await db.collection('artifacts').get();
                 console.log(`📊 找到 ${artifactsSnapshot.size} 個應用程式`);
                 
@@ -203,21 +224,19 @@ export default async function handler(req, res) {
                     console.log(`📱 應用程式ID: ${doc.id}`);
                 });
 
-                for (const artifactDoc of artifactsSnapshot.docs) {
-                    const appId = artifactDoc.id;
-                    console.log(`🔍 在應用程式 ${appId} 中搜尋使用者 ${sanitizedUserId}`);
-                    
-                    // 檢查 userProfiles 集合是否存在
-                    const userProfilesSnapshot = await db.collection(`artifacts/${appId}/userProfiles`).get();
-                    console.log(`👥 應用程式 ${appId} 下有 ${userProfilesSnapshot.size} 個使用者檔案`);
-                    
-                    // 列出所有使用者ID
-                    userProfilesSnapshot.docs.forEach(userDoc => {
-                        console.log(`👤 使用者ID: ${userDoc.id}`);
-                    });
+                console.log(`🔍 在應用程式 ${knownAppId} 中搜尋使用者 ${sanitizedUserId}`);
+                
+                // 檢查 userProfiles 集合是否存在
+                const userProfilesSnapshot = await db.collection(`artifacts/${knownAppId}/userProfiles`).get();
+                console.log(`👥 應用程式 ${knownAppId} 下有 ${userProfilesSnapshot.size} 個使用者檔案`);
+                
+                // 列出所有使用者ID
+                userProfilesSnapshot.docs.forEach(userDoc => {
+                    console.log(`👤 使用者ID: ${userDoc.id}`);
+                });
 
-                    try {
-                        const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${sanitizedUserId}/clockHistory`)
+                try {
+                    const clockHistorySnapshot = await db.collection(`artifacts/${knownAppId}/userProfiles/${sanitizedUserId}/clockHistory`)
                             .orderBy('recordedAt', 'desc')
                             .get();
 
@@ -235,7 +254,7 @@ export default async function handler(req, res) {
 
                             allUserData.push({
                                 userId: userId,
-                                appId: appId,
+                                appId: knownAppId,
                                 recordId: recordDoc.id,
                                 date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
                                 time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
@@ -254,9 +273,8 @@ export default async function handler(req, res) {
                                 source: recordData.source || '未知'
                             });
                         });
-                    } catch (error) {
-                        console.log(`⚠️ 使用者 ${userId} 在應用程式 ${appId} 中無資料或無權限`);
-                    }
+                } catch (error) {
+                    console.log(`⚠️ 使用者 ${sanitizedUserId} 在應用程式 ${knownAppId} 中無資料或無權限:`, error.message);
                 }
             } else {
                 // 搜尋所有使用者（如果沒有指定使用者ID）
@@ -275,23 +293,17 @@ export default async function handler(req, res) {
                 searchCriteria: { searchTerm, userId, city, country, dateFrom, dateTo },
                 timestamp: new Date().toISOString()
             });
-
+            } catch (postError) {
+                console.error('❌ POST 請求處理失敗:', postError);
+                return res.status(500).json({
+                    success: false,
+                    error: `POST 請求處理失敗: ${postError.message}`
+                });
+            }
         } else {
             return res.status(405).json({ 
                 success: false, 
                 error: `方法 ${req.method} 不被允許` 
             });
         }
-
-    } catch (error) {
-        console.error('❌ 管理員資料查詢失敗:', error);
-        console.error('❌ 錯誤堆疊:', error.stack);
-        console.error('❌ 錯誤代碼:', error.code);
-        return res.status(500).json({
-            success: false,
-            error: '伺服器內部錯誤',
-            details: error.message,
-            errorCode: error.code || 'UNKNOWN_ERROR'
-        });
-    }
 }
