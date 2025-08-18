@@ -70,6 +70,29 @@ export default async function handler(req, res) {
         return res.status(200).end();
     }
 
+    // 🔍 詳細 Firebase Admin SDK 診斷
+    console.log('🔧 Firebase Admin SDK 詳細診斷:');
+    console.log('  - Firebase Admin 應用程式數量:', admin.apps.length);
+    console.log('  - 專案ID:', process.env.FIREBASE_PROJECT_ID);
+    console.log('  - 客戶端電子郵件存在:', !!process.env.FIREBASE_CLIENT_EMAIL);
+    console.log('  - 私鑰存在:', !!process.env.FIREBASE_PRIVATE_KEY);
+    console.log('  - 客戶端電子郵件值:', process.env.FIREBASE_CLIENT_EMAIL);
+    console.log('  - 私鑰前50字符:', process.env.FIREBASE_PRIVATE_KEY?.substring(0, 50));
+
+    // 測試 Firestore 連接
+    try {
+        console.log('🔗 測試 Firestore 連接...');
+        const testCollection = await db.collection('test-connection').limit(1).get();
+        console.log('✅ Firestore 連接成功，測試查詢完成');
+    } catch (firestoreError) {
+        console.error('❌ Firestore 連接失敗:', firestoreError.message);
+        console.error('❌ Firestore 錯誤詳情:', firestoreError);
+        return res.status(500).json({
+            success: false,
+            error: `Firestore 連接失敗: ${firestoreError.message}`
+        });
+    }
+
     try {
         let allUserData = [];
 
