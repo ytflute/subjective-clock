@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主觀時鐘 - 管理員儀表板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #4facfe;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4facfe;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-height: 70vh;
+            margin: 0 30px 30px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s;
+        }
+
+        .data-table th:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .data-table th.sortable::after {
+            content: ' ↕';
+            opacity: 0.5;
+        }
+
+        .data-table th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+        }
+
+        .data-table th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+        }
+
+        .data-table tbody tr {
+            transition: background-color 0.3s;
+        }
+
+        .data-table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        .breakfast-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 2px solid #ddd;
+        }
+
+        .breakfast-thumbnail:hover {
+            transform: scale(1.1);
+            border-color: #4facfe;
+        }
+
+        .user-id {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .city-name {
+            color: #28a745;
+            font-weight: 500;
+        }
+
+        .country-name {
+            color: #6f42c1;
+            font-weight: 500;
+        }
+
+        .date-time {
+            white-space: nowrap;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .url-link {
+            color: #007bff;
+            text-decoration: none;
+            word-break: break-all;
+            max-width: 200px;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .url-link:hover {
+            text-decoration: underline;
+        }
+
+        .no-image {
+            width: 60px;
+            height: 60px;
+            background: #e9ecef;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 12px;
+            text-align: center;
+            border: 2px solid #ddd;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4facfe;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .error {
+            text-align: center;
+            padding: 50px;
+            color: #dc3545;
+            font-size: 18px;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* 彈出窗口樣式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌅 主觀時鐘管理員儀表板</h1>
+            <p>查看所有使用者的甦醒記錄與軌跡</p>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜尋使用者代號、城市或國家...">
+                <span class="search-icon">🔍</span>
+            </div>
+            <button class="btn btn-primary" onclick="loadAllUserData()">🔄 重新載入資料</button>
+            <button class="btn btn-secondary" onclick="exportToCSV()">📥 匯出 CSV</button>
+        </div>
+
+        <div id="loadingIndicator" class="loading">
+            <div class="spinner"></div>
+            正在載入使用者資料...
+        </div>
+
+        <div id="errorMessage" class="error" style="display: none;"></div>
+
+        <div class="table-container" id="tableContainer" style="display: none;">
+            <table class="data-table" id="dataTable">
+                <thead>
+                    <tr>
+                        <th class="sortable" data-column="userId">使用者代號</th>
+                        <th class="sortable" data-column="date">日期</th>
+                        <th class="sortable" data-column="time">時間</th>
+                        <th class="sortable" data-column="city">City</th>
+                        <th class="sortable" data-column="country">Country</th>
+                        <th class="sortable" data-column="breakfast">早餐照片</th>
+                        <th class="sortable" data-column="imageUrl">照片網址</th>
+                        <th class="sortable" data-column="cityZh">中文城市名稱</th>
+                        <th class="sortable" data-column="countryZh">中文國家名稱</th>
+                    </tr>
+                </thead>
+                <tbody id="dataTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="stats" id="statsSection" style="display: none;">
+            <div class="stat-item">
+                <div class="stat-number" id="totalRecords">0</div>
+                <div class="stat-label">總記錄數</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="totalUsers">0</div>
+                <div class="stat-label">使用者數量</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="totalBreakfasts">0</div>
+                <div class="stat-label">早餐照片數</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="totalCities">0</div>
+                <div class="stat-label">不同城市數</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 圖片彈出窗口 -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeImageModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="早餐照片">
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Firebase 配置
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDNWIFLZRJOXPRR5H5PqHnqxBGZnz0_Q90",
+            authDomain: "subjective-clock.firebaseapp.com",
+            projectId: "subjective-clock",
+            storageBucket: "subjective-clock.firebasestorage.app",
+            messagingSenderId: "391886721399",
+            appId: "1:391886721399:web:af5c55d3f3be5b6c51cc7d"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 全域變數
+        let allUserData = [];
+        let filteredData = [];
+        let currentSort = { column: null, direction: 'asc' };
+
+        // 載入所有使用者資料
+        window.loadAllUserData = async function() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            const tableContainer = document.getElementById('tableContainer');
+            const statsSection = document.getElementById('statsSection');
+
+            // 顯示載入狀態
+            loadingIndicator.style.display = 'block';
+            errorMessage.style.display = 'none';
+            tableContainer.style.display = 'none';
+            statsSection.style.display = 'none';
+
+            try {
+                console.log('開始載入所有使用者資料...');
+                allUserData = [];
+
+                // 查詢 artifacts 集合下的所有文檔
+                const artifactsCollection = collection(db, 'artifacts');
+                const artifactsSnapshot = await getDocs(artifactsCollection);
+
+                for (const artifactDoc of artifactsSnapshot.docs) {
+                    const appId = artifactDoc.id;
+                    console.log(`處理應用程式: ${appId}`);
+
+                    // 查詢該應用程式下的所有使用者
+                    const userProfilesCollection = collection(db, `artifacts/${appId}/userProfiles`);
+                    const userProfilesSnapshot = await getDocs(userProfilesCollection);
+
+                    for (const userDoc of userProfilesSnapshot.docs) {
+                        const userId = userDoc.id;
+                        console.log(`處理使用者: ${userId}`);
+
+                        // 查詢該使用者的所有甦醒記錄
+                        const clockHistoryCollection = collection(db, `artifacts/${appId}/userProfiles/${userId}/clockHistory`);
+                        const clockHistoryQuery = query(clockHistoryCollection, orderBy('recordedAt', 'desc'));
+                        const clockHistorySnapshot = await getDocs(clockHistoryQuery);
+
+                        clockHistorySnapshot.forEach(recordDoc => {
+                            const recordData = recordDoc.data();
+                            const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
+                            
+                            allUserData.push({
+                                userId: userId,
+                                appId: appId,
+                                recordId: recordDoc.id,
+                                date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
+                                time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
+                                city: recordData.city || '未知',
+                                country: recordData.country || '未知',
+                                cityZh: recordData.city_zh || '',
+                                countryZh: recordData.country_zh || '',
+                                imageUrl: recordData.imageUrl || '',
+                                recordedAt: recordedAt,
+                                ...recordData
+                            });
+                        });
+                    }
+                }
+
+                console.log(`載入完成，共 ${allUserData.length} 筆記錄`);
+
+                // 初始化顯示
+                filteredData = [...allUserData];
+                renderTable();
+                updateStats();
+
+                // 隱藏載入狀態，顯示表格
+                loadingIndicator.style.display = 'none';
+                tableContainer.style.display = 'block';
+                statsSection.style.display = 'flex';
+
+            } catch (error) {
+                console.error('載入資料時發生錯誤:', error);
+                loadingIndicator.style.display = 'none';
+                errorMessage.textContent = `載入失敗: ${error.message}`;
+                errorMessage.style.display = 'block';
+            }
+        };
+
+        // 渲染表格
+        function renderTable() {
+            const tableBody = document.getElementById('dataTableBody');
+            tableBody.innerHTML = '';
+
+            filteredData.forEach(record => {
+                const row = document.createElement('tr');
+                
+                // 早餐照片欄位
+                let breakfastCell = '';
+                if (record.imageUrl) {
+                    breakfastCell = `<img src="${record.imageUrl}" alt="早餐照片" class="breakfast-thumbnail" onclick="showImageModal('${record.imageUrl}')">`;
+                } else {
+                    breakfastCell = '<div class="no-image">無照片</div>';
+                }
+
+                // 照片網址欄位
+                let urlCell = '';
+                if (record.imageUrl) {
+                    urlCell = `<a href="${record.imageUrl}" target="_blank" class="url-link" title="${record.imageUrl}">${record.imageUrl}</a>`;
+                } else {
+                    urlCell = '無';
+                }
+
+                row.innerHTML = `
+                    <td class="user-id">${record.userId}</td>
+                    <td class="date-time">${record.date}</td>
+                    <td class="date-time">${record.time}</td>
+                    <td class="city-name">${record.city}</td>
+                    <td class="country-name">${record.country}</td>
+                    <td>${breakfastCell}</td>
+                    <td>${urlCell}</td>
+                    <td class="city-name">${record.cityZh || '無'}</td>
+                    <td class="country-name">${record.countryZh || '無'}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 更新統計資訊
+        function updateStats() {
+            const totalRecords = filteredData.length;
+            const uniqueUsers = new Set(filteredData.map(record => record.userId)).size;
+            const totalBreakfasts = filteredData.filter(record => record.imageUrl).length;
+            const uniqueCities = new Set(filteredData.map(record => record.city)).size;
+
+            document.getElementById('totalRecords').textContent = totalRecords;
+            document.getElementById('totalUsers').textContent = uniqueUsers;
+            document.getElementById('totalBreakfasts').textContent = totalBreakfasts;
+            document.getElementById('totalCities').textContent = uniqueCities;
+        }
+
+        // 搜尋功能
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm === '') {
+                filteredData = [...allUserData];
+            } else {
+                filteredData = allUserData.filter(record => 
+                    record.userId.toLowerCase().includes(searchTerm) ||
+                    record.city.toLowerCase().includes(searchTerm) ||
+                    record.country.toLowerCase().includes(searchTerm) ||
+                    (record.cityZh && record.cityZh.includes(searchTerm)) ||
+                    (record.countryZh && record.countryZh.includes(searchTerm))
+                );
+            }
+            
+            renderTable();
+            updateStats();
+        });
+
+        // 排序功能
+        document.querySelectorAll('.sortable').forEach(header => {
+            header.addEventListener('click', function() {
+                const column = this.dataset.column;
+                
+                // 更新排序狀態
+                if (currentSort.column === column) {
+                    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                } else {
+                    currentSort.column = column;
+                    currentSort.direction = 'asc';
+                }
+
+                // 更新表頭樣式
+                document.querySelectorAll('.sortable').forEach(h => {
+                    h.classList.remove('sort-asc', 'sort-desc');
+                });
+                this.classList.add(currentSort.direction === 'asc' ? 'sort-asc' : 'sort-desc');
+
+                // 執行排序
+                filteredData.sort((a, b) => {
+                    let valueA = a[column];
+                    let valueB = b[column];
+
+                    // 特殊處理日期時間排序
+                    if (column === 'date' || column === 'time') {
+                        valueA = a.recordedAt || new Date(0);
+                        valueB = b.recordedAt || new Date(0);
+                    }
+
+                    // 字串比較
+                    if (typeof valueA === 'string') {
+                        valueA = valueA.toLowerCase();
+                        valueB = valueB.toLowerCase();
+                    }
+
+                    if (currentSort.direction === 'asc') {
+                        return valueA > valueB ? 1 : -1;
+                    } else {
+                        return valueA < valueB ? 1 : -1;
+                    }
+                });
+
+                renderTable();
+            });
+        });
+
+        // 圖片彈出窗口
+        window.showImageModal = function(imageUrl) {
+            document.getElementById('modalImage').src = imageUrl;
+            document.getElementById('imageModal').style.display = 'block';
+        };
+
+        window.closeImageModal = function() {
+            document.getElementById('imageModal').style.display = 'none';
+        };
+
+        // 點擊彈出窗口外部關閉
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageModal();
+            }
+        });
+
+        // 匯出 CSV 功能
+        window.exportToCSV = function() {
+            if (filteredData.length === 0) {
+                alert('沒有資料可以匯出');
+                return;
+            }
+
+            const headers = ['使用者代號', '日期', '時間', 'City', 'Country', '照片網址', '中文城市名稱', '中文國家名稱'];
+            const csvContent = [
+                headers.join(','),
+                ...filteredData.map(record => [
+                    `"${record.userId}"`,
+                    `"${record.date}"`,
+                    `"${record.time}"`,
+                    `"${record.city}"`,
+                    `"${record.country}"`,
+                    `"${record.imageUrl || ''}"`,
+                    `"${record.cityZh || ''}"`,
+                    `"${record.countryZh || ''}"`
+                ].join(','))
+            ].join('\n');
+
+            const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `主觀時鐘_使用者資料_${new Date().toISOString().slice(0, 10)}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        // 頁面載入完成後自動載入資料
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllUserData();
+        });
+
+        // ESC 鍵關閉彈出窗口
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html>
