@@ -33,25 +33,37 @@ export default async function handler(req, res) {
         if (req.method === 'GET') {
             // GET 請求：返回所有使用者資料
             console.log('🔍 管理員請求：載入所有使用者資料');
+            console.log('📊 Firebase Admin SDK 狀態:', {
+                appsLength: admin.apps.length,
+                projectId: process.env.FIREBASE_PROJECT_ID,
+                hasClientEmail: !!process.env.FIREBASE_CLIENT_EMAIL,
+                hasPrivateKey: !!process.env.FIREBASE_PRIVATE_KEY
+            });
 
             // 查詢 artifacts 集合下的所有文檔
+            console.log('🔍 開始查詢 artifacts 集合...');
             const artifactsSnapshot = await db.collection('artifacts').get();
+            console.log(`📄 找到 ${artifactsSnapshot.size} 個 artifacts 文檔`);
 
             for (const artifactDoc of artifactsSnapshot.docs) {
                 const appId = artifactDoc.id;
                 console.log(`處理應用程式: ${appId}`);
 
                 // 查詢該應用程式下的所有使用者
+                console.log(`🔍 查詢路徑: artifacts/${appId}/userProfiles`);
                 const userProfilesSnapshot = await db.collection(`artifacts/${appId}/userProfiles`).get();
+                console.log(`👥 找到 ${userProfilesSnapshot.size} 個使用者檔案`);
 
                 for (const userDoc of userProfilesSnapshot.docs) {
                     const userId = userDoc.id;
                     console.log(`處理使用者: ${userId}`);
 
                     // 查詢該使用者的所有甦醒記錄
+                    console.log(`🔍 查詢記錄路徑: artifacts/${appId}/userProfiles/${userId}/clockHistory`);
                     const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${userId}/clockHistory`)
                         .orderBy('recordedAt', 'desc')
                         .get();
+                    console.log(`📝 找到 ${clockHistorySnapshot.size} 筆甦醒記錄`);
 
                     clockHistorySnapshot.forEach(recordDoc => {
                         const recordData = recordDoc.data();
@@ -172,10 +184,13 @@ export default async function handler(req, res) {
 
     } catch (error) {
         console.error('❌ 管理員資料查詢失敗:', error);
+        console.error('❌ 錯誤堆疊:', error.stack);
+        console.error('❌ 錯誤代碼:', error.code);
         return res.status(500).json({
             success: false,
             error: '伺服器內部錯誤',
-            details: error.message
+            details: error.message,
+            errorCode: error.code || 'UNKNOWN_ERROR'
         });
     }
 }
