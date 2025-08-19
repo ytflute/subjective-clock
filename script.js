@@ -2120,6 +2120,8 @@ window.addEventListener('firebaseReady', async (event) => {
         try {
             // 🔄 重新從Firebase讀取最新的記錄數據（解決早餐圖片時序問題）
             let latestRecord = record;
+            let firebaseReadSuccess = false;
+            
             if (record.docId) {
                 console.log(`[showHistoryLogModal] 重新讀取記錄 ${record.docId} 的最新數據`);
                 try {
@@ -2129,12 +2131,25 @@ window.addEventListener('firebaseReady', async (event) => {
                     
                     if (docSnap.exists()) {
                         latestRecord = { ...docSnap.data(), docId: record.docId };
+                        firebaseReadSuccess = true;
                         console.log(`[showHistoryLogModal] 成功讀取最新數據:`, latestRecord);
                     } else {
                         console.log(`[showHistoryLogModal] 記錄不存在，使用緩存數據`);
                     }
                 } catch (firebaseError) {
                     console.error(`[showHistoryLogModal] Firebase讀取失敗，使用緩存數據:`, firebaseError);
+                    
+                    // 檢查是否為連線問題
+                    if (firebaseError.message.includes('404') || firebaseError.message.includes('Network')) {
+                        console.warn(`[showHistoryLogModal] 檢測到網路或配置問題，將嘗試從本地存儲讀取早餐圖片信息`);
+                        
+                        // 嘗試從本地存儲或其他方式獲取早餐圖片URL
+                        const localImageUrl = localStorage.getItem(`breakfast_${record.docId}`);
+                        if (localImageUrl) {
+                            latestRecord = { ...record, imageUrl: localImageUrl };
+                            console.log(`[showHistoryLogModal] 從本地存儲恢復早餐圖片: ${localImageUrl}`);
+                        }
+                    }
                 }
             }
             
@@ -2176,6 +2191,13 @@ window.addEventListener('firebaseReady', async (event) => {
             `;
             
             // 🖼️ 如果有早餐圖片，優先顯示（使用最新記錄的imageUrl）
+            console.log(`[showHistoryLogModal] 檢查早餐圖片狀態:`, {
+                hasImageUrl: !!latestRecord.imageUrl,
+                imageUrl: latestRecord.imageUrl,
+                firebaseReadSuccess: firebaseReadSuccess,
+                recordId: latestRecord.docId
+            });
+            
             if (latestRecord.imageUrl) {
                 console.log(`[showHistoryLogModal] 發現早餐圖片: ${latestRecord.imageUrl}`);
                 const recordId = latestRecord.docId || 'unknown';
@@ -2190,7 +2212,26 @@ window.addEventListener('firebaseReady', async (event) => {
                     </div>
                 `;
             } else {
-                console.log(`[showHistoryLogModal] 沒有早餐圖片`);
+                console.log(`[showHistoryLogModal] 沒有早餐圖片 - 詳細檢查:`, {
+                    originalRecord: record,
+                    latestRecord: latestRecord,
+                    firebaseConnected: firebaseReadSuccess,
+                    localStorageKey: `breakfast_${record.docId}`,
+                    localStorageValue: localStorage.getItem(`breakfast_${record.docId}`)
+                });
+                
+                // 如果Firebase連線失敗，顯示提示信息
+                if (!firebaseReadSuccess && record.docId) {
+                    contentHTML += `
+                        <div class="log-detail" style="text-align: left;">
+                            <h3>早餐圖片</h3>
+                            <div style="text-align: center; margin: 10px 0; padding: 15px; background: #fff3cd; border-radius: 8px; color: #856404;">
+                                <p>⚠️ 無法連接到資料庫讀取早餐圖片</p>
+                                <small>如果您剛生成了早餐圖片，可能需要等待資料同步完成</small>
+                            </div>
+                        </div>
+                    `;
+                }
             }
             
             // 如果有故事內容，顯示故事（使用最新記錄）
@@ -2831,6 +2872,12 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
         }
 
         console.log(`[generateBreakfastImage] 圖片生成成功: ${imageData.imageUrl}`);
+        
+        // 保存早餐圖片URL到本地存儲，以便在Firestore連線失敗時使用
+        if (recordId) {
+            localStorage.setItem(`breakfast_${recordId}`, imageData.imageUrl);
+            console.log(`[generateBreakfastImage] 早餐圖片URL已保存到本地存儲: ${recordId}`);
+        }
         
         // 隱藏按鈕容器並創建圖片容器
         breakfastButtonContainer.style.display = 'none';
