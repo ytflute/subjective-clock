@@ -93,10 +93,10 @@ export default async function handler(req, res) {
         });
     }
 
-    try {
-        let allUserData = [];
+    let allUserData = [];
 
-        if (req.method === 'GET') {
+    if (req.method === 'GET') {
+        try {
             // GET 請求：返回所有使用者資料
             console.log('🔍 管理員請求：載入所有使用者資料');
             console.log('📊 Firebase Admin SDK 狀態:', {
@@ -106,64 +106,121 @@ export default async function handler(req, res) {
                 hasPrivateKey: !!process.env.FIREBASE_PRIVATE_KEY
             });
 
-            // 直接使用已知的 APP_ID（與前端保持一致）
-            const knownAppId = 'default-app-id-worldclock-history';
-            console.log(`🎯 使用已知 APP_ID: ${knownAppId}`);
+            // 🔍 嘗試多種可能的 Firebase 資料結構
+            console.log('🔍 探索 Firebase 資料結構...');
             
-            // 查詢 artifacts 集合下的所有文檔（調試用）
-            console.log('🔍 開始查詢 artifacts 集合...');
+            // 方法 1: 查詢 artifacts 集合
+            console.log('📂 方法 1: 查詢 artifacts 集合...');
             const artifactsSnapshot = await db.collection('artifacts').get();
-            console.log(`📄 找到 ${artifactsSnapshot.size} 個 artifacts 文檔`);
+            console.log(`📄 artifacts 集合找到 ${artifactsSnapshot.size} 個文檔`);
             
-            // 列出所有找到的 artifacts 文檔
             artifactsSnapshot.docs.forEach(doc => {
-                console.log(`📱 找到的應用程式ID: ${doc.id}`);
+                console.log(`📱 artifacts 文檔ID: ${doc.id}`);
             });
 
-            // 直接查詢已知 APP_ID 的使用者資料
-            console.log(`🔍 直接查詢已知應用程式: ${knownAppId}`);
-                
-            // 查詢該應用程式下的所有使用者
-            console.log(`🔍 查詢路徑: artifacts/${knownAppId}/userProfiles`);
-            const userProfilesSnapshot = await db.collection(`artifacts/${knownAppId}/userProfiles`).get();
-            console.log(`👥 找到 ${userProfilesSnapshot.size} 個使用者檔案`);
-
-            for (const userDoc of userProfilesSnapshot.docs) {
-                const userId = userDoc.id;
-                console.log(`處理使用者: ${userId}`);
-
-                // 查詢該使用者的所有甦醒記錄
-                console.log(`🔍 查詢記錄路徑: artifacts/${knownAppId}/userProfiles/${userId}/clockHistory`);
-                const clockHistorySnapshot = await db.collection(`artifacts/${knownAppId}/userProfiles/${userId}/clockHistory`)
-                        .orderBy('recordedAt', 'desc')
-                        .get();
-                    console.log(`📝 找到 ${clockHistorySnapshot.size} 筆甦醒記錄`);
-
-                    clockHistorySnapshot.forEach(recordDoc => {
-                        const recordData = recordDoc.data();
-                        const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
+            // 方法 2: 直接查詢根層級集合
+            console.log('📂 方法 2: 查詢根層級集合...');
+            const rootCollections = ['userHistory', 'globalDailyRecords', 'wakeup_records'];
+            
+            for (const collectionName of rootCollections) {
+                try {
+                    console.log(`🔍 嘗試查詢集合: ${collectionName}`);
+                    const snapshot = await db.collection(collectionName).limit(5).get();
+                    console.log(`📄 集合 ${collectionName} 找到 ${snapshot.size} 個文檔`);
+                    
+                    if (snapshot.size > 0) {
+                        // 找到資料！處理這個集合
+                        console.log(`✅ 在集合 ${collectionName} 中找到資料`);
                         
-                        allUserData.push({
-                            userId: userId,
-                            appId: knownAppId,
-                            recordId: recordDoc.id,
-                            date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
-                            time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
-                            city: recordData.city || '未知',
-                            country: recordData.country || '未知',
-                            cityZh: recordData.city_zh || '',
-                            countryZh: recordData.country_zh || '',
-                            imageUrl: recordData.imageUrl || '',
-                            recordedAt: recordedAt ? recordedAt.toISOString() : null,
-                            story: recordData.story || '',
-                            greeting: recordData.greeting || '',
-                            timezone: recordData.timezone || '',
-                            latitude: recordData.latitude || null,
-                            longitude: recordData.longitude || null,
-                            deviceType: recordData.deviceType || '未知',
-                            source: recordData.source || '未知'
+                        const allSnapshot = await db.collection(collectionName)
+                            .orderBy('recordedAt', 'desc')
+                            .get();
+                        console.log(`📝 完整查詢 ${collectionName} 找到 ${allSnapshot.size} 筆記錄`);
+                        
+                        allSnapshot.forEach(recordDoc => {
+                            const recordData = recordDoc.data();
+                            const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
+                            
+                            // 根據不同集合調整使用者識別方式
+                            let userId = recordData.dataIdentifier || recordData.userDisplayName || recordData.userId || '未知';
+                            
+                            allUserData.push({
+                                userId: userId,
+                                appId: collectionName, // 使用集合名稱作為 appId
+                                recordId: recordDoc.id,
+                                date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
+                                time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
+                                city: recordData.city || '未知',
+                                country: recordData.country || '未知',
+                                cityZh: recordData.city_zh || '',
+                                countryZh: recordData.country_zh || '',
+                                imageUrl: recordData.imageUrl || '',
+                                recordedAt: recordedAt ? recordedAt.toISOString() : null,
+                                story: recordData.story || '',
+                                greeting: recordData.greeting || '',
+                                timezone: recordData.timezone || '',
+                                latitude: recordData.latitude || null,
+                                longitude: recordData.longitude || null,
+                                deviceType: recordData.deviceType || '未知',
+                                source: recordData.source || '未知'
+                            });
                         });
-                    });
+                    }
+                } catch (error) {
+                    console.log(`⚠️ 集合 ${collectionName} 查詢失敗: ${error.message}`);
+                }
+            }
+
+            // 方法 3: 如果 artifacts 有文檔，嘗試原來的結構
+            if (artifactsSnapshot.size > 0) {
+                console.log('📂 方法 3: 處理 artifacts 結構...');
+                
+                for (const artifactDoc of artifactsSnapshot.docs) {
+                    const appId = artifactDoc.id;
+                    console.log(`🔍 處理應用程式: ${appId}`);
+                    
+                    try {
+                        const userProfilesSnapshot = await db.collection(`artifacts/${appId}/userProfiles`).get();
+                        console.log(`👥 應用程式 ${appId} 下有 ${userProfilesSnapshot.size} 個使用者檔案`);
+                        
+                        for (const userDoc of userProfilesSnapshot.docs) {
+                            const userId = userDoc.id;
+                            console.log(`處理使用者: ${userId}`);
+
+                            const clockHistorySnapshot = await db.collection(`artifacts/${appId}/userProfiles/${userId}/clockHistory`)
+                                .orderBy('recordedAt', 'desc')
+                                .get();
+                            console.log(`📝 找到 ${clockHistorySnapshot.size} 筆甦醒記錄`);
+
+                            clockHistorySnapshot.forEach(recordDoc => {
+                                const recordData = recordDoc.data();
+                                const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
+                                
+                                allUserData.push({
+                                    userId: userId,
+                                    appId: appId,
+                                    recordId: recordDoc.id,
+                                    date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
+                                    time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
+                                    city: recordData.city || '未知',
+                                    country: recordData.country || '未知',
+                                    cityZh: recordData.city_zh || '',
+                                    countryZh: recordData.country_zh || '',
+                                    imageUrl: recordData.imageUrl || '',
+                                    recordedAt: recordedAt ? recordedAt.toISOString() : null,
+                                    story: recordData.story || '',
+                                    greeting: recordData.greeting || '',
+                                    timezone: recordData.timezone || '',
+                                    latitude: recordData.latitude || null,
+                                    longitude: recordData.longitude || null,
+                                    deviceType: recordData.deviceType || '未知',
+                                    source: recordData.source || '未知'
+                                });
+                            });
+                        }
+                    } catch (error) {
+                        console.log(`⚠️ 應用程式 ${appId} 處理失敗: ${error.message}`);
+                    }
                 }
             }
 
@@ -176,16 +233,16 @@ export default async function handler(req, res) {
                 timestamp: new Date().toISOString()
             });
 
-        } catch (error) {
-            console.error('❌ GET 請求處理失敗:', error);
+        } catch (getError) {
+            console.error('❌ GET 請求處理失敗:', getError);
             return res.status(500).json({
                 success: false,
-                error: `GET 請求處理失敗: ${error.message}`
+                error: `GET 請求處理失敗: ${getError.message}`
             });
         }
 
-        if (req.method === 'POST') {
-            try {
+    } else if (req.method === 'POST') {
+        try {
                 // POST 請求：根據搜尋條件返回特定使用者資料
                 console.log('📥 收到 POST 請求');
             console.log('📝 請求體 (req.body):', req.body);
@@ -293,17 +350,17 @@ export default async function handler(req, res) {
                 searchCriteria: { searchTerm, userId, city, country, dateFrom, dateTo },
                 timestamp: new Date().toISOString()
             });
-            } catch (postError) {
-                console.error('❌ POST 請求處理失敗:', postError);
-                return res.status(500).json({
-                    success: false,
-                    error: `POST 請求處理失敗: ${postError.message}`
-                });
-            }
-        } else {
-            return res.status(405).json({ 
-                success: false, 
-                error: `方法 ${req.method} 不被允許` 
+        } catch (postError) {
+            console.error('❌ POST 請求處理失敗:', postError);
+            return res.status(500).json({
+                success: false,
+                error: `POST 請求處理失敗: ${postError.message}`
             });
         }
+    } else {
+        return res.status(405).json({ 
+            success: false, 
+            error: `方法 ${req.method} 不被允許` 
+        });
+    }
 }
