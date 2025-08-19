@@ -1244,7 +1244,7 @@ window.addEventListener('firebaseReady', async (event) => {
     async function saveHistoryRecord(recordData) {
         if (!currentDataIdentifier) {
             console.warn("無法儲存歷史記錄：使用者名稱未設定。");
-            return;
+            return null;
         }
 
         // 確保記錄數據包含所有必要欄位
@@ -1252,6 +1252,7 @@ window.addEventListener('firebaseReady', async (event) => {
         recordData.story = recordData.story || "";
         recordData.imageUrl = recordData.imageUrl || null;
         recordData.groupName = currentGroupName || "";  // 添加組別資訊
+        recordData.recordedAt = serverTimestamp(); // 確保有記錄時間
 
         // 檢查是否為特殊情況（未知星球）
         const isSpecialCase = recordData.city === "Unknown Planet" || recordData.city_zh === "未知星球";
@@ -1264,7 +1265,7 @@ window.addEventListener('firebaseReady', async (event) => {
             // 對於一般情況，檢查經緯度
             if (recordData.latitude === null || recordData.longitude === null) {
                 console.error("無法儲存地球歷史記錄：經緯度無效。", recordData);
-                return;
+                return null;
             }
         }
 
@@ -1275,14 +1276,43 @@ window.addEventListener('firebaseReady', async (event) => {
         }
 
         const historyCollectionRef = collection(db, `artifacts/${appId}/userProfiles/${currentDataIdentifier}/clockHistory`);
-        try {
-            const docRef = await addDoc(historyCollectionRef, recordData);
-            console.log("個人歷史記錄已儲存，文件 ID:", docRef.id);
-            return docRef.id;
-        } catch (e) {
-            console.error("儲存個人歷史記錄到 Firestore 失敗:", e);
-            return null;
+        
+        // 添加重試機制
+        for (let attempt = 1; attempt <= 3; attempt++) {
+            try {
+                console.log(`[saveHistoryRecord] 嘗試保存記錄 (第 ${attempt} 次)`);
+                const docRef = await addDoc(historyCollectionRef, recordData);
+                console.log(`[saveHistoryRecord] 個人歷史記錄已儲存，文件 ID: ${docRef.id}`);
+                
+                // 驗證記錄是否真的保存成功
+                try {
+                    const savedDoc = await getDoc(docRef);
+                    if (savedDoc.exists()) {
+                        console.log(`[saveHistoryRecord] 記錄保存驗證成功: ${docRef.id}`);
+                        return docRef.id;
+                    } else {
+                        console.warn(`[saveHistoryRecord] 記錄保存後無法找到，嘗試 ${attempt}/3`);
+                        if (attempt === 3) return null;
+                        continue;
+                    }
+                } catch (verifyError) {
+                    console.warn(`[saveHistoryRecord] 無法驗證記錄保存狀態: ${verifyError.message}`);
+                    // 如果無法驗證但沒有保存錯誤，假設成功
+                    return docRef.id;
+                }
+                
+            } catch (e) {
+                console.error(`[saveHistoryRecord] 第 ${attempt} 次嘗試失敗:`, e);
+                if (attempt === 3) {
+                    console.error("[saveHistoryRecord] 所有嘗試都失敗，無法儲存歷史記錄");
+                    return null;
+                }
+                // 等待一段時間後重試
+                await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+            }
         }
+        
+        return null;
     }
 
     async function saveToGlobalDailyRecord(recordData) {
@@ -2838,30 +2868,56 @@ window.generateBreakfastImage = async function(recordData, cityDisplayName, coun
                 // 🔍 先檢查文檔是否存在
                 const docSnap = await getDoc(historyDocRef);
                 if (!docSnap.exists()) {
-                    console.warn(`[generateBreakfastImage] 記錄不存在，嘗試使用setDoc創建: ${recordId}`);
+                    console.warn(`[generateBreakfastImage] 記錄不存在，這可能導致歷史軌跡中缺少早餐圖片: ${recordId}`);
                     console.warn(`[generateBreakfastImage] 完整路徑: artifacts/${safeAppId}/userProfiles/${currentDataIdentifier}/clockHistory/${recordId}`);
                     
-                    // 🔧 如果記錄不存在，使用setDoc創建記錄（包含imageUrl）
+                    // ⚠️ 警告用戶可能的數據問題
+                    console.error(`[generateBreakfastImage] 警告：原始記錄不存在可能導致歷史軌跡中看不到早餐圖片。建議重新「開始這一天」以正確保存記錄。`);
+                    
+                    // 🔧 嘗試創建記錄，但標記為補救措施
                     try {
                         const { setDoc } = window.firebaseSDK;
-                        await setDoc(historyDocRef, {
-                            ...recordData,
+                        const completeRecordData = {
+                            // 使用傳入的記錄數據，如果沒有則使用預設值
+                            city: recordData.city || "Unknown City",
+                            country: recordData.country || "Unknown Country",
+                            city_zh: recordData.city_zh || recordData.city || "未知城市",
+                            country_zh: recordData.country_zh || recordData.country || "未知國家",
+                            latitude: recordData.latitude || 0,
+                            longitude: recordData.longitude || 0,
+                            targetUTCOffset: recordData.targetUTCOffset || 0,
+                            timezone: recordData.timezone || { timeZoneId: "UTC", gmtOffset: 0 },
+                            greeting: recordData.greeting || "Good morning",
+                            story: recordData.story || "您在這座城市甦醒了。",
+                            translationSource: recordData.translationSource || "original",
+                            userLocalTime: recordData.userLocalTime || new Date().toLocaleTimeString(),
+                            targetLatitude: recordData.targetLatitude || 0,
+                            latitudeDescription: recordData.latitudeDescription || "未知偏好",
+                            isUniverseTheme: recordData.isUniverseTheme || false,
+                            groupName: recordData.groupName || "",
+                            recordedAt: recordData.recordedAt || new Date(),
+                            // 添加早餐圖片
                             imageUrl: imageData.imageUrl,
-                            docId: recordId
-                        });
-                        console.log(`[generateBreakfastImage] 成功創建記錄並設置圖片URL: ${recordId}`);
+                            docId: recordId,
+                            // 標記為補救創建
+                            _isRecoveryRecord: true,
+                            _recoveryReason: "原始記錄不存在，為早餐圖片創建補救記錄"
+                        };
+                        
+                        await setDoc(historyDocRef, completeRecordData);
+                        console.log(`[generateBreakfastImage] 已創建補救記錄: ${recordId}`);
                         
                         // 🔄 創建成功後，重新顯示最後記錄以反映早餐圖片
                         setTimeout(() => {
-                            console.log(`[generateBreakfastImage] 重新載入最後記錄以顯示早餐圖片（setDoc後）`);
+                            console.log(`[generateBreakfastImage] 重新載入最後記錄以顯示早餐圖片（補救記錄）`);
                             if (typeof displayLastRecordForCurrentUser === 'function') {
                                 displayLastRecordForCurrentUser();
                             }
-                        }, 1000); // 給Firebase一點時間完成更新
+                        }, 1000);
                         
                         return;
                     } catch (setDocError) {
-                        console.error(`[generateBreakfastImage] 創建記錄失敗: ${setDocError}`);
+                        console.error(`[generateBreakfastImage] 創建補救記錄失敗: ${setDocError}`);
                         return;
                     }
                 }
