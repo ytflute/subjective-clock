@@ -386,7 +386,12 @@ export class EventHandler {
                         countryCode: lastRecord.timezone?.countryCode
                     },
                     isUniverseTheme: lastRecord.isUniverseTheme || false,
-                    latitudeDescription: lastRecord.latitudeDescription || ''
+                    latitudeDescription: lastRecord.latitudeDescription || '',
+                    // 添加缺少的屬性以避免 updateDebugInfo 錯誤
+                    userLocalDate: lastRecord.recordedAt ? lastRecord.recordedAt.toDate() : new Date(),
+                    requestBody: {
+                        targetUTCOffset: lastRecord.targetUTCOffset || 0
+                    }
                 };
                 
                 const storyData = {

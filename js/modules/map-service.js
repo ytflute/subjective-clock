@@ -396,16 +396,18 @@ export class MapService {
         if (!debugInfoDiv) return;
         
         const { selectedCity, requestBody, userLocalDate, latitudeDescription } = cityData;
-        const recordedAt = userLocalDate.toLocaleString('zh-TW');
-        const latStr = Utils.formatNumber(selectedCity.lat);
-        const lngStr = Utils.formatNumber(selectedCity.lng);
-        const utcOffsetStr = Utils.formatNumber(requestBody.targetUTCOffset);
+        
+        // 防護性檢查，避免 undefined 錯誤
+        const recordedAt = userLocalDate ? userLocalDate.toLocaleString('zh-TW') : '未知時間';
+        const latStr = Utils.formatNumber(selectedCity?.lat);
+        const lngStr = Utils.formatNumber(selectedCity?.lng);
+        const utcOffsetStr = Utils.formatNumber(requestBody?.targetUTCOffset);
         
         debugInfoDiv.innerHTML = `
             (記錄於: ${recordedAt})<br>
             (目標城市緯度: ${latStr}°, 經度: ${lngStr}°)<br>
-            (目標 UTC 偏移: ${utcOffsetStr}, 時區: ${selectedCity.timezone?.timeZoneId || '未知'})<br>
-            (緯度偏好: ${latitudeDescription})
+            (目標 UTC 偏移: ${utcOffsetStr}, 時區: ${selectedCity?.timezone?.timeZoneId || '未知'})<br>
+            (緯度偏好: ${latitudeDescription || '未知偏好'})
         `;
     }
     
