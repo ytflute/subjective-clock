@@ -111,6 +111,28 @@ export default async function handler(req, res) {
             console.log(`🎯 查詢應用程式: ${knownAppId}`);
             
             try {
+                // 🧪 先探索實際的 Firebase 結構
+                console.log('🧪 探索實際的 Firebase 結構...');
+                try {
+                    // 檢查 artifacts 是否存在
+                    const artifactsTest = await db.collection('artifacts').limit(1).get();
+                    console.log(`📁 artifacts 集合: ${artifactsTest.size > 0 ? '存在' : '不存在'}`);
+                    
+                    if (artifactsTest.size > 0) {
+                        // 檢查應用程式層級
+                        const appTest = await db.collection(`artifacts/${knownAppId}`).limit(1).get();
+                        console.log(`📱 應用程式 ${knownAppId}: ${appTest.size > 0 ? '存在' : '不存在'}`);
+                        
+                        if (appTest.size > 0) {
+                            // 列出應用程式下的所有集合
+                            const appSnapshot = await db.collection(`artifacts/${knownAppId}`).get();
+                            console.log(`📋 ${knownAppId} 下的集合:`, appSnapshot.docs.map(doc => doc.id));
+                        }
+                    }
+                } catch (exploreError) {
+                    console.log(`❌ 結構探索失敗: ${exploreError.message}`);
+                }
+                
                 // 方法 1: 嘗試從 publicData 獲取所有資料（注意大小寫）
                 console.log('🔍 方法 1: 嘗試從 publicData 獲取所有資料...');
                 
@@ -127,12 +149,29 @@ export default async function handler(req, res) {
                 for (const publicDataPath of publicDataVariations) {
                     try {
                         console.log(`📄 測試路徑: ${publicDataPath}`);
-                        const publicDataSnapshot = await db.collection(publicDataPath)
-                            .orderBy('recordedAt', 'desc')
-                            .get();
-                        console.log(`📊 ${publicDataPath} 找到 ${publicDataSnapshot.size} 筆記錄`);
                         
-                        if (publicDataSnapshot.size > 0) {
+                        // 先測試該路徑是否存在（不使用 orderBy）
+                        const testSnapshot = await db.collection(publicDataPath).limit(1).get();
+                        console.log(`🔍 ${publicDataPath} 基本查詢結果: ${testSnapshot.size} 筆記錄`);
+                        
+                        let publicDataSnapshot = null;
+                        
+                        if (testSnapshot.size > 0) {
+                            // 如果有資料，再嘗試使用 orderBy
+                            try {
+                                publicDataSnapshot = await db.collection(publicDataPath)
+                                    .orderBy('recordedAt', 'desc')
+                                    .get();
+                                console.log(`📊 ${publicDataPath} 排序查詢結果: ${publicDataSnapshot.size} 筆記錄`);
+                            } catch (orderError) {
+                                console.log(`⚠️ ${publicDataPath} orderBy 失敗，使用基本查詢: ${orderError.message}`);
+                                // 如果 orderBy 失敗，使用基本查詢
+                                publicDataSnapshot = await db.collection(publicDataPath).get();
+                                console.log(`📊 ${publicDataPath} 基本查詢結果: ${publicDataSnapshot.size} 筆記錄`);
+                            }
+                        }
+                        
+                        if (publicDataSnapshot && publicDataSnapshot.size > 0) {
                             console.log(`✅ 使用路徑: ${publicDataPath}`);
                             publicDataFound = true;
                             
