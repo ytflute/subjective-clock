@@ -245,15 +245,19 @@ export class EventHandler {
         }
         
         try {
+            console.log(`[EventHandler] 開始設置用戶名稱: ${userName}`);
             this.updateCurrentUser(userName);
             
             // 顯示最後記錄
+            console.log(`[EventHandler] 正在載入用戶 ${userName} 的最後記錄...`);
             await this.displayLastRecord();
             
             // 更新組別過濾器
+            console.log(`[EventHandler] 正在更新組別過濾器...`);
             await this.updateGroupFilter();
             
             this.ui.showSuccess(`用戶名稱已設置為：${userName}`);
+            console.log(`[EventHandler] 用戶名稱設置完成: ${userName}`);
             
         } catch (error) {
             console.error('[EventHandler] 設置用戶名稱失敗:', error);
@@ -371,7 +375,9 @@ export class EventHandler {
      */
     async displayLastRecord() {
         try {
+            console.log(`[EventHandler] 正在獲取用戶 ${this.currentDataIdentifier} 的最後記錄...`);
             const lastRecord = await this.firebase.getUserLastRecord(this.currentDataIdentifier);
+            console.log(`[EventHandler] 獲取到的最後記錄:`, lastRecord);
             
             if (lastRecord) {
                 // 創建城市結果數據

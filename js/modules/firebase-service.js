@@ -249,7 +249,9 @@ export class FirebaseService {
         // Demo 模式返回模擬數據
         if (this.isDemoMode) {
             console.log('[FirebaseService] Demo 模式：返回模擬歷史記錄');
-            return [
+            
+            // 為不同用戶提供不同的模擬數據
+            const demoRecords = [
                 {
                     id: 'demo-1',
                     city: 'Tokyo',
@@ -258,12 +260,43 @@ export class FirebaseService {
                     country_zh: '日本',
                     latitude: 35.6762,
                     longitude: 139.6503,
-                    story: '在東京的清晨，您感受到這座城市的活力與傳統的完美融合。',
-                    greeting: 'おはようございます',
-                    recordedAt: { toDate: () => new Date() },
+                    targetUTCOffset: 9,
+                    timezone: { timeZoneId: 'Asia/Tokyo', countryCode: 'JP' },
+                    story: '在東京的清晨，您感受到這座城市的活力與傳統的完美融合。櫻花飄落的街道上，人們開始了忙碌而有序的一天。',
+                    greeting: 'おはようございます (Good morning)',
+                    translationSource: 'ai_translate',
+                    latitudeDescription: '北緯35.7度 (溫帶區域)',
+                    isUniverseTheme: false,
+                    recordedAt: { toDate: () => new Date(Date.now() - 24 * 60 * 60 * 1000) }, // 昨天
+                    groupName: 'demo'
+                },
+                {
+                    id: 'demo-2',
+                    city: 'Paris',
+                    country: 'France',
+                    city_zh: '巴黎',
+                    country_zh: '法國',
+                    latitude: 48.8566,
+                    longitude: 2.3522,
+                    targetUTCOffset: 1,
+                    timezone: { timeZoneId: 'Europe/Paris', countryCode: 'FR' },
+                    story: '在巴黎的清晨，塞納河畔瀰漫著浪漫的氣息。咖啡館開始營業，城市慢慢甦醒在藝術與美食的懷抱中。',
+                    greeting: 'Bonjour',
+                    translationSource: 'ai_translate',
+                    latitudeDescription: '北緯48.9度 (溫帶區域)',
+                    isUniverseTheme: false,
+                    recordedAt: { toDate: () => new Date(Date.now() - 2 * 24 * 60 * 60 * 1000) }, // 前天
                     groupName: 'demo'
                 }
             ];
+            
+            // 根據用戶標識符決定返回哪些記錄
+            if (userIdentifier.includes('test') || userIdentifier.includes('測試')) {
+                return demoRecords;
+            } else {
+                // 新用戶返回最近的一筆記錄
+                return [demoRecords[0]];
+            }
         }
         
         const { collection, query, where, orderBy, getDocs, limit: firestoreLimit } = window.firebaseSDK;
