@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甦醒地圖 Wake Up World Travel</title>
+    
+    <!-- 網頁圖標設定 -->
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4d714f">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Wake Up World Travel">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+<body>
+    <div class="container">
+        <h1>甦醒地圖 Wake Up Map <span style="font-size: 0.6em; color: #666;">(模組化版本)</span></h1>
+
+        <div class="user-info-section">
+            <div class="input-group-vertical">
+                <div class="input-field">
+                    <label for="userName">顯示名稱：</label>
+                    <input type="text" id="userName" placeholder="請輸入你的顯示名稱">
+                </div>
+                <div class="input-field">
+                    <label for="groupName">組別名稱：</label>
+                    <input type="text" id="groupName" placeholder="請輸入你的組別名稱（選填）">
+                </div>
+                <!-- 心情選擇已移除，改用按下按鈕的時間分鐘數決定緯度偏好 -->
+                
+                <p class="action-description">按下按鈕，看看今天的你是在地球上的哪個角落甦醒並開始這一天？</p>
+                
+                <div class="button-row">
+                    <button id="setUserNameButton" class="half-width-button">載入資料</button>
+                    <button id="findCityButton" class="half-width-button" disabled>開始這一天</button>
+                </div>
+            </div>
+            <div class="current-user-info">
+                <span>目前使用者：</span>
+                <span id="currentUserId" class="highlight">未設定</span>
+                <span id="currentUserDisplayName" class="highlight">未設定</span>
+                <span id="currentGroupName" class="group-name"></span>
+            </div>
+        </div>
+
+        <!-- Tab 導航 -->
+        <div class="tab-navigation">
+            <button class="tab-button active" data-tab="Clock">🕐 時鐘</button>
+            <button class="tab-button" data-tab="History">📜 歷史</button>
+            <button class="tab-button" data-tab="GlobalToday">🌍 全域</button>
+        </div>
+
+        <!-- 時鐘 Tab -->
+        <div id="Clock" class="tab-content">
+            <div class="info-section">
+                <img id="countryFlag" src="" alt="國家國旗" style="display: none; width: 48px; height: auto; margin-bottom: 10px; border-radius: 4px;">
+                <div id="resultText"></div>
+                <div id="mapContainer"></div>
+                <small id="debugInfo"></small>
+            </div>
+        </div>
+
+        <!-- 歷史 Tab -->
+        <div id="History" class="tab-content" style="display: none;">
+            <h2>🏛 歷史記錄</h2>
+            <div class="history-controls">
+                <label for="groupFilter">篩選組別：</label>
+                <select id="groupFilter">
+                    <option value="">所有組別</option>
+                </select>
+                <button id="refreshHistoryButton">🔄 刷新歷史</button>
+            </div>
+            
+            <div class="history-display">
+                <div class="history-list-container">
+                    <h3>歷史列表</h3>
+                    <ul id="historyList"></ul>
+                </div>
+                
+                <div class="history-map-container">
+                    <h3>歷史軌跡地圖</h3>
+                    <div id="historyMapContainer"></div>
+                    <small id="historyDebugInfo"></small>
+                </div>
+            </div>
+        </div>
+
+        <!-- 全域今日 Tab -->
+        <div id="GlobalToday" class="tab-content" style="display: none;">
+            <h2>🌍 全域今日地圖</h2>
+            <div class="global-controls">
+                <label for="globalDate">選擇日期：</label>
+                <input type="date" id="globalDate">
+                <button id="refreshGlobalMapButton">🔄 載入全域地圖</button>
+            </div>
+            
+            <div id="globalTodayMapContainer"></div>
+            <small id="globalTodayDebugInfo"></small>
+        </div>
+    </div>
+
+    <!-- 歷史記錄詳細彈窗 -->
+    <div id="historyLogModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>歷史記錄詳細信息</h3>
+                <span class="close" id="historyLogModalClose">&times;</span>
+            </div>
+            <div class="modal-body" id="historyLogModalBody">
+                <!-- 動態內容將在這裡生成 -->
+            </div>
+            <div class="modal-footer">
+                <button id="closeModalFooterButton" class="button-secondary">關閉</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入組件 -->
+    <script>
+        // 動態載入組件
+        fetch('components/loading-state.html')
+            .then(response => response.text())
+            .then(html => {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                document.body.appendChild(tempDiv.firstElementChild);
+            })
+            .catch(err => console.warn('無法載入 loading-state 組件:', err));
+
+        fetch('components/result-state.html')
+            .then(response => response.text())
+            .then(html => {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                document.body.appendChild(tempDiv.firstElementChild);
+            })
+            .catch(err => console.warn('無法載入 result-state 組件:', err));
+
+        fetch('components/waiting-state.html')
+            .then(response => response.text())
+            .then(html => {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                document.body.appendChild(tempDiv.firstElementChild);
+            })
+            .catch(err => console.warn('無法載入 waiting-state 組件:', err));
+    </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        console.log("🔥 開始載入 Firebase SDK...");
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { 
+            getAuth, 
+            signInAnonymously, 
+            onAuthStateChanged, 
+            signInWithCustomToken 
+        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            query, 
+            where, 
+            getDocs, 
+            orderBy, 
+            serverTimestamp, 
+            doc, 
+            setDoc, 
+            getDoc, 
+            limit, 
+            updateDoc,
+            setLogLevel
+        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // 將 Firebase SDK 函數設為全域可用
+        window.firebaseSDK = {
+            initializeApp,
+            getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken,
+            getFirestore, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, doc, setDoc, getDoc, limit, updateDoc,
+            setLogLevel
+        };
+
+        console.log("✅ Firebase SDK 載入完成");
+
+        // 觸發 firebaseReady 事件
+        const firebaseReadyEvent = new CustomEvent('firebaseReady');
+        window.dispatchEvent(firebaseReadyEvent);
+        console.log("📡 firebaseReady 事件已觸發");
+    </script>
+
+    <!-- Leaflet 地圖庫 -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <!-- Firebase 配置 -->
+    <script>
+        // 從 API 載入 Firebase 配置
+        fetch('/api/config')
+            .then(response => response.json())
+            .then(config => {
+                console.log("🔧 Firebase 配置已載入");
+                window.firebaseConfig = config.firebaseConfig;
+                window.appId = config.appId;
+                
+                // 如果模組化腳本已經載入，直接初始化
+                if (window.subjectiveClockApp) {
+                    console.log("🚀 配置載入後立即初始化應用程式");
+                    window.startApp();
+                }
+            })
+            .catch(error => {
+                console.error("❌ 無法載入 Firebase 配置:", error);
+                
+                // 使用預設配置作為備用
+                window.firebaseConfig = {
+                    // 這裡可以放置備用配置
+                };
+                window.appId = 'default-app-id-worldclock-history';
+            });
+    </script>
+
+    <!-- 組件載入器 -->
+    <script src="components/component-loader.js"></script>
+
+    <!-- 主應用程式 - 模組化版本 -->
+    <script type="module" src="js/script-modular.js"></script>
+
+    <!-- 版本信息 -->
+    <script>
+        console.log("📱 甦醒地圖 - 模組化版本");
+        console.log("🏗️ 架構: ES6 模組 + 類別導向設計");
+        console.log("🔧 特色: 可維護性、可測試性、可擴展性");
+        console.log("📊 模組: 配置、工具、時間計算、Firebase、城市服務、地圖服務、UI管理、事件處理");
+    </script>
+</body>
+</html>
