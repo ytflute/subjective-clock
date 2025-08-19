@@ -119,14 +119,16 @@ export default async function handler(req, res) {
                     console.log(`📁 artifacts 集合: ${artifactsTest.size > 0 ? '存在' : '不存在'}`);
                     
                     if (artifactsTest.size > 0) {
-                        // 檢查應用程式層級
-                        const appTest = await db.collection(`artifacts/${knownAppId}`).limit(1).get();
-                        console.log(`📱 應用程式 ${knownAppId}: ${appTest.size > 0 ? '存在' : '不存在'}`);
+                        // 列出 artifacts 中的所有文件
+                        const artifactsSnapshot = await db.collection('artifacts').get();
+                        console.log(`📋 artifacts 中的文件:`, artifactsSnapshot.docs.map(doc => doc.id));
                         
-                        if (appTest.size > 0) {
-                            // 列出應用程式下的所有集合
-                            const appSnapshot = await db.collection(`artifacts/${knownAppId}`).get();
-                            console.log(`📋 ${knownAppId} 下的集合:`, appSnapshot.docs.map(doc => doc.id));
+                        // 檢查是否有我們要找的應用程式文件
+                        const appDoc = await db.collection('artifacts').doc(knownAppId).get();
+                        console.log(`📱 應用程式文件 ${knownAppId}: ${appDoc.exists ? '存在' : '不存在'}`);
+                        
+                        if (appDoc.exists) {
+                            console.log(`📄 ${knownAppId} 文件資料:`, appDoc.data());
                         }
                     }
                 } catch (exploreError) {
@@ -136,12 +138,16 @@ export default async function handler(req, res) {
                 // 方法 1: 嘗試從 publicData 獲取所有資料（注意大小寫）
                 console.log('🔍 方法 1: 嘗試從 publicData 獲取所有資料...');
                 
-                // 測試不同的大小寫組合
+                // 測試不同的大小寫組合（正確的 Firestore 路徑格式）
                 const publicDataVariations = [
                     `artifacts/${knownAppId}/publicData`,    // 大寫 D
                     `artifacts/${knownAppId}/publicdata`,    // 小寫 d
                     `artifacts/${knownAppId}/PublicData`,    // 大寫 P 和 D
-                    `artifacts/${knownAppId}/Publicdata`     // 大寫 P
+                    `artifacts/${knownAppId}/Publicdata`,    // 大寫 P
+                    // 也測試是否資料直接在文件中而不是子集合
+                    'globalDailyRecords',                     // 直接的全域集合
+                    'publicData',                             // 根級別 publicData
+                    'publicdata'                              // 根級別 publicdata
                 ];
                 
                 let publicDataFound = false;
@@ -215,60 +221,86 @@ export default async function handler(req, res) {
                 // 方法 2: 如果 publicdata 沒有資料或失敗，則使用 userProfiles 路徑
                 if (allUserData.length === 0) {
                     console.log('🔍 方法 2: 從 userProfiles 路徑獲取資料...');
-                    const userProfilesPath = `artifacts/${knownAppId}/userProfiles`;
-                    console.log(`📄 查詢路徑: ${userProfilesPath}`);
                     
-                    const userProfilesSnapshot = await db.collection(userProfilesPath).get();
-                    console.log(`👥 找到 ${userProfilesSnapshot.size} 個使用者檔案`);
-
-                    for (const userDoc of userProfilesSnapshot.docs) {
-                        const dataIdentifier = userDoc.id; // 這是 Firebase 路徑中的 ID (如: 01, yu, user_1268480)
-                        console.log(`🔍 處理使用者檔案: ${dataIdentifier}`);
-
-                        // 查詢該使用者的所有甦醒記錄
-                        const clockHistoryPath = `artifacts/${knownAppId}/userProfiles/${dataIdentifier}/clockHistory`;
-                        console.log(`📄 查詢記錄路徑: ${clockHistoryPath}`);
-                        
+                    // 測試多種可能的 userProfiles 路徑
+                    const userProfilesPaths = [
+                        `artifacts/${knownAppId}/userProfiles`,  // 原始路徑
+                        'userProfiles',                          // 根級別
+                        // 如果資料結構不同，可能是這樣：
+                        `${knownAppId}/userProfiles`            // 應用程式作為根集合
+                    ];
+                    
+                    let foundUserProfiles = false;
+                    
+                    for (const userProfilesPath of userProfilesPaths) {
                         try {
-                            const clockHistorySnapshot = await db.collection(clockHistoryPath)
-                                .orderBy('recordedAt', 'desc')
-                                .get();
-                            console.log(`📝 ${dataIdentifier} 找到 ${clockHistorySnapshot.size} 筆甦醒記錄`);
+                            console.log(`📄 測試 userProfiles 路徑: ${userProfilesPath}`);
+                            const userProfilesSnapshot = await db.collection(userProfilesPath).get();
+                            console.log(`👥 ${userProfilesPath} 找到 ${userProfilesSnapshot.size} 個使用者檔案`);
+                            
+                            if (userProfilesSnapshot.size > 0) {
+                                console.log(`✅ 使用 userProfiles 路徑: ${userProfilesPath}`);
+                                foundUserProfiles = true;
 
-                            clockHistorySnapshot.forEach(recordDoc => {
-                                const recordData = recordDoc.data();
-                                const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
+                                for (const userDoc of userProfilesSnapshot.docs) {
+                                    const dataIdentifier = userDoc.id; // 這是 Firebase 路徑中的 ID (如: 01, yu, user_1268480)
+                                    console.log(`🔍 處理使用者檔案: ${dataIdentifier}`);
+
+                                    // 查詢該使用者的所有甦醒記錄，使用當前找到的路徑
+                                    const clockHistoryPath = `${userProfilesPath}/${dataIdentifier}/clockHistory`;
+                                    console.log(`📄 查詢記錄路徑: ${clockHistoryPath}`);
+                                    
+                                    try {
+                                        const clockHistorySnapshot = await db.collection(clockHistoryPath)
+                                            .orderBy('recordedAt', 'desc')
+                                            .get();
+                                        console.log(`📝 ${dataIdentifier} 找到 ${clockHistorySnapshot.size} 筆甦醒記錄`);
+
+                                        clockHistorySnapshot.forEach(recordDoc => {
+                                            const recordData = recordDoc.data();
+                                            const recordedAt = recordData.recordedAt ? recordData.recordedAt.toDate() : null;
+                                            
+                                            // 使用 userDisplayName 作為顯示的使用者名稱，dataIdentifier 作為內部識別
+                                            const displayName = recordData.userDisplayName || dataIdentifier;
+                                            
+                                            console.log(`📋 記錄詳情: userDisplayName="${displayName}", dataIdentifier="${dataIdentifier}"`);
+                                            
+                                            allUserData.push({
+                                                userId: displayName, // 前端顯示使用 userDisplayName
+                                                dataIdentifier: dataIdentifier, // 內部識別使用 dataIdentifier
+                                                appId: knownAppId,
+                                                recordId: recordDoc.id,
+                                                date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
+                                                time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
+                                                city: recordData.city || '未知',
+                                                country: recordData.country || '未知',
+                                                cityZh: recordData.city_zh || '',
+                                                countryZh: recordData.country_zh || '',
+                                                imageUrl: recordData.imageUrl || '',
+                                                recordedAt: recordedAt ? recordedAt.toISOString() : null,
+                                                story: recordData.story || '',
+                                                greeting: recordData.greeting || '',
+                                                timezone: recordData.timezone || '',
+                                                latitude: recordData.latitude || null,
+                                                longitude: recordData.longitude || null,
+                                                deviceType: recordData.deviceType || '未知',
+                                                source: recordData.source || '未知'
+                                            });
+                                        });
+                                    } catch (clockHistoryError) {
+                                        console.log(`❌ ${dataIdentifier} clockHistory 查詢失敗: ${clockHistoryError.message}`);
+                                    }
+                                }
                                 
-                                // 使用 userDisplayName 作為顯示的使用者名稱，dataIdentifier 作為內部識別
-                                const displayName = recordData.userDisplayName || dataIdentifier;
-                                
-                                console.log(`📋 記錄詳情: userDisplayName="${displayName}", dataIdentifier="${dataIdentifier}"`);
-                                
-                                allUserData.push({
-                                    userId: displayName, // 前端顯示使用 userDisplayName
-                                    dataIdentifier: dataIdentifier, // 內部識別使用 dataIdentifier
-                                    appId: knownAppId,
-                                    recordId: recordDoc.id,
-                                    date: recordedAt ? recordedAt.toLocaleDateString('zh-TW') : '未知',
-                                    time: recordedAt ? recordedAt.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' }) : '未知',
-                                    city: recordData.city || '未知',
-                                    country: recordData.country || '未知',
-                                    cityZh: recordData.city_zh || '',
-                                    countryZh: recordData.country_zh || '',
-                                    imageUrl: recordData.imageUrl || '',
-                                    recordedAt: recordedAt ? recordedAt.toISOString() : null,
-                                    story: recordData.story || '',
-                                    greeting: recordData.greeting || '',
-                                    timezone: recordData.timezone || '',
-                                    latitude: recordData.latitude || null,
-                                    longitude: recordData.longitude || null,
-                                    deviceType: recordData.deviceType || '未知',
-                                    source: recordData.source || '未知'
-                                });
-                            });
-                        } catch (clockHistoryError) {
-                            console.log(`❌ ${dataIdentifier} clockHistory 查詢失敗: ${clockHistoryError.message}`);
+                                break; // 找到有效的 userProfiles 路徑就停止
+                            }
+                        } catch (userProfilesError) {
+                            console.log(`❌ ${userProfilesPath} 查詢失敗: ${userProfilesError.message}`);
                         }
+                    }
+                    
+                    if (!foundUserProfiles) {
+                        console.log('❌ 所有 userProfiles 路徑都沒有找到資料');
                     }
                 }
             } catch (error) {
