@@ -2130,9 +2130,20 @@ window.addEventListener('firebaseReady', async (event) => {
                     const docSnap = await getDoc(recordRef);
                     
                     if (docSnap.exists()) {
-                        latestRecord = { ...docSnap.data(), docId: record.docId };
+                        const firebaseData = docSnap.data();
+                        latestRecord = { ...firebaseData, docId: record.docId };
                         firebaseReadSuccess = true;
                         console.log(`[showHistoryLogModal] 成功讀取最新數據:`, latestRecord);
+                        console.log(`[showHistoryLogModal] Firebase原始數據imageUrl:`, firebaseData.imageUrl);
+                        
+                        // 如果Firebase數據中沒有imageUrl，但本地存儲有，則使用本地存儲的
+                        if (!firebaseData.imageUrl) {
+                            const localImageUrl = localStorage.getItem(`breakfast_${record.docId}`);
+                            if (localImageUrl) {
+                                latestRecord.imageUrl = localImageUrl;
+                                console.log(`[showHistoryLogModal] Firebase中無imageUrl，使用本地存儲: ${localImageUrl}`);
+                            }
+                        }
                     } else {
                         console.log(`[showHistoryLogModal] 記錄不存在，使用緩存數據`);
                     }
@@ -2195,8 +2206,16 @@ window.addEventListener('firebaseReady', async (event) => {
                 hasImageUrl: !!latestRecord.imageUrl,
                 imageUrl: latestRecord.imageUrl,
                 firebaseReadSuccess: firebaseReadSuccess,
-                recordId: latestRecord.docId
+                recordId: latestRecord.docId,
+                allFields: Object.keys(latestRecord),
+                localStorageBackup: localStorage.getItem(`breakfast_${record.docId}`)
             });
+            
+            // 如果沒有imageUrl但有本地存儲備份，強制使用備份
+            if (!latestRecord.imageUrl && localStorage.getItem(`breakfast_${record.docId}`)) {
+                latestRecord.imageUrl = localStorage.getItem(`breakfast_${record.docId}`);
+                console.log(`[showHistoryLogModal] 強制使用本地存儲備份: ${latestRecord.imageUrl}`);
+            }
             
             if (latestRecord.imageUrl) {
                 console.log(`[showHistoryLogModal] 發現早餐圖片: ${latestRecord.imageUrl}`);
