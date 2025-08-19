@@ -33,6 +33,16 @@ export class FirebaseService {
             setLogLevel('error');
             
             const firebaseConfig = Config.getFirebaseConfig();
+            
+            // 檢查是否為開發環境的 demo 配置
+            const isDemoConfig = firebaseConfig.apiKey === "demo-api-key";
+            
+            if (isDemoConfig) {
+                console.warn('[FirebaseService] 檢測到 demo 配置，初始化模擬模式');
+                this.initializeDemoMode();
+                return;
+            }
+            
             const app = initializeApp(firebaseConfig);
             
             this.auth = getAuth(app);
@@ -43,8 +53,34 @@ export class FirebaseService {
             
         } catch (error) {
             console.error('[FirebaseService] 初始化失敗:', error);
+            
+            // 如果是 API key 錯誤，嘗試 demo 模式
+            if (error.code === 'auth/invalid-api-key') {
+                console.warn('[FirebaseService] API key 無效，切換到 demo 模式');
+                this.initializeDemoMode();
+                return;
+            }
+            
             throw error;
         }
+    }
+    
+    /**
+     * 初始化 Demo 模式
+     */
+    initializeDemoMode() {
+        console.log('[FirebaseService] 初始化 Demo 模式');
+        
+        // 創建模擬的 auth 和 db 對象
+        this.auth = {
+            currentUser: { uid: 'demo-user-123' }
+        };
+        
+        this.db = null; // Demo 模式下不使用真實資料庫
+        this.isDemoMode = true;
+        this.initialized = true;
+        
+        console.log('[FirebaseService] Demo 模式初始化完成');
     }
     
     /**
@@ -70,6 +106,12 @@ export class FirebaseService {
     async authenticateUser() {
         if (!this.auth) {
             throw new Error('Firebase Auth 未初始化');
+        }
+        
+        // Demo 模式直接返回模擬用戶
+        if (this.isDemoMode) {
+            console.log('[FirebaseService] Demo 模式：模擬用戶登入');
+            return this.auth.currentUser;
         }
         
         const { signInAnonymously, signInWithCustomToken, onAuthStateChanged } = window.firebaseSDK;
@@ -106,6 +148,12 @@ export class FirebaseService {
     async saveHistoryRecord(recordData, userIdentifier) {
         if (!userIdentifier) {
             throw new Error('用戶標識符未設定');
+        }
+        
+        // Demo 模式模擬儲存
+        if (this.isDemoMode) {
+            console.log('[FirebaseService] Demo 模式：模擬儲存歷史記錄', recordData);
+            return 'demo-record-' + Date.now();
         }
         
         const { collection, addDoc, serverTimestamp } = window.firebaseSDK;
@@ -153,6 +201,12 @@ export class FirebaseService {
             throw new Error('Firebase 會話未就緒');
         }
         
+        // Demo 模式模擬儲存
+        if (this.isDemoMode) {
+            console.log('[FirebaseService] Demo 模式：模擬儲存全域記錄', recordData);
+            return 'demo-global-' + Date.now();
+        }
+        
         const { collection, addDoc, serverTimestamp } = window.firebaseSDK;
         
         const sanitizedData = {
@@ -192,6 +246,26 @@ export class FirebaseService {
      * 獲取用戶歷史記錄
      */
     async getUserHistory(userIdentifier, limit = 20) {
+        // Demo 模式返回模擬數據
+        if (this.isDemoMode) {
+            console.log('[FirebaseService] Demo 模式：返回模擬歷史記錄');
+            return [
+                {
+                    id: 'demo-1',
+                    city: 'Tokyo',
+                    country: 'Japan',
+                    city_zh: '東京',
+                    country_zh: '日本',
+                    latitude: 35.6762,
+                    longitude: 139.6503,
+                    story: '在東京的清晨，您感受到這座城市的活力與傳統的完美融合。',
+                    greeting: 'おはようございます',
+                    recordedAt: { toDate: () => new Date() },
+                    groupName: 'demo'
+                }
+            ];
+        }
+        
         const { collection, query, where, orderBy, getDocs, limit: firestoreLimit } = window.firebaseSDK;
         
         const appId = Config.getAppId();
@@ -234,6 +308,35 @@ export class FirebaseService {
      * 獲取全域每日記錄
      */
     async getGlobalDailyRecords(date = null) {
+        // Demo 模式返回模擬全域數據
+        if (this.isDemoMode) {
+            console.log('[FirebaseService] Demo 模式：返回模擬全域記錄');
+            return [
+                {
+                    id: 'demo-global-1',
+                    city: 'Paris',
+                    country: 'France',
+                    city_zh: '巴黎',
+                    country_zh: '法國',
+                    latitude: 48.8566,
+                    longitude: 2.3522,
+                    userDisplayName: 'Demo User 1',
+                    recordedAt: { toDate: () => new Date() }
+                },
+                {
+                    id: 'demo-global-2',
+                    city: 'New York',
+                    country: 'USA',
+                    city_zh: '紐約',
+                    country_zh: '美國',
+                    latitude: 40.7128,
+                    longitude: -74.0060,
+                    userDisplayName: 'Demo User 2',
+                    recordedAt: { toDate: () => new Date() }
+                }
+            ];
+        }
+        
         const { collection, query, orderBy, getDocs } = window.firebaseSDK;
         
         const targetDate = date || new Date().toISOString().split('T')[0];
@@ -268,6 +371,12 @@ export class FirebaseService {
      * 更新記錄
      */
     async updateRecord(userIdentifier, recordId, updateData) {
+        // Demo 模式模擬更新
+        if (this.isDemoMode) {
+            console.log('[FirebaseService] Demo 模式：模擬更新記錄', recordId, updateData);
+            return;
+        }
+        
         const { doc, updateDoc } = window.firebaseSDK;
         
         const appId = Config.getAppId();
@@ -287,6 +396,16 @@ export class FirebaseService {
      */
     async getUserCityVisitStats(userIdentifier) {
         try {
+            // Demo 模式返回模擬統計
+            if (this.isDemoMode) {
+                console.log('[FirebaseService] Demo 模式：返回模擬城市訪問統計');
+                return {
+                    'Tokyo_Japan': 2,
+                    'Paris_France': 1,
+                    'New York_USA': 1
+                };
+            }
+            
             const records = await this.getUserHistory(userIdentifier, 100); // 獲取更多記錄用於統計
             const cityVisitCounts = {};
             

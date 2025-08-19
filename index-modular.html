@@ -56,9 +56,9 @@
 
         <!-- Tab 導航 -->
         <div class="tab-navigation">
-            <button class="tab-button active" data-tab="Clock">🕐 時鐘</button>
-            <button class="tab-button" data-tab="History">📜 歷史</button>
-            <button class="tab-button" data-tab="GlobalToday">🌍 全域</button>
+            <button class="tab-button active" data-tab="Clock">🕐 今日甦醒</button>
+            <button class="tab-button" data-tab="History">📜 甦醒軌跡</button>
+            <button class="tab-button" data-tab="GlobalToday">🌍 眾人軌跡</button>
         </div>
 
         <!-- 時鐘 Tab -->
@@ -128,33 +128,8 @@
 
     <!-- 載入組件 -->
     <script>
-        // 動態載入組件
-        fetch('components/loading-state.html')
-            .then(response => response.text())
-            .then(html => {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = html;
-                document.body.appendChild(tempDiv.firstElementChild);
-            })
-            .catch(err => console.warn('無法載入 loading-state 組件:', err));
-
-        fetch('components/result-state.html')
-            .then(response => response.text())
-            .then(html => {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = html;
-                document.body.appendChild(tempDiv.firstElementChild);
-            })
-            .catch(err => console.warn('無法載入 result-state 組件:', err));
-
-        fetch('components/waiting-state.html')
-            .then(response => response.text())
-            .then(html => {
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = html;
-                document.body.appendChild(tempDiv.firstElementChild);
-            })
-            .catch(err => console.warn('無法載入 waiting-state 組件:', err));
+        // 簡化組件載入，不依賴 component-loader
+        console.log('⏩ 模組化版本：跳過組件載入（內建於模組中）');
     </script>
 
     <!-- Firebase SDK -->
@@ -208,32 +183,61 @@
     <!-- Firebase 配置 -->
     <script>
         // 從 API 載入 Firebase 配置
-        fetch('/api/config')
-            .then(response => response.json())
-            .then(config => {
-                console.log("🔧 Firebase 配置已載入");
-                window.firebaseConfig = config.firebaseConfig;
-                window.appId = config.appId;
+        async function loadFirebaseConfig() {
+            try {
+                console.log("🔧 正在載入 Firebase 配置...");
+                const response = await fetch('/api/config');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const config = await response.json();
+                
+                if (config && config.firebaseConfig) {
+                    console.log("✅ Firebase 配置載入成功");
+                    window.firebaseConfig = config.firebaseConfig;
+                    window.appId = config.appId || 'default-app-id-worldclock-history';
+                } else {
+                    throw new Error('配置格式無效');
+                }
                 
                 // 如果模組化腳本已經載入，直接初始化
-                if (window.subjectiveClockApp) {
+                if (window.subjectiveClockApp && window.startApp) {
                     console.log("🚀 配置載入後立即初始化應用程式");
                     window.startApp();
                 }
-            })
-            .catch(error => {
-                console.error("❌ 無法載入 Firebase 配置:", error);
                 
-                // 使用預設配置作為備用
+            } catch (error) {
+                console.warn("⚠️ 無法載入 Firebase 配置，使用本地開發配置:", error.message);
+                
+                // 本地開發時的備用配置
                 window.firebaseConfig = {
-                    // 這裡可以放置備用配置
+                    apiKey: "demo-api-key",
+                    authDomain: "demo.firebaseapp.com",
+                    projectId: "demo-project",
+                    storageBucket: "demo.appspot.com",
+                    messagingSenderId: "123456789",
+                    appId: "demo-app-id"
                 };
-                window.appId = 'default-app-id-worldclock-history';
-            });
+                window.appId = 'local-dev-worldclock-history';
+                
+                console.log("🧪 使用本地開發配置進行測試");
+                
+                // 同樣觸發初始化
+                if (window.subjectiveClockApp && window.startApp) {
+                    console.log("🚀 使用備用配置初始化應用程式");
+                    window.startApp();
+                }
+            }
+        }
+        
+        // 執行配置載入
+        loadFirebaseConfig();
     </script>
 
-    <!-- 組件載入器 -->
-    <script src="components/component-loader.js"></script>
+    <!-- 組件載入器 (模組化版本不需要) -->
+    <!-- <script src="components/component-loader.js"></script> -->
 
     <!-- 主應用程式 - 模組化版本 -->
     <script type="module" src="js/script-modular.js"></script>
